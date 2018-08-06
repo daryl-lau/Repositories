@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Study</title>
 </head>
 <body>
     <!--p标签会自动换行-->
@@ -14,9 +14,12 @@
     <!--h标签会自动换行-->
     <h1>标题</h1><h2>标题</h2><h3>标题</h3><h4>标题</h4><h5>标题</h5><h6>标题</h6>
 
-    <!--使用<br>进行换行-->
+    <!--使用<br>进行换行，单标签-->
     <strong>加粗</strong><br>
     <em>斜体</em><br>
+
+    <!--横线-->
+    <hr>
 
     <!--删除字符-->
     <del style="color: #999999;">￥100</del>
@@ -29,12 +32,46 @@
         <em>湖北武汉</em>
     </p>
 
+    <!--容器，分块明确，页面结构化-->
     <div>
+        <!--&nbsp; 空格符-->
+        湖北&nbsp;武汉
+
+        <!--&lt; 小于符，在html中<>是标识符，如果要使用原样字符，需要使用特殊html标记符-->
+        &lt;&gt;
 
     </div>
 
     <span></span>
-    <!--Life is shit!!! 美好的生活!!!-->
+
+
+    <!--有序列表<ol><li></li></ol>
+        type可以定义属性，5种属性，定义序列数字的方式
+        1：阿拉伯数字，默认
+        a：小写字符
+        A：大写字符
+        i：小写阿拉伯数字
+        I：大写阿拉伯数字
+
+        reversed
+        反向排序
+
+        start
+        从第几个开始排
+    -->
+    <ol type="1" reversed="reversed" start="2">
+        <li>温暖的尸体</li>
+        <li>了不起的盖兹比</li>
+        <li>返老还童</li>
+    </ol>
+
+
+
+
+
+
+
+
 </body>
 </html>
 
