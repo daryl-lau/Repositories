@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--定义页面头显示的图片-->
+    <link rel="shortcup icon" href="./imgs/fengjing1.jpg">
     <title>Study</title>
 </head>
 <body>
@@ -142,11 +144,12 @@
         name表示表单传入的属性名
     -->
     <form method="get" action="">
-        <p>username：<input type="text" name="username" title="username" value="用户名" onfocus="this.value=''"></p>
-        <p>password：<input type="password" name="password" title="password" value=""></p>
-        <p><input type="submit"></p>
+        <p>username：<input type="text" name="username" title="username"></p>
+        <p>password：<input type="password" name="password" title="password"></p>
 
-        <!--单选框，需要name属性来-->
+        <!--复选框、单选框，需要定义name属性来绑定属性属性名，由于单选复选框不能手动传入值，所以同时需要定义value属性来绑定属性值
+        如果不定义value的值，将会传递“on”作为属性值
+        -->
         <input type="checkbox" title="" name="stars" value="xiaobei">贝克汉姆
         <input type="checkbox" title="" name="stars" value="xiaomei">梅西
         <input type="checkbox" title="" name="stars" value="daluo">罗纳尔多
@@ -156,7 +159,11 @@
         <input type="radio" title="" name="star" value="xiaomei">梅西
         <input type="radio" title="" name="star" value="daluo">罗纳尔多
         </p>
+
+        <!--提交按钮只会提交本表单里面的内容-->
+        <p><input type="submit"></p>
     </form>
+
 
     <!--下拉列表-->
     <form action="">
@@ -168,6 +175,56 @@
         </select>
         <input type="submit">
     </form>
+
+    <!--checked默认显示-->
+    <form>
+        <p>你生活在哪个国家？</p>
+        <input type="radio" name="country" title="" value="China" checked="checked">中国<br />
+        <input type="radio" name="country" title="" value="the USA">美国
+    </form>
+
+    <!--表格-->
+    <table border="1">
+        <tr>
+            <th>a</th>
+            <th>b</th>
+            <th>c</th>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+        </tr>
+    </table>
+
+    <!--内嵌网页-->
+    <iframe src="https://www.baidu.com" frameborder="0" width="1000" height="500"></iframe>
+
+    <form action="">
+        <input type="date" name="date" title="">
+        <input type="submit">
+        <!--<input type="datetime" name="datetime" id="datetime">-->
+    </form>
+
+
+    <!--
+        主流浏览器
+        1、市场份额
+        2、独立内核
+
+        浏览器内核
+        1、IE              trident
+        2、Firefox         Gecko
+        3、Google chrome   Webkit/blink
+        4、Safari          Webkit
+        5、Opera           presto
+    -->
+
 <br>
 <br>
 <br>
