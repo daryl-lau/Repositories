@@ -135,22 +135,39 @@
     -->
     <a href="tel:123456789">打电话</a>
     
-    <a href="https://www.baidu.com" target="_blank"><img src="./imgs/fengjing1.jpg" alt="这是图片" title="xxxxx"></a>·
+    <a href="https://www.baidu.com" target="_blank"><img src="./imgs/fengjing1.jpg" alt="这是图片" title="xxxxx"></a>
+
 
     <!--form表单标签
-        radio：单选框
+        name表示表单传入的属性名
     -->
     <form method="get" action="">
-        <p>username：<input type="text" name="username" title="username" value="用户名" onfocus='this.value==""'></p>
-        <p>password：<input type="password" name="password" title="password" value="密码"></p>
+        <p>username：<input type="text" name="username" title="username" value="用户名" onfocus="this.value=''"></p>
+        <p>password：<input type="password" name="password" title="password" value=""></p>
         <p><input type="submit"></p>
 
         <!--单选框，需要name属性来-->
-        <input type="radio" name="star" value="xiaobei">贝克汉姆
-        <input type="radio" name="star" value="xiaomei">梅西
-        <input type="radio" name="star" value="daluo">罗纳尔多
+        <input type="checkbox" title="" name="stars" value="xiaobei">贝克汉姆
+        <input type="checkbox" title="" name="stars" value="xiaomei">梅西
+        <input type="checkbox" title="" name="stars" value="daluo">罗纳尔多
+
+        <p>
+        <input type="radio" title="" name="star" value="xiaobei">贝克汉姆
+        <input type="radio" title="" name="star" value="xiaomei">梅西
+        <input type="radio" title="" name="star" value="daluo">罗纳尔多
+        </p>
     </form>
 
+    <!--下拉列表-->
+    <form action="">
+        <select name="cars" id="cars" title="">
+            <option value="奥迪">奥迪</option>
+            <option value="奔驰">奔驰</option>
+            <option value="宝马">宝马</option>
+            <option value="林肯">林肯</option>
+        </select>
+        <input type="submit">
+    </form>
 <br>
 <br>
 <br>
