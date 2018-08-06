@@ -32,7 +32,8 @@ div{
 /*属性选择器*/
 [id="id1"] {
 
-    background-color: deeppink;
+    /*!important 优先级最高*/
+    background-color: deeppink!important;
 
 }
 
