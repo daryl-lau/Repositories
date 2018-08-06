@@ -3,12 +3,33 @@
 /*id选择器*/
 
 #id1 {
+    background-color: black;
+}
+
+/*标签选择器，所有的div标签都有效果*/
+div{
+    height: 100px;
+    width: 100px;
+    background: black;
+    border-radius: 50%;
+}
+
+
+/*class 选择器*/
+.demo {
+    background-color: red;
+}
+
+.demo1 {
+     ;
+}
+
+
+/*通配符选择器*/
+
+* {
     background-color: green;
 }
 
-/*div{*/
-    /*height: 100px;*/
-    /*width: 100px;*/
-    /*background: black;*/
-    /*border-radius: 50%;*/
-/*}*/
+
+
