@@ -8,6 +8,30 @@
     <title>Study</title>
 </head>
 <body>
+    <b>这个文本是加粗的</b>
+
+    <br />
+    <strong>这个文本是加粗的</strong>
+
+    <br />
+    <big>这个文本字体放大</big>
+
+    <br />
+    <em>这个文本是斜体的</em>
+
+    <br />
+    <i>这个文本是斜体的</i>
+
+    <br />
+    <small>这个文本是缩小的</small>
+
+    <br />
+    这个文本包含<sub>下标</sub>
+
+    <br />
+    这个文本包含<sup>上标</sup>
+
+
     <!--p标签会自动换行-->
     <p>段落标签</p><p>段落标签</p><p>段落标签</p><p>段落标签</p><p>段落标签</p><p>段落标签</p><p>段落标签</p>
 
@@ -45,7 +69,7 @@
     <span></span>
 
 
-    <!--有序列表<ol><li></li></ol>
+    <!--有序列表 order list,<ol><li></li></ol>
         type可以定义属性，5种属性，定义序列数字的方式
         1：阿拉伯数字，默认
         a：小写字符
@@ -67,7 +91,7 @@
 
 
 
-    <!--无序列表
+    <!--无序列表,unorder list
         type可以定义前面的图形
         不定义：实心圆
         circle：空心圆
@@ -90,10 +114,45 @@
     -->
     <img src="./imgs/fengjing1.jpg" alt="这是图片" title="xxxxx">
 
+    <br>
 
+    <!--a标签，
+    1、超链接
+    a标签可以包括任何东西，图片、按钮等"
+    target="_blank"
+    <a href="https://www.baidu.com" target="_blank"><img src="./imgs/fengjing1.jpg" alt="这是图片" title="xxxxx"></a>
+    
+    2、锚点
+    回到顶部
+    
+    3、打电话
+    -->
+    <a href="tel:123456789">打电话</a>
+    
+    <a href="https://www.baidu.com" target="_blank"><img src="./imgs/fengjing1.jpg" alt="这是图片" title="xxxxx"></a>·
 
+    <!--form表单标签
+        radio：单选框
+    -->
+    <form method="get" action="">
+        <p>username：<input type="text" name="username" title="username" value="用户名" onfocus='this.value==""'></p>
+        <p>password：<input type="password" name="password" title="password" value="密码"></p>
+        <p><input type="submit"></p>
 
+        <!--单选框，需要name属性来-->
+        <input type="radio" name="star" value="xiaobei">贝克汉姆
+        <input type="radio" name="star" value="xiaomei">梅西
+        <input type="radio" name="star" value="daluo">罗纳尔多
+    </form>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </body>
 </html>
