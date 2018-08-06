@@ -1,7 +1,14 @@
 
-div{
-    height: 100px;
-    width: 100px;
-    background: black;
-    border-radius: 50%;
+
+/*id选择器*/
+
+#id1 {
+    background-color: green;
 }
+
+/*div{*/
+    /*height: 100px;*/
+    /*width: 100px;*/
+    /*background: black;*/
+    /*border-radius: 50%;*/
+/*}*/
