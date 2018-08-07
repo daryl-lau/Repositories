@@ -10,7 +10,7 @@
 div{
     height: 100px;
     width: 100px;
-    background: black;
+    background-color: black;
     border-radius: 50%;
 }
 
@@ -24,8 +24,9 @@ div{
 
 /*通配符选择器*/
 
-* {
-    background-color: green;
+body {
+    background-image: url("../html/imgs/pikaqiu.jpeg");
+
 }
 
 
@@ -33,12 +34,45 @@ div{
 [id="id1"] {
 
     /*!important 优先级最高*/
-    background-color: deeppink!important;
+    background-color: deeppink;
 
 }
 
 
+/*父子选择器
+    浏览器从子向父层进行搜索
+*/
+div span {
+
+}
+
+/*直接子元素选择器*/
+div > span {
+
+
+}
+
+/*并列选择器*/
+div.demo {
+
+}
+
+/*分组选择器*/
+div,
+em,
+span {
+
+}
+
+
+
+
+
+
+
 /*优先级
+    行间样式 > 内部样式 > 外部样式 > 浏览器默认样式
+
     !important > 行间样式 > id > class | 属性选择器 > 标签选择器 > 通配符选择器
     class选择器和属性选择器同级，谁在后面就是谁的效果
 
