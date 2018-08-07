@@ -1,0 +1,25 @@
+div {
+    /*字体大小，设置的是高*/
+    font-size: 12px;
+
+    /*加粗*/
+    font-weight: bolder;
+
+    /*斜体*/
+    font-style: italic;
+
+    /*字体*/
+    font-family: "Arial Black";
+
+    /*字体颜色*/
+    color: #8b0000;
+
+    /*边框*/
+    /*border: 1px solid black;*/
+
+    /*可以拆开*/
+    border-width: 10px;
+    border-style: dashed;
+
+
+}
