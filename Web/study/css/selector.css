@@ -31,7 +31,7 @@ body {
 
 
 /*属性选择器*/
-[id="id1"] {
+[id1] {
 
     /*!important 优先级最高*/
     background-color: deeppink;
