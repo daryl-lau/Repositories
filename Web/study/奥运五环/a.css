@@ -96,6 +96,13 @@
 
 }
 
+.black {
+    border: 10px solid black;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
 .blue {
     position: absolute;
     left: 140px;
@@ -105,12 +112,6 @@
     height: 100px;
 }
 
-.black {
-    border: 10px solid black;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-}
 
 .red {
     position: absolute;
