@@ -10,11 +10,22 @@
 
     <title>Study</title>
     <style>
-        img.right {
-            /*position: absolute;*/
-            /*!*top: 0;*!*/
-            /*left: 1000px;*/
-            display: none;
+        .box
+        {
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        
+        .allbox
+        {
+            border: 1px solid #000000;
+            width: 500px;
+        }
+        p
+        {
+            clear: both;
         }
     </style>
 </head>
@@ -239,6 +250,53 @@
         所有产生了浮动流的元素，块级元素看不到他们
         产生了bfc的元素和文本元素属性（inline）的元素以及文本都能看到浮动流
     -->
+
+
+<div class="allbox">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">4</div>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <p></p>
+</div>
+
+
+
 
 
 <br>
