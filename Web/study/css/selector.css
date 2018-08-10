@@ -67,19 +67,6 @@ span {
 }
 
 
-/*容器溢出*/
-    /*单行文本*/
-    p {
-        height: 20px;
-        line-height: 20px;
-        width: 500px;
-        /*border: 1px solid black;*/
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    /*多行文本*/
 
 /*div {*/
     /*!*字体大小，设置的是高*!*/
@@ -184,3 +171,20 @@ span {
 
 
 /*1000 100是256进制*/
+
+
+
+/*容器溢出*/
+    /*单行文本*/
+    p {
+        height: 20px;
+        line-height: 20px;
+        width: 500px;
+        /*border: 1px solid black;*/
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    /*多行文本*/
+        /*只做截断*/
