@@ -5,27 +5,32 @@
     text-decoration: none;
 }
 
-html body {
-    background-color: #f4f4f4;
-}
+/*html body {*/
+    /*background-color: #f4f4f4;*/
+/*}*/
 
 
 .top-nav-wrapper {
     width: 100%;
     height: 35px;
-    border: 1px solid black;
+    border-bottom: 1px solid #eeeeee;
     line-height: 35px;
     font-size: 14px;
 }
 
+.top-nav {
+    width: 1190px;
+    height: 35px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
 .top-nav-left {
     float: left;
-    margin-left: 15%;
 }
 
 .top-nav-right {
     float: right;
-    margin-right: 15%;
 }
 
 .top-nav-menu {
