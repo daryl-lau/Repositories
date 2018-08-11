@@ -15,7 +15,7 @@ html body {
 .top-nav-wrapper {
     width: 100%;
     height: 35px;
-    font-size: 14px;
+    font-size: 12px;
     background-color: #f5f5f5;
     border-bottom: 1px solid #eeeeee;
 }
@@ -25,7 +25,7 @@ html body {
     height: 35px;
     line-height: 35px;
     margin: 0 auto;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 .top-nav-left {
@@ -38,7 +38,7 @@ html body {
 
 .top-nav-menu {
     float: left;
-    margin-right: 7px;
+    margin-right: 10px;
     /*display: inline;*/
     /*padding-left: 7px;*/
     /*padding-right: 7px;*/
@@ -51,4 +51,44 @@ html body {
 .top-nav-menu a , .wdtb, .xsjcoin, .shuxian{
     font-size: 12px;
     color: #6c6c6c;
+}
+
+/*字体颜色设置*/
+
+.top-nav-menu .top-nav-left-login {
+    color: #ff4400;
+}
+
+.wrapper .top-nav-wrapper .top-nav .top-nav-menu a:hover {
+    color: #ff4400;
+}
+
+/*下三角*/
+.xsjcoin {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    /*background-image: url();*/
+    border: 1px solid black;
+}
+
+.gwcpic {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 1px solid black;
+}
+
+.scjpic {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 1px solid black;
+}
+
+.dhpic {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 1px solid black;
 }
