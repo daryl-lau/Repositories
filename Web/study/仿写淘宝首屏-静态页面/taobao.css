@@ -107,48 +107,46 @@ html body {
 
 
 .search-nav-wrapper {
-    width: 1190px;
-    height: 121px;
-    line-height: 35px;
-    margin: 0 auto;
-    /*border: 1px solid black;*/
+    width: 100%;
+    /*margin: 0 auto;*/
+
 }
 
 .search-nav-wrapper .search-nav-bar {
+    width: 1190px;
+    height: 88px;
     padding-top: 24px;
-    padding-bottom: 10px;
+    padding-bottom: 9px;
     border: 1px solid black;
-    height: 97px;
+    margin: 0 auto;
     /*background-color: #ffffff;*/
-    position: relative;
+    /*!*position: relative;*!*/
+
 }
 
-.search-nav-wrapper .search-nav-bar .search-left {
-    float: left;
-    /*margin-left: 35px;*/
-    height: 97px;
-    width: 190px;
-    border: 1px solid black;
+.search-nav-wrapper .search-nav-bar .search-left a img{
+    margin: 10px 10px;
+
 }
 
-.search-nav-wrapper .search-nav-bar .search-center {
-    /*float: left;*/
-    /*display: inline-block;*/
-    margin-left: 258px;
-    margin-right: 300px;
-    height: 97px;
-    width: 500px;
-    border: 1px solid black;
-}
+/*.search-nav-wrapper .search-nav-bar .search-center {*/
+    /*!*float: left;*!*/
+    /*!*display: inline-block;*!*/
+    /*margin-left: 258px;*/
+    /*margin-right: 300px;*/
+    /*height: 97px;*/
+    /*width: 500px;*/
+    /*border: 1px solid black;*/
+/*}*/
 
-.search-nav-wrapper .search-nav-bar .search-right {
-    /*float: right;*/
-    /*display: block;*/
-    position: absolute;
-    top: 24px;
-    right: 110px;
-    height: 97px;
-    width: 100px;
-    border: 1px solid black;
-}
+/*.search-nav-wrapper .search-nav-bar .search-right {*/
+    /*!*float: right;*!*/
+    /*!*display: block;*!*/
+    /*position: absolute;*/
+    /*top: 24px;*/
+    /*right: 110px;*/
+    /*height: 97px;*/
+    /*width: 100px;*/
+    /*border: 1px solid black;*/
+/*}*/
 
