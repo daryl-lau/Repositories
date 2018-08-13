@@ -117,27 +117,22 @@ html body {
     height: 88px;
     padding-top: 24px;
     padding-bottom: 9px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin: 0 auto;
-    /*background-color: #ffffff;*/
-    /*!*position: relative;*!*/
-
 }
 
 .search-nav-wrapper .search-nav-bar .search-left a img{
     margin: 10px 10px;
+    float: left;
 
 }
 
-/*.search-nav-wrapper .search-nav-bar .search-center {*/
-    /*!*float: left;*!*/
-    /*!*display: inline-block;*!*/
-    /*margin-left: 258px;*/
-    /*margin-right: 300px;*/
-    /*height: 97px;*/
-    /*width: 500px;*/
-    /*border: 1px solid black;*/
-/*}*/
+.search-nav-wrapper .search-nav-bar .search-center {
+    width: 750px;
+    height: 88px;
+    float: left;
+    margin: 0 20px;
+}
 
 /*.search-nav-wrapper .search-nav-bar .search-right {*/
     /*!*float: right;*!*/
@@ -148,5 +143,17 @@ html body {
     /*height: 97px;*/
     /*width: 100px;*/
     /*border: 1px solid black;*/
-/*}*/
 
+.search-center-top-content li {
+    float: left;
+}
+
+.search-center-mid form input {
+    /*display: block;*/
+}
+
+.search-center-bottom li {
+    font-size: 14px;
+    float: left;
+    padding-right: 3px;
+}
