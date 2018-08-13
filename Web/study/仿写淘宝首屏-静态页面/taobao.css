@@ -124,14 +124,22 @@ html body {
 .search-nav-wrapper .search-nav-bar .search-left a img{
     margin: 10px 10px;
     float: left;
-
 }
 
 .search-nav-wrapper .search-nav-bar .search-center {
-    width: 750px;
+    width: 720px;
     height: 88px;
     float: left;
-    margin: 0 20px;
+    margin: 0 40px;
+}
+
+.search-nav-wrapper .search-nav-bar .search-right a img{
+    height: 88px;
+    width: 88px;
+    /*background-color: red;*/
+    float: right;
+    margin-right: 35px;
+
 }
 
 /*.search-nav-wrapper .search-nav-bar .search-right {*/
@@ -144,16 +152,72 @@ html body {
     /*width: 100px;*/
     /*border: 1px solid black;*/
 
-.search-center-top-content li {
-    float: left;
+
+/*.search-center-top-content li {*/
+    /*float: left;*/
+    /*font-size: 15px;*/
+    /*padding-right: 4px;*/
+    /*position: relative;*/
+/*}*/
+
+/*.search-center-mid form {*/
+    /*clear: both;*/
+/*}*/
+
+/*.search-center-bottom li {*/
+    /*font-size: 14px;*/
+    /*float: left;*/
+    /*padding-right: 3px;*/
+/*}*/
+
+
+
+
+.search-center-top {
+    height: 22px;
+    margin-left: 20px;
 }
 
-.search-center-mid form input {
-    /*display: block;*/
+
+.search-center-mid {
+    height: 40px;
 }
 
-.search-center-bottom li {
-    font-size: 14px;
-    float: left;
-    padding-right: 3px;
+.search-center-bottom {
+    height: 25px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
