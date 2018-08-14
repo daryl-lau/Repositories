@@ -161,6 +161,7 @@ html body {
     line-height: 22px;
     text-align: center;
     color: #ff4400;
+    cursor: pointer;
 }
 
 .search-center .search-center-top .search-center-top-content li:hover {
@@ -196,7 +197,6 @@ html body {
 
 .search-center-mid {
     position: relative;
-    /*border: 1px solid black;*/
     height: 40px;
     width: 100%;
 }
@@ -209,20 +209,20 @@ html body {
 
 
 .search-center-mid-left {
-    /*width: 100%;*/
-    position: relative;
     height: 40px;
-    /*border: 1px solid black;*/
     margin-right: 74px;
 }
 
-.search-center-mid-right {
+.search-center-mid-right button{
     position: absolute;
     top: 0;
     right: 0;
     height: 40px;
     width: 74px;
-    /*border: 1px solid black;*/
+    background-image: linear-gradient(to right, #ff9900 0, #ff5500 100%);
+    border: none;
+    cursor: pointer;
+    border-top-right-;
 }
 
 
