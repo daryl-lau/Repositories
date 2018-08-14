@@ -153,13 +153,28 @@ html body {
     /*border: 1px solid black;*/
 
 
-/*.search-center-top-content li {*/
-    /*float: left;*/
-    /*font-size: 15px;*/
-    /*padding-right: 4px;*/
-    /*position: relative;*/
-/*}*/
+.search-center .search-center-top .search-center-top-content li {
+    float: left;
+    font-size: 14px;
+    padding: 0 3px;
+    margin-right: 4px;
+    line-height: 22px;
+    text-align: center;
+    color: #ff4400;
+}
 
+.search-center .search-center-top .search-center-top-content li:hover {
+    background-color: #ffeee5;
+}
+
+.search-center .search-center-top .search-center-top-content .select {
+    /*background-color: #ff4400;*/
+    color: #eeeeee;
+    font-weight: 700;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-image: linear-gradient(to right,#ff9900 0,#ff5500 100%);
+}
 /*.search-center-mid form {*/
     /*clear: both;*/
 /*}*/
