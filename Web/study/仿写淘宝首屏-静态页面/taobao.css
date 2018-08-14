@@ -195,8 +195,31 @@ html body {
 
 
 .search-center-mid {
+    position: relative;
+    /*border: 1px solid black;*/
     height: 40px;
+    width: 100%;
 }
+
+
+.search-center-mid-left {
+    /*width: 100%;*/
+    position: relative;
+    height: 40px;
+    /*border: 1px solid black;*/
+    margin-right: 74px;
+}
+
+.search-center-mid-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 74px;
+    /*border: 1px solid black;*/
+}
+
+
 
 .search-center-bottom {
     height: 25px;
