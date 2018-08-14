@@ -202,6 +202,12 @@ html body {
 }
 
 
+.search-center-bottom {
+    height: 25px;
+}
+
+
+
 .search-center-mid-left {
     /*width: 100%;*/
     position: relative;
@@ -221,9 +227,6 @@ html body {
 
 
 
-.search-center-bottom {
-    height: 25px;
-}
 
 
 
