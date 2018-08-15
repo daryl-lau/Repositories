@@ -133,15 +133,34 @@ html body {
     margin: 0 80px;
 }
 
-.search-nav-wrapper .search-nav-bar .search-right a img{
-    height: 80px;
-    width: 80px;
-    /*background-color: red;*/
+.search-nav-wrapper .search-nav-bar .search-right {
+    position: relative;
     float: right;
-    margin-right: 90px;
+    margin-right: 100px;
+    display: block;
+    width: 74px;
+    height: 88px;
+    border: 1px solid #eeeeee;
+}
+
+.search-nav-wrapper .search-nav-bar .search-right a span {
+    font-size: 12px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 13px;
+    color: #ff5000;
+    /*text-align: center;*/
 
 }
 
+.search-nav-wrapper .search-nav-bar .search-right a img{
+    position: absolute;
+    top: 20px;
+    left: 6px;
+    width: 62px;
+    height: 62px;
+}
 /*.search-nav-wrapper .search-nav-bar .search-right {*/
     /*!*float: right;*!*/
     /*!*display: block;*!*/
@@ -151,7 +170,7 @@ html body {
     /*height: 97px;*/
     /*width: 100px;*/
     /*border: 1px solid black;*/
-
+/*}*/
 
 .search-center .search-center-top .search-center-top-content li {
     float: left;
