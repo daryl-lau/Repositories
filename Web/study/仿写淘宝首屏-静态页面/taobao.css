@@ -127,18 +127,18 @@ html body {
 }
 
 .search-nav-wrapper .search-nav-bar .search-center {
-    width: 720px;
+    width: 650px;
     height: 88px;
     float: left;
-    margin: 0 40px;
+    margin: 0 80px;
 }
 
 .search-nav-wrapper .search-nav-bar .search-right a img{
-    height: 88px;
-    width: 88px;
+    height: 80px;
+    width: 80px;
     /*background-color: red;*/
     float: right;
-    margin-right: 35px;
+    margin-right: 90px;
 
 }
 
@@ -270,12 +270,12 @@ html body {
     border: none;
     outline: 0;
     height: 24px;
-    width: 632px;
+    width: 562px;
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 10px;
     /*vertical-align: center;*/
-    /*overflow: hidden;*/
+    overflow: hidden;
     background-color: #fff;
 }
 
@@ -285,6 +285,7 @@ html body {
 
 .search-center-bottom li a {
     margin-right: 8px;
+    line-height: 25px;
     font-size: 12px;
     color: #3c3c3c;
     /*cursor: pointer;*/
