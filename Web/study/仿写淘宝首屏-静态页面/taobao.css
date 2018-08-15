@@ -6,7 +6,6 @@
 }
 
 html body {
-    /*background-color: #f4f4f4;*/
     width: 100%;
     height: 1000px;
 }
@@ -25,7 +24,6 @@ html body {
     height: 35px;
     line-height: 35px;
     margin: 0 auto;
-    /*border: 1px solid black;*/
 }
 
 .top-nav-left {
@@ -39,9 +37,6 @@ html body {
 .top-nav-menu {
     float: left;
     margin-right: 15px;
-    /*display: inline;*/
-    /*padding-left: 7px;*/
-    /*padding-right: 7px;*/
 }
 
 .top-nav-tail {
@@ -67,7 +62,6 @@ html body {
     display: inline-block;
     width: 6px;
     height: 6px;
-    /*background-image: url();*/
     border: 1px solid black;
 }
 
@@ -93,23 +87,17 @@ html body {
     border: 1px solid black;
 }
 
+/*顶部导航条结束*/
 
 
 
 
 
+/*搜索区开始*/
 
-
-
-
-
-
-
-
+/*全局*/
 .search-nav-wrapper {
     width: 100%;
-    /*margin: 0 auto;*/
-
 }
 
 .search-nav-wrapper .search-nav-bar {
@@ -117,10 +105,11 @@ html body {
     height: 88px;
     padding-top: 24px;
     padding-bottom: 9px;
-    /*border: 1px solid black;*/
     margin: 0 auto;
 }
 
+
+/*logo*/
 .search-nav-wrapper .search-nav-bar .search-left a img{
     margin: 10px 10px;
     float: left;
@@ -132,7 +121,11 @@ html body {
     float: left;
     margin: 0 80px;
 }
+/*logo结束*/
 
+
+
+/*二维码*/
 .search-nav-wrapper .search-nav-bar .search-right {
     position: relative;
     float: right;
@@ -150,8 +143,6 @@ html body {
     top: 0;
     left: 13px;
     color: #ff5000;
-    /*text-align: center;*/
-
 }
 
 .search-nav-wrapper .search-nav-bar .search-right a img{
@@ -161,16 +152,14 @@ html body {
     width: 62px;
     height: 62px;
 }
-/*.search-nav-wrapper .search-nav-bar .search-right {*/
-    /*!*float: right;*!*/
-    /*!*display: block;*!*/
-    /*position: absolute;*/
-    /*top: 24px;*/
-    /*right: 110px;*/
-    /*height: 97px;*/
-    /*width: 100px;*/
-    /*border: 1px solid black;*/
-/*}*/
+/*二维码结束*/
+
+
+/*搜索框顶部*/
+.search-center-top {
+    height: 22px;
+    margin-left: 20px;
+}
 
 .search-center .search-center-top .search-center-top-content li {
     float: left;
@@ -188,44 +177,21 @@ html body {
 }
 
 .search-center .search-center-top .search-center-top-content .select {
-    /*background-color: #ff4400;*/
     color: #eeeeee;
     font-weight: 700;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     background-image: linear-gradient(to right,#ff9900 0,#ff5500 100%);
 }
-/*.search-center-mid form {*/
-    /*clear: both;*/
-/*}*/
-
-/*.search-center-bottom li {*/
-    /*font-size: 14px;*/
-    /*float: left;*/
-    /*padding-right: 3px;*/
-/*}*/
+/*搜索框顶部结束*/
 
 
-
-
-.search-center-top {
-    height: 22px;
-    margin-left: 20px;
-}
-
-
+/*搜索框中间*/
 .search-center-mid {
     position: relative;
     height: 40px;
     width: 100%;
 }
-
-
-.search-center-bottom {
-    height: 25px;
-}
-
-
 
 .search-center-mid-left {
     height: 40px;
@@ -266,8 +232,6 @@ html body {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     overflow: hidden;
-
-    /*border: 1px solid black;*/
 }
 
 .search-center-mid-left .search-bd .search-bd-input {
@@ -293,9 +257,16 @@ html body {
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 10px;
-    /*vertical-align: center;*/
     overflow: hidden;
     background-color: #fff;
+}
+/*搜索框中间结束*/
+
+
+
+/*搜索框底部*/
+.search-center-bottom {
+    height: 25px;
 }
 
 .search-center-bottom li {
@@ -307,7 +278,6 @@ html body {
     line-height: 25px;
     font-size: 12px;
     color: #3c3c3c;
-    /*cursor: pointer;*/
 }
 
 
@@ -318,6 +288,10 @@ html body {
 .search-center-bottom ul .select a{
     color: #ff5000;
 }
+/*搜索框底部结束*/
+
+/*搜索框整体结束*/
+
 
 
 
