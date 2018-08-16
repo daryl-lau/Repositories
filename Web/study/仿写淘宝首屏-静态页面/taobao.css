@@ -456,10 +456,15 @@ html body {
     width: 520px;
     height: 200px;
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
+    line-height: 200px;
+    /*display: table-cell;*/
+    /*vertical-align: middle;*/
 }
 
+.main-contents-right-2 .tmall-bd a img {
+    display: inline-block;
+    vertical-align: middle;
+}
 
 .main-contents-right-3 {
     width: 160px;
