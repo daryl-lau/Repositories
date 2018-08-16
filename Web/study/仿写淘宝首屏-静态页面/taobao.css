@@ -355,10 +355,101 @@ html body {
 
 /*主体内容开始*/
 .main-contents-wrapper {
+    position: relative;
     width: 1190px;
     height: 632px;
     margin: 0 auto;
 }
+
+.main-contents-wrapper .main-contents {
+    width: 900px;
+    height: 100%;
+}
+
+.main-contents-wrapper .main-contents .main-contents-left {
+    width: 188px;
+    height: 523px;
+    border: 1px solid #ff5000;
+    border-top: hidden;
+    float: left;
+    margin-top: -1px;
+    padding-top: 5px;
+}
+
+.main-contents-wrapper .main-contents .main-contents-left li {
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+    padding-left: 19px;
+    padding-right: 25px;
+}
+
+.main-contents-wrapper .main-contents .main-contents-left li a {
+    color: #666666;
+}
+
+.main-contents-wrapper .main-contents .main-contents-left li:hover{
+    color: #ff5000;
+    background-color: #ffe4dc;
+}
+
+.main-contents-wrapper .main-contents .main-contents-left li:hover a{
+    color: #ff5000;
+}
+
+.main-contents-wrapper .main-contents .main-contents-left li a:hover {
+    text-decoration: underline;
+}
+
+.main-contents-wrapper .main-contents .main-contents-right {
+    float: left;
+    width: 492px;
+    height: 512px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.main-contents-wrapper .main-contents .main-contents-bottom {
+    clear: both;
+    width: 700px;
+    height: 120px;
+}
+
+.main-contents-wrapper .main-contents-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 290px;
+    height: 632px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
