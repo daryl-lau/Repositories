@@ -426,6 +426,27 @@ html body {
     bottom: 0;
 }
 
+.main-contents-right-2 .tmall-hd {
+    width: 520px;
+    height: 18px;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 11px;
+    padding-bottom: 3px;
+}
+
+.main-contents-right-2 .tmall-hd .tmall-bg {
+    display: inline-block;
+    width: 122px;
+    height: 19px;
+    background-image: url(./imgs/TB1thpcbUgQMeJjy0FjXXaExFXa-122-22.png);
+}
+
+.main-contents-right-2 .tmall-bd {
+    width: 520px;
+    height: 200px;
+}
+
 .main-contents-right-3 {
     width: 160px;
     height: 280px;
@@ -456,9 +477,6 @@ html body {
     height: 632px;
     margin-top: 10px;
 }
-
-
-
 
 
 
