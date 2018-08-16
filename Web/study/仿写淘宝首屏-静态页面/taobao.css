@@ -405,10 +405,10 @@ html body {
 
 .main-contents-wrapper .main-contents .main-contents-right {
     float: left;
-    width: 492px;
-    height: 512px;
-    margin-top: 10px;
-    margin-left: 10px;
+    width: 700px;
+    height: 528px;
+    /*margin-top: 10px;*/
+    /*margin-left: 10px;*/
 }
 
 .main-contents-wrapper .main-contents .main-contents-bottom {
@@ -417,7 +417,7 @@ html body {
     height: 120px;
 }
 
-.main-contents-wrapper .main-contents-right {
+.main-contents-wrapper .main-contents-right-user {
     position: absolute;
     top: 0;
     right: 0;
