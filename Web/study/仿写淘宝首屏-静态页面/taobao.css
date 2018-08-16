@@ -432,12 +432,13 @@ html body {
     font-size: 14px;
     line-height: 18px;
     padding-top: 11px;
-    /*padding-bottom: 3px;*/
     border-bottom: 3px solid #ff1648;
+    position: relative;
 }
 
 .main-contents-right-2 .tmall-hd .tmall-bg {
-    display: inline-block;
+    position: absolute;
+    left: 2px;
     width: 520px;
     height: 19px;
     background-image: url(./imgs/TB1thpcbUgQMeJjy0FjXXaExFXa-122-22.png);
@@ -454,7 +455,6 @@ html body {
 .main-contents-right-2 .tmall-bd {
     width: 520px;
     height: 200px;
-    margin-top: 3px;
 }
 
 .main-contents-right-3 {
