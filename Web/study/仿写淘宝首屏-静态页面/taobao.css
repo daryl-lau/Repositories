@@ -432,19 +432,29 @@ html body {
     font-size: 14px;
     line-height: 18px;
     padding-top: 11px;
-    padding-bottom: 3px;
+    /*padding-bottom: 3px;*/
+    border-bottom: 3px solid #ff1648;
 }
 
 .main-contents-right-2 .tmall-hd .tmall-bg {
     display: inline-block;
-    width: 122px;
+    width: 520px;
     height: 19px;
     background-image: url(./imgs/TB1thpcbUgQMeJjy0FjXXaExFXa-122-22.png);
+    background-repeat: no-repeat;
+}
+
+.main-contents-right-2 .tmall-hd .tmall-bg .tianmao {
+    margin-left: 136px;
+    line-height: 19px;
+    color: #666666;
+    font-size: 12px;
 }
 
 .main-contents-right-2 .tmall-bd {
     width: 520px;
     height: 200px;
+    margin-top: 3px;
 }
 
 .main-contents-right-3 {
