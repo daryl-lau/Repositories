@@ -1,0 +1,23 @@
+[ANSI Colors on Black (2)]
+text=008000
+cyan(bold)=00bdbd
+text(bold)=008000
+magenta=c000c0
+green=008000
+green(bold)=00ff00
+background=000000
+cyan=00c0c0
+red(bold)=ff0000
+yellow=c0c000
+magenta(bold)=ff00ff
+yellow(bold)=ffff80
+red=c00000
+white=c0c0c0
+blue(bold)=0080ff
+white(bold)=ffffff
+black=000000
+blue=0080ff
+black(bold)=808080
+[Names]
+name0=ANSI Colors on Black (2)
+count=1
