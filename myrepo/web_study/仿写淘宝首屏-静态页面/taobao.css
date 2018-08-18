@@ -364,6 +364,7 @@ html body {
 }
 
 .main-contents-wrapper .main-contents {
+    position: relative;
     width: 900px;
     height: 100%;
 }
@@ -496,8 +497,10 @@ html body {
 
 .main-contents-wrapper .main-contents .main-contents-bottom {
     clear: both;
-    width: 700px;
-    height: 120px;
+    height: 73px;
+    margin-right: 10px;
+    padding: 24px 14px 12px 20px;
+    background-color: #fff;
 }
 
 .main-contents-wrapper .main-contents-right-user {
