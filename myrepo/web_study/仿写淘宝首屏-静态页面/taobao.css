@@ -496,11 +496,37 @@ html body {
 }
 
 .main-contents-wrapper .main-contents .main-contents-bottom {
-    clear: both;
+    /*clear: both;*/
+    position: absolute;
+    top: 530px;
     height: 73px;
+    width: 856px;
     margin-right: 10px;
-    padding: 24px 14px 12px 20px;
+    padding: 14px 14px 12px 20px;
     background-color: #fff;
+}
+
+.main-contents-wrapper .main-contents .main-contents-bottom .main-contents-bottom-left {
+    width: 180px;
+    height: 73px;
+    float: left;
+    /*text-align: center;*/
+}
+
+.main-contents-wrapper .main-contents .main-contents-bottom .main-contents-bottom-left img {
+    display: block;
+    padding-top: 10px;
+}
+
+.main-contents-wrapper .main-contents .main-contents-bottom .main-contents-bottom-left span {
+    font-size: 14px;
+    color: #999999;
+}
+
+.main-contents-wrapper .main-contents .main-contents-bottom .main-contents-bottom-right {
+    width: 676px;
+    height: 73px;
+    margin-left: 180px;
 }
 
 .main-contents-wrapper .main-contents-right-user {
