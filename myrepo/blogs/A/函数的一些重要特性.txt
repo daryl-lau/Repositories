@@ -1,0 +1,50 @@
+函数的一些重要特性
+
+在python中，一切皆为对象，所以，函数也是对象，从而函数可以被赋值给变量。
+>>> def func(a, b):
+...     return a + b
+...
+>>> func
+<function func at 0x7f78e22951e0>
+>>> f = func
+>>> f
+<function func at 0x7f78e22951e0>
+>>> f(1, 2)
+3
+
+
+函数可以作为另一个函数的实参
+内置函数map的第一个实参传递的是函数
+map()、filter()
+
+
+一个函数可以作为另一个函数的返回值
+>>> def func(a, b):
+...     return a + b
+...
+>>> func
+<function func at 0x7f78e22951e0>
+
+>>> def func1():
+...     return func
+...
+
+>>> func1
+<function func1 at 0x7f78da342158>
+>>> func1()
+<function func at 0x7f78e22951e0>
+>>> func1()(1, 2)
+3
+
+
+一个函数可以嵌套定义在另一个函数中
+>>> def outer():
+...     def inner():
+...         print('inner function')
+...     return inner
+... 
+>>> outer()
+<function outer.<locals>.inner at 0x7f37dc75e0d0>
+>>> outer()()
+inner function
+

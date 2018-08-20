@@ -1,0 +1,55 @@
+lambda表达式
+
+#当函数体中只有一行return时，函数的定义可以用一个lambda表达式来代替，其语法格式为：
+lambda [形式参数1, 形式参数2, ..., 形式参数n]: 关于形式参数的表达式
+
+
+与定义函数的语法格式相比，lambda表达式：
+1、没有函数名
+2、没有关键字def
+3、没有小括号
+4、关于形式参数的表达式相当于函数的返回值
+
+例如：
+def add(x, y):
+    print(x + y)
+
+#可以改写为
+lambda x, y: x + y
+
+#调用lambda：
+(lambda x, y: x + y)(1, 2)
+
+#lambda表达式可以赋值给变量
+>>> f = lambda x, y: x + y
+>>> 
+>>> f(1, 2)
+3
+
+
+#lambda表达式可以作为函数的实参
+>>> r =  map(lambda x: x * x, [1, 2, 3, 4])
+>>> r
+<map object at 0x7f37dc761080>
+>>> print(list(r))
+[1, 4, 9, 16]
+>>> 
+
+#lambda表达式可以作为函数的返回值
+>>> def func():
+...     return lambda x: x * x
+... 
+>>> func()
+<function func.<locals>.<lambda> at 0x7f37dc75e378>
+>>> func()(5)
+25
+
+
+
+
+
+
+
+
+
+

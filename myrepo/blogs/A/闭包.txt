@@ -1,0 +1,77 @@
+闭包
+
+如果满足一下三个条件，就称为闭包
+1、在一个函数的内部嵌套定义了另外一个函数
+2、在内层函数中引用了外层函数的变量
+3、外函数的返回值是内函数
+
+通常情况下，在函数调用结束后，函数内定义的变量将不再可用。但是对于闭包而言，在外层函数调用结束后，
+外层函数中被内层函数引用的变量仍然是可用的，因为外层函数中被内层函数引用的变量会被绑定到内层函数的特殊属性__closure__中。
+
+>>> def outer():
+...     a = 10
+...     def inner():
+...         print(a)
+...     return inner
+... 
+>>> outer()
+<function outer.<locals>.inner at 0x7f7c4c72c1e0>
+>>> outer()()
+10
+>>> a
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
+>>> outer().__closure__
+(<cell at 0x7f7c4c73fb58: int object at 0x7f7c4c68e780>,)
+>>> outer().__closure__[0]
+<cell at 0x7f7c4c7a6af8: int object at 0x7f7c4c68e780>
+>>> outer().__closure__[0].cell_contents
+10
+
+#在默认情况下，在内层函数中不能修改外层函数中的变量（本地变量）引用的对象。
+>>> def outer1():
+...     a = 10          #本地变量
+...     print('外层函数', a, id(a))
+...     def inner1():
+...         a = 20
+...         print('内层函数', a, id(a))
+...     inner1()
+...     print('外层函数', a, id(a))
+... 
+>>> outer1()
+外层函数 10 139744919447424
+内层函数 20 139744919447744
+外层函数 10 139744919447424
+
+#也不能直接访问外层函数的本地变量
+>>> def outer3():
+...     a = 10
+...     print('外层函数', a, id(a))
+...     def inner3():
+...         a += 1
+...         print('内层函数', a, id(a))
+...     return inner3
+... 
+
+>>> outer3()()
+外层函数 10 139744919447424
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 5, in inner3
+UnboundLocalError: local variable 'a' referenced before assignment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
