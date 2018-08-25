@@ -27,6 +27,12 @@
         {
             clear: both;
         }
+
+        #id1 {
+            outline: 0;
+            /*border: 2px solid black;*/
+        }
+
     </style>
 </head>
 <body>
@@ -164,8 +170,8 @@
         name表示表单传入的属性名
     -->
     <form method="get" action="">
-        <p>username：<input type="text" name="username" title="username"></p>
-        <p>password：<input type="password" name="password" title="password"></p>
+        <p>username：<input id="id1" type="text" name="username" title="username" placeholder="请输入账号"></p>
+        <p>password：<input id="id1" type="password" name="password" title="password" placeholder="请输入密码"></p>
 
         <!--复选框、单选框，需要定义name属性来绑定属性属性名，由于单选复选框不能手动传入值，所以同时需要定义value属性来绑定属性值
         如果不定义value的值，将会传递“on”作为属性值
