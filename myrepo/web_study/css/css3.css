@@ -1,0 +1,54 @@
+
+.div {
+
+    /*背景开始位置*/
+    background-origin: border-box;
+
+    /*边框圆角*/
+    border-radius: 2px;
+
+    /*盒子阴影*/
+    box-shadow: #0000FF;
+
+
+
+
+    /*边框背景图片*/
+    border-image-source: url("");
+    /*切割*/
+    border-image-slice: 20;
+    /*平铺*/
+    border-image-repeat: repeat;
+
+
+
+    /*文本修饰*/
+    /*文本阴影，  水平，垂直，模糊度，颜色*/
+    text-shadow: 5px 5px 5px #6c6c6c;
+
+    /*渐变*/
+    /*线性渐变*/
+    /*background-image: linear-gradient(to right,yellow,green);*/
+    /*background-image: linear-gradient(to right, red 20%, green 40%, orange 60%);*/
+
+    /*径向渐变*/
+    /*                             半径  坐标（位置）开始颜色 结束颜色*/
+    background-image: radial-gradient(100px at center, red, green);
+
+
+    /*2D转换*/
+    /*横向偏移，相对原来的位置*/
+    /*transform: translate(100px);*/
+
+    /*横纵坐标发生偏移，相对于原来位置*/
+    /*transform: translate(100px, 200px);*/
+
+    /*旋转*/
+    /*transform: rotate(60deg);*/
+
+    /*缩小和放大，宽是原来的2倍，高是原来的0.2倍*/
+    /*transform: scale(2,0.2);*/
+
+    /*倾斜，沿着x轴倾斜了30deg，也沿着y轴倾斜了30deg*/
+    transform: skew(30deg,30deg);
+}
