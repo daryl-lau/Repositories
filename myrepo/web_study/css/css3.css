@@ -51,4 +51,28 @@
 
     /*倾斜，沿着x轴倾斜了30deg，也沿着y轴倾斜了30deg*/
     transform: skew(30deg,30deg);
+
+
+
+    /*过度*/
+    /*简写方式*/
+    /*transition all 3s ease 2s;*/
+
+    /*所有属性*/
+    transition-property: all;
+    /*延迟*/
+    transition-delay: 2s;
+    /*过度秒数*/
+    transition-duration: 2s;
+    /*速度*/
+    transition-timing-function: ease;
+
+
+
+
+    /*动画*/
+
 }
+
+
+
