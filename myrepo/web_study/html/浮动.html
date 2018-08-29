@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+        .parent {
+            overflow: hidden;
+        }
         .box1 {
             width: 200px;
             height: 200px;
@@ -18,21 +26,22 @@
             background-color: green;
             float: left;
         }
-        p{
-            clear: both;
-            margin-bottom: 200px;
-        }
+        /*p{*/
+            /*clear: both;*/
+            /*margin-bottom: 200px;*/
+        /*}*/
     </style>
 </head>
 <body>
 
-    <div>
+    <div class="parent">
 
         <div class="box1"></div>
         <div class="box2"></div>
-        <p>hsdhfasdflasdf</p>
-        <p>hsdhfasdflasdf</p>
+
+        <!--<p>hsdhfasdflasdf</p>-->
     </div>
+    <p>hsdhfasdflasdf</p>
 
 </body>
 </html>
