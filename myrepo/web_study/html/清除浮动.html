@@ -11,7 +11,7 @@
             padding: 0;
 
         }
-        .parent {
+        .parent1 {
             overflow: hidden;
         }
         .box1 {
@@ -24,6 +24,19 @@
             width: 200px;
             height: 200px;
             background-color: green;
+            float: left;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            float: left;
+        }
+        .box4 {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
             float: left;
         }
         /*p{*/
@@ -50,21 +63,28 @@
         外墙法和内墙法
 
         方式4：overflow: hidden;
-        因此我们可以尝试这样总结：当父元素的高度是靠子元素撑开的时候，子元素浮动时，则在父元素使用overflow: hidden可以清除浮动，使得父元素的高度依旧是靠子元素撑开。
+        因此我们可以尝试这样总结：当父元素的高度是靠子元素撑开的时候，子元素浮动时，则在父元素使用overflow: hidden可以清除浮动，
+        使得父元素的高度依旧是靠子元素撑开。
         当父元素自身设置了height属性值，则在父元素使用overflow: hidden可以使子元素超出父元素的那部分隐藏。
 
 
         方式5：伪元素
 
     -->
-    <div class="parent">
-
+    <div class="parent1">
         <div class="box1"></div>
         <div class="box2"></div>
-
-        <!--<p>hsdhfasdflasdf</p>-->
     </div>
-    <p>hsdhfasdflasdf</p>
+
+
+    <div class="parent2">
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+
+    <!--以上parent1和parent2，父级本身没有设置浮动，只在其子元素中何止了浮动，按照道理应该parent2的两个盒子在parent1的下面，但
+    是，此时四个盒子是并列排列的，这就是因为float的原因，要想清除这个浮动，可以用以上几种方法，我们推荐使用伪元素的方式。
+    -->
 
 </body>
 </html>
