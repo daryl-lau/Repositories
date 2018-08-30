@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+
+            margin-top: 200px;
+            margin-left: 200px;
+        }
+        .content {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            margin-left: 50px;
+
+            /*子盒子里的margin-top不生效*/
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+   <!--margin塌陷
+        在标准文档流中，在垂直方向中，有margin塌陷现象，会忽略垂直方向中margin值较小的那个，可以使用浮动或定位来脱标解决
+        可以触发父级盒子的BFC来解决
+    -->
+
+   <!--BFC
+        如何触发一个盒子的BFC
+        1、position: absolute;
+        2、display: inline-block;
+        3、float:left/right;
+        4、overflow:hidden;
+   -->
+
+    <div class="wrapper">
+        <div class="content">
+
+        </div>
+    </div>
+</body>
+</html>
