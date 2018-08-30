@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+        .parent {
+            overflow: hidden;
+        }
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: palevioletred;
+            float: left;
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            float: left;
+        }
+        /*p{*/
+            /*clear: both;*/
+            /*margin-bottom: 200px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<!--清除浮动-->
+    <!--原因：
+        1、浮动的盒子脱标，会造成没有主动设置高度的父盒子，失去高度
+        2、浮动的元素对其他元素有影响，这种影响会让两者相互贴靠，这种影响有的时候会让页面布局混乱
+        -->
+
+    <!--方式1：（基本不用）
+        主动给父级元素添加高度，这是因为没有高度的父盒子，是关不住浮动的儿子对其他元素的影响
+
+        方式2：clear: both;
+        这个属性写在被影响的父盒子里，但是有个bug，margin失效
+
+        方式3：隔墙法
+        外墙法和内墙法
+
+        方式4：overflow: hidden;
+        因此我们可以尝试这样总结：当父元素的高度是靠子元素撑开的时候，子元素浮动时，则在父元素使用overflow: hidden可以清除浮动，使得父元素的高度依旧是靠子元素撑开。
+        当父元素自身设置了height属性值，则在父元素使用overflow: hidden可以使子元素超出父元素的那部分隐藏。
+
+
+        方式5：伪元素
+
+    -->
+    <div class="parent">
+
+        <div class="box1"></div>
+        <div class="box2"></div>
+
+        <!--<p>hsdhfasdflasdf</p>-->
+    </div>
+    <p>hsdhfasdflasdf</p>
+
+</body>
+</html>
