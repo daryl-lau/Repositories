@@ -11,9 +11,16 @@
             padding: 0;
 
         }
-        .parent1 {
-            overflow: hidden;
+
+        /*伪元素清除浮动*/
+        .parent1::after {
+            content: "";
+            display: block;
         }
+        .parent1:after {
+            clear: both;
+        }
+
         .box1 {
             width: 200px;
             height: 200px;
@@ -69,8 +76,15 @@
 
 
         方式5：伪元素
-
+        .parent1::after {
+            content: "";
+            display: block;
+        }
+        .parent1:after {
+            clear: both;
+        }
     -->
+
     <div class="parent1">
         <div class="box1"></div>
         <div class="box2"></div>
