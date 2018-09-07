@@ -13,7 +13,7 @@
         }
     </style>
     <script>
-        function cc(color) {
+        function changecolor(color) {
             var odiv=document.getElementById('id1');
             odiv.style.backgroundColor=color;
             odiv.style.display='block';
@@ -26,9 +26,9 @@
     </script>
 </head>
 <body>
-<input type="button" name="" title="" value="红" onmouseover="cc('red')" onmouseout="hide()">
-<input type="button" name="" title="" value="绿" onmouseover="cc('green')" onmouseout="hide()">
-<input type="button" name="" title="" value="蓝" onmouseover="cc('blue')" onmouseout="hide()">
+<input type="button" name="" title="" value="红" onmouseover="changecolor('red')" onmouseout="hide()">
+<input type="button" name="" title="" value="绿" onmouseover="changecolor('green')" onmouseout="hide()">
+<input type="button" name="" title="" value="蓝" onmouseover="changecolor('blue')" onmouseout="hide()">
 <div id="id1"></div>
 </body>
 </html>
