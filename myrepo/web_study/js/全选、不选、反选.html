@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        #id1 input {
+            display: block;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var obtn1 = document.getElementById('btn1');
+            var obtn2 = document.getElementById('btn2');
+            var obtn3 = document.getElementById('btn3');
+
+            var odiv = document.getElementById('id1');
+            var cbs = odiv.getElementsByTagName('input');
+
+            obtn1.onclick = function () {
+                for (var i = 0; i < cbs.length; i++){
+                    cbs[i].checked = true;
+                }
+            }
+
+            obtn2.onclick = function () {
+                for (var i = 0; i < cbs.length; i++){
+                    cbs[i].checked = false;
+                }
+            }
+
+            obtn3.onclick = function () {
+                for (var i = 0; i < cbs.length; i++){
+                    if (cbs[i].checked == true){
+                        cbs[i].checked = false;
+                    }
+                    else
+                    {
+                        cbs[i].checked = true;
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" name="" title="" value="全选">
+<input id="btn2" type="button" name="" title="" value="不选">
+<input id="btn3" type="button" name="" title="" value="反选">
+
+<div id="id1">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+    <input type="checkbox" name="" title="">
+</div>
+
+</body>
+</html>
