@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+
         #div1 div {
             width: 200px;
             height: 200px;
@@ -45,18 +53,18 @@
 
                 }
 
-                inputs[i].onmouseout = function () {
-                    for (var i = 0; i < inputs.length; i++){
-                        // inputs[i].className = '';
-                        divs[i].style.display = 'none';
-                    }
-                }
+                // inputs[i].onmouseout = function () {
+                //     for (var i = 0; i < inputs.length; i++){
+                //         // inputs[i].className = '';
+                //         divs[i].style.display = 'none';
+                //     }
+                // }
 
             }
 
         }
     </script>
-</head>
+</head
 <body>
 
 <div id="div1">
@@ -64,12 +72,35 @@
     <input type="button" name="" title="" value="java">
     <input type="button" name="" title="" value="database">
     <input type="button" name="" title="" value="linux">
-    <div>1111111</div>
-    <div>2222222</div>
-    <div>3333333</div>
-    <div>4444444</div>
+    <div>
+        <ul>
+            <li><a href="#">www.baidu1.com</a></li>
+            <li><a href="#">www.baidu1.com</a></li>
+            <li><a href="#">www.baidu1.com</a></li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <li><a href="#">www.baidu2.com</a></li>
+            <li><a href="#">www.baidu2.com</a></li>
+            <li><a href="#">www.baidu2.com</a></li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <li><a href="#">www.baidu3.com</a></li>
+            <li><a href="#">www.baidu3.com</a></li>
+            <li><a href="#">www.baidu3.com</a></li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <li><a href="#">www.baidu4.com</a></li>
+            <li><a href="#">www.baidu4.com</a></li>
+            <li><a href="#">www.baidu4.com</a></li>
+        </ul>
+    </div>
 </div>
-
 
 </body>
 </html>
