@@ -20,6 +20,9 @@
     <script>
         function changecolor() {
             var odiv=document.getElementById('id1');
+
+            //改变属性的时候，要么全部使用style，要么全部使用className，因为style加的是行间样式，而className加的是class样式，行间
+            //样式的优先级是最高的，这样可能会使class样式无效，既不会报错也没有效果，排查起来十分困难；
             odiv.className='box';
         }
     </script>
