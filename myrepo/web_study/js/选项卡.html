@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        #div1 div {
+            width: 200px;
+            height: 200px;
+            background-color: #f5f5f5;
+            display: none;
+        }
+
+
+        /*.active {*/
+            /*background-color: rosybrown;*/
+        /*}*/
+
+        input:hover {
+            background-color: rebeccapurple;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var inputs = document.getElementsByTagName('input');
+            var div1 = document.getElementById('div1');
+            var divs = div1.getElementsByTagName('div');
+
+            // inputs[1].className = 'active';
+            // divs[0].style.display = 'block';
+
+
+            for (var i = 0; i < inputs.length; i++){
+                inputs[i].index = i;
+                inputs[i].onmouseover = function () {
+                    for (var i = 0; i < inputs.length; i++){
+                        // inputs[i].className = '';
+                        divs[i].style.display = 'none';
+                    }
+                    // this.className = 'active';
+                    divs[this.index].style.display = 'block';
+
+                }
+
+                inputs[i].onmouseout = function () {
+                    for (var i = 0; i < inputs.length; i++){
+                        // inputs[i].className = '';
+                        divs[i].style.display = 'none';
+                    }
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<div id="div1">
+    <input type="button" name="" title="" value="python">
+    <input type="button" name="" title="" value="java">
+    <input type="button" name="" title="" value="database">
+    <input type="button" name="" title="" value="linux">
+    <div>1111111</div>
+    <div>2222222</div>
+    <div>3333333</div>
+    <div>4444444</div>
+</div>
+
+
+</body>
+</html>
