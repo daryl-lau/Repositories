@@ -34,15 +34,29 @@
 
     <script>
         window.onload = function () {
-            var btns = document.getElementsByTagName(input);
+            var arr = [
+                '一月活动',
+                '二月活动',
+                '三月活动',
+                '四月活动',
+                '五月活动',
+                '六月活动',
+                '七月活动',
+                '八月活动',
+                '九月活动',
+                '十月活动',
+                '十一月活动',
+                '十二月活动',
+            ]
+            var btns = document.getElementsByTagName('input');
             var txt = document.getElementById('txt');
 
             for (var i = 0; i < btns.length; i++){
-
+                btns[i].index = i;
+                btns[i].onmouseover = function () {
+                    txt.innerHTML = '<h4>'+ (this.index + 1) +'月活动</h4><p> '+ arr[this.index] +'</p>';
+                }
             }
-
-
-
         }
     </script>
 </head>
