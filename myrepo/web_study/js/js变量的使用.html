@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        #id1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        function cc(color) {
+            var odiv=document.getElementById('id1');
+            odiv.style.backgroundColor=color;
+            odiv.style.display='block';
+        }
+
+        function hide() {
+            var odiv=document.getElementById('id1');
+            odiv.style.display='none';
+        }
+    </script>
+</head>
+<body>
+<input type="button" name="" title="" value="红" onmouseover="cc('red')" onmouseout="hide()">
+<input type="button" name="" title="" value="绿" onmouseover="cc('green')" onmouseout="hide()">
+<input type="button" name="" title="" value="蓝" onmouseover="cc('blue')" onmouseout="hide()">
+<div id="id1"></div>
+</body>
+</html>
