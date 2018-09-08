@@ -32,7 +32,7 @@
             var oImgs = document.getElementsByTagName('img');
 
             for (var i = 0; i < oImgs.length; i++){
-                oImgs[i].src = './imgs/'+str[i]+'.png';
+                oImgs[i].src = './imgs/'+str.charAt(i)+'.png';     //可以使用str[i]直接获取第i个元素，但是该方法在IE7中不兼容，需要使用charAt方法获取
             }
         }
 
