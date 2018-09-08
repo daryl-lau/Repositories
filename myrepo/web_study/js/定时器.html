@@ -5,8 +5,41 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
+
+    <script>
+        // function show() {
+        //     alert('a');
+        // }
+
+        //间隔性定时器，每1000毫秒执行以下show函数，定时器是有返回值的，可以赋值给变量，通过变量来获取该定时器
+        // setInterval(show, 1000)
+        //clearInterval
+
+        //延时性，延迟1000毫秒执行show函数，只执行一次
+        // setTimeout(show, 1000)
+        //clearTimeout
+
+        //定时器开始及关闭
+
+        window.onload = function () {
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+
+            oBtn1.onclick = function () {
+                timer = setInterval(function () {
+                    alert('a');
+                }, 1000);
+            }
+
+            oBtn2.onclick = function () {
+                clearInterval(timer);
+            }
+        }
+    </script>
+
 </head>
 <body>
-
+<input id="btn1" type="button" name="" title="" value="开始">
+<input id="btn2" type="button" name="" title="" value="关闭">
 </body>
 </html>
