@@ -54,6 +54,7 @@
             for (var i = 0; i < btns.length; i++){
                 btns[i].index = i;
                 btns[i].onmouseover = function () {
+                    // alert(i)  i的值恒为12
                     txt.innerHTML = '<h4>'+ (this.index + 1) +'月活动</h4><p>'+ arr[this.index] +'</p>';
                 }
             }
