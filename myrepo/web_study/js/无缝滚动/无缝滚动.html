@@ -41,25 +41,42 @@
 
             var oDiv = document.getElementById('div1');
             var oUl = oDiv.getElementsByTagName('ul')[0];
-            // var oLi = oUl.getElementsByTagName('li');
+            // var oLeftBtn = document.getElementById('left');
+            // var oRightBtn = document.getElementById('right');
 
             oUl.innerHTML += oUl.innerHTML
 
-            setInterval(function () {
-                //左滚
-                // if (oUl.offsetLeft === -1000) {
-                //     oUl.style.left = '0px';
-                // }
-                // oUl.style.left = oUl.offsetLeft - 2 + 'px';
-
-
-                //右滚
-                if (oUl.offsetLeft === 0) {
-                    oUl.style.left = '-1000px';
+            function move() {
+                //-2左滚
+                if (oUl.offsetLeft === -1000) {
+                    oUl.style.left = '0px';
                 }
-                oUl.style.left = oUl.offsetLeft + 2 + 'px';
 
-            }, 30)
+                //+2右滚
+                if (oUl.offsetLeft > 0){
+                    oUl.style.left = '-1000px'
+                }
+                oUl.style.left = oUl.offsetLeft -2 + 'px';
+            }
+
+            // function rightMove() {
+            //     //右滚
+            //     if (oUl.offsetLeft === 0) {
+            //         oUl.style.left = '-1000px';
+            //     }
+            //     oUl.style.left = oUl.offsetLeft + 2 + 'px';
+            // }
+
+            setInterval(move, 30)
+
+            // oLeftBtn.onmouseover = function () {
+            //     // clearInterval(timer)
+            //     timer = setInterval(leftMove, 30);
+            // };
+            //
+            // oRightBtn.onmouseout = function () {
+            //     timer = setInterval(rightMove, 30);
+            // }
 
         }
     </script>
@@ -75,5 +92,9 @@
         <li><img src="./5.jpg" alt=""></li>
     </ul>
 </div>
+
+<input id="left" type="button" name="" title="" value="左">
+<input id="right" type="button" name="" title="" value="右">
+
 </body>
 </html>
