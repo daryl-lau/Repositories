@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        div{
+            background-color: black;
+            width: 255px;
+            font-size: 40px;
+            color: floralwhite;
+            margin: 200px auto;
+        }
+    </style>
+
+    <script>
+    window.onload = function () {
+
+        function toDate(n) {
+            if ( n < 10 ){
+                return '0' + n;
+            }
+            else
+                return  '' + n;
+        }
+
+        function time (){
+            var oDate = new Date();
+            var str = toDate(oDate.getHours()) + toDate(oDate.getMinutes()) + toDate(oDate.getSeconds());
+
+            var oImgs = document.getElementsByTagName('img');
+            for (var i = 0; i < oImgs.length; i++){
+                oImgs[i].src = './imgs/'+str[i]+'.png';
+            }
+        }
+
+        setInterval(function () {
+            time()
+        },1000);
+
+        time()
+    }
+    </script>
+
+</head>
+<body>
+<div>
+    <img src="./imgs/0.png" alt="">
+    <img src="./imgs/0.png" alt=""> :
+    <img src="./imgs/0.png" alt="">
+    <img src="./imgs/0.png" alt=""> :
+    <img src="./imgs/0.png" alt="">
+    <img src="./imgs/0.png" alt="">
+</div>
+
+
+</body>
+</html>
