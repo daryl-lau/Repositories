@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            oDiv = document.getElementById('div1');
+            setInterval(function () {
+                oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+            }, 30)
+
+        }
+    </script>
+
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
