@@ -17,9 +17,11 @@
             height: 200px;
             margin: 100px auto;
             position: relative;
+            overflow: hidden;
         }
 
         #div1 ul {
+            width: 2000px;
             position: absolute;
             top: 0;
             left: 0;
@@ -40,8 +42,14 @@
             var oUl = oDiv.getElementsByTagName('ul')[0];
             var oLi = oUl.getElementsByTagName('li');
 
-            setInterval(function () {
 
+            oUl.innerHTML += oUl.innerHTML;
+            // oUl.style.width = oLi[0].offsetWidth*oLi.length+'px';
+
+            setInterval(function () {
+                if (oUl.offsetLeft === -1000){
+                    oUl.style.left = '0';
+                }
                 oUl.style.left = oUl.offsetLeft - 2 + 'px';
 
 
