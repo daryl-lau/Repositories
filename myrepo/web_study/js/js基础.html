@@ -23,6 +23,7 @@ DOM
         3：文本节点
         1：元素节点
 
+获取节点
     childNodes：
         子节点，文本和元素都算子节点，只算第一层的，不算子节点的子节点
 
@@ -47,6 +48,13 @@ DOM
     lastElementChild
         末尾元素子节点
 
+插入节点
+    父级.appendChild(子节点)
+        添加子节点
+
+    insertBefore
+    父级.insertBefore(子节点, 在谁之前)
+
 
     元素属性操作
         方式一：oDIV.style.display = 'block';
@@ -58,6 +66,7 @@ DOM
             设置：setAttribute('attr', 'value')
             删除：removeAttribute('attr')
 
+    className选择元素
 
 
 BOM
