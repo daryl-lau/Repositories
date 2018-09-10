@@ -7,25 +7,40 @@
     <title>Title</title>
 </head>
 
+<style>
+
+    /*通过css实现*/
+    /*#tab1 tbody tr:hover {*/
+        /*background-color: #cccccc !important;*/
+    /*}*/
+</style>
+
 <script>
     window.onload = function () {
 
         var oTable = document.getElementById('tab1');
         var oTbody = oTable.getElementsByTagName('tbody')[0];
         var aTr = oTbody.getElementsByTagName('tr');
+        var oldColor = '';
 
         for (var i = 0; i < aTr.length; i++){
+
+            //通过js实现
+
+            aTr[i].onmouseover = function () {
+                var oldColor = this.style.backgroundColor;
+                this.style.backgroundColor = '#cccccc';
+            };
+            aTr[i].onmouseout = function () {
+                this.style.backgroundColor = oldColor;
+            };
+
 
             if (i % 2 == 0){
                aTr[i].style.backgroundColor = '#f5f5f5';
             }
 
-            aTr[i].onmouseover = function () {
-                this.style.backgroundColor = '#cccccc';
-            };
-            aTr[i].onmouseout = function () {
-                this.style.backgroundColor = Color;
-            };
+
         }
 
     }
