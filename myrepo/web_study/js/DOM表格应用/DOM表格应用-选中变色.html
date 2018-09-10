@@ -21,14 +21,15 @@
         var oTable = document.getElementById('tab1');
         var oTbody = oTable.getElementsByTagName('tbody')[0];
         var aTr = oTbody.getElementsByTagName('tr');
-        var oldColor = '';
+
+        var oldColor = '';     //声明oldColor为全局变量
 
         for (var i = 0; i < aTr.length; i++){
 
             //通过js实现
 
             aTr[i].onmouseover = function () {
-                var oldColor = this.style.backgroundColor;
+                oldColor = this.style.backgroundColor;   //声明oldColor为全局变量
                 this.style.backgroundColor = '#cccccc';
             };
             aTr[i].onmouseout = function () {
