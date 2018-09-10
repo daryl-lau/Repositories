@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+
+<script>
+    window.onload = function () {
+
+        var oTable = document.getElementById('tab1');
+        var oTbody = oTable.getElementsByTagName('tbody')[0];
+        var aTr = oTbody.getElementsByTagName('tr');
+
+        for (var i = 0; i < aTr.length; i++){
+            if (i % 2 == 0){
+               aTr[i].style.backgroundColor = '#cccccc';
+            }
+
+            aTr[i].onmouseover = function () {
+                this.style.backgroundColor = 'red';
+            }
+            aTr[i].onmouseout = function () {
+                this.style.backgroundColor = 'green';
+            }
+        }
+
+    }
+</script>
+
+<body>
+
+<table border="1px" width="300px" id="tab1">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>张三</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>李四</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>王五</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>张伟</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>王二</td>
+            <td>27</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
