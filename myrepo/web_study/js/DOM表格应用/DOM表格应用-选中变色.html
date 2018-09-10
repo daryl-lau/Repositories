@@ -15,16 +15,17 @@
         var aTr = oTbody.getElementsByTagName('tr');
 
         for (var i = 0; i < aTr.length; i++){
+
             if (i % 2 == 0){
-               aTr[i].style.backgroundColor = '#cccccc';
+               aTr[i].style.backgroundColor = '#f5f5f5';
             }
 
             aTr[i].onmouseover = function () {
-                this.style.backgroundColor = 'red';
-            }
+                this.style.backgroundColor = '#cccccc';
+            };
             aTr[i].onmouseout = function () {
-                this.style.backgroundColor = 'green';
-            }
+                this.style.backgroundColor = Color;
+            };
         }
 
     }
