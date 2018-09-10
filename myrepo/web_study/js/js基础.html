@@ -18,6 +18,63 @@ DOM
     Document Object Model
     操作HTML的能力  document
 
+    DOM节点
+    nodeType
+        3：文本节点
+        1：元素节点
+
+获取节点
+    childNodes：
+        子节点，文本和元素都算子节点，只算第一层的，不算子节点的子节点
+
+    children：
+        子节点，只包含元素节点，也只算第一层的
+
+    parentNode
+        父节点
+
+    offsetParent
+        获取元素获取定位的父节点
+
+    firstChild（有兼容问题）
+        首个子节点（包括文本节点）
+
+    firstElementChild
+        首个元素子节点
+
+    lastChild
+        末尾子节点（包含文本节点）
+
+    lastElementChild
+        末尾元素子节点
+
+插入节点
+    父级.appendChild(子节点)
+        添加子节点
+
+    insertBefore
+    父级.insertBefore(子节点, 在谁之前)
+
+
+删除节点
+    removeChild
+    父级.removeChild(子节点)
+
+
+
+元素属性操作
+    方式一：oDIV.style.display = 'block';
+    方式二：oDiv['display'] = 'none';
+    方式三：DOM方式
+
+    DOM方式操作元素属性
+        获取：getAttribute('attr')
+        设置：setAttribute('attr', 'value')
+        删除：removeAttribute('attr')
+
+className选择元素
+
+
 BOM
     Browser Object Model
     浏览器  window
