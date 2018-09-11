@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+
+<style>
+
+    /*通过css实现*/
+    /*#tab1 tbody tr:hover {*/
+        /*background-color: #cccccc !important;*/
+    /*}*/
+</style>
+
+<script>
+    window.onload = function () {
+
+        var oTable = document.getElementById('tab1');
+        var oTbody = oTable.getElementsByTagName('tbody')[0];
+        var aTr = oTbody.getElementsByTagName('tr');
+
+        var oldColor = '';     //声明oldColor为全局变量
+
+        var oDiv = document.getElementById('div1');
+        var btn = oDiv.getElementsByTagName('input')[2];
+
+        btn.onclick = function () {
+
+            //获取插入的内容
+            var text = oDiv.getElementsByTagName('input')[0].value;
+            var age = oDiv.getElementsByTagName('input')[1].value;
+
+            var idNum = oTbody.children.length + 1;
+
+            var nTr = document.createElement('tr');   //先创建新的元素
+            oTbody.appendChild(nTr);                  //然后再将新创建的元素添加到子节点
+            oTbody.lastElementChild.innerHTML = '<td>'+ idNum +'</td><td>'+ text +'</td><td>'+ age +'</td>';
+
+            for (var i = 0; i < aTr.length; i++){
+
+            //通过js实现
+
+            aTr[i].onmouseover = function () {
+                oldColor = this.style.backgroundColor;   //声明oldColor为全局变量
+                this.style.backgroundColor = '#cccccc';
+            };
+            aTr[i].onmouseout = function () {
+                this.style.backgroundColor = oldColor;
+            };
+
+
+            if (i % 2 == 0){
+               aTr[i].style.backgroundColor = '#f5f5f5';
+            }
+        }
+        }
+
+    }
+</script>
+
+<body>
+<div id="div1">
+    <input type="text" name="" title="">
+    <input type="number" name="" title="" max="120" min="0">
+    <input type="button" name="" title="" value="新增">
+</div>
+
+
+<table border="1px" width="300px" id="tab1">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>张三</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>李四</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>王五</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>张伟</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>王二</td>
+            <td>27</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
