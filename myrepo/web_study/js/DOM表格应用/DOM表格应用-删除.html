@@ -36,11 +36,11 @@
             }
         }
 
+        var id = oTbody.children.length + 1;
 
         btn.onclick = function () {
 
             //获取插入的内容
-            var idNum = oTbody.children.length + 1;
             var text = oDiv.getElementsByTagName('input')[0].value;
             var age = oDiv.getElementsByTagName('input')[1].value;
             var del = '<a href="javascript:">删除</a>';
@@ -50,7 +50,7 @@
             nTr = oTbody.appendChild(nTr);                  //然后再将新创建的元素添加到子节点
 
             var nTd_id = document.createElement('td');
-            nTd_id.innerHTML = idNum;
+            nTd_id.innerHTML = id++;
             nTr.appendChild(nTd_id);
 
             var nTd_name = document.createElement('td');
@@ -65,6 +65,9 @@
             nTd_del.innerHTML = del;
             nTr.appendChild(nTd_del);
 
+            oDiv.getElementsByTagName('input')[0].value = '';
+            oDiv.getElementsByTagName('input')[1].value = '';
+
             for (var i = 0; i < aTr.length; i++){
 
             //通过js实现选中变色
@@ -78,9 +81,10 @@
                 };
 
 
-                if (i % 2 == 0){
-                   aTr[i].style.backgroundColor = '#f5f5f5';
-                }
+                var oDel = aTr[i].getElementsByTagName('td')[3].getElementsByTagName('a')[0];
+                oDel.onclick = function () {
+                oTbody.removeChild(this.parentNode.parentNode);
+            }
             }
         }
 
