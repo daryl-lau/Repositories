@@ -37,7 +37,7 @@
 
             var nTr = document.createElement('tr');   //先创建新的元素
             oTbody.appendChild(nTr);                  //然后再将新创建的元素添加到子节点
-            oTbody.lastElementChild.innerHTML = '<td>'+ idNum +'</td><td>'+ text +'</td><td>'+ age +'</td>';
+            oTbody.lastElementChild.innerHTML = '<td>'+ idNum +'</td><td>'+ text +'</td><td>'+ age +'</td><td><a href="javascript:">删除</a></td>';
 
             for (var i = 0; i < aTr.length; i++){
 
@@ -75,6 +75,7 @@
             <td>ID</td>
             <td>姓名</td>
             <td>年龄</td>
+            <td><a href="javascript:">删除</a></td>
         </tr>
     </thead>
     <tbody>
@@ -82,26 +83,31 @@
             <td>1</td>
             <td>张三</td>
             <td>23</td>
+            <td><a href="javascript:">删除</a></td>
         </tr>
         <tr>
             <td>2</td>
             <td>李四</td>
             <td>19</td>
+            <td><a href="javascript:">删除</a></td>
         </tr>
         <tr>
             <td>3</td>
             <td>王五</td>
             <td>33</td>
+            <td><a href="javascript:">删除</a></td>
         </tr>
         <tr>
             <td>4</td>
             <td>张伟</td>
             <td>23</td>
+            <td><a href="javascript:">删除</a></td>
         </tr>
         <tr>
             <td>5</td>
             <td>王二</td>
             <td>27</td>
+            <td><a href="javascript:">删除</a></td>
         </tr>
     </tbody>
 </table>
