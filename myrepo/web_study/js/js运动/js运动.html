@@ -20,16 +20,27 @@
 
     <script>
         window.onload = function () {
-            oDiv = document.getElementById('div1');
-            setInterval(function () {
-                oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
-            }, 30)
+            var oDiv = document.getElementById('div1');
+            var oBtn = document.getElementById('btn1');
+            timer = null;
 
+            oBtn.onclick = function (){
+                clearInterval(timer);
+                timer = setInterval(function () {
+                 if (oDiv.offsetLeft > 500){
+                     clearInterval(timer);
+                 }
+                 else{
+                     oDiv.style.left = oDiv.offsetLeft + 1 + 'px';
+                 }
+                }, 30)
+            }
         }
     </script>
 
 </head>
 <body>
+<input id="btn1" type="button" name="" title="" value="开始运动">
 <div id="div1"></div>
 </body>
 </html>
