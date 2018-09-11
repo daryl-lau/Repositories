@@ -9,7 +9,7 @@
 
 <style>
 
-    /*通过css实现*/
+    /*通过css实现选中变色*/
     /*#tab1 tbody tr:hover {*/
         /*background-color: #cccccc !important;*/
     /*}*/
@@ -26,6 +26,16 @@
 
         var oDiv = document.getElementById('div1');
         var btn = oDiv.getElementsByTagName('input')[2];
+
+
+
+        for (var i = 0; i < aTr.length; i++){
+            var oDel = aTr[i].getElementsByTagName('td')[3].getElementsByTagName('a')[0];
+            oDel.onclick = function () {
+
+            }
+        }
+
 
         btn.onclick = function () {
 
@@ -57,21 +67,21 @@
 
             for (var i = 0; i < aTr.length; i++){
 
-            //通过js实现
+            //通过js实现选中变色
 
-            aTr[i].onmouseover = function () {
-                oldColor = this.style.backgroundColor;   //声明oldColor为全局变量
-                this.style.backgroundColor = '#cccccc';
-            };
-            aTr[i].onmouseout = function () {
-                this.style.backgroundColor = oldColor;
-            };
+                aTr[i].onmouseover = function () {
+                    oldColor = this.style.backgroundColor;   //声明oldColor为全局变量
+                    this.style.backgroundColor = '#cccccc';
+                };
+                aTr[i].onmouseout = function () {
+                    this.style.backgroundColor = oldColor;
+                };
 
 
-            if (i % 2 == 0){
-               aTr[i].style.backgroundColor = '#f5f5f5';
+                if (i % 2 == 0){
+                   aTr[i].style.backgroundColor = '#f5f5f5';
+                }
             }
-        }
         }
 
     }
@@ -91,7 +101,7 @@
             <td>ID</td>
             <td>姓名</td>
             <td>年龄</td>
-            <td><a href="javascript:">删除</a></td>
+            <td><a href="javascript:">操作</a></td>
         </tr>
     </thead>
     <tbody>
