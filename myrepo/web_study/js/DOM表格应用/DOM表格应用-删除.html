@@ -30,14 +30,30 @@
         btn.onclick = function () {
 
             //获取插入的内容
+            var idNum = oTbody.children.length + 1;
             var text = oDiv.getElementsByTagName('input')[0].value;
             var age = oDiv.getElementsByTagName('input')[1].value;
+            var del = '<a href="javascript:">删除</a>';
 
-            var idNum = oTbody.children.length + 1;
 
             var nTr = document.createElement('tr');   //先创建新的元素
-            oTbody.appendChild(nTr);                  //然后再将新创建的元素添加到子节点
-            oTbody.lastElementChild.innerHTML = '<td>'+ idNum +'</td><td>'+ text +'</td><td>'+ age +'</td><td><a href="javascript:">删除</a></td>';
+            nTr = oTbody.appendChild(nTr);                  //然后再将新创建的元素添加到子节点
+
+            var nTd_id = document.createElement('td');
+            nTd_id.innerHTML = idNum;
+            nTr.appendChild(nTd_id);
+
+            var nTd_name = document.createElement('td');
+            nTd_name.innerHTML = text;
+            nTr.appendChild(nTd_name);
+
+            var nTd_age = document.createElement('td');
+            nTd_age.innerHTML = age;
+            nTr.appendChild(nTd_age);
+
+            var nTd_del = document.createElement('td');
+            nTd_del.innerHTML = del;
+            nTr.appendChild(nTd_del);
 
             for (var i = 0; i < aTr.length; i++){
 
