@@ -32,7 +32,7 @@
         for (var i = 0; i < aTr.length; i++){
             var oDel = aTr[i].getElementsByTagName('td')[3].getElementsByTagName('a')[0];
             oDel.onclick = function () {
-
+                oTbody.removeChild(this.parentNode.parentNode);
             }
         }
 
