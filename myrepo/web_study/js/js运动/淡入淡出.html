@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            opacity: 0.2;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+        var timer = null;
+        var oDiv = document.getElementById('div1');
+        var alpha = 20;
+
+
+            oDiv.onmouseover = function () {
+                move(100)
+            };
+            oDiv.onmouseout = function () {
+                move(20)
+            };
+
+
+        function move(iTarget){
+            clearInterval(timer);
+            speed = 0;
+            timer = setInterval(function () {
+                if(alpha < iTarget){
+                    speed = 10;
+                }
+                else
+                {
+                    speed = -10;
+                }
+
+                if (oDiv.style.opacity == iTarget/100){
+                    // alert(alpha)
+                    clearInterval(timer);
+                }
+                else
+                {
+                    alpha += speed;
+                    oDiv.style.opacity = alpha/100;
+                    // alert(alpha)
+                }
+            },100)
+        }
+};
+    </script>
+
+</head>
+<body>
+
+<div id="div1"></div>
+
+</body>
+</html>
