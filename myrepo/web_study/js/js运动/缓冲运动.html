@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            var odiv = document.getElementById('div1');
+            var btn1 = document.getElementsByTagName('input')[0];
+            timer = null;
+
+            btn1.onclick = function () {
+                startMove()
+            };
+
+            function startMove() {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    if (odiv.offsetLeft == 300){
+                        clearInterval(timer);
+                    }
+                    else
+                    {
+                        speed = (300 - odiv.offsetLeft)/10;
+                        speed = speed>0?Math.ceil(speed):Math.floor(speed);
+                        odiv.style.left = odiv.offsetLeft + speed + 'px';
+                    }
+                },30)
+
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+
+<input type="button" name="" title="" value="开始运动">
+<div id="div1"></div>
+
+</body>
+</html>
