@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
         #div1 {
             width: 200px;
             height: 200px;
             background-color: red;
             position: absolute;
         }
+
     </style>
 
     <script>
@@ -20,18 +25,28 @@
             var btn = document.getElementsByTagName('input')[0];
             timer = null;
 
-            btn.onclick = function () {
+            btn.onmouseover = function () {
                 startMove(300)
+            };
+
+            btn.onmouseout = function () {
+                startMove(0)
             };
 
             function startMove(iTarget) {
                 clearInterval(timer);
                 timer = setInterval(function () {
-                    if (oDiv.offsetLeft == iTarget){
+                    if (oDiv.offsetLeft < iTarget){
+                        speed = Math.ceil((iTarget - oDiv.offsetLeft)/10);
+                    }
+                    else {
+                        speed = Math.floor((iTarget - oDiv.offsetLeft)/10);
+                    }
+                    if (oDiv.offsetLeft === iTarget){
                         clearInterval(timer)
                     }
                     else {
-                        speed = (iTarget - oDiv.offsetLeft)/10;
+                        // speed = Math.ceil((iTarget - oDiv.offsetLeft)/10);
                         oDiv.style.left = oDiv.offsetLeft + speed + 'px';
                     }
 
@@ -43,5 +58,7 @@
 <body>
 <input type="button" name="" title="" value="开始运动">
 <div id="div1"></div>
+
+
 </body>
 </html>
