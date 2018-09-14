@@ -17,25 +17,31 @@
     <script>
         window.onload = function () {
             var oDiv = document.getElementById('div1');
+            var btn = document.getElementsByTagName('input')[0];
             timer = null;
-            
-            
-            function startMove() {
-                if (oDiv.offsetLeft == 300){
-                    clearInterval(timer)
-                }
-                else {
-                    timer = setInterval(function () {
-                        oDiv.style.left = oDiv.offsetLeft + oDiv.style.left/10 + 'px';
-                    }, 30)
-                }
-            }
+
+            btn.onclick = function () {
+                startMove(300)
+            };
+
+            function startMove(iTarget) {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    if (oDiv.offsetLeft == iTarget){
+                        clearInterval(timer)
+                    }
+                    else {
+                        speed = (iTarget - oDiv.offsetLeft)/10;
+                        oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                    }
+
+                },30)}
         }
     </script>
 
 </head>
 <body>
-<input type="button" name="" title="" value="开始运动" onclick="startMove()">
+<input type="button" name="" title="" value="开始运动">
 <div id="div1"></div>
 </body>
 </html>
