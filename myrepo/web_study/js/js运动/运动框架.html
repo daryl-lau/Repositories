@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         div {
             width: 200px;
             height: 200px;
             background-color: red;
-            margin: 10px;
+            /*margin: 10px;*/
             float: left;
         }
     </style>
@@ -41,7 +45,22 @@
 
 
                 var speed = (iTarget - cur)/10;
-                speed = speed>0?Math.ceil(speed):Math.floor(speed);
+                if (speed > 0){
+                    speed = Math.ceil(speed);
+                }
+                else
+                {
+                    speed = Math.floor(speed);
+                }
+                // speed = speed>0?Math.ceil(speed):Math.floor(speed);
+
+                // if (cur < iTarget){
+                //     speed = 10;
+                // }
+                // else
+                // {
+                //     speed = -1;
+                // }
 
                 if (cur == iTarget){
                     clearInterval(obj.timer)
