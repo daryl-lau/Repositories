@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            timer = null;
+            
+            
+            function startMove() {
+                if (oDiv.offsetLeft == 300){
+                    clearInterval(timer)
+                }
+                else {
+                    timer = setInterval(function () {
+                        oDiv.style.left = oDiv.offsetLeft + oDiv.style.left/10 + 'px';
+                    }, 30)
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+<input type="button" name="" title="" value="开始运动" onclick="startMove()">
+<div id="div1"></div>
+</body>
+</html>
