@@ -40,7 +40,7 @@
                 var cur = parseInt(getStyle(obj, attr));
 
 
-                speed = (iTarget - cur)/10;
+                var speed = (iTarget - cur)/10;
                 speed = speed>0?Math.ceil(speed):Math.floor(speed);
 
                 if (cur == iTarget){
