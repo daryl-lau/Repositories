@@ -20,7 +20,7 @@
         //    currentStyle不兼容，只在IE有用
         //    oDiv.currentStyle.width
 
-            var a = getComputedStyle(oDiv, null).width;
+            var a = getComputedStyle(oDiv, null)['width'];
             alert(a);
         }
     </script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px;
+            float: left;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            var aDiv = document.getElementsByTagName('div');
+            for (var i = 0; i < aDiv.length; i++){
+                aDiv[i].onmouseover = function () {
+                    startMove(this, 'height', 400)
+                };
+                aDiv[i].onmouseout = function () {
+                    startMove(this, 'height', 100)
+                }
+            }
+        };
+
+        timer = null;
+
+        function getStyle(obj, name) {
+            return getComputedStyle(obj, null)[name];
+        }
+
+        function startMove(obj, attr, iTarget) {
+            clearInterval(obj.timer);
+            timer = setInterval(function () {
+                var cur = parseInt(getStyle(obj, attr));
+
+                if (cur < iTarget) {
+                    speed = 10
+                }
+                else
+                {
+                    speed = -10
+                }
+                if (cur === iTarget){
+                    clearInterval(obj.timer)
+                }
+                else {
+                    obj.style[attr] = cur + speed + 'px';
+                }
+            },30)
+        }
+
+    </script>
+
+</head>
+<body>
+
+<div></div>
+<div></div>
+<div></div>
+
+</body>
+</html>
