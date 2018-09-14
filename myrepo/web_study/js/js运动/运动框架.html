@@ -20,7 +20,7 @@
     </style>
 
     <script>
-        window.onload = function(){
+        window.onload = function() {
             var aDiv = document.getElementsByTagName('div');
             for (var i = 0; i < aDiv.length; i++){
                 aDiv[i].onmouseover = function () {
@@ -30,12 +30,28 @@
                     startMove(this, 'height', 200)
                 }
             }
+            // var oDiv1 = document.getElementsByTagName('div')[0];
+            // oDiv1.onmouseover=function ()
+            // {
+            //     startMove(this, 'height', 400);
+            // };
+            // oDiv1.onmouseout=function ()
+            // {
+            //     startMove(this, 'height', 200);
+            // };
         };
 
         timer = null;
 
         function getStyle(obj, name) {
-            return getComputedStyle(obj, null)[name];
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj, false)[name];
+            }
         }
 
         function startMove(obj, attr, iTarget) {
@@ -45,14 +61,14 @@
 
 
                 var speed = (iTarget - cur)/10;
-                if (speed > 0){
-                    speed = Math.ceil(speed);
-                }
-                else
-                {
-                    speed = Math.floor(speed);
-                }
-                // speed = speed>0?Math.ceil(speed):Math.floor(speed);
+                // if (speed > 0){
+                //     speed = Math.ceil(speed);
+                // }
+                // else
+                // {
+                //     speed = Math.floor(speed);
+                // }
+                speed = speed>0?Math.ceil(speed):Math.floor(speed);
 
                 // if (cur < iTarget){
                 //     speed = 10;
@@ -62,7 +78,7 @@
                 //     speed = -1;
                 // }
 
-                if (cur == iTarget){
+                if (cur === iTarget){
                     clearInterval(obj.timer)
                 }
                 else {
