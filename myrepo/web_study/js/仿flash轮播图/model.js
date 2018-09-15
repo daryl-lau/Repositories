@@ -1,11 +1,11 @@
-function getStyle(obj, name) {
-    if(obj.currentStyle)
+function getStyle(objc, name) {
+    if(objc.currentStyle)
     {
-        return obj.currentStyle[name];
+        return objc.currentStyle[name];
     }
     else
     {
-        return getComputedStyle(obj, null)[name];
+        return getComputedStyle(objc, null)[name];
     }
 }
 
@@ -38,14 +38,37 @@ function startMove(obj, attr, iTarget) {
     }, 30)
 }
 
-function getByClass(obj, name) {
-    var aEle = obj.getElementsByTagName('*');
-    var aResult = [];
 
-    for (var i = 0; i < aEle.length, i++){
-        if (aEle[i].className == name){
-            aResult.push(aEle[i])
+
+window.onload = function () {
+
+    var oDiv_top = document.getElementsByClassName('top')[0];
+
+    var leftBtnArea = oDiv_top.getElementsByClassName('left_btn_area')[0];
+    var leftBtn = oDiv_top.getElementsByClassName('left_btn')[0];
+    var rightBtnArea = oDiv_top.getElementsByClassName('right_btn_area')[0];
+    var rightBtn = oDiv_top.getElementsByClassName('right_btn')[0];
+
+    var oDiv_bottom = document.getElementsByClassName('bottom')[0];
+    var aLi = oDiv_bottom.getElementsByTagName('li');
+    alert(aLi.length)
+
+    leftBtn.onmouseover = leftBtnArea.onmouseover = function () {
+        startMove(leftBtn, 'opacity', 100)
+    };
+    leftBtn.onmouseout = leftBtnArea.onmouseout = function () {
+        startMove(leftBtn, 'opacity', 0)
+    };
+
+    rightBtn.onmouseover = rightBtnArea.onmouseover = function () {
+        startMove(rightBtn, 'opacity', 100)
+    };
+    rightBtn.onmouseout = rightBtnArea.onmouseout = function () {
+        startMove(rightBtn, 'opacity', 0)
+    };
+
+    for (var i = 0; i < aLi.length; i++){
+        aLi[i].onclick = function () {
         }
-        return  aResult;
     }
-}
+};

@@ -25,28 +25,21 @@
     height: 320px;
     background-color: red;
     position: absolute;
+    opacity: 0;
+    z-index: 3000;
 }
 
-.wrapper .top .left_btn_area .left_btn {
+.wrapper .top .left_btn {
     width: 60px;
     height: 60px;
     background-image: url(../../imgs/btn.gif);
-
     position: absolute;
     top: 130px;
     left: 10px;
-    z-index: 1000;
-}
+    opacity: 0;
+    z-index: 3001;
+    cursor: pointer;
 
-.wrapper .top .right_btn_area .right_btn {
-    width: 60px;
-    height: 60px;
-    background-image: url(../../imgs/btn.gif);
-    background-position: 0px -60px;
-    position: absolute;
-    top: 130px;
-    right: 10px;
-    z-index: 1000;
 }
 
 .wrapper .top .right_btn_area {
@@ -55,13 +48,32 @@
     background-color: red;
     position: absolute;
     left: 200px;
+    opacity: 0;
+    z-index: 3000;
+}
+
+.wrapper .top .right_btn {
+    width: 60px;
+    height: 60px;
+    background-image: url(../../imgs/btn.gif);
+    background-position: 0px -60px;
+    position: absolute;
+    top: 130px;
+    right: 10px;
+    opacity: 0;
+    z-index: 3001;
+    cursor: pointer;
+}
+
+.wrapper .top ul li {
+    width: 400px;
+    height: 320px;
+    position: absolute;
 }
 
 .wrapper .top ul li img {
     width: 400px;
     height: 320px;
-    position: absolute;
-
 }
 
 .wrapper .top .msg {
@@ -86,10 +98,16 @@
     height: 90px;
 }
 
-.wrapper .bottom ul li img {
+.wrapper .bottom ul li {
     width: 94px;
     height: 90px;
     float: left;
     padding-right: 5px;
     cursor: pointer;
+    opacity: 0.3;
+}
+
+.wrapper .bottom ul li img {
+    width: 94px;
+    height: 90px;
 }
