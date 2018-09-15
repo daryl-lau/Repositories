@@ -69,6 +69,7 @@
     width: 400px;
     height: 320px;
     position: absolute;
+    overflow: hidden;
 }
 
 .wrapper .top ul li img {
@@ -83,6 +84,7 @@
     opacity: 0.3;
     position: absolute;
     top: 295px;
+    z-index: 2000;
 }
 
 .wrapper .bottom {
