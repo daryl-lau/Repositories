@@ -38,3 +38,14 @@ function startMove(obj, attr, iTarget) {
     }, 30)
 }
 
+function getByClass(obj, name) {
+    var aEle = obj.getElementsByTagName('*');
+    var aResult = [];
+
+    for (var i = 0; i < aEle.length, i++){
+        if (aEle[i].className == name){
+            aResult.push(aEle[i])
+        }
+        return  aResult;
+    }
+}
