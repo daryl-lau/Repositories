@@ -70,15 +70,17 @@ window.onload = function () {
     };
 
     var nowIndex = 2;
+    var now = 0;
 
     for (var i = 0; i < aLi_bottom.length; i++){
         aLi_bottom[i].index = i;
         aLi_bottom[i].onclick = function () {
 
-
-            aLi_top[this.index].style.zIndex = nowIndex++;
-            aLi_top[this.index].style.height = 0;
-            startMove(aLi_top[this.index], 'height', 320)
+        if (this.index == now) return;
+        now = this.index;
+        aLi_top[this.index].style.zIndex = nowIndex++;
+        aLi_top[this.index].style.height = 0;
+        startMove(aLi_top[this.index], 'height', 320)
 
         }
     }
