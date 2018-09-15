@@ -6,8 +6,6 @@
 
 
 .wrapper {
-    /*width: 400px;*/
-    /*height: 540px;*/
     position: absolute;
     top: 50%;
     left: 50%;
@@ -20,6 +18,41 @@
     height: 400px;
     background-color: red;
     overflow: hidden;
+}
+
+.wrapper .top .left_btn_area {
+    width: 200px;
+    height: 400px;
+    background-color: red;
+    position: absolute;
+}
+
+.wrapper .top .left_btn_area .left_btn {
+    width: 60px;
+    height: 60px;
+    background-image: url(../../imgs/btn.gif);
+    position: absolute;
+    top: 170px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.wrapper .top .right_btn_area .right_btn {
+    width: 60px;
+    height: 60px;
+    background-image: url(../../imgs/btn.gif);
+    position: absolute;
+    top: 170px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.wrapper .top .right_btn_area {
+    width: 200px;
+    height: 400px;
+    background-color: red;
+    position: absolute;
+    left: 200px;
 }
 
 .wrapper .top ul li img {
