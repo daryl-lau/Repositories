@@ -60,9 +60,17 @@
 .wrapper .top ul li img {
     width: 400px;
     height: 320px;
-    display: block;
     position: absolute;
 
+}
+
+.wrapper .top .msg {
+    width: 400px;
+    height: 25px;
+    background-color: black;
+    opacity: 0.3;
+    position: absolute;
+    top: 295px;
 }
 
 .wrapper .bottom {
