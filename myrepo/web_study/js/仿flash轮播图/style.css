@@ -17,8 +17,17 @@
 
 .wrapper .top {
     width: 400px;
-    height: 300px;
+    height: 400px;
     background-color: red;
+    overflow: hidden;
+}
+
+.wrapper .top ul li img {
+    width: 400px;
+    height: 400px;
+    display: block;
+    position: absolute;
+
 }
 
 .wrapper .bottom {
@@ -30,7 +39,7 @@
 }
 
 .wrapper .bottom ul {
-    width: 1000px;
+    width: 1089px;
     height: 90px;
 }
 
