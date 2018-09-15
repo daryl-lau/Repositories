@@ -15,14 +15,14 @@
 
 .wrapper .top {
     width: 400px;
-    height: 400px;
+    height: 320px;
     background-color: red;
     overflow: hidden;
 }
 
 .wrapper .top .left_btn_area {
     width: 200px;
-    height: 400px;
+    height: 320px;
     background-color: red;
     position: absolute;
 }
@@ -31,8 +31,9 @@
     width: 60px;
     height: 60px;
     background-image: url(../../imgs/btn.gif);
+
     position: absolute;
-    top: 170px;
+    top: 130px;
     left: 10px;
     z-index: 1000;
 }
@@ -41,15 +42,16 @@
     width: 60px;
     height: 60px;
     background-image: url(../../imgs/btn.gif);
+    background-position: 0px -60px;
     position: absolute;
-    top: 170px;
+    top: 130px;
     right: 10px;
     z-index: 1000;
 }
 
 .wrapper .top .right_btn_area {
     width: 200px;
-    height: 400px;
+    height: 320px;
     background-color: red;
     position: absolute;
     left: 200px;
@@ -57,7 +59,7 @@
 
 .wrapper .top ul li img {
     width: 400px;
-    height: 400px;
+    height: 320px;
     display: block;
     position: absolute;
 
