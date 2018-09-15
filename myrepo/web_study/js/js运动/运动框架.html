@@ -61,22 +61,7 @@
 
 
                 var speed = (iTarget - cur)/10;
-                // if (speed > 0){
-                //     speed = Math.ceil(speed);
-                // }
-                // else
-                // {
-                //     speed = Math.floor(speed);
-                // }
                 speed = speed>0?Math.ceil(speed):Math.floor(speed);
-
-                // if (cur < iTarget){
-                //     speed = 10;
-                // }
-                // else
-                // {
-                //     speed = -1;
-                // }
 
                 if (cur === iTarget){
                     clearInterval(obj.timer)
