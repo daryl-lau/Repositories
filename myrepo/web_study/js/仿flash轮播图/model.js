@@ -104,7 +104,7 @@ window.onload = function () {
     }
 
     function tab(){
-        aLi_top[now].style.zIndex = nowIndex++;
+    aLi_top[now].style.zIndex = nowIndex++;
         aLi_top[now].style.height = 0;
         startMove(aLi_top[now], 'height', 320);
 
@@ -112,25 +112,27 @@ window.onload = function () {
             aLi_bottom[i].style.opacity = 0.3;
         }
         aLi_bottom[now].style.opacity = 1;
+
+        var padding_value = parseInt(getComputedStyle(aLi_bottom[0], null).paddingRight);
+
         if (now == 0){
-            startMove(oUl_bottom, 'left', 5)
+            startMove(oUl_bottom, 'left', padding_value)
         }
         else if (now == 1)
         {
-            startMove(oUl_bottom, 'left', 5)
+            startMove(oUl_bottom, 'left', padding_value)
         }
         else if (now == 2)
         {
-            startMove(oUl_bottom, 'left', 5)
+            startMove(oUl_bottom, 'left', padding_value)
         }
         else if (now == 9)
         {
-            startMove(oUl_bottom, 'right', 20)
+            startMove(oUl_bottom, 'left', -((now -3) * aLi_bottom[0].offsetWidth - padding_value))
         }
         else {
-            startMove(oUl_bottom, 'left', -((now -2) * aLi_bottom[0].offsetWidth - 5))
+            startMove(oUl_bottom, 'left', -((now -2) * aLi_bottom[0].offsetWidth - padding_value))
         }
-
     }
 
     rightBtn.onclick = function () {
