@@ -73,19 +73,45 @@ window.onload = function () {
     var now = 0;
 
     for (var i = 0; i < aLi_bottom.length; i++){
+
         aLi_bottom[i].index = i;
+    
         aLi_bottom[i].onclick = function () {
+            if (this.index == now) {}
+            else {
+                now = this.index;
+                aLi_top[this.index].style.zIndex = nowIndex++;
+                aLi_top[this.index].style.height = 0;
+                startMove(aLi_top[this.index], 'height', 320);
+    
+                for (var i = 0; i < aLi_bottom.length; i++) {
+                    startMove(aLi_bottom[i], 'opacity', 30)
+                }
+                startMove(this, 'opacity', 100);
+            }
+        };
+    
+        aLi_bottom[i].onmouseover = function () {
+            startMove(this, 'opacity', 100);
+        };
+    
+        aLi_bottom[i].onmouseout = function () {
+            if (this.index != now ){
+                startMove(this, 'opacity', 30);
+            }
+        }
+    }
+    
+    rightBtn.onclick = function () {
+        now++;
+        aLi_top[now].style.zIndex = nowIndex++;
+        aLi_top[now].style.height = 0;
+        startMove(aLi_top[now], 'height', 320);
 
-        if (this.index == now) return;
-        now = this.index;
-        aLi_top[this.index].style.zIndex = nowIndex++;
-        aLi_top[this.index].style.height = 0;
-        startMove(aLi_top[this.index], 'height', 320);
-
-        for (var i = 0; i < aLi_bottom.length; i++){
+        for (var i = 0; i < aLi_bottom.length; i++) {
             startMove(aLi_bottom[i], 'opacity', 30)
         }
-        startMove(this, 'opacity', 100);
-        }
+        // startMove(aLi_top[now], 'opacity', 100);
+
     }
 };
