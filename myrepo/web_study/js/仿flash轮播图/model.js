@@ -112,7 +112,6 @@ window.onload = function () {
             aLi_bottom[i].style.opacity = 0.3;
         }
         aLi_bottom[now].style.opacity = 1;
-        // startMove(oUl_bottom, 'left', -(now - 2) * aLi_bottom[0].offsetWidth)
     }
 
     rightBtn.onclick = function () {
@@ -120,7 +119,7 @@ window.onload = function () {
         if (now == aLi_top.length){
             now = 0
         }
-        tab();
+        tab()
     };
 
     leftBtn.onclick = function () {
