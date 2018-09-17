@@ -52,6 +52,7 @@ window.onload = function () {
     var rightBtn = oDiv_top.getElementsByClassName('right_btn')[0];
 
     var oDiv_bottom = document.getElementsByClassName('bottom')[0];
+    var oUl_bottom = oDiv_bottom.getElementsByTagName('ul')[0];
     var aLi_bottom = oDiv_bottom.getElementsByTagName('li');
     var aLi_top = oDiv_top.getElementsByTagName('li');
 
@@ -111,6 +112,7 @@ window.onload = function () {
             aLi_bottom[i].style.opacity = 0.3;
         }
         aLi_bottom[now].style.opacity = 1;
+        startMove(oUl_bottom, 'left', -(now - 2) * aLi_bottom[0].offsetWidth)
     }
 
     rightBtn.onclick = function () {
@@ -118,7 +120,7 @@ window.onload = function () {
         if (now == aLi_top.length){
             now = 0
         }
-        tab()
+        tab();
     };
 
     leftBtn.onclick = function () {

@@ -98,6 +98,7 @@
 .wrapper .bottom ul {
     width: 1089px;
     height: 90px;
+    /*position: absolute;*/
 }
 
 .wrapper .bottom ul li {
@@ -113,3 +114,17 @@
     width: 94px;
     height: 90px;
 }
+
+/*
+0  0
+1  0
+2  0
+3  -li.wid
+4  -2
+5  -3
+6  -4
+7  -5
+8  -6
+9  -7
+10 -7
+*/
