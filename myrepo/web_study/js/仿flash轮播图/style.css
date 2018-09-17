@@ -98,6 +98,8 @@
 .wrapper .bottom ul {
     width: 1089px;
     height: 90px;
+    position: absolute;
+    /*overflow: hidden;*/
 }
 
 .wrapper .bottom ul li {

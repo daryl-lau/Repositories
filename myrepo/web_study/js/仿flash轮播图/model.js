@@ -112,6 +112,25 @@ window.onload = function () {
             aLi_bottom[i].style.opacity = 0.3;
         }
         aLi_bottom[now].style.opacity = 1;
+        if (now == 0){
+            startMove(oUl_bottom, 'left', 5)
+        }
+        else if (now == 1)
+        {
+            startMove(oUl_bottom, 'left', 5)
+        }
+        else if (now == 2)
+        {
+            startMove(oUl_bottom, 'left', 5)
+        }
+        else if (now == 9)
+        {
+            startMove(oUl_bottom, 'right', 20)
+        }
+        else {
+            startMove(oUl_bottom, 'left', -((now -2) * aLi_bottom[0].offsetWidth - 5))
+        }
+
     }
 
     rightBtn.onclick = function () {
