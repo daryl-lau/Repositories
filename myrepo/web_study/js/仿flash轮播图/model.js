@@ -110,6 +110,11 @@ window.onload = function () {
         aLi_top[now].style.height = 0;
         startMove(aLi_top[now], 'height', 320)
 
+        for (var i = 0; i < aLi_bottom.length; i++){
+            aLi_bottom[i].style.opacity = 0.3;
+        }
+        aLi_bottom[now].style.opacity = 1;
+
     };
 
     leftBtn.onclick = function () {
@@ -120,6 +125,9 @@ window.onload = function () {
         aLi_top[now].style.zIndex = nowIndex++;
         aLi_top[now].style.height = 0;
         startMove(aLi_top[now], 'height', 320)
-
+        for (var i = 0; i < aLi_bottom.length; i++){
+            aLi_bottom[i].style.opacity = 0.3;
+        }
+        aLi_bottom[now].style.opacity = 1;
     }
 };
