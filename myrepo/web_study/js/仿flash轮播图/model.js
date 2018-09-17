@@ -98,7 +98,6 @@ window.onload = function () {
             else {
                 startMove(aLi_bottom[this.index], 'opacity', 30)
             }
-
         }
     }
 
