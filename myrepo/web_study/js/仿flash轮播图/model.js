@@ -80,8 +80,12 @@ window.onload = function () {
         now = this.index;
         aLi_top[this.index].style.zIndex = nowIndex++;
         aLi_top[this.index].style.height = 0;
-        startMove(aLi_top[this.index], 'height', 320)
+        startMove(aLi_top[this.index], 'height', 320);
 
+        for (var i = 0; i < aLi_bottom.length; i++){
+            startMove(aLi_bottom[i], 'opacity', 30)
+        }
+        startMove(this, 'opacity', 100);
         }
     }
 };
