@@ -75,12 +75,29 @@ window.onload = function () {
     for (var i = 0; i < aLi_bottom.length; i++){
         aLi_bottom[i].index = i;
         aLi_bottom[i].onclick = function () {
-
         if (this.index == now) return;
         now = this.index;
+
+        for (var i = 0; i < aLi_bottom.length; i++){
+            aLi_bottom[i].style.opacity = 0.3;
+        }
+        aLi_bottom[this.index].style.opacity = 1;
+
         aLi_top[this.index].style.zIndex = nowIndex++;
         aLi_top[this.index].style.height = 0;
         startMove(aLi_top[this.index], 'height', 320)
+        };
+
+        aLi_bottom[i].onmouseover = function () {
+            startMove(aLi_bottom[this.index], 'opacity', 100)
+        };
+        aLi_bottom[i].onmouseout = function () {
+            if (this.index == now){
+                aLi_bottom[this.index].style.opacity = 1;
+            }
+            else {
+                startMove(aLi_bottom[this.index], 'opacity', 30)
+            }
 
         }
     }
@@ -91,8 +108,10 @@ window.onload = function () {
             now = 0
         }
         aLi_top[now].style.zIndex = nowIndex++;
+        aLi_top[now].style.height = 0;
+        startMove(aLi_top[now], 'height', 320)
 
-    }
+    };
 
     leftBtn.onclick = function () {
         now--;
@@ -100,6 +119,8 @@ window.onload = function () {
             now = aLi_top.length -1;
         }
         aLi_top[now].style.zIndex = nowIndex++;
+        aLi_top[now].style.height = 0;
+        startMove(aLi_top[now], 'height', 320)
 
     }
 };
