@@ -40,6 +40,7 @@ function startMove(obj, attr, iTarget) {
 
 
 
+
 window.onload = function () {
 
     var oDiv_top = document.getElementsByClassName('top')[0];
@@ -101,11 +102,7 @@ window.onload = function () {
         }
     }
 
-    rightBtn.onclick = function () {
-        now++;
-        if (now == aLi_top.length){
-            now = 0
-        }
+    function tab(){
         aLi_top[now].style.zIndex = nowIndex++;
         aLi_top[now].style.height = 0;
         startMove(aLi_top[now], 'height', 320);
@@ -114,7 +111,14 @@ window.onload = function () {
             aLi_bottom[i].style.opacity = 0.3;
         }
         aLi_bottom[now].style.opacity = 1;
+    }
 
+    rightBtn.onclick = function () {
+        now++;
+        if (now == aLi_top.length){
+            now = 0
+        }
+        tab()
     };
 
     leftBtn.onclick = function () {
@@ -122,12 +126,8 @@ window.onload = function () {
         if (now == -1){
             now = aLi_top.length -1;
         }
-        aLi_top[now].style.zIndex = nowIndex++;
-        aLi_top[now].style.height = 0;
-        startMove(aLi_top[now], 'height', 320);
-        for (var i = 0; i < aLi_bottom.length; i++){
-            aLi_bottom[i].style.opacity = 0.3;
-        }
-        aLi_bottom[now].style.opacity = 1;
+        tab()
     }
+
+
 };
