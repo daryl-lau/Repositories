@@ -84,4 +84,22 @@ window.onload = function () {
 
         }
     }
+
+    rightBtn.onclick = function () {
+        now++;
+        if (now == aLi_top.length){
+            now = 0
+        }
+        aLi_top[now].style.zIndex = nowIndex++;
+
+    }
+
+    leftBtn.onclick = function () {
+        now--;
+        if (now == -1){
+            now = aLi_top.length -1;
+        }
+        aLi_top[now].style.zIndex = nowIndex++;
+
+    }
 };
