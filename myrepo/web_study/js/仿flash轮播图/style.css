@@ -16,14 +16,12 @@
 .wrapper .top {
     width: 400px;
     height: 320px;
-    background-color: red;
     overflow: hidden;
 }
 
 .wrapper .top .left_btn_area {
     width: 200px;
     height: 320px;
-    background-color: red;
     position: absolute;
     opacity: 0;
     z-index: 3000;
@@ -45,7 +43,6 @@
 .wrapper .top .right_btn_area {
     width: 200px;
     height: 320px;
-    background-color: red;
     position: absolute;
     left: 200px;
     opacity: 0;
