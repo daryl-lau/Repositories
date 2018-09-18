@@ -80,16 +80,21 @@ window.onload = function () {
     }
 
     leftBtn.onmouseover = leftBtnArea.onmouseover = function () {
+        clearInterval(timer);
         startMove(leftBtn, 'opacity', 100)
     };
+
     leftBtn.onmouseout = leftBtnArea.onmouseout = function () {
+        startTimer();
         startMove(leftBtn, 'opacity', 0)
     };
 
     rightBtn.onmouseover = rightBtnArea.onmouseover = function () {
+        clearInterval(timer);
         startMove(rightBtn, 'opacity', 100)
     };
     rightBtn.onmouseout = rightBtnArea.onmouseout = function () {
+        startTimer();
         startMove(rightBtn, 'opacity', 0)
     };
 
@@ -109,16 +114,18 @@ window.onload = function () {
 
         aLi_top[this.index].style.zIndex = nowIndex++;
         aLi_top[this.index].style.height = 0;
-        startMove(aLi_top[this.index], 'height', 320)
+        startMove(aLi_top[this.index], 'height', 320);
 
         move_left()
 
         };
 
         aLi_bottom[i].onmouseover = function () {
+            clearInterval(timer);
             startMove(aLi_bottom[this.index], 'opacity', 100)
         };
         aLi_bottom[i].onmouseout = function () {
+            startTimer();
             if (this.index == now){
                 aLi_bottom[this.index].style.opacity = 1;
             }
@@ -154,6 +161,19 @@ window.onload = function () {
             now = aLi_top.length -1;
         }
         tab()
+    };
+
+    timer = null;
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            now++;
+            if (now == aLi_top.length) {
+                now = 0
+            }
+            tab()
+        }, 2000)
     }
+    startTimer()
 
 };
