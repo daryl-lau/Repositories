@@ -104,7 +104,7 @@ window.onload = function () {
     }
 
     function tab(){
-    aLi_top[now].style.zIndex = nowIndex++;
+        aLi_top[now].style.zIndex = nowIndex++;
         aLi_top[now].style.height = 0;
         startMove(aLi_top[now], 'height', 320);
 
