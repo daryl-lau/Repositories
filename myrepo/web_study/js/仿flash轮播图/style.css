@@ -84,6 +84,21 @@
     z-index: 2000;
 }
 
+.wrapper .top .msg .left {
+    font-size: 14px;
+    color: #f0f0f0;
+    margin-left: 5px;
+    line-height: 25px;
+}
+
+.wrapper .top .msg .right {
+    font-size: 14px;
+    color: #f0f0f0;
+    position: absolute;
+    right: 5px;
+    line-height: 25px;
+}
+
 .wrapper .bottom {
     width: 390px;
     height: 90px;
