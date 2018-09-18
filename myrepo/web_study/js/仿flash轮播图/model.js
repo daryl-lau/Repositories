@@ -57,6 +57,28 @@ window.onload = function () {
     var aLi_top = oDiv_top.getElementsByTagName('li');
 
 
+    function move_left() {
+        var padding_value = parseInt(getComputedStyle(aLi_bottom[0], null).paddingRight);
+        if (now == 0){
+            startMove(oUl_bottom, 'left', padding_value)
+        }
+        else if (now == 1)
+        {
+            startMove(oUl_bottom, 'left', padding_value)
+        }
+        else if (now == 2)
+        {
+            startMove(oUl_bottom, 'left', padding_value)
+        }
+        else if (now == 9)
+        {
+            startMove(oUl_bottom, 'left', -((now -3) * aLi_bottom[0].offsetWidth - padding_value))
+        }
+        else {
+            startMove(oUl_bottom, 'left', -((now -2) * aLi_bottom[0].offsetWidth - padding_value))
+        }
+    }
+
     leftBtn.onmouseover = leftBtnArea.onmouseover = function () {
         startMove(leftBtn, 'opacity', 100)
     };
@@ -88,6 +110,9 @@ window.onload = function () {
         aLi_top[this.index].style.zIndex = nowIndex++;
         aLi_top[this.index].style.height = 0;
         startMove(aLi_top[this.index], 'height', 320)
+
+        move_left()
+
         };
 
         aLi_bottom[i].onmouseover = function () {
@@ -100,7 +125,7 @@ window.onload = function () {
             else {
                 startMove(aLi_bottom[this.index], 'opacity', 30)
             }
-        }
+        };
     }
 
     function tab(){
@@ -112,27 +137,7 @@ window.onload = function () {
             aLi_bottom[i].style.opacity = 0.3;
         }
         aLi_bottom[now].style.opacity = 1;
-
-        var padding_value = parseInt(getComputedStyle(aLi_bottom[0], null).paddingRight);
-
-        if (now == 0){
-            startMove(oUl_bottom, 'left', padding_value)
-        }
-        else if (now == 1)
-        {
-            startMove(oUl_bottom, 'left', padding_value)
-        }
-        else if (now == 2)
-        {
-            startMove(oUl_bottom, 'left', padding_value)
-        }
-        else if (now == 9)
-        {
-            startMove(oUl_bottom, 'left', -((now -3) * aLi_bottom[0].offsetWidth - padding_value))
-        }
-        else {
-            startMove(oUl_bottom, 'left', -((now -2) * aLi_bottom[0].offsetWidth - padding_value))
-        }
+        move_left()
     }
 
     rightBtn.onclick = function () {
@@ -150,6 +155,5 @@ window.onload = function () {
         }
         tab()
     }
-
 
 };
