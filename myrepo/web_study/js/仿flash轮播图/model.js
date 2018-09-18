@@ -40,6 +40,7 @@ function startMove(obj, attr, iTarget) {
 
 
 
+
 window.onload = function () {
 
     var oDiv_top = document.getElementsByClassName('top')[0];
@@ -51,6 +52,7 @@ window.onload = function () {
     var rightBtn = oDiv_top.getElementsByClassName('right_btn')[0];
 
     var oDiv_bottom = document.getElementsByClassName('bottom')[0];
+    var oUl_bottom = oDiv_bottom.getElementsByTagName('ul')[0];
     var aLi_bottom = oDiv_bottom.getElementsByTagName('li');
     var aLi_top = oDiv_top.getElementsByTagName('li');
 
@@ -73,45 +75,81 @@ window.onload = function () {
     var now = 0;
 
     for (var i = 0; i < aLi_bottom.length; i++){
-
         aLi_bottom[i].index = i;
-    
         aLi_bottom[i].onclick = function () {
-            if (this.index == now) {}
-            else {
-                now = this.index;
-                aLi_top[this.index].style.zIndex = nowIndex++;
-                aLi_top[this.index].style.height = 0;
-                startMove(aLi_top[this.index], 'height', 320);
-    
-                for (var i = 0; i < aLi_bottom.length; i++) {
-                    startMove(aLi_bottom[i], 'opacity', 30)
-                }
-                startMove(this, 'opacity', 100);
-            }
+        if (this.index == now) return;
+        now = this.index;
+
+        for (var i = 0; i < aLi_bottom.length; i++){
+            aLi_bottom[i].style.opacity = 0.3;
+        }
+        aLi_bottom[this.index].style.opacity = 1;
+
+        aLi_top[this.index].style.zIndex = nowIndex++;
+        aLi_top[this.index].style.height = 0;
+        startMove(aLi_top[this.index], 'height', 320)
         };
-    
+
         aLi_bottom[i].onmouseover = function () {
-            startMove(this, 'opacity', 100);
+            startMove(aLi_bottom[this.index], 'opacity', 100)
         };
-    
         aLi_bottom[i].onmouseout = function () {
-            if (this.index != now ){
-                startMove(this, 'opacity', 30);
+            if (this.index == now){
+                aLi_bottom[this.index].style.opacity = 1;
+            }
+            else {
+                startMove(aLi_bottom[this.index], 'opacity', 30)
             }
         }
     }
-    
-    rightBtn.onclick = function () {
-        now++;
-        aLi_top[now].style.zIndex = nowIndex++;
+
+    function tab(){
+    aLi_top[now].style.zIndex = nowIndex++;
         aLi_top[now].style.height = 0;
         startMove(aLi_top[now], 'height', 320);
 
-        for (var i = 0; i < aLi_bottom.length; i++) {
-            startMove(aLi_bottom[i], 'opacity', 30)
+        for (var i = 0; i < aLi_bottom.length; i++){
+            aLi_bottom[i].style.opacity = 0.3;
         }
-        // startMove(aLi_top[now], 'opacity', 100);
+        aLi_bottom[now].style.opacity = 1;
 
+        var padding_value = parseInt(getComputedStyle(aLi_bottom[0], null).paddingRight);
+
+        if (now == 0){
+            startMove(oUl_bottom, 'left', padding_value)
+        }
+        else if (now == 1)
+        {
+            startMove(oUl_bottom, 'left', padding_value)
+        }
+        else if (now == 2)
+        {
+            startMove(oUl_bottom, 'left', padding_value)
+        }
+        else if (now == 9)
+        {
+            startMove(oUl_bottom, 'left', -((now -3) * aLi_bottom[0].offsetWidth - padding_value))
+        }
+        else {
+            startMove(oUl_bottom, 'left', -((now -2) * aLi_bottom[0].offsetWidth - padding_value))
+        }
     }
+
+    rightBtn.onclick = function () {
+        now++;
+        if (now == aLi_top.length){
+            now = 0
+        }
+        tab()
+    };
+
+    leftBtn.onclick = function () {
+        now--;
+        if (now == -1){
+            now = aLi_top.length -1;
+        }
+        tab()
+    }
+
+
 };

@@ -93,11 +93,14 @@
     padding: 5px;
     overflow: hidden;
     background-color: #6c6c6c;
+    position: relative;
 }
 
 .wrapper .bottom ul {
     width: 1089px;
     height: 90px;
+    position: absolute;
+    /*overflow: hidden;*/
 }
 
 .wrapper .bottom ul li {
@@ -113,3 +116,14 @@
     width: 94px;
     height: 90px;
 }
+
+/*
+0  0
+1  0
+2  0
+3  -li.wid
+4  -2
+5  -3
+6  -4
+7  -5
+*/
