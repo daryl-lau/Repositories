@@ -172,7 +172,7 @@ window.onload = function () {
                 now = 0
             }
             tab()
-        }, 2000)
+        }, 1000)
     }
     startTimer()
 
