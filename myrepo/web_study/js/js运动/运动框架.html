@@ -5,6 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
+    <!--<script src="完美运动框架.js"></script>-->
     <style>
         *{
             margin: 0;
@@ -26,7 +27,7 @@
 
     <script>
         window.onload = function() {
-            var aDiv = document.getElementsByTagName('div');
+            // var aDiv = document.getElementsByTagName('div');
             // for (var i = 0; i < aDiv.length; i++){
             //     aDiv[i].onmouseover = function () {
             //         startMove(this, 'height', 500)
@@ -38,7 +39,7 @@
             var oDiv1 = document.getElementsByTagName('div')[0];
             oDiv1.onmouseover=function ()
             {
-                startMove(this, 'height', 400);
+                startMove(this, {'height':400});
             };
             oDiv1.onmouseout=function ()
             {
@@ -72,50 +73,6 @@
                 startMove(this, 'opacity', 30);
             };
         };
-
-        timer = null;
-
-        function getStyle(obj, name) {
-            if(obj.currentStyle)
-            {
-                return obj.currentStyle[name];
-            }
-            else
-            {
-                return getComputedStyle(obj, null)[name];
-            }
-        }
-
-        function startMove(obj, attr, iTarget) {
-            clearInterval(obj.timer);
-            obj.timer = setInterval(function () {
-                var cur = 0;
-                if(attr == 'opacity'){
-                    cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
-                }
-                else
-                {
-                    cur = parseInt(getStyle(obj, attr));
-                }
-                // alert(cur)
-                var speed = (iTarget - cur)/6;
-                speed = speed>0?Math.ceil(speed):Math.floor(speed);
-
-                if (cur == iTarget){
-                    clearInterval(obj.timer)
-                }
-                else {
-                    if(attr == 'opacity'){
-                        obj.style[attr] = (cur + speed)/100;
-                    }
-                    else{
-                        obj.style[attr] = cur + speed + 'px';
-                    }
-
-                }
-            },30)
-        }
-
     </script>
 
 </head>
