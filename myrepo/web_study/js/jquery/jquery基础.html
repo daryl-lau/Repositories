@@ -29,6 +29,34 @@ jquery选择器
     $("tr:even")：选取偶数位置的 <tr> 元素
     $("tr:odd")：选取奇数位置的 <tr> 元素
 
+事件
+    $(document).ready()：文档加载完成执行jquery代码，不包括图片的加载
+    鼠标事件
+        click()：点击
+        dblclicl()：双击
+
+        mouseenter()/mouseover()：鼠标移入，两者的区别是mouseover()在移入子元素及所选的元素时都触发，而mouseenter()只在移入所选元素时触发
+        mouseleave()/mouseout（）：鼠标移出，两者的区别是mouseout()在移出子元素及所选的元素时都触发，而mouseleave()只在移出所选元素时触发
+
+        mousedown()：鼠标移入且按下
+        mouseup()：鼠标松开，不管点击是在什么位置，只要松开的位置是对的，则触发该事件
+        hover(func1, func2)：鼠标移入执行func1，移出执行func2
+
+
+    键盘事件
+        keydown()：键按下松开的过程
+        keypress()：键被按下
+        keyup()：键被松开
+            keypress 事件不会触发所有的键（比如 ALT、CTRL、SHIFT、ESC）。请使用 keydown() 方法来检查这些键
+
+    表单事件
+        change()：当表单内容发生变化是触发（仅适用于表单字段），输入回车或元素失去焦点时发生。
+                  当用于 select 元素时，change 事件会在选择某个选项时发生。
+                  当用于 text field 或 text area 时，change 事件会在元素失去焦点时发生。
+        focus()：元素获得焦点时，触发该事件
+        blur()：元素失去焦点时，触发该事件
+        submit()：提交表单时触发事件
+
 
 -->
 
