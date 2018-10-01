@@ -66,7 +66,7 @@ jquery选择器
        实现更细的控制。
        :animated        匹配所有正在执行动画效果的元素
        :contains(text)  如果元素内或者后代元素内包含指定的文本即被选中
-       :eq(n)           选择第n个元素（从0开始计数）
+       :eq(n)           选择第n个元素（从0开始计数），传入负数表示倒数
        :first           选择第一个匹配的元素
        :last            选择最后一个匹配的元素
        :lt(n)           选择序号小于n的所有元素（从0开始计数）
@@ -90,9 +90,49 @@ jquery选择器
        :visible         选择所有的可见元素
        :parent          匹配含有子元素或者文本的元素
 
-        $(":button")：选取所有 type="button" 的 <input> 元素 和 <button> 元素
-        $("tr:even")：选取偶数位置的 <tr> 元素
-        $("tr:odd")：选取奇数位置的 <tr> 元素
+    限制搜索范围
+        可以给$函数多传一个参数（第二个参数），表示搜索的范围
+        第二个参数可以穿jQuery对象，html对象，html元素对象数组
+        $('p', $('#div1'))
+        $('p', document.getElementById('div1'))
+        $('p', document.getElementsByClassName('div1'))
+
+
+
+    each()方法
+        遍历选择器选出来的元素
+        $('p').each(function(){
+            alert('abc');
+
+            //this 表示当前函数执行时当前的p元素
+            //$(this) 可以将DOM对象转换为jquery对象
+            //return true 相当于for循环中的continue，退出本次循环，开始下次循环
+            //return false 相当于for循环中的break，退出循环
+        })
+
+    get(index)方法
+        返回给定index的对应的html元素对象
+        $('#div1 p').get(0)
+
+    length()方法
+        返回选取出来元素的个数
+
+    size()方法
+        和length一样
+
+    toArray()方法
+        转换为数组对象，就不是jQuery对象了
+        var ps = $('#div p').toArray();  //转换之后就可以进行for循环了，同事each()方法失效
+
+    由DOM对象转换为jquery对象
+        var div1 = document.getElementById('div1')
+        $(div1)    //直接转换
+
+    链式方法调用
+        $('p').css('background','red').css('color','green');
+
+
+
 
 事件
     $(document).ready()：文档加载完成执行jquery代码，不包括图片的加载
