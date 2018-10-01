@@ -39,20 +39,56 @@ jquery选择器
         $('div ~ p')：紧接在div后面的同辈p元素
 
     伪元素和伪类选择器
-        $('#div1 :checked')：匹配表单中被选中的元素（单选、复选框等）
-        $('#div1 :disabled')：用于表单，匹配所有不可用元素
-        $('#div1 :enabled')：用于表单，匹配所有可用元素
-        $('#div1 :focus')：用于表单，匹配得到焦点的元素
-        $('#div1 :required')：用于表单，匹配具有required属性的元素
-        $('#div1 :empty')：匹配空的元素（没有文本也没有后代元素）
+       :checked	            用于表单，匹配所有被选中元素(复选框、单选框等，不包括select中的option)
+       :disabled            用于表单，匹配所有不可用元素
+       :enabled             用于表单，匹配所有可用元素
+       :focus               主要用于表单，选取得到焦点的元素
+       :required            用于表单，选取具有required属性的元素
+       :optional            用于表单，选取缺少required属性的元素
+       :empty               匹配所有既不包含子元素也不包含文本的空元素
+       :first-child         选取第一个子元素
+       :last-child          选取最后一个子元素
+       :nth-child(n)        选取元素的第n个子元素(从1开始计数)，n可为even或odd
+       :nth-last-child(n)   选取元素的倒数第n个子元素
+       :nth-of-type(n)      选择同属于一个父元素之下，并且标签名相同的元素中的第n个(注：从1开始计数)
+       :nth-last-of-type(n) 选择同属于一个父元素之下，并且标签名相同的元素中的倒数第n个
+       :only-child          如果某个元素是父元素中唯一的子元素，那将会被匹配
+       :only-of-type        选择所有没有兄弟元素，且具有相同的元素名称的元素
+       :root                选取文档的根元素，在html文档中即是<html>元素
 
-        $("ul li:first")：选取第一个 <ul> 元素的第一个 <li> 元素
-        $("ul li:first-child")：选取每个 <ul> 元素的第一个 <li> 元素
-        $("ul li:last-child")：选取每个 <ul> 元素的最后一个 <li> 元素
-        $("ul li:nth-child(1)")：选取每个 <ul> 元素的第n个 <li> 元素（从1开始，不是从0开始）
-        $("ul li:only-child")：父元素只存在唯一的子元素将会被选取
-        $(':root')：html根元素
 
+    联合选择器和反选择器
+        $('div, p, ul, #id1, .class1')：选取其中所有的元素
+        $(':not(#div1)')：除了id为div1的，选取其他所有元素
+
+    jQuery扩充的选择器
+           上面是css中本身就提供的选择器，为了满足更复杂的需求，jQuery还额外的支持一些选择器，这些选择器不但给我们带来方便，还能
+           实现更细的控制。
+           :animated        匹配所有正在执行动画效果的元素
+           :contains(text)  如果元素内或者后代元素内包含指定的文本即被选中
+           :eq(n)           选择第n个元素（从0开始计数）
+           :first           选择第一个匹配的元素
+           :last            选择最后一个匹配的元素
+           :lt(n)           选择序号小于n的所有元素（从0开始计数）
+           :gt(n)           选择序号大于n的所有元素（从0开始计数）
+           :odd             选择所有奇数元素(从0开始计数)
+           :even            选择所有的偶数元素（从0开始计数）
+           :has(选择器)      匹配包含 选择器所匹配的元素的元素
+           :text            用于表单，匹配所有的单行文本框
+           :button          匹配所有按钮（input标签type为button以及<button>标签）
+           :checkbox        用于表单，选择所有的复选框（匹配所有复选框）
+           :file            用于表单，选择所有的文件上传输入框
+           :input           用于表单，选择所有的input元素（匹配所有 input, textarea, select 和 button 元素）
+           :password        用于表单，选择所有的密码输入框
+           :radio           用于表单，选择所有的单选框
+           :submit          用于表单，选择所有的表单提交按钮
+           :image           用于表单，匹配所有图像域
+           :reset           用于表单，选择所有的表单重置按钮
+           :selected        用于表单，匹配所有选中的option元素
+           :header          匹配如 h1, h2, h3之类的标题元素
+           :hidden          选择所有的被隐藏文件
+           :visible         选择所有的可见元素
+           :parent          匹配含有子元素或者文本的元素
 
         $(":button")：选取所有 type="button" 的 <input> 元素 和 <button> 元素
         $("tr:even")：选取偶数位置的 <tr> 元素
