@@ -149,7 +149,7 @@ window.onload = function () {
 
     rightBtn.onclick = function () {
         now++;
-        if (now == aLi_top.length){
+        if (now === aLi_top.length){
             now = 0
         }
         tab()
@@ -157,7 +157,7 @@ window.onload = function () {
 
     leftBtn.onclick = function () {
         now--;
-        if (now == -1){
+        if (now === -1){
             now = aLi_top.length -1;
         }
         tab()
@@ -168,7 +168,7 @@ window.onload = function () {
         clearInterval(timer);
         timer = setInterval(function () {
             now++;
-            if (now == aLi_top.length) {
+            if (now === aLi_top.length) {
                 now = 0
             }
             tab()
