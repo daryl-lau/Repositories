@@ -40,10 +40,17 @@ jquery选择器
 
     伪元素和伪类选择器
         $('#div1 :checked')：匹配表单中被选中的元素（单选、复选框等）
-
+        $('#div1 :disabled')：用于表单，匹配所有不可用元素
+        $('#div1 :enabled')：用于表单，匹配所有可用元素
+        $('#div1 :focus')：用于表单，匹配得到焦点的元素
+        $('#div1 :required')：用于表单，匹配具有required属性的元素
+        $('#div1 :empty')：匹配空的元素（没有文本也没有后代元素）
 
         $("ul li:first")：选取第一个 <ul> 元素的第一个 <li> 元素
         $("ul li:first-child")：选取每个 <ul> 元素的第一个 <li> 元素
+        $("ul li:last-child")：选取每个 <ul> 元素的最后一个 <li> 元素
+        $("ul li:nth-child(1)")：选取每个 <ul> 元素的第n个 <li> 元素（从1开始，不是从0开始）
+        $("ul li:only-child")：父元素只存在唯一的子元素将会被选取
 
 
 
