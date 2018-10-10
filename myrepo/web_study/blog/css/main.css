@@ -64,16 +64,30 @@ body .nav-bar .search-bar {
 body .nav-bar .nav-bar-main li{
     float: left;
     cursor: pointer;
+    position: relative;
 }
 
-body .nav-bar .nav-bar-main li div {
+body .nav-bar .nav-bar-main li div.index {
     display: inline-block;
     font-size: 16px;
     line-height: 32px;
     margin-left: 15px;
 }
 
-body .nav-bar .nav-bar-main li div i {
+body .nav-bar .nav-bar-main li .list-details {
+    display: none;
+}
+
+body .nav-bar .nav-bar-main li.hover .list-details {
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-color: #2d4fc9;
+    position: absolute;
+    left: 0;
+}
+
+body .nav-bar .nav-bar-main li div.index i {
     font-size: 14px;
     margin-right: 8px;
 }
