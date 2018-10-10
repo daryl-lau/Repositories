@@ -47,6 +47,7 @@ body .nav-bar {
     background-color: #a1a1a1;
     /*background-image: linear-gradient(to right,#ff9900 0,#ff5500 100%);*/
     position: relative;
+    overflow: hidden;
 }
 
 body .nav-bar .index-bar {
@@ -71,6 +72,12 @@ body .nav-bar .nav-bar-main li div {
     line-height: 32px;
     margin-left: 15px;
 }
+
+body .nav-bar .nav-bar-main li div i {
+    font-size: 14px;
+    margin-right: 8px;
+}
+
 body .nav-bar .nav-bar-main li span {
     margin-left: 15px;
 }
