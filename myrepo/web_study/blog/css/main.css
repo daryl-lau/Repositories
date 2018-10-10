@@ -18,3 +18,17 @@ a:hover {
     text-decoration:underline;
 }
 /**基本格式结束***************/
+
+body.w1190 {
+    width: 1190px;
+    margin: auto;
+}
+
+body.w990 {
+    width: 990px;
+    margin: auto;
+}
+
+body {
+    background-color: #6c6c6c;
+}
