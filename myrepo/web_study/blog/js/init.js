@@ -1,3 +1,4 @@
+
 //根据浏览器窗口的大小，来动态的设置主体内容的长度
 //1190px,990px
 function setWrap(){
@@ -6,8 +7,9 @@ function setWrap(){
         $('body').attr('class','w1260');
     }else{
         //990px
-        $('body').attr('class','w1190');
+        $('body').attr('class','w1024');
     }
 }
 setWrap();
 $(window).on('resize',setWrap);
+
