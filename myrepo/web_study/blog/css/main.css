@@ -66,7 +66,7 @@ body.w1024 {
 .nav-bar .nav-bar-main li div.index {
     font-size: 16px;
     line-height: 32px;
-    padding: 0 10px 0;
+    padding: 0 15px 0;
 }
 
 .nav-bar .nav-bar-main li div.index i {
@@ -78,8 +78,6 @@ body.w1024 {
     line-height: 32px;
 }
 
-
-
 .nav-bar .nav-bar-main li>.list-details {
     width: 200px;
     height: 300px;
@@ -87,6 +85,8 @@ body.w1024 {
     position: absolute;
     left: 0;
     top: 32px;
+    box-shadow:0 0 10px 0 #000000;
+
     display: none;
 }
 
@@ -94,23 +94,9 @@ body.w1024 {
     margin: 10px;
 }
 
-.nav-bar .nav-bar-main li.hover div.list-details {
-    width: 200px;
-    height: 300px;
-    background-color: #a1a1a1;
-    position: absolute;
-    left: 0;
-    top: 32px;
-    z-index: 2;
+.nav-bar .index-bar .nav-bar-main li:hover {
+    box-shadow:0 0 10px 0 #000000;
 }
-
-.nav-bar .nav-bar-main li.hover .list-details li {
-    margin: 10px;
-}
-
-
-
-
 
 /*搜索框开始*/
 .nav-bar .search-bar form {

@@ -12,10 +12,19 @@
 </head>
 <script>
     $(function () {
-        $(".nav-bar-main>li").hover(function () {
-            // $(this).toggleClass('hover')
-            $(this).toggleClass('hover').children(".list-details").finish().slideToggle(100)
-        })
+            var $details = $(".list-details");
+            $(".nav-bar-main>li").mouseenter(function () {
+                for (var i = 0; i < $details.length; i++){
+                    $details[i].style.display='none';
+                }
+                $(this).children(".list-details").slideDown(500)
+            })
+
+            $(".nav-bar-main>li").mouseleave(function () {
+                for (var i = 0; i < $details.length; i++){
+                    $details[i].style.display='none';
+                }
+            })
     })
 </script>
 <body>
