@@ -3,10 +3,10 @@
 //1190px,990px
 function setWrap(){
     if ($(window).width()>1260) {
-        //1190px
+        //1260px
         $('body').attr('class','w1260');
     }else{
-        //990px
+        //1024px
         $('body').attr('class','w1024');
     }
 }
