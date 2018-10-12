@@ -61,6 +61,7 @@ body.w1024 {
 .nav-bar .index-bar .nav-bar-main li{
     float: left;
     position: relative;
+    cursor: pointer;
 }
 
 .nav-bar .nav-bar-main li div.index {
@@ -79,9 +80,9 @@ body.w1024 {
 }
 
 .nav-bar .nav-bar-main li>.list-details {
-    /*width: 200px;*/
-    width: 100%;
-    height: 300px;
+    width: 850px;
+    /*width: 100%;*/
+    height: 200px;
     background-color: #a1a1a1;
     position: absolute;
     left: 0;
@@ -99,7 +100,7 @@ body.w1024 {
     box-shadow:0 0 5px 0 #000000;
 }
 
-.nav-bar .index-bar .nav-bar-main li:hover:after {
+.nav-bar .index-bar .nav-bar-main li.main:hover:after {
     content: '';
     /*display: block;*/
     position: absolute;

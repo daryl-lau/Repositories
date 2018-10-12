@@ -6,26 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>徐凤年的博客 www.xufengnian.com</title>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <script>
-    $(function () {
-            var $details = $(".list-details");
-            $(".nav-bar-main>li").mouseenter(function () {
-                for (var i = 0; i < $details.length; i++){
-                    $details[i].style.display='none';
-                }
-                $(this).children(".list-details").slideDown(500)
-            })
-
-            $(".nav-bar-main>li").mouseleave(function () {
-                for (var i = 0; i < $details.length; i++){
-                    $details[i].style.display='none';
-                }
-            })
+    $(document).ready(function () {
+        $('.main').mouseenter(function () {
+            $(this).children('.list-details').finish().slideDown('300')
+        });
+        $('.main').mouseleave(function () {
+            $('.list-details').css("display","none");
+        })
     })
+
 </script>
 <body>
     <script type="text/javascript" src="js/init.js"></script>
@@ -37,30 +30,30 @@
         <div class="index-bar">
             <ul class="nav-bar-main">
                 <li class="home">
-                    <div class="index"><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="#">Home</a></div>
+                    <div class="index"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</div>
                 </li>
                 <li class="main">
-                    <div class="index"><i class="fa fa-linux" aria-hidden="true"></i><a href="#">Linux</a></div>
+                    <div class="index"><i class="fa fa-linux" aria-hidden="true"></i>Linux</div>
                     <div class="list-details"></div>
                 </li>
                 <li class="main">
-                    <div class="index"><i class="fa fa-file-code-o" aria-hidden="true"></i><a href="#">Python</a></div>
+                    <div class="index"><i class="fa fa-file-code-o" aria-hidden="true"></i>Python</div>
                     <div class="list-details"></div>
                 </li>
                 <li class="main">
-                    <div class="index"><i class="fa fa-chrome" aria-hidden="true"></i><a href="#">Web</a></div>
+                    <div class="index"><i class="fa fa-chrome" aria-hidden="true"></i>Web</div>
                     <div class="list-details"></div>
                 </li>
                 <li class="main">
-                    <div class="index"><i class="fa fa-database" aria-hidden="true"></i><a href="#">Database</a></div>
+                    <div class="index"><i class="fa fa-database" aria-hidden="true"></i>Database</div>
                     <div class="list-details"></div>
                 </li>
                 <li class="main">
-                    <div class="index"><i class="fa fa-mixcloud" aria-hidden="true"></i><a href="#">Network</a></div>
+                    <div class="index"><i class="fa fa-mixcloud" aria-hidden="true"></i>Network</div>
                     <div class="list-details"></div>
                 </li>
                 <li class="main">
-                    <div class="index"><i class="fa fa-sitemap" aria-hidden="true"></i><a href="#">Others</a></div>
+                    <div class="index"><i class="fa fa-sitemap" aria-hidden="true"></i>Others</div>
                     <div class="list-details"></div>
                 </li>
         </ul>
