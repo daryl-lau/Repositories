@@ -50,6 +50,8 @@ body.w1024 {
 
 .nav-bar .index-bar {
     width: 850px;
+    height: 32px;
+    position: absolute;
 }
 
 .nav-bar .search-bar {
@@ -81,7 +83,6 @@ body.w1024 {
 
 .nav-bar .nav-bar-main li>.list-details {
     width: 200px;
-    /*width: 100%;*/
     height: 200px;
     background-color: #a1a1a1;
     position: absolute;
@@ -102,7 +103,6 @@ body.w1024 {
 
 .nav-bar .index-bar .nav-bar-main li.main:hover:after {
     content: '';
-    /*display: block;*/
     position: absolute;
     background-color: #a1a1a1;
     border: none;
@@ -113,9 +113,6 @@ body.w1024 {
 }
 
 /*搜索框开始*/
-.nav-bar .search-bar form {
-    position: relative;
-}
 
 .nav-bar .search-bar form  input{
     width: 80%;
@@ -131,7 +128,6 @@ body.w1024 {
     border: 0;
     height: 28px;
     margin-top: 2px;
-
 }
 
 .nav-bar .search-bar form  input::placeholder {
