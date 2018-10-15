@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../js/jQuery/jquery-3.3.1.min.js"></script>
+    <title>Title</title>
+</head>
+<script>
+    $('img.delay').attr('src','../imgs/5e6cd6de5627d63145c803e6d51f2304.gif');
+    $(document).ready(function () {
+        function delay() {
+            if ($('img.delay').length == 0){
+                $(window).off('.delay')
+            }
+            $('img.delay').each(function () {
+                if ($(this).offset().top < $(window).height + $(window).scrollTop()){
+                    $(this).attr('src',$(this).data('src')).removeClass('delay');
+                }else
+                {
+                    return false;
+                }
+            });
+        }
+        delay();
+        $(window).on('scroll.delay resize.delay',delay);
+    })
+</script>
+<body>
+<img class='delay' data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539605609705&di=7cfaed51753a88c184d0e5908614a92a&imgtype=0&src=http%3A%2F%2Fimg1.juimg.com%2F170518%2F330617-1F51Q6194328.jpg" alt="">
+<h1 style="height: 50px"></h1>
+<img class='delay' data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539605658845&di=7a48a69274ce8c70dddf7f5ebb052db7&imgtype=0&src=http%3A%2F%2Fpic105.huitu.com%2Fres%2F20180416%2F1030_20180416115259038020_1.jpg" alt="">
+<h1 style="height: 50px"></h1>
+<img class='delay' data-src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=643797876,90285375&fm=26&gp=0.jpg" alt="">
+<h1 style="height: 50px"></h1>
+<img class='delay' data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539605764892&di=fd5616c124d53a492587893ead6567d1&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F4afbfbedab64034f8b5c002ba4c379310a551d0e.jpg" alt="">
+<h1 style="height: 50px"></h1>
+<img class='delay' data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539605788011&di=6d811bc7ee170bfb680c2988aeccfc5f&imgtype=0&src=http%3A%2F%2Fbpic.ooopic.com%2F17%2F06%2F37%2F17063734-92a796570c963cfbb389d3d8dfcd7016-2.jpg" alt="">
+<h1 style="height: 50px"></h1>
+<img class='delay' data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539605811534&di=74cd6e72fd11b50480b98a363b97d1d2&imgtype=0&src=http%3A%2F%2Fpic99.huitu.com%2Fres%2F20170921%2F1393558_20170921225323439013_1.jpg" alt="">
+<h1 style="height: 50px"></h1>
+<img class='delay' data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539605888218&di=09bb43c5cb6a09f7dbbcba9b2b95e3b6&imgtype=0&src=http%3A%2F%2Fimg2.ph.126.net%2FvxYx_T10qZFmmANtxY8P2g%3D%3D%2F6608706997725172490.jpg">
+<h1 style="height: 50px"></h1>
+<img class='delay' data-src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1546730378,3008113908&fm=200&gp=0.jpg">
+<h1 style="height: 50px"></h1>
+<img class='delay' data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539605949366&di=777995d56d9c306ec65e70bc1f7e2e79&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F7a899e510fb30f24a7652e2ec395d143ad4b0324.jpg>
+" alt="">
+<!--<img src="../imgs/loading.gif" alt="">-->
+</body>
+</html>

@@ -23,17 +23,14 @@ li {
     left: 50%;
     top: 0;
     margin-left: -720px;
+    display: none;
 }
 
-.wrapper ul.ul-img li.up {
-    z-index: 1;
-}
 
 .wrapper ul.num {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    z-index: 2;
 }
 
 .wrapper ul.num li {

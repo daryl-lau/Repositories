@@ -12,6 +12,7 @@
     $(document).ready(function () {
         var listNum = '<ul class="num">';
         var length = $(".wrapper .ul-img>li").length;
+        var isRun = true;
         for (var i = 0; i < length; i++) {
             var indexNum = i + 1;
             var elem = "<li>" + indexNum + "</li>";
@@ -24,10 +25,14 @@
         $(".wrapper ul.num").css("margin-left",mLeft);
 
         function slideShow(num){
-            $(".wrapper .ul-img>li").removeClass("up")
+            $(".wrapper .ul-img>li")
+                .finish()
+                .filter(':visible')
+                .fadeOut()
+                .end()
                 .eq(num)
-                .addClass("up");
-                // .slideDown();
+                .fadeIn(400)
+                .css("display","block");
 
             $(".wrapper ul.num>li").removeClass("hover")
                 .eq(num)
@@ -37,13 +42,33 @@
 
         $(".wrapper ul.num>li").mouseenter(function () {
             slideShow($(this).index());
-        })
+        });
+
+        function move() {
+            if (isRun){
+                if($(".wrapper ul.num>li.hover").next("li").length == 0 ){
+                    $(".wrapper ul.num>li").eq(0).triggerHandler("mouseenter")
+                }
+                else{
+                    $(".wrapper ul.num>li.hover").next("li").triggerHandler("mouseenter")
+                }
+            }
+        }
+        var timer = setInterval(move,3000);
+
+        $(".wrapper .ul-img>li").mouseenter(function () {
+            clearInterval(timer)
+        });
+        $(".wrapper .ul-img>li").mouseleave(function () {
+            clearInterval(timer);
+            timer = setInterval(move,3000)
+        });
     })
 </script>
 <body>
     <div class="wrapper">
         <ul class="ul-img">
-            <li class="up"><img src="./images/img1.jpg" alt=""></li>
+            <li ><img src="./images/img1.jpg" alt=""></li>
             <li><img src="./images/img2.jpg" alt=""></li>
             <li><img src="./images/img3.png" alt=""></li>
             <li><img src="./images/img4.jpg" alt=""></li>
