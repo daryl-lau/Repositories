@@ -1,0 +1,238 @@
+第十一章：jQuery常用插件（一）
+
+jQuery插件概述：
+插件（Plugin）也被称为扩展，是一种遵循一定规范的应用程序接口编写出来的程序。jQuery有大量现成的插件，他们遵循了jQuery官方所规定的编写规范，通过各种功能的插件我们可以简单轻松的完成许多复杂的功能！
+PS:一句话，jQuery插件就是别人依照jQuery官方规范写好的各种功能，我们可以拿过来直接用，而不需要再去慢慢写！
+
+表单验证插件
+一、jQuery Validation概述
+    1、介绍
+        Validation是一个十分优秀的表单验证插件，它历史悠久，全球使用率超高，好评不断，下面我们一起简单的了解一下它的诸多优点：
+        丰富的内置验证规则：经常用到的验证比如必填，是否是数字，电子邮件格式，url等这一类验证都已内置，使用简单方便！
+        可自定义验证规则：对于一些不是很常用的验证如果插件没有内置，大家可以自己定义，也很方便！
+        验证的用户提示可定制型相当强：对于验证不通过时的用户提示，可以方便的修改以及修改错误提示信息的显示位置！
+        网址：http://jqueryvalidation.org/
+    2、主要方法
+        这个插件有3个主要方法
+        1、validate()
+             用于验证表单，也是该插件最核心的方法
+        2、valid()
+             验证表单是否通过验证
+        3、rules()
+             为一个表单控件，查看、新增、移除规则
+    3、增加了一些选择器
+        :blank
+             选择所有没有值或者值为空白的表单控件
+        :filled
+             选择所有填写了非空值的表单控件
+        :unchecked
+             与jQuery提供的:checked选择器相反
+    4、使用初探
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/jqueryvalidation/jquery.validate.min.js"></script>
+        jQuery表单对象.validate();
+二、validate()方法
+    1、常用配置选项
+        1）rules
+            $('#form1').validate({
+                rules:{
+                    控件一:{
+                        验证规则一,
+                        验证规则二,
+                        验证规则三,
+                        ....
+                    },
+                    控件二:{
+                        验证规则一
+                    },
+                    控件三:{
+                        验证规则一,
+                        验证规则二,
+                        ...
+                    },
+                    .....
+                }
+            });
+        2）messages
+            提示：修改默认的提示信息最简单的办法引入messages_zh.js文件即可！
+            如果需要在validate()方法内修改提示则可以使用本选项
+            类型: Object
+            说明：自定义的提示信息，key:value 的形式，key 是要验证的元素，value 可以是字符串或函数
+            使用：
+            messages: {
+                username: "请注意你的用户名",//此方法在username控件上的所有验证规则提示都是设置的这个字符串
+                email: {
+                         required: "必须填写这个字段",
+                         email: "请填写真确的邮件格式"
+                }
+            }
+        3）submitHandler
+           类型: Function(form)
+           说明：通过验证后运行的函数，默认添加该函数则不会再提交除非手动提交或者使用return true;
+           函数参数：该函数接受一个参数表示当前表单 DOM对象
+        4）invalidHandler
+           类型: Function(event,validator)
+           说明：当一个无效的表单（即验证不通过的时候）被提交的时候触发这个函数
+           函数参数：当前验证的表单validator对象
+        5）errorClass (默认值: error)
+           类型: String
+           说明：指定错误提示与验证不通过的控件的 css 类名
+        6）validClass (默认值: "valid")
+           类型: String
+           说明：在验证成功的控件上加上传入的css类
+        7）errorElement (默认值: "label")
+           类型: String
+           说明：用什么标签标记错误
+        8）errorPlacement (默认值: 在无效的元素之后)
+           类型: Function(error, element)
+           说明：自定义错误信息放到哪里
+        9）errorContainer
+           类型：选择器字符串
+           说明：有错误信息出现时把选择器匹配的元素变为显示，无错误时隐藏
+        10）errorLabelContainer
+            类型：选择器字符串
+            说明：把错误信息统一放在一个容器里面
+        11）wrapper
+            类型：String
+            说明：用什么标签再把上边的 errorELement 包起来
+        12）success
+            类型：String or Function(label,element)
+            说明：每个字段验证通过执行函数
+            函数参数：
+                    label：信息提示标签的jQuery对象。
+                    element：当前验证成功的DOM元素对象
+            如果跟一个字符串,会作为css类加在提示信息的标签上
+            重点用于修改提示信息！
+        13）highlight(默认值: 添加errorClass到验证失败的表单控件)
+            类型：Type: Function(element, errorClass, validClass)
+            说明：传入的函数会在每个控件验证不通过时执行，我们可以通过这个配置属性，给不通过的控件加写效果
+            函数参数：
+                    element：当前未通过验证的控件DOM元素对象
+                    errorClass：错误时给错误提示标签的css类名称
+                    validClass：validClass属性的当前值
+        14）unhighlight(默认值: 移除验证失败控件的errorClass)
+            重点：验证通过的表单控件上！
+        15）debug (默认值: false)
+            类型: Boolean
+            设置为true之后则表单不会真正的提交，仅仅是验证！
+            使用方法以及参数同上，作用相反
+        16）ignore (默认值: ":hidden")
+            类型：Selector
+            说明：忽略某些元素不验证
+    2、内置的验证规则
+        1）required
+             说明：必须输入的字段
+             使用：required:true
+             如果这个标签只有这一条验证规则那么可以这么写：
+             name属性值:'required'
+        2）minlength
+             说明：最小字符长度
+             使用：minlength:数字
+        3）maxlength
+             说明：最大字符长度
+             使用：maxlength:数字
+        4）rangelength
+             说明：字符长度必须介于某个区间
+             使用：rangelength:[5,10]
+        5）min
+             说明：输入值被允许的最小值
+             使用：min：5
+        6）max
+             说明：输入值被允许的最大值
+             使用：max：10
+        7）range
+             说明：输入值必须介于某个区间
+             使用：range：[5,10]
+        8）number
+             说明：必须输入合法的数字
+             使用：number:true
+        9）digits
+             说明：必须输入整数
+             使用：digits:true
+        10）email
+               说明：必须输入正确格式的电子邮件
+               使用：email:true
+        11）url
+               说明：必须输入正确格式的网址
+               使用：url:true
+        12）equalTo
+               说明：输入值必须和给定选择器的字段的值相同
+               使用：equalTo:"选择器"
+        13）remote
+               使用 ajax 方法调用 服务器端脚本 验证输入值
+               使用：remote:"服务器端脚本"
+               比如：remote:"check.php"
+               默认会提交当前验证的值到远程地址，如果需要提交其他的值，可以使用 data 选项
+               remote: {
+                             url: "check-email.php",
+                             type: "post",
+                             data: {
+                                      username:'sunshengli'
+                              }
+               }
+               参数与值与$.ajax方法相同
+        还有一些验证规则需要引入additional-methods.min.js，这个里面添加了很多验证规则，其中有很多我们几乎用不到，我们挑一个
+        可能会用到的讲一下！
+        14）extension
+               限定能是限定的后缀名,多个用|分隔
+        PS：验证规则也可以作为标签的属性直接写在对应的控件里！
+三、Validator对象
+    1、介绍
+        validate方法返回一个 Validator 对象，我们可以称这个对象为Validator对象
+    2、使用
+        Validator对象常用方法
+            Validator.form()
+                返回：Boolean
+                验证 form 返回成功还是失败
+            Validator.element()
+                返回：Boolean
+                验证单个元素是成功还是失败
+            Validator.resetForm()
+                把前面验证的 FORM 恢复到验证前原来的状态
+            Validator.showErrors()
+                显示特定的错误信息
+            Validator.numberOfInvalids()
+                返回验证不通过的字段数
+        静态方法
+            $.validator.setDefaults()
+                改变默认的设置
+            $.validator.addClassRules()
+                增加组合验证类型，可以在一个css类里面用多种验证规则
+            $.validator.format()
+                用参数代替模板中的 {n}
+            $.validator.addMethod()
+                添加一个新的验证方法
+四、rules()方法
+    1、介绍
+        说明：查看、新增、移除一个表单控件的验证规则
+    2、使用
+        表单控件.rules();
+        参数：
+            rules()
+                返回元素的验证规则
+            rules("add",rules)
+                增加验证规则
+            rules("remove",rules)
+                删除验证规则
+                多个验证规则用空格隔开
+五、valid()方法
+    1、介绍
+        说明：检查表单是否验证通过
+    2、使用
+        表单jQuery对象.valid()
+六、jQuery Validation提供的选择器
+    1、增加的选择器
+        这个插件还提供了几个选择器
+        :blank
+          选择所有没有值或者值为空白的表单控件
+        :filled
+          选择所有填写了非空值的表单控件
+        :unchecked
+          与jQuery提供的:checked选择器相反
+七、综合案例
+
+
+
+
+
+
