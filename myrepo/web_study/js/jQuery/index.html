@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>JQuery-validation demo | Bootstrap</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<meta charset="UTF-8">
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 	<script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="./jquery.validate.min.js"></script>
 	<script type="text/javascript" src="./messages_zh.min.js"></script>
@@ -190,25 +191,25 @@
 					},
 					agree: "required"
 				},
-				messages: {
-					firstname: "Please enter your firstname",
-					lastname: "Please enter your lastname",
-					username: {
-						required: "Please enter a username",
-						minlength: "Your username must consist of at least 2 characters"
-					},
-					password: {
-						required: "Please provide a password",
-						minlength: "Your password must be at least 5 characters long"
-					},
-					confirm_password: {
-						required: "Please provide a password",
-						minlength: "Your password must be at least 5 characters long",
-						equalTo: "Please enter the same password as above"
-					},
-					email: "Please enter a valid email address",
-					agree: "Please accept our policy"
-				},
+				// messages: {
+				// 	firstname: "Please enter your firstname",
+				// 	lastname: "Please enter your lastname",
+				// 	username: {
+				// 		required: "Please enter a username",
+				// 		minlength: "Your username must consist of at least 2 characters"
+				// 	},
+				// 	password: {
+				// 		required: "Please provide a password",
+				// 		minlength: "Your password must be at least 5 characters long"
+				// 	},
+				// 	confirm_password: {
+				// 		required: "Please provide a password",
+				// 		minlength: "Your password must be at least 5 characters long",
+				// 		equalTo: "Please enter the same password as above"
+				// 	},
+				// 	email: "Please enter a valid email address",
+				// 	agree: "Please accept our policy"
+				// },
 				errorElement: "em",
 				errorPlacement: function ( error, element ) {
 					// Add the `help-block` class to the error element
