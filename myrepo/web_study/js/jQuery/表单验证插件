@@ -229,7 +229,6 @@ PS:一句话，jQuery插件就是别人依照jQuery官方规范写好的各种�
           选择所有填写了非空值的表单控件
         :unchecked
           与jQuery提供的:checked选择器相反
-七、综合案例
 
 
 
