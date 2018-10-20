@@ -1,0 +1,30 @@
+第十一章：jQuery常用插件(二) - 表单提交插件
+一、jQuery Form插件概述
+    1、介绍
+        jQuery Form插件是一款强大的Ajax表单提交插件，可以简单方便的实现让我们的表单由传统的提交方式转换成Ajax无刷新提交！
+        它提供了两个核心的方法ajaxForm以及ajaxSubmit让我们方便的实现无刷新提交表单！
+        网址：http://jquery.malsup.com/form/
+    2、快速入门
+        1、引入插件
+             <script type="text/javascript" src="js/jqueryform/jquery.form.min.js"></script>
+        2、将表单由传统提交方式转换为Ajax提交方式
+             jQuery表单对象.ajaxForm();
+二、核心方法
+    1、ajaxForm()方法
+    2、ajaxSubmit()方法
+        立即通过ajax方式提交表单，参数同上！
+三、其他方法
+    1、formSerialize()方法
+        将表单序列化
+    2、fieldSerialize()方法
+        将表单中的某些控件序列化
+    3、fieldValue()方法
+        获取表单中某些控件的值（数组形式）
+    4、resetForm()方法
+        重置表单至初始状态
+    5、clearForm()方法
+        清空表单数据
+    6、clearFields()方法
+        清空表单中的某些字段
+
+
