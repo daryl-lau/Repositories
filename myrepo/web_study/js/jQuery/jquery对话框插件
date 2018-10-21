@@ -91,10 +91,10 @@
                2>使用iframe加载内容
                     source: {
                iframe: {
-                                          src: 'http://sifangku.com',
-                                          width:480,
-                                          height:320,
-                                          scrolling:'no'
+                  src: 'http://sifangku.com',
+                  width:480,
+                  height:320,
+                  scrolling:'no'
                }
                     }
                3>使用已有元素的jQuery对象
