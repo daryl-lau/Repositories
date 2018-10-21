@@ -1,0 +1,190 @@
+第十一章：jQuery常用插件（三）- 自动完成插件
+一、Ajax AutoComplete for jQuery插件概述
+    1、介绍
+        Ajax AutoComplete for jQuery插件，我们直接简称为AutoComplete插件，通过它我们可以轻松地实现自动完成功能！
+        网址：https://www.devbridge.com/sourcery/components/jquery-autocomplete/
+    2、快速入门
+        1、引入插件
+             <script type="text/javascript" src="js/jqueryautocomplete/jquery.autocomplete.min.js"></script>
+        2、引入css样式
+             <link rel="stylesheet" type="text/css" href="js/jqueryautocomplete/styles.css" />
+        3、设置自动提示的数据
+             var data=['孙胜利','私房库'];
+        4、使用插件
+             $('#autocomplete').autocomplete({lookup: data});
+二、具体使用
+    1、autocomplete()方法
+        $(selector).autocomplete(配置对象);
+        配置属性：
+        1）lookup
+         类型：字符串数组或者对象数组
+         说明：使用本地的数据
+         注：如果是对象数组则提示的信息使用value属性来指定，对象的其他成员随便设置
+         案例：
+                   var data=['孙胜利','私房库'];
+         或者标准的格式应该是下面这样：
+                   var data=[
+                                       {value:'孙胜利',data:'sunshengli'},
+                                       {value:'私房库',data:'http://sifangku.com'}
+                   ];
+         PS:对象内还可以添加其他各种各样需要的数据！
+        2）onSelect
+            类型：function (suggestion) {}
+            说明：用户从提示信息中选择时执行的回调函数，回调函数内部的this代码当前的input控件
+            函数参数说明：
+                      suggestion：具体选择的数据
+        3）minChars
+            类型：数字
+            说明：最少输入几个字符时进行自动提示
+            默认：1
+        4）lookupLimit
+            类型：数字
+            说明：本地数据显示的最大条数
+            默认：没有限制
+        5）lookupFilter
+            类型：函数function (suggestion, query, queryLowerCase) {}
+            说明：当使用本地数据时会执行这个函数来过滤本地的数据,有多少条数据这个函数就执行多少次，如果需要展示这个数据则return即可
+            函数的参数说明：
+                      suggestion：每次执行该函数时，传入该函数的当前循环到的提示信息(对象形式)
+                      query：用户填写的查询数据
+                      queryLowerCase：用户填写的查询数据（转换为小写字母）
+        6）width
+            类型：字符串或者数字
+            说明：提示信息所在容器的宽度
+            默认：auto
+        7）maxHeight
+            类型：数字
+            说明：建议容器的最大高度
+            默认：300
+        8）zIndex
+            类型：数字
+            说明：自动提示的容器的'z-index'值
+            默认：9999
+        9）orientation
+            类型：字符串
+            说明：提示信息容器的位置
+            可传值：bottom、auto、top
+            默认：bottom
+        10）appendTo
+            类型：jQuery对象，DOM对象，选择器
+            说明：提示信息容器appendTo的位置
+            默认：直接appendTo body中
+        11）serviceUrl
+            类型：字符串或回调函数
+            说明：服务器端url地址，如果是函数则在函数内部返回服务器端的url地址即可，如果使用本地数据则省略本参数即可
+            注意：服务器端返回数据需符合以下格式
+                      {
+                                            "suggestions": ["sunshengli","sifangku"]
+                      }或者
+                      {
+                                            "suggestions": [{"value":"sunshengli","data":"..."},{"value":"sifangku","data":"..."}]
+                      }
+        12）type
+            类型：字符串
+            说明：ajax请求的方式
+            默认：get
+        13）paramName
+                类型：字符串
+                说明：将用户填写的数据发送给服务器时使用的名称
+                默认：query
+        14）params
+            类型：对象
+            说明：附加的参数传给请求的地址
+        15）deferRequestBy
+                类型：数字
+                说明：延迟Ajax请求的毫秒数
+                默认：0
+        16）noCache
+                类型：布尔值
+                说明：是否不缓存自动提示的数据，如果设置为true则不会对数据进行缓存，那么用户输入相同查询内容的时候也会对服务器发起请求
+                默认：false
+        17）ajaxSettings
+            类型：对象
+            说明：所有的$.ajax方法可以传的配置参数都可以传给该属性
+        18）groupBy
+            类型：字符串
+            说明：提示信息按照指定属性的值进行分组
+            groupBy: 'category'
+            var data=[
+                        {value:'无锡',data:{'category':'江苏'}},
+                        {value:'盐城',data:{'category':'江苏'}},
+                        {value:'杭州',data:{'category':'浙江'}}
+            ];
+        19）onSearchStart
+            类型：function (query) {}
+            说明：Ajax请求之前调用该函数，函数内部this代表当前输入框
+            函数的参数说明：
+                        query：用户填写的查询数据
+        20）onSearchComplete
+               类型：function (query, suggestions) {}
+               说明：ajax完成后执行的函数，函数内部this代表当前输入框
+               函数的参数说明：
+                           query：用户填写的查询数据
+                           suggestions：服务器返回的suggestions数据
+        21）onSearchError
+               类型：function (query, jqXHR, textStatus, errorThrown) {}
+               说明：ajax请求失败时执行的函数，函数内部this代表当前输入框
+               函数的参数说明：
+                           query：用户填写的查询数据
+                           jqXHR：jqXHR对象
+                           textStatus：文字状态说明，比如：error
+                           errorThrown：具体的错误，比如：Not Found
+        22）onInvalidateSelection
+               类型：function () {}
+               说明：当已经显示了提示数据时，用户修改输入的数据时执行
+               函数内部this代表当前输入框
+        23）beforeRender
+               类型：function (container) {}
+               说明：显示之前执行的函数，可以修改提示信息的容器
+        24）autoSelectFirst
+            类型：布尔值
+            说明：如果设置为true，显示信息提示时第一条数据将被选中
+            默认：false
+        25）showNoSuggestionNotice
+            类型：布尔值
+            说明：没有匹配数据时显示一个提示
+            默认：false
+        26）noSuggestionNotice
+            类型：普通字符串或者html字符串或者DOM对象或者jQuery对象
+            说明：没有匹配数据时给用户的提示信息
+            默认：No results
+        27）formatResult
+                类型：function (suggestion, currentValue) {}
+                说明：格式化返回的数据,有多少条数据，这个函数就执行多少次
+                函数参数说明：
+                            suggestion：当前执行时的提示数据
+                            currentValue：用户输入的查询的数据
+                格式化后的数据需要使用return返回
+    2、其他方法
+        使用下面这些方法只需作为参数传给autocomplete方法即可!
+        setOptions(options):  可以在任何时候更改配置的选项
+            $('#autocomplete').autocomplete('setOptions',{minChars:1});
+        clear: 清除信息提示的缓存以及当前的信息提示
+            $('#autocomplete').autocomplete('clear');
+        clearCache: 清除信息提示的缓存.
+        disable: 禁用自动完成
+        enable: 启用自动完成
+        hide: 隐藏自动完成
+        dispose: 销毁自动完成（移除相关事件以及相关元素）
+            $('#autocomplete').autocomplete('dispose');
+    3、修改CSS样式
+        .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+        .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+        .autocomplete-selected { background: #F0F0F0; }
+        .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+        .autocomplete-group { padding: 2px 5px; }
+        .autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+PS:课后作业，完成土豆搜索，蜡笔小新的时候显示的自动提示功能
+    提示：formatResult
+    实际情况下，我们的提示数据都是重服务器端获取的！
+
+
+
+
+
+
+
+
+
+
+

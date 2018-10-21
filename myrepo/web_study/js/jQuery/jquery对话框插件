@@ -1,0 +1,144 @@
+第十一章：jQuery常用插件（六）- 对话框插件
+一、Zebra_Dialog插件概述
+    1、介绍
+        Zebra_Dialog是一个轻量级的对话框插件！
+        特点:
+                漂亮、使用方便，自带两个主题界面
+                包含5种类型的对话框:确认,信息、警告、错误和问题
+                也可以添加通过AJAX调用的内容,框架,等
+                通过编辑CSS(层叠样式表)文件轻松定制外观
+                创建模态对话框和非模态对话框（是否垄断用户的其他操作）
+                轻松添加自定义按钮
+                对话框的位置可以轻松修改
+                可以使用回调函数来处理用户的选择
+                优秀的浏览器兼容性(Firefox、Opera,Safari,Chrome,Internet Explorer 6 +)
+        网址：http://stefangabos.ro/jquery/zebra-dialog/
+    2、快速入门
+        <script type="text/javascript" src="js/zebra_dialog/javascript/zebra_dialog.js"></script>
+        <link rel="stylesheet" type="text/css" href="js/zebra_dialog/css/flat/zebra_dialog.css" />
+        $.Zebra_Dialog('您好!');
+二、具体使用
+    $.Zebra_Dialog(配置对象);
+        配置属性：
+        1）title
+               类型：字符串
+               说明：对话框的标题
+               默认：空字符串
+        2）message
+             类型：字符串
+             说明：对话框中的消息
+        3）width
+               类型：int
+               说明：默认情况下,对话框的宽度由CSS文件设定。在运行时使用这个属性来覆盖css文件中的设定
+        4）max_height
+             类型：int
+             说明：最大的高度,以像素为单位,在滚动对话框中的内容,如果设置为0,对话框的高度会自动调整以适应整个内容
+             默认：0
+        5）modal
+             类型：布尔
+             说明：当该值设置成真时将会有一个半透明叠加在对话框,防止用户点击页面的内容
+             默认：true
+        6）overlay_opacity
+             类型：数字
+             说明：遮罩的不透明度(在0和1之间)
+             默认：0.9
+        7）overlay_close
+             类型：布尔值
+             说明：单击遮罩时是否关闭窗口
+             默认：true
+        8）show_close_button
+             类型：布尔值
+             说明：当设置为true时,一个“关闭”按钮(小“x”)将显示在对话框的右上角
+             默认：true
+        9）type
+             类型：字符串或false
+             说明：对话框类型
+             可能的值：
+                           'confirmation'
+                           'error'
+                           'information'
+                           'question'
+                           'warning'
+                           false
+             默认：'information'
+        10）buttons
+               类型：布尔值或者字符串数组或者对象数组
+               说明：
+           布尔值true表示使用默认的按钮
+           布尔值false表示不使用按钮
+           数组表示自定义按钮
+               举例：
+            ['按钮1', '按钮2']或者：
+            [
+            {caption: '按钮1', callback: function() { return false;// 回调函数内return false表示点击时不关闭窗口 }},
+            {caption:'按钮2', callback: function() { // code }}
+            ]
+                        回调函数可以接受一个参数，是对话框的jQuery对象
+        11）source
+               类型：对象
+               说明：使用AJAX，iFrame或已有元素的jQuery对象，的内容作为窗口的内容
+               默认：false
+               举例：
+               1>ajax加载内容
+                                   source: {ajax: 'test.html'}
+                   或者：
+                                   source: {
+                   ajax: {
+                                                   url: 'test.html',
+                                                   cache: false
+                   }
+                                   }
+               2>使用iframe加载内容
+                    source: {
+               iframe: {
+                                          src: 'http://sifangku.com',
+                                          width:480,
+                                          height:320,
+                                          scrolling:'no'
+               }
+                    }
+               3>使用已有元素的jQuery对象
+                    source: {inline: $('#myelement')}
+        12）onClose
+               类型：函数
+               说明：对话框关闭后发生这个事件，我们可以绑定处理函数
+               函数参数：被点击按钮的文字
+        13）animation_speed_hide
+               类型：int
+               说明：隐藏对话框时的花费时间
+               默认：250
+        14）animation_speed_show
+               类型：int
+               说明：显示对话框时的花费时间
+               默认：0
+        15）auto_close
+               类型：int或者false
+               说明：多少毫秒之后自动关闭对话框
+               默认：false
+        16）center_buttons
+               类型：布尔
+               说明：这个属性设置为true指示插件中心任何可用的按钮,而不是向右浮动
+               默认：false
+        17）custom_class
+               类型：字符串
+               说明：添加到对话框容器的一个css类
+               默认：false
+        18）position
+               类型：字符串
+               说明： 窗口的位置，特殊的值left，center，right，top，middle，bottom。可在这些值的基础上任意加减
+               默认： ['center', 'middle']
+        19）reposition_speed
+               类型：int
+               说明：动画的时间(以毫秒为单位)用于定位对话框以适应浏览器窗口的大小
+               默认：100
+        20）vcenter_short_message
+               类型：布尔值
+               说明：短消息应该垂直集中吗
+               默认：true
+        21）keyboard
+               类型：布尔值
+               说明：当设置为true时,按ESC键将关闭对话框
+               默认：true
+    2、公共方法
+        close
+        调用这个方法手动关闭对话框
