@@ -1,0 +1,58 @@
+第十一章：jQuery常用插件（八）- 图片裁剪插件
+    1、我们浏览网页所看到的图片是存放在远程的服务器上的，而我们的js（或者jQuery）是运行在客户端的浏览器上面的！
+    2、就算就是客户端的图片，也不能够通过js去直接裁剪！
+图片剪切插件所做的工作是提供一个良好的用户体验帮助我们用户选择所需要的裁剪区域，具体的裁剪工作是放在服务器端完成的！
+
+一、Jcrop插件概述
+    1、介绍
+        Jcrop是一个简单强大的jQuery的图像裁剪插件！
+        网址：http://deepliquid.com/content/Jcrop.html
+    2、快速入门
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.Jcrop.min.js"></script>
+        <link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+        <img src="flowers.jpg" id="target" />
+        <script language="Javascript">
+        $(function(){
+          $('#target').Jcrop();
+        });
+        </script>
+二、具体使用
+    1、常用设置选项
+        1）aspectRatio
+                 decimal	长宽比w/h
+        2）minSize
+                 array [ w, h ]
+                 最小宽度/高度,使用0无限制
+        3）maxSize
+                 array [ w, h ]
+                 最大宽度/高度,使用0无限制
+        4）setSelect
+                 array [ x, y, x2, y2 ]
+                 设置一个初始选择区
+        5）bgColor
+                 color value
+                 设置背景颜色的容器
+                 默认：'black'
+        6）bgOpacity
+                 decimal 0 - 1
+                 默认：0.6
+        7）boxWidth
+                 整数
+                 图片缩小到的宽度(默认值:0,没有限制)
+        8）boxHeight
+                 整数
+                 图片缩小到的高度(默认值:0,没有限制)
+        PS：在测试时IE调试工具内的IE7可能会有浏览器假死的问题，解决：keySupport:false
+        还有一些不常用的配置属性，这边不做介绍，大家可以自行搜索！
+    2、事件处理程序
+        onSelect(p)	回调	当选择完成
+        onChange(p)	回调	选择时调用
+        onRelease	回调	当选择释放
+课后作业：
+    真正的完成图片裁剪的功能！
+    只需要将我们的代码放在web目录里面，将客户端得到的裁剪的图片的区域坐标信息传送给服务器端
+    服务器端那边比如PHP，通过GD库提供的函数，根据提供的坐标信息，将图片进行真正的裁剪！
+
+
+

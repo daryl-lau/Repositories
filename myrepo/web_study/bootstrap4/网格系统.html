@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/jQuery/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <title>bootstrap4</title>
+</head>
+<style>
+    .bgc1 {
+        background-color: #4e555b;
+        height: 50px;
+    }
+    .bgc2 {
+        background-color: #7BA7AB;
+        height: 50px;
+    }
+    .bgc3 {
+        background-color: #683B4D;
+        height: 50px;
+    }
+</style>
+<body>
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <img src="./imgs/img1.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <img src="./imgs/img2.png" alt="" class="img-fluid">
+            </div>
+            <!--<div class="w-100"></div>-->
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <img src="./imgs/img3.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <img src="./imgs/img4.jpg" alt="" class="img-fluid img-thumbnail">
+            </div>
+        </div>
+    </div>
+<!--
+    .col-       <  576px
+    .col-sm     >= 576px
+    .col-md     >= 768px
+    .col-lg     >= 992px
+    .col-xl     >= 1200px
+    规定div在不同尺寸下栅的尺寸,如果col不指明个数，将会自适应
+
+    .img-fluid          将图片改变成为响应式的
+    .img-thumbnail      缩略图
+    .no-gutters         去掉图片中间的空白
+    .container          容器左右会留白，且只有到尺寸断点的时候才会响应式
+    .container-fluid    全屏填充，会时时响应式
+    .w-100              切断换行
+-->
+
+    <h3></h3>
+
+    <div class="container-fluid" >
+        <div class="row align-items-start" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-4 bgc1">col-4</div>
+            <div class="col-4 bgc2">col-4</div>
+            <div class="col-4 bgc3">col-4</div>
+        </div>
+    </div>
+    <h3></h3>
+    <div class="container-fluid" >
+        <div class="row align-items-center" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-4 bgc1">col-4</div>
+            <div class="col-4 bgc2">col-4</div>
+            <div class="col-4 bgc3">col-4</div>
+        </div>
+    </div>
+    <h3></h3>
+    <div class="container-fluid" >
+        <div class="row align-items-end" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-4 bgc1">col-4</div>
+            <div class="col-4 bgc2">col-4</div>
+            <div class="col-4 bgc3">col-4</div>
+        </div>
+    </div>
+<!--
+    .align-items-start      布局在顶部
+    .align-items-center     布局在中间
+    .align-items-end        布局在底部
+    注意：需要给row上加上高度，否则没有效果，在外面包一层div给高度，这样是不行的，必须在row上给
+-->
+
+
+    <h3></h3>
+    <div class="container-fluid" >
+        <div class="row" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-4 bgc1 align-self-start">col-4</div>
+            <div class="col-4 bgc2 align-self-center">col-4</div>
+            <div class="col-4 bgc3 align-self-end">col-4</div>
+        </div>
+    </div>
+<!--
+    .align-self-start       每个col自身的位置，顶部
+    .align-self-center      每个col自身的位置，中间
+    .align-self-end         每个col自身的位置，底部
+    注意：是给col添加，而不是row
+-->
+
+    <div class="container-fluid" >
+        <div class="row justify-content-start" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-4 bgc1">col-4</div>
+            <div class="col-4 bgc2">col-4</div>
+        </div>
+    </div>
+
+    <div class="container-fluid" >
+        <div class="row justify-content-center" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-4 bgc1">col-4</div>
+            <div class="col-4 bgc2">col-4</div>
+        </div>
+    </div>
+
+    <div class="container-fluid" >
+        <div class="row justify-content-end" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-4 bgc1">col-4</div>
+            <div class="col-4 bgc2">col-4</div>
+        </div>
+    </div>
+
+    <div class="container-fluid" >
+        <div class="row justify-content-around" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-4 bgc1">col-4</div>
+            <div class="col-4 bgc2">col-4</div>
+        </div>
+    </div>
+
+    <div class="container-fluid" >
+        <div class="row justify-content-between" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-3 bgc1">col-3</div>
+            <div class="col-3 bgc2">col-3</div>
+            <div class="col-3 bgc3">col-3</div>
+        </div>
+    </div>
+<!--
+    .justify-content-start      当col长度不满足12时，可以指定col的位置，start位于头部
+    .justify-content-center     当col长度不满足12时，可以指定col的位置，center位于中间
+    .justify-content-end        当col长度不满足12时，可以指定col的位置，end位于尾部
+    .justify-content-around     当col长度不满足12时，可以指定col的位置，around表示各个col分别居中
+    .justify-content-between    当col长度不满足12时，可以指定col的位置，between表示两头顶开，中间居中
+-->
+
+    <div class="container-fluid" >
+        <div class="row" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-3 bgc1 ml-md-2 ml-lg-3 ml-xl-auto">col-3</div>
+        </div>
+        <div class="row" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-3 bgc2 mr-md-2 mr-lg-3 mr-xl-auto">col-3</div>
+        </div>
+
+        <div class="row" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-3 bgc1 ml-md-2 ml-lg-3 ml-xl-auto">col-3</div>
+            <div class="col-3 bgc2 ml-md-2 ml-lg-3 ml-xl-auto">col-3</div>
+        </div>
+        <div class="row" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-3 bgc1 mr-md-2 mr-lg-3 mr-xl-auto">col-3</div>
+            <div class="col-3 bgc2 mr-md-2 mr-lg-3 mr-xl-auto">col-3</div>
+        </div>
+    </div>
+<!--
+    .ml(-sm, -md, -lg, -xl)-auto    margin left，左边留白，自适应，
+    .mr(-sm, -md, -lg, -xl)-auto    margin right，右边留白，自适应
+    .ml(-sm, -md, -lg, -xl)-[1-5]   margin left，左边留白，1-5个宽度，没有固定宽度，自适应，1个大概5px左右
+    .mr(-sm, -md, -lg, -xl)-[1-5]   margin right，右边留白，1-5个宽度，没有固定宽度，自适应，1个大概5px左右
+-->
+
+    <div class="container-fluid" >
+        <div class="row" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-3 bgc1 offset-1">offset-1</div>
+        </div>
+        <div class="row" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-3 bgc2 offset-3">offset-3</div>
+        </div>
+
+        <div class="row" style="height: 150px; background-color: #eeeeee;">
+            <div class="col-3 bgc1 offset-md-1 offset-lg-2">col-3</div>
+            <div class="col-3 bgc2 offset-md-1 offset-lg-2">col-3</div>
+        </div>
+    </div>
+<!--
+    offset偏移量，可以根据不同的尺寸定义不同的偏移量
+-->
+
+</body>
+</html>
