@@ -11,11 +11,13 @@
     <title>bootstrap4</title>
 </head>
 <body>
-    <img src="./imgs/img7.jpg" class="rounded float-left img-fluid" alt="...">
-    <img src="./imgs/img8.jpg" class="rounded float-right img-fluid" alt="...">
-    <img src="./imgs/img8.jpg" class="rounded img-fluid mx-auto d-block" alt="...">
-<!--
-    image居中需要加上d-block将其变成块级元素，在使用mx-auto居中
--->
+    <!--
+        figure可以在元素下方添加一个描述信息
+    -->
+    <figure class="figure">
+        <img src="./imgs/img1.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+        <!--<div style="width: 400px; height: 400px; background-color: #e83e8c;">3123</div>-->
+    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+</figure>
 </body>
 </html>
