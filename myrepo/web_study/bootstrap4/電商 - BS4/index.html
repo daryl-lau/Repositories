@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- fontawesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- 自訂義 CSS -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- 導覽列開始 -->
+    <div class="header-area">
+      <div class="header-top d-none d-sm-block">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="header-default">
+                <p>您好，歡迎光臨諾浩家具購物網站!</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="header-user-info">
+                <a href="#">
+                  <i class="fa fa-user"></i>
+                  我的帳戶
+                </a>
+                <a href="#">
+                  <i class="fa fa-heart"></i>
+                  願望清單
+                </a>
+                <a href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-unlock-alt"></i>
+                  會員登入
+                </a>
+                <div class="dropdown-menu">
+                  <form class="px-4 py-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">帳號</label>
+                      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleDropdownFormPassword1">密碼</label>
+                      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">
+                        記住我
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">登入</button>
+                  </form>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">新會員註冊</a>
+                  <a class="dropdown-item" href="#">忘記密碼</a>
+                </div>
+
+                <a href="#">
+                  <i class="fa fa-share-square-o"></i>
+                  會員登出
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 order-2 order-sm-1">
+              <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand header-logo" href="#"><img src="images/logo.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto text-nowrap">
+                    <li>
+                    <div class="input-group d-flex d-sm-none">
+                      <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                      <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                      </span>
+                    </div> 
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">臥室</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        客廳
+                      </a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">沙發</a>
+                        <a class="dropdown-item" href="#">桌子</a>
+                        <a class="dropdown-item" href="#">擺飾</a>
+                      </div>                      
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">燈光</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">家飾</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">聯繫</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>              
+            </div>
+            <div class="col-md-2 order-1 order-sm-2 text-center">
+              <ul class="header-bottom-right-inner">
+                <li class="d-none d-sm-inline-block">
+                  <a href="#" class="cart-toggler search-icon">
+                    <i class="fa fa-search"></i>
+                  </a>
+                  <div class="header-bottom-search">
+                    <form class="search-box" action="#" method="post">
+                      <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                            
+                          </span>
+                      </div>                      
+                    </form>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="cart-toggler mini-cart-icon">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>2</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 導覽列結束 -->
+
+    <!-- 輪播開始 -->
+    <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="images/banner-1.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+        <div class="embed-responsive embed-responsive-21by9" style="height: 598px;">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+        </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="images/banner-3.jpg" alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- 輪播結束 -->
+
+    <!-- 服務說明開始 -->
+    <section class="service d-none d-sm-block">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="single-item border border-info rounded">
+              <i class="fa fa-truck fa-4"></i>
+              <h4>免費運送</h4>
+              <p  class="text-primary">訂購產品直達你家</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="single-item border border-info rounded">
+              <i class="fa fa-refresh fa-4"></i>
+              <h4>免費退貨</h4>
+              <p>30天以內保證退貨</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="single-item border border-info rounded">
+              <i class="fa fa-clock-o fa-4"></i>
+              <h4>全年無休</h4>
+              <p>24小時線上營運</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- 服務說明結束 -->
+
+
+    <!-- 特色商品開始 -->
+    <section class="featured">
+      <div class="container">
+        <div class="section-title mt-5">
+          <h4>特色商品</h4>
+        </div>
+        <div class="row justify-content-center">
+          <div class="card-deck">
+            <div class="card my-2">
+              <a href="#foo" data-toggle="modal">
+                <img class="card-img-top" src="images/features-p1.jpg" alt="Card image cap">
+              </a>
+              <div class="card-body">
+                <h4 class="card-title">EKTORP 扶手椅 <span class="badge badge-pill badge-primary">新品</span></h4>
+                <div class="rating-icon float-left">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="float-right">
+                  <span class="new-price">NT 3000</span>
+                </div>
+              </div>
+            </div>
+            <div class="card my-2">
+              <img class="card-img-top" src="images/features-p2.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">NORRNÄS 餐椅</h4>
+                <div class="rating-icon float-left">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="float-right">
+                  <span class="new-price">NT 3000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="card my-2">
+              <img class="card-img-top" src="images/features-p3.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">VOLFGANG 餐椅 <span class="badge badge-pill badge-danger">促銷</span></h4>
+                <div class="rating-icon float-left">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="float-right">
+                  <span class="new-price">NT 3000</span>
+                </div>                
+              </div>
+            </div>
+            <div class="card my-2">
+              <img class="card-img-top" src="images/features-p4.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">HARRY 餐椅</h4>
+                <div class="rating-icon float-left">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="float-right">
+                  <span class="new-price">NT 3000</span>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+        
+      </div>
+    </section>
+    <!-- 特色商品結束 -->
+
+
+    <!-- 推薦商品開始 -->
+    <section class="recommend clearfix" style="background-color: #A1A1A1;">
+      <div class="container">
+        <div class="section-title mt-5 pt-3">
+          <h4>推薦商品</h4>
+        </div>
+        <div class="ad float-sm-none float-md-left">
+          <a href="#">
+            <img src="images/ad-1.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+        <div class="space"></div>
+        <div class="ad float-sm-none float-md-left">
+          <a href="#">
+            <img src="images/ad-2.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+        <div class="space"></div>
+        <div class="ad float-sm-none float-md-left">
+          <a href="#">
+            <img src="images/ad-3.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 推薦商品結束 -->
+
+    <!-- 商品分類區域開始 -->
+    <section class="category-area mt-5 d-none d-sm-block">
+      <div class="container">
+          <ul class="nav nav-pills mb-3 nav-fill pb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="pill" id="pills-home-tab" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">臥室</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" id="pills-profile-tab" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">燈光</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" id="pills-contact-tab" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">客廳</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <div class="row">
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/bedroom-1.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/bedroom-2.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/bedroom-3.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <div class="row">
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/light-1.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/light-2.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/light-3.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+              <div class="row">
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/livingroom-1.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/livingroom-2.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6"><img src="images/livingroom-3.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-6">
+                      <h6>EKTORP 扶手椅</h6>
+                      <div class="rating-icon">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <p class="category-price">NT 3000</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>    
+      </div>
+    </section>
+
+    <!-- 商品分類區域結束 -->
+
+
+    <!-- 新品上市訂閱區域開始 -->
+    <section class="news-letter">
+      <div class="container">
+        <div class="section-title mt-5">
+          <h4>新品型錄</h4>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-7">
+            <a href="#">
+              <h3 class="text-hide online-catalog">線上型錄</h3>
+              <h3 class="sr-only sr-only-focusable">線上型錄</h3>
+              <img src="images/news.jpg" alt="" class="img-fluid">
+            </a>
+          </div>
+          <div class="col-12 col-sm-5">
+            <div class="letter-box">
+                <div class="letter-title">
+                    <h4>訂閱電子報</h4>
+                    <i class="fa fa-envelope-o"></i>
+                </div>
+                <p>想要收到即時最新商品訊息，快來訂閱我們的線上型錄吧！</p>
+                <form class="search-box" action="#" method="POST">
+                  <input type="text" name="s" id="search-letter" placeholder="請輸入電子郵件">
+                  <button type="button" id="search-letter-btn" class="btn btn-search">
+                    <i class="fa fa-paper-plane-o"></i>
+                  </button>
+                </form>
+                <div class="alert alert-success" role="alert" id="myAlert" style="display: none;">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="alert-heading">Well done!</h4>
+                  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                  <hr>
+                  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                </div>
+
+            </div>            
+          </div>          
+        </div>        
+      </div>
+    </section>
+    <!-- 新品上市訂閱區域結束 -->
+
+    <!-- 合作品牌區域開始 -->
+    <section class="brand-area p-5 d-none d-sm-block">
+      <div class="container">
+        <div class="row">               
+          <div class="col-2">
+            <a href="http://bootexperts.com/"><img src="images/brand-1.jpg" alt=""></a>
+          </div>
+          <div class="col-2">
+            <a href="http://bootexperts.com/"><img src="images/brand-2.jpg" alt=""></a>
+          </div>
+          <div class="col-2">
+            <a href="http://bootexperts.com/"><img src="images/brand-3.jpg" alt=""></a>
+          </div>
+          <div class="col-2">
+            <a href="http://bootexperts.com/"><img src="images/brand-4.jpg" alt=""></a>
+          </div>
+          <div class="col-2">
+            <a href="http://bootexperts.com/"><img src="images/brand-5.jpg" alt=""></a>
+          </div>
+          <div class="col-2">
+            <a href="http://bootexperts.com/"><img src="images/brand-6.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </section>   
+    <!-- 合作品牌區域結束 -->
+
+    <!-- 底部區域開始 -->
+    <footer class="footer-area">
+      <!--Footer Top Area Start-->
+      <div class="footer-top section-padding2">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xs-12 col-sm-4 col-md-3">
+                      <div class="footer-top-menu">
+                          <h3 class="footer-widget-title">分類</h3>
+                          <ul class="toggle-footer">
+                              <li><a href="shop.html">臥室</a></li>
+                              <li><a href="shop.html">客廳</a></li>
+                              <li><a href="shop.html">燈光</a></li>
+                              <li><a href="shop.html">家飾</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 col-md-3">
+                      <div class="footer-top-menu">
+                          <h3 class="footer-widget-title">訊息</h3>
+                          <ul class="toggle-footer">
+                              <li><a href="shop.html">特價</a></li>
+                              <li><a href="shop.html">新產品</a></li>
+                              <li><a href="shop.html">最暢銷</a></li>
+                              <li><a href="shop.html">我們的商店</a></li>
+                              <li><a href="contact.html">聯繫我們</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 col-md-3">
+                      <div class="footer-top-menu">
+                          <h3 class="footer-widget-title">我的帳戶</h3>
+                          <ul class="toggle-footer">
+                              <li><a href="#">我的訂單</a></li>
+                              <li><a href="#">我的信用單</a></li>
+                              <li><a href="#">我的地址</a></li>
+                              <li><a href="#">我的個人訊息</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-3 col-md-3 hidden-sm">
+                      <div class="footer-top-menu">
+                          <h3 class="footer-widget-title">EXTRAS</h3>
+                          <ul class="toggle-footer">
+                              <li><a href="#">訂單與退貨</a></li>
+                              <li><a href="#">關鍵字搜索</a></li>
+                              <li><a href="#">進階搜索</a></li>
+                              <li><a href="#">關係企業</a></li>
+                              <li><a href="#">線上團購</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--Footer Top Area Start-->
+      <!--Footer Middle Area Start-->
+      <div class="footer-middle section-padding2">
+          <div class="container">
+              <div class="row">
+                  <div class="footer-border-right col-lg-5 col-md-5 col-sm-6 col-xs-12 ">
+                      <div class="footer-middle-content">
+                          <a href="index.html"><img src="images/logo-footer.png" alt=""></a>
+                          <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum。典型的非洲裔美國人;在iis qui facit中，我們使用了legentis。</p>
+                          <div class="social-icon">
+                              <ul>
+                                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                  <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                  <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                  <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                      <div class="contact-area">
+                        <h3 class="footer-widget-title">聯繫我們</h3>
+                        <div class="footer-info contact">
+                          <ul class="toggle-footer">
+                            <li>
+                              <i class="fa fa-map-marker"></i>
+                              100台北市中正區重慶南路一段122號
+                            </li>
+                            <li>
+                              <i class="fa fa-phone"></i>
+                              <p>電話：866-540-3229 <br>傳真：866-540-3229</p>
+                            </li>
+                            <li>
+                              <i class="fa fa-envelope-o"></i>
+                              電子郵件：admin@know-how.com.tw
+                            </li>
+                            <li>
+                              <i class="fa fa-globe"></i>
+                               網站：www.know-how.com.tw
+                            </li>
+                          </ul>               
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 hidden-sm">
+                      <div class="time-area">
+                          <h3 class="footer-widget-title">營業時間</h3>
+                          <ul class="toggle-footer">
+                              <li>
+                                  週一至週五：9：00-22：00
+                              </li>
+                              <li>
+                                  週六：10：00 至 24:00
+                              </li>
+                              <li>
+                                  週日：12：00 至 24:00
+                              </li>
+                          </ul>
+                          <div class="paypal">
+                              <img src="images/paypal.png" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--Footer Middle Area Start-->
+    </footer>
+    <!-- 底部區域結束 -->
+
+
+<!-- 商品詳細內容彈出視窗開始 -->
+<div class="modal fade product-detail-modal" id="foo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">商品介紹</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row d-flex justify-content-center justify-sm-content-start">
+            <div class="col-10 col-sm-6 mb-3">
+              <img src="images/features-p1-big.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-12  col-sm-6">
+              <div class="product-info">
+                  <h1>EKTORP 扶手椅 </h1>
+                  <p class="price">$132.00</p>
+                  <div class="quick-add-to-cart">
+                      <form method="post" class="cart">
+                          <input type="number" id="french-hens" value="3">
+                          <button class="single_add_to_cart_button" type="submit">Add to cart</button>
+                      </form>
+                  </div>
+                  <div class="quick-desc">
+                    <abbr title="attribute">商品尺寸</abbr><br>
+                    寬度: 145 公分
+                    <ul class="list-unstyled">
+                      <li>寬度: 145 公分</li>
+                      <li>深度: 72 公分</li>
+                      <li>高度: 72 公分</li>
+                      <li>支腳高度: 15 公分</li>
+                      <li>支腳高度: 15 公分</li>
+                      <li class="text-truncate">請點選「顯示存貨數量與貨架位置」了解如何取貨。敦北店與桃園店部分正常供貨之商品當日無法取貨，請至店內查看所需商品並洽服務人員訂購。價格和貨況以店內標示及實際庫存為準，網站資訊僅供參考。</li>
+                      <li class="text-truncate">
+                        <a href="#">運費說明</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="social-sharing">
+                      <div class="widget">
+                          <h3 class="widget-title-modal">分享這個商品</h3>
+                          <ul class="social-icons">
+                              <li><a target="_blank" title="Facebook" href="#" class="facebook social-icon"><i class="fa fa-facebook"></i></a></li>
+                              <li><a target="_blank" title="Twitter" href="#" class="twitter social-icon"><i class="fa fa-twitter"></i></a></li>
+                              <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="fa fa-pinterest"></i></a></li>
+                              <li><a target="_blank" title="Google +" href="#" class="gplus social-icon"><i class="fa fa-google-plus"></i></a></li>
+                              <li><a target="_blank" title="LinkedIn" href="#" class="linkedin social-icon"><i class="fa fa-linkedin"></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 商品詳細內容彈出視窗結束 -->
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+
+$("#search-letter-btn").click(function(){
+  console.log("ok");
+  if($("#search-letter").val().length === 0){
+    $("#myAlert").show();
+
+  }
+  setTimeout('$(".alert").alert("close");', 3000);
+
+})
+
+
+$('#myAlert').on('closed.bs.alert', function () {
+  // do something…
+  alert('OK');
+})
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,87 @@
+/*產品列表左欄*/
+
+.list-content a{
+    color: #009A86;
+}
+
+.list-content .widget-title {
+    background: #282828 none repeat scroll 0 0;
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.list-content .widget-title p {
+    margin: 0;
+}
+
+.list-content .left-widget-content {
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.list-content .widget {
+    margin-bottom: 15px;
+}
+
+.list-content h3.widget-subtitle {
+    color: #000000;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.list-content .enabled-filters {
+    background: #eeeeee none repeat scroll 0 0;
+    border-bottom: 1px dotted #cccccc;
+    padding: 5px 5px 25px;
+}
+
+.list-content .enabled-filters li {
+    padding: 3px 0;
+    color: #777777;
+    font-size: 14px;
+    font-weight: 500;
+    height: 100%;
+    line-height: 18px;
+}
+
+.list-content .widget-info li a {
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.list-content .left-widget-color {
+    border-top: 1px solid #eeeeee;
+    padding-top: 15px;
+}
+
+.list-content .left-widget-color .widget-info ul {
+    max-height: 150px;
+    overflow-x: auto;
+}
+.left-widget-price  input{
+    width: 100%
+}
+
+.banner-image a img {
+    width: 100%;
+}
+
+/*產品列表*/
+.list-content .btn-toolbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.list-content h4{
+    color: #404040;
+    font-size: 14px;
+
+}
