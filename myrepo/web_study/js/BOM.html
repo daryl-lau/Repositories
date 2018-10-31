@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS BOM</title>
+</head>
+<body>
+    <script>
+        //弹窗
+        alert("弹窗");
+
+        var result = confirm("是否执行？");  //返回的是bool值
+        alert(result);
+
+        var result1 = prompt("请输入内容：", "https://www/baidu.com"); //后面一个参数是指定默认值
+        alert(result1); //如果输入的是取消，则返回null
+
+        //地址栏
+        console.log(window.location);
+        // location.replace("https://www.baidu.com");
+
+
+        //前进后退
+        history.back();     //前进
+        history.forward();  //后退
+        history.go(-1);     //前进后退的次数，负数表示后退，证书表示前进
+
+        console.log(navigator); //浏览器信息，useragent
+        console.log(screen);    //窗口大小
+
+        console.log(window.width)
+    </script>
+</body>
+</html>

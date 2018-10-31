@@ -24,17 +24,18 @@
                 for (var i = 0; i < cbs.length; i++){
                     cbs[i].checked = true;
                 }
-            }
+            };
 
             obtn2.onclick = function () {
                 for (var i = 0; i < cbs.length; i++){
                     cbs[i].checked = false;
                 }
-            }
+            };
 
             obtn3.onclick = function () {
                 for (var i = 0; i < cbs.length; i++){
-                    if (cbs[i].checked == true){
+                    if (cbs[i].checked == true)
+                    {
                         cbs[i].checked = false;
                     }
                     else
@@ -43,7 +44,6 @@
                     }
                 }
             }
-
         }
     </script>
 </head>
