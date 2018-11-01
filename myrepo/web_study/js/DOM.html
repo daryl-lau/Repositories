@@ -29,7 +29,32 @@
 
         var div1 = document.getElementById("div1");
         var div2 = document.getElementById("div2");
-        div1.removeChild(div2);
+        div1.removeChild(div2);   //会返回该删除的对象
+
+        //删除自己,通过获取当前节点的父节点的子节点来删除自己
+        div2.parentNode.removeChild(div2);
+
+        //对节点属性及内容进行操作
+        //<img id="img1" src="logo.jpg" dat="1">
+
+        var img1 = document.getElementById("img1");
+        img1.src = "newimg.jpg";
+
+        img1.className = "newclass";
+
+        img1.style.backgroundImage = "newbkg.jpg";
+
+        //修改自定义属性(也可以修改html自带的属性)，先获取属性，
+        img1.getAttribute("dat");
+
+        //设置属性
+        img1.removeAttribute("dat");
+        img1.setAttribute("dat1","11");
+
+        //修改文本节点
+        var p1 = document.getElementById("p1");
+        p1.innerHTML = "new text";  //支持html格式，里面可以添加html代码
+        p1.textContent = "new text";  //只能添加文本节点,如果里面包含html代码，将会以文本方式呈现
     </script>
 </body>
 </html>
