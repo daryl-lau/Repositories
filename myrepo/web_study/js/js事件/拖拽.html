@@ -7,6 +7,29 @@
 #div1 {width:200px; height:200px; background:red; position:absolute;}
 </style>
 <script>
+
+    // 添加事件
+    // function add() {
+    //     ......
+    // }
+    // addEventListener("事件的类型", 处理函数, 事件的方式（捕获or冒泡，true or false，默认为false，冒泡）)
+    // div1.addEventListener("click",add);
+    //
+    // 移除事件
+    // div1.removeEventListener("click",add);
+    //
+    // 取消默认事件
+    // function add(event) {
+    //     event.preventDefault();    这种是针对addEventListener方式绑定事件时取消默认事件使用的，两者对应使用
+    //     return false;              这种是针对on方式（onclick等）绑定事件时取消默认事件使用的，两者对应使用
+    // }
+    //
+    //  event.stopPropagation();       阻止事件冒泡，使用此方法后，下面将不会进入冒泡阶段
+
+    // 事件代理
+    // 比如ul li，一个ul下面有多个li，当需要在所有li上添加事件时，可以同过ul上添加事件，来达到目的，这种方式就叫做事件代理，
+    // 通过event.target参数，可以获取到具体的是哪个li，从而进行不同的处理
+
 window.onload=function ()
 {
     var oDiv=document.getElementById('div1');
