@@ -53,6 +53,9 @@
         /*}*/
     </style>
 </head>
+
+
+
 <body>
 
 <!--清除浮动-->
@@ -77,9 +80,10 @@
 
 
         方式5：伪元素
-        .parent1:after {
+        .clearfix:before
+        .clearfix:after {
             content: "";
-            display: block;
+            display: table;
             clear: both;
         }
     -->
