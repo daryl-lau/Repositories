@@ -269,6 +269,7 @@ html body {
 /*搜索框底部*/
 .search-center-bottom {
     height: 25px;
+    overflow: hidden;
 }
 
 .search-center-bottom li {

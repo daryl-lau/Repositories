@@ -1,0 +1,8 @@
+html, body, div, ul, li, ol, li, h1, h2, h3, h4, h5, h6, img, a, span, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font: 12px/1.5 "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
+    color: #666666;
+}

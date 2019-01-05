@@ -13,7 +13,7 @@ function startMove(obj, attr, iTarget) {
     clearInterval(obj.timer);
     obj.timer = setInterval(function () {
         var cur = 0;
-        if (attr == 'opacity') {
+        if (attr === 'opacity') {
             cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
         }
         else {
@@ -23,11 +23,11 @@ function startMove(obj, attr, iTarget) {
         var speed = (iTarget - cur) / 6;
         speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
-        if (cur == iTarget) {
+        if (cur === iTarget) {
             clearInterval(obj.timer)
         }
         else {
-            if (attr == 'opacity') {
+            if (attr === 'opacity') {
                 obj.style[attr] = (cur + speed) / 100;
             }
             else {
@@ -59,18 +59,18 @@ window.onload = function () {
 
     function move_left() {
         var padding_value = parseInt(getComputedStyle(aLi_bottom[0], null).paddingRight);
-        if (now == 0){
+        if (now === 0){
             startMove(oUl_bottom, 'left', padding_value)
         }
-        else if (now == 1)
+        else if (now === 1)
         {
             startMove(oUl_bottom, 'left', padding_value)
         }
-        else if (now == 2)
+        else if (now === 2)
         {
             startMove(oUl_bottom, 'left', padding_value)
         }
-        else if (now == 9)
+        else if (now === 9)
         {
             startMove(oUl_bottom, 'left', -((now -3) * aLi_bottom[0].offsetWidth - padding_value))
         }
@@ -104,7 +104,7 @@ window.onload = function () {
     for (var i = 0; i < aLi_bottom.length; i++){
         aLi_bottom[i].index = i;
         aLi_bottom[i].onclick = function () {
-        if (this.index == now) return;
+        if (this.index === now) return;
         now = this.index;
 
         for (var i = 0; i < aLi_bottom.length; i++){
@@ -126,7 +126,7 @@ window.onload = function () {
         };
         aLi_bottom[i].onmouseout = function () {
             startTimer();
-            if (this.index == now){
+            if (this.index === now){
                 aLi_bottom[this.index].style.opacity = 1;
             }
             else {
