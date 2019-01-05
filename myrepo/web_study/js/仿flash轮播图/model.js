@@ -55,10 +55,15 @@ window.onload = function () {
     var oUl_bottom = oDiv_bottom.getElementsByTagName('ul')[0];
     var aLi_bottom = oDiv_bottom.getElementsByTagName('li');
     var aLi_top = oDiv_top.getElementsByTagName('li');
+    var msg = document.getElementsByClassName('msg')[0];
+    var desc = msg.getElementsByClassName('left')[0];
+    var num = msg.getElementsByClassName('right')[0];
+
 
 
     function move_left() {
         var padding_value = parseInt(getComputedStyle(aLi_bottom[0], null).paddingRight);
+        // console.log(padding_value);
         if (now === 0){
             startMove(oUl_bottom, 'left', padding_value)
         }
@@ -107,6 +112,8 @@ window.onload = function () {
         if (this.index === now) return;
         now = this.index;
 
+        num.innerText =  now + 1 + '/10';
+
         for (var i = 0; i < aLi_bottom.length; i++){
             aLi_bottom[i].style.opacity = 0.3;
         }
@@ -144,6 +151,7 @@ window.onload = function () {
             aLi_bottom[i].style.opacity = 0.3;
         }
         aLi_bottom[now].style.opacity = 1;
+        num.innerText =  now + 1 + '/10';
         move_left()
     }
 
