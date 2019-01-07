@@ -21,13 +21,19 @@
 
         //定时器开始及关闭
 
+        //定时器必须先清除后设定，否则多次点击将会导致定时器绑定越来越多，执行的速度回越来越快。
+
         window.onload = function () {
             let oBtn1 = document.getElementById('btn1');
             let oBtn2 = document.getElementById('btn2');
 
+            var timer, height = 150;
+
             oBtn1.onclick = function () {
+                clearInterval(timer);
                 timer = setInterval(function () {
-                    alert('a');
+                    height += 1;
+                    console.log('身高是' + height + 'cm');
                 }, 1000);
             };
 
