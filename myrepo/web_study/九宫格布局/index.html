@@ -92,16 +92,13 @@
         var parent = document.getElementById('bottom');
 
 
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].index = i;
+            btns[i].onclick = function () {
+                flex(this.index + 3, parent)
+            }
+        }
 
-        btns[0].onclick = function () {
-            flex(3, parent);
-        };
-        btns[1].onclick = function () {
-            flex(4, parent);
-        };
-        btns[2].onclick = function () {
-            flex(5, parent);
-        };
 
         /**
          * 九宫格实现函数
