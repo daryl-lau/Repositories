@@ -113,6 +113,7 @@ window.onload = function () {
         now = this.index;
 
         num.innerText =  now + 1 + '/10';
+        desc.innerText = aLi_top[now].children[0].getAttribute('alt');
 
         for (var i = 0; i < aLi_bottom.length; i++){
             aLi_bottom[i].style.opacity = 0.3;
@@ -152,6 +153,7 @@ window.onload = function () {
         }
         aLi_bottom[now].style.opacity = 1;
         num.innerText =  now + 1 + '/10';
+        desc.innerText = aLi_top[now].children[0].getAttribute('alt');
         move_left()
     }
 
