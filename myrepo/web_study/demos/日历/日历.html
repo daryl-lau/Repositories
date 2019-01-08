@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>日期</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #box {
+        width: 300px;
+        margin: 100px auto;
+    }
+
+    .date, .week, .time {
+        text-align: center;
+        padding-bottom: 30px;
+        font-size: 30px;
+    }
+
+</style>
+<body>
+    <div id="box">
+        <div class="date"></div>
+        <div class="week"></div>
+        <div class="time"></div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+
+        var div1 = document.getElementsByClassName('date')[0];
+        var div2 = document.getElementsByClassName('week')[0];
+        var div3 = document.getElementsByClassName('time')[0];
+
+        var weeks = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+        function setTime() {
+            var date = new Date();
+            div1.innerText = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日';
+            div2.innerText = weeks[date.getDay()];
+
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            function change(times) {
+                if (times < 10){
+                    return '0' + times;
+                }
+                else
+                {
+                    return times
+                }
+            }
+
+            div3.innerHTML = change(hours) + ':' + change(minutes) + ':' + change(seconds);
+
+
+
+        }
+
+        setTime();
+        setInterval(function () {
+            setTime();
+        }, 1000);
+
+
+    }
+</script>
+</html>
