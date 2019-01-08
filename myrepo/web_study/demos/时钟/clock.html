@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #clock {
+        width: 600px;
+        height: 600px;
+        margin: 30px auto;
+        background: url("./imgs/plate.JPG") no-repeat;
+        position: relative;
+    }
+
+    .hour, .minute, .second{
+        width: 30px;
+        height: 600px;
+        position: absolute;
+        left: 50%;
+        margin-left: -15px;
+    }
+    .hour {
+        background: url("./imgs/hour.PNG") no-repeat center;
+    }
+    .minute {
+        background: url("./imgs/minute.PNG") no-repeat center;
+    }
+    .second {
+        background: url("./imgs/second.PNG") no-repeat center;
+    }
+</style>
+<body>
+    <div id="clock">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+</body>
+</html>
