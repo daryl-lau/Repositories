@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Title</title>
+</head>
+<style>
+    #box {
+        text-align: center;
+    }
+    span {
+        font-size: 50px;
+        color: #c82333;
+    }
+</style>
+<body>
+    <div id="box">
+        <span>距离高考还有：</span>
+        <span></span>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+
+        var text = document.getElementById('box').children[1];
+
+        //设置未来的某个时间
+        var futureDate = new Date('2019/1/8 10:36:00');
+
+        function getTime() {
+
+            //获取当前的时间戳
+            var currentDate = new Date();
+            var currentTime = currentDate.getTime();
+
+            //获取未来的时间戳
+            var futureTime = futureDate.getTime();
+
+            //获取差值，单位毫秒
+            var totalTime = futureTime - currentTime;
+
+
+            //将差值转换为天，时，分，秒
+            if (totalTime < 0 ){
+                clearInterval(timer);
+            }
+            else {
+                var d = Math.floor(totalTime / 1000 / 60 / 60 / 24);
+                var h = Math.floor(totalTime / 1000 / 60 / 60 % 24);
+                var m = Math.floor(totalTime / 1000 / 60 % 60);
+                var s = Math.floor(totalTime / 1000 % 60);
+
+                text.innerText = d + '天' + h + '时' + m + '分' + s + '秒';
+            }
+        }
+
+        var timer = setInterval(getTime,1000);
+        getTime();
+    }
+</script>
+</html>
