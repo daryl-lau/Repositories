@@ -49,7 +49,7 @@ function startMove(obj, json, endFunc) {
             }
 
             if (attr === 'opacity') {
-                obj.style.filter='alpha(opacity:'+ (cur + speed) +')';
+                obj.style.filter='alpha(opacity:'+ (cur + speed) +')';  //IE
                 obj.style.opacity = (cur + speed) / 100;
             }
             else {
@@ -61,6 +61,5 @@ function startMove(obj, json, endFunc) {
             clearInterval(obj.timer);
             if(endFunc){endFunc()}
         }
-
     },30)
 }

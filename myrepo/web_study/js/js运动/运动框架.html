@@ -43,10 +43,12 @@
             {
                 startMove(this, {'height':400,'width':500});
             };
-            // oDiv1.onmouseout=function ()
-            // {
-            //     startMove(this, 'height', 200);
-            // };
+            oDiv1.onmouseout=function ()
+            {
+                startMove(this, {'height':200},function () {
+                    alert('done')
+                });
+            };
             // var oDiv2 = document.getElementsByTagName('div')[1];
             // oDiv2.onmouseover=function ()
             // {
