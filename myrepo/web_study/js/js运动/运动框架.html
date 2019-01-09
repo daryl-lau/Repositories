@@ -39,16 +39,16 @@
 
             //
             var oDiv1 = document.getElementsByTagName('div')[0];
-            oDiv1.onmouseover=function ()
+            oDiv1.onclick=function ()
             {
-                startMove(this, {'height':400,'width':500});
+                startMove(this, {'height':50,'width':50});
             };
-            oDiv1.onmouseout=function ()
-            {
-                startMove(this, {'height':200},function () {
-                    alert('done')
-                });
-            };
+            // oDiv1.onclick=function ()
+            // {
+            //     startMove(this, {'height':200},function () {
+            //         alert('done')
+            //     });
+            // };
             // var oDiv2 = document.getElementsByTagName('div')[1];
             // oDiv2.onmouseover=function ()
             // {

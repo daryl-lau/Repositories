@@ -42,6 +42,8 @@ function startMove(obj, json, endFunc) {
             }
 
             var speed = (json[attr] - cur) / 6;
+
+            //get the initeger
             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
             if (cur != json[attr]){
@@ -57,6 +59,7 @@ function startMove(obj, json, endFunc) {
             }
         }
 
+        //execute the end function
         if (bResult){
             clearInterval(obj.timer);
             if(endFunc){endFunc()}
