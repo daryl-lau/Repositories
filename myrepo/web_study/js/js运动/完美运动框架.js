@@ -23,6 +23,7 @@ function getStyle(obj, name) {
  * @param {function}endFunc
  */
 function startMove(obj, json, endFunc) {
+
     clearInterval(obj.timer);
 
     obj.timer = setInterval(function () {
