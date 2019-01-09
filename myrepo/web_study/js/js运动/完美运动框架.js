@@ -20,7 +20,7 @@ function startMove(obj, json, endFunc) {
 
             var cur = 0;
 
-            if (attr == 'opacity') {
+            if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
             }
             else {
@@ -34,7 +34,7 @@ function startMove(obj, json, endFunc) {
                 bResult = false;
             }
 
-            if (attr == 'opacity') {
+            if (attr === 'opacity') {
                 obj.style.filter='alpha(opacity:'+ (cur + speed) +')';
                 obj.style.opacity = (cur + speed) / 100;
             }
