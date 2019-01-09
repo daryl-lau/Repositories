@@ -1,14 +1,27 @@
+/**
+ * get style
+ * @param {node}obj
+ * @param {string}name
+ * @returns {string}
+ */
 function getStyle(obj, name) {
-    if(obj.currentStyle)
+    if(obj.currentStyle) //IE
     {
         return obj.currentStyle[name];
     }
     else
     {
-        return getComputedStyle(obj, null)[name];
+        return getComputedStyle(obj, null)[name];  //FF
     }
 }
 
+
+/**
+ * used to set style animate.
+ * @param {node}obj
+ * @param {styleMedia}json
+ * @param {function}endFunc
+ */
 function startMove(obj, json, endFunc) {
     clearInterval(obj.timer);
 
