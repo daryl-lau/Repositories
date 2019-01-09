@@ -32,7 +32,7 @@ function startMove(obj, json, endFunc) {
 
         for (var attr in json) {
 
-            var cur = 0;
+            var cur;
 
             if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
