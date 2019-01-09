@@ -7,7 +7,7 @@
     <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <title>Title</title>
+    <title>时钟</title>
 </head>
 <style>
     * {
@@ -23,28 +23,50 @@
         position: relative;
     }
 
-    .hour, .minute, .second{
+    #hour, #minute, #second{
         width: 30px;
         height: 600px;
         position: absolute;
         left: 50%;
         margin-left: -15px;
     }
-    .hour {
+    #hour {
         background: url("./imgs/hour.PNG") no-repeat center;
     }
-    .minute {
+    #minute {
         background: url("./imgs/minute.PNG") no-repeat center;
     }
-    .second {
+    #second {
         background: url("./imgs/second.PNG") no-repeat center;
     }
 </style>
 <body>
     <div id="clock">
-        <div class="hour"></div>
-        <div class="minute"></div>
-        <div class="second"></div>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
     </div>
 </body>
+<script>
+    window.onload = function () {
+
+        var hour = document.getElementById('hour');
+        var minute = document.getElementById('minute');
+        var second = document.getElementById('second');
+
+        setInterval(function () {
+            var date = new Date();
+            var s = date.getSeconds() + date.getMilliseconds() / 1000;
+            var m = date.getMinutes() + s / 60;
+            var h = date.getHours() + m / 60;
+
+            second.style.transform = 'rotate(' + s * 6 + 'deg)';
+            minute.style.transform = 'rotate(' + m * 6 + 'deg)';
+            hour.style.transform = 'rotate(' + h * 30 + 'deg)';
+
+        },10)
+
+
+    }
+</script>
 </html>
