@@ -1,5 +1,6 @@
 /**
  * get style
+ * ex: getStyle(box, 'width').
  * @param {node}obj
  * @param {string}name
  * @returns {string}
@@ -18,6 +19,7 @@ function getStyle(obj, name) {
 
 /**
  * used to set style animate.
+ * ex: startMove(this, {'width':100, 'height':100}, function (){ alert('Move ended') }).
  * @param {node}obj
  * @param {styleMedia}json
  * @param {function}endFunc
