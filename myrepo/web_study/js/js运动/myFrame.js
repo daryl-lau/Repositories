@@ -79,7 +79,6 @@ function addClass(obj, cls) {
     var clsArray = cls.split(' ');
     var classNameArray = obj.className.split(' ');
 
-
     for (var i = 0; i < clsArray.length; i++){
         var index = classNameArray.indexOf(clsArray[i]);
         if (index === -1){
