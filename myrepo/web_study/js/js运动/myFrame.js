@@ -106,13 +106,14 @@ function removeClass(obj, cls) {
     obj.className = classNameArray.join(' ');
 }
 
-function toggleClass(obj, cls) {
-
-}
-
 Array.prototype.removeValue = function(val) {
     var index = this.indexOf(val);
     if (index > -1) {
         this.splice(index, 1);
     }
 };
+
+
+function toggleClass(obj, cls) {
+
+}
