@@ -41,8 +41,11 @@
             var oDiv1 = document.getElementsByTagName('div')[0];
             oDiv1.onclick=function ()
             {
-                console.log(getStyle(oDiv1, 'width'));
+                // console.log(getStyle(oDiv1, 'width'));
+                // console.log(hasClass(oDiv1, 'box1'));
                 // startMove(this, {'height':50,'width':50});
+                // removeClass(oDiv1, 'box1 box3');
+                addClass(oDiv1, 'box5 box2 box4 box1 box5 box5')
             };
             // oDiv1.onclick=function ()
             // {
@@ -83,7 +86,7 @@
 </head>
 <body>
 
-<div></div>
+<div class="box2 box3"></div>
 <div></div>
 <div>变大</div>
 <div id="id1"></div>
