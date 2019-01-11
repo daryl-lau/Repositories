@@ -100,7 +100,7 @@ function removeClass(obj, cls) {
     for (var i = 0; i < clsArray.length; i++){
         var index = classNameArray.indexOf(clsArray[i]);
         if (index !== -1){
-            classNameArray.remove(clsArray[i]);
+            classNameArray.removeValue(clsArray[i]);
         }
     }
     obj.className = classNameArray.join(' ');
@@ -110,7 +110,7 @@ function toggleClass(obj, cls) {
 
 }
 
-Array.prototype.remove = function(val) {
+Array.prototype.removeValue = function(val) {
     var index = this.indexOf(val);
     if (index > -1) {
         this.splice(index, 1);
