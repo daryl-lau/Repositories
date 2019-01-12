@@ -100,13 +100,13 @@ function removeClass(obj, cls) {
     for (var i = 0; i < clsArray.length; i++){
         var index = classNameArray.indexOf(clsArray[i]);
         if (index !== -1){
-            classNameArray.removeValue(clsArray[i]);
+            classNameArray.removeEle(clsArray[i]);
         }
     }
     obj.className = classNameArray.join(' ');
 }
 
-Array.prototype.removeValue = function(val) {
+Array.prototype.removeEle = function(val) {
     var index = this.indexOf(val);
     if (index > -1) {
         this.splice(index, 1);
