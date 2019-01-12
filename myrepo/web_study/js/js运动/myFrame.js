@@ -71,7 +71,8 @@ function startMove(obj, json, endFunc) {
 
 
 /**
- *
+ * used to add class from elements
+ * ex: addClass(oDiv, 'class1')
  * @param obj
  * @param cls
  */
@@ -89,7 +90,8 @@ function addClass(obj, cls) {
 }
 
 /**
- *
+ * used to remove class from elements
+ * ex: removeClass(oDiv, 'class1')
  * @param obj
  * @param cls
  */
@@ -113,7 +115,12 @@ Array.prototype.removeEle = function(val) {
     }
 };
 
-
+/**
+ * used to toggle class from elements
+ * ex: toggleClass(oDiv, 'class1')
+ * @param obj
+ * @param cls
+ */
 function toggleClass(obj, cls) {
     var clsArray = cls.split(' ');
     var classNameArray = obj.className.split(' ');

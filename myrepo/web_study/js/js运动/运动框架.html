@@ -14,7 +14,7 @@
         div {
             width: 200px;
             height: 200px;
-            background-color: red;
+            background-color: gray;
             margin: 10px;
             float: left;
             border: 10px solid black;
@@ -22,6 +22,21 @@
 
         #id1 {
             opacity: 0.3;
+        }
+
+        .box1 {
+            background-color: red;
+        }
+        .box2 {
+            background-color: green;
+        }
+        .box3 {
+            width: 300px;
+            height: 300px;
+        }
+        .box4 {
+            width: 500px;
+            height: 500px;
         }
     </style>
 
@@ -44,8 +59,9 @@
                 // console.log(getStyle(oDiv1, 'width'));
                 // console.log(hasClass(oDiv1, 'box1'));
                 // startMove(this, {'height':50,'width':50});
-                // removeClass(oDiv1, 'box1 box3');
-                toggleClass(oDiv1, 'box5 box1')
+                // addClass(oDiv1, 'box1 box2');
+                // removeClass(oDiv1, 'box1');
+                toggleClass(oDiv1, 'box2 box4')
             };
             // oDiv1.onclick=function ()
             // {
@@ -86,7 +102,7 @@
 </head>
 <body>
 
-<div class="box2 box3 box5 box4 box1 box8 box7"></div>
+<div class="box1 box3"></div>
 <div></div>
 <div>变大</div>
 <div id="id1"></div>
