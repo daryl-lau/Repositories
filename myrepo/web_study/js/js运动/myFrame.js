@@ -1,7 +1,7 @@
 /**
  * get style
  * ex: getStyle(box, 'width').
- * @param {node}obj
+ * @param {object}obj
  * @param {string}name
  * @returns {string}
  */
@@ -20,8 +20,8 @@ function getStyle(obj, name) {
 /**
  * used to set style animate.
  * ex: startMove(this, {'width':100, 'height':100}, function (){ alert('Move ended') }).
- * @param {node}obj
- * @param {styleMedia}json
+ * @param {object}obj
+ * @param {json}json
  * @param {function}endFunc
  */
 function startMove(obj, json, endFunc) {
@@ -72,9 +72,13 @@ function startMove(obj, json, endFunc) {
 
 /**
  * used to add class from elements
- * ex: addClass(oDiv, 'class1')
- * @param obj
- * @param cls
+ * ex: addClass(oDiv, 'className')
+ *
+ * if origin class name is [class = 'class1'], then after use function addClass(oDiv, 'class2'),
+ * it will be [class = 'class1 class2']
+ *
+ * @param {object}obj
+ * @param {string}cls
  */
 function addClass(obj, cls) {
     var clsArray = cls.split(' ');
@@ -91,9 +95,13 @@ function addClass(obj, cls) {
 
 /**
  * used to remove class from elements
- * ex: removeClass(oDiv, 'class1')
- * @param obj
- * @param cls
+ * ex: removeClass(oDiv, 'className')
+ *
+ * if origin class name is [class = 'class1 class2'], then after use function removeClass(oDiv, 'class2'),
+ * it will be [class = 'class1']
+ *
+ * @param {object}obj
+ * @param {string}cls
  */
 function removeClass(obj, cls) {
     var clsArray = cls.split(' ');
@@ -117,9 +125,13 @@ Array.prototype.removeEle = function(val) {
 
 /**
  * used to toggle class from elements
- * ex: toggleClass(oDiv, 'class1')
- * @param obj
- * @param cls
+ * ex: toggleClass(oDiv, 'className')
+ *
+ * if origin class name is [class = 'class1 class2'], then after use function toggleClass(oDiv, 'class2'),
+ * it will toggle from [class = 'class1 class2'] and [class = 'class1']
+ *
+ * @param {object}obj
+ * @param {string}cls
  */
 function toggleClass(obj, cls) {
     var clsArray = cls.split(' ');
