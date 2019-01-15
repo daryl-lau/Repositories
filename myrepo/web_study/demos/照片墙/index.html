@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li {
+        width: 300px;
+        height: 400px;
+        border-radius: 5px;
+        box-shadow: 0 0 20px #000000;
+        position: absolute;
+    }
+</style>
+<body>
+
+<div>
+    <ul id="pw">
+
+    </ul>
+</div>
+
+</body>
+<script>
+    window.onload = function () {
+
+
+        !function() {
+            if(window.innerHeight !== undefined) {
+                client = function() {
+                    return {
+
+                        "width": window.innerWidth,
+                        "height": window.innerHeight
+
+                    }
+                }
+            } else if(document.compatMode === "CSS1Compat") {
+                client = function() {
+                    return {
+                        "width": document.documentElement.clientWidth,
+                        "height": document.documentElement.clientHeight
+
+                    }
+                }
+            } else {
+                client = function() {
+                    return {
+                        "width": document.body.clientWidth,
+                        "height": document.body.clientHeight
+                    }
+
+                }
+            }
+        }();
+        console.log(client().width);
+
+
+        var ul = document.getElementById('pw');
+        for (var i = 0; i < 10; i++){
+            var Lis =  document.createElement('li');
+            Lis.innerHTML = '<img src="imgs/img' + ( i + 1 ) + '.jpg">'
+            ul.appendChild(Lis);
+        }
+    }
+</script>
+</html>

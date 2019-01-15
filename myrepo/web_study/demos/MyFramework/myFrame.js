@@ -149,3 +149,32 @@ function toggleClass(obj, cls) {
     obj.className = classNameArray.join(' ');
 }
 
+/**
+ * used to get current browser's screen width and height.
+ * ex: client().width; client().height;
+ *
+ */
+!function() {
+    if(window.innerHeight !== undefined) {
+        client = function() {
+            return {
+                "width": window.innerWidth,
+                "height": window.innerHeight
+            }
+        }
+    } else if(document.compatMode === "CSS1Compat") {
+        client = function() {
+            return {
+                "width": document.documentElement.clientWidth,
+                "height": document.documentElement.clientHeight
+            }
+        }
+    } else {
+        client = function() {
+            return {
+                "width": document.body.clientWidth,
+                "height": document.body.clientHeight
+            }
+        }
+    }
+}();
