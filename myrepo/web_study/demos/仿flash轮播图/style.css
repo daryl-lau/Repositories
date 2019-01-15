@@ -30,7 +30,7 @@
 .wrapper .top .left_btn {
     width: 60px;
     height: 60px;
-    background-image: url(../../imgs/btn.gif);
+    background-image: url(imgs/btn.gif);
     position: absolute;
     top: 130px;
     left: 10px;
@@ -52,7 +52,7 @@
 .wrapper .top .right_btn {
     width: 60px;
     height: 60px;
-    background-image: url(../../imgs/btn.gif);
+    background-image: url(imgs/btn.gif);
     background-position: 0px -60px;
     position: absolute;
     top: 130px;
