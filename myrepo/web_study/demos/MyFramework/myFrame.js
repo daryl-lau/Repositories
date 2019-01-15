@@ -29,13 +29,9 @@ function startMove(obj, json, endFunc) {
     clearInterval(obj.timer);
 
     obj.timer = setInterval(function () {
-
         var bResult = true;
-
         for (var attr in json) {
-
             var cur;
-
             if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
             }
@@ -44,7 +40,6 @@ function startMove(obj, json, endFunc) {
             }
 
             var speed = (json[attr] - cur) / 6;
-
             //get the initeger
             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
