@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Title</title>
+</head>
+
+<style>
+    #father {
+        width: 400px;
+        height: 400px;
+        margin: 80px;
+        padding: 40px;
+        border: 20px solid black;
+        background-color: red;
+        position: relative;
+    }
+
+    #children {
+        width: 200px;
+        height: 200px;
+        margin: 40px;
+        padding: 20px;
+        border: 10px solid black;
+        background-color: yellowgreen;
+    }
+</style>
+
+<body>
+
+<div id="text">
+    <p>offsetWidth和offsetHeight，获取盒子的宽高，包括内容区+内边距+边框</p>
+    <p>offsetLeft和offsetTop，获取距离第一个有定位的父级盒子的左边和上边的距离，注意：父级盒子必须要有定位，否则以body为准</p>
+    <p>offsetLeft和offsetTop从父标签的padding开始计算，不包括border，即从子盒子边框到定位父盒子边框的距离</p>
+    <p>------------------------------------------</p>
+</div>
+
+
+
+<div id="father">
+    <div id="children">
+
+    </div>
+</div>
+
+</body>
+
+<script>
+    window.onload = function () {
+
+        var text = document.getElementById('text');
+        var children = document.getElementById('children');
+
+        var pWidth = document.createElement('p');
+        var pHeight = document.createElement('p');
+        var pLeft = document.createElement('p');
+        var pTop = document.createElement('p');
+
+
+        text.appendChild(pWidth);
+        pWidth.innerText = 'offsetWidth: ' + children.offsetWidth;
+
+        text.appendChild(pHeight);
+        pHeight.innerText = 'offsetHeight: ' + children.offsetHeight;
+
+        text.appendChild(pLeft);
+        pLeft.innerText = 'offsetLeft: ' + children.offsetLeft;
+
+        text.appendChild(pTop);
+        pTop.innerText = 'offsetTop: ' + children.offsetTop;
+
+    }
+</script>
+
+</html>

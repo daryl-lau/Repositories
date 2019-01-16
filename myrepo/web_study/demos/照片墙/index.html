@@ -7,9 +7,14 @@
     <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
+    <script src="../MyFramework/myFrame.js"></script>
     <title>Title</title>
 </head>
 <style>
+    body {
+        overflow: hidden;
+        background-color: #000000;
+    }
     * {
         margin: 0;
         padding: 0;
@@ -21,6 +26,16 @@
         border-radius: 5px;
         box-shadow: 0 0 20px #000000;
         position: absolute;
+        transition: all 1s;
+    }
+    li.current {
+        z-index: 999;
+        position: absolute;
+        transform: rotate(0) scale(1.5) !important;
+        left: 50% !important;
+        top: 50% !important;
+        margin-left: -150px;
+        margin-top: -200px;
     }
 </style>
 <body>
@@ -35,44 +50,29 @@
 <script>
     window.onload = function () {
 
-
-        !function() {
-            if(window.innerHeight !== undefined) {
-                client = function() {
-                    return {
-
-                        "width": window.innerWidth,
-                        "height": window.innerHeight
-
-                    }
-                }
-            } else if(document.compatMode === "CSS1Compat") {
-                client = function() {
-                    return {
-                        "width": document.documentElement.clientWidth,
-                        "height": document.documentElement.clientHeight
-
-                    }
-                }
-            } else {
-                client = function() {
-                    return {
-                        "width": document.body.clientWidth,
-                        "height": document.body.clientHeight
-                    }
-
-                }
-            }
-        }();
-        console.log(client().width);
-
-
         var ul = document.getElementById('pw');
+
         for (var i = 0; i < 10; i++){
-            var Lis =  document.createElement('li');
-            Lis.innerHTML = '<img src="imgs/img' + ( i + 1 ) + '.jpg">'
-            ul.appendChild(Lis);
+            var li =  document.createElement('li');
+            li.innerHTML = '<img src="imgs/img' + ( i + 1 ) + '.jpg">';
+            li.style.left = Math.random() * (client().width - 300) + 'px';
+            li.style.top = Math.random() * (client().height - 400) + 'px';
+            li.style.transform = 'rotate(' + Math.random() * 50 + 'deg)';
+            ul.appendChild(li);
         }
+
+        var allLis = document.getElementsByTagName('li');
+        for (var j = 0; j < allLis.length; j++){
+            allLis[j].addEventListener('click', function () {
+                for (var k = 0; k < allLis.length; k++){
+                    removeClass(allLis[k], 'current')
+                }
+                addClass(this, 'current')
+            })
+
+        }
+
+
     }
 </script>
 </html>
