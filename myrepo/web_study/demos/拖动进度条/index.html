@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #wrap {
+        width: 1100px;
+        height: 30px;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    #bar {
+        width: 1000px;
+        height: 30px;
+        background-color: darkgray;
+        float: left;
+        border-radius: 8px;
+    }
+
+    #process {
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        float: right;
+        text-align: center;
+    }
+
+    #button {
+        width: 20px;
+        height: 40px;
+        background-color: darkorange;
+        position: absolute;
+        left: 0;
+        top: -5px;
+        border-radius: 3px;
+    }
+
+    #bar-used {
+        width: 0;
+        height: 30px;
+        background-color: darkorange;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+</style>
+
+<body>
+    <div id="wrap">
+        <div id="bar">
+            <div id="bar-used"></div>
+            <div id="button"></div>
+        </div>
+        <div id="process">0%</div>
+    </div>
+</body>
+
+<script>
+    window.onload = function () {
+        var bar = document.getElementById('bar');
+        var barUsed = document.getElementById('bar-used');
+        var btn = document.getElementById('button');
+        var percent = document.getElementById('process');
+
+        btn.onmousedown = function(evt){
+
+            var beginLeft = evt.clientX - this.offsetLeft;
+
+            document.onmousemove = function (evt1) {
+                var maxLength = bar.offsetWidth - btn.offsetWidth;
+                var movedLeft = evt1.clientX - beginLeft;
+
+                if (movedLeft < 0){
+                    movedLeft = 0;
+                }else if (movedLeft > maxLength){
+                    movedLeft = maxLength;
+                }
+
+                btn.style.left = movedLeft + 'px';
+                barUsed.style.width = movedLeft + 'px';
+                percent.innerText = Math.ceil(movedLeft/maxLength * 100) + '%'
+            };
+            
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+
+
+        };
+
+
+
+
+    }
+</script>
+</html>
