@@ -46,6 +46,7 @@
         left: 0;
         top: -5px;
         border-radius: 3px;
+        cursor: pointer;
     }
 
     #bar-used {
@@ -82,6 +83,7 @@
                 var maxLength = bar.offsetWidth - btn.offsetWidth;
                 var movedLeft = evt1.clientX - beginLeft;
 
+                //设置边界值
                 if (movedLeft < 0){
                     movedLeft = 0;
                 }else if (movedLeft > maxLength){
@@ -91,6 +93,9 @@
                 btn.style.left = movedLeft + 'px';
                 barUsed.style.width = movedLeft + 'px';
                 percent.innerText = Math.ceil(movedLeft/maxLength * 100) + '%'
+
+                //当移动事件结束时，清除此事件，用于解决鼠标拖动过快导致松开鼠标会继续移动的问题。
+                return false;
             };
             
             document.onmouseup = function () {
