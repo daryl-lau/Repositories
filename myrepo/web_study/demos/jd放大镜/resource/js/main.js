@@ -13,11 +13,13 @@ window.onload = function () {
         };
 
         nextBtn.onclick = function () {
-
+            startMove(ul, {'left':228})
         };
 
         prevBtn.onmouseover = function () {
-            addClass(prevBtn, 'hover');
+            if (!hasClass(this, 'disabled')){
+                addClass(this, 'hover');
+            }
         };
 
         prevBtn.onmouseout = function(){
@@ -25,7 +27,9 @@ window.onload = function () {
         };
 
         nextBtn.onmouseover = function () {
-            addClass(nextBtn, 'hover');
+            if (!hasClass(this, 'disabled')){
+                addClass(this, 'hover');
+            }
         };
         nextBtn.onmouseout = function(){
             removeClass(nextBtn, 'hover')

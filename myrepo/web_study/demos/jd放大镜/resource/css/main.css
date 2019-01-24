@@ -84,6 +84,7 @@
     width: 608px;
     height: 58px;
     position: absolute;
+    left: 0;
 }
 
 #view_wrap .view_s .view_s_box ul li {
