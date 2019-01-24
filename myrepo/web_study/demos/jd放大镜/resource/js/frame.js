@@ -64,6 +64,47 @@ function startMove(obj, json, endFunc) {
     },30)
 }
 
+/**
+ * Removes null values from an array
+ * example: clear_arr_trim(['', 'v1', 'v2']), it will return ['v1', 'v2'].
+ * @param array
+ * @returns {*}
+ */
+function clear_arr_trim(array) {
+    for(var i = 0 ;i<array.length;i++)
+    {
+        if(array[i] === "" || typeof(array[i]) === "undefined")
+        {
+            array.splice(i,1);
+            i= i-1;
+        }
+    }
+    return array;
+}
+
+/**
+ * To determine if there are classes, you can determine if there are multiple classes at the same time
+ * example: hasClass(obj, 'class1 class2')
+ * @param obj
+ * @param cls
+ */
+function hasClass(obj, cls) {
+    var clsArray = clear_arr_trim(cls.split(' '));
+    var classNameArray = clear_arr_trim(obj.className.split(' '));
+
+    var i = 0;
+    while (clsArray[i]) {
+        var index = classNameArray.indexOf(clsArray[i]);
+        if (index === -1) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+
+
+
 
 /**
  * used to add class from elements
@@ -76,8 +117,8 @@ function startMove(obj, json, endFunc) {
  * @param {string}cls
  */
 function addClass(obj, cls) {
-    var clsArray = cls.split(' ');
-    var classNameArray = obj.className.split(' ');
+    var clsArray = clear_arr_trim(cls.split(' '));
+    var classNameArray = clear_arr_trim(obj.className.split(' '));
 
     for (var i = 0; i < clsArray.length; i++){
         var index = classNameArray.indexOf(clsArray[i]);
@@ -85,7 +126,6 @@ function addClass(obj, cls) {
             classNameArray.push(clsArray[i]);
         }
     }
-
     obj.className = classNameArray.join(' ');
 }
 
@@ -100,17 +140,17 @@ function addClass(obj, cls) {
  * @param {string}cls
  */
 function removeClass(obj, cls) {
-    var clsArray = cls.split(' ');
-    var classNameArray = obj.className.split(' ');
+    var clsArray = clear_arr_trim(cls.split(' '));
+    var classNameArray = clear_arr_trim(obj.className.split(' '));
 
-    for (var i = 0; i < clsArray.length; i++){
+
+    for (var i = 0; i < clsArray.length; i++) {
         var index = classNameArray.indexOf(clsArray[i]);
-        if (index !== -1){
+        if (index !== -1) {
             classNameArray.removeEle(clsArray[i]);
         }
     }
-        obj.className = classNameArray.join(' ');
-
+    obj.className = classNameArray.join(' ');
 }
 
 Array.prototype.removeEle = function(val) {
@@ -131,8 +171,8 @@ Array.prototype.removeEle = function(val) {
  * @param {string}cls
  */
 function toggleClass(obj, cls) {
-    var clsArray = cls.split(' ');
-    var classNameArray = obj.className.split(' ');
+    var clsArray = clear_arr_trim(cls.split(' '));
+    var classNameArray = clear_arr_trim(obj.className.split(' '));
 
     for (var i = 0; i < clsArray.length; i++){
         var index = classNameArray.indexOf(clsArray[i]);
