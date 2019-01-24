@@ -83,6 +83,7 @@ function clear_arr_trim(array) {
 
 /**
  * 判断是否含有类，可以判断是否同时具有多个类
+ * example: hasClass(obj, 'class1 class2')
  * @param obj
  * @param cls
  */
