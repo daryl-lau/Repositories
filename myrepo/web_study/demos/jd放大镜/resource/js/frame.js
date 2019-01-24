@@ -85,6 +85,7 @@ function addClass(obj, cls) {
             classNameArray.push(clsArray[i]);
         }
     }
+
     obj.className = classNameArray.join(' ');
 }
 
@@ -108,7 +109,8 @@ function removeClass(obj, cls) {
             classNameArray.removeEle(clsArray[i]);
         }
     }
-    obj.className = classNameArray.join(' ');
+        obj.className = classNameArray.join(' ');
+
 }
 
 Array.prototype.removeEle = function(val) {

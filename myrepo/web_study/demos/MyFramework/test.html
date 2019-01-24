@@ -11,12 +11,24 @@
     <title>Title</title>
 </head>
 <body>
+<div id="id1" class="aa bb cc dd">
 
+</div>
 </body>
 <script>
-    window.onresize = function () {
-        console.log(client().width);
-        console.log(client().height);
+    // window.onresize = function () {
+    //     console.log(client().width);
+    //     console.log(client().height);
+    // }
+
+    window.onload = function () {
+
+        var div = document.getElementById('id1');
+        // console.log(div.className);
+
+        // removeClass(div, 'aa bb cc dd')
+        // addClass(div, '  rr');
+        console.log(hasClass(div, 'bb ee'));
     }
 
 </script>
