@@ -48,7 +48,4 @@ window.onload = function () {
         addClass(prevBtn, 'disabled');
         addClass(nextBtn, 'disabled');
     }
-
-
-
 };
