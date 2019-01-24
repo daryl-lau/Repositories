@@ -65,7 +65,8 @@ function startMove(obj, json, endFunc) {
 }
 
 /**
- * 去除数组中的空值
+ * Removes null values from an array
+ * example: clear_arr_trim(['', 'v1', 'v2']), it will return ['v1', 'v2'].
  * @param array
  * @returns {*}
  */
@@ -82,7 +83,7 @@ function clear_arr_trim(array) {
 }
 
 /**
- * 判断是否含有类，可以判断是否同时具有多个类
+ * To determine if there are classes, you can determine if there are multiple classes at the same time
  * example: hasClass(obj, 'class1 class2')
  * @param obj
  * @param cls
