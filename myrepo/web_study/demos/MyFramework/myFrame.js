@@ -24,7 +24,7 @@ function getStyle(obj, name) {
  * @param {json}json
  * @param {function}endFunc
  */
-function startMove(obj, json, endFunc) {
+function variableMove(obj, json, endFunc) {
 
     clearInterval(obj.timer);
 
@@ -63,6 +63,63 @@ function startMove(obj, json, endFunc) {
         }
     },30)
 }
+
+function uniformMove(obj, json, endFunc) {
+
+    clearInterval(obj.timer);
+
+    obj.timer = setInterval(function () {
+        var bResult = true;
+        for (var attr in json) {
+            var cur;
+            if (attr === 'opacity') {
+                cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                console.log(cur);
+                var speedOpacity;
+                if ( (json[attr] * 100 - cur) >= 0 ){
+                    speedOpacity = 1
+                }else {
+                    speedOpacity = -1
+                }
+            }
+            else {
+                cur = parseInt(getStyle(obj, attr));
+                var speed;
+                if( (json[attr]  - cur) >= 0 ){
+                    speed = 1;
+                }else {
+                    speed = -1;
+                }
+            }
+
+            if( attr === 'opacity'){
+                if (cur !== json[attr] * 100){
+                    obj.style.filter='alpha(opacity:'+ (cur + speedOpacity) +')';  //IE
+                    obj.style.opacity = (cur + speedOpacity) / 100;
+                    bResult = false;
+                }else {
+                    bResult = true;
+                }
+
+            }else {
+                if (cur !== json[attr]){
+                    obj.style[attr] = cur + speed + 'px';
+                    bResult = false;
+                }else {
+                    bResult = true;
+                }
+            }
+
+            //execute the end function
+            console.log(bResult);
+            if (bResult){
+                clearInterval(obj.timer);
+                if(endFunc){endFunc()}
+            }
+        }
+    },30)
+}
+
 
 /**
  * Removes null values from an array
