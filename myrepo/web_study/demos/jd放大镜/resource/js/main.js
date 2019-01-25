@@ -8,13 +8,13 @@ window.onload = function () {
 
     if (lis.length > 5){
         prevBtn.onclick = function () {
-            startMove(ul, {'left':0});
+            uniformMove(ul, {'left':0});
             removeClass(this, 'hover');
             addClass(this, 'disabled');
         };
 
         nextBtn.onclick = function () {
-            startMove(ul, {'left':-228});
+            uniformMove(ul, {'left':-228});
             addClass(this, 'disabled');
             removeClass(this, 'hover')
         };

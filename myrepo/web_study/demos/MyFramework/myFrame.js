@@ -64,7 +64,7 @@ function variableMove(obj, json, endFunc) {
     },30)
 }
 
-function uniformMove(obj, json, endFunc) {
+function uniformMove(obj, json, endFunc, speedO = 1, ) {
 
     clearInterval(obj.timer);
 
@@ -77,9 +77,9 @@ function uniformMove(obj, json, endFunc) {
                 console.log(cur);
                 var speedOpacity;
                 if ( (json[attr] * 100 - cur) >= 0 ){
-                    speedOpacity = 1
+                    speedOpacity = speedO;
                 }else {
-                    speedOpacity = -1
+                    speedOpacity = -speedO;
                 }
             }
             else {
