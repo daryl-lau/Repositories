@@ -14,7 +14,10 @@ window.onload = function () {
         };
 
         nextBtn.onclick = function () {
-            uniformMove(ul, {'left':-228});
+            uniformMove(ul, {'left':-228}, function () {
+
+            }, speedOpacity = 1, speedPx = 4, time = 1);
+
             addClass(this, 'disabled');
             removeClass(this, 'hover')
         };
