@@ -117,7 +117,7 @@ function uniformMove(obj, json, endFunc) {
                 if(endFunc){endFunc()}
             }
         }
-    },30)
+    },20)
 }
 
 

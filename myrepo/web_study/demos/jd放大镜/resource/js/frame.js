@@ -64,7 +64,7 @@ function variableMove(obj, json, endFunc) {
     },30)
 }
 
-function uniformMove(obj, json, endFunc, speedOpacity = 1, speedPx = 1, time = 30) {
+function uniformMove(obj, json, endFunc) {
 
     clearInterval(obj.timer);
 
@@ -75,27 +75,27 @@ function uniformMove(obj, json, endFunc, speedOpacity = 1, speedPx = 1, time = 3
             if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
                 console.log(cur);
-                var speedO;
+                var speedOpacity;
                 if ( (json[attr] * 100 - cur) >= 0 ){
-                    speedO = speedOpacity;
+                    speedOpacity = 1;
                 }else {
-                    speedO = -speedOpacity;
+                    speedOpacity = -1;
                 }
             }
             else {
                 cur = parseInt(getStyle(obj, attr));
-                var speedP;
+                var speedPx;
                 if( (json[attr]  - cur) >= 0 ){
-                    speedP = speedPx;
+                    speedPx = 1;
                 }else {
-                    speedP = -speedPx;
+                    speedPx = -1;
                 }
             }
 
             if( attr === 'opacity'){
                 if (cur !== json[attr] * 100){
-                    obj.style.filter='alpha(opacity:'+ (cur + speedO) +')';  //IE
-                    obj.style.opacity = (cur + speedO) / 100;
+                    obj.style.filter='alpha(opacity:'+ (cur + speedOpacity) +')';  //IE
+                    obj.style.opacity = (cur + speedOpacity) / 100;
                     bResult = false;
                 }else {
                     bResult = true;
@@ -103,7 +103,7 @@ function uniformMove(obj, json, endFunc, speedOpacity = 1, speedPx = 1, time = 3
 
             }else {
                 if (cur !== json[attr]){
-                    obj.style[attr] = cur + speedP + 'px';
+                    obj.style[attr] = cur + speedPx + 'px';
                     bResult = false;
                 }else {
                     bResult = true;
@@ -117,7 +117,7 @@ function uniformMove(obj, json, endFunc, speedOpacity = 1, speedPx = 1, time = 3
                 if(endFunc){endFunc()}
             }
         }
-    },time)
+    },20)
 }
 
 
