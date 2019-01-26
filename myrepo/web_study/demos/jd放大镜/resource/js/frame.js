@@ -74,7 +74,6 @@ function uniformMove(obj, json, endFunc) {
             var cur;
             if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
-                console.log(cur);
                 var speedOpacity;
                 if ( (json[attr] * 100 - cur) >= 0 ){
                     speedOpacity = 1;
@@ -86,9 +85,9 @@ function uniformMove(obj, json, endFunc) {
                 cur = parseInt(getStyle(obj, attr));
                 var speedPx;
                 if( (json[attr]  - cur) >= 0 ){
-                    speedPx = 1;
+                    speedPx = 3;
                 }else {
-                    speedPx = -1;
+                    speedPx = -3;
                 }
             }
 
@@ -111,13 +110,12 @@ function uniformMove(obj, json, endFunc) {
             }
 
             //execute the end function
-            console.log(bResult);
             if (bResult){
                 clearInterval(obj.timer);
                 if(endFunc){endFunc()}
             }
         }
-    },20)
+    },1)
 }
 
 

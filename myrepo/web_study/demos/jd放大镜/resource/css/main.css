@@ -103,7 +103,7 @@
 }
 
 #view_wrap .view_m {
-    background-image: url("../imgs/m450x450/img2.jpg");
+    background-image: url("../imgs/m450x450/img1.jpg");
 }
 
 #view_wrap .view_b {
@@ -150,12 +150,12 @@
     position: absolute;
     top: 0;
     left: 451px;
-     background-image: url("../imgs/b800x800/img2.jpg");
+    background-image: url("../imgs/b800x800/img2.jpg");
 }
 
 
 #view_wrap .video {
-    /*display: none;*/
+    display: none;
 }
 
 #view_wrap .video video {

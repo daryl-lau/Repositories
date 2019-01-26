@@ -5,6 +5,11 @@ window.onload = function () {
     var nextBtn = document.querySelector('#next');
     var lis = document.querySelectorAll('.view_s_box li');
     var ul = document.querySelector('.view_s_box ul');
+    var viewM = document.querySelector('.view_m');
+    var videoBtn = document.querySelector('.video-btn');
+    var video = document.querySelector('.video');
+    var viewB = document.querySelector('.view_b');
+
 
     if (lis.length > 5){
         prevBtn.onclick = function () {
@@ -14,10 +19,7 @@ window.onload = function () {
         };
 
         nextBtn.onclick = function () {
-            uniformMove(ul, {'left':-228}, function () {
-
-            });
-
+            uniformMove(ul, {'left':-228});
             addClass(this, 'disabled');
             removeClass(this, 'hover')
         };
@@ -50,4 +52,26 @@ window.onload = function () {
         addClass(prevBtn, 'disabled');
         addClass(nextBtn, 'disabled');
     }
+
+    for (var i = 0; i < lis.length; i++){
+        lis[i].onmouseover = function () {
+            for (var j = 0; j < lis.length; j++){
+                removeClass(lis[j], 'img-hover')
+            }
+            addClass(this, 'img-hover');
+            viewM.style.backgroundImage = "url(" + this.children[0].src.replace(/s54x54/i, "m450x450") + ")";
+            viewB.style.backgroundImage = "url(" + this.children[0].src.replace(/s54x54/i, "b800x800") + ")";
+        }
+    }
+    
+    videoBtn.onclick = function () {
+        video.style.display = 'block';
+        video.children[0].play();
+    };
+
+    video.children[1].onclick = function () {
+        video.children[0].pause();
+        video.children[0].currentTime=0;
+        video.style.display = 'none';
+    };
 };
