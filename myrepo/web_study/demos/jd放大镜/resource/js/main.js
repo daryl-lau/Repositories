@@ -109,10 +109,9 @@ window.onload = function () {
                 pointY = viewM.offsetHeight - viewMove.offsetHeight - 2
             }
 
-
             viewMove.style.left = pointX + 'px';
             viewMove.style.top = pointY + 'px';
-            viewB.style.backgroundPosition =
+            viewB.style.backgroundPosition = -(pointX * 800 / 450) + 'px' + ' ' + -(pointY * 800 / 450) + 'px';
         }
     };
 
