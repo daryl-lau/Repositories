@@ -67,11 +67,6 @@ window.onload = function () {
     videoBtn.onclick = function () {
         video.style.display = 'block';
         video.children[0].play();
-        video.children[0].onended = function () {
-            video.children[0].pause();
-            video.children[0].currentTime=0;
-            video.style.display = 'none';
-        };
     };
 
     video.children[1].onclick = function () {
@@ -79,5 +74,18 @@ window.onload = function () {
         video.children[0].currentTime=0;
         video.style.display = 'none';
     };
+
+    video.children[0].onended = function () {
+            video.children[0].pause();
+            video.children[0].currentTime=0;
+            video.style.display = 'none';
+    };
+    video.children[0].onclick = function () {
+        if (this.paused){
+            this.play()
+        }else {
+            this.pause()
+        }
+    }
 
 };
