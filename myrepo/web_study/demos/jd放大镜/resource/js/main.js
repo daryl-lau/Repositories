@@ -9,7 +9,7 @@ window.onload = function () {
     var videoBtn = document.querySelector('.video-btn');
     var video = document.querySelector('.video');
     var viewB = document.querySelector('.view_b');
-
+    var viewMove = document.querySelector('.move-box');
 
     if (lis.length > 5){
         prevBtn.onclick = function () {
@@ -86,6 +86,39 @@ window.onload = function () {
         }else {
             this.pause()
         }
+    };
+
+    viewM.onmouseover = function () {
+        viewMove.style.display = 'block';
+        viewB.style.display = 'block';
+
+        viewM.onmousemove = function (event) {
+
+            var pointX = event.pageX - this.offsetParent.offsetLeft - viewMove.offsetWidth * 0.5;
+            var pointY = event.pageY - this.offsetParent.offsetTop - viewMove.offsetHeight * 0.5;
+
+            if (pointX < 0) {
+                pointX = 0
+            }else if (pointX > (viewM.offsetWidth - viewMove.offsetWidth - 2) ) {
+                pointX = viewM.offsetWidth - viewMove.offsetWidth - 2
+            }
+
+            if (pointY < 0) {
+                pointY = 0
+            }else if (pointY > (viewM.offsetHeight - viewMove.offsetHeight - 2) ) {
+                pointY = viewM.offsetHeight - viewMove.offsetHeight - 2
+            }
+
+
+            viewMove.style.left = pointX + 'px';
+            viewMove.style.top = pointY + 'px';
+            viewB.style.backgroundPosition =
+        }
+    };
+
+    viewM.onmouseout = function () {
+        viewMove.style.display = 'none';
+        viewB.style.display = 'none';
     }
 
 };

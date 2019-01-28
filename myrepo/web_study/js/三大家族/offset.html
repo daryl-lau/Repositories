@@ -39,8 +39,8 @@
     <p>offsetLeft和offsetTop从父标签的padding开始计算，不包括border，即从子盒子边框到定位父盒子边框的距离</p>
     <p>------------------------------------------</p>
     <p>event.screenX和event.screenY，事件属性可返回事件发生时鼠标指针相对于屏幕的水平坐标和垂直坐标。</p>
-    <p>event.clientX和event.clientY，事件属性返回当事件被触发时鼠标指针向对于浏览器页面（或客户区）的水平坐标和垂直坐标。</p>
-    <p>------------------------------------------</p>
+    <p>event.clientX和event.clientY，事件属性返回当事件被触发时鼠标指针向对于浏览器页面（内容区，不包含浏览器的导航栏、地址栏）的水平坐标和垂直坐标。</p>
+    <p>event.pageX和event.pageY，事件属性返回当事件被触发时鼠标指针相对于整个页面的水平坐标和垂直坐标。</p>
 </div>
 
 
@@ -55,7 +55,6 @@
     <p>offsetParent 返回当前对象的父级（带有定位）盒子，可能是父亲，也可能是爷爷，如果当前元素的父级盒子没有定位（relative或absolute），则其offsetParent为body</p>
     <p>获取父级元素还可以使用parentNode，和offsetParent的区别在于，parentNode只会获取到自己的亲生父级元素，而offsetParent则会获取到带有定位的父级元素</p>
 </div>
-
 </body>
 
 <script>
@@ -63,6 +62,7 @@
 
         var text = document.getElementById('text');
         var children = document.getElementById('children');
+        var father = document.getElementById('father');
 
         var pWidth = document.createElement('p');
         var pHeight = document.createElement('p');
@@ -81,6 +81,19 @@
 
         text.appendChild(pTop);
         pTop.innerText = 'offsetTop: ' + children.offsetTop;
+
+        children.onclick = function (event) {
+            // console.log(event.clientY);
+            // console.log(event.pageY);
+            // console.log(event.screenY);
+            console.log(event.pageY);
+            console.log(document.documentElement.scrollTop);
+            console.log(father.offsetTop);
+            // console.log(father.offsetTop - document.documentElement.scrollTop);
+            console.log(event.pageY - father.offsetTop);
+        }
+
+
 
     }
 </script>
