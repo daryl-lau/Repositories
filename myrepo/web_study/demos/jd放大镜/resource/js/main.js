@@ -11,6 +11,8 @@ window.onload = function () {
     var viewB = document.querySelector('.view_b');
     var viewMove = document.querySelector('.move-box');
 
+
+
     if (lis.length > 5){
         prevBtn.onclick = function () {
             uniformMove(ul, {'left':0});
@@ -88,6 +90,9 @@ window.onload = function () {
         }
     };
 
+    var border_M = parseInt(getStyle(viewM, 'border'));
+    var viewM_width = viewM.offsetWidth - border_M * 2;
+
     viewM.onmouseover = function () {
         viewMove.style.display = 'block';
         viewB.style.display = 'block';
@@ -99,19 +104,19 @@ window.onload = function () {
 
             if (pointX < 0) {
                 pointX = 0
-            }else if (pointX > (viewM.offsetWidth - viewMove.offsetWidth - 2) ) {
-                pointX = viewM.offsetWidth - viewMove.offsetWidth - 2
+            }else if (pointX > (viewM.offsetWidth - viewMove.offsetWidth - border_M * 2) ) {
+                pointX = viewM.offsetWidth - viewMove.offsetWidth - border_M * 2;
             }
 
             if (pointY < 0) {
                 pointY = 0
-            }else if (pointY > (viewM.offsetHeight - viewMove.offsetHeight - 2) ) {
-                pointY = viewM.offsetHeight - viewMove.offsetHeight - 2
+            }else if (pointY > (viewM.offsetHeight - viewMove.offsetHeight - border_M * 2) ) {
+                pointY = viewM.offsetHeight - viewMove.offsetHeight - border_M * 2;
             }
 
             viewMove.style.left = pointX + 'px';
             viewMove.style.top = pointY + 'px';
-            viewB.style.backgroundPosition = -Math.floor(pointX * 800 / 450) + 'px' + ' ' + -Math.floor(pointY * 800 / 450) + 'px';
+            viewB.style.backgroundPosition = -Math.floor(pointX * 800 / viewM_width) + 'px' + ' ' + -Math.floor(pointY * 800 / viewM_width) + 'px';
         }
     };
 
