@@ -11,7 +11,8 @@ window.onload = function () {
     var viewB = document.querySelector('.view_b');
     var viewMove = document.querySelector('.move-box');
 
-
+    var border_M = parseInt(getStyle(viewM, 'border'));
+    var viewM_width = viewM.offsetWidth - border_M * 2;
 
     if (lis.length > 5){
         prevBtn.onclick = function () {
@@ -89,9 +90,6 @@ window.onload = function () {
             this.pause()
         }
     };
-
-    var border_M = parseInt(getStyle(viewM, 'border'));
-    var viewM_width = viewM.offsetWidth - border_M * 2;
 
     viewM.onmouseover = function () {
         viewMove.style.display = 'block';
