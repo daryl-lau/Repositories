@@ -111,7 +111,7 @@ window.onload = function () {
 
             viewMove.style.left = pointX + 'px';
             viewMove.style.top = pointY + 'px';
-            viewB.style.backgroundPosition = -(pointX * 800 / 450) + 'px' + ' ' + -(pointY * 800 / 450) + 'px';
+            viewB.style.backgroundPosition = -Math.floor(pointX * 800 / 450) + 'px' + ' ' + -Math.floor(pointY * 800 / 450) + 'px';
         }
     };
 
