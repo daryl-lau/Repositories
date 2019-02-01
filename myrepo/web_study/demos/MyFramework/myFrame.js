@@ -271,4 +271,27 @@ function toggleClass(obj, cls) {
             }
         }
     }
+
+    if(window.pageXOffset){
+        scroll = function () {
+            return {
+                "left": window.pageXOffset,
+                "top": window.pageYOffset
+            }
+        }
+    }else if(document.compatMode === "CSS1Compat"){
+        scroll = function () {
+            return {
+                "left": document.documentElement.scrollLeft,
+                "top": document.documentElement.scrollTop
+            }
+        }
+    }else {
+        scroll = function () {
+            return {
+                "left": document.body.scrollLeft,
+                "top": document.body.scrollTop
+            }
+        }
+    }
 }();
