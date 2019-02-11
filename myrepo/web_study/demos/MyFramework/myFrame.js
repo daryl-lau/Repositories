@@ -74,15 +74,15 @@ function uniformMove(obj, json, endFunc) {
             var cur;
             if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
-                var speedOpacity = json[attr] * 100 - cur >= 0 ? 1 : -1;
+                var speedOpacity = json[attr] - cur >= 0 ? 1 : -1;
             }
             else {
                 cur = parseInt(getStyle(obj, attr));
-                var speedPx = json[attr] * 100 - cur >= 0 ? 1 : -1;
+                var speedPx = json[attr] - cur >= 0 ? 1 : -1;
             }
 
             if( attr === 'opacity'){
-                if (cur !== json[attr] * 100){
+                if (cur !== json[attr]){
                     obj.style.filter='alpha(opacity:'+ (cur + speedOpacity) +')';  //IE
                     obj.style.opacity = (cur + speedOpacity) / 100;
                     bResult = false;
