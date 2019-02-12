@@ -22,9 +22,10 @@ function getStyle(obj, name) {
  * ex: startMove(this, {'width':100, 'height':100}, function (){ alert('Move ended') }).
  * @param {object}obj
  * @param {json}json
+*  @param {number}speed
  * @param {function}endFunc
  */
-function variableMove(obj, json, endFunc) {
+function variableMove(obj, json, speed, endFunc) {
 
     clearInterval(obj.timer);
 
@@ -39,20 +40,20 @@ function variableMove(obj, json, endFunc) {
                 cur = parseInt(getStyle(obj, attr));
             }
 
-            var speed = (json[attr] - cur) / 6;
+            var step = (json[attr] - cur) / speed;
             //get the initeger
-            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
 
-            if (cur != json[attr]){
+            if (cur !== json[attr]){
                 bResult = false;
             }
 
             if (attr === 'opacity') {
-                obj.style.filter='alpha(opacity:'+ (cur + speed) +')';  //IE
-                obj.style.opacity = (cur + speed) / 100;
+                obj.style.filter='alpha(opacity:'+ (cur + step) +')';  //IE
+                obj.style.opacity = (cur + step) / 100;
             }
             else {
-                obj.style[attr] = cur + speed + 'px';
+                obj.style[attr] = cur + step + 'px';
             }
         }
 
@@ -64,7 +65,9 @@ function variableMove(obj, json, endFunc) {
     },30)
 }
 
-function uniformMove(obj, json, endFunc) {
+
+
+function uniformMove(obj, json, speed, endFunc) {
 
     clearInterval(obj.timer);
 
@@ -74,15 +77,15 @@ function uniformMove(obj, json, endFunc) {
             var cur;
             if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
-                var speedOpacity = json[attr] - cur >= 0 ? 1 : -1;
+                var speedOpacity = json[attr] * 100 - cur >= 0 ? speed : -speed;
             }
             else {
                 cur = parseInt(getStyle(obj, attr));
-                var speedPx = json[attr] - cur >= 0 ? 1 : -1;
+                var speedPx = json[attr] * 100 - cur >= 0 ? speed : -speed;
             }
 
             if( attr === 'opacity'){
-                if (cur !== json[attr]){
+                if (cur !== json[attr] * 100){
                     obj.style.filter='alpha(opacity:'+ (cur + speedOpacity) +')';  //IE
                     obj.style.opacity = (cur + speedOpacity) / 100;
                     bResult = false;
@@ -91,6 +94,7 @@ function uniformMove(obj, json, endFunc) {
                 }
 
             }else {
+                console.log(cur, json[attr], json[attr] - cur, speedPx);
                 if (cur !== json[attr]){
                     obj.style[attr] = cur + speedPx + 'px';
                     bResult = false;
@@ -107,6 +111,8 @@ function uniformMove(obj, json, endFunc) {
         }
     },20)
 }
+
+
 
 
 /**

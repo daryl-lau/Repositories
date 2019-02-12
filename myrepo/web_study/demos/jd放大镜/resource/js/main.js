@@ -16,13 +16,13 @@ window.onload = function () {
 
     if (lis.length > 5){
         prevBtn.onclick = function () {
-            uniformMove(ul, {'left':0});
+            uniformMove(ul, {'left':0}, 19);
             removeClass(this, 'hover');
             addClass(this, 'disabled');
         };
 
         nextBtn.onclick = function () {
-            uniformMove(ul, {'left':-228});
+            uniformMove(ul, {'left':-228}, 19);
             addClass(this, 'disabled');
             removeClass(this, 'hover')
         };
