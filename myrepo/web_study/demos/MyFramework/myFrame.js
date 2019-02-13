@@ -97,7 +97,7 @@ function scrollFunc(evt) {
 function Func(evt) {
     evt = evt || window.event;
     if(evt.preventDefault) {
-        location.reload();
+        // location.reload();
     }else {
         // IE
         evt.cancelBubble=false;
@@ -145,10 +145,11 @@ function variableMove(obj, json, speed, endFunc) {
             disabledMouseWheel()
         }
         //execute the end function
-        console.log(cur);
+        console.log(cur,json[attr],bResult,obj);
         if (bResult){
+            // debugger
             clearInterval(obj.timer);
-            enabledMouseWheel();
+            // debugger
             if(endFunc){endFunc()}
         }
     },30)

@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
+<!--<span><input type="button" name="test" value="开启滚动" onclick="enabledMouseWheel()">-->
+ <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="test" value="关闭滚动" onclick="disabledMouseWheel()">-->
+ <!--</span>-->
 <div id="id1" class="aa bb cc dd" style="position: relative; width: 100px; height: 50px; background-color: green; margin:0 auto;">
     <div id="id2" style="position: absolute; width: 300px; height: 50px; background-color: red; opacity: 0.5; left: -100px;"></div>
 </div>
@@ -235,8 +238,7 @@
 
         var div1 = document.getElementById('id1');
         var div2 = document.getElementById('id2');
-        var bs = document.getElementsByTagName('html')[0];
-        console.log(bs);
+
         // console.log(div.className);
 
         // removeClass(div, 'aa bb cc dd')
@@ -251,7 +253,7 @@
         // uniformMove(div2, {'opacity':1})
         // uniformMove(div2, {'left':-200},10)
         // console.log(scroll().left);
-        variableMove(document.documentElement, {'scrollTop': 3000}, 6, null);
+        variableMove(document.documentElement, {'scrollTop': 2000}, 6, enabledMouseWheel);
 //
 //         console.log(Math.round(parseFloat(getStyle(document.documentElement, 'scrollTop'))));
 //         console.log(parseInt(document.documentElement.scrollTop));
