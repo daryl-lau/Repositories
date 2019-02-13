@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <script src="myFrame.js"></script>
+    <title>Title</title>
+</head>
+  <script>
+function test(){
+alert("点击开启，滚动条都可以滚动了,目前这个功能要实现.");
+ if (document.addEventListener) {
+document.addEventListener('DOMMouseScroll', Func, false);
+  }//W3C
+  window.onmousewheel = document.onmousewheel = Func;//IE/Opera/Chrome
+}
+
+function disabledMouseWheel() {
+  if (document.addEventListener) {
+    document.addEventListener('DOMMouseScroll', scrollFunc, false);
+  }//W3C
+  window.onmousewheel = document.onmousewheel = scrollFunc;//IE/Opera/Chrome
+}
+function scrollFunc(evt) {
+  evt = evt || window.event;
+    if(evt.preventDefault) {
+    // Firefox
+      evt.preventDefault();
+      evt.stopPropagation();
+    } else {
+      // IE
+      evt.cancelBubble=true;
+      evt.returnValue = false;
+  }
+  return false;
+}
+
+function Func(evt) {
+  evt = evt || window.event;
+    if(evt.preventDefault) {
+       location.reload();
+    } else {
+      // IE
+      evt.cancelBubble=false;
+      evt.returnValue = true;
+  }
+  return true;
+}
+
+function closemouse(){
+alert("将要关闭鼠标滚轮事件，滚动条将不会随着鼠标滚动了！");
+disabledMouseWheel();
+}
+
+  </script>
+ <body >
+ <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <span><input type="button" name="test" value="开启滚动" onclick="test()">
+ &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="test" value="关闭滚动" onclick="closemouse()">
+ </span><br><br>
+  <span>
+  &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;说明：点击 "关闭滚动" 按钮 将禁用鼠标滚轮事件，右侧的滚动条将不会滚动了，点击开启按钮，可以再滚动了。<br><br>
+  </span>
+ </body>
+</html>
