@@ -78,7 +78,13 @@ function variableMove(obj, json, speed, endFunc) {
     },30)
 }
 
-
+/**
+ *
+ * @param {obkect}obj
+ * @param {json}json
+ * @param {number}speed
+ * @param {function}endFunc
+ */
 function uniformMove(obj, json, speed, endFunc) {
 
     clearInterval(obj.timer);
