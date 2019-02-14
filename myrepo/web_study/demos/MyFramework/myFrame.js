@@ -25,87 +25,6 @@ function getStyle(obj, name) {
 *  @param {number}speed
  * @param {function}endFunc
  */
-// function variableMove(obj, json, speed, endFunc) {
-//
-//     clearInterval(obj.timer);
-//
-//     obj.timer = setInterval(function () {
-//         var bResult = true;
-//         for (var attr in json) {
-//             var cur;
-//             if (attr === 'opacity') {
-//                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
-//             }
-//             else {
-//                 cur = parseInt(getStyle(obj, attr));
-//             }
-//
-//             var step = (json[attr] - cur) / speed;
-//             //get the initeger
-//             step = step > 0 ? Math.ceil(step) : Math.floor(step);
-//
-//             if (cur !== json[attr]){
-//                 bResult = false;
-//             }
-//
-//             if (attr === 'opacity') {
-//                 obj.style.filter='alpha(opacity:'+ (cur + step) +')';  //IE
-//                 obj.style.opacity = (cur + step) / 100;
-//             }
-//             else {
-//                 obj.style[attr] = cur + step + 'px';
-//             }
-//         }
-//
-//         //execute the end function
-//         if (bResult){
-//             clearInterval(obj.timer);
-//             if(endFunc){endFunc()}
-//         }
-//     },30)
-// }
-
-
-function enabledMouseWheel(){
-// alert("点击开启，滚动条都可以滚动了,目前这个功能要实现.");
-    if (document.addEventListener) {
-        document.addEventListener('DOMMouseScroll', Func, false);
-    }//W3C
-    window.onmousewheel = document.onmousewheel = Func;//IE/Opera/Chrome
-}
-
-function disabledMouseWheel() {
-    if (document.addEventListener) {
-        document.addEventListener('DOMMouseScroll', scrollFunc, false);
-    }//W3C
-    window.onmousewheel = document.onmousewheel = scrollFunc;//IE/Opera/Chrome
-}
-function scrollFunc(evt) {
-    evt = evt || window.event;
-    if( evt.preventDefault ) {
-        // Firefox
-        evt.preventDefault();
-        evt.stopPropagation();
-    }else {
-        // IE
-        evt.cancelBubble=true;
-        evt.returnValue = false;
-  }
-  return false;
-}
-
-function Func(evt) {
-    evt = evt || window.event;
-    if(evt.preventDefault) {
-        // location.reload();
-    }else {
-        // IE
-        evt.cancelBubble=false;
-        evt.returnValue = true;
-    }
-    return true;
-}
-
 function variableMove(obj, json, speed, endFunc) {
 
     clearInterval(obj.timer);
@@ -141,15 +60,17 @@ function variableMove(obj, json, speed, endFunc) {
                 obj.style[attr] = cur + step + 'px';
             }
         }
-        if (attr === 'scrollTop'){
-            disabledMouseWheel()
+
+        if (attr === 'scrollTop') {
+            window.onscroll = function () {
+                window.onmousewheel = function () {
+                    clearInterval(obj.timer)
+                };
+            }
         }
         //execute the end function
-        console.log(cur,json[attr],bResult,obj);
         if (bResult){
-            // debugger
             clearInterval(obj.timer);
-            // debugger
             if(endFunc){endFunc()}
         }
     },30)

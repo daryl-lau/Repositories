@@ -11,9 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<!--<span><input type="button" name="test" value="开启滚动" onclick="enabledMouseWheel()">-->
- <!--&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="test" value="关闭滚动" onclick="disabledMouseWheel()">-->
- <!--</span>-->
+<span><input id="btn1" type="button" name="test" value="开启滚动">
+ </span>
 <div id="id1" class="aa bb cc dd" style="position: relative; width: 100px; height: 50px; background-color: green; margin:0 auto;">
     <div id="id2" style="position: absolute; width: 300px; height: 50px; background-color: red; opacity: 0.5; left: -100px;"></div>
 </div>
@@ -238,7 +237,7 @@
 
         var div1 = document.getElementById('id1');
         var div2 = document.getElementById('id2');
-
+        var btn = document.querySelector('#btn1');
         // console.log(div.className);
 
         // removeClass(div, 'aa bb cc dd')
@@ -253,7 +252,11 @@
         // uniformMove(div2, {'opacity':1})
         // uniformMove(div2, {'left':-200},10)
         // console.log(scroll().left);
-        variableMove(document.documentElement, {'scrollTop': 2000}, 6, enabledMouseWheel);
+        // btn.onclick = function (){
+        //     variableMove(document.documentElement, {'scrollTop': 2595}, 6);
+        //     variableMove(div1, {'left': 1000}, 6)
+        // }
+
 //
 //         console.log(Math.round(parseFloat(getStyle(document.documentElement, 'scrollTop'))));
 //         console.log(parseInt(document.documentElement.scrollTop));
