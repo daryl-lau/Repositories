@@ -109,9 +109,8 @@ function uniformMove(obj, json, speed, endFunc) {
             if( attr === 'opacity'){
                 if (cur !== json[attr] * 100){
                     if (Math.abs(json[attr] - cur) < Math.abs(speedOpacity)){
-                        speedOpacity = json[attr] - cur
+                        speedOpacity = (json[attr] - cur);
                     }
-
                     obj.style.filter='alpha(opacity:'+ (cur + speedOpacity) +')';  //IE
                     obj.style.opacity = (cur + speedOpacity) / 100;
                 }
@@ -131,6 +130,14 @@ function uniformMove(obj, json, speed, endFunc) {
                     }
                     obj.style[attr] = cur + speedPx + 'px';
                 }
+            }
+        }
+
+        if (attr === 'scrollTop') {
+            window.onscroll = function () {
+                window.onmousewheel = function () {
+                    clearInterval(obj.timer)
+                };
             }
         }
 
