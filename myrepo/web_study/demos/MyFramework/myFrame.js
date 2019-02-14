@@ -69,6 +69,8 @@ function variableMove(obj, json, speed, endFunc) {
             }
         }
         //execute the end function
+        console.log(cur, json[attr], json[attr] - cur, bResult);
+
         if (bResult){
             clearInterval(obj.timer);
             if(endFunc){endFunc()}
@@ -87,38 +89,55 @@ function uniformMove(obj, json, speed, endFunc) {
             var cur;
             if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                console.log(cur);
                 var speedOpacity = json[attr] * 100 - cur >= 0 ? speed : -speed;
+            }
+            else if (attr === 'scrollTop') {
+                cur =  Math.round(parseInt(obj.scrollTop));
+                var speedScroll = json[attr] - cur >= 0 ? speed : -speed;
             }
             else {
                 cur = parseInt(getStyle(obj, attr));
-                var speedPx = json[attr] * 100 - cur >= 0 ? speed : -speed;
+                var speedPx = json[attr] - cur >= 0 ? speed : -speed;
+            }
+
+
+            if (cur !== json[attr]){
+                bResult = false;
             }
 
             if( attr === 'opacity'){
                 if (cur !== json[attr] * 100){
                     obj.style.filter='alpha(opacity:'+ (cur + speedOpacity) +')';  //IE
                     obj.style.opacity = (cur + speedOpacity) / 100;
-                    bResult = false;
-                }else {
-                    bResult = true;
-                }
-
-            }else {
-                console.log(cur, json[attr], json[attr] - cur, speedPx);
-                if (cur !== json[attr]){
-                    obj.style[attr] = cur + speedPx + 'px';
-                    bResult = false;
-                }else {
-                    bResult = true;
                 }
             }
-
-            //execute the end function
-            if (bResult){
-                clearInterval(obj.timer);
-                if(endFunc){endFunc()}
+            else if(attr === 'scrollTop'){
+                if(cur !== json[attr]){
+                    if (Math.abs(json[attr] - cur) < Math.abs(speedScroll)){
+                        speedScroll = json[attr] - cur
+                    }
+                    obj.scrollTop = cur + speedScroll;
+                }
+            }
+            else {
+                if (cur !== json[attr]){
+                    if (Math.abs(json[attr] - cur) < Math.abs(speedPx)){
+                        speedPx = json[attr] - cur
+                    }
+                    console.log(cur,speedPx)
+                    obj.style[attr] = cur + speedPx + 'px';
+                }
             }
         }
+
+        //execute the end function
+        if (bResult){
+            console.log(bResult);
+            clearInterval(obj.timer);
+            if(endFunc){endFunc()}
+        }
+
     },20)
 }
 
