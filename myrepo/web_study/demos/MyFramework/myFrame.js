@@ -111,6 +111,7 @@ function uniformMove(obj, json, speed, endFunc) {
                     if (Math.abs(json[attr] - cur) < Math.abs(speedOpacity)){
                         speedOpacity = json[attr] - cur
                     }
+
                     obj.style.filter='alpha(opacity:'+ (cur + speedOpacity) +')';  //IE
                     obj.style.opacity = (cur + speedOpacity) / 100;
                 }
@@ -128,7 +129,6 @@ function uniformMove(obj, json, speed, endFunc) {
                     if (Math.abs(json[attr] - cur) < Math.abs(speedPx)){
                         speedPx = json[attr] - cur
                     }
-                    console.log(cur,speedPx)
                     obj.style[attr] = cur + speedPx + 'px';
                 }
             }
@@ -136,7 +136,6 @@ function uniformMove(obj, json, speed, endFunc) {
 
         //execute the end function
         if (bResult){
-            console.log(bResult);
             clearInterval(obj.timer);
             if(endFunc){endFunc()}
         }
