@@ -109,7 +109,7 @@ window.onload = function () {
         timer = setInterval(
             function () {
                 btnNext.click()
-            },6000)
+            },1000)
     }
     startTimer()
 };
