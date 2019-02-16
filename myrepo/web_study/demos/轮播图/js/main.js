@@ -2,6 +2,10 @@ window.onload = function () {
 
     var allLis = document.querySelectorAll('#main ul li');
     var btnBottom = document.querySelector('#btn_bottom');
+    var wrapper = document.querySelector('#wrapper');
+    var btnPrevNext = document.querySelector('#btn_prev_next');
+    var btnPrev = document.querySelector('#btn_prev_next .btn-prev');
+    var btnNext = document.querySelector('#btn_prev_next .btn-next');
     var imgWidth = allLis[0].offsetWidth;
 
     for (var i = 0; i < allLis.length; i++){
@@ -20,11 +24,6 @@ window.onload = function () {
     var btnBottomWidth = btnBottom.offsetWidth;
     addClass(allBtnLis[0], 'current');
     btnBottom.style.marginLeft = -btnBottomWidth/2 + 'px';
-
-    var wrapper = document.querySelector('#wrapper');
-    var btnPrevNext = document.querySelector('#btn_prev_next');
-    var btnPrev = document.querySelector('#btn_prev_next .btn-prev');
-    var btnNext = document.querySelector('#btn_prev_next .btn-next');
 
     wrapper.onmouseover = function () {
         btnPrevNext.style.display = 'block';
@@ -50,7 +49,6 @@ window.onload = function () {
 
     var imgNow = 0;
     btnNext.onclick = function () {
-        console.log(imgNow);
         uniformMove(allLis[imgNow], {'left': -imgWidth}, 30);
         imgNow++;
         if (imgNow >= allLis.length){
@@ -67,7 +65,6 @@ window.onload = function () {
     };
 
     btnPrev.onclick = function () {
-        console.log(imgNow);
         uniformMove(allLis[imgNow], {'left': imgWidth}, 30);
         imgNow--;
         if (imgNow < 0){
@@ -88,7 +85,6 @@ window.onload = function () {
                     removeClass(allBtnLis[j], 'current')
                  }
                  addClass(this, 'current');
-                 console.log(imgNow, index);
                  if (imgNow > index){
                     uniformMove(allLis[imgNow], {'left': imgWidth}, 30);
                     allLis[index].style.left = -imgWidth + 'px';
