@@ -69,13 +69,11 @@ function variableMove(obj, json, speed, endFunc) {
             }
         }
         //execute the end function
-        console.log(cur, json[attr], json[attr] - cur, bResult);
-
         if (bResult){
             clearInterval(obj.timer);
             if(endFunc){endFunc()}
         }
-    },10)
+    },30)
 }
 
 /**
