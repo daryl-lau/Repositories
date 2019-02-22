@@ -86,9 +86,9 @@ window.onload = function () {
                  }
                  addClass(this, 'current');
                  if (imgNow > index){
-                    uniformMove(allLis[imgNow], {'left': imgWidth}, 30);
-                    allLis[index].style.left = -imgWidth + 'px';
-                    uniformMove(allLis[index], {'left': 0}, 30)
+                     uniformMove(allLis[imgNow], {'left': imgWidth}, 30);
+                     allLis[index].style.left = -imgWidth + 'px';
+                     uniformMove(allLis[index], {'left': 0}, 30)
                  }else if (imgNow < index){
                      uniformMove(allLis[imgNow], {'left': -imgWidth}, 30);
                      allLis[index].style.left = imgWidth + 'px';
