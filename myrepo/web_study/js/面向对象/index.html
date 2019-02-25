@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+</body>
+<script>
+    var arr = new Array();
+
+    console.log(arr);
+    console.log(Array);
+
+    console.log('---------------------------------------------------------------');
+
+    console.log(arr.__proto__);
+    console.log(Array.prototype);
+    console.log(Array.prototype);
+
+
+    function Person(name) {
+        this.name = name;
+    }
+
+    Person.prototype.func1 = function () {
+        console.log(1111);
+    };
+
+    var p = new Person('sad');
+
+    console.log(Person);
+    console.log(p.__proto__);
+    console.log(Person.prototype.constructor.__proto__.constructor);
+    p.func1();
+
+
+    console.log('---------------------------------------------------------------');
+
+    console.log(Object);
+
+    console.log(Function);
+    console.log(arr.__proto__.constructor.__proto__.__proto__.constructor);
+
+
+    console.log(Function.prototype.__proto__.constructor.__proto__.constructor);
+
+    console.log(Object.__proto__);
+
+
+    console.log(Array.prototype.__proto__.constructor);
+    console.log(Object.prototype);
+</script>
+
+</html>

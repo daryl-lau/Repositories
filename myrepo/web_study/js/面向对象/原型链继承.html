@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+</body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.run = function () {
+        console.log('跑');
+    };
+
+    function Student(cls) {
+        this.class = cls;
+    }
+
+    // 原型链的继承，需要三个步骤
+    // 1、构造父类的实例
+    var p = new Person('张三', 19);
+
+    // 2、并设置父类的实例为子类的原型对象
+    Student.prototype = p;
+
+    // 3、修复constructor的指针
+    // 如果不添加这一行，则Student.prototype.constructor原型链指向的是Person，显然是不对的，所以需要重新制定原型链
+    Student.prototype.constructor = Student;
+
+    var s = new Student('class 6');
+
+    console.log(s.name);
+    console.log(s.age);
+    console.log(s.class);
+    s.run()
+</script>
+</html>
