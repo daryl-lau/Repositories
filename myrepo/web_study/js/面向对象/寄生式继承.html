@@ -24,6 +24,10 @@
         console.log('跑');
     };
 
+    Person.prototype.eat = function () {
+        console.log('吃')
+    };
+
     function Student(cls, name, age) {
 
         // 1、子类调用父类的构造函数，这个需要写在子类定义属性语句的前面，因为如果有相同的属性，需要优先拿到子类的属性
@@ -54,6 +58,7 @@
     console.log(s.name);
     console.log(s.age);
     console.log(s.class);
-    s.run()
+    s.run();
+    s.eat()
 </script>
 </html>

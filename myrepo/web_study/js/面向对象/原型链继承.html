@@ -43,6 +43,10 @@
     console.log(Student.__proto__);
     console.log(s.__proto__);
     console.log(s.name);
+
+    //注意！！！原型链继承，当父类实例中的属性发生改变时，所有子类的属性会跟着改变！！
+    p.name = '李四';
+    console.log(s.name);
     console.log(s.age);
     console.log(s.class);
     s.run()
