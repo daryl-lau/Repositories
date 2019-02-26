@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+</body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.run = function () {
+        console.log('跑');
+    };
+
+    function Student(cls, name, age) {
+
+        // 1、子类调用父类的构造函数，这个需要写在子类定义属性语句的前面，因为如果有相同的属性，需要优先拿到子类的属性
+        Person.call(this, name, age);
+
+        this.class = cls;
+    }
+
+    // 2、构造临时函数
+    function Temp() {}
+
+    // 3、指向，将临时构造函数的原型对象指向父类的原型对象
+    Temp.prototype = Person.prototype;
+
+    // 4、产生对象
+    var tempPro = new Temp();
+
+    // 5、修改Student的指向
+    Student.prototype = tempPro;
+
+    // 6、增强动作
+    tempPro.constructor = Student;
+
+    var s = new Student('class 6', 'zhangsan', 18);
+
+    console.log(Student.__proto__);
+    console.log(s.__proto__);
+    console.log(s.name);
+    console.log(s.age);
+    console.log(s.class);
+    s.run()
+</script>
+</html>
