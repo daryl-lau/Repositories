@@ -333,3 +333,31 @@ function toggleClass(obj, cls) {
         }
     }
 }();
+
+
+/**
+ * Deep copy
+ * @param fromObj
+ * @param toObj
+ */
+function deepCopy(fromObj, toObj) {
+    for (var key in fromObj){
+        var fromValue = fromObj[key];
+        if(!isObj(fromValue)){
+            toObj[key] = fromValue;
+        }else {
+            var tempObj = new fromValue.constructor;
+            deepCopy(fromObj, tempObj);
+            toObj[key] = tempObj;
+        }
+    }
+}
+
+/**
+ * 判断是否是对象
+ * @param obj
+ * @returns {boolean}
+ */
+function isObj(obj) {
+    return obj instanceof Object;
+}

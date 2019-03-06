@@ -1,0 +1,19 @@
+.style(@boxW: 200px, @boxH: 200px){ //如果不传参数，则使用默认参数；
+  width: @boxW;
+  height: @boxH;
+}
+
+
+
+.box {
+  background-color: #3acaff;
+  .style(300px, 400px);
+  div {
+    background-color: red;
+    .style();
+    h2 {
+      color: green;
+    }
+  }
+}
+

@@ -8,7 +8,7 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <title>Title</title>
-    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<link rel="stylesheet" href="./less/base.less">-->
     <!--<script src="./js/main.js"></script>-->
 </head>
 <body>
@@ -51,10 +51,15 @@
     // 6、增强动作
     tempPro.constructor = Student;
 
+
     var s = new Student('class 6', 'zhangsan', 18);
+    var p = new Person();
 
     console.log(Student.__proto__);
     console.log(s.__proto__);
+    console.log(s.name);
+    p.name = '李四';
+    console.log(p.name);
     console.log(s.name);
     console.log(s.age);
     console.log(s.class);

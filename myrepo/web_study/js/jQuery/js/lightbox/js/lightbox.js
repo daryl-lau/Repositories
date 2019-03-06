@@ -66,7 +66,7 @@
       this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
       this.$container      = this.$lightbox.find('.lb-container');
 
-      // Store css values for future lookup
+      // Store less values for future lookup
       this.containerTopPadding = parseInt(this.$container.css('padding-top'), 10);
       this.containerRightPadding = parseInt(this.$container.css('padding-right'), 10);
       this.containerBottomPadding = parseInt(this.$container.css('padding-bottom'), 10);

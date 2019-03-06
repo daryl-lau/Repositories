@@ -339,7 +339,7 @@
 
                     'class':    'ZebraDialogOverlay'
 
-                // set some css properties of the overlay
+                // set some less properties of the overlay
                 }).css({
 
                     'position': (plugin.isIE6 ? 'absolute' : 'fixed'),  //  for IE6 we emulate the "position:fixed" behaviour
@@ -366,7 +366,7 @@
 
                 'class':        'ZebraDialog' + (plugin.settings.custom_class ? ' ' + plugin.settings.custom_class : '')
 
-            // set some css properties of the dialog box
+            // set some less properties of the dialog box
             }).css({
 
                 'position':     (plugin.isIE6 ? 'absolute' : 'fixed'),  //  for IE6 we emulate the "position:fixed" behaviour
@@ -698,7 +698,7 @@
             // if an overlay exists
             if (plugin.overlay)
 
-                // animate overlay's css properties
+                // animate overlay's less properties
                 plugin.overlay.animate({
 
                     opacity: 0  // fade out the overlay
@@ -716,7 +716,7 @@
 
                 });
 
-            // animate dialog box's css properties
+            // animate dialog box's less properties
             plugin.dialog.animate({
 
                 top: 0,     // move the dialog box to the top

@@ -2380,7 +2380,7 @@ if ( !jQuery.support.style ) {
 	jQuery.attrHooks.style = {
 		get: function( elem ) {
 			// Return undefined in the case of empty string
-			// Normalize to lowercase since IE uppercases css property names
+			// Normalize to lowercase since IE uppercases less property names
 			return elem.style.cssText.toLowerCase() || undefined;
 		},
 		set: function( elem, value ) {
@@ -6186,7 +6186,7 @@ jQuery.extend({
 		}
 	},
 
-	// Exclude the following css properties to add px
+	// Exclude the following less properties to add px
 	cssNumber: {
 		"zIndex": true,
 		"fontWeight": true,
@@ -6200,7 +6200,7 @@ jQuery.extend({
 	// Add in properties whose names you wish to fix before
 	// setting or getting the value
 	cssProps: {
-		// normalize float css property
+		// normalize float less property
 		"float": jQuery.support.cssFloat ? "cssFloat" : "styleFloat"
 	},
 
@@ -6302,7 +6302,7 @@ jQuery.extend({
 	}
 });
 
-// DEPRECATED, Use jQuery.css() instead
+// DEPRECATED, Use jQuery.less() instead
 jQuery.curCSS = jQuery.css;
 
 jQuery.each(["height", "width"], function( i, name ) {
