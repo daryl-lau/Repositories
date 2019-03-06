@@ -11,3 +11,6 @@
 .box div h2 {
   color: green;
 }
+.box div h2:hover {
+  color: blue;
+}

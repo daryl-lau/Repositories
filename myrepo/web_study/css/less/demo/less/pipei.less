@@ -1,0 +1,51 @@
+.radius(leftTop, @radius){
+  border-top-left-radius: @radius;
+}
+
+.radius(leftBottom, @radius){
+  border-bottom-left-radius: @radius;
+}
+
+.radius(rightTop, @radius){
+  border-top-right-radius: @radius;
+}
+
+.radius(rightBottom, @radius){
+  border-bottom-right-radius: @radius;
+}
+
+.radius(all, @radius){
+  border-radius: @radius;
+}
+
+
+div {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+}
+
+.box1 {
+  background-color: red;
+  .radius(leftTop, 50%)
+}
+
+.box2 {
+  background-color: green;
+  .radius(leftBottom, 50%)
+}
+
+.box3 {
+  background-color: yellow;
+  .radius(rightTop, 50%)
+}
+
+.box4 {
+  background-color: pink;
+  .radius(rightBottom, 50%)
+}
+
+.box5 {
+  background-color: darkcyan;
+  .radius(all, 50%)
+}
