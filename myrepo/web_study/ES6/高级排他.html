@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+    <style>
+        li {
+            background-color: #CCCCCC;
+            margin: 2px;
+        }
+
+        .current {
+            background-color: #4e555b;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li class="current">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+
+<script>
+    window.onload = function () {
+
+        // 使用ES6只有一个for循环，而使用ES5需要两个for循环;
+
+        //ES6
+        let allLis = document.getElementsByTagName('li');
+        let preIndex = 0;
+
+        for (let i = 0; i < allLis.length; i ++ ){
+            allLis[i].addEventListener('mouseover', function () {
+                allLis[preIndex].className = '';
+                this.className = 'current';
+                preIndex = i;
+            })
+        }
+
+        //ES5
+        // var allLis = document.getElementsByTagName('li');
+        // for (var i = 0; i < allLis.length; i++){
+        //     allLis[i].addEventListener('mouseover', function () {
+        //         for (var j = 0; j < allLis.length; j++){
+        //             allLis[j].className = '';
+        //         }
+        //         this.className = 'current';
+        //     })
+        // }
+
+    };
+</script>
+</body>
+</html>
