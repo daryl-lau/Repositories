@@ -295,14 +295,14 @@
         }
 
         sayName() {
-            console.log(super.name);    //调用父类的原型属性，jerry
+            console.log(super.name);    //调用父类的原型属性，undefined, 因为父类的属性没有绑定到原型链上
         }
 
     }
 
     let worker = new Worker('jerry', 20, 'teacher');
-    worker.sayName();           // underfined
-    worker.sayJob();            // the person job is:teacher
+    worker.sayJob();            // the person job is teacher
+    worker.sayName();           // undefined
 
 </script>
 
