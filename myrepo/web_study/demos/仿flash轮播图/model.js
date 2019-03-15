@@ -1,10 +1,8 @@
 function getStyle(objc, name) {
-    if(objc.currentStyle)
-    {
+    if (objc.currentStyle) {
         return objc.currentStyle[name];
     }
-    else
-    {
+    else {
         return getComputedStyle(objc, null)[name];
     }
 }
@@ -39,8 +37,6 @@ function startMove(obj, attr, iTarget) {
 }
 
 
-
-
 window.onload = function () {
 
     var oDiv_top = document.getElementsByClassName('top')[0];
@@ -60,27 +56,23 @@ window.onload = function () {
     var num = msg.getElementsByClassName('right')[0];
 
 
-
     function move_left() {
         var padding_value = parseInt(getComputedStyle(aLi_bottom[0], null).paddingRight);
         // console.log(padding_value);
-        if (now === 0){
+        if (now === 0) {
             startMove(oUl_bottom, 'left', padding_value)
         }
-        else if (now === 1)
-        {
+        else if (now === 1) {
             startMove(oUl_bottom, 'left', padding_value)
         }
-        else if (now === 2)
-        {
+        else if (now === 2) {
             startMove(oUl_bottom, 'left', padding_value)
         }
-        else if (now === 9)
-        {
-            startMove(oUl_bottom, 'left', -((now -3) * aLi_bottom[0].offsetWidth - padding_value))
+        else if (now === 9) {
+            startMove(oUl_bottom, 'left', -((now - 3) * aLi_bottom[0].offsetWidth - padding_value))
         }
         else {
-            startMove(oUl_bottom, 'left', -((now -2) * aLi_bottom[0].offsetWidth - padding_value))
+            startMove(oUl_bottom, 'left', -((now - 2) * aLi_bottom[0].offsetWidth - padding_value))
         }
     }
 
@@ -106,25 +98,25 @@ window.onload = function () {
     var nowIndex = 2;
     var now = 0;
 
-    for (var i = 0; i < aLi_bottom.length; i++){
+    for (var i = 0; i < aLi_bottom.length; i++) {
         aLi_bottom[i].index = i;
         aLi_bottom[i].onclick = function () {
-        if (this.index === now) return;
-        now = this.index;
+            if (this.index === now) return;
+            now = this.index;
 
-        num.innerText =  now + 1 + '/10';
-        desc.innerText = aLi_top[now].children[0].getAttribute('alt');
+            num.innerText = now + 1 + '/10';
+            desc.innerText = aLi_top[now].children[0].getAttribute('alt');
 
-        for (var i = 0; i < aLi_bottom.length; i++){
-            aLi_bottom[i].style.opacity = 0.3;
-        }
-        aLi_bottom[this.index].style.opacity = 1;
+            for (var i = 0; i < aLi_bottom.length; i++) {
+                aLi_bottom[i].style.opacity = 0.3;
+            }
+            aLi_bottom[this.index].style.opacity = 1;
 
-        aLi_top[this.index].style.zIndex = nowIndex++;
-        aLi_top[this.index].style.height = 0;
-        startMove(aLi_top[this.index], 'height', 320);
+            aLi_top[this.index].style.zIndex = nowIndex++;
+            aLi_top[this.index].style.height = 0;
+            startMove(aLi_top[this.index], 'height', 320);
 
-        move_left()
+            move_left()
 
         };
 
@@ -134,7 +126,7 @@ window.onload = function () {
         };
         aLi_bottom[i].onmouseout = function () {
             startTimer();
-            if (this.index === now){
+            if (this.index === now) {
                 aLi_bottom[this.index].style.opacity = 1;
             }
             else {
@@ -143,23 +135,23 @@ window.onload = function () {
         };
     }
 
-    function tab(){
+    function tab() {
         aLi_top[now].style.zIndex = nowIndex++;
         aLi_top[now].style.height = 0;
         startMove(aLi_top[now], 'height', 320);
 
-        for (var i = 0; i < aLi_bottom.length; i++){
+        for (var i = 0; i < aLi_bottom.length; i++) {
             aLi_bottom[i].style.opacity = 0.3;
         }
         aLi_bottom[now].style.opacity = 1;
-        num.innerText =  now + 1 + '/10';
+        num.innerText = now + 1 + '/10';
         desc.innerText = aLi_top[now].children[0].getAttribute('alt');
         move_left()
     }
 
     rightBtn.onclick = function () {
         now++;
-        if (now === aLi_top.length){
+        if (now === aLi_top.length) {
             now = 0
         }
         tab()
@@ -167,13 +159,14 @@ window.onload = function () {
 
     leftBtn.onclick = function () {
         now--;
-        if (now === -1){
-            now = aLi_top.length -1;
+        if (now === -1) {
+            now = aLi_top.length - 1;
         }
         tab()
     };
 
     timer = null;
+
     function startTimer() {
         clearInterval(timer);
         timer = setInterval(function () {
@@ -184,6 +177,7 @@ window.onload = function () {
             tab()
         }, 5000)
     }
+
     startTimer()
 
 };

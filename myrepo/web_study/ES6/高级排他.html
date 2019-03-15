@@ -39,11 +39,11 @@
 
         // 使用ES6只有一个for循环，而使用ES5需要两个for循环;
 
-        //ES6
+        // ES6
         let allLis = document.getElementsByTagName('li');
         let preIndex = 0;
 
-        for (let i = 0; i < allLis.length; i ++ ){
+        for (let i = 0; i < allLis.length; i++) {
             allLis[i].addEventListener('mouseover', function () {
                 allLis[preIndex].className = '';
                 this.className = 'current';
@@ -51,7 +51,7 @@
             })
         }
 
-        //ES5
+        // ES5
         // var allLis = document.getElementsByTagName('li');
         // for (var i = 0; i < allLis.length; i++){
         //     allLis[i].addEventListener('mouseover', function () {

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+
+<script id="数组的延展">
+    let arr1 = [1, 2, 3];
+    let arr2 = [4, 5, 6];
+    let result = [...arr1, ...arr2];
+    console.log(result);
+</script>
+
+
+<script id="对象的延展">
+    let obj1 = {name1: 'jerry', age1: 2};
+    let obj2 = {name2: 'tom', age2: 3};
+    let result1 = {...obj1, ...obj2};
+    console.log(result1);
+
+    // 如果说对象中的键名字是一样的话，后面的键值将会覆盖前面的
+</script>
+
+</body>
+</html>

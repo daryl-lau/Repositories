@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+
+<script id='数组解构' type="text/html">
+
+    // 普通写法
+    // var nameArray = ['name1', 'name2', 'name3'];
+    // var n1 = nameArray[0];
+    // var n2 = nameArray[1];
+    // var n3 = nameArray[2];
+    //
+    //
+    // console.log(n1, n2, n3);
+
+
+    // ES6
+    let nameArray = ['name1', 'name2', 'name3'];
+    let [n1, n2, n3] = nameArray;
+    console.log(n1, n2, n3);
+
+</script>
+
+<script id='对象解构' type="text/html">
+
+    let dog = {name:'huang', age:1, gender: 'male'};
+
+    // let {name, age, gender} = dog;
+    // console.log(name, age, gender);
+
+
+    // 结构可以重命名
+    let {name:newname, age:newage, gender:newgender} = dog;
+    console.log(newname, newage, newgender);
+
+</script>
+
+
+<script id="默认解构" type="text/html">
+
+    let dog = {name:'huang', age:1};
+    let {name, age, gender = 'male'} = dog;
+    console.log(name, age, gender);
+</script>
+
+<script id="省略解构" type="text/javascript">
+
+    let nameArray = ['name1', 'name2', 'name3'];
+    let [, n2,] = nameArray;
+    console.log(n2);
+</script>
+
+<script id="应用">
+
+    // 普通写法
+    function ajax(options) {
+        let method = options.method || 'GET';
+        let data = options.data || {};
+    }
+
+
+    // 解构写法
+    function ajax({method = 'GET', data}) {
+        console.log(method, data);
+    }
+
+    ajax({
+        method: 'POST',
+        data: {}
+    })
+
+</script>
+
+</body>
+</html>
