@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+<script type="text/html">
+    // 一、extends关键字
+    // ES6中提供了extends关键字实现类的继承，相比较ES5的原型继承，更方便易懂，对于学过java的道友们来说，阅读无障碍，下面我们看下如何实现继承。
+
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        sayName() {
+            console.log(`The name is ${this.name}`);
+        }
+    }
+
+    class Worker extends Person {
+        constructor(name, age, job) {
+            super(name, age);
+            this.job = job;
+        }
+
+        sayJob() {
+            console.log(`The job is ${this.job}`)
+        }
+    }
+
+    let worker = new Worker('jerry', 20, 'teacher');
+    worker.sayJob();        //The job is teacher
+    worker.sayName();       //The name is jerry
+
+    // 分析这段代码，父类Person，实现两个类属性name, age，以及一个类方法sayName()。子类Worker实现一个类属性job，以及一个类方法sayJob。在子类的构造方法中，使用super关键字调用父类的构造方法。
+    // 我们来打印下worker对象，此时在子类对象中，已经继承父类的属性和方法。
+    // 对比下我们前一章节所描述的ES5原型继承，可以看出来extends关键字就是原型继承的一个"马甲"。
+    //
+    // 二、super关键字
+    // 上面说到子类的构造函数constructor中super方法实现对父类构造函数的调用。在调用时需要注意两点：
+    // 1、子类构造函数中必须调用super方法，否则在新建对象时报错。
+    // 2、子类构造函数中必须在使用this前调用super, 否则报错。
+</script>
+
+
+<script type="text/html">
+    // 情况1：
+
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        sayName() {
+            console.log(`The name is ${this.name}`);
+        }
+    }
+
+    class Worker extends Person {
+        constructor(name, age, job) {       //报错
+        }
+
+        sayJob() {
+            console.log(`The job is ${this.job}`)
+        }
+    }
+
+    // 情况2：
+
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        sayName() {
+            console.log(`The name is ${this.name}`);
+        }
+    }
+
+    class Worker extends Person {
+        constructor(name, age, job) {
+            this.name = name;
+            super(name, age);        //报错
+            this.job = job;
+        }
+
+        sayJob() {
+            console.log(`The job is ${this.job}`)
+        }
+    }
+
+    //
+    // 这是和ES6的继承机制有关，先创建父类的实例对象，然后在构建子类的实例，再修改父类中的this对象（先记住，后面详解）。
+
+</script>
+
+<script type="text/html">
+    // super函数除了表示父类的构造函数，也可以作为父类的对象使用，用于子类调用父类的方法。
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        sayName() {
+            console.log(`The name is ${this.name}`);
+        }
+    }
+
+    class Worker extends Person {
+        constructor(name, age, job) {
+            super(name, age);
+            this.job = job;
+        }
+
+        sayJob() {
+            console.log(`The job is ${this.job}`)
+        }
+
+        sayName() {
+            super.sayName();//调用父类的方法，
+            console.log(`The worker name is ${this.name}`)
+        }
+    }
+
+    let worker = new Worker('jerry', 20, 'teacher');
+    worker.sayJob();            //The job is teacher
+    worker.sayName();           //The name is jerry The worker name is jerry
+</script>
+
+
+<script type="text/html">
+
+    // 除了可以调用方法，是否也可以调用属性呢，我们来试一下：
+
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        sayName() {
+            console.log(`The name is ${this.name}`);
+        }
+    }
+
+    class Worker extends Person {
+        constructor(name, age, job) {
+            super(name, age);
+            this.job = job;
+        }
+
+        sayJob() {
+            console.log(`The job is ${this.job}`)
+        }
+
+        sayName() {
+            console.log(super.name);//调用父类的属性，undefined
+            console.log(`The worker name is ${this.name}`)
+        }
+    }
+
+    let worker = new Worker('jerry', 20, 'teacher');
+    worker.sayJob();        //the job is:teacher
+    worker.sayName();       //undefined, The worker name is jerry
+    // super.name报了undefined，表示没有定义。这是为何？super是指向父类的prototype对象，即Person.prototype，父类的方法是定义在父类的原型中，而属性是定义在父类对象上的，所以需要改造下，把属性定义在原型上。
+
+</script>
+
+<script type="text/html">
+
+    // super.name报了undefined，表示没有定义。这是为何？super是指向父类的prototype对象，即Person.prototype，父类的方法是定义在父类的原型中，而属性是定义在父类对象上的，所以需要改造下，把属性定义在原型上。
+    class Person {
+        constructor(name, age) {
+            Person.prototype.name = name;//定义到原型上
+            this.age = age;
+        }
+
+        sayName() {
+            console.log("the name is:" + Person.prototype.name);
+        }
+    }
+
+
+    class Worker extends Person {
+        constructor(name, age, job) {
+            super(name, age);
+            this.job = job;
+        }
+
+        sayJob() {
+            console.log(`The job is ${this.job}`)
+        }
+
+        sayName() {
+            console.log(super.name);//调用父类的原型属性，jerry
+            console.log(`The worker name is: ${this.name}`)
+        }
+    }
+
+    let worker = new Worker('jerry', 20, 'teacher');
+    worker.sayJob();    //the job is:teacher
+    worker.sayName();   //jerry,The worker name is:jerry
+    //     此时就可以正确的获取到了。
+    //
+
+</script>
+
+
+<script type="text/html">
+    // 如果父类的方式是静态的，表示类实例就可以访问，无需类对象，所以在子类调用时，也需要在静态的方法内。此时super表示是父类，即Person，而不是其原型Person.prototype。大家可以体会下差别。
+
+    class Person {
+        constructor(name, age) {
+            Person.prototype.name = name;//定义到原型上
+            this.age = age;
+        }
+
+        sayName() {
+            console.log("the name is:" + Person.prototype.name);
+        }
+
+        static sayAge() {
+            console.log("this is person age");
+        }
+    }
+
+
+    class Worker extends Person {
+        constructor(name, age, job) {
+            super(name, age);
+            this.job = job;
+        }
+
+        sayJob() {
+            console.log(`The job is ${this.job}`)
+        }
+
+        sayName() {
+            console.log(super.name); //调用父类的原型属性，jerry
+        }
+
+        static sayAge() {
+            super.sayAge();//调用父类的静态方法
+            console.log(`this is worker age`);
+        }
+    }
+
+    Worker.sayAge();    //this is person age,this is worker age
+</script>
+
+<script type="text/javascript">
+
+
+    // 先创建父类的实例对象，然后再构建子类的实例，再修改父类中的this对象。怎么理解,先看一个例子
+
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+            this.job = 'doctor';//父类定义的job
+        }
+
+        sayName() {
+            console.log(`The name is ${this.name}`);
+        }
+
+        sayJob() {
+            console.log(`the person job is ${this.job}`);
+        }
+    }
+
+
+    class Worker extends Person {
+        constructor(name, age, job) {
+            super(name, age);
+            this.job = job;
+        }
+
+        sayJob() {
+            super.sayJob();             //the person job is:teacher
+        }
+
+        sayName() {
+            console.log(super.name);    //调用父类的原型属性，jerry
+        }
+
+    }
+
+    let worker = new Worker('jerry', 20, 'teacher');
+    worker.sayName();           // underfined
+    worker.sayJob();            // the person job is:teacher
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+
+<script>
+    // let nameArray = ['jerry', 'tom', 'jack', 'rose'];
+    // nameArray.forEach((value, index, array) => {
+    //     console.log(value);
+    //     console.log(index);
+    //     console.log(array);
+    // });
+
+    // this指向问题，箭头函数内部的this就是外层代码块的this
+
+    // let obj = {
+    //     name: 'jerry',
+    //     logThis: function () {
+    //         setTimeout(function () {
+    //             console.log(this.name);     //这里的this指向的是window，而不是obj
+    //         }, 20)
+    //     }
+    // };
+
+    // let obj = {
+    //     name: 'jerry',
+    //     logThis: function () {
+    //         setTimeout(() => {
+    //             console.log(this);
+    //             console.log(this.name);         //这里的this指向的是obj
+    //         }, 20)
+    //     }
+    // };
+    // obj.logThis();            // 如果是对象直接调用函数，则this指向的是obj
+    //
+    // func = obj.logThis;
+    // func();                   // 如果将函数赋值，则this指向的是window
+
+
+    // let声明的变量不会放在window上
+    // 对象不是作用域
+
+    // let site = 'www.ywzone.com';
+    // let obj = {
+    //     site: 'www.ywzone.com',
+    //     func: function () {
+    //         console.log(this);
+    //         console.log(this.site);
+    //     }
+    // };
+    // obj.func();                 // 如果是对象直接调用函数，则this指向的是obj
+    //
+    // func = obj.func;            // 如果将函数赋值，则this指向的是window
+    // func()
+
+
+    let site = 'www.ywzone.com';
+    let obj = {
+        site: 'www.ywzone.com',
+        func: () => {
+            console.log(this);
+            console.log(this.site);
+        }
+    };
+    obj.func();                 // 如果是对象直接调用函数，this指向的还是window，因为对象没有作用域，函数有作用域，没有作用域的话就会往上层找，找到window
+
+    func = obj.func;            // 如果将函数赋值，则this指向的是window
+    func()
+
+
+
+
+
+</script>
+</body>
+</html>

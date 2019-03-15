@@ -13,32 +13,28 @@
 </head>
 <body>
 
-
-<script id="数组的延展">
-    let arr1 = [1, 2, 3];
-    let arr2 = [4, 5, 6];
-    let result = [...arr1, ...arr2];
-    console.log(result);
-</script>
-
-
-<script id="对象的延展">
-    let obj1 = {name1: 'jerry', age1: 2};
-    let obj2 = {name2: 'tom', age2: 3};
-    let result1 = {...obj1, ...obj2};
-    console.log(result1);
-
-    // 如果说对象中的键名字是一样的话，后面的键值将会覆盖前面的
-</script>
+<ul id="ul"></ul>
 
 <script>
-    function getMinValue() {
-        let result = Math.min(...arguments);
-        console.log(result);
-    }
+
+    let name = 'tom';
+    let age = 23;
+    let result1 = 'My name is ' + name + ', I\'m ' + 23 + ' years old.';
+    let result2 = `My name is ${name}, I\'m ${age} years old`;   //这里用的不是引号，而是飘号
+
+    console.log(result1);
+    console.log(result2);
+</script>
 
 
-    getMinValue(1, 2, 3, 0, -1)
+<script>
+    let dataArray = ['jerry', 'tom', 'mike', 'jack'];
+    let lis = dataArray.map(function (value) {
+        return `<li>${value}</li>`;
+    });
+
+    let ul = document.getElementById('ul');
+    ul.innerHTML = lis.join('');
 </script>
 
 </body>
