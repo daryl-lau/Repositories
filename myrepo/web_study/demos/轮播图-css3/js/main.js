@@ -30,7 +30,6 @@ window.addEventListener('load', () => {
     ol.style.marginLeft = '' + -ulLength * pointWidth / 2 + 'px';
 
 
-
     // css3动画函数
     let addTransition = (obj) => {
         obj.style.transaction = 'all .2s ease';
@@ -49,12 +48,21 @@ window.addEventListener('load', () => {
         obj.style.webkitTransform = `translateX(${x}px)`
     };
 
+    let changeIndex = () => {
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].className = '';
+        }
 
+        liIndex = index;
+        if (index >= ulLength + 1) { //6
+            liIndex = 1
+        } else if (index <= 0) {
+            liIndex = ulLength
+        }
+        lis[liIndex - 1].className = 'current';
+    };
 
-    let index = 1;
-    let timer = null;
-
-    timer = setInterval(() => {
+    let autoPlay = () => {
 
         // 图片移动
         index++;
@@ -63,27 +71,59 @@ window.addEventListener('load', () => {
 
 
         // 指示器移动
-        for (let i = 0; i < lis.length; i++) {
-            lis[i].className = '';
-        }
+        changeIndex()
+    };
 
-        let liIndex = index;
-        if (liIndex >= ulLength + 1) {
-            liIndex = 1
-        }
-        lis[liIndex - 1].className = 'current'
+    let index = 1;
+    let liIndex = 1;
+    let timer = null;
 
-    }, 1000);
+    timer = setInterval(autoPlay, 1000);
 
 
     // 边界值处理
     ul.addEventListener('webkitTransitionEnd', () => {
         // 最大边界值处理，无需处理最小边界值
-        console.log(index);
-        if (index === ulLength + 1) {
+        if (index >= ulLength + 1) {   //6
             index = 1;
-            removeTransition(ul);
-            changeTranslateX(ul, -liWidth)
+        } else if (index <= 0) {
+            index = ulLength;      //5
         }
+        removeTransition(ul);
+        changeTranslateX(ul, -liWidth * index)
     });
+
+
+    let startX = 0;
+    let endX = 0;
+    let distanceX = 0;
+
+    ul.addEventListener('touchstart', (e) => {
+        clearInterval(timer);
+        startX = e.touches[0].clientX;
+    });
+
+    ul.addEventListener('touchmove', (e) => {
+        endX = e.touches[0].clientX;
+        distanceX = startX - endX;
+        removeTransition(ul);
+        changeTranslateX(ul, -index * liWidth - distanceX)
+    });
+
+    ul.addEventListener('touchend', (e) => {
+        if (Math.abs(distanceX) > 1 / 3 * liWidth && endX !== 0) {
+            if (distanceX > 0) {
+                index++
+            } else if (distanceX < 0) {
+                index--
+            }
+        }
+        addTransition(ul);
+        changeTranslateX(ul, -index * liWidth);
+        changeIndex();
+        timer = setInterval(autoPlay, 1000);
+        startX = 0;
+        endX = 0;
+        distanceX = 0;
+    })
 });
