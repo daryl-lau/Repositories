@@ -13,44 +13,63 @@
         }
 
         /*伪元素清除浮动*/
-        .parent1::after {
-            content: "";
-            display: block;
-            /*vertical-align: 1px;*/
-        }
-        .parent1:after {
-            clear: both;
-        }
+        /*.parent1::after {*/
+            /*content: "";*/
+            /*display: block;*/
+            /*!*vertical-align: 1px;*!*/
+        /*}*/
+        /*.parent1:after {*/
+            /*clear: both;*/
+        /*}*/
 
-        .box1 {
-            width: 200px;
-            height: 200px;
-            background-color: palevioletred;
-            float: left;
-        }
-        .box2 {
-            width: 200px;
-            height: 200px;
-            background-color: green;
-            float: left;
-        }
+        /*.box1 {*/
+            /*width: 200px;*/
+            /*height: 200px;*/
+            /*background-color: palevioletred;*/
+            /*float: left;*/
+        /*}*/
+        /*.box2 {*/
+            /*width: 200px;*/
+            /*height: 200px;*/
+            /*background-color: green;*/
+            /*float: left;*/
+        /*}*/
 
-        .box3 {
-            width: 200px;
-            height: 200px;
-            background-color: black;
-            float: left;
-        }
-        .box4 {
-            width: 200px;
-            height: 200px;
-            background-color: gray;
-            float: left;
-        }
+        /*.box3 {*/
+            /*width: 200px;*/
+            /*height: 200px;*/
+            /*background-color: black;*/
+            /*float: left;*/
+        /*}*/
+        /*.box4 {*/
+            /*width: 200px;*/
+            /*height: 200px;*/
+            /*background-color: gray;*/
+            /*float: left;*/
+        /*}*/
         /*p{*/
             /*clear: both;*/
             /*margin-bottom: 200px;*/
         /*}*/
+
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .parent1 {
+            /*width: 400px;*/
+            background-color: #4e555b;
+        }
+
+        .box1   {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            float: left;
+        }
     </style>
 </head>
 
@@ -88,16 +107,16 @@
         }
     -->
 
-    <div class="parent1">
+    <div class="parent1 clearfix">
         <div class="box1"></div>
-        <div class="box2"></div>
+        <!--<div class="box2"></div>-->
     </div>
 
 
-    <div class="parent2">
-        <div class="box3"></div>
-        <div class="box4"></div>
-    </div>
+    <!--<div class="parent2">-->
+        <!--<div class="box3"></div>-->
+        <!--<div class="box4"></div>-->
+    <!--</div>-->
 
     <!--以上parent1和parent2，父级本身没有设置浮动，只在其子元素中何止了浮动，按照道理应该parent2的两个盒子在parent1的下面，但
     是，此时四个盒子是并列排列的，这就是因为float的原因，要想清除这个浮动，可以用以上几种方法，我们推荐使用伪元素的方式。
