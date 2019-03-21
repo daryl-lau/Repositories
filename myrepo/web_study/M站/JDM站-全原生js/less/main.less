@@ -49,7 +49,7 @@ input {
 #wrapper {
   min-width: 16rem;
   max-width: 54rem;
-  background-color: #f5f5f5;
+  background-color: #FFFFFF;
   margin: 0 auto;
 
   //头部搜索登陆框
@@ -127,7 +127,8 @@ input {
 
   // 内容区
   #product{
-    //width: 100%;
+    width: 100%;
+    // 轮播图
     .banner {
       width: 100%;
       overflow: hidden;
@@ -141,17 +142,15 @@ input {
       }
       ol {
         position: absolute;
-        width: 150px;
-        height: 20px;
-        /*background-color: #ff4400;*/
-        bottom: 5px;
+        height: 1rem;
+        bottom: .4rem;
         left: 50%;
         display: flex;
         justify-content: space-around;
         align-items: center;
         li {
-          width: 10px;
-          height: 10px;
+          width: .4rem;
+          height: .4rem;
           border-radius: 50%;
           border: 1px solid #FFFFFF;
         }
@@ -161,7 +160,54 @@ input {
       }
     }
 
+    // 中部图片
+    .middle-img {
+      width: 100%;
+      //height: 6rem;
+      position: relative;
+      //display: none;
+      .ad {
+        img {
+          width: 100%;
+          //border-top-left-radius: .5rem;
+          //border-top-right-radius: .5rem;
+          //margin-top: -.8rem;
+          //z-index: 99;
+          //position: absolute;
+        }
+      }
 
+      .icon-close {
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        top: .5rem;
+        right: .5rem;
+        background-position: -2rem 0;
+      }
 
+    }
+
+    .nav {
+      width: 100%;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: .6rem;
+      a {
+        width: 20%;
+        padding: .4rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        img {
+          width: 75%;
+          margin-bottom: .3rem;
+        }
+      }
+    }
   }
 }
