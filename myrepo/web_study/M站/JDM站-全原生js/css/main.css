@@ -1,0 +1,238 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  font-size: 20px;
+  font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+  color: #000;
+}
+a {
+  text-decoration: none;
+  color: #666666;
+}
+ul,
+ol {
+  list-style: none;
+}
+input {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+}
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+[class^='icon-'],
+[class*=' icon-'] {
+  background: url("../images/sprites.png") no-repeat;
+  background-size: 10rem, 10rem;
+  -webkit-background-size: 10rem, 10rem;
+}
+#wrapper {
+  min-width: 16rem;
+  max-width: 54rem;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+}
+#wrapper #header {
+  width: 100%;
+  height: 2.2rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+#wrapper #header .logo {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrapper #header .logo .icon-logo {
+  display: block;
+  width: 3rem;
+  height: 1.3rem;
+  background-position: 0 -5.3rem;
+}
+#wrapper #header .input {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: .1rem;
+}
+#wrapper #header .input form {
+  width: 100%;
+  height: 70%;
+  position: relative;
+}
+#wrapper #header .input form .icon-search {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  left: .7rem;
+  top: 0.3rem;
+  background-position: -3rem -5.5rem;
+}
+#wrapper #header .input form input {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  padding-left: 2rem;
+}
+#wrapper #header .login {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+}
+#wrapper #header .login a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  font-size: .8rem;
+  color: #FFFFFF;
+  line-height: 2.2rem;
+}
+#wrapper #product {
+  width: 100%;
+}
+#wrapper #product .banner {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+#wrapper #product .banner ul li {
+  float: left;
+}
+#wrapper #product .banner ol {
+  position: absolute;
+  height: 1rem;
+  bottom: .7rem;
+  left: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#wrapper #product .banner ol li {
+  width: .4rem;
+  height: .4rem;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+}
+#wrapper #product .banner ol li.current {
+  background-color: #FFFFFF;
+}
+#wrapper #product .banner .mask {
+  width: 100%;
+  height: .6rem;
+  position: absolute;
+  background-color: #FFFFFF;
+  bottom: 0.2rem;
+  left: 0;
+  border-top-left-radius: .45rem;
+  border-top-right-radius: .45rem;
+}
+#wrapper #product .middle-img {
+  position: relative;
+  width: 100%;
+  background-color: green;
+}
+#wrapper #product .middle-img a {
+  height: 0;
+}
+#wrapper #product .middle-img a img {
+  display: block;
+  width: 100%;
+}
+#wrapper #product .middle-img .icon-close {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: .5rem;
+  right: .5rem;
+  background-position: -2rem 0;
+}
+#wrapper #product .nav {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: .6rem;
+  position: relative;
+}
+#wrapper #product .nav a {
+  width: 20%;
+  padding: .4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#wrapper #product .nav a img {
+  width: 75%;
+  margin-bottom: .3rem;
+}
+#wrapper #product .news {
+  width: 100%;
+  height: 1.5rem;
+  margin-top: .2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .6rem;
+}
+#wrapper #product .news .news-img {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#wrapper #product .news .news-img img {
+  width: 100%;
+  padding: .8rem;
+}
+#wrapper #product .news .news-content {
+  width: 65%;
+  height: 100%;
+  overflow: hidden;
+}
+#wrapper #product .news .news-content ul {
+  height: 400%;
+  margin-left: .2rem;
+}
+#wrapper #product .news .news-content ul li {
+  height: 25%;
+  line-height: 1.5rem;
+  overflow: hidden;
+}
+#wrapper #product .news .news-content ul li span {
+  color: red;
+  margin-right: .2rem;
+}
+#wrapper #product .news .news-more {
+  width: 10%;
+  height: 100%;
+  line-height: 1.5rem;
+  color: #333333;
+}
+#wrapper #product .news .news-more a span {
+  margin-right: .2rem;
+  color: #ececec;
+}

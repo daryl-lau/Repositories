@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
     // 动态设置li宽度
     let allimgs = ul.querySelectorAll('img');
     // console.log(allimgs);
-    for (let i = 0; i < ulLength + 2; i++){
+    for (let i = 0; i < ulLength + 2; i++) {
         // console.log(i);
         allimgs[i].style.width = liWidth + 'px';
     }
@@ -47,7 +47,6 @@ window.addEventListener('load', () => {
     lis[0].className = 'current';
     ol.style.width = ulLength * pointWidth + 'px';
     ol.style.marginLeft = -ulLength * pointWidth / 2 + 'px';
-
 
 
     // css3动画函数
@@ -93,7 +92,7 @@ window.addEventListener('load', () => {
     let index = 1;
     let liIndex = 1;
     let timer = null;
-    timer = setInterval(autoPlay, 1000);
+    timer = setInterval(autoPlay, 5000);
     // 边界值处理
     ul.addEventListener('webkitTransitionEnd', () => {
         // 最大边界值处理，无需处理最小边界值
@@ -129,7 +128,7 @@ window.addEventListener('load', () => {
         addTransition(ul);
         changeTranslateX(ul, -index * liWidth);
         changeIndex();
-        timer = setInterval(autoPlay, 1000);
+        timer = setInterval(autoPlay, 5000);
         startX = 0;
         endX = 0;
         distanceX = 0;
@@ -138,12 +137,24 @@ window.addEventListener('load', () => {
 ////////////////////////轮播图结束////////////////////////////////////
 
 
-
+////////////////////////关闭广告开始//////////////////////////////////
     let btnClose = document.querySelector('.middle-img .icon-close');
-    let closeDiv = document.querySelector('.middle-img');
-    btnClose.addEventListener('click', ()=>{
-        closeDiv.style.display = 'none';
+    let closeEle = document.querySelector('.middle-img a img');
+    btnClose.addEventListener('click', () => {
+        btnClose.style.display = 'none';
+        variableMove(closeEle, {'height':0},10, ()=>{
+            closeEle.style.display = 'none';
+        })
     })
+////////////////////////关闭广告结束//////////////////////////////////
 
+
+////////////////////////新闻滚动开始/////////////////////////////////
+
+
+
+
+
+////////////////////////新闻滚动结束/////////////////////////////////
 
 });

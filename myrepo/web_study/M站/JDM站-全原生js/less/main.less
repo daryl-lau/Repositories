@@ -126,7 +126,7 @@ input {
   }
 
   // 内容区
-  #product{
+  #product {
     width: 100%;
     // 轮播图
     .banner {
@@ -159,34 +159,30 @@ input {
         }
       }
       .mask {
-          width: 100%;
-          height: .6rem;
-          position: absolute;
-          background-color: #FFFFFF;
-          bottom: 0.2rem;
-          left: 0;
-          border-top-left-radius: .45rem;
+        width: 100%;
+        height: .6rem;
+        position: absolute;
+        background-color: #FFFFFF;
+        bottom: 0.2rem;
+        left: 0;
+        border-top-left-radius: .45rem;
         border-top-right-radius: .45rem;
-        }
+      }
     }
 
     // 中部图片
     .middle-img {
-      width: 100%;
-      height:100%;
       position: relative;
-      //display: none;
-      .ad {
+      width: 100%;
+      //height: 4rem;
+      background-color: green;
+      a {
+        height: 0;
         img {
+          display: block;
           width: 100%;
-          //border-top-left-radius: .5rem;
-          //border-top-right-radius: .5rem;
-          //margin-top: -.8rem;
-          //z-index: 99;
-          //position: absolute;
         }
       }
-
       .icon-close {
         position: absolute;
         width: 1rem;
@@ -195,7 +191,6 @@ input {
         right: .5rem;
         background-position: -2rem 0;
       }
-
     }
 
     .nav {
@@ -227,20 +222,48 @@ input {
       display: flex;
       justify-content: center;
       align-items: center;
-      .news-img{
+      font-size: .6rem;
+      .news-img {
         width: 25%;
         height: 100%;
-        background: url("../images/n");
+        display: flex;
+        align-items: center;
+        img {
+          width: 100%;
+          padding: .8rem;
+        }
       }
-      .news-content{
-        width: 60%;
+      .news-content {
+        width: 65%;
         height: 100%;
-        background-color: green;
+        overflow: hidden;
+
+        ul {
+          height: 400%;
+          margin-left: .2rem;
+          li {
+            height: 25%;
+            line-height: 1.5rem;
+            overflow: hidden;
+            span {
+              color: red;
+              margin-right: .2rem;
+            }
+          }
+        }
+
       }
-      .news-more{
-        width: 15%;
+      .news-more {
+        width: 10%;
         height: 100%;
-        background-color: red;
+        line-height: 1.5rem;
+        color: #333333;
+        a {
+          span {
+            margin-right: .2rem;
+            color: #ececec;
+          }
+        }
       }
     }
   }
