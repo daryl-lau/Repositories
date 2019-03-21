@@ -11,7 +11,7 @@
 html {
   font-size: 20px;
   font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
-  color: #000;
+  color: #666666;
 }
 a {
   text-decoration: none;
@@ -25,6 +25,9 @@ input {
   outline: none;
   border: none;
   -webkit-appearance: none;
+}
+@media screen and (min-width: 700px) {
+  font-size: 40px;
 }
 .clearfix::before,
 .clearfix::after {
@@ -194,7 +197,7 @@ input {
   height: 1.5rem;
   margin-top: .2rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-size: .6rem;
 }
@@ -212,15 +215,17 @@ input {
   width: 65%;
   height: 100%;
   overflow: hidden;
+  padding-right: 1.5rem;
 }
 #wrapper #product .news .news-content ul {
-  height: 400%;
   margin-left: .2rem;
 }
 #wrapper #product .news .news-content ul li {
   height: 25%;
   line-height: 1.5rem;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 #wrapper #product .news .news-content ul li span {
   color: red;
@@ -235,4 +240,88 @@ input {
 #wrapper #product .news .news-more a span {
   margin-right: .2rem;
   color: #ececec;
+}
+#wrapper #product .expo-loaded {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: .3rem;
+}
+#wrapper #product .expo-loaded .loaded-one {
+  width: 50%;
+  position: relative;
+}
+#wrapper #product .expo-loaded .loaded-one::after {
+  height: 100%;
+  content: "";
+  width: 1px;
+  border-right: 1px solid #f0f0f0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+  z-index: 10;
+}
+#wrapper #product .expo-loaded .loaded-two {
+  width: 25%;
+  position: relative;
+}
+#wrapper #product .expo-loaded .loaded-two::after {
+  height: 100%;
+  content: "";
+  width: 1px;
+  border-right: 1px solid #f0f0f0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+  z-index: 10;
+}
+#wrapper #product .expo-loaded .loaded-three {
+  width: 25%;
+}
+#wrapper #product .expo-loaded img {
+  width: 100%;
+  display: block;
+}
+#wrapper #product .kill {
+  width: 100%;
+  height: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: .6rem;
+}
+#wrapper #product .kill .kill-img {
+  width: 25%;
+}
+#wrapper #product .kill .kill-img img {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+#wrapper #product .kill .kill-content {
+  width: 50%;
+}
+#wrapper #product .kill .kill-more {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrapper #product .kill .kill-more a {
+  color: #f23030;
+  position: relative;
+  margin-right: 0;
+}
+#wrapper #product .kill .kill-more a::after {
+  content: "";
+  width: .6rem;
+  height: .6rem;
+  background: url("../images/arrow_rt_kill.png") no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: .1rem;
+  right: -0.7rem;
 }

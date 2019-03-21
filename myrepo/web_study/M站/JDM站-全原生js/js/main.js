@@ -71,7 +71,7 @@ window.addEventListener('load', () => {
             lis[i].className = '';
         }
         liIndex = index;
-        if (index >= ulLength + 1) { //6
+        if (index >= ulLength + 1) { //9
             liIndex = 1
         } else if (index <= 0) {
             liIndex = ulLength
@@ -95,15 +95,18 @@ window.addEventListener('load', () => {
     timer = setInterval(autoPlay, 5000);
     // 边界值处理
     ul.addEventListener('webkitTransitionEnd', () => {
-        // 最大边界值处理，无需处理最小边界值
-        if (index >= ulLength + 1) {   //6
+        // 最大边界值处理
+        if (index >= ulLength + 1) {   //9
             index = 1;
         } else if (index <= 0) {
-            index = ulLength;      //5
+            index = ulLength;      //8
         }
         removeTransition(ul);
         changeTranslateX(ul, -liWidth * index)
     });
+
+
+    // 拖动效果
     let startX = 0;
     let endX = 0;
     let distanceX = 0;
@@ -145,16 +148,86 @@ window.addEventListener('load', () => {
         variableMove(closeEle, {'height':0},10, ()=>{
             closeEle.style.display = 'none';
         })
-    })
+    });
 ////////////////////////关闭广告结束//////////////////////////////////
 
 
 ////////////////////////新闻滚动开始/////////////////////////////////
 
+    // 拼接li
+    // 拼接前后图片，最后一张加到开头，第一张加到结尾
+    let newsUl = document.querySelector('.news-content ul');
+    let liLength = newsUl.querySelectorAll('li').length;
+    let liHeight = newsUl.children[0].offsetHeight;
+    let firstLi = newsUl.firstElementChild.cloneNode(true);
+    let lastLi = newsUl.lastElementChild.cloneNode(true);
+    newsUl.insertBefore(lastLi, newsUl.children[0]);
+    newsUl.appendChild(firstLi);
 
 
 
+    // 动态设置ul的宽度
+    // newsUl.style.height = (liLength + 2) * 100 + '%';
+    newsUl.style.transform = 'translateY(' + -liHeight + 'px)';
+
+
+    // 获取li的长度
+
+
+
+    //设置css3动画
+    let addTransitionY = (obj) => {
+        obj.style.transaction = 'all .5s ease';
+        obj.style.webkitTransition = 'all .5s ease';
+
+    };
+    let removeTransitionY = (obj) => {
+        obj.style.transaction = '';
+        obj.style.webkitTransition = '';
+    };
+    let changeTranslateY = (obj, x) => {
+        obj.style.transform = `translateY(${x}px)`;
+        obj.style.webkitTransform = `translateY(${x}px)`
+    };
+
+    let newsAutoPlay = () => {
+        // li移动
+        newsindex++;
+        addTransitionY(newsUl);
+        changeTranslateY(newsUl, -newsindex * liHeight);
+    };
+    let newsindex = 1;
+
+    let newsTimer = null;
+    newsTimer = setInterval(newsAutoPlay, 3000);
+
+    // 边界值处理
+    newsUl.addEventListener('webkitTransitionEnd', () => {
+        // 最大边界值处理，无需处理最小边界值
+        if (newsindex >= liLength + 1) {   //5
+            newsindex = 1;
+        } else if (newsindex <= 0) {
+            newsindex = liLength;      //4
+        }
+        removeTransitionY(newsUl);
+        changeTranslateY(newsUl, -liHeight * newsindex)
+    });
 
 ////////////////////////新闻滚动结束/////////////////////////////////
+
+////////////////////////滚动事件开始/////////////////////////////////
+    let header = document.querySelector('#header');
+    window.addEventListener('scroll',()=>{
+        let scrollTop = scroll().top;
+        if (scrollTop > 0){
+            header.style.backgroundColor = '#e43130';
+        }else if (scrollTop === 0) {
+            header.style.backgroundColor = 'transparent';
+        }
+    })
+
+
+////////////////////////滚动事件结束/////////////////////////////////
+
 
 });
