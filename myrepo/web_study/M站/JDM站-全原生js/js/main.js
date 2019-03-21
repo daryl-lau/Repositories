@@ -138,13 +138,12 @@ window.addEventListener('load', () => {
 ////////////////////////轮播图结束////////////////////////////////////
 
 
+
     let btnClose = document.querySelector('.middle-img .icon-close');
     let closeDiv = document.querySelector('.middle-img');
     btnClose.addEventListener('click', ()=>{
-        debugger;
-        console.log(111);
         closeDiv.style.display = 'none';
-        console.log(closeDiv);
     })
+
 
 });
