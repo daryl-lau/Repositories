@@ -26,8 +26,55 @@ input {
   border: none;
   -webkit-appearance: none;
 }
-@media screen and (min-width: 700px) {
-  font-size: 40px;
+@media only screen and (min-width: 750px) and (max-width: 768px) {
+  html {
+    font-size: 30px;
+  }
+  html input::-webkit-input-placeholder,
+  html textarea::-webkit-input-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+  html input:-moz-placeholder,
+  html textarea:-moz-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+  html input::-moz-placeholder,
+  html textarea::-moz-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+  html input:-ms-input-placeholder,
+  html textarea:-ms-input-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+  html {
+    font-size: 40px;
+  }
+  html input::-webkit-input-placeholder,
+  html textarea::-webkit-input-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+  html input:-moz-placeholder,
+  html textarea:-moz-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+  html input::-moz-placeholder,
+  html textarea::-moz-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+  html input:-ms-input-placeholder,
+  html textarea:-ms-input-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
 }
 .clearfix::before,
 .clearfix::after {
@@ -97,6 +144,8 @@ input {
   height: 100%;
   border-radius: 1rem;
   padding-left: 2rem;
+  display: block;
+  font-size: .6rem;
 }
 #wrapper #header .login {
   width: 20%;
@@ -295,14 +344,28 @@ input {
 }
 #wrapper #product .kill .kill-img {
   width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#wrapper #product .kill .kill-img img {
-  width: 100%;
-  height: 100%;
-  display: inline-block;
+#wrapper #product .kill .kill-img span {
+  font-weight: bolder;
+  font-size: 1rem;
+  color: #f02b2b;
 }
 #wrapper #product .kill .kill-content {
   width: 50%;
+  display: flex;
+  align-items: center;
+}
+#wrapper #product .kill .kill-content span:nth-child(odd) {
+  border: 1px solid #dfdfdf;
+  margin: 0 .1rem 0;
+  color: #232326;
+  padding: .05rem;
+}
+#wrapper #product .kill .kill-content span:nth-child(even) {
+  font-weight: 900;
 }
 #wrapper #product .kill .kill-more {
   width: 25%;

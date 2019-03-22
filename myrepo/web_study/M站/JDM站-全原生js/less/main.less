@@ -24,6 +24,28 @@ ul, ol {
   list-style: none;
 }
 
+.input_placeholder() {
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+
+  input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+
+  input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #666;
+    font-size: .8rem;
+  }
+}
+
 input {
   outline: none;
   border: none;
@@ -32,8 +54,18 @@ input {
   -webkit-appearance: none;
 }
 
-@media screen and (min-width: 700px){
-  font-size: 40px;
+@media only screen and (min-width: 750px) and (max-width: 768px) {
+  html {
+    font-size: 30px;
+    .input_placeholder()
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+  html {
+    font-size: 40px;
+    .input_placeholder()
+  }
 }
 
 .clearfix::before,
@@ -91,6 +123,8 @@ input {
       align-items: center;
       //background-color: green;
       margin-left: .1rem;
+      //
+
       form {
         width: 100%;
         height: 70%;
@@ -109,6 +143,8 @@ input {
           height: 100%;
           border-radius: 1rem;
           padding-left: 2rem;
+          display: block;
+          font-size: .6rem;
         }
       }
     }
@@ -326,14 +362,28 @@ input {
       font-size: .6rem;
       .kill-img {
         width: 25%;
-        img {
-          width: 100%;
-          height: 100%;
-          display: inline-block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          font-weight: bolder;
+          font-size: 1rem;
+          color: #f02b2b;
         }
       }
       .kill-content {
         width: 50%;
+        display: flex;
+        align-items: center;
+        span:nth-child(odd) {
+          border: 1px solid #dfdfdf;
+          margin: 0 .1rem 0;
+          color: #232326;
+          padding: .05rem;
+        }
+        span:nth-child(even) {
+          font-weight: 900;
+        }
       }
       .kill-more {
         width: 25%;

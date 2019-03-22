@@ -224,10 +224,64 @@ window.addEventListener('load', () => {
         }else if (scrollTop === 0) {
             header.style.backgroundColor = 'transparent';
         }
-    })
+    });
 
 
 ////////////////////////滚动事件结束/////////////////////////////////
 
 
+////////////////////////秒杀倒计时开始/////////////////////////////////
+    var text = document.querySelector('.kill-content');
+
+    //设置未来的某个时间
+        var futureDate = new Date('2019/3/23 23:59:59');
+
+
+
+        function getTime() {
+
+
+
+            //获取当前的时间戳
+            var currentDate = new Date();
+            var currentTime = currentDate.getTime();
+
+            //获取未来的时间戳
+            var futureTime = futureDate.getTime();
+
+            //获取差值，单位毫秒
+            var totalTime = futureTime - currentTime;
+
+
+            //将差值转换为天，时，分，秒
+            if (totalTime <= 0 ){
+                clearInterval(timerKill);
+            }
+            else {
+                var d = Math.floor(totalTime / 1000 / 60 / 60 / 24);
+                var h = Math.floor(totalTime / 1000 / 60 / 60 % 24);
+                var m = Math.floor(totalTime / 1000 / 60 % 60);
+                var s = Math.floor(totalTime / 1000 % 60);
+
+                let timeArray = [];
+
+                timeArray.push(d, h, m, s);
+
+                for ( var i = 0; i < timeArray.length; i++ ){
+                    if (timeArray[i] < 10) {
+                        timeArray[i] = '0' + timeArray[i]
+                    }else {
+                        timeArray[i] = timeArray[i].toString()
+                    }
+                }
+
+                // text.innerText = d + '天' + h + '时' + m + '分' + s + '秒';
+                text.innerHTML = '<span>'+ timeArray[0] +'</span><span>天</span><span>' + timeArray[1] +'</span><span>时</span><span>'+ timeArray[2] +'</span><span>分</span><span>'+ timeArray[3] +'</span><span>秒</span>'
+            }
+        }
+
+        var timerKill = setInterval(getTime,1000);
+        getTime();
+
+///////////////////////////////秒杀倒计时结束////////////////////////////////
 });
