@@ -20,6 +20,10 @@ a {
   color: #666666;
 }
 
+em {
+
+}
+
 ul, ol {
   list-style: none;
 }
@@ -406,8 +410,44 @@ input {
           }
         }
       }
-
     }
+    .kill-product {
+      width: 100%;
+      overflow: hidden;
+      .product-wrap {
+        //display: flex;
+        //justify-content: start;
+        margin-top: .5rem;
 
+        li {
+          width: 4rem;
+          float: left;
+          margin: 0 .3rem 0;
+          //display: block;
+          //padding: .1rem;
+          a {
+            img {
+              width: 100%;
+              display: block;
+            }
+          }
+
+          .now-price {
+            text-align: center;
+            font-weight: bolder;
+            color: #f23030;
+            span:nth-child(1){
+              font-size: .6rem;
+              padding-right: .1rem;
+            }
+          }
+          .pre-price {
+            text-align: center;
+            font-size: .6rem;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
   }
 }

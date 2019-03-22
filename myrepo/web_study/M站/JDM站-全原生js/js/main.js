@@ -292,4 +292,26 @@ window.addEventListener('load', () => {
     killTime();
 
 ///////////////////////////////秒杀倒计时结束////////////////////////////////
+
+
+///////////////////////////////秒杀滚动开始////////////////////////////////
+
+    let killScroll = ()=>{
+        let li = document.querySelector('.product-wrap li');
+        let liWidth = li.offsetWidth;
+        let liLength = document.querySelectorAll('.product-wrap li').length;
+
+        let liMarginLeft = parseInt(getStyle(li, 'marginLeft'));
+        let liMarginRight = parseInt(getStyle(li, 'marginLeft'));
+
+        // 设置ul宽度
+        let ul = document.querySelector('.product-wrap');
+        ul.style.width = (liWidth + liMarginLeft + liMarginRight) * liLength + 'px';
+
+    };
+    killScroll();
+
+
+
+///////////////////////////////秒杀滚动结束////////////////////////////////
 });

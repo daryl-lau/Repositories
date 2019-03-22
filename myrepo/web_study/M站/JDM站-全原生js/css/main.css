@@ -388,3 +388,33 @@ input {
   top: .1rem;
   right: -0.7rem;
 }
+#wrapper #product .kill-product {
+  width: 100%;
+  overflow: hidden;
+}
+#wrapper #product .kill-product .product-wrap {
+  margin-top: .5rem;
+}
+#wrapper #product .kill-product .product-wrap li {
+  width: 4rem;
+  float: left;
+  margin: 0 .3rem 0;
+}
+#wrapper #product .kill-product .product-wrap li a img {
+  width: 100%;
+  display: block;
+}
+#wrapper #product .kill-product .product-wrap li .now-price {
+  text-align: center;
+  font-weight: bolder;
+  color: #f23030;
+}
+#wrapper #product .kill-product .product-wrap li .now-price span:nth-child(1) {
+  font-size: .6rem;
+  padding-right: .1rem;
+}
+#wrapper #product .kill-product .product-wrap li .pre-price {
+  text-align: center;
+  font-size: .6rem;
+  text-decoration: line-through;
+}
