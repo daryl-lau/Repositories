@@ -310,10 +310,10 @@ window.addEventListener('load', () => {
     // };
     // killScroll();
 
-    let jumpHerf = ()=>{
+    let jumpHerf = () => {
         let allLis = document.querySelectorAll('.product-wrap li');
-        for (let i = 0; i < allLis.length; i++){
-            allLis[i].addEventListener('click',()=>{
+        for (let i = 0; i < allLis.length; i++) {
+            allLis[i].addEventListener('click', () => {
                 let alink = allLis[i].querySelector('a');
                 location.href = alink.getAttribute('data-href');
             })
@@ -322,6 +322,16 @@ window.addEventListener('load', () => {
     jumpHerf();
 
 
+    let windowResize = () => {
+        window.addEventListener('resize', () => {
+            let timer = null;
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                location.reload();
+            }, 500)
+        })
+    };
+    windowResize();
 
 ///////////////////////////////秒杀滚动结束////////////////////////////////
 });
