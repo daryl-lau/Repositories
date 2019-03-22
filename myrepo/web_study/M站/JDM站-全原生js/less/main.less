@@ -418,12 +418,23 @@ input {
         //display: flex;
         //justify-content: start;
         margin-top: .5rem;
+        height: 100%;
+
+        //
+        white-space: nowrap;
+        overflow-x: auto;
+        display: block;
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+          display: none;
+        }
 
         li {
           width: 4rem;
-          float: left;
+          //float: left;
           margin: 0 .3rem 0;
-          //display: block;
+          display: inline-block;
           //padding: .1rem;
           a {
             img {

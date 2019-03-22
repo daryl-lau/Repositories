@@ -296,20 +296,30 @@ window.addEventListener('load', () => {
 
 ///////////////////////////////秒杀滚动开始////////////////////////////////
 
-    let killScroll = ()=>{
-        let li = document.querySelector('.product-wrap li');
-        let liWidth = li.offsetWidth;
-        let liLength = document.querySelectorAll('.product-wrap li').length;
+    // let killScroll = () => {
+    //     let li = document.querySelector('.product-wrap li');
+    //     let liWidth = li.offsetWidth;
+    //     let liLength = document.querySelectorAll('.product-wrap li').length;
+    //
+    //     let liMarginLeft = parseInt(getStyle(li, 'marginLeft'));
+    //     let liMarginRight = parseInt(getStyle(li, 'marginLeft'));
+    //
+    //     // 设置ul宽度
+    //     let ul = document.querySelector('.product-wrap');
+    //     ul.style.width = (liWidth + liMarginLeft + liMarginRight) * liLength + 'px';
+    // };
+    // killScroll();
 
-        let liMarginLeft = parseInt(getStyle(li, 'marginLeft'));
-        let liMarginRight = parseInt(getStyle(li, 'marginLeft'));
-
-        // 设置ul宽度
-        let ul = document.querySelector('.product-wrap');
-        ul.style.width = (liWidth + liMarginLeft + liMarginRight) * liLength + 'px';
-
+    let jumpHerf = ()=>{
+        let allLis = document.querySelectorAll('.product-wrap li');
+        for (let i = 0; i < allLis.length; i++){
+            allLis[i].addEventListener('click',()=>{
+                let alink = allLis[i].querySelector('a');
+                location.href = alink.getAttribute('data-href');
+            })
+        }
     };
-    killScroll();
+    jumpHerf();
 
 
 

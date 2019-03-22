@@ -394,11 +394,20 @@ input {
 }
 #wrapper #product .kill-product .product-wrap {
   margin-top: .5rem;
+  height: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  display: block;
+}
+#wrapper #product .kill-product .product-wrap::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 #wrapper #product .kill-product .product-wrap li {
   width: 4rem;
-  float: left;
   margin: 0 .3rem 0;
+  display: inline-block;
 }
 #wrapper #product .kill-product .product-wrap li a img {
   width: 100%;
