@@ -342,29 +342,29 @@ input {
   justify-content: space-between;
   font-size: .6rem;
 }
-#wrapper #product .kill .kill-img {
+#wrapper #product .kill .kill-title {
   width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#wrapper #product .kill .kill-img span {
+#wrapper #product .kill .kill-title span {
   font-weight: bolder;
   font-size: 1rem;
   color: #f02b2b;
 }
-#wrapper #product .kill .kill-content {
+#wrapper #product .kill .kill-timer {
   width: 50%;
   display: flex;
   align-items: center;
 }
-#wrapper #product .kill .kill-content span:nth-child(odd) {
+#wrapper #product .kill .kill-timer span:nth-child(odd) {
   border: 1px solid #dfdfdf;
   margin: 0 .1rem 0;
   color: #232326;
   padding: .05rem;
 }
-#wrapper #product .kill .kill-content span:nth-child(even) {
+#wrapper #product .kill .kill-timer span:nth-child(even) {
   font-weight: 900;
 }
 #wrapper #product .kill .kill-more {
