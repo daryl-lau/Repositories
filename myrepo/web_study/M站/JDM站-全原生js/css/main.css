@@ -860,6 +860,8 @@ input {
   bottom: 0;
   left: 0;
   background-color: #FFFFFF;
+  box-shadow: 0 0 10px 0 rgba(154, 141, 141, 0.6);
+  -webkit-box-shadow: 0 0 10px 0 rgba(154, 141, 141, 0.6);
 }
 #wrapper #bottom div {
   width: 20%;
