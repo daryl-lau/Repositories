@@ -61,7 +61,29 @@ input {
 @media only screen and (min-width: 320px) and (max-width: 413px) {
   html {
     font-size: 16px;
-    .input_placeholder()
+    .input_placeholder();
+
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 740px) {
+  html {
+    font-size: 20px;
+    .input_placeholder();
+    #wrapper #bottom {
+
+      width: 100%;
+      height: 2.2rem;
+      div {
+        height: 100%;
+        a {
+          img {
+            width: 3rem;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -72,10 +94,31 @@ input {
   }
 }
 
-@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+@media only screen and (min-width: 1024px) and (max-width: 1100px) {
   html {
     font-size: 40px;
     .input_placeholder()
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  html {
+    font-size: 30px;
+    .input_placeholder();
+    #wrapper #bottom {
+
+      width: 100%;
+      height: 2.2rem;
+      div {
+        height: 100%;
+        a {
+          img {
+            width: 3rem;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -630,7 +673,6 @@ input {
           position: relative;
           .info, .img {
             width: 100%;
-            padding: .2rem .4rem .2rem .2rem;
             p:nth-child(1) {
               font-size: .9rem;
             }
@@ -639,7 +681,6 @@ input {
               overflow: hidden;
               white-space: nowrap;
               text-overflow: ellipsis;
-              color: #648EFF;
             }
             a {
               img {
@@ -647,6 +688,14 @@ input {
                 display: block;
               }
             }
+          }
+          .info {
+            //margin-left: .5rem;
+            padding-left: .5rem;
+            padding-top: .3rem;
+          }
+          .img {
+            padding: .6rem;
           }
           &::after {
             display: inline-block;
@@ -662,10 +711,34 @@ input {
       }
       .row-one {
         border-bottom: 1px solid #f6f6f6;
-        div {
+        div:nth-child(1) {
           p:nth-child(1) {
             background: -webkit-linear-gradient(left, #FF2A2A, #F139D2);
             background: linear-gradient(90deg, #FF2A2A, #F139D2);
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+        }
+        div:nth-child(2) {
+          p:nth-child(1) {
+            background: -webkit-linear-gradient(left, #FE8537, #F02B2B);
+            background: linear-gradient(90deg, #FE8537, #F02B2B);
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+        }
+        div:nth-child(3) {
+          p:nth-child(1) {
+            background: -webkit-linear-gradient(left, #FF765C, #FF23B3);
+            background: linear-gradient(90deg, #FF765C, #FF23B3);
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+        }
+        div:nth-child(4) {
+          p:nth-child(1) {
+            background: -webkit-linear-gradient(left, #FF2A00, #FF00AF);
+            background: linear-gradient(90deg, #FF2A00, #FF00AF);
             -webkit-background-clip: text;
             color: transparent;
           }
@@ -679,6 +752,132 @@ input {
             -webkit-background-clip: text;
             color: transparent;
           }
+        }
+        div:nth-child(2) {
+          p:nth-child(1) {
+            background: -webkit-linear-gradient(left, #00C2AB, #3E94FF);
+            background: linear-gradient(90deg, #00C2AB, #3E94FF);
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+        }
+        div:nth-child(3) {
+          p:nth-child(1) {
+            background: -webkit-linear-gradient(left, #FF765C, #FF23B3);
+            background: linear-gradient(90deg, #FF765C, #FF23B3);
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+        }
+        div:nth-child(4) {
+          p:nth-child(1) {
+            background: -webkit-linear-gradient(left, #2AD396, #85BB1F);
+            background: linear-gradient(90deg, #2AD396, #85BB1F);
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+        }
+      }
+    }
+    .live {
+      width: 100%;
+      .title {
+        background-color: #f6f6f6;
+        margin-top: .1rem;
+        a {
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+      .content {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        .wrap {
+          width: 50%;
+          padding: .6rem;
+          .info {
+            p:nth-child(1) {
+              color: #000000;
+              font-size: .9rem;
+            }
+            p:nth-child(2) {
+              color: #FF5959;
+              font-size: .7rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+          .img {
+            display: flex;
+            padding: .4rem;
+            div {
+              width: 50%;
+              a {
+                img {
+                  width: 100%;
+                  display: block;
+                }
+              }
+            }
+          }
+          &:nth-child(1) {
+            position: relative;
+            border-bottom: 1px solid #f6f6f6;
+            &::after {
+              display: inline-block;
+              content: '';
+              width: 1px;
+              height: 100%;
+              background-color: #f6f6f6;
+              position: absolute;
+              top: 0;
+              right: 0;
+            }
+          }
+          &:nth-child(3) {
+            position: relative;
+            &::after {
+              display: inline-block;
+              content: '';
+              width: 1px;
+              height: 100%;
+              background-color: #f6f6f6;
+              position: absolute;
+              top: 0;
+              right: 0;
+            }
+          }
+          &:nth-child(2) {
+            border-bottom: 1px solid #f6f6f6;
+          }
+        }
+      }
+    }
+  }
+  #bottom {
+    width: 100%;
+    //height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    div {
+      width: 20%;
+      a {
+        display: block;
+        img {
+          width: 100%;
+          display: block;
+          padding: .2rem;
+          //height: 2rem;
         }
       }
     }
