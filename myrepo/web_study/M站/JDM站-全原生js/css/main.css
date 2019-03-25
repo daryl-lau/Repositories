@@ -868,7 +868,7 @@ input {
   display: block;
 }
 #wrapper #bottom div a img {
-  width: 100%;
+  width: 3.5rem;
   display: block;
-  padding: .2rem;
+  margin: 0 auto;
 }
