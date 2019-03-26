@@ -966,7 +966,7 @@ input {
   background-color: #f0f2f5;
 }
 #wrapper #product .tuijian .title {
-  height: 2rem;
+  height: 2.5rem;
   font-size: .7rem;
   display: flex;
   justify-content: center;
@@ -974,7 +974,6 @@ input {
   color: #848689;
 }
 #wrapper #product .tuijian .title .icon {
-  width: 5%;
   background: url("../images/arrow_up.png");
   background-repeat: no-repeat;
   background-size: .65rem .65rem;
@@ -988,11 +987,67 @@ input {
 }
 #wrapper #product .tuijian ul li {
   width: 50%;
-  height: 15rem;
-  padding-right: .1rem;
-  padding-bottom: .1rem;
   float: left;
   display: block;
+  overflow: hidden;
+}
+#wrapper #product .tuijian ul li .wrap {
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+}
+#wrapper #product .tuijian ul li .wrap div a img {
+  width: 100%;
+}
+#wrapper #product .tuijian ul li .wrap .info {
+  box-sizing: border-box;
+  height: 31px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  color: #232326;
+  line-height: 16px;
+  margin-bottom: .3rem;
+  padding: 0 4px;
+}
+#wrapper #product .tuijian ul li .wrap .similar {
+  font-size: .7rem;
+  position: relative;
+}
+#wrapper #product .tuijian ul li .wrap .similar .icon {
+  color: #f23030;
+  margin-left: .3rem;
+}
+#wrapper #product .tuijian ul li .wrap .similar .buy {
+  margin-left: .4rem;
+  border: 1px solid #f23030;
+  color: #f23030;
+  font-size: .5rem;
+  padding: .05rem;
+}
+#wrapper #product .tuijian ul li .wrap .similar .same {
+  position: absolute;
+  top: 0;
+  right: .5rem;
+  padding: .05rem;
+  border: 1px solid #bfbfbf;
+}
+#wrapper #product .tuijian ul li .wrap .space {
+  width: 100%;
+  height: 1.3rem;
+  font-size: .6rem;
+}
+#wrapper #product .tuijian ul li:nth-child(odd) {
+  padding-right: .1rem;
+  padding-bottom: .2rem;
+}
+#wrapper #product .tuijian ul li:nth-child(even) {
+  padding-left: .1rem;
+  padding-bottom: .2rem;
 }
 #bottom {
   width: 100%;
@@ -1016,4 +1071,8 @@ input {
   width: 3.5rem;
   display: block;
   margin: 0 auto;
+}
+.space {
+  width: 100%;
+  height: 2rem;
 }

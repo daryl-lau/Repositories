@@ -1005,14 +1005,14 @@ input {
       background-color: #f0f2f5;
       .title {
         //width: 4rem;
-        height: 2rem;
+        height: 2.5rem;
         font-size: .7rem;
         display: flex;
         justify-content: center;
         align-items: center;
         color: #848689;
         .icon {
-          width: 5%;
+          //width: 5%;
           background: url("../images/arrow_up.png");
           background-repeat: no-repeat;
           background-size: .65rem .65rem;
@@ -1027,12 +1027,76 @@ input {
       }
       ul li {
         width: 50%;
-        height: 15rem;
+        //height: 15rem;
         //background-color: red;
-        padding-right: .1rem;
-        padding-bottom: .1rem;
         float: left;
         display: block;
+        overflow: hidden;
+        .wrap {
+          width: 100%;
+          //height: 15rem;
+          height: 100%;
+          background-color: #FFFFFF;
+          div {
+            a {
+              img {
+                width: 100%;
+              }
+            }
+          }
+          .info {
+            box-sizing: border-box;
+            height: 31px;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+            color: #232326;
+            //margin-top: 5px;
+            line-height: 16px;
+            margin-bottom: .3rem;
+            padding: 0 4px;
+          }
+          .similar {
+            font-size: .7rem;
+            position: relative;
+            .icon {
+              color: #f23030;
+              margin-left: .3rem;
+            }
+            .buy {
+              margin-left: .4rem;
+              border: 1px solid #f23030;
+              color: #f23030;
+              font-size: .5rem;
+              padding: .05rem;
+            }
+            .same {
+              position: absolute;
+              top: 0;
+              right: .5rem;
+              padding: .05rem;
+              border: 1px solid #bfbfbf;
+            }
+          }
+          .space {
+            width: 100%;
+            height: 1.3rem;
+            font-size: .6rem;
+          }
+        }
+      ;
+      }
+      ul li:nth-child(odd) {
+        padding-right: .1rem;
+        padding-bottom: .2rem;
+      }
+      ul li:nth-child(even) {
+        padding-left: .1rem;
+        padding-bottom: .2rem;
       }
     }
   }
@@ -1060,4 +1124,8 @@ input {
       }
     }
   }
+}
+.space {
+  width: 100%;
+  height: 2rem;
 }
