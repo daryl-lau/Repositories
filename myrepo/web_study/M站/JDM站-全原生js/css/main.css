@@ -640,7 +640,7 @@ input {
 }
 #wrapper #product .product-yuan .container-four div .info {
   width: 100%;
-  padding: .2rem .4rem .2rem .2rem;
+  padding: .4rem .4rem 0 .4rem;
 }
 #wrapper #product .product-yuan .container-four div .info p:nth-child(1) {
   font-size: .9rem;
@@ -851,7 +851,150 @@ input {
 #wrapper #product .live .content .wrap:nth-child(2) {
   border-bottom: 1px solid #f6f6f6;
 }
-#wrapper #bottom {
+#wrapper #product .shangchang {
+  width: 100%;
+}
+#wrapper #product .shangchang .title {
+  margin-top: .2rem;
+  width: 100%;
+  background-color: #f6f6f6;
+}
+#wrapper #product .shangchang .title a {
+  display: block;
+}
+#wrapper #product .shangchang .title a img {
+  width: 100%;
+  display: block;
+}
+#wrapper #product .shangchang .content .one,
+#wrapper #product .shangchang .content .two {
+  width: 100%;
+  display: flex;
+}
+#wrapper #product .shangchang .content .one .wrap,
+#wrapper #product .shangchang .content .two .wrap {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: .6rem;
+  position: relative;
+  border-bottom: 1px solid #f5f5f5;
+}
+#wrapper #product .shangchang .content .one .wrap .info,
+#wrapper #product .shangchang .content .two .wrap .info {
+  width: 50%;
+}
+#wrapper #product .shangchang .content .one .wrap .info p:nth-child(1),
+#wrapper #product .shangchang .content .two .wrap .info p:nth-child(1) {
+  font-size: .9rem;
+}
+#wrapper #product .shangchang .content .one .wrap .info p:nth-child(2),
+#wrapper #product .shangchang .content .two .wrap .info p:nth-child(2) {
+  font-size: .7rem;
+  color: #D663E1;
+}
+#wrapper #product .shangchang .content .one .wrap .img,
+#wrapper #product .shangchang .content .two .wrap .img {
+  width: 50%;
+}
+#wrapper #product .shangchang .content .one .wrap .img a,
+#wrapper #product .shangchang .content .two .wrap .img a {
+  display: block;
+}
+#wrapper #product .shangchang .content .one .wrap .img a img,
+#wrapper #product .shangchang .content .two .wrap .img a img {
+  width: 100%;
+  display: block;
+}
+#wrapper #product .shangchang .content .one .wrap::after,
+#wrapper #product .shangchang .content .two .wrap::after {
+  display: inline-block;
+  content: '';
+  width: 1px;
+  height: 100%;
+  background-color: #f6f6f6;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#wrapper #product .shangchang .content .three,
+#wrapper #product .shangchang .content .four {
+  width: 100%;
+  display: flex;
+}
+#wrapper #product .shangchang .content .three .wrap,
+#wrapper #product .shangchang .content .four .wrap {
+  position: relative;
+  width: 25%;
+  padding: .6rem;
+}
+#wrapper #product .shangchang .content .three .wrap .info p:nth-child(1),
+#wrapper #product .shangchang .content .four .wrap .info p:nth-child(1) {
+  font-size: .9rem;
+}
+#wrapper #product .shangchang .content .three .wrap .info p:nth-child(2),
+#wrapper #product .shangchang .content .four .wrap .info p:nth-child(2) {
+  font-size: .7rem;
+  color: #D663E1;
+}
+#wrapper #product .shangchang .content .three .wrap .img a,
+#wrapper #product .shangchang .content .four .wrap .img a {
+  display: block;
+}
+#wrapper #product .shangchang .content .three .wrap .img a img,
+#wrapper #product .shangchang .content .four .wrap .img a img {
+  width: 100%;
+  display: block;
+  padding: .3rem;
+}
+#wrapper #product .shangchang .content .three .wrap::after,
+#wrapper #product .shangchang .content .four .wrap::after {
+  display: inline-block;
+  content: '';
+  width: 1px;
+  height: 100%;
+  background-color: #f6f6f6;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#wrapper #product .shangchang .content .three {
+  border-bottom: 1px solid #f5f5f5;
+}
+#wrapper #product .tuijian {
+  background-color: #f0f2f5;
+}
+#wrapper #product .tuijian .title {
+  height: 2rem;
+  font-size: .7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #848689;
+}
+#wrapper #product .tuijian .title .icon {
+  width: 5%;
+  background: url("../images/arrow_up.png");
+  background-repeat: no-repeat;
+  background-size: .65rem .65rem;
+  display: block;
+  width: .65rem;
+  height: .65rem;
+  margin-right: .2rem;
+}
+#wrapper #product .tuijian .title .text {
+  widows: 20%;
+}
+#wrapper #product .tuijian ul li {
+  width: 50%;
+  height: 15rem;
+  padding-right: .1rem;
+  padding-bottom: .1rem;
+  float: left;
+  display: block;
+}
+#bottom {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -863,13 +1006,13 @@ input {
   box-shadow: 0 0 10px 0 rgba(154, 141, 141, 0.6);
   -webkit-box-shadow: 0 0 10px 0 rgba(154, 141, 141, 0.6);
 }
-#wrapper #bottom div {
+#bottom div {
   width: 20%;
 }
-#wrapper #bottom div a {
+#bottom div a {
   display: block;
 }
-#wrapper #bottom div a img {
+#bottom div a img {
   width: 3.5rem;
   display: block;
   margin: 0 auto;
