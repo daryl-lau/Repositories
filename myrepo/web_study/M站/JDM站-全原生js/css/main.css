@@ -966,24 +966,42 @@ input {
   background-color: #f0f2f5;
 }
 #wrapper #product .tuijian .title {
-  height: 2.5rem;
-  font-size: .7rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  display: -webkit-box;
+  margin: .7rem .25rem;
   color: #848689;
+  font-size: .7rem;
+  -webkit-box-pack: center;
 }
-#wrapper #product .tuijian .title .icon {
-  background: url("../images/arrow_up.png");
+#wrapper #product .tuijian .title .wrap {
+  padding: 0 .5rem;
+  background-color: #f0f2f5;
+  z-index: 10;
+  position: relative;
+  display: block;
+}
+#wrapper #product .tuijian .title .wrap .icon {
+  background: url('../images/arrow_up.png');
   background-repeat: no-repeat;
   background-size: .65rem .65rem;
-  display: block;
   width: .65rem;
   height: .65rem;
-  margin-right: .2rem;
+  display: block;
+  margin-right: .5rem;
+  position: relative;
+  top: .15rem;
+  float: left;
 }
-#wrapper #product .tuijian .title .text {
-  widows: 20%;
+#wrapper #product .tuijian .title:after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: #cbcbcb;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
 }
 #wrapper #product .tuijian ul li {
   width: 50%;

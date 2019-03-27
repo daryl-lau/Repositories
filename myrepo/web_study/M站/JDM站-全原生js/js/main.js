@@ -244,7 +244,7 @@ window.addEventListener('load', () => {
         var text = document.querySelector('.kill-timer');
 
         //设置未来的某个时间
-        var futureDate = new Date('2019/3/23 23:59:59');
+        var futureDate = new Date('2019/4/23 23:59:59');
 
         function getTime() {
 
