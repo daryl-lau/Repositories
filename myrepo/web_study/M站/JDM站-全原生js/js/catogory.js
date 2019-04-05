@@ -14,7 +14,7 @@ window.onload = function () {
     let parent = document.querySelector('.content');
     let ul = document.querySelector('.left ul');
     let ulLength = ul.offsetHeight;
-    let parentLength = parent.offsetHeight - parseInt(getStyle(parent, 'paddingTop')) - parseInt(getStyle(parent, 'paddingBottom'));
+    let parentHeight = parent.offsetHeight - parseInt(getStyle(parent, 'paddingTop')) - parseInt(getStyle(parent, 'paddingBottom'));
 
 
     // css3动画函数
@@ -34,56 +34,80 @@ window.onload = function () {
 
 
     // 拖动效果
-    let topLength = 150;
-    let startY = 0;
-    let endY = 0;
-    let distanceY = 0;
-    let currentY = 0;
+    let topLength = 150,
+        startY = 0,
+        endY = 0,
+        distanceY = 0,
+        currentY = 0,
+        lastTime = 0,
+        timeDis = 0,
+        speed = 0,
+        translateY = 0;
+
     ul.addEventListener('touchstart', (e) => {
+
+        //阻止冒泡
+        e.stopPropagation();
+
+        //获取鼠标按下时的y值
         startY = e.touches[0].clientY;
+
+        //获取鼠标按下是的时间
+        lastTime = Date.now();
     });
     ul.addEventListener('touchmove', (e) => {
+
+        //阻止冒泡
+        e.stopPropagation();
+
+        //获取鼠标移动过程中的y值
         endY = e.touches[0].clientY;
+
+        //计算鼠标走过的距离，鼠标上滑，此值为正，鼠标下滑，此值为负；
         distanceY = startY - endY;
 
+        //计算出需要
+        translateY = currentY - distanceY;
+
         removeTransition(ul);
-        changeTranslateY(ul, currentY - distanceY);
+        changeTranslateY(ul, translateY);
 
-        if (currentY - distanceY > topLength) {
+        if (translateY > topLength) {
             changeTranslateY(ul, topLength);
-        } else if (currentY - distanceY < -(ulLength + topLength - parentLength)) {
-            changeTranslateY(ul, -(ulLength + topLength - parentLength));
+        } else if (translateY < -(ulLength + topLength - parentHeight)) {
+            changeTranslateY(ul, -(ulLength + topLength - parentHeight));
         }
-
 
     });
     ul.addEventListener('touchend', (e) => {
-        if (currentY - distanceY > 0) {
-            addTransition(ul);
-            changeTranslateY(ul, 0);
-            currentY = 0;
-        } else if ( (-(ulLength - parentLength)) < (currentY - distanceY) &&  (currentY - distanceY) < 0) {
-            currentY = currentY - distanceY;
-        } else if (currentY - distanceY < -(ulLength - parentLength)){
-            addTransition(ul);
-            changeTranslateY(ul, -(ulLength - parentLength));
-            currentY = -(ulLength - parentLength);
+        e.stopPropagation();
+
+
+        timeDis = Date.now() - lastTime;
+
+        if (timeDis > 300) {
+            speed = 0;
+        } else {
+            speed = parseInt(distanceY / timeDis * 150);
         }
 
+        translateY -= speed;
 
-        // currentY = currentY - distanceY;
+        if (translateY > 0) {
+            translateY = 0;
+            currentY = 0;
+        } else if ((-(ulLength - parentHeight)) < translateY && translateY < 0) {
+            currentY = translateY;
+        } else if (translateY < -(ulLength - parentHeight)) {
+            translateY = -(ulLength - parentHeight);
+            currentY = -(ulLength - parentHeight);
+        }
+        addTransition(ul);
+        changeTranslateY(ul, translateY);
 
-        // // distanceY = 0;
-        // startY = 0;
-        // endY = 0;
-
-        //     addTransition(ul);
-        //     changeTranslateX(ul, -index * liWidth);
-        //     changeIndex();
-        //     timer = setInterval(autoPlay, 5000);
-        //     startY = 0;
-        //     endY = 0;
-        //     distanceY = 0;
+        //还原值
+        endY = 0;
+        distanceY = 0;
     });
 };
 

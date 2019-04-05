@@ -74,15 +74,14 @@
 <script>
     var oBox = $('.box');
     var oBoxWidth = oBox.width();
-
-    oBox.find('div').on('click',function(){
-	var thisWidth = $(this).width();
-	var moveLeft = this.offsetLeft;
-	if(oBoxWidth<moveLeft+thisWidth){
-	    oBox.animate({scrollLeft:moveLeft});
-	}else{
-	    oBox.animate({scrollLeft:0});
-	}
+    oBox.find('div').on('click', function () {
+        var thisWidth = $(this).width();
+        var moveLeft = this.offsetLeft;
+        if (oBoxWidth < moveLeft + thisWidth) {
+            oBox.animate({scrollLeft: moveLeft});
+        } else {
+            oBox.animate({scrollLeft: 0});
+        }
     });
 </script>
 </body>
