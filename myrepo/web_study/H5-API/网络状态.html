@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>网络状态</title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<button>获取网络状态</button>
+
+<script>
+
+
+    window.onload = function () {
+        let btn = document.getElementsByTagName('button')[0];
+
+        btn.onclick = function () {
+
+            // 通过window.navigator.onLine来获取网络状态；
+
+            let status = window.navigator.onLine;
+            if (status) {
+                alert('有网');
+            } else {
+                alert('没网');
+            }
+        };
+
+        // 网络事件监听
+
+        window.addEventListener('online', function () {
+            alert('有网')
+        });
+        window.addEventListener('offline', function () {
+            alert('网络异常')
+        })
+
+    }
+
+</script>
+
+</body>
+</html>
