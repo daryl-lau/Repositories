@@ -173,7 +173,6 @@ window.onload = function () {
         }
         e.target.className = 'current';
 
-
         translateY = -(e.target.index - 7) * 40;
 
         if (translateY <= -(ulLength - parentHeight)) {
@@ -187,19 +186,5 @@ window.onload = function () {
         changeTranslateY(ul, translateY);
 
     });
-
-
-
-
-
-
-
-
-
-    // var newli = document.createElement('li');
-    // newli.innerText = '3333333';
-    //
-    // ul.append(newli)
-
 };
 
