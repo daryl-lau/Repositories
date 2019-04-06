@@ -55,6 +55,9 @@ ol {
   text-align: center;
   line-height: 2rem;
 }
+.content .left ul li.current {
+  color: red;
+}
 .content .right {
   height: 100%;
   background-color: red;

@@ -10,8 +10,6 @@ window.onload = function () {
             //获取touchstart事件的时间戳
             tapStart = e.timeStamp;
 
-            console.log(e);
-
             //changedTouchs是事件对象TouchEvent上面的属性,上面存储了一个当前操作的信息。
             let point = e.changedTouches[0];
             this.strX = point.pageX;
@@ -35,7 +33,7 @@ window.onload = function () {
             tapEnd = e.timeStamp;
             tapTime = tapEnd - tapStart;
             if (!this.isMove && tapTime <= 150) {
-                callBack();
+                callBack(e);
             }
         }, false);
     };
@@ -55,7 +53,6 @@ window.onload = function () {
     let ul = document.querySelector('.left ul');
     let ulLength = ul.offsetHeight;
     let parentHeight = parent.offsetHeight - parseInt(getStyle(parent, 'paddingTop')) - parseInt(getStyle(parent, 'paddingBottom'));
-
 
 
     // css3动画函数
@@ -165,5 +162,22 @@ window.onload = function () {
         endY = 0;
         distanceY = 0;
     });
+
+
+    ul.tap(function (e) {
+
+        let lis = ul.getElementsByTagName('li');
+
+        for(let i = 0; i < lis.length; i++){
+            lis[i].className = '';
+            lis[i].index = i;
+        }
+
+
+        e.target.className = 'current';
+
+
+    })
+
 };
 
