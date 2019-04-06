@@ -67,7 +67,7 @@ window.onload = function () {
         // 计算鼠标走过的距离，鼠标上滑，此值为正，鼠标下滑，此值为负；
         distanceY = startY - endY;
 
-        // 计算出需要滚动的距离，currentY初始为0，后续移动会在之前的基础上进行移动
+        // 计算出需要滚动的距离，currentY初始为0，后续移动会在之前的基础上进行移动，鼠标上滑，translateY值变小，鼠标下滑，translateY值变大；
         translateY = currentY - distanceY;
 
         // 执行滚动
