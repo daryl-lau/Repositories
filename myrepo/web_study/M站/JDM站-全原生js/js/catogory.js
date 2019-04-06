@@ -164,20 +164,42 @@ window.onload = function () {
     });
 
 
+    let lis = ul.getElementsByTagName('li');
     ul.tap(function (e) {
 
-        let lis = ul.getElementsByTagName('li');
-
-        for(let i = 0; i < lis.length; i++){
+        for (let i = 0; i < lis.length; i++) {
             lis[i].className = '';
             lis[i].index = i;
         }
-
-
         e.target.className = 'current';
 
 
-    })
+        translateY = -(e.target.index - 7) * 40;
+
+        if (translateY <= -(ulLength - parentHeight)) {
+            translateY = -(ulLength - parentHeight)
+        }else if (translateY >= 0){
+            translateY = 0
+        }
+        currentY = translateY;
+
+        addTransition(ul);
+        changeTranslateY(ul, translateY);
+
+    });
+
+
+
+
+
+
+
+
+
+    // var newli = document.createElement('li');
+    // newli.innerText = '3333333';
+    //
+    // ul.append(newli)
 
 };
 
