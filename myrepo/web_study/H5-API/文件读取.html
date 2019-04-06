@@ -12,6 +12,34 @@
     <!--<script src="./js/main.js"></script>-->
 </head>
 <body>
+<input type="file" name="file" title="">
+<div id="content"></div>
+<script>
+
+    window.onload = function () {
+        let file = document.getElementsByTagName('input')[0];
+        let content = document.getElementById('content');
+
+        file.addEventListener('change', function () {
+
+            // 监听上传文件
+            console.log(this.files);
+
+
+            // 读取文件
+            let reader = new FileReader();
+            reader.readAsText(this.files[0]);
+
+            console.log(reader);
+            // 读取完毕
+            reader.addEventListener('load', function () {
+                // content.html(this.result);
+                content.innerText = reader.result;
+            })
+        })
+    }
+
+</script>
 
 </body>
 </html>
