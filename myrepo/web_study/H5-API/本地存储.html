@@ -12,6 +12,25 @@
     <!--<script src="./js/main.js"></script>-->
 </head>
 <body>
+<!--
+    sessionStorage  生命周期为关闭浏览器窗口，在同一个窗口下数据可以共享
+    localStorage    永久生效，除非手动删除（关闭页面也会存在），可以多窗口（页面）共享， 同一浏览器可以共享本地存储数据
+
+    setItem(key, value) 设置存储内容
+    getItem(key)        读取存储内容
+    removeItem(key)     删除键值为key的存储内容
+    clear()             清空所有存储内容
+-->
+
+<script>
+
+    window.sessionStorage.setItem('site', 'www.ywzone.com');
+    window.sessionStorage.setItem('info', '运维空间');
+
+    window.localStorage.setItem('site', 'www.ywzone.com');
+    window.localStorage.setItem('info', '运维空间');
+
+</script>
 
 </body>
 </html>

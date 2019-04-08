@@ -13,12 +13,16 @@
 </head>
 <body>
 <input type="file" name="file" title="">
-<div id="content"></div>
+<div id="content">
+    <img src="" alt="" style="width: 100%; height: 100%;">
+</div>
 <script>
 
     window.onload = function () {
         let file = document.getElementsByTagName('input')[0];
         let content = document.getElementById('content');
+        let img = content.querySelector('img');
+        // console.log(img);
 
         file.addEventListener('change', function () {
 
@@ -28,13 +32,18 @@
 
             // 读取文件
             let reader = new FileReader();
-            reader.readAsText(this.files[0]);
+            // reader.readAsText(this.files[0]);
+
+            // 读取图片，使用DataURL
+            reader.readAsDataURL(this.files[0]);
 
             console.log(reader);
             // 读取完毕
             reader.addEventListener('load', function () {
                 // content.html(this.result);
-                content.innerText = reader.result;
+                // content.innerText = reader.result;
+
+                img.setAttribute('src', reader.result)
             })
         })
     }
