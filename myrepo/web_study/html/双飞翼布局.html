@@ -7,7 +7,7 @@
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <title>圣杯布局</title>
+    <title>双飞翼布局</title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
     <style>
@@ -18,9 +18,8 @@
 
         .container {
             min-width: 600px;
-            height: 500px;
             background-color: #f5f5f5;
-            padding: 0 200px    ;
+            height: 500px;
         }
 
         .left, .right {
@@ -30,26 +29,23 @@
             float: left;
         }
 
+        .main {
+            width: 100%;
+            height: 500px;
+            background-color: blue;
+            float: left;
+        }
+
         .left {
             margin-left: -100%;
-            position: relative;
-            left: -200px;
         }
 
         .right {
             margin-left: -200px;
-            position: relative;
-            right: -200px;
         }
-
-        .main {
-            width: 100%;
-            height: 500px;
-            background-color: green;
-            float: left;
+        .main_content {
+            margin: 0 200px;
         }
-
-
     </style>
 </head>
 <body>
@@ -70,7 +66,9 @@
 -->
 
 <div class="container">
-    <div class="main">中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中</div>
+    <div class="main">
+            <div class="main_content">中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中</div>
+    </div>
     <div class="left">左</div>
     <div class="right">右</div>
 </div>
