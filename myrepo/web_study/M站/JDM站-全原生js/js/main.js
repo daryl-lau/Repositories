@@ -269,20 +269,23 @@ window.addEventListener('load', () => {
                 var m = Math.floor(totalTime / 1000 / 60 % 60);
                 var s = Math.floor(totalTime / 1000 % 60);
 
-                let timeArray = [];
+                // let timeArray = [];
+                //
+                // timeArray.push(d, h, m, s);
+                //
+                // for (var i = 0; i < timeArray.length; i++) {
+                //     if (timeArray[i] < 10) {
+                //         timeArray[i] = '0' + timeArray[i]
+                //     } else {
+                //         timeArray[i] = timeArray[i].toString()
+                //     }
+                // }
 
-                timeArray.push(d, h, m, s);
-
-                for (var i = 0; i < timeArray.length; i++) {
-                    if (timeArray[i] < 10) {
-                        timeArray[i] = '0' + timeArray[i]
-                    } else {
-                        timeArray[i] = timeArray[i].toString()
-                    }
-                }
+                h < 10 ? '0' + h : h
 
                 // text.innerText = d + '天' + h + '时' + m + '分' + s + '秒';
-                text.innerHTML = '<span>' + timeArray[0] + '</span><span>天</span><span>' + timeArray[1] + '</span><span>时</span><span>' + timeArray[2] + '</span><span>分</span><span>' + timeArray[3] + '</span><span>秒</span>'
+                // text.innerHTML = '<span>' + timeArray[0] + '</span><span>天</span><span>' + timeArray[1] + '</span><span>时</span><span>' + timeArray[2] + '</span><span>分</span><span>' + timeArray[3] + '</span><span>秒</span>'
+                text.innerHTML = '<span>' + (d < 10 ? '0' + d : d) + '</span><span>天</span><span>' + (h < 10 ? '0' + h : h) + '</span><span>时</span><span>' + (m < 10 ? '0' + m : m) + '</span><span>分</span><span>' + (s < 10 ? '0' + s : s) + '</span><span>秒</span>'
             }
         }
 

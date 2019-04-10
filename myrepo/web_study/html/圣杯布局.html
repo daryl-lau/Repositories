@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>圣杯布局</title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+    <style>
+
+    </style>
+</head>
+<body>
+
+<!--
+    两侧宽度固定，中间宽度自适应的三栏布局
+    中间部分在DOM结构上优先，以便优先渲染
+    只需要使用一个额外的div标签
+
+    实现步骤：
+        写下如下HTML代码
+        使三个区域都处于做悬浮状态，并使main的宽度成父容器的100%
+        为两侧侧边栏添加负margin，用来调整位置，其中摆在左边的left的margin-left为-100%，
+        而右边right的margin-right为负的其自身宽度。（利用了浮动元素的负margin到一定值后会使其自身往上一行移动的原理）
+        为class='container'的主容器设置左右padding值，使其为以后的侧边栏空出位置，padding的值为侧边栏的宽度
+        对left和right添加position: relative，然后对他们进行定位移动到两侧，圣杯布局就完成了
+
+-->
+
+<div class="container">
+    <div class="main"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+
+</body>
+</html>
