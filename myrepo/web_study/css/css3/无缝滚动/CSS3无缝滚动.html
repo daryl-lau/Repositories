@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <style>
+
+        /*
+            css3无缝滚动比用js写流畅很多
+        */
+
         * {
             margin: 0;
             padding: 0;
@@ -16,15 +21,16 @@
             width: 1000px;
             height: 200px;
             margin: 100px auto ;
-            position: relative;
+            /*position: relative;*/
             overflow: hidden;
         }
 
         #div1 ul {
             width: 2000px;
-            position: absolute;
-            top: 0;
-            left: 0;
+            height: 200px;
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*left: 0;*/
         }
 
         #div1 ul li {
@@ -48,52 +54,71 @@
             top: 100px;
             right: 0;
         }
+
+        #div1 ul {
+            /*width: 200%;*/
+            animation: moving 5s linear infinite;
+            animation-play-state: running;
+        }
+
+        @keyframes moving {
+            from {transform: translateX(0)}
+            to {transform: translateX(-1000px)}
+        }
+
     </style>
 
-    <script>
+    <script type="text/javascript">
         window.onload = function () {
 
             var oDiv = document.getElementById('div1');
             var oUl = oDiv.getElementsByTagName('ul')[0];
             var oLeftBtn = document.getElementById('left');
             var oRightBtn = document.getElementById('right');
+            var ss = document.styleSheets[0];
+            console.log(ss);
 
-            var speed = 1;
+            // var speed = 2;
 
             oUl.innerHTML += oUl.innerHTML;
 
-            function move() {
-                //-2左滚
-                if (oUl.offsetLeft === -1000) {
-                    oUl.style.left = '0px';
-                }
+            // function move() {
+            //     //-2左滚
+            //     if (oUl.offsetLeft === -1000) {
+            //         oUl.style.left = '0px';
+            //     }
+            //
+            //     //+2右滚
+            //     if (oUl.offsetLeft > 0){
+            //         oUl.style.left = '-1000px'
+            //     }
+            //     oUl.style.left = oUl.offsetLeft + speed + 'px';
+            // }
 
-                //+2右滚
-                if (oUl.offsetLeft > 0){
-                    oUl.style.left = '-1000px'
-                }
-                oUl.style.left = oUl.offsetLeft + speed + 'px';
-            }
-
-            timer = setInterval(move, 1);
+            // timer = setInterval(move, 30);
 
             oDiv.onmouseover = function () {
-                clearInterval(timer)
+                // clearInterval(timer)
+                oUl.style.animationPlayState = 'paused';
             };
 
             oDiv.onmouseout = function () {
-                timer = setInterval(move, 1);
+                // timer = setInterval(move, 30);
+                oUl.style.animationPlayState = 'running';
             };
 
 
             oLeftBtn.onmouseover = function () {
-                speed = -1;
+                ss.deleteRule(8);
+                ss.insertRule('@keyframes moving {0% { transform: translateX(0px); } 100% { transform: translateX(-1000px); }}', 8);
+                console.log(ss);
             };
 
             oRightBtn.onmouseover = function () {
-                speed = 1;
-            }
-
+                ss.deleteRule(8);
+                ss.insertRule('@keyframes moving {0% { transform: translateX(-1000px); } 100% { transform: translateX(0px); }}', 8);
+                console.log(ss);
+            };
         }
     </script>
 
