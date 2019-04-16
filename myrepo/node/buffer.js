@@ -8,7 +8,7 @@
 // Buffer.alloc();
 // Buffer.allocUnsafe();
 // Buffer.allocUnsafeSlow();
-
+//
 let str = 'www.ywzone.com';
 let buffer = Buffer.from(str);
 
@@ -31,4 +31,3 @@ buffer2[2] = 0x77;
 console.log(buffer2);
 
 console.log(buffer2.toString());
-
