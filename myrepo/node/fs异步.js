@@ -2,7 +2,7 @@
 
 let fs = require('fs');
 
-fs.open('./a.txt', 'w', (err, fd)=>{
+fs.open('./b.txt', 'a', (err, fd)=>{
     if(!err){
         fs.writeFile(fd, '天不生我李淳罡，剑道万古长如夜', (err)=>{
             if(!err){
