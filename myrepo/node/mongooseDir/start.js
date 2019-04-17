@@ -40,20 +40,20 @@ let personSchema = new Schema({
 let personModel = mgos.model('person', personSchema);
 
 // 往集合中插入文档，增
-personModel.create(
-    {name: 'Mars', age: 23, wechat: 'Mars1990'},
-    {name: 'Mars', age: 23, wechat: 'Mars1990'},
-    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
-    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
-    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'}
-    // 如果这里插入schema中没有定义的字段，将不会被插入
-, (err)=>{
-    if(!err){
-        console.log('插入数据成功!');
-    }else {
-        throw err;
-    }
-});
+// personModel.create(
+//     {name: 'Mars', age: 23, wechat: 'Mars1990'},
+//     {name: 'Mars', age: 23, wechat: 'Mars1990'},
+//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
+//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
+//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'}
+//     // 如果这里插入schema中没有定义的字段，将不会被插入
+// , (err)=>{
+//     if(!err){
+//         console.log('插入数据成功!');
+//     }else {
+//         throw err;
+//     }
+// });
 
 
 
@@ -144,6 +144,16 @@ personModel.deleteOne({name: 'Mars'}, (err)=>{
 personModel.find({}, '-_id name age', (err, result) => {
     if (!err) {
         console.log(result);
+    } else {
+        throw err;
+    }
+});
+
+
+// 统计个数
+personModel.count({}, (err, count)=>{
+    if (!err) {
+        console.log(count);
     } else {
         throw err;
     }
