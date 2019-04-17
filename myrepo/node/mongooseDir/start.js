@@ -41,10 +41,11 @@ let personModel = mgos.model('person', personSchema);
 
 // 往集合中插入文档
 personModel.create({
-    name: 'Mars',
+    name: '火星哥',
     age: 23,
     wechat: 'Mars1990',
-    gender: 'female'
+    gender: 'female',
+    // height: 190          如果这里插入schema中没有定义的字段，将不会被插入
 }, (err)=>{
     if(!err){
         console.log('插入数据成功!');
