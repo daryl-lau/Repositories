@@ -83,7 +83,7 @@ personModel.find({name: 'Mars'}, (err,docs)=>{
     }
 });
 
-//
+// 查询个别字段
 personModel.find({}, {name:1, _id:0, gender: 1}, (err,docs)=>{
     if(!err){
         console.log(docs);
