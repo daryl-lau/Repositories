@@ -25,6 +25,7 @@ db.once('close', ()=>{
 
 // 创建schema对象
 let Schema = mgos.Schema;
+
 let personSchema = new Schema({
     name: String,
     age: Number,
