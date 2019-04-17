@@ -40,23 +40,23 @@ let personSchema = new Schema({
 let personModel = mgos.model('person', personSchema);
 
 // 往集合中插入文档，增
-// personModel.create(
-//     {name: '火星哥', age: 23, wechat: 'Mars1990'},
-//     {name: '火星哥', age: 23, wechat: 'Mars1990'},
-//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
-//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
-//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'}
-//     // 如果这里插入schema中没有定义的字段，将不会被插入
-// , (err)=>{
-//     if(!err){
-//         console.log('插入数据成功!');
-//     }else {
-//         throw err;
-//     }
-// });
+personModel.create(
+    {name: 'Mars', age: 23, wechat: 'Mars1990'},
+    {name: 'Mars', age: 23, wechat: 'Mars1990'},
+    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
+    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
+    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'}
+    // 如果这里插入schema中没有定义的字段，将不会被插入
+, (err)=>{
+    if(!err){
+        console.log('插入数据成功!');
+    }else {
+        throw err;
+    }
+});
 
 
-// 删
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -112,15 +112,34 @@ personModel.updateOne({name: 'Mars'}, {$set:{age: 20}}, (err, row)=>{
     }
 });
 
-personModel.updateMany({name: 'Mars'}, {$set:{age: 40}}, (err, row)=>{
+personModel.updateMany({name: 'Mars'}, {$set:{age: 40}}, (err)=>{
     if(!err){
         console.log('修改成功!');
-        console.log(row);
     }else {
         throw err;
     }
 });
 
+
+personModel.find({}, '-_id name age', (err, result) => {
+    if (!err) {
+        console.log(result);
+    } else {
+        throw err;
+    }
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+// 删
+personModel.deleteOne({name: 'Mars'}, (err)=>{
+    if(!err){
+        console.log('删除成功!')
+    }else {
+        throw err;
+    }
+});
 
 personModel.find({}, '-_id name age', (err, result) => {
     if (!err) {
