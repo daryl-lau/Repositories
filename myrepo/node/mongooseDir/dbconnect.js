@@ -21,5 +21,22 @@ db.once('close', () => {
     console.log('连接数据库断开成功!')
 });
 
+let Schema = mgos.Schema;
+
+let personSchema = new Schema({
+    name: String,
+    age: Number,
+    wechat: String,
+    gender: {
+        type: String,
+        default: 'man',
+    }
+});
+
+
+// 创建Model集合对象
+// let personModel = mgos.model('person', personSchema);
+
 module.exports = db;
 module.exports = mgos;
+module.exports = personSchema;

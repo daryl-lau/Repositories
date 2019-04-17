@@ -22,23 +22,25 @@
 // });
 
 let mgos = require('./dbconnect');
+let personModel = mgos.model('person', personSchema);
+
 
 // 创建schema对象
-let Schema = mgos.Schema;
-
-let personSchema = new Schema({
-    name: String,
-    age: Number,
-    wechat: String,
-    gender: {
-        type: String,
-        default: 'man',
-    }
-});
-
-
-// 创建Model集合对象
-let personModel = mgos.model('person', personSchema);
+// let Schema = mgos.Schema;
+//
+// let personSchema = new Schema({
+//     name: String,
+//     age: Number,
+//     wechat: String,
+//     gender: {
+//         type: String,
+//         default: 'man',
+//     }
+// });
+//
+//
+// // 创建Model集合对象
+// let personModel = mgos.model('person', personSchema);
 
 // 往集合中插入文档，增
 // personModel.create(
@@ -55,8 +57,6 @@ let personModel = mgos.model('person', personSchema);
 //         throw err;
 //     }
 // });
-
-
 
 
 
