@@ -84,7 +84,7 @@ personModel.find({name: 'Mars'}, (err,docs)=>{
 });
 
 //
-personModel.find({}, {name:1, _id:0}, (err,docs)=>{
+personModel.find({}, {name:1, _id:0, gender: 1}, (err,docs)=>{
     if(!err){
         console.log(docs);
     }else {
