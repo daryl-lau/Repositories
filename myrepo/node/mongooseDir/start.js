@@ -59,23 +59,22 @@ let personModel = mgos.model('person', personSchema);
 // 删
 
 
-// 改
-
+//////////////////////////////////////////////////////////////////////////////////////
 
 // 查
 // 查询所有
-personModel.find({}, (err, docs) => {
+personModel.find({}, (err, result) => {
     if (!err) {
-        console.log(docs[0]);
+        console.log(result[0]);
     } else {
         throw err;
     }
 });
 
 // 条件查询
-personModel.find({name: 'Mars'}, (err, docs) => {
+personModel.find({name: 'Mars'}, (err, result) => {
     if (!err) {
-        console.log(docs);
+        console.log(result);
     } else {
         throw err;
     }
@@ -83,18 +82,49 @@ personModel.find({name: 'Mars'}, (err, docs) => {
 
 // 查询个别字段
 // 方式一
-personModel.find({}, {name: 1, _id: 0, gender: 1}, (err, docs) => {
+personModel.find({}, {name: 1, _id: 0, gender: 1}, (err, result) => {
     if (!err) {
-        console.log(docs);
+        console.log(result);
     } else {
         throw err;
     }
 });
 
 // 方式二
-personModel.find({}, '-_id name age', (err, docs) => {
+personModel.find({}, '-_id name age', (err, result) => {
     if (!err) {
-        console.log(docs);
+        console.log(result);
+    } else {
+        throw err;
+    }
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+// 改
+personModel.updateOne({name: 'Mars'}, {$set:{age: 20}}, (err, row)=>{
+    if(!err){
+        console.log('修改成功!');
+        console.log(row);
+    }else {
+        throw err;
+    }
+});
+
+personModel.updateMany({name: 'Mars'}, {$set:{age: 40}}, (err, row)=>{
+    if(!err){
+        console.log('修改成功!');
+        console.log(row);
+    }else {
+        throw err;
+    }
+});
+
+
+personModel.find({}, '-_id name age', (err, result) => {
+    if (!err) {
+        console.log(result);
     } else {
         throw err;
     }
