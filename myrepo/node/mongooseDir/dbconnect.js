@@ -39,7 +39,7 @@ let personModel = mgos.model('person', personSchema);
 // 创建Model集合对象
 // let personModel = mgos.model('person', personSchema);
 
-module.exports = db;
-module.exports = mgos;
-module.exports = personSchema;
+// module.exports = db;
+// module.exports = mgos;
+// module.exports = personSchema;
 module.exports = personModel;
