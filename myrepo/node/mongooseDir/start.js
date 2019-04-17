@@ -1,26 +1,27 @@
-// 引入模块
-let mgos = require('mongoose');
+// // 引入模块
+// let mgos = require('mongoose');
+//
+// // 连接数据库
+// mgos.connect('mongodb://localhost:27017/mongoose');
+//
+// // 监听连接状态
+// let db = mgos.connection;
+//
+// // 连接失败处理
+// db.on('error', () => {
+//     console.log('连接数据库失败!');
+// });
+//
+// // 连接成功处理
+// db.once('open', () => {
+//     console.log('连接数据库成功!')
+// });
+//
+// db.once('close', () => {
+//     console.log('连接数据库断开成功!')
+// });
 
-// 连接数据库
-mgos.connect('mongodb://localhost:27017/mongoose');
-
-// 监听连接状态
-let db = mgos.connection;
-
-// 连接失败处理
-db.on('error', () => {
-    console.log('连接数据库失败!');
-});
-
-// 连接成功处理
-db.once('open', () => {
-    console.log('连接数据库成功!')
-});
-
-db.once('close', () => {
-    console.log('连接数据库断开成功!')
-});
-
+let mgos = require('./dbconnect');
 
 // 创建schema对象
 let Schema = mgos.Schema;
@@ -153,7 +154,7 @@ personModel.find({}, '-_id name age', (err, result) => {
 // 统计个数
 personModel.count({}, (err, count)=>{
     if (!err) {
-        console.log(count);
+        console.log('总共:' + count);
     } else {
         throw err;
     }
