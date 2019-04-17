@@ -1,4 +1,4 @@
-let fs = require('fs');
+let fs = require('buffer');
 
 fs.readFile('./logo.png', (err, data) => {
     console.log(data);
