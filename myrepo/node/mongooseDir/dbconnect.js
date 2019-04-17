@@ -21,8 +21,8 @@ db.once('close', () => {
     console.log('连接数据库断开成功!')
 });
 
+// 创建schema对象
 let Schema = mgos.Schema;
-
 let personSchema = new Schema({
     name: String,
     age: Number,
@@ -33,6 +33,8 @@ let personSchema = new Schema({
     }
 });
 
+// // 创建Model集合对象
+let personModel = mgos.model('person', personSchema);
 
 // 创建Model集合对象
 // let personModel = mgos.model('person', personSchema);
@@ -40,3 +42,4 @@ let personSchema = new Schema({
 module.exports = db;
 module.exports = mgos;
 module.exports = personSchema;
+module.exports = personModel;
