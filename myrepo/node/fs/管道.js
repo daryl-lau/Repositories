@@ -1,4 +1,4 @@
-let fs = require('buffer');
+let fs = require('fs');
 
 
 
