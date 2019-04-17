@@ -21,3 +21,36 @@ db.once('open', ()=>{
 db.once('close', ()=>{
     console.log('连接数据库断开成功!')
 });
+
+
+// 创建schema对象
+let Schema = mgos.Schema;
+let personSchema = new Schema({
+    name: String,
+    age: Number,
+    wechat: String,
+    gender: {
+        type: String,
+        default: 'man',
+    }
+});
+
+
+// 创建Model集合对象
+let personModel = mgos.model('person', personSchema);
+
+// 往集合中插入文档
+personModel.create({
+    name: 'Mars',
+    age: 23,
+    wechat: 'Mars1990',
+    gender: 'female'
+}, (err)=>{
+    if(!err){
+        console.log('插入数据成功!');
+    }else {
+        throw err;
+    }
+});
+
+
