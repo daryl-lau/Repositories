@@ -41,13 +41,14 @@ let personSchema = new Schema({
 let personModel = mgos.model('person', personSchema);
 
 // 往集合中插入文档
-personModel.create({
-    name: '火星哥',
-    age: 23,
-    wechat: 'Mars1990',
-    gender: 'female',
+personModel.create(
+    {name: '火星哥', age: 23, wechat: 'Mars1990'},
+    {name: '火星哥', age: 23, wechat: 'Mars1990'},
+    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
+    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
+    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'}
     // height: 190          如果这里插入schema中没有定义的字段，将不会被插入
-}, (err)=>{
+, (err)=>{
     if(!err){
         console.log('插入数据成功!');
     }else {
