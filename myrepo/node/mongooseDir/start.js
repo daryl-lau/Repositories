@@ -40,20 +40,54 @@ let personSchema = new Schema({
 // 创建Model集合对象
 let personModel = mgos.model('person', personSchema);
 
-// 往集合中插入文档
-personModel.create(
-    {name: '火星哥', age: 23, wechat: 'Mars1990'},
-    {name: '火星哥', age: 23, wechat: 'Mars1990'},
-    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
-    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
-    {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'}
-    // height: 190          如果这里插入schema中没有定义的字段，将不会被插入
-, (err)=>{
+// 往集合中插入文档，增
+// personModel.create(
+//     {name: '火星哥', age: 23, wechat: 'Mars1990'},
+//     {name: '火星哥', age: 23, wechat: 'Mars1990'},
+//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
+//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'},
+//     {name: '火星哥', age: 23, wechat: 'Mars1990', gender: 'female'}
+//     // 如果这里插入schema中没有定义的字段，将不会被插入
+// , (err)=>{
+//     if(!err){
+//         console.log('插入数据成功!');
+//     }else {
+//         throw err;
+//     }
+// });
+
+
+// 删
+
+
+// 改
+
+
+
+// 查
+// 查询所有
+personModel.find({}, (err,docs)=>{
     if(!err){
-        console.log('插入数据成功!');
+        console.log(docs[0]);
     }else {
         throw err;
     }
 });
 
+// 条件查询
+personModel.find({name: 'Mars'}, (err,docs)=>{
+    if(!err){
+        console.log(docs);
+    }else {
+        throw err;
+    }
+});
 
+//
+personModel.find({}, {name:1, _id:0}, (err,docs)=>{
+    if(!err){
+        console.log(docs);
+    }else {
+        throw err;
+    }
+});
