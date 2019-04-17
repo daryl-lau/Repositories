@@ -1,4 +1,3 @@
-
 // 引入模块
 let mgos = require('mongoose');
 
@@ -9,16 +8,16 @@ mgos.connect('mongodb://localhost:27017/mongoose');
 let db = mgos.connection;
 
 // 连接失败处理
-db.on('error', ()=>{
+db.on('error', () => {
     console.log('连接数据库失败!');
 });
 
 // 连接成功处理
-db.once('open', ()=>{
-   console.log('连接数据库成功!')
+db.once('open', () => {
+    console.log('连接数据库成功!')
 });
 
-db.once('close', ()=>{
+db.once('close', () => {
     console.log('连接数据库断开成功!')
 });
 
@@ -63,31 +62,40 @@ let personModel = mgos.model('person', personSchema);
 // 改
 
 
-
 // 查
 // 查询所有
-personModel.find({}, (err,docs)=>{
-    if(!err){
+personModel.find({}, (err, docs) => {
+    if (!err) {
         console.log(docs[0]);
-    }else {
+    } else {
         throw err;
     }
 });
 
 // 条件查询
-personModel.find({name: 'Mars'}, (err,docs)=>{
-    if(!err){
+personModel.find({name: 'Mars'}, (err, docs) => {
+    if (!err) {
         console.log(docs);
-    }else {
+    } else {
         throw err;
     }
 });
 
 // 查询个别字段
-personModel.find({}, {name:1, _id:0, gender: 1}, (err,docs)=>{
-    if(!err){
+// 方式一
+personModel.find({}, {name: 1, _id: 0, gender: 1}, (err, docs) => {
+    if (!err) {
         console.log(docs);
-    }else {
+    } else {
+        throw err;
+    }
+});
+
+// 方式二
+personModel.find({}, '-_id name age', (err, docs) => {
+    if (!err) {
+        console.log(docs);
+    } else {
         throw err;
     }
 });
