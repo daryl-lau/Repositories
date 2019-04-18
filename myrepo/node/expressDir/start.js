@@ -7,4 +7,9 @@ app.get('/',(req, res)=>{
     res.end();
 });
 
+app.get('/app',(req, res)=>{
+    res.write('hello,app!');
+    res.end();
+});
+
 app.listen(3000);
