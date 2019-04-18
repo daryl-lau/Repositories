@@ -8,6 +8,11 @@ const http = require('http');
  */
 let server = http.createServer((req, res)=>{
     let url = req.url;
+    console.log(req.complete);
+    console.log(req.httpVersion);
+    console.log(req.url);
+    console.log(req.headers);
+    console.log(req.method);
     res.end('url:' + url);
 });
 
