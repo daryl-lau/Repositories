@@ -4,6 +4,7 @@
   "description": "",
   "main": "start.js",
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.4"
   },
   "devDependencies": {},
