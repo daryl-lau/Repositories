@@ -1,11 +1,504 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>多快好省，购物上京东！</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/frame.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <!--头部搜索登录-->
+    <div id="header">
+        <div class="logo">
+            <a href="#" class="icon-logo"></a>
+        </div>
+        <div class="input">
+            <form action="http://localhost:63342">
+                <span class="icon-search"></span>
+                <input type="text" name="" title="" placeholder="七匹狼京东超级品牌日">
+            </form>
+        </div>
+        <div class="login">
+            <a href="#">登录</a>
+        </div>
+    </div>
+    <!--内容区-->
+    <div id="product">
+        <div class="banner">
+            <ul>
+                <li><a href=""><img src="./images/l1.jpg" alt=""></a></li>
+                <li><a href=""><img src="./images/l2.jpg" alt=""></a></li>
+                <li><a href=""><img src="./images/l3.jpg" alt=""></a></li>
+                <li><a href=""><img src="./images/l4.jpg" alt=""></a></li>
+                <li><a href=""><img src="./images/l5.jpg" alt=""></a></li>
+                <li><a href=""><img src="./images/l6.jpg" alt=""></a></li>
+                <li><a href=""><img src="./images/l7.jpg" alt=""></a></li>
+                <li><a href=""><img src="./images/l8.jpg" alt=""></a></li>
+            </ul>
+            <ol></ol>
+            <div class="mask"></div>
+        </div>
+        <div class="middle-img">
+            <a href="#" class="ad"><img src="./images/middle.dpg" alt=""></a>
+            <!--<img src="./images/l1.jpg" alt="">-->
+            <!--<a href="javascript:;" class="icon-close"></a>-->
+        </div>
+        <div class="nav">
+            <a href=""><img src="./images/nav1.png" alt=""><span>京东超市</span></a>
+            <a href=""><img src="./images/nav2.png" alt=""><span>全球进口</span></a>
+            <a href=""><img src="./images/nav3.png" alt=""><span>京东服饰</span></a>
+            <a href=""><img src="./images/nav4.png" alt=""><span>京东生鲜</span></a>
+            <a href=""><img src="./images/nav5.png" alt=""><span>京东到家</span></a>
+            <a href=""><img src="./images/nav6.png" alt=""><span>充值中心</span></a>
+            <a href=""><img src="./images/nav7.png" alt=""><span>惠赚钱</span></a>
+            <a href=""><img src="./images/nav8.png" alt=""><span>领券</span></a>
+            <a href=""><img src="./images/nav9.png" alt=""><span>物流查询</span></a>
+            <a href=""><img src="./images/nav10.png" alt=""><span>我的关注</span></a>
+        </div>
+        <div class="news">
+            <div class="news-img"><img src="./images/news.dpg" alt=""></div>
+            <div class="news-content">
+                <ul>
+                    <li><a href=""><span>HOT</span>AMD 7nm锐龙三代处理器单线程性能改进，游戏性能强</a></li>
+                    <li><a href=""><span>推荐</span>进口牛奶不仅营养价值高，而且滋味也十分醇厚顺滑</a></li>
+                    <li><a href=""><span>最新</span>不输给进口水乳的国产水乳，总有一款适合你！</a></li>
+                    <li><a href=""><span>热门</span>要想婴儿长的高，这种维生素越早补越好</a></li>
+                </ul>
+            </div>
+            <div class="news-more"><a href="#"><span>|</span>更多</a></div>
+        </div>
+        <div class="expo-loaded">
+            <div class="loaded-one"><a href="#"><img src="./images/img1.dpg" alt=""></a></div>
+            <div class="loaded-two"><a href="#"><img src="./images/img2.dpg" alt=""></a></div>
+            <div class="loaded-three"><a href="#"><img src="./images/img3.dpg" alt=""></a></div>
+        </div>
+        <div class="kill">
+            <!--<div class="kill-img"><img src="./images/seckill-icon.png" alt=""></div>-->
+            <div class="kill-title"><span>京东秒杀</span></div>
+            <div class="kill-timer"></div>
+            <div class="kill-more"><a href="">更多秒杀</a></div>
+        </div>
+        <div class="kill-product">
+            <ul class="product-wrap">
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img1.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>2099</span></div>
+                    <div class="pre-price"><span>¥</span><span>2499</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img2.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>599</span></div>
+                    <div class="pre-price"><span>¥</span><span>699</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img3.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>198</span></div>
+                    <div class="pre-price"><span>¥</span><span>268</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img4.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>399</span></div>
+                    <div class="pre-price"><span>¥</span><span>499</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img5.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>3999</span></div>
+                    <div class="pre-price"><span>¥</span><span>4599</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img6.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>2999</span></div>
+                    <div class="pre-price"><span>¥</span><span>3999</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img7.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>1599</span></div>
+                    <div class="pre-price"><span>¥</span><span>2999</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img8.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>8999</span></div>
+                    <div class="pre-price"><span>¥</span><span>9999</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img9.webp" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>299</span></div>
+                    <div class="pre-price"><span>¥</span><span>399</span></div>
+                </li>
+                <li>
+                    <div class="product-link"><a href="javascript:;" data-href="http://www.baidu.com"><img
+                            src="./images/kill_img10.dpg" alt=""></a></div>
+                    <div class="now-price"><span>¥</span><span>69</span></div>
+                    <div class="pre-price"><span>¥</span><span>99</span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-container">
+            <a href=""><img src="./images/footer.dpg" alt=""></a>
+        </div>
+        <div class="product-yuan">
+            <div class="title">
+                <div><img src="./images/title_xiaoyuan.dpg" alt=""></div>
+            </div>
+            <div class="container-two">
+                <div class="left">
+                    <div class="info">
+                        <p>绝地求生</p>
+                        <p>带你吃鸡带你飞哦</p>
+                    </div>
+                    <div class="img">
+                        <a href=""><img src="./images/yuan_img1.dpg" alt=""></a>
+                        <a href=""><img src="./images/yuan_img2.dpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="info">
+                        <p>组装电脑</p>
+                        <p>DIY你的台式机</p>
+                    </div>
+                    <div class="img">
+                        <a href=""><img src="./images/yuan_img3.dpg" alt=""></a>
+                        <a href=""><img src="./images/yuan_img4.dpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-four">
+                <div>
+                    <div class="info"><p>潮流男装</p>
+                        <p>时尚好货</p></div>
+                    <div class="img"><a href="#"><img src="./images/yuan_img5.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>我的大学</p>
+                        <p>升级新装备</p></div>
+                    <div class="img"><a href="#"><img src="./images/yuan_img6.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>国际品牌</p>
+                        <p>女装推荐</p></div>
+                    <div class="img"><a href="#"><img src="./images/yuan_img7.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>超级英雄</p>
+                        <p>超级英雄梦</p></div>
+                    <div class="img"><a href="#"><img src="./images/yuan_img8.dpg" alt=""></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="product-guang">
+            <div class="title"><a href="javascript:;"><img src="./images/title_guang.dpg" alt=""></a></div>
+            <div class="row-one">
+                <div>
+                    <div class="info"><p>免息星球</p>
+                        <p>白条免息购</p></div>
+                    <div class="img"><a href="#"><img src="./images/guang_img1.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>品牌秒杀</p>
+                        <p>低价抢大牌</p></div>
+                    <div class="img"><a href="#"><img src="./images/guang_img2.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>闪购</p>
+                        <p>大牌限时特卖</p></div>
+                    <div class="img"><a href="#"><img src="./images/guang_img3.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>拍拍二手</p>
+                        <p>大牌包5折起</p></div>
+                    <div class="img"><a href="#"><img src="./images/guang_img4.dpg" alt=""></a></div>
+                </div>
+            </div>
+            <div class="row-two">
+                <div>
+                    <div class="info"><p>排行榜</p>
+                        <p>专属购物指南</p></div>
+                    <div class="img"><a href="#"><img src="./images/guang_img5.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>发现好货</p>
+                        <p>探索新生活</p></div>
+                    <div class="img"><a href="#"><img src="./images/guang_img6.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>会买专辑</p>
+                        <p>好物打集合</p></div>
+                    <div class="img"><a href="#"><img src="./images/guang_img7.dpg" alt=""></a></div>
+                </div>
+                <div>
+                    <div class="info"><p>新品首发</p>
+                        <p>vivo X27</p></div>
+                    <div class="img"><a href="#"><img src="./images/guang_img8.dpg" alt=""></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="live">
+            <div class="title"><a href="javascript:;"><img src="./images/aishenghuo.dpg" alt=""></a></div>
+            <div class="content">
+                <div class="wrap">
+                    <div class="info">
+                        <p>玩3C</p>
+                        <p>电脑整机!爆款立减1000元</p>
+                    </div>
+                    <div class="img">
+                        <div>
+                            <a href="#"><img src="./images/aishenghuo_img1.dpg" alt=""></a>
+                        </div>
+                        <div>
+                            <a href="#"><img src="./images/aishenghuo_img2.dpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="info">
+                        <p>京东家电</p>
+                        <p>家电狂欢 精彩有你</p>
+                    </div>
+                    <div class="img">
+                        <div>
+                            <a href="#"><img src="./images/aishenghuo_img3.dpg" alt=""></a>
+                        </div>
+                        <div>
+                            <a href="#"><img src="./images/aishenghuo_img4.dpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="info">
+                        <p>京东超市</p>
+                        <p>超市大放价 抢超值好货</p>
+                    </div>
+                    <div class="img">
+                        <div>
+                            <a href="#"><img src="./images/aishenghuo_img5.dpg" alt=""></a>
+                        </div>
+                        <div>
+                            <a href="#"><img src="./images/aishenghuo_img6.dpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="info">
+                        <p>爱家</p>
+                        <p>家居日用 部分满199减100</p>
+                    </div>
+                    <div class="img">
+                        <div>
+                            <a href="#"><img src="./images/aishenghuo_img7.dpg" alt=""></a>
+                        </div>
+                        <div>
+                            <a href="#"><img src="./images/aishenghuo_img8.dpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shangchang">
+            <div class="title"><a href="javascript:;"><img src="./images/shangchang.dpg" alt=""></a></div>
+            <div class="content">
+                <div class="one">
+                    <div class="wrap">
+                        <div class="info"><p>进口馆</p>
+                            <p>吃遍全球</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img1.dpg" alt=""></a></div>
+                    </div>
+                    <div class="wrap">
+                        <div class="info"><p>母婴馆</p>
+                            <p>超值进团</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img2.dpg" alt=""></a></div>
+                    </div>
+                </div>
+                <div class="two">
+                    <div class="wrap">
+                        <div class="info"><p>美妆馆</p>
+                            <p>领免费试用</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img3.dpg" alt=""></a></div>
+                    </div>
+                    <div class="wrap">
+                        <div class="info"><p>手机馆</p>
+                            <p>享白条免息</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img4.dpg" alt=""></a></div>
+                    </div>
+                </div>
+                <div class="three">
+                    <div class="wrap">
+                        <div class="info"><p>美食城</p>
+                            <p>低至五折</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img5.dpg" alt=""></a></div>
+                    </div>
+                    <div class="wrap">
+                        <div class="info"><p>生鲜馆</p>
+                            <p>尝鲜秒杀</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img6.dpg" alt=""></a></div>
+                    </div>
+                    <div class="wrap">
+                        <div class="info"><p>医药城</p>
+                            <p>大牌直降</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img7.dpg" alt=""></a></div>
+                    </div>
+                    <div class="wrap">
+                        <div class="info"><p>家装城</p>
+                            <p>家长一站购</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img8.dpg" alt=""></a></div>
+                    </div>
+                </div>
+                <div class="four">
+                    <div class="wrap">
+                        <div class="info"><p>钟表馆</p>
+                            <p>百元直降</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img9.dpg" alt=""></a></div>
+                    </div>
+                    <div class="wrap">
+                        <div class="info"><p>内衣馆</p>
+                            <p>舒适又有颜</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img10.dpg" alt=""></a></div>
+                    </div>
+                    <div class="wrap">
+                        <div class="info"><p>奢品馆</p>
+                            <p>奢品精选</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img11.dpg" alt=""></a></div>
+                    </div>
+                    <div class="wrap">
+                        <div class="info"><p>童装馆</p>
+                            <p>爱尚潮童</p></div>
+                        <div class="img"><a href="#"><img src="./images/shangchang_img12.dpg" alt=""></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tuijian clearfix">
+            <!--<div class="title">-->
+            <!--<span class="wrap"><span class="img"></span>为您推荐</span>-->
+            <!--</div>-->
+
+            <div class="title">
+                <div class="wrap">
+                    <span class="icon"></span>
+                    为您推荐
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享</p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="wrap">
+                        <div><a href="#"><img src="./images/tuijian_img2.dpg" alt=""></a></div>
+                        <p class="info">【新用户1元专享】包包女2019新款秋冬季气质韩版单肩包百搭斜挎包简约大容量女士包 19300新人专享 </p>
+                        <p class="similar"><span class="icon">¥&nbsp;<span class="price">99</span></span><span
+                                class="buy">拼购</span><span class="same">看相似</span></p>
+                        <p class="space"></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <!--底部导航-->
+    <div id="bottom">
+        <div><a href="javascript:;"><img src="./images/home.png" alt=""></a></div>
+        <div><a href="./catogory.html"><img src="./images/class.png" alt=""></a></div>
+        <div><a href="javascript:;"><img src="./images/buy.png" alt=""></a></div>
+        <div><a href="javascript:;"><img src="./images/car.png" alt=""></a></div>
+        <div><a href="javascript:;"><img src="./images/nologin.png" alt=""></a></div>
+    </div>
+    <div class="space"></div>
+</div>
+</body>
 </html>
