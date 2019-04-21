@@ -8,6 +8,7 @@ const logger = require('morgan');
 // 引入路由文件
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const catoRouter = require('./routes/cato');
 
 // 生成express实例
 const app = express();
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/cato', catoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
