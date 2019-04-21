@@ -9,6 +9,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catoRouter = require('./routes/cato');
+const apiTestRouter = require('./routes/api_test');
 
 // 生成express实例
 const app = express();
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/cato', catoRouter);
+app.use('/api/test', apiTestRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
