@@ -8,12 +8,12 @@ router.post('/', (req, res, next) => {
     form.uploadDir = '../UploadDir';
     form.keepExtensions = true;
     form.parse(req, function (err, fields, files) {
-        if (err) throw err;
+        if(err){
+            throw err;
+        }
         console.log(fields);
-        console.log(1);
-        console.log(res);
         res.end('success');
-    });
+    })
     // form.on('progress', function (bytesReceived, bytesExpected) {
     //     console.log(bytesExpected);
     //     console.log(bytesReceived);
