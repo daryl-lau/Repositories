@@ -13,19 +13,19 @@
 </head>
 <body>
 <form id="form_id" action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
-    姓名：<input type="text" name="username" title="" required ><br>
-    年龄：<input type="number" name="age" title="" required ><br>
-    微信：<input type="text" name="wechat" title="" required ><br>
-    文件：<input type="file" name="filename" title="" required ><br>
+    姓名：<input type="text" name="username" title="" required><br>
+    年龄：<input type="number" name="age" title="" required><br>
+    微信：<input type="text" name="wechat" title="" required><br>
+    文件：<input type="file" name="filename" title="" required><br>
     <button type="submit">提交</button>
 </form>
 
 <script src="../../../../web/框架/jQuery/js/jquery-3.3.1.min.js"></script>
 
 <script>
-    var formID = document.getElementById('form_id');
-    var formData = new FormData(formID);
-    
+    // var formID = document.getElementById('form_id');
+    // var formData = new FormData(formID);
+
     // formID.addEventListener('submit', function (e) {
     //     $.ajax({
     //         url: 'http://localhost:3000/upload',
@@ -33,6 +33,21 @@
     //         data: formData,
     //         processData: false,
     //         contentType: false
+    //     })
+    // })
+
+    // $('form').on('submit', function (e) {
+    //     console.log(1);
+    //     $.ajax({
+    //         url: 'http://localhost:3000/upload',
+    //         enctype: 'multipart/form-data',
+    //         type: 'post',
+    //         data: formData,
+    //         processData: false,
+    //         contentType: false,
+    //         success: function (data) {
+    //             console.log(data);
+    //         }
     //     })
     // })
 
