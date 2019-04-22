@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catoRouter = require('./routes/cato');
 const apiTestRouter = require('./routes/api_test');
+const uploadRouter = require('./routes/upload');
 
 // 生成express实例
 const app = express();
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/cato', catoRouter);
 app.use('/api/test', apiTestRouter);
+app.use('/upload', uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
