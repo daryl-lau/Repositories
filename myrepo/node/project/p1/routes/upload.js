@@ -12,6 +12,7 @@ router.post('/', (req, res, next) => {
             throw err;
         }
         console.log(fields);
+        console.log(files);
         res.end('success');
     })
     // form.on('progress', function (bytesReceived, bytesExpected) {
