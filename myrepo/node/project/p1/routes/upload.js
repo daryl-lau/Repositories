@@ -11,8 +11,9 @@ router.post('/', function (req, res, next) {
         if(err){
             throw err;
         }
-        console.log(fields);
-        res.end('success');
+        // console.log(fields);
+        console.log(1);
+        res.end('1');
     });
 });
 
