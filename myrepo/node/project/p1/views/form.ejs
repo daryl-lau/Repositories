@@ -13,7 +13,7 @@
 </head>
 <body>
 <!--enctype="multipart/form-data"-->
-<form id="form_id" action="http://localhost:3000/upload" method="post">
+<form id="form_id" action="http://localhost:3000/upload" method="post" onsubmit="return false">
     姓名：<input type="text" name="username" title="" required><br>
     年龄：<input type="number" name="age" title="" required><br>
     微信：<input type="text" name="wechat" title="" required><br>
@@ -36,7 +36,10 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                console.log(data)
+                if (data.status === 200) {
+                    alert(data.info)
+                    window.location.href = '/form'
+                }
             }
         })
     })

@@ -13,7 +13,10 @@ router.post('/', (req, res, next) => {
         }
         console.log(fields);
         console.log(files);
-        res.end('success111');
+        res.json({
+            status: 200,
+            info: '添加成功'
+        })
     })
     // form.on('progress', function (bytesReceived, bytesExpected) {
     //     console.log(bytesExpected);
