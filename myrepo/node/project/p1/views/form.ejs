@@ -12,13 +12,14 @@
     <!--<script src="./js/main.js"></script>-->
 </head>
 <body>
-<!--//enctype="multipart/form-data"-->
-<form id="form_id" action="/upload" method="post">
+<!--enctype="multipart/form-data"-->
+<form id="form_id" action="http://localhost:3000/upload" method="post">
     姓名：<input type="text" name="username" title="" required><br>
     年龄：<input type="number" name="age" title="" required><br>
     微信：<input type="text" name="wechat" title="" required><br>
     文件：<input type="file" name="filename" title="" required><br>
-    <button type="submit">提交</button>
+    <!--<button type="submit">提交</button>-->
+    <input type="submit" name="submit" title="">
 </form>
 
 <script src="./js/jquery-3.3.1.js"></script>
@@ -34,6 +35,9 @@
             data: formData,
             processData: false,
             contentType: false,
+            success: function (data) {
+                console.log(data)
+            }
         })
     })
 
