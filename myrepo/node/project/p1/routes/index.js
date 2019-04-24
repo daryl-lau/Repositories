@@ -9,5 +9,8 @@ router.get('/', function (req, res, next) {
 router.get('/form', function (req, res, next) {
     res.render('form');
 });
+router.get('/apitest', function (req, res, next) {
+    res.render('api_test');
+});
 
 module.exports = router;

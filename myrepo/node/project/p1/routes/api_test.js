@@ -23,7 +23,8 @@ var peopleModel = require('./../models/dbconnect');
 // });
 
 router.get('/', function (req, res, next) {
-    peopleModel.find({}, (err, result)=>{
+    console.log(req.query);
+    peopleModel.findOne({_id: req.query.id}, (err, result)=>{
         if(err){
             throw err;
         }
