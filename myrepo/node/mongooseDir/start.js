@@ -23,6 +23,8 @@
 
 let personModel = require('./dbconnect');
 
+// import personModel from './dbconnect';
+
 
 // let Schema = mgos.Schema;
 //

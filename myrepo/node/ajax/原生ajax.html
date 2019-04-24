@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<button id="send">send</button>
+<script>
+    window.addEventListener('load', function (e) {
+        var btn = document.getElementById('send');
+        btn.addEventListener('click', function () {
+
+            // 1、创建XMLHttpRequest对象
+            var xhr;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+
+            // 2、准备发送
+            /*
+                参数1：请求方式（get/post）
+                参数2：请求url
+                参数3：是否异步
+             */
+            xhr.open('get', 'localhost:3000/api/test', true);
+
+            // 3、发送请求
+            xhr.send();
+
+            // 4、监听服务器响应，一旦服务器响应回来之后，就会执行这个函数
+            xhr.onreadystatechange = function () {
+                // 5、处理响应数据
+                if (xhr.readyState === 4) {  //代表服务器已经给了响应，不代表响应成功
+                    if (xhr.status === 200) {
+                        console.log(xhr.response);
+                    }
+                }
+            };
+        });
+    });
+</script>
+</body>
+</html>
