@@ -19,7 +19,10 @@
             参数2：请求url
             参数3：是否异步
          */
-        xhr.open('get', url + '?' + getStrWithObject(paramObj), true);
+        // 转码
+        var codeURI = encodeURI(url + '?' + getStrWithObject(paramObj));
+
+        xhr.open('get', codeURI, true);
 
         // 3、发送请求，常用于post请求
         xhr.send();
@@ -37,6 +40,8 @@
                 }
             }
         };
+
+        // 设置请求超时时间
         timer = setTimeout(function () {
             xhr.abort();
         },5000)
