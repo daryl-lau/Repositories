@@ -8,7 +8,10 @@
      */
     JSONP.request = function (option) {
         var callbackName = 'getData_' + randomWord(false, 10);
-        window[callbackName] = option.success;
+        window[callbackName] = function (data) {
+            option.success(data);
+            document.body.removeChild(script);
+        };
         if (isValid(option.url)) {
             option.url += '&callback=' + callbackName
         } else {
@@ -21,7 +24,7 @@
 
     /**
      * 返回一个随机数
-     * @param {boolean}randomFlag, {number}min, {number}max
+     * @param {boolean}randomFlag, min{number}, max{number}
      */
     function randomWord(randomFlag, min, max) {
         var str = "",
@@ -38,6 +41,7 @@
         }
         return str;
     }
+
 
     // /**
     //  * 把对象转成字符串
