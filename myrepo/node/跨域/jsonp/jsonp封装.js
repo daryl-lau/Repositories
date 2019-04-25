@@ -10,11 +10,9 @@
         } else {
             option.url += '?callback=' + callbackName
         }
-
         var script = document.createElement('script');
         script.src = option.url;
         document.body.appendChild(script);
-
     };
 
     /**
