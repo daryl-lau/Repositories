@@ -34,18 +34,18 @@
         return str;
     }
 
-    /**
-     * 把对象转成字符串
-     */
-    function getStrWithObject(paramObj) {
-        var rArr = [];
-        for (var key in paramObj) {
-            var str = key + '=' + paramObj[key];
-            rArr.push(str);
-        }
-        rArr.push('random=' + randomWord(false, 20));
-        return rArr.join('&');
-    }
+    // /**
+    //  * 把对象转成字符串
+    //  */
+    // function getStrWithObject(paramObj) {
+    //     var rArr = [];
+    //     for (var key in paramObj) {
+    //         var str = key + '=' + paramObj[key];
+    //         rArr.push(str);
+    //     }
+    //     rArr.push('random=' + randomWord(false, 20));
+    //     return rArr.join('&');
+    // }
 
     function isValid(str) {
         return /\?/.test(str);
