@@ -23,13 +23,13 @@
 <script src="../../project/p1/public/js/ajax封装.js"></script>
 <script src="./jsonp封装.js"></script>
 
-<!--<script>-->
-<!--function getData(data) {-->
-<!--console.log(data);-->
-<!--}-->
-<!--</script>-->
-<!--<script src="http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e&callback=getData"></script>-->
-<!--<script></script>-->
+<script>
+function getDataa(dataa) {
+console.log(dataa);
+}
+</script>
+<script src="http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e&callback=getDataa"></script>
+<script></script>
 
 <script>
     // var formID = document.getElementById('form_id');
@@ -66,34 +66,35 @@
     //     })
     // }
 
-    JSONP.request({
-        url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
-        data: '',
-        success: function (data) {
-            console.log(data)
-        }
-    });
-        JSONP.request({
-        url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
-        data: '',
-        success: function (data) {
-            console.log(data)
-        }
-    });
-        JSONP.request({
-        url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
-        data: '',
-        success: function (data) {
-            console.log(data)
-        }
-    });
-        JSONP.request({
-        url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
-        data: '',
-        success: function (data) {
-            console.log(data)
-        }
-    })
+    // JSONP.request({
+    //     url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
+    //     data: '',
+    //     success: function (data) {
+    //         console.log(data)
+    //     }
+    // });
+    //     JSONP.request({
+    //     url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
+    //     data: '',
+    //     success: function (data) {
+    //         console.log(data)
+    //     }
+    // });
+    //     JSONP.request({
+    //     url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
+    //     data: '',
+    //     success: function (data) {
+    //         console.log(data)
+    //     }
+    // });
+    //     JSONP.request({
+    //     url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
+    //     data: '',
+    //     success: function (data) {
+    //         console.log(data)
+    //     }
+    // })
+    JSONP.request()
 </script>
 
 </body>

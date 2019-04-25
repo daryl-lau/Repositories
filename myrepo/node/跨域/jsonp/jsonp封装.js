@@ -2,6 +2,10 @@
     function JSONP() {
     }
 
+    /**
+     *
+     * @param option
+     */
     JSONP.request = function (option) {
         var callbackName = 'getData_' + randomWord(false, 10);
         window[callbackName] = option.success;
@@ -17,6 +21,7 @@
 
     /**
      * 返回一个随机数
+     * @param {boolean}randomFlag, {number}min, {number}max
      */
     function randomWord(randomFlag, min, max) {
         var str = "",

@@ -31,7 +31,7 @@ router.get('/', function (req, res, next) {
 });
 
 方式二：
-    后端函数名通过前端传参来获取
+    后端函数名通过前端传参来获取，后端无需更改，只需要前端进行更改就好了，但是同样的前端需要提前声明函数
 前端：
 <script>
     function getData(data) {
