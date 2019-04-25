@@ -23,18 +23,28 @@ var peopleModel = require('./../models/dbconnect');
 // });
 
 router.get('/', function (req, res, next) {
+    console.log(req.query);
     peopleModel.findOne({_id: req.query.id}, (err, result) => {
         if (err) {
             // throw err;
-            res.json({
-                status: 201,
-                data: 'query failed'
-            })
+            res.json(
+                    {
+                    status: 201,
+                    data: 'query failed'
+                }
+                // 'bbbb'
+            )
         } else {
-            res.json({
-                status: 200,
-                data: result
-            })
+
+            //     {
+            //     status: 200,
+            //     data: result
+            // }
+            var data = JSON.stringify({
+                status_code: 200,
+                result: result
+            });
+            res.end(`${req.query.callback}(${data})`)
         }
     });
 });

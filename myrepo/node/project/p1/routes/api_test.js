@@ -23,6 +23,7 @@ var peopleModel = require('./../models/dbconnect');
 // });
 
 router.get('/', function (req, res, next) {
+    console.log(req.query);
     peopleModel.findOne({_id: req.query.id}, (err, result) => {
         if (err) {
             // throw err;
@@ -31,6 +32,7 @@ router.get('/', function (req, res, next) {
                 data: 'query failed'
             })
         } else {
+            console.log(result);
             res.json({
                 status: 200,
                 data: result

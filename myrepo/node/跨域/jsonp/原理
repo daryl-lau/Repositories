@@ -1,0 +1,57 @@
+在标签中的请求不会发生跨域问题，可以将请求放到标签上，然后再后台进行数据返回，前端定义一个获取数据的函数，后端将执行函数的代码当做字符串
+返回，前端会自动执行该代码，从而获取到了数据
+jsonp跨域只能处理get请求
+
+
+方式一：
+    前后端需要统一函数名
+前端：
+<script>
+    function getData(data) {
+        console.log(data);
+    }
+</script>
+<script src="http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e"></script>
+
+
+后端：
+router.get('/', function (req, res, next) {
+    console.log(req.query);
+    peopleModel.findOne({_id: req.query.id}, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            var data = JSON.stringify({
+                status_code: 200,
+                result: result
+            });
+            res.end(`getData(${data})`)
+        }
+    });
+});
+
+方式二：
+    后端函数名通过前端传参来获取
+前端：
+<script>
+    function getData(data) {
+        console.log(data);
+    }
+</script>
+<script src="http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e&callback=getData"></script>
+
+后端：
+router.get('/', function (req, res, next) {
+    console.log(req.query);
+    peopleModel.findOne({_id: req.query.id}, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            var data = JSON.stringify({
+                status_code: 200,
+                result: result
+            });
+            res.end(`${req.query.callback}(${data})`)
+        }
+    });
+});
