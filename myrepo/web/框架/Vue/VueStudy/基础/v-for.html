@@ -13,11 +13,9 @@
 </head>
 <body>
 <div id="box1">
-    <div v-if="num >= 90 && num <= 100">优秀，{{num}}</div>
-    <div v-else-if="num >= 70 && num <= 89">良好，{{num}}</div>
-    <div v-else-if="num >= 60 && num <= 69">及格，{{num}}</div>
-    <div v-else>不及格，{{num}}</div>
-    <input type="text" name="" title="" v-model="num">
+    <p v-for="(index,value) in num">
+        {{index}},{{value}}
+    </p>
 </div>
 
 
@@ -27,7 +25,7 @@
     const vm = new Vue({
         el: '#box1',
         data: {
-            num: 30
+            num: [1, 2, 3, 4, 5]
         }
     })
 </script>
