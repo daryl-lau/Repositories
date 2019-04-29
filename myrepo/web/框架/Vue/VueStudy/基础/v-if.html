@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<div id="box1">
+    <p v-if="show">显示</p>
+    <p v-if="hide">隐藏</p>
+    <p v-if="height1 > 170">身高大于170显示，否则隐藏, {{height1}}</p>
+    <p v-if="height2 > 170">身高大于170显示，否则隐藏, {{height2}}</p>
+</div>
+
+
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#box1',
+        data: {
+            show: true,
+            hide: false,
+            height1: 180,
+            height2: 160,
+        }
+    })
+</script>
+</body>
+</html>
