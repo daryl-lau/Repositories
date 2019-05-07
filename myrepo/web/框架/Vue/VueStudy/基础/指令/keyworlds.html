@@ -12,38 +12,22 @@
     <!--<script src="./js/main.js"></script>-->
 </head>
 <body>
-
-<!--
-
-<div v-for="(item, index) in items"></div>
-<div v-for="(val, key) in object"></div>
-<div v-for="(val, name, index) in object"></div>
-参数顺序是 值,键,索引 ,只和位置有关，与名字无关
--->
-
 <div id="box1">
-    <p v-for="(index,value) in num">
-        {{index}},{{value}}
-    </p>
-    -----------------
-    <p v-for="(value,index) in num">
-        {{index}},{{value}}
-    </p>
-    -----------------
-    <p v-for="count in 10">{{count}}</p>       <!--这个数字不能太大，否则vue将报错-->
-    -----------------
-    <p v-for="n in num1">{{n}}</p>
+    <!--<h1>{{msg}}</h1>-->
+    <!--<p>{{message}}</p>-->
+    <!--<input type="text" name="" title="" v-model="msg">-->
 
+    <p v-for="(value, index) in keyworlds">
+        {{index}} : {{value}}
+    </p>
 </div>
-
 
 <script src="../../node_modules/vue/dist/vue.js"></script>
 <script>
     const vm = new Vue({
         el: '#box1',
         data: {
-            num: [1, 2, 3, 4, 5],
-            num1: 10
+            keyworlds: ['数据库', 'Oracle', 'MySQL', 'MongoDB', 'Redis', 'Linux', 'shell', 'bash', '网络', 'HCIE', 'Cisco', 'Python', 'RedHat', 'CentOS', 'Docker']
         }
     })
 </script>

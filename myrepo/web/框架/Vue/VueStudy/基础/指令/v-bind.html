@@ -17,44 +17,48 @@
     <img v-bind:src="imgsrc" v-bind:alt="alt">
 </div>
 
-<!--绑定一个属性 -->
-<!--<img v-bind:src="imageSrc">-->
+<!--
 
-<!--动态特性名 (2.6.0+) -->
-<!--<button v-bind:[key]="value"></button>-->
+绑定一个属性
+<img v-bind:src="imageSrc">
 
-<!--缩写 -->
-<!--<img :src="imageSrc">-->
+动态特性名 (2.6.0+)
+<button v-bind:[key]="value"></button>
 
-<!--动态特性名缩写 (2.6.0+) -->
-<!--<button :[key]="value"></button>-->
+缩写
+<img :src="imageSrc">
 
-<!--内联字符串拼接 -->
-<!--<img :src="'/path/to/images/' + fileName">-->
+动态特性名缩写 (2.6.0+)
+<button :[key]="value"></button>
 
-<!--class 绑定 -->
-<!--<div :class="{ red: isRed }"></div>-->
-<!--<div :class="[classA, classB]"></div>-->
-<!--<div :class="[classA, { classB: isB, classC: isC }]">-->
+内联字符串拼接
+<img :src="'/path/to/images/' + fileName">
 
-<!--style 绑定 -->
-<!--<div :style="{ fontSize: size + 'px' }"></div>-->
-<!--<div :style="[styleObjectA, styleObjectB]"></div>-->
+class 绑定
+<div :class="{ red: isRed }"></div>
+<div :class="[classA, classB]"></div>
+<div :class="[classA, { classB: isB, classC: isC }]">
 
-<!--绑定一个有属性的对象 -->
-<!--<div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>-->
+style 绑定
+<div :style="{ fontSize: size + 'px' }"></div>
+<div :style="[styleObjectA, styleObjectB]"></div>
 
-<!--通过 prop 修饰符绑定 DOM 属性 -->
-<!--<div v-bind:text-content.prop="text"></div>-->
+绑定一个有属性的对象
+<div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
-<!--prop 绑定。“prop”必须在 my-component 中声明。-->
-<!--<my-component :prop="someThing"></my-component>-->
+通过 prop 修饰符绑定 DOM 属性
+<div v-bind:text-content.prop="text"></div>
 
-<!--通过 $props 将父组件的 props 一起传给子组件 -->
-<!--<child-component v-bind="$props"></child-component>-->
+prop 绑定。“prop”必须在 my-component 中声明。
+<my-component :prop="someThing"></my-component>
 
-<!--XLink -->
-<!--<svg><a :xlink:special="foo"></a></svg>-->
+通过 $props 将父组件的 props 一起传给子组件
+<child-component v-bind="$props"></child-component>
+
+XLink
+<svg><a :xlink:special="foo"></a></svg>
+
+-->
 
 
 <script src="../../node_modules/vue/dist/vue.js"></script>
