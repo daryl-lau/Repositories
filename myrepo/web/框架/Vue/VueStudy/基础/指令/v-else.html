@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<div id="box1">
+    <div v-if="num >= 90 && num <= 100">优秀，{{num}}</div>
+    <div v-else-if="num >= 70 && num <= 89">良好，{{num}}</div>
+    <div v-else-if="num >= 60 && num <= 69">及格，{{num}}</div>
+    <div v-else>不及格，{{num}}</div>
+    <input type="text" name="" title="" v-model="num">
+</div>
+
+
+
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#box1',
+        data: {
+            num: 30
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+        {
+            opacity: 0;
+        }
+
+        .fade-enter-to { /*进入结束后会移除此class*/
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+    <button v-on:click="show = !show">
+        Toggle
+    </button>
+    <transition name="fade">
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            show: true
+        }
+    })
+</script>
+</body>
+</html>

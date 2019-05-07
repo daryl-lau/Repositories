@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<div id="box1">
+    <p>{{msg}}</p>
+    <button v-on:click="msg = 'www.ywzone.com'">改变</button>
+    <button @click="msg = 'www.ywzone.com'">改变</button>
+    <button @click="change()">改变</button>
+</div>
+
+
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#box1',
+        data: {
+            msg: 'www.agod.com',
+            imgsrc: '../imgs/img5.jpg',
+            alt: '蓝玫瑰'
+        },
+        methods:{
+            change(){
+                this.msg = 'www.ywzone.com'
+            }
+        }
+    })
+</script>
+</body>
+</html>
