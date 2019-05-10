@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+<!--
+    v-if和v-show的区别：
+        v-if是真实的条件渲染，因为他会确保条件块在切换当中是适当的销毁与重建条件块内的事件监听器和子组件；
+        v-show则是简单的给予css切换
+
+        v-if有更高的切换消耗而v-show有更高的初始渲染消耗，因此，如果需要频繁切换使用v-show比较好，如果在
+    运行条件不大可能会改变则使用v-if比较好
+
+-->
+
+<div id="box1">
+    <ul>
+        <li ref="p1">1</li>
+        <li ref="p2">2</li>
+        <li ref="p3">3</li>
+        <li ref="p4">4</li>
+        <li ref="p5">5</li>
+    </ul>
+    <button @click="get">获取</button>
+</div>
+
+
+
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#box1',
+        methods: {
+            get(){
+                console.log(vm.$refs.p1);
+                console.log(vm.$refs.p2);
+                console.log(vm.$refs.p3);
+                console.log(vm.$refs.p4);
+                console.log(vm.$refs.p5);
+            }
+        }
+    })
+</script>
+</body>
+</html>

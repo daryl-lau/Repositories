@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<div id="box1">
+    <p>初始值：{{name}}</p>
+    <p>翻转：{{name.split('').reverse().join('')}}</p>
+    <p>方法：{{reverseStr()}}</p>
+    <p>计算属性：{{reverse}}</p>         <!--计算属性调用的时候不需要加‘()’-->
+    <p>{{fullname}}</p>
+    <button @click="changeName()">修改名字</button>
+    <button @click="changeNewName()">修改名字</button>
+</div>
+
+<!--
+
+当页面重新渲染（不是刷新）的时候，计算属性不会发生变化，直接读取缓存使用，适合大量的计算和改变评率较低的属性；
+而method，就是当页面重新渲染的时候（页面元素的data变化，页面就会重新渲染），都会重新调用method；
+如果不希望有缓存，可以用method代替computed；
+
+
+-->
+
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#box1',
+        data: {
+            name: 'zhang san',
+            firstname: 'aaa',
+            lastname: 'bbb'
+        },
+        methods: {
+            reverseStr() {
+                return this.name.split('').reverse().join('')
+            },
+            changeName() {
+                this.name = 'wang wu'
+            },
+            changeNewName(){
+                this.fullname = 'ccc ddd';     // 当计算属性发生变化的时候，就会去调用计算属性中的set方法，修改后值作为参数传递
+            }
+        },
+        computed: {
+            reverse: {
+                get() {
+                    return this.name.split('').reverse().join('')
+                }
+            },
+            fullname: {
+                get() {
+                    return this.firstname + ' ' + this.lastname;
+                },
+                set (str){                  // 当计算属性发生变化的时候，就会去调用计算属性中的set方法，修改后值作为参数传递
+                    alert(str);
+                    let nameArr = str.split(' ');
+                    this.firstname = nameArr[0];
+                    this.lastname = nameArr[1];
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

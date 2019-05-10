@@ -13,23 +13,43 @@
 </head>
 <body>
 <div id="box1">
-    <!--<h1>{{msg}}</h1>-->
-    <!--<p>{{message}}</p>-->
-    <!--<input type="text" name="" title="" v-model="msg">-->
-
-    <p v-for="(value, index) in keyworlds">
-        {{index}} : {{value}}
-    </p>
+    <p>{{money | moneyFormat}}</p>
 </div>
 
-<script src="../../node_modules/vue/dist/vue.js"></script>
+<div id="box2">
+    <p>{{money | moneyFormat}}</p>
+</div>
+
+
+<script src="../node_modules/vue/dist/vue.js"></script>
 <script>
-    const vm = new Vue({
+
+    // 全局过滤器，优先找局部过滤器，再找全局过滤器
+    Vue.filter('moneyFormat', (money)=>{
+        return '¥' + money
+    });
+
+
+    new Vue({
         el: '#box1',
         data: {
-            keyworlds: ['数据库', 'Oracle', 'MySQL', 'MongoDB', 'Redis', 'Linux', 'shell', 'bash', '网络', 'HCIE', 'Cisco', 'Python', 'RedHat', 'CentOS', 'Docker']
+            money: 230.92,
         }
+    });
+
+    new Vue({
+        el: '#box2',
+        data: {
+            money: 3000.92,
+        },
+        // 局部过滤器
+        filters: {
+            moneyFormat: function (money) {
+                return '$' + money;
+            }
+        },
     })
 </script>
+
 </body>
 </html>
