@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+<div id="app">
+    <parent :imgtitle="title" :imgsrc="img"></parent>
+</div>
+
+
+<template id="title">
+        <h1>{{title}}</h1>
+</template>
+
+<template id="img">
+    <img :src="imgsrc" alt="">
+</template>
+
+<template id="parent">
+    <div>
+        <child1 :imgsrc="imgsrc"></child1>
+        <child2 :title="imgtitle"></child2>
+    </div>
+</template>
+
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    // 注册全局组件
+    let child2 = Vue.extend({
+        template: '#title',
+        props: ['title']
+    });
+    let child1 = Vue.extend({
+        template: '#img',
+        props: ['imgsrc']
+    });
+
+    Vue.component('parent', {
+        components: {
+            'child1': child1,
+            'child2': child2
+        },
+        template: '#parent',
+        props: ['imgtitle', 'imgsrc']
+    });
+
+    new Vue({
+        el: '#app',
+        data: {
+            title: '我是美女',
+            img: '../imgs/img1.jpg'
+        }
+    });
+</script>
+</body>
+</html>
