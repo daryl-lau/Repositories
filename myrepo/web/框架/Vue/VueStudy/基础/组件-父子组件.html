@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+<div id="app">
+    <my_component_parent></my_component_parent>
+
+    <!--父子组件中子组件可以单独拎出来使用-->
+    <my_component_child1></my_component_child1>
+    <my_component_child2></my_component_child2>
+</div>
+
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+
+
+    // 创建子组件1
+    let my_component_child1 = Vue.extend({
+        template: `
+            <div>
+            <input type="color" name="" title="">
+            <button type="submit">子组件1</button>
+            </div>
+        `
+    });
+
+    // 创建子组件2
+    let my_component_child2 = Vue.extend({
+        template: `
+            <div>
+            <input type="text" name="" title="">
+            <button type="submit">子组件2</button>
+            </div>
+        `
+    });
+
+    // 父组件构造器
+    Vue.component('my_component_parent', {
+        components: {
+            'my_component_child1': my_component_child1,
+            'my_component_child2': my_component_child2,
+        },
+        template: `
+            <div>
+                <p>我是父组件</p>
+                <my_component_child1></my_component_child1>
+                <my_component_child2></my_component_child2>
+            </div>
+        `,
+    });
+
+    // 父子组件中子组件可以单独拎出来使用
+    Vue.component('my_component_child1', my_component_child1);
+    Vue.component('my_component_child2', my_component_child2);
+
+    new Vue({
+        el: '#app',
+    });
+
+</script>
+</body>
+</html>
