@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<div id="app">
+    <my_slot>
+        <!--插槽内可以放任何东西-->
+        <img src="../imgs/img1.jpg" alt="">
+        <img src="../imgs/img1.jpg" alt="">
+        <img src="../imgs/img1.jpg" alt="">
+    </my_slot>
+</div>
+
+<template id="my_slot">
+    <div id="pannel">
+        <h2 class="pannel-head">插槽的头部</h2>
+
+        <!--预留一个插槽-->
+        <slot>可以替换任何标签，默认显示此内容</slot>
+
+        <h2>插槽的尾部</h2>
+    </div>
+</template>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    Vue.component('my_slot', {
+        template: '#my_slot'
+        
+    });
+
+    new Vue({
+        el: '#app',
+        data: {
+            name: 'zhang san',
+            firstname: 'aaa',
+            lastname: 'bbb'
+        },
+    });
+</script>
+
+</body>
+</html>
