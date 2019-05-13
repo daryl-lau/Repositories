@@ -14,15 +14,18 @@
 <body>
 
 <div id="app">
-    <template1></template1>
-    <template1></template1>
-    <template1></template1>
-    <template1></template1>
+    <template1 @total="allCounter"></template1> <!-- @total 外部接收到调用了total()方法，调用一次，执行一次allCounter() -->
+    <template1 @total="allCounter"></template1>
+    <template1 @total="allCounter"></template1>
+    <template1 @total="allCounter"></template1>
+    <template1 @total="allCounter"></template1>
+    <template1 @total="allCounter"></template1>
+    <template1 @total="allCounter"></template1>
+    <p>总共点击了{{totalCount}}次</p>
 </div>
 
 <template id="template1">
     <div>
-        <h1>{{title}}</h1>
         <button @click="total()">点击的次数: {{counter}}</button>
     </div>
 </template>
@@ -44,6 +47,7 @@
         methods: {
             total(){
                 this.counter += 1;
+                this.$emit('total'); // 通知外部，我调用了这个方法
             }
         }
 
@@ -54,7 +58,12 @@
 
         // 一级里面直接使用对象进行定义
         data: {
-            totalCounter: 0,
+            totalCount: 0,
+        },
+        methods: {
+            allCounter(){
+                this.totalCount += 1;
+            }
         }
     });
 </script>
