@@ -14,7 +14,7 @@
 <body>
 
 <div id="app">
-    <parent :imgtitle="title" :imgsrc="img"></parent>
+    <parent :imgtitle="title" :imgsrc="img"></parent>  <!-- parent需要props imgtitle 和 imgsrc-->
 </div>
 
 
@@ -28,8 +28,8 @@
 
 <template id="parent">
     <div>
-        <child1 :imgsrc="imgsrc"></child1>
-        <child2 :title="imgtitle"></child2>
+        <child1 :imgsrc="imgsrc"></child1>   <!-- child1需要props imgsrc -->
+        <child2 :title="imgtitle"></child2>  <!-- child2需要props title -->
     </div>
 </template>
 
