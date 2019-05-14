@@ -14,10 +14,8 @@
 <body>
 <div id="app">
     <my_slot>
-        <!--插槽内可以放任何东西-->
-        <img src="../imgs/img1.jpg" alt="">
-        <img src="../imgs/img1.jpg" alt="">
-        <img src="../imgs/img1.jpg" alt="">
+        <div slot="img"><img src="../imgs/img1.jpg" alt=""></div>
+        <div slot="input"><input type="text" name="" title=""></div>
     </my_slot>
 </div>
 
@@ -26,7 +24,8 @@
         <h2 class="pannel-head">插槽的头部</h2>
 
         <!--预留一个插槽-->
-        <slot>可以替换任何标签，默认显示此内容</slot>
+        <slot name="img">img</slot>
+        <slot name="input">input</slot>
 
         <h2>插槽的尾部</h2>
     </div>
