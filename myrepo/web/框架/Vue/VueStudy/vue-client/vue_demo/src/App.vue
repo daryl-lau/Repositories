@@ -3,7 +3,7 @@
     <div class="todo-wrap">
       <Input></Input>
       <List :todos="todos"></List>
-      <Footer></Footer>
+      <Footer :todos="todos"></Footer>
     </div>
   </div>
 </template>
@@ -23,12 +23,15 @@
     },
     data() {
       return {todos:[
-        {title:'学习Linux', finished:false},
+        {title:'学习Linux', finished:true},
         {title:'学习Oracle', finished:false},
-        {title:'学习Python', finished:false},
+        {title:'学习Python', finished:true},
         {title:'学习Vue', finished:false},
         {title:'学习JavaScript', finished:false}
       ]}
+    },
+    methods:{
+
     }
   }
 </script>

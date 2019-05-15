@@ -26,6 +26,11 @@
         {{index}},{{value}}
     </p>
     -----------------
+
+    <p v-for="(index,value) in num">
+        {{value}},{{index}}
+    </p>
+    -----------------
     <p v-for="(value,index) in num">
         {{index}},{{value}}
     </p>
@@ -42,7 +47,7 @@
     const vm = new Vue({
         el: '#box1',
         data: {
-            num: [1, 2, 3, 4, 5],
+            num: ['a', 'b', 'b', 'd', 'e'],
             num1: 10
         }
     })

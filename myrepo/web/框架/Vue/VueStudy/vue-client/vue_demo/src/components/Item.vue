@@ -1,10 +1,10 @@
 <template>
   <li>
     <label>
-      <input type="checkbox"/>
+      <input type="checkbox" value="aaa" v-model="todo.finished"/>
       <span>{{todo.title}}</span>
     </label>
-    <button class="btn btn-warning" style="display:none">删除</button>
+    <button class="btn btn-warning">删除</button>
   </li>
 </template>
 
@@ -39,7 +39,7 @@
   li button {
     float: right;
     display: none;
-    margin-top: 3px;
+    /*margin-top: 3px;*/
   }
 
   li:before {
@@ -48,5 +48,9 @@
 
   li:last-child {
     border-bottom: none;
+  }
+
+  li:hover {
+    background-color: #e6e6e6;
   }
 </style>
