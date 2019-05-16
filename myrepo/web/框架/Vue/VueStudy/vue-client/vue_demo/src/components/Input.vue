@@ -1,12 +1,35 @@
 <template>
   <div class="todo-header">
-    <input type="text" placeholder="请输入今天的任务清单，按回车键确认"/>
+    <input
+      type="text" placeholder="请输入今天的任务清单，按回车键确认"
+      v-model.trim="inputMsg"
+      @keydown.enter="addItem(inputMsg)"
+
+
+    />
   </div>
 </template>
 
 <script>
   export default {
-    name: "Input"
+    name: "Input",
+    props: {addTodo: Function},
+    data() {
+      return {
+        inputMsg: '',
+      }
+    },
+    methods: {
+      addItem(msg) {
+        if (msg === '') {
+          alert('请输入内容！');
+          return
+        }
+        const todo = {title: msg, finished: false};
+        this.addTodo(todo);
+        this.inputMsg = '';
+      }
+    }
   }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Input></Input>
+      <Input :addTodo="addTodo"></Input>
       <List :todos="todos"></List>
       <Footer :todos="todos"></Footer>
     </div>
@@ -25,13 +25,17 @@
       return {todos:[
         {title:'学习Linux', finished:true},
         {title:'学习Oracle', finished:false},
+        {title:'学习Oracle', finished:false},
+        {title:'学习Oracle', finished:false},
         {title:'学习Python', finished:true},
         {title:'学习Vue', finished:false},
         {title:'学习JavaScript', finished:false}
       ]}
     },
     methods:{
-
+      addTodo(todo){
+        this.todos.unshift(todo);
+      }
     }
   }
 </script>
