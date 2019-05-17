@@ -1,9 +1,9 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Input 
+      <Header 
       :addTodo="addTodo"
-      ></Input>
+      ></Header>
       <List
         :todos="todos"
         :delItem="delItem"
@@ -20,14 +20,14 @@
 <script>
 
   import Footer from './components/Footer';
-  import Input from './components/Input';
+  import Header from './components/Header';
   import List from './components/List'
 
   export default {
     name: 'App1',
     components: {
       Footer,
-      Input,
+      Header,
       List
     },
     data() {

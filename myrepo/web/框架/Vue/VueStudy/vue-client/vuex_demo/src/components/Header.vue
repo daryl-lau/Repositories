@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: "Input",
+    name: "Header",
     props: {addTodo: Function},
     data() {
       return {
