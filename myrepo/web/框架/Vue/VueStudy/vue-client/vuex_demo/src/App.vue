@@ -1,7 +1,9 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Input :addTodo="addTodo"></Input>
+      <Input 
+      :addTodo="addTodo"
+      ></Input>
       <List
         :todos="todos"
         :delItem="delItem"
