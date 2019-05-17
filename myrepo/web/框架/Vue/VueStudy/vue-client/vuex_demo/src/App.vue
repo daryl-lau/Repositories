@@ -51,7 +51,7 @@
       delFinished() {
         // filter 不会改变原始数组，因此如果想要更改数组，需要将结果重新赋值
         this.todos = this.todos.filter((todo) => {
-          return todo.finished == false
+          return todo.finished === false
         })
       },
       isSelectedAll(isCheck) {
