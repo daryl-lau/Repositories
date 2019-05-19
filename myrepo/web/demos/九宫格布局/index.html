@@ -1,122 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <title>九宫格布局</title>
-</head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    #top {
-        padding: 20px;
-    }
-
-    #top button {
-        width: 50px;
-        height: 30px;
-    }
-
-    .box {
-        width: 200px;
-        margin: 20px;
-        background-color: #e8e8e8;
-    }
-
-    .box img {
-        width: 200px;
-    }
-
-    .box p {
-        color: #ff4400;
-    }
-
-    #bottom {
-        position: relative;
-    }
-</style>
-<body>
-    <div id="top">
-        <button>三列</button>
-        <button>四列</button>
-        <button>五列</button>
-    </div>
-    <div id="bottom">
-        <div class="box"><img src="imgs/img1.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img2.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img3.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img4.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img5.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img6.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img7.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img8.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img9.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img10.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img11.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img12.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img13.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img14.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img15.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img16.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img17.jpeg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img18.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img19.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img20.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img21.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img22.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img23.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img24.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img25.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img26.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img27.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img28.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img29.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img30.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img31.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img32.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img33.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img34.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-        <div class="box"><img src="imgs/img35.jpg" alt=""><h3>标题</h3><p>描述......</p></div>
-    </div>
-</body>
-<script type="text/javascript">
-    window.onload = function () {
-        var btns = document.getElementById('top').children;
-        var parent = document.getElementById('bottom');
-
-
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].index = i;
-            btns[i].onclick = function () {
-                flex(this.index + 3, parent)
-            }
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="x-ua-compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <title>九宫格布局</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
         }
 
-
-        /**
-         * 九宫格实现函数
-         * @param {number}allCols
-         * @param {object}parentNode
-         */
-        function flex(allCols, parentNode) {
-            var width = 200, height = 350, padding = 20;
-            for (var i = 0; i < parentNode.children.length; i++) {
-                var current = parentNode.children[i];
-                current.style.position = 'absolute';
-                current.style.left = ( i % allCols ) * ( width + padding ) + 'px';
-                current.style.top = Math.floor( i / allCols ) * (height + padding) + 'px';
-            }
+        #top {
+            padding: 20px;
         }
 
+        #top button {
+            width: 50px;
+            height: 30px;
+        }
 
+        .box {
+            width: 200px;
+            margin: 20px;
+            background-color: #e8e8e8;
+        }
 
-    }
-</script>
+        .box img {
+            width: 200px;
+        }
+
+        .box p {
+            color: #ff4400;
+        }
+
+        #bottom {
+            position: relative;
+        }
+    </style>
+    <body>
+        <div id="top">
+            <button>三列</button>
+            <button>四列</button>
+            <button>五列</button>
+        </div>
+        <div id="bottom">
+            <div class="box">
+                <img src="imgs/img1.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img2.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img3.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img4.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img5.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img6.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img7.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img8.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img9.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img10.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img11.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img12.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img13.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img14.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img15.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img16.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img17.jpeg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img18.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img19.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img20.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img21.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img22.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img23.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img24.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img25.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img26.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img27.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img28.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img29.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img30.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img31.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img32.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img33.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img34.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+            <div class="box">
+                <img src="imgs/img35.jpg" alt="" />
+                <h3>标题</h3>
+                <p>描述......</p>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        window.onload = function() {
+            var btns = document.getElementById('top').children;
+            var parent = document.getElementById('bottom');
+
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].index = i;
+                btns[i].onclick = function() {
+                    flex(this.index + 3, parent);
+                };
+            }
+
+            /**
+             * 九宫格实现函数
+             * @param {number}allCols
+             * @param {object}parentNode
+             */
+            function flex(allCols, parentNode) {
+                var width = 200,
+                    height = 350,
+                    padding = 20;
+                for (var i = 0; i < parentNode.children.length; i++) {
+                    var current = parentNode.children[i];
+                    current.style.position = 'absolute';
+                    current.style.left =
+                        (i % allCols) * (width + padding) + 'px';
+                    current.style.top =
+                        Math.floor(i / allCols) * (height + padding) + 'px';
+                }
+            }
+        };
+    </script>
 </html>
