@@ -13,6 +13,7 @@
 
 export default {
   name: "Item",
+  // 接收到上层传递的单个数据
   props: { todo: Object, index: Number },
   data() {
     return {
@@ -28,6 +29,8 @@ export default {
     },
     delItemConfirm() {
       if (window.confirm(`确定删除 "${this.todo.title}" 吗？`)){
+
+        // 直接调用vuex中定义的delItem方法
         this.$store.dispatch("delItem", this.index);
       }
     }

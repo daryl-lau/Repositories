@@ -26,7 +26,11 @@ export default {
       });
     } */
 
-    // 将操作提交到mutations，中间通过mutation-types进行统一
+
+    /* 
+    将操作提交到mutations，中间通过mutation-types进行统一，这些都是固定写法；
+    在外部调用方法时使用的是前面的addTodo，而不是ADD_TODO，也不是mutation-types中的add_todo
+    */
     addTodo({ commit }, todo) {
         commit(ADD_TODO, { todo })
     },

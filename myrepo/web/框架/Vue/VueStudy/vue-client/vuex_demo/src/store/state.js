@@ -49,5 +49,6 @@ export default {
         title: "学习JavaScript",
         finished: false
     }
-    ]
+    ],
+    Author: ''
 }

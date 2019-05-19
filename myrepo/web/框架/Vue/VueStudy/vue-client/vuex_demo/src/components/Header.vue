@@ -26,6 +26,8 @@
           return
         }
         const todo = {title: msg, finished: false};
+
+        // 直接调用vuex中定义的方法
         this.$store.dispatch('addTodo', todo);
         this.inputMsg = '';
       }
