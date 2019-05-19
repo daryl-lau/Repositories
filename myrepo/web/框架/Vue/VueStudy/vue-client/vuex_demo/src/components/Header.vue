@@ -1,43 +1,42 @@
 <template>
   <div class="todo-header">
     <input
-      type="text" placeholder="请输入今天的任务清单，按回车键确认"
+      type="text"
+      placeholder="请输入今天的任务清单，按回车键确认"
       v-model.trim="inputMsg"
       @keyup.enter="addItem(inputMsg)"
-
-
-    />
+    >
   </div>
 </template>
 
 <script>
-  export default {
-    name: "Header",
-    props: {addTodo: Function},
+export default {
+    name: 'Header',
+    props: { addTodo: Function },
     data() {
-      return {
-        inputMsg: '',
-      }
+        return {
+            inputMsg: ''
+        }
     },
     methods: {
-      addItem(msg) {
-        if (msg === '') {
-          alert('请输入内容！');
-          return
-        }
-        const todo = {title: msg, finished: false};
+        addItem(msg) {
+            if (msg === '') {
+                alert('请输入内容！')
+                return
+            }
+            const todo = { title: msg, finished: false }
 
-        // 直接调用vuex中定义的方法
-        this.$store.dispatch('addTodo', todo);
-        this.inputMsg = '';
-      }
+            // 直接调用vuex中定义的方法
+            this.$store.dispatch('addTodo', todo)
+            this.inputMsg = ''
+        }
     }
-  }
+}
 </script>
 
 <style scoped>
-  /*header*/
-  .todo-header input {
+/*header*/
+.todo-header input {
     width: 560px;
     height: 28px;
     font-size: 14px;
@@ -45,11 +44,12 @@
     border-radius: 4px;
     padding: 4px 7px;
     outline: none;
-  }
+}
 
-  .todo-header input:focus {
+.todo-header input:focus {
     outline: none;
     border-color: rgba(255, 0, 0, 0.8);
-    box-shadow: inset 0 1px 1px rgba(255, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
-  }
+    box-shadow: inset 0 1px 1px rgba(255, 0, 0, 0.075),
+        0 0 8px rgba(255, 0, 0, 0.6);
+}
 </style>

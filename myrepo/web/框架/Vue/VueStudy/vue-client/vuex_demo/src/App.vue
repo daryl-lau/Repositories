@@ -10,19 +10,19 @@
 
 
 <script>
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import List from "./components/List";
+import Footer from './components/Footer'
+import Header from './components/Header'
+import List from './components/List'
 
 export default {
-  name: "App1",
-  components: {
-    Footer,
-    Header,
-    List
-  }
+    name: 'App1',
+    components: {
+        Footer,
+        Header,
+        List
+    }
 
-  /*   data() {
+    /*   data() {
               return {
               todos: [
                   { title: "学习Linux", finished: true },
@@ -36,7 +36,7 @@ export default {
               };
           }, */
 
-  /*   methods: {
+    /*   methods: {
               addTodo(todo) {
               this.todos.unshift(todo);
               },
@@ -55,52 +55,52 @@ export default {
               });
               }
           } */
-};
+}
 </script>
 
 <style>
 /*app*/
 body {
-  background: #fff;
+    background: #fff;
 }
 
 .btn {
-  display: inline-block;
-  padding: 8px 10px;
-  margin-bottom: 0;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 1px 2px rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
+    display: inline-block;
+    padding: 8px 10px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
 }
 
 .btn-warning {
-  color: #fff;
-  background-color: orange;
-  border: none;
+    color: #fff;
+    background-color: orange;
+    border: none;
 }
 
 .btn-warning:hover {
-  color: #fff;
-  background-color: red;
+    color: #fff;
+    background-color: red;
 }
 
 .btn:focus {
-  outline: none;
+    outline: none;
 }
 
 .todo-container {
-  width: 600px;
-  margin: 0 auto;
+    width: 600px;
+    margin: 0 auto;
 }
 
 .todo-container .todo-wrap {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 </style>
