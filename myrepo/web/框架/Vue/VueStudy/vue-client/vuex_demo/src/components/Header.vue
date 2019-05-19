@@ -26,7 +26,7 @@
           return
         }
         const todo = {title: msg, finished: false};
-        this.addTodo(todo);
+        this.$store.dispatch('addTodo', todo);
         this.inputMsg = '';
       }
     }

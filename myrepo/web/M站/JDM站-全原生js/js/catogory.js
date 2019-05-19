@@ -43,9 +43,8 @@ window.onload = function () {
         if (obj.currentStyle) //IE
         {
             return obj.currentStyle[name];
-        }
-        else {
-            return getComputedStyle(obj, null)[name];  //FF
+        } else {
+            return getComputedStyle(obj, null)[name]; //FF
         }
     }
 
@@ -72,7 +71,7 @@ window.onload = function () {
 
 
     // 拖动效果
-    let topLength = 150,    //拖动留白的高度
+    let topLength = 150, //拖动留白的高度
         startY = 0,
         endY = 0,
         distanceY = 0,
@@ -139,7 +138,7 @@ window.onload = function () {
             speed = 0;
         } else {
             // 计算惯性速度
-            speed = parseInt(distanceY / timeDis * 150);   // 150为惯性系数，此值越大，惯性效果越大
+            speed = parseInt(distanceY / timeDis * 150); // 150为惯性系数，此值越大，惯性效果越大
         }
 
         // 计算出需要滚动的距离，减去惯性速度，之所以是减，是因为惯性速度的符号由distanceY决定，注意方向的正负
@@ -177,7 +176,7 @@ window.onload = function () {
 
         if (translateY <= -(ulLength - parentHeight)) {
             translateY = -(ulLength - parentHeight)
-        }else if (translateY >= 0){
+        } else if (translateY >= 0) {
             translateY = 0
         }
         currentY = translateY;
@@ -187,4 +186,3 @@ window.onload = function () {
 
     });
 };
-

@@ -1,12 +1,13 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Header :addTodo="addTodo"></Header>
-      <List :todos="todos" :delItem="delItem"></List>
-      <Footer :todos="todos" :delFinished="delFinished" :isSelectedAll="isSelectedAll"></Footer>
+      <Header></Header>
+      <List></List>
+      <Footer></Footer>
     </div>
   </div>
 </template>
+
 
 <script>
 import Footer from "./components/Footer";
@@ -19,39 +20,41 @@ export default {
     Footer,
     Header,
     List
-  },
-  data() {
-    return {
-      todos: [
-        { title: "学习Linux", finished: true },
-        { title: "学习Oracle", finished: false },
-        { title: "学习Oracle", finished: false },
-        { title: "学习Oracle", finished: false },
-        { title: "学习Python", finished: true },
-        { title: "学习Vue", finished: false },
-        { title: "学习JavaScript", finished: false }
-      ]
-    };
-  },
-  methods: {
-    addTodo(todo) {
-      this.todos.unshift(todo);
-    },
-    delItem(index) {
-      this.todos.splice(index, 1);
-    },
-    delFinished() {
-      // filter 不会改变原始数组，因此如果想要更改数组，需要将结果重新赋值
-      this.todos = this.todos.filter(todo => {
-        return todo.finished === false;
-      });
-    },
-    isSelectedAll(isCheck) {
-      this.todos.forEach(todo => {
-        todo.finished = isCheck;
-      });
-    }
   }
+
+  /*   data() {
+              return {
+              todos: [
+                  { title: "学习Linux", finished: true },
+                  { title: "学习Oracle", finished: false },
+                  { title: "学习Oracle", finished: false },
+                  { title: "学习Oracle", finished: false },
+                  { title: "学习Python", finished: true },
+                  { title: "学习Vue", finished: false },
+                  { title: "学习JavaScript", finished: false }
+              ]
+              };
+          }, */
+
+  /*   methods: {
+              addTodo(todo) {
+              this.todos.unshift(todo);
+              },
+              delItem(index) {
+              this.todos.splice(index, 1);
+              },
+              delFinished() {
+              // filter 不会改变原始数组，因此如果想要更改数组，需要将结果重新赋值
+              this.todos = this.todos.filter(todo => {
+                  return todo.finished === false;
+              });
+              },
+              isSelectedAll(isCheck) {
+              this.todos.forEach(todo => {
+                  todo.finished = isCheck;
+              });
+              }
+          } */
 };
 </script>
 
