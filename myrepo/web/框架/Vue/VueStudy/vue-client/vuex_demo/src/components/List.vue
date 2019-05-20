@@ -1,6 +1,6 @@
 <template>
   <ul class="todo-main">
-    <!-- todos是从state中直接拿到的，将获取到的数据进行for循环，然后将每一条数据传递给下层，即todo、index，key仅作为每个item的独立标识，下层并没有接收 -->
+    <!--  todos是从state中直接拿到的，将获取到的数据进行for循环，然后将每一条数据传递给下层，即todo、index，key仅作为每个item的独立标识，下层并没有接收  -->
     <Item v-for="(todo, index) in todos" :todo="todo" :index="index" :key="index"></Item>
   </ul>
 </template>

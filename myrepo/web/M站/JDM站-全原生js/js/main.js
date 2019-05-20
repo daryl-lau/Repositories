@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
 
-////////////////////////轮播图开始////////////////////////////////////
+    ////////////////////////轮播图开始////////////////////////////////////
 
     let binner = () => {
         // 获取元素及一些参数
@@ -41,7 +41,7 @@ window.addEventListener('load', () => {
         //动态添加指示器节点
         let str = '';
         for (let i = 0; i < ulLength; i++) {
-            str += '<li></li>'
+            str += '<li></li>';
         }
         ol.innerHTML = str;
         let lis = ol.getElementsByTagName('li');
@@ -62,7 +62,7 @@ window.addEventListener('load', () => {
         };
         let changeTranslateX = (obj, x) => {
             obj.style.transform = `translateX(${x}px)`;
-            obj.style.webkitTransform = `translateX(${x}px)`
+            obj.style.webkitTransform = `translateX(${x}px)`;
         };
         /**
          * 下标移动函数
@@ -73,9 +73,9 @@ window.addEventListener('load', () => {
             }
             liIndex = index;
             if (index >= ulLength + 1) { //9
-                liIndex = 1
+                liIndex = 1;
             } else if (index <= 0) {
-                liIndex = ulLength
+                liIndex = ulLength;
             }
             lis[liIndex - 1].className = 'current';
         };
@@ -88,7 +88,7 @@ window.addEventListener('load', () => {
             addTransition(ul);
             changeTranslateX(ul, -index * liWidth);
             // 指示器移动
-            changeIndex()
+            changeIndex();
         };
         let index = 1;
         let liIndex = 1;
@@ -103,7 +103,7 @@ window.addEventListener('load', () => {
                 index = ulLength;      //8
             }
             removeTransition(ul);
-            changeTranslateX(ul, -liWidth * index)
+            changeTranslateX(ul, -liWidth * index);
         });
 
 
@@ -119,14 +119,14 @@ window.addEventListener('load', () => {
             endX = e.touches[0].clientX;
             distanceX = startX - endX;
             removeTransition(ul);
-            changeTranslateX(ul, -index * liWidth - distanceX)
+            changeTranslateX(ul, -index * liWidth - distanceX);
         });
         ul.addEventListener('touchend', (e) => {
             if (Math.abs(distanceX) > 1 / 3 * liWidth && endX !== 0) {
                 if (distanceX > 0) {
-                    index++
+                    index++;
                 } else if (distanceX < 0) {
-                    index--
+                    index--;
                 }
             }
             addTransition(ul);
@@ -140,27 +140,27 @@ window.addEventListener('load', () => {
     };
     binner();
 
-////////////////////////轮播图结束////////////////////////////////////
+    ////////////////////////轮播图结束////////////////////////////////////
 
 
-////////////////////////关闭广告开始//////////////////////////////////
-    let closeAD = () => {
+    ////////////////////////关闭广告开始//////////////////////////////////
+    /* let closeAD = () => {
         let btnClose = document.querySelector('.middle-img .icon-close');
         let closeEle = document.querySelector('.middle-img a img');
         btnClose.addEventListener('click', () => {
             btnClose.style.display = 'none';
-            variableMove(closeEle, {'height': 0}, 10, () => {
+            variableMove(closeEle, { 'height': 0 }, 10, () => {
                 closeEle.style.display = 'none';
-            })
+            });
         });
-    };
+    }; */
     // closeAD();
 
 
-////////////////////////关闭广告结束//////////////////////////////////
+    ////////////////////////关闭广告结束//////////////////////////////////
 
 
-////////////////////////新闻滚动开始/////////////////////////////////
+    ////////////////////////新闻滚动开始/////////////////////////////////
 
     let newsSCroll = () => {
         // 拼接li
@@ -194,7 +194,7 @@ window.addEventListener('load', () => {
         };
         let changeTranslateY = (obj, x) => {
             obj.style.transform = `translateY(${x}px)`;
-            obj.style.webkitTransform = `translateY(${x}px)`
+            obj.style.webkitTransform = `translateY(${x}px)`;
         };
 
         let newsAutoPlay = () => {
@@ -217,14 +217,14 @@ window.addEventListener('load', () => {
                 newsindex = liLength;      //4
             }
             removeTransitionY(newsUl);
-            changeTranslateY(newsUl, -liHeight * newsindex)
+            changeTranslateY(newsUl, -liHeight * newsindex);
         });
     };
     newsSCroll();
 
-////////////////////////新闻滚动结束/////////////////////////////////
+    ////////////////////////新闻滚动结束/////////////////////////////////
 
-////////////////////////滚动事件开始/////////////////////////////////
+    ////////////////////////滚动事件开始/////////////////////////////////
     let header = document.querySelector('#header');
     window.addEventListener('scroll', () => {
         let scrollTop = scroll().top;
@@ -236,10 +236,10 @@ window.addEventListener('load', () => {
     });
 
 
-////////////////////////滚动事件结束/////////////////////////////////
+    ////////////////////////滚动事件结束/////////////////////////////////
 
 
-////////////////////////秒杀倒计时开始/////////////////////////////////
+    ////////////////////////秒杀倒计时开始/////////////////////////////////
     let killTime = () => {
         var text = document.querySelector('.kill-timer');
 
@@ -281,11 +281,11 @@ window.addEventListener('load', () => {
                 //     }
                 // }
 
-                h < 10 ? '0' + h : h
+                h < 10 ? '0' + h : h;
 
                 // text.innerText = d + '天' + h + '时' + m + '分' + s + '秒';
                 // text.innerHTML = '<span>' + timeArray[0] + '</span><span>天</span><span>' + timeArray[1] + '</span><span>时</span><span>' + timeArray[2] + '</span><span>分</span><span>' + timeArray[3] + '</span><span>秒</span>'
-                text.innerHTML = '<span>' + (d < 10 ? '0' + d : d) + '</span><span>天</span><span>' + (h < 10 ? '0' + h : h) + '</span><span>时</span><span>' + (m < 10 ? '0' + m : m) + '</span><span>分</span><span>' + (s < 10 ? '0' + s : s) + '</span><span>秒</span>'
+                text.innerHTML = '<span>' + (d < 10 ? '0' + d : d) + '</span><span>天</span><span>' + (h < 10 ? '0' + h : h) + '</span><span>时</span><span>' + (m < 10 ? '0' + m : m) + '</span><span>分</span><span>' + (s < 10 ? '0' + s : s) + '</span><span>秒</span>';
             }
         }
 
@@ -294,10 +294,10 @@ window.addEventListener('load', () => {
     };
     killTime();
 
-///////////////////////////////秒杀倒计时结束////////////////////////////////
+    ///////////////////////////////秒杀倒计时结束////////////////////////////////
 
 
-///////////////////////////////秒杀滚动开始////////////////////////////////
+    ///////////////////////////////秒杀滚动开始////////////////////////////////
 
     // let killScroll = () => {
     //     let li = document.querySelector('.product-wrap li');
@@ -319,7 +319,7 @@ window.addEventListener('load', () => {
             allLis[i].addEventListener('click', () => {
                 let alink = allLis[i].querySelector('a');
                 location.href = alink.getAttribute('data-href');
-            })
+            });
         }
     };
     jumpHerf();
@@ -331,10 +331,10 @@ window.addEventListener('load', () => {
             clearTimeout(timer);
             timer = setTimeout(() => {
                 location.reload();
-            }, 500)
-        })
+            }, 500);
+        });
     };
     windowResize();
 
-///////////////////////////////秒杀滚动结束////////////////////////////////
+    ///////////////////////////////秒杀滚动结束////////////////////////////////
 });

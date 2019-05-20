@@ -15,6 +15,6 @@ export default {
     // 计算是否全部选中，返回布尔值
     // 调用getters中自身的方法，传入getters，然后通过 getters.xxxxx 直接调用
     isCheckAll(state, getters) {
-        return getters.finishedCount === getters.totalCount && getters.totalCount > 0
+        return getters.finishedCount === getters.totalCount && getters.totalCount > 0;
     }
-}
+};
