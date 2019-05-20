@@ -1,73 +1,66 @@
 <template>
-  <li
-    @mouseenter="isShowBtn(true)"
-    @mouseleave="isShowBtn(false)"
-  >
+  <li @mouseenter="isShowBtn(true)" @mouseleave="isShowBtn(false)">
     <label>
-      <input type="checkbox" v-model="todo.finished"/>
+      <input type="checkbox" v-model="todo.finished">
       <span>{{todo.title}}</span>
     </label>
-    <button
-      class="btn btn-warning"
-      v-show="showBtn"
-      @click="delItem(index)"
-    >删除</button>
+    <button class="btn btn-warning" v-show="showBtn" @click="delItem(index)">删除</button>
   </li>
 </template>
 
 <script>
-  export default {
-    name: "Item",
-    props: {todo: Object, index: Number, delItem:Function},
-    data(){
-      return {
-        showBtn: false
-      }
+export default {
+    name: 'Item',
+    props: { todo: Object, index: Number, delItem: Function },
+    data() {
+        return {
+            showBtn: false
+        }
     },
     methods: {
-      isShowBtn(flag){
-        flag ? this.showBtn = true : this.showBtn = false
-      }
+        isShowBtn(flag) {
+            flag ? (this.showBtn = true) : (this.showBtn = false)
+        }
     }
-  }
+}
 </script>
 
 <style scoped>
-  li {
+li {
     list-style: none;
     height: 36px;
     line-height: 36px;
     padding: 0 5px;
     border-bottom: 1px solid #ddd;
-  }
+}
 
-  li label {
+li label {
     float: left;
     cursor: pointer;
-  }
+}
 
-  li label li input {
+li label li input {
     vertical-align: middle;
     margin-right: 6px;
     position: relative;
     top: -1px;
-  }
+}
 
-  li button {
+li button {
     float: right;
     /*display: none;*/
     /*margin-top: 3px;*/
-  }
+}
 
-  li:before {
+li:before {
     content: initial;
-  }
+}
 
-  li:last-child {
+li:last-child {
     border-bottom: none;
-  }
+}
 
-  li:hover {
+li:hover {
     background-color: #e6e6e6;
-  }
+}
 </style>

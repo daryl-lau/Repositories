@@ -9,6 +9,7 @@ module.exports = {
         "ecmaVersion": 2015,
         "sourceType": "module"
     },
+    "parser": "babel-eslint",
     "rules": {
         // 缩进
         "indent": [
