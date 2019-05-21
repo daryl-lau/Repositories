@@ -1,24 +1,24 @@
 <template>
   <div class="navbar">
-    <div class="items" @click="switchTo('/home')">
-      <img src="../common/imgs/icon_home.png" alt>
-      <span>首页</span>
+    <div class="items" @click="switchTo('/home') ">
+      <img :src="this.$route.path === '/home' ? navbarImgs[0].Selected : navbarImgs[0].noSelected" alt>
+      <span :class="{active: this.$route.path === '/home' }">首页</span>
     </div>
     <div class="items" @click="switchTo('/intro')">
-      <img src="../common/imgs/icon_intro.png" alt>
-      <span>推荐</span>
+      <img :src="this.$route.path === '/intro' ? navbarImgs[1].Selected : navbarImgs[1].noSelected" alt>
+      <span :class="{active: this.$route.path === '/intro' }">推荐</span>
     </div>
     <div class="items" @click="switchTo('/search')">
-      <img src="../common/imgs/icon_search.png" alt>
-      <span>搜索</span>
+      <img :src="this.$route.path === '/search' ? navbarImgs[2].Selected : navbarImgs[2].noSelected" alt>
+      <span :class="{active: this.$route.path === '/search' }">搜索</span>
     </div>
     <div class="items" @click="switchTo('/chat')">
-      <img src="../common/imgs/icon_chat.png" alt>
-      <span>聊天</span>
+      <img :src="this.$route.path === '/chat' ? navbarImgs[3].Selected : navbarImgs[3].noSelected" alt>
+      <span :class="{active: this.$route.path === '/chat' }">聊天</span>
     </div>
     <div class="items" @click="switchTo('/mine')">
-      <img src="../common/imgs/icon_mine.png" alt>
-      <span>我的</span>
+      <img :src="this.$route.path === '/mine' ? navbarImgs[4].Selected : navbarImgs[4].noSelected" alt>
+      <span :class="{active: this.$route.path === '/mine' }">我的</span>
     </div>
   </div>
 </template>
@@ -27,12 +27,20 @@
 export default {
     name: 'navbar',
     data() {
-        return {}
+        return {
+          navbarImgs: [
+            {noSelected: require('./../common/imgs/icon_home.png'), Selected: require('./../common/imgs/icon_home_selected.png')},
+            {noSelected: require('./../common/imgs/icon_intro.png'), Selected: require('./../common/imgs/icon_intro_selected.png')},
+            {noSelected: require('./../common/imgs/icon_search.png'), Selected: require('./../common/imgs/icon_search_selected.png')},
+            {noSelected: require('./../common/imgs/icon_chat.png'), Selected: require('./../common/imgs/icon_chat_selected.png')},
+            {noSelected: require('./../common/imgs/icon_mine.png'), Selected: require('./../common/imgs/icon_mine_selected.png')}
+          ]
+        }
     },
     components: {},
     methods: {
         switchTo(path) {
-          this.$router.replace(path)
+          this.$router.replace(path);
         }
     }
 }
@@ -61,6 +69,9 @@ export default {
         }
         span {
             font-size: 12px;
+        }
+        span.active {
+          color: red;
         }
     }
 }
