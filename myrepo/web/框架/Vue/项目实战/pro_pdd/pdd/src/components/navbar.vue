@@ -58,11 +58,11 @@ export default {
             this.$router.replace(path)
         },
         isActive(path) {
-            const reg = new RegExp('^' + path + '')
+            const reg = new RegExp('^' + path + '');
             return reg.test(this.$route.path)
         },
         activeImg(path, index) {
-            const reg = new RegExp('^' + path + '')
+            const reg = new RegExp('^' + path + '');
             return reg.test(this.$route.path)
                 ? this.navbarImgs[index].Selected
                 : this.navbarImgs[index].noSelected
