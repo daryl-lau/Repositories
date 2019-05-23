@@ -14,7 +14,9 @@
 <body>
 
 <div id="app">
-    <template1 @total="allCounter"></template1> <!-- @total 外部接收到调用了total()方法，调用一次，执行一次allCounter() -->
+    <!-- 父组件自定义了total方法   -->
+    <!-- @total 外部接收到调用了total()方法，调用一次，执行一次allCounter() -->
+    <template1 @total="allCounter"></template1>
     <template1 @total="allCounter"></template1>
     <template1 @total="allCounter"></template1>
     <template1 @total="allCounter"></template1>
@@ -26,7 +28,7 @@
 
 <template id="template1">
     <div>
-        <button @click="total()">点击的次数: {{counter}}</button>
+        <button @click="counter()">点击的次数: {{count}}</button>
     </div>
 </template>
 
@@ -38,15 +40,15 @@
         template: '#template1',
 
         // 二级和三级里面data定义数据都需要通过使用函数进行返回,避免数据共享
-        data(){
-            return  {
+        data() {
+            return {
                 title: '我是组件',
-                counter: 0
+                count: 0
             }
         },
         methods: {
-            total(){
-                this.counter += 1;
+            counter() {
+                this.count += 1;
                 this.$emit('total'); // 通知外部，我调用了这个方法
             }
         }
@@ -61,7 +63,7 @@
             totalCount: 0,
         },
         methods: {
-            allCounter(){
+            allCounter() {
                 this.totalCount += 1;
             }
         }
