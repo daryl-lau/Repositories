@@ -200,6 +200,7 @@
         float: left;
         display: block;
         font-size: 12px;
+        /*cursor: pointer;*/
     }
 
     #tabbar ul span {
