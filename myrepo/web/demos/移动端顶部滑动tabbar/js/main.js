@@ -38,11 +38,11 @@ window.onload = function () {
         }, false);
     };
 
-    let navbar = document.querySelector('#navbar');
-    let ul = document.querySelector('#navbar ul');
+    let tabbar = document.querySelector('#tabbar');
+    let ul = document.querySelector('#tabbar ul');
     let ulWidth = ul.offsetWidth;
     let liWidth = ul.getElementsByTagName('li')[0].offsetWidth;
-    let navbarWidth = navbar.offsetWidth;
+    let tabbarWidth = tabbar.offsetWidth;
     let span = ul.getElementsByTagName('span')[0];
 
     // css3动画函数
@@ -80,7 +80,7 @@ window.onload = function () {
         // 获取鼠标按下时的y值
         startX = e.touches[0].clientX;
 
-        // 获取鼠标按下是的时间
+        // 获取鼠标按下时的时间
         lastTime = Date.now();
     });
 
@@ -99,14 +99,16 @@ window.onload = function () {
         translateX = currentX - distanceX;
 
         // 执行滚动
-        removeTransition(ul);
-        changeTranslateX(ul, translateX);
+        if (ulWidth >= tabbarWidth) {
+            removeTransition(ul);
+            changeTranslateX(ul, translateX);
 
-        // 边界值处理
-        if (translateX > whiteLength) {
-            changeTranslateX(ul, whiteLength);
-        } else if (translateX < -(ulWidth + whiteLength - navbarWidth)) {
-            changeTranslateX(ul, -(ulWidth + whiteLength - navbarWidth));
+            // 边界值处理
+            if (translateX > whiteLength) {
+                changeTranslateX(ul, whiteLength);
+            } else if (translateX < -(ulWidth + whiteLength - tabbarWidth)) {
+                changeTranslateX(ul, -(ulWidth + whiteLength - tabbarWidth));
+            }
         }
 
     });
@@ -139,18 +141,20 @@ window.onload = function () {
         if (translateX > 0) {
             translateX = 0;
             currentX = 0;
-        } else if ((-(ulWidth - navbarWidth)) < translateX && translateX < 0) {
+        } else if ((-(ulWidth - tabbarWidth)) < translateX && translateX < 0) {
             currentX = translateX;
-        } else if (translateX < -(ulWidth - navbarWidth)) {
-            translateX = -(ulWidth - navbarWidth);
-            currentX = -(ulWidth - navbarWidth);
+        } else if (translateX < -(ulWidth - tabbarWidth)) {
+            translateX = -(ulWidth - tabbarWidth);
+            currentX = -(ulWidth - tabbarWidth);
         }
-        addTransition(ul);
-        changeTranslateX(ul, translateX);
+        if (ulWidth >= tabbarWidth) {
+            addTransition(ul);
+            changeTranslateX(ul, translateX);
 
-        //还原值
-        endX = 0;
-        distanceX = 0;
+            //还原值
+            endX = 0;
+            distanceX = 0;
+        }
     });
 
     let lis = ul.getElementsByTagName('li');
@@ -162,10 +166,10 @@ window.onload = function () {
         }
         e.target.className = 'current';
 
-        translateX = -(e.target.index - 3) * liWidth;
+        translateX = -(e.target.index * liWidth - (tabbarWidth - liWidth) / 2);
 
-        if (translateX <= -(ulWidth - navbarWidth)) {
-            translateX = -(ulWidth - navbarWidth)
+        if (translateX <= -(ulWidth - tabbarWidth)) {
+            translateX = -(ulWidth - tabbarWidth)
         } else if (translateX >= 0) {
             translateX = 0
         }
@@ -173,8 +177,10 @@ window.onload = function () {
 
         spanTranslateX = e.target.index * liWidth;
 
-        addTransition(ul);
-        changeTranslateX(ul, translateX);
+        if (ulWidth >= tabbarWidth) {
+            addTransition(ul);
+            changeTranslateX(ul, translateX);
+        }
 
         addTransition(span);
         changeTranslateX(span, spanTranslateX);

@@ -11,22 +11,22 @@ ul,li {
     list-style: none;
 }
 
-#navbar {
+#tabbar {
     height: 40px;
     overflow: hidden;
 }
 
-#navbar ul {
-    width: 1080px;
+#tabbar ul {
+    width: 1260px;
     position: relative;
 }
-#navbar ul::after {
+#tabbar ul::after {
     content: '';
     display: block;
     clear: both;
 }
-#navbar ul li{
-    width: 60px;
+#tabbar ul li{
+    width: 70px;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -34,17 +34,17 @@ ul,li {
     display: block;
     font-size: 12px;
 }
-/*#navbar ul li:nth-child(odd){*/
+/*#tabbar ul li:nth-child(odd){*/
     /*background-color: #f5f5f5;*/
 /*}*/
 
-#navbar ul span {
+#tabbar ul span {
     width: 60px;
     height: 2px;
     background-color: skyblue;
     position: absolute;
     z-index: 999;
-    left: 0;
+    left: 5px;
     bottom: 0;
 }
 

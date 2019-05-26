@@ -14,7 +14,7 @@
 <body>
 
 <div id="app">
-    <!-- 父组件自定义了total方法   -->
+    <!-- 父组件自定义了total事件   -->
     <!-- @total 外部接收到调用了total()方法，调用一次，执行一次allCounter() -->
     <template1 @total="allCounter"></template1>
     <template1 @total="allCounter"></template1>
@@ -49,7 +49,7 @@
         methods: {
             counter() {
                 this.count += 1;
-                this.$emit('total'); // 通知外部，我调用了这个方法
+                this.$emit('total'); // 通知外部，我要调用这个方法
             }
         }
 
