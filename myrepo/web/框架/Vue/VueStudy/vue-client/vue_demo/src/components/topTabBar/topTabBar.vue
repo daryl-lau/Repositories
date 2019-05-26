@@ -8,8 +8,10 @@
                          :index="index"
                          :key="index"
                          :toggleActive="toggleActive"
-                         :moveTag="moveTag"
-                         :listItem="listItem"
+                         :moveTagStyle="moveTagStyle"
+                         :listItemStyle="listItemStyle"
+                         :activeFontColor="activeFontColor"
+                         :noActiveFontColor="noActiveFontColor"
                          @toggleMoveTag="toggleMoveTag"
             ></tabBarItems>
             <span ref="span"></span>
@@ -28,11 +30,13 @@
         props:
             {
                 tabList: Array,
-                tabBar: Object,
+                tabBarStyle: Object,
                 toggleActive: Function,
-                listItem: Object,
-                moveTag: Object,
-                dragWhiteSpace: Number
+                listItemStyle: Object,
+                moveTagStyle: Object,
+                dragWhiteSpace: Number,
+                activeFontColor: Object,
+                noActiveFontColor: Object
             },
         data() {
             return {
@@ -64,8 +68,9 @@
                 obj.style.webkitTransform = `translateX(${x}px)`
             },
             toggleMoveTag: function (index) {
-                // this.translateX = -(index - 2) * this.listItem.width;
-                this.translateX = -(index * this.listItem.width - (this.$refs.tabbar.offsetWidth - this.listItem.width) / 2);
+                this.$emit('handleChange', index);
+                // this.translateX = -(index - 2) * this.listItemStyle.width;
+                this.translateX = -(index * this.listItemStyle.width - (this.$refs.tabbar.offsetWidth - this.listItemStyle.width) / 2);
                 if (this.translateX <= -(this.$refs.ul.offsetWidth - this.$refs.tabbar.offsetWidth)) {
                     this.translateX = -(this.$refs.ul.offsetWidth - this.$refs.tabbar.offsetWidth)
                 } else if (this.translateX >= 0) {
@@ -73,7 +78,7 @@
                 }
                 this.currentX = this.translateX;
 
-                this.spanTranslateX = index * this.listItem.width;
+                this.spanTranslateX = index * this.listItemStyle.width;
 
                 if (this.$refs.ul.offsetWidth >= this.$refs.tabbar.offsetWidth) {
                     this.addTransition(this.$refs.ul);
@@ -82,17 +87,28 @@
 
                 this.addTransition(this.$refs.span);
                 this.changeTranslateX(this.$refs.span, this.spanTranslateX);
-            }
+            },
         },
         mounted() {
-            this.spanOffset = (this.listItem.width - this.moveTag.width) / 2;
-            this.$refs.ul.style.width = this.tabList.length * this.listItem.width + 'px';
-            this.$refs.ul.style.backgroundColor = this.tabBar.backgroundColor;
-            this.$refs.span.style.width = this.moveTag.width + 'px';
-            this.$refs.span.style.height = this.moveTag.height + 'px';
-            this.$refs.span.style.left = this.spanOffset + 'px';
-            this.$refs.span.style.bottom = this.moveTag.offsetBottom + 'px';
-            this.$refs.span.style.backgroundColor = this.moveTag.color;
+            this.spanOffset = (this.listItemStyle.width - this.moveTagStyle.width) / 2;
+            this.$refs.ul.style.width = this.tabList.length * this.listItemStyle.width + 'px';
+            this.$refs.ul.style.backgroundColor = this.tabBarStyle.backgroundColor;
+            // this.$refs.span.style.width = this.moveTagStyle.width + 'px';
+            // this.$refs.span.style.height = this.moveTagStyle.height + 'px';
+            // this.$refs.span.style.left = this.spanOffset + 'px';
+            // this.$refs.span.style.bottom = this.moveTagStyle.offsetBottom + 'px';
+            // this.$refs.span.style.backgroundColor = this.moveTagStyle.color;
+
+            if (this.moveTagStyle.display) {
+                this.$refs.span.style.width = this.moveTagStyle.width + 'px';
+                this.$refs.span.style.height = this.moveTagStyle.height + 'px';
+                this.$refs.span.style.left = this.spanOffset + 'px';
+                this.$refs.span.style.bottom = this.moveTagStyle.offsetBottom + 'px';
+                this.$refs.span.style.backgroundColor = this.moveTagStyle.color;
+            }else {
+                this.$refs.span.style.display = 'none';
+            }
+
             this.$refs.ul.addEventListener('touchstart', (e) => {
                 // 阻止冒泡
                 e.stopPropagation();
@@ -168,8 +184,9 @@
     }
 
     #tabbar ul {
-        /*width: 1080px;*/
         position: relative;
+        padding: 0;
+        margin: 0;
     }
 
     #tabbar ul::after {
@@ -179,9 +196,6 @@
     }
 
     #tabbar ul li {
-        width: 60px;
-        height: 40px;
-        line-height: 40px;
         text-align: center;
         float: left;
         display: block;
@@ -189,16 +203,10 @@
     }
 
     #tabbar ul span {
-        width: 60px;
-        height: 2px;
         background-color: skyblue;
         position: absolute;
         z-index: 1;
         left: 0;
         bottom: 0;
-    }
-
-    .current {
-        color: skyblue !important;
     }
 </style>

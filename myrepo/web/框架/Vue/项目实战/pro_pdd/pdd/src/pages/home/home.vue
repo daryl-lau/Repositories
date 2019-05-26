@@ -3,6 +3,7 @@
         <topTabBar :tabList="tabList" :toggleActive="toggleActive" :listItem="listItem"
                    :moveTag="moveTag"
                    :dragWhiteSpace="dragWhiteSpace"
+                   :tabBar="tabBar"
         ></topTabBar>
     </div>
 </template>
@@ -31,7 +32,8 @@
                     {title: 'CentOS', isActive: false},
                     {title: 'Docker', isActive: false},
                 ],
-                listItem: {width: 70, height: 50, fontSize: 12, fontColor: '#6c6c6c'},
+                tabBar:{backgroundColor: ''},
+                listItem: {width: 70, height: 40, fontSize: 12, fontColor: '#6c6c6c'},
                 moveTag: {width: 30, height: 2, offsetBottom: 5, color: 'skyblue'},
                 dragWhiteSpace: 100,
             }
