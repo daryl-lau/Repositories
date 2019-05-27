@@ -1,20 +1,20 @@
 # wrap-tabbar
 移动端顶部滑动导航栏
 
-##安装
+## 安装
 ```
 npm install 
 ```
 
-##使用
-####1.编辑main.js，引入wrap-tabbar
+## 使用
+#### 1.编辑main.js，引入wrap-tabbar
 ```javascript
 import wtb from './components/wrapTabBar'
 
 Vue.use(wtb);
 ```
 
-####2.组件中使用wrap-tabbar
+#### 2.组件中使用wrap-tabbar
 ```javascript
 <template>
     <wtb
@@ -62,7 +62,7 @@ export default {
 </script>
 ```
 
-##参数说明：
+## 参数说明：
 ```text
 导航栏内容，title指定选项，可修改，isActive指定是否选中，无需修改
 tabList: [
@@ -103,7 +103,7 @@ activeFontColor: {color: 'skyblue'},
             noActiveFontColor: {color: '#6c6c6c'}
 ```
 
-##暴露的方法
+## 暴露的方法
 ```text
 向外暴露了change方法，当切换选项时，返回该选项的index
 
