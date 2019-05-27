@@ -63,50 +63,44 @@ export default {
 ```
 
 ## 参数说明：
+#### 导航栏内容，title指定选项，可修改，isActive指定是否选中，无需修改
 ```text
-导航栏内容，title指定选项，可修改，isActive指定是否选中，无需修改
 tabList: [
     {title: 'DataBase', isActive: true},
     ...
 ]
 ```
 
+#### 导航栏的背景颜色配置
 ```text
-导航栏的背景颜色配置
-
 tabBarStyle: {backgroundColor: ''},
 ```
 
+#### 每个选项的样式配置，分别为宽、高、字体大小、字体颜色
+**!!!注意：这里的宽高直接决定了整个导航栏的宽高**
 ```text
-每个选项的样式配置，分别为宽、高、字体大小、字体颜色
-!!!注意：这里的宽高直接决定了整个导航栏的宽高
-
 listItemStyle: {width: 70, height: 50, fontSize: 12, fontColor: '#6c6c6c'},
 ```
 
+#### 移动游标的样式配置，分别为是否隐藏、宽、高、距离导航栏底部的高度、背景颜色
 ```text
-移动游标的样式配置，分别为是否隐藏、宽、高、距离导航栏底部的高度、背景颜色
-
 moveTagStyle: {display: true, width: 30, height: 2, offsetBottom: 5, color: 'skyblue'},
 ```
 
+#### 导航栏拖动边界时拉伸的宽度
 ```text
-导航栏拖动边界时拉伸的宽度
-
 dragWhiteSpace: 100,
 ```
 
+#### 选中颜色和非选中颜色
 ```text
-选中颜色和非选中颜色
-
 activeFontColor: {color: 'skyblue'},
             noActiveFontColor: {color: '#6c6c6c'}
 ```
 
 ## 暴露的方法
+#### 向外暴露了change方法，当切换选项时，返回该选项的index
 ```text
-向外暴露了change方法，当切换选项时，返回该选项的index
-
 <wtb @change="change"></wtb>
 
 methods: {
