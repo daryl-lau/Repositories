@@ -1,5 +1,5 @@
 <template>
-    <wrapTabBar
+    <wtb
         :tabList="tabList"
         :tabBarStyle="tabBarStyle"
         :listItemStyle="listItemStyle"
@@ -8,7 +8,7 @@
         :activeFontColor="activeFontColor"
         :noActiveFontColor="noActiveFontColor"
         @change="change"
-    ></wrapTabBar>
+    ></wtb>
     <!--  <div class="todo-container">-->
     <!--    <div class="todo-wrap">-->
     <!--      <Input :addTodo="addTodo"></Input>-->
@@ -23,7 +23,7 @@
     import Input from './components/Input'
     import List from './components/List'
 
-    import wrapTabBar from './components/topTabBar/wrapTabBar'
+    // import wrapTabBar from './components/topTabBar/wrapTabBar'
 
     export default {
         name: 'App1',
@@ -31,7 +31,6 @@
             Footer,
             Input,
             List,
-            wrapTabBar
         },
         // data() {
         //     return {
@@ -49,7 +48,7 @@
         data() {
             return {
                 tabList: [
-                    {title: '数据库', isActive: true},
+                    {title: 'DataBase', isActive: true},
                     {title: 'Oracle', isActive: false},
                     {title: 'MySQL', isActive: false},
                     {title: 'MongoDB', isActive: false},

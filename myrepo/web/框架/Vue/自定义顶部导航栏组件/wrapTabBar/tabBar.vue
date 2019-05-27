@@ -1,7 +1,7 @@
 <template>
     <div id="tabbar" ref="tabbar">
-        <ul class="ul"
-            ref="ul"
+        <ul class="tabbar-ul"
+            ref="tabBarUl"
         >
             <tabBarItems v-for="(value, index) in tabList"
                          :value="value"
@@ -14,7 +14,7 @@
                          :noActiveFontColor="noActiveFontColor"
                          @toggleMoveTag="toggleMoveTag"
             ></tabBarItems>
-            <span ref="span"></span>
+            <span ref="tabBarSpan"></span>
         </ul>
     </div>
 </template>
@@ -71,8 +71,8 @@
                 this.$emit('handleChange', index);
                 // this.translateX = -(index - 2) * this.listItemStyle.width;
                 this.translateX = -(index * this.listItemStyle.width - (this.$refs.tabbar.offsetWidth - this.listItemStyle.width) / 2);
-                if (this.translateX <= -(this.$refs.ul.offsetWidth - this.$refs.tabbar.offsetWidth)) {
-                    this.translateX = -(this.$refs.ul.offsetWidth - this.$refs.tabbar.offsetWidth)
+                if (this.translateX <= -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth)) {
+                    this.translateX = -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth)
                 } else if (this.translateX >= 0) {
                     this.translateX = 0
                 }
@@ -80,36 +80,31 @@
 
                 this.spanTranslateX = index * this.listItemStyle.width;
 
-                if (this.$refs.ul.offsetWidth >= this.$refs.tabbar.offsetWidth) {
-                    this.addTransition(this.$refs.ul);
-                    this.changeTranslateX(this.$refs.ul, this.translateX);
+                if (this.$refs.tabBarUl.offsetWidth >= this.$refs.tabbar.offsetWidth) {
+                    this.addTransition(this.$refs.tabBarUl);
+                    this.changeTranslateX(this.$refs.tabBarUl, this.translateX);
                 }
 
-                this.addTransition(this.$refs.span);
-                this.changeTranslateX(this.$refs.span, this.spanTranslateX);
+                this.addTransition(this.$refs.tabBarSpan);
+                this.changeTranslateX(this.$refs.tabBarSpan, this.spanTranslateX);
             },
         },
         mounted() {
             this.spanOffset = (this.listItemStyle.width - this.moveTagStyle.width) / 2;
-            this.$refs.ul.style.width = this.tabList.length * this.listItemStyle.width + 'px';
-            this.$refs.ul.style.backgroundColor = this.tabBarStyle.backgroundColor;
-            // this.$refs.span.style.width = this.moveTagStyle.width + 'px';
-            // this.$refs.span.style.height = this.moveTagStyle.height + 'px';
-            // this.$refs.span.style.left = this.spanOffset + 'px';
-            // this.$refs.span.style.bottom = this.moveTagStyle.offsetBottom + 'px';
-            // this.$refs.span.style.backgroundColor = this.moveTagStyle.color;
+            this.$refs.tabBarUl.style.width = this.tabList.length * this.listItemStyle.width + 'px';
+            this.$refs.tabBarUl.style.backgroundColor = this.tabBarStyle.backgroundColor;
 
             if (this.moveTagStyle.display) {
-                this.$refs.span.style.width = this.moveTagStyle.width + 'px';
-                this.$refs.span.style.height = this.moveTagStyle.height + 'px';
-                this.$refs.span.style.left = this.spanOffset + 'px';
-                this.$refs.span.style.bottom = this.moveTagStyle.offsetBottom + 'px';
-                this.$refs.span.style.backgroundColor = this.moveTagStyle.color;
-            }else {
-                this.$refs.span.style.display = 'none';
+                this.$refs.tabBarSpan.style.width = this.moveTagStyle.width + 'px';
+                this.$refs.tabBarSpan.style.height = this.moveTagStyle.height + 'px';
+                this.$refs.tabBarSpan.style.left = this.spanOffset + 'px';
+                this.$refs.tabBarSpan.style.bottom = this.moveTagStyle.offsetBottom + 'px';
+                this.$refs.tabBarSpan.style.backgroundColor = this.moveTagStyle.color;
+            } else {
+                this.$refs.tabBarSpan.style.display = 'none';
             }
 
-            this.$refs.ul.addEventListener('touchstart', (e) => {
+            this.$refs.tabBarUl.addEventListener('touchstart', (e) => {
                 // 阻止冒泡
                 e.stopPropagation();
                 // 获取鼠标按下时的y值
@@ -117,7 +112,7 @@
                 // 获取鼠标按下时的时间
                 this.lastTime = Date.now();
             });
-            this.$refs.ul.addEventListener('touchmove', (e) => {
+            this.$refs.tabBarUl.addEventListener('touchmove', (e) => {
                 // 阻止冒泡
                 e.stopPropagation();
                 // 获取鼠标移动过程中的y值
@@ -127,19 +122,19 @@
                 // 计算出需要滚动的距离，currentY初始为0，后续移动会在之前的基础上进行移动，鼠标上滑，translateY值变小，鼠标下滑，translateY值变大；
                 this.translateX = this.currentX - this.distanceX;
                 // 执行滚动
-                if (this.$refs.ul.offsetWidth >= this.$refs.tabbar.offsetWidth) {
-                    this.removeTransition(this.$refs.ul);
-                    this.changeTranslateX(this.$refs.ul, this.translateX);
+                if (this.$refs.tabBarUl.offsetWidth >= this.$refs.tabbar.offsetWidth) {
+                    this.removeTransition(this.$refs.tabBarUl);
+                    this.changeTranslateX(this.$refs.tabBarUl, this.translateX);
                     // 边界值处理
                     if (this.translateX > this.whiteLength) {
-                        this.changeTranslateX(this.$refs.ul, this.whiteLength);
-                    } else if (this.translateX < -(this.$refs.ul.offsetWidth + this.whiteLength - this.$refs.tabbar.offsetWidth)) {
-                        this.changeTranslateX(this.$refs.ul, -(this.$refs.ul.offsetWidth + this.whiteLength - this.$refs.tabbar.offsetWidth));
+                        this.changeTranslateX(this.$refs.tabBarUl, this.whiteLength);
+                    } else if (this.translateX < -(this.$refs.tabBarUl.offsetWidth + this.whiteLength - this.$refs.tabbar.offsetWidth)) {
+                        this.changeTranslateX(this.$refs.tabBarUl, -(this.$refs.tabBarUl.offsetWidth + this.whiteLength - this.$refs.tabbar.offsetWidth));
                     }
                 }
             });
 
-            this.$refs.ul.addEventListener('touchend', (e) => {
+            this.$refs.tabBarUl.addEventListener('touchend', (e) => {
                 e.stopPropagation();
                 // 惯性原理:
                 //    产生的速度 = 移动距离 / 移动时间
@@ -160,15 +155,15 @@
                 if (this.translateX > 0) {
                     this.translateX = 0;
                     this.currentX = 0;
-                } else if ((-(this.$refs.ul.offsetWidth - this.$refs.tabbar.offsetWidth)) < this.translateX && this.translateX < 0) {
+                } else if ((-(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth)) < this.translateX && this.translateX < 0) {
                     this.currentX = this.translateX;
-                } else if (this.translateX < -(this.$refs.ul.offsetWidth - this.$refs.tabbar.offsetWidth)) {
-                    this.translateX = -(this.$refs.ul.offsetWidth - this.$refs.tabbar.offsetWidth);
-                    this.currentX = -(this.$refs.ul.offsetWidth - this.$refs.tabbar.offsetWidth);
+                } else if (this.translateX < -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth)) {
+                    this.translateX = -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth);
+                    this.currentX = -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth);
                 }
-                if (this.$refs.ul.offsetWidth >= this.$refs.tabbar.offsetWidth) {
-                    this.addTransition(this.$refs.ul);
-                    this.changeTranslateX(this.$refs.ul, this.translateX);
+                if (this.$refs.tabBarUl.offsetWidth >= this.$refs.tabbar.offsetWidth) {
+                    this.addTransition(this.$refs.tabBarUl);
+                    this.changeTranslateX(this.$refs.tabBarUl, this.translateX);
                     //还原值
                     this.endX = 0;
                     this.distanceX = 0;
@@ -183,19 +178,19 @@
         overflow: hidden;
     }
 
-    #tabbar ul {
+    #tabbar .tabbar-ul {
         position: relative;
         padding: 0;
         margin: 0;
     }
 
-    #tabbar ul::after {
+    #tabbar .tabbar-ul::after {
         content: '';
         display: block;
         clear: both;
     }
 
-    #tabbar ul li {
+    #tabbar .tabbar-ul li {
         text-align: center;
         float: left;
         display: block;
@@ -203,7 +198,7 @@
         /*cursor: pointer;*/
     }
 
-    #tabbar ul span {
+    #tabbar .tabbar-ul span {
         background-color: skyblue;
         position: absolute;
         z-index: 1;

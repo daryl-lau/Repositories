@@ -1,5 +1,5 @@
 <template>
-    <li v-text="value.title" @click="toggleActive(index); toggleTag(index)" :style="active" ref="li"></li>
+    <li v-text="value.title" @click="toggleActive(index); toggleTag(index)" :style="active" ref="tabBarLi"></li>
     <!--    <li v-text="value.title" @click="toggleActive(index); toggleTag(index)" :class="{current: value.isActive}" ref="li"></li>-->
 </template>
 
@@ -39,10 +39,10 @@
 
         },
         mounted() {
-            this.$refs.li.style.width = this.listItemStyle.width + 'px';
-            this.$refs.li.style.height = this.listItemStyle.height + 'px';
-            this.$refs.li.style.lineHeight = this.listItemStyle.height + 'px';
-            this.$refs.li.style.fontSize = this.listItemStyle.fontSize + 'px';
+            this.$refs.tabBarLi.style.width = this.listItemStyle.width + 'px';
+            this.$refs.tabBarLi.style.height = this.listItemStyle.height + 'px';
+            this.$refs.tabBarLi.style.lineHeight = this.listItemStyle.height + 'px';
+            this.$refs.tabBarLi.style.fontSize = this.listItemStyle.fontSize + 'px';
         }
     }
 </script>
