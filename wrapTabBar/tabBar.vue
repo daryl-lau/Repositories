@@ -139,7 +139,6 @@
                 if (this.$refs.tabBarUl.offsetWidth >= this.$refs.tabbar.offsetWidth) {
                     this.addTransition(this.$refs.tabBarUl);
                     this.changeTranslateX(this.$refs.tabBarUl, this.translateX);
-                    //还原值
                     this.endX = 0;
                     this.distanceX = 0;
                 }

@@ -54,7 +54,7 @@ export default {
                 {title: 'Docker', isActive: false},
             ],
             tabBarStyle: {backgroundColor: ''},
-            listItemStyle: {width: 70, height: 50, fontSize: 12, fontColor: '#6c6c6c'},
+            listItemStyle: {width: 70, height: 50, fontSize: 12, fontWeight: 400},
             moveTagStyle: {display: true, width: 30, height: 2, offsetBottom: 5, color: 'skyblue'},
             dragWhiteSpace: 100,
             activeFontColor: {color: 'skyblue'},
@@ -82,7 +82,7 @@ tabBarStyle: {backgroundColor: ''},
 #### 3.每个选项的样式配置，分别为宽、高、字体大小、字体颜色
 **!!!注意：这里的宽高直接决定了整个导航栏的宽高**
 ```text
-listItemStyle: {width: 70, height: 50, fontSize: 12, fontColor: '#6c6c6c'},
+listItemStyle: {width: 70, height: 50, fontSize: 12, fontWeight: 400},
 ```
 
 #### 4.移动游标的样式配置，分别为是否隐藏、宽、高、距离导航栏底部的高度、背景颜色
@@ -98,7 +98,7 @@ dragWhiteSpace: 100,
 #### 6.选中颜色和非选中颜色
 ```text
 activeFontColor: {color: 'skyblue'},
-            noActiveFontColor: {color: '#6c6c6c'}
+noActiveFontColor: {color: '#6c6c6c'}
 ```
 
 ## 暴露的方法
