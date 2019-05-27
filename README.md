@@ -1,6 +1,8 @@
-# wrap-tabbar
+# Vue组件 wrap-tabbar
 #### 移动端顶部滑动导航栏
 ![navbar_gif](https://raw.githubusercontent.com/lyucan01/wrap-tabbar/master/tabbar.gif)
+
+最近学习vue框架，移动端开发需要用到顶部导航栏滑动效果，但是在网上没找到相似的组件库，饿了么的mintUI里面也没找到顶部滑动效果的组件，于是自己写了一个，上面是实现效果，后面可能会发布到npm上去，下面是使用方法，有需要的同学可以拿去用用看，帮我试试看有没有bug~~
 
 ## 安装
 ```
