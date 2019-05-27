@@ -1,4 +1,3 @@
-// aaa
 import wrapTabBar from './wrapTabBar'
 
 const wtb = {
