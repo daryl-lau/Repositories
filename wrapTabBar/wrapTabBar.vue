@@ -44,7 +44,7 @@
             },
             listItemStyle: {
                 type: Object,
-                default: {width: 70, height: 50, fontSize: 12, fontColor: '#6c6c6c'}
+                default: {width: 70, height: 50, fontSize: 12, fontWeight: 400}
             },
             moveTagStyle: {
                 type: Object,

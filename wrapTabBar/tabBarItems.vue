@@ -33,6 +33,7 @@
             this.$refs.tabBarLi.style.height = this.listItemStyle.height + 'px';
             this.$refs.tabBarLi.style.lineHeight = this.listItemStyle.height + 'px';
             this.$refs.tabBarLi.style.fontSize = this.listItemStyle.fontSize + 'px';
+			this.$refs.tabBarLi.style.fontWeight = this.listItemStyle.fontWeight;
         }
     }
 </script>
