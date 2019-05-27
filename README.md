@@ -63,7 +63,7 @@ export default {
 ```
 
 ## 参数说明：
-#### 导航栏内容，title指定选项，可修改，isActive指定是否选中，无需修改
+#### 1.导航栏内容，title指定选项，可修改，isActive指定是否选中，无需修改
 ```text
 tabList: [
     {title: 'DataBase', isActive: true},
@@ -71,28 +71,28 @@ tabList: [
 ]
 ```
 
-#### 导航栏的背景颜色配置
+#### 2.导航栏的背景颜色配置
 ```text
 tabBarStyle: {backgroundColor: ''},
 ```
 
-#### 每个选项的样式配置，分别为宽、高、字体大小、字体颜色
+#### 3.每个选项的样式配置，分别为宽、高、字体大小、字体颜色
 **!!!注意：这里的宽高直接决定了整个导航栏的宽高**
 ```text
 listItemStyle: {width: 70, height: 50, fontSize: 12, fontColor: '#6c6c6c'},
 ```
 
-#### 移动游标的样式配置，分别为是否隐藏、宽、高、距离导航栏底部的高度、背景颜色
+#### 4.移动游标的样式配置，分别为是否隐藏、宽、高、距离导航栏底部的高度、背景颜色
 ```text
 moveTagStyle: {display: true, width: 30, height: 2, offsetBottom: 5, color: 'skyblue'},
 ```
 
-#### 导航栏拖动边界时拉伸的宽度
+#### 5.导航栏拖动边界时拉伸的宽度
 ```text
 dragWhiteSpace: 100,
 ```
 
-#### 选中颜色和非选中颜色
+#### 6.选中颜色和非选中颜色
 ```text
 activeFontColor: {color: 'skyblue'},
             noActiveFontColor: {color: '#6c6c6c'}
