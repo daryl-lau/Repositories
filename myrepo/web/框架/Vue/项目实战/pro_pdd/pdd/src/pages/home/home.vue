@@ -10,6 +10,7 @@
             :noActiveFontColor="noActiveFontColor"
             @change="change"
         ></wtb>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -19,40 +20,41 @@
         data() {
             return {
                 tabList: [
-                    {title: 'DataBase', isActive: true},
-                    {title: 'Oracle', isActive: false},
-                    {title: 'MySQL', isActive: false},
-                    {title: 'MongoDB', isActive: false},
-                    {title: 'Redis', isActive: false},
-                    {title: 'Linux', isActive: false},
-                    {title: 'shell', isActive: false},
-                    {title: 'bash', isActive: false},
-                    {title: '网络', isActive: false},
-                    {title: 'HCIE', isActive: false},
-                    {title: 'Cisco', isActive: false},
-                    {title: 'Python', isActive: false},
-                    {title: 'RedHat', isActive: false},
-                    {title: 'CentOS', isActive: false},
-                    {title: 'Docker', isActive: false},
+                    {title: '热门', isActive: true},
+                    {title: '服饰', isActive: false},
+                    {title: '鞋包', isActive: false},
+                    {title: '母婴', isActive: false},
+                    {title: '百货', isActive: false},
+                    {title: '食品', isActive: false},
+                    {title: '内衣', isActive: false},
+                    {title: '男装', isActive: false},
+                    {title: '电器', isActive: false},
                 ],
                 tabBarStyle: {backgroundColor: ''},
-                listItemStyle: {width: 70, height: 50, fontSize: 14, fontWeight: 400},
+                listItemStyle: {width: 70, height: 50, fontSize: 14, fontWeight: 700},
                 moveTagStyle: {display: true, width: 30, height: 2, offsetBottom: 5, color: 'skyblue'},
                 dragWhiteSpace: 100,
                 activeFontColor: {color: 'skyblue'},
-                noActiveFontColor: {color: '#6c6c6c'}
+                noActiveFontColor: {color: '#6c6c6c'},
+                routerList: [
+                    '/home/hots',
+                    '/home/dress',
+                    '/home/shoes',
+                    '/home/mbaby',
+                    '/home/department',
+                    '/home/foods',
+                    '/home/underwear',
+                    '/home/mens',
+                    '/home/electrical',
+                ]
             }
         },
         components: {},
+
         methods: {
-            toggleActive(index) {
-                for (let i = 0; i < this.tabList.length; i++) {
-                    this.tabList[i].isActive = false;
-                    this.tabList[index].isActive = true;
-                }
-            },
             change(index){
                 console.log(index);
+                this.$router.replace(this.routerList[index])
             }
         }
     }

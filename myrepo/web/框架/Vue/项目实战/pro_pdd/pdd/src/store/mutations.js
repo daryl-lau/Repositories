@@ -1,7 +1,7 @@
 // 异步转同步，获取actions提交的状态,进行同步处理
 
 
-import { ADD_TODO, DEL_ITEM, DEL_FINISHED, IS_SELECT_ALL } from './mutation-types'
+import {} from './mutation-types'
 
 export default {
     [ADD_TODO](state, { todo }) {
