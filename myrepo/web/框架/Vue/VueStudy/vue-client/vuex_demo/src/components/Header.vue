@@ -21,13 +21,13 @@ export default {
     methods: {
         addItem(msg) {
             if (msg === '') {
-                alert('请输入内容！')
+                alert('请输入内容！');
                 return
             }
-            const todo = { title: msg, finished: false }
+            const todo = { title: msg, finished: false };
 
             // 直接调用vuex中定义的方法
-            this.$store.dispatch('addTodo', todo)
+            this.$store.dispatch('addTodo', todo);
             this.inputMsg = ''
         }
     }

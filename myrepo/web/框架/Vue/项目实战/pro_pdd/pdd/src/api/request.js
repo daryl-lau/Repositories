@@ -11,8 +11,8 @@ export default function request(url = '', params = '', method = 'GET') {
             });
             if (paramsStr !== '') {
                 paramsStr = paramsStr.substr(0, paramsStr.lastIndexOf('&'));
+                url += '?' + paramsStr;
             }
-            url += '?' + paramsStr;
             promise = axios.get(url);
         } else if ('POST' === method) {
             promise = axios.post(url, params);

@@ -3,11 +3,14 @@ import App from './App'
 import router from './router'
 
 import wtb from './components/wrapTabBar'
-Vue.use(wtb)
+import store from './store'
+
+Vue.use(wtb);
 
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    store,
+    components: {App},
+    template: '<App/>'
 })

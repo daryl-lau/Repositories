@@ -56,7 +56,7 @@
                 console.log(index);
                 this.$router.replace(this.routerList[index])
             }
-        }
+        },
     }
 </script>
 
