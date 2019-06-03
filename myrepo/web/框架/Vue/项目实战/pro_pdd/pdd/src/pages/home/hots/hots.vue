@@ -6,6 +6,7 @@
                     <img :src="value.imgUrl" alt="" width="100%" :href="value.hrefUrl">
                 </div>
             </div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
 </template>
@@ -30,7 +31,10 @@
                 this.$nextTick(() => {
                     new Swiper('.swiper-container', {
                         autoplay: true,//可选选项，自动滑动
-                        loop: true
+                        loop: true,
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
                     })
                 })
             }
