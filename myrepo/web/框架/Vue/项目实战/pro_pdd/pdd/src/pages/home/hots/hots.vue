@@ -25,6 +25,7 @@
         },
         mounted: function () {
             this.$store.dispatch('getHomeCarousel');
+            this.$store.dispatch('getHomeNav');
         },
         watch: {
             homecarousel: function () {
