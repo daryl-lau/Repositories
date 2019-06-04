@@ -10,7 +10,7 @@ export default {
     async getHomeCarousel({commit}) {
         const result = await getHomeCarousel();
         // console.log(result.status);
-        if (result.status === 200) {
+        if (result.success_code === 200) {
             console.log(result.message);
             commit(GET_HOME_CAROUSEL, {homecarousel: result.message})
         }

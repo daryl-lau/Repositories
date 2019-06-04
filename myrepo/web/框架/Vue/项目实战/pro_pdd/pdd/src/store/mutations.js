@@ -4,7 +4,7 @@
 import {GET_HOME_CAROUSEL} from './mutation-types'
 
 export default {
-    [GET_HOME_CAROUSEL](state, homecarousel) {
-        state.homecarousel = homecarousel.homecarousel
+    [GET_HOME_CAROUSEL](state, {homecarousel}) {
+        state.homecarousel = homecarousel
     },
 }

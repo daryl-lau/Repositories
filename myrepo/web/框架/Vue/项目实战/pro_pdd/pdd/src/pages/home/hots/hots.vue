@@ -3,7 +3,7 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(value, index) in homecarousel" :key="index">
-                    <img :src="value.imgUrl" alt="" width="100%" :href="value.hrefUrl">
+                    <img :src="value.imgurl" alt="" width="100%" :href="value.detail">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
