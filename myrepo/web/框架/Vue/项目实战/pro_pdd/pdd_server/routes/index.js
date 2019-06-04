@@ -13,36 +13,44 @@ var md5 = require('blueimp-md5');
 var users = {};
 // itlike_001.18888888888 = 212112
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function (req, res, next) {
+    res.render('index', {title: 'Express'});
 });
 
 /*
   获取首页轮播图
 */
-router.get('/api/homecasual', (req, res)=>{
-   const data = require('./../data/homecasual');
-   res.json(data);
+router.get('/api/homecasual', (req, res) => {
+    const data = require('./../data/homecasual');
+    res.json(data);
 });
 /*
   获取首页导航
  */
-router.get('/api/homenav', (req, res)=>{
+router.get('/api/homenav', (req, res) => {
     const navJson = require('./../data/homenav');
     res.json({success_code: 200, message: navJson.data});
 });
 /*
   获取首页商品列表
  */
-router.get('/api/homeshoplist', (req, res)=>{
+router.get('/api/homeshoplist', (req, res) => {
     const data = require('./../data/shopList');
     res.json({success_code: 200, message: data});
 });
 /*
   获取搜索分类列表
  */
-router.get('/api/searchgoods', (req, res)=>{
+router.get('/api/searchgoods', (req, res) => {
     const data = require('./../data/search');
+    res.json({success_code: 200, message: data});
+});
+
+/*
+  获取首页顶部导航栏页签
+*/
+router.get('/api/hometopbar', (req, res) => {
+    const data = require('./../data/topbar');
     res.json({success_code: 200, message: data});
 });
 
@@ -50,7 +58,7 @@ router.get('/api/searchgoods', (req, res)=>{
 /**
  * 获取随机图形验证码
  */
-router.get('/api/captcha', (req, res)=>{
+router.get('/api/captcha', (req, res) => {
     // 1. 生成随机的验证码
     var captcha = svgCaptcha.create({
         color: true,
@@ -71,7 +79,7 @@ router.get('/api/captcha', (req, res)=>{
 /**
  * 用户名和密码登录
  */
-router.post('/api/login_pwd', (req, res)=>{
+router.post('/api/login_pwd', (req, res) => {
     //  1. 获取数据
     var name = req.body.name;
     var pwd = md5(req.body.pwd);
@@ -80,7 +88,7 @@ router.post('/api/login_pwd', (req, res)=>{
     console.log('/api/login_pwd', name, pwd, captcha, req.session);
 
     // 2. 合法验证
-    if(captcha !== req.session.captcha){
+    if (captcha !== req.session.captcha) {
         return res.send({err_code: 0, message: '验证码不正确!'});
     }
 
@@ -88,43 +96,43 @@ router.post('/api/login_pwd', (req, res)=>{
     delete req.session.captcha;
 
     // 4. 查询数据库
-     User.findOne({name}, (err, user)=>{
-         if(user){ // 4.1 用户已经注册
-             if(user.pwd !== pwd){ // 密码错误
-                 res.send({err_code: 0, message: '用户名或密码不正确!'});
-             }else {
-                 req.session.userid = user._id;
-                 res.send({
-                     success_code: 200,
-                     data: {
-                         _id: user._id,
-                         name: user.name,
-                         phone: user.phone
-                     }
-                 });
-             }
-         }else { // 4.2 用户没有注册
-             var userModel = new User({name, pwd});
-             userModel.save(function (err, user) {
-                 req.session.userid = user._id;
-                 res.send({
-                     success_code: 200,
-                     data: {
-                         _id: user._id,
-                         name: user.name
-                     }
-                 });
-             });
-         }
+    User.findOne({name}, (err, user) => {
+        if (user) { // 4.1 用户已经注册
+            if (user.pwd !== pwd) { // 密码错误
+                res.send({err_code: 0, message: '用户名或密码不正确!'});
+            } else {
+                req.session.userid = user._id;
+                res.send({
+                    success_code: 200,
+                    data: {
+                        _id: user._id,
+                        name: user.name,
+                        phone: user.phone
+                    }
+                });
+            }
+        } else { // 4.2 用户没有注册
+            var userModel = new User({name, pwd});
+            userModel.save(function (err, user) {
+                req.session.userid = user._id;
+                res.send({
+                    success_code: 200,
+                    data: {
+                        _id: user._id,
+                        name: user.name
+                    }
+                });
+            });
+        }
 
-     });
+    });
 
 });
 
 /**
  * 获取短信验证码
  */
-router.get('/api/send_code', (req, res)=>{
+router.get('/api/send_code', (req, res) => {
     // 1. 获取手机号
     var phone = req.query.phone;
     // 2. 随机产生验证码
@@ -142,7 +150,7 @@ router.get('/api/send_code', (req, res)=>{
     });
     */
     // 3. 成功
-    setTimeout(()=>{
+    setTimeout(() => {
         users[phone] = code;
         console.log(users);
         res.send({success_code: 200, message: '验证码获取成功!', code});
@@ -157,20 +165,20 @@ router.get('/api/send_code', (req, res)=>{
 /**
  * 手机验证码登录
  */
-router.post('/api/login_code', (req, res)=>{
+router.post('/api/login_code', (req, res) => {
     // 1. 获取数据
     const phone = req.body.phone;
     const code = req.body.code;
 
     // 2. 判断验证码是否正确
-    if(users[phone] !== code){
+    if (users[phone] !== code) {
         return res.json({error_code: 0, message: '手机或验证码不正确!'})
     }
 
     // 3. 查询和操作数据
-    delete  users[phone];
-    User.findOne({phone},(err, user)=>{
-        if(user){ // 用户存在
+    delete users[phone];
+    User.findOne({phone}, (err, user) => {
+        if (user) { // 用户存在
             req.session.userid = user._id;
             res.send({
                 success_code: 200,
@@ -180,7 +188,7 @@ router.post('/api/login_code', (req, res)=>{
                     phone: user.phone
                 }
             });
-        }else { // 用户不存在
+        } else { // 用户不存在
             var userModel = new User({phone});
             userModel.save(function (err, user) {
                 req.session.userid = user._id;
@@ -202,23 +210,23 @@ router.post('/api/login_code', (req, res)=>{
   根据session中的userid, 去查询对应的用户返回给客户端
 */
 const filter = {'pwd': 0, 'l_time': 0, '__v': 0};
-router.get('/api/userinfo', (req, res)=>{
+router.get('/api/userinfo', (req, res) => {
     // 1. 取出userId
     const userId = req.session.userid;
     // 2. 查询
-    User.findOne({_id: userId}, filter, (err, user)=>{
-        if(!user){
+    User.findOne({_id: userId}, filter, (err, user) => {
+        if (!user) {
             // 清除上一次的userId
             delete req.session.userid;
             res.send({err_code: 0, message: '请先登录'});
-        }else {
+        } else {
             res.send({success_code: 200, data: user});
         }
     })
 });
 
 // 退出登录
-router.get('/api/logout', (req, res)=>{
+router.get('/api/logout', (req, res) => {
     // 清除session中的userid
     delete req.session.userid;
     // 返回数据

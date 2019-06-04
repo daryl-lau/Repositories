@@ -1,13 +1,16 @@
 <template>
-    <div class="home-carousel">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(value, index) in homecarousel" :key="index">
-                    <img :src="value.imgurl" alt="" width="100%" :href="value.detail">
+    <div id="hots">
+        <div class="home-carousel">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="(value, index) in homecarousel" :key="index">
+                        <img :src="value.imgurl" alt="" width="100%" :href="value.detail">
+                    </div>
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-pagination"></div>
         </div>
+        <hotsnav></hotsnav>
     </div>
 </template>
 
@@ -15,6 +18,8 @@
     // 引入swiper
     import Swiper from 'swiper'
     import 'swiper/dist/css/swiper.min.css'
+
+    import hotsnav from './hotsnav'
 
     import {mapState} from 'vuex'
 
@@ -39,6 +44,9 @@
                     })
                 })
             }
+        },
+        components: {
+            hotsnav,
         }
     }
 </script>

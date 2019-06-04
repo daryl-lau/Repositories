@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "tab": "热门",
+            "route": "/home/hots"
+        },
+        {
+            "tab": "服饰",
+            "route": "/home/dress"
+        },
+        {
+            "tab": "鞋包",
+            "route": "/home/shoes"
+        },
+        {
+            "tab": "母婴",
+            "route": "/home/mbaby"
+        },
+        {
+            "tab": "百货",
+            "route": "/home/department"
+        },
+        {
+            "tab": "食品",
+            "route": "/home/foods"
+        },
+        {
+            "tab": "内衣",
+            "route": "/home/underwear"
+        },
+        {
+            "tab": "男装",
+            "route": "/home/mens"
+        },
+        {
+            "tab": "电器",
+            "route": "/home/electrical"
+        }
+    ]
+}
