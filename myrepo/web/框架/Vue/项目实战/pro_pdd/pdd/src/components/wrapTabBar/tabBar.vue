@@ -105,7 +105,7 @@
                 this.lastTime = Date.now();
             });
             this.$refs.tabBarUl.addEventListener('touchmove', (e) => {
-                // e.stopPropagation();
+                e.stopPropagation();
                 this.endX = e.touches[0].clientX;
                 this.distanceX = this.startX - this.endX;
                 this.translateX = this.currentX - this.distanceX;
@@ -120,7 +120,7 @@
                 }
             });
             this.$refs.tabBarUl.addEventListener('touchend', (e) => {
-                // e.stopPropagation();
+                e.stopPropagation();
                 this.timeDis = Date.now() - this.lastTime;
                 if (this.timeDis > 300) {
                     this.speed = 0;
