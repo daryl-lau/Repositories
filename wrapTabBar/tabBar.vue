@@ -40,6 +40,7 @@
             },
         data() {
             return {
+                screenWidth: document.body.clientWidth,
                 whiteLength: this.dragWhiteSpace,
                 startX: 0,
                 endX: 0,
@@ -69,15 +70,15 @@
             },
             toggleMoveTag: function (index) {
                 this.$emit('handleChange', index);
-                this.translateX = -(index * this.listItemStyle.width - (this.$refs.tabbar.offsetWidth - this.listItemStyle.width) / 2);
-                if (this.translateX <= -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth)) {
-                    this.translateX = -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth)
+                this.translateX = -(index * this.listItemStyle.width - (this.screenWidth - this.listItemStyle.width) / 2);
+                if (this.translateX <= -(this.$refs.tabBarUl.offsetWidth - this.screenWidth)) {
+                    this.translateX = -(this.$refs.tabBarUl.offsetWidth - this.screenWidth)
                 } else if (this.translateX >= 0) {
                     this.translateX = 0
                 }
                 this.currentX = this.translateX;
                 this.spanTranslateX = index * this.listItemStyle.width;
-                if (this.$refs.tabBarUl.offsetWidth >= this.$refs.tabbar.offsetWidth) {
+                if (this.$refs.tabBarUl.offsetWidth >= this.screenWidth) {
                     this.addTransition(this.$refs.tabBarUl);
                     this.changeTranslateX(this.$refs.tabBarUl, this.translateX);
                 }
@@ -108,13 +109,13 @@
                 this.endX = e.touches[0].clientX;
                 this.distanceX = this.startX - this.endX;
                 this.translateX = this.currentX - this.distanceX;
-                if (this.$refs.tabBarUl.offsetWidth >= this.$refs.tabbar.offsetWidth) {
+                if (this.$refs.tabBarUl.offsetWidth >= this.screenWidth) {
                     this.removeTransition(this.$refs.tabBarUl);
                     this.changeTranslateX(this.$refs.tabBarUl, this.translateX);
                     if (this.translateX > this.whiteLength) {
                         this.changeTranslateX(this.$refs.tabBarUl, this.whiteLength);
-                    } else if (this.translateX < -(this.$refs.tabBarUl.offsetWidth + this.whiteLength - this.$refs.tabbar.offsetWidth)) {
-                        this.changeTranslateX(this.$refs.tabBarUl, -(this.$refs.tabBarUl.offsetWidth + this.whiteLength - this.$refs.tabbar.offsetWidth));
+                    } else if (this.translateX < -(this.$refs.tabBarUl.offsetWidth + this.whiteLength - this.screenWidth)) {
+                        this.changeTranslateX(this.$refs.tabBarUl, -(this.$refs.tabBarUl.offsetWidth + this.whiteLength - this.screenWidth));
                     }
                 }
             });
@@ -130,13 +131,13 @@
                 if (this.translateX > 0) {
                     this.translateX = 0;
                     this.currentX = 0;
-                } else if ((-(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth)) < this.translateX && this.translateX < 0) {
+                } else if ((-(this.$refs.tabBarUl.offsetWidth - this.screenWidth)) < this.translateX && this.translateX < 0) {
                     this.currentX = this.translateX;
-                } else if (this.translateX < -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth)) {
-                    this.translateX = -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth);
-                    this.currentX = -(this.$refs.tabBarUl.offsetWidth - this.$refs.tabbar.offsetWidth);
+                } else if (this.translateX < -(this.$refs.tabBarUl.offsetWidth - this.screenWidth)) {
+                    this.translateX = -(this.$refs.tabBarUl.offsetWidth - this.screenWidth);
+                    this.currentX = -(this.$refs.tabBarUl.offsetWidth - this.screenWidth);
                 }
-                if (this.$refs.tabBarUl.offsetWidth >= this.$refs.tabbar.offsetWidth) {
+                if (this.$refs.tabBarUl.offsetWidth >= this.screenWidth) {
                     this.addTransition(this.$refs.tabBarUl);
                     this.changeTranslateX(this.$refs.tabBarUl, this.translateX);
                     this.endX = 0;
