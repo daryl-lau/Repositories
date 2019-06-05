@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="wraptabbar">
         <topTabBar :tabList="tabList"
                    :toggleActive="toggleActive"
                    :listItemStyle="listItemStyle"
@@ -76,9 +76,12 @@
             handleChange(index){
                 this.$emit('change', index)
             }
+        },
+        mounted() {
+            this.$el.style.height = this.listItemStyle.height + 'px'
         }
     }
 </script>
-<style scoped>
+<style scoped lang="less">
 </style>
 

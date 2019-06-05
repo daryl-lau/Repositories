@@ -16,6 +16,7 @@
             },
         methods: {
             toggleTag(index) {
+                console.log('3');
                 this.$emit('toggleMoveTag', index)
             },
         },

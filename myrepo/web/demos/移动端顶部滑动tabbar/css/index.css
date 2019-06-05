@@ -14,6 +14,9 @@ ul,li {
 #tabbar {
     height: 40px;
     overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
 #tabbar ul {
