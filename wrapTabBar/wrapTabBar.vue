@@ -76,6 +76,10 @@
             handleChange(index){
                 this.$emit('change', index)
             }
+        },
+        mounted(){
+            this.$el.style.height = this.listItemStyle.height + 'px';
+            this.$el.style.backgroundColor = this.tabBarStyle.backgroundColor;
         }
     }
 </script>
