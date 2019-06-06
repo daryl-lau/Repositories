@@ -2,5 +2,7 @@
 
 export default {
     homecarousel:[],
-    homenav:{}
+    homenav:{},
+    homeshoplist:{},
+    homebanner:{}
 }

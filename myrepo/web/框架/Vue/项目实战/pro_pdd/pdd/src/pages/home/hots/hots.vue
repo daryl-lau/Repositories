@@ -1,5 +1,6 @@
 <template>
     <div id="hots">
+        <!--热门页轮播图-->
         <div class="home-carousel">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -10,7 +11,12 @@
                 <div class="swiper-pagination"></div>
             </div>
         </div>
+        <!--热门页导航栏-->
         <hotsnav></hotsnav>
+        <!--热门中心图片-->
+        <hotscenterimg></hotscenterimg>
+        <!--热门页商品列表-->
+        <hotslist></hotslist>
     </div>
 </template>
 
@@ -20,6 +26,8 @@
     import 'swiper/dist/css/swiper.min.css'
 
     import hotsnav from './hotsnav'
+    import hotslist from './hotslist'
+    import hotscenterimg from './hotscenterimg'
 
     import {mapState} from 'vuex'
 
@@ -31,6 +39,8 @@
         mounted: function () {
             this.$store.dispatch('getHomeCarousel');
             this.$store.dispatch('getHomeNav');
+            this.$store.dispatch('getHomeShopList');
+            this.$store.dispatch('getHomeBanner');
         },
         watch: {
             homecarousel: function () {
@@ -47,6 +57,8 @@
         },
         components: {
             hotsnav,
+            hotslist,
+            hotscenterimg
         }
     }
 </script>

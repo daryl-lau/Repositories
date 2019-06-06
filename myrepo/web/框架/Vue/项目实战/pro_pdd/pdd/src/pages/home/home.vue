@@ -30,7 +30,7 @@
                     {title: '男装', isActive: false},
                     {title: '电器', isActive: false},
                 ],
-                tabBarStyle: {backgroundColor: ''},
+                tabBarStyle: {backgroundColor: '#ffffff'},
                 listItemStyle: {width: 70, height: 50, fontSize: 14, fontWeight: 700},
                 moveTagStyle: {display: true, width: 30, height: 2, offsetBottom: 5, color: 'skyblue'},
                 dragWhiteSpace: 100,

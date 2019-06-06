@@ -19,7 +19,9 @@
 
 <script>
     import {mapState} from 'vuex'
-    import IScroll from 'iscroll'
+    // import IScroll from 'iscroll'
+
+    import BScroll from '@better-scroll/core'
 
     export default {
         name: "hotsnav",
@@ -27,7 +29,7 @@
             ...mapState(['homenav'])
         },
         mounted() {
-            new IScroll('#wrapper', {scrollX: true})
+            new BScroll('#wrapper', {scrollX: true})
         }
     }
 </script>
@@ -37,10 +39,12 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+        white-space: nowrap;
 
         ul {
-            width: 55rem;
+            width: 60rem;
             height: 100%;
+            display: inline-block;
 
             li {
                 display: flex;

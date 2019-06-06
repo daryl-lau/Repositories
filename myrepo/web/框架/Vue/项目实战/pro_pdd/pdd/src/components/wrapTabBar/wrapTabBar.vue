@@ -78,10 +78,13 @@
             }
         },
         mounted() {
-            this.$el.style.height = this.listItemStyle.height + 'px'
+            this.$el.style.height = this.listItemStyle.height + 'px';
+            this.$el.style.backgroundColor = this.tabBarStyle.backgroundColor;
         }
     }
 </script>
 <style scoped lang="less">
+    #wraptabbar {
+    }
 </style>
 

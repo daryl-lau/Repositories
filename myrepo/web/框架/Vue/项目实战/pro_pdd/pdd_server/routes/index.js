@@ -47,10 +47,10 @@ router.get('/api/searchgoods', (req, res) => {
 });
 
 /*
-  获取首页顶部导航栏页签
+  获取中间banner
 */
-router.get('/api/hometopbar', (req, res) => {
-    const data = require('./../data/topbar');
+router.get('/api/homebanner', (req, res) => {
+    const data = require('./../data/center_banner');
     res.json({success_code: 200, message: data});
 });
 

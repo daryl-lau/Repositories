@@ -3,7 +3,9 @@
 
 import {
     GET_HOME_CAROUSEL,
-    GET_HOME_NAV
+    GET_HOME_NAV,
+    GET_HOME_SHOP_LIST,
+    GET_HOME_BANNER
 } from './mutation-types'
 
 export default {
@@ -12,5 +14,11 @@ export default {
     },
     [GET_HOME_NAV](state, {homenav}) {
         state.homenav = homenav
+    },
+    [GET_HOME_SHOP_LIST](state, {homeshoplist}) {
+        state.homeshoplist = homeshoplist
+    },
+    [GET_HOME_BANNER](state, {homebanner}) {
+        state.homebanner = homebanner
     },
 }
