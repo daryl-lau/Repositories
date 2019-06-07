@@ -16,5 +16,8 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+    #app {
+        margin-bottom: 60px;
+    }
 </style>

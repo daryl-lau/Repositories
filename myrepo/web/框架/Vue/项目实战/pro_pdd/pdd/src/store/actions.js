@@ -4,20 +4,21 @@ import {
     GET_HOME_CAROUSEL,
     GET_HOME_NAV,
     GET_HOME_SHOP_LIST,
-    GET_HOME_BANNER
+    GET_HOME_BANNER,
+    GET_REC_SHOP_LIST
 } from './mutation-types'
 
 import {
     getHomeCarousel,
     getHomeNav,
     getHomeShopList,
-    getHomeBanner
+    getHomeBanner,
+    getRecShopList
 } from './../api'
 
 export default {
     async getHomeCarousel({commit}) {
         const result = await getHomeCarousel();
-        // console.log(result.status);
         if (result.success_code === 200) {
             commit(GET_HOME_CAROUSEL, {homecarousel: result.message})
         }
@@ -41,6 +42,14 @@ export default {
         const result = await getHomeBanner();
         if (result.success_code === 200) {
             commit(GET_HOME_BANNER, {homebanner: result.message})
+        }
+    },
+
+    async getRecShopList({commit}, params) {
+        const result = await getRecShopList(params);
+        console.log(result);
+        if (result.success === true) {
+            commit(GET_REC_SHOP_LIST, {recshoplist: result.data})
         }
     },
 

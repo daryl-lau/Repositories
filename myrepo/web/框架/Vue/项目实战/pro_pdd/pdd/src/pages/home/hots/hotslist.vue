@@ -122,7 +122,7 @@
                             margin-right: 1rem;
                             button {
                                 font-size: 1.2rem;
-                                color: #000000;
+                                color: #FFFFFF;
                                 background-color: red;
                                 padding: .2rem;
                                 border-radius: 1rem;

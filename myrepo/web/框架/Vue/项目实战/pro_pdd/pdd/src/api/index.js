@@ -10,3 +10,8 @@ export const getHomeNav = () => request(BASE_URL + '/api/homenav');
 export const getHomeShopList = () => request(BASE_URL + '/api/homeshoplist');
 
 export const getHomeBanner = () => request(BASE_URL + '/api/homebanner');
+
+
+const PDD_BASE_URL = 'http://mobile.yangkeduo.com/proxy/api/api/barrow/query';
+
+export const getRecShopList = (params) => request('/api', params);
