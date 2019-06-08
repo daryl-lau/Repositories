@@ -12,7 +12,7 @@
                     <div class="detail-left">
                         <div class="goods-price">
                             <span>¥</span>
-                            <span v-text="value.group.price"></span>
+                            <span v-text="value.group.price / 100"></span>
                         </div>
                         <div class="goods-total">
                             <span v-text="value.sales_tip"></span>
