@@ -84,7 +84,5 @@
     }
 </script>
 <style scoped lang="less">
-    #wraptabbar {
-    }
 </style>
 

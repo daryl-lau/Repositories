@@ -155,6 +155,7 @@
         left: 0;
         top: 0;
         z-index: 999;
+        background-color: #FFFFFF;
         box-shadow: 0 2px 5px #b6b6b6;
     }
 

@@ -6,7 +6,8 @@ import {
     GET_HOME_NAV,
     GET_HOME_SHOP_LIST,
     GET_HOME_BANNER,
-    GET_REC_SHOP_LIST
+    GET_REC_SHOP_LIST,
+    GET_SEARCH_GOODS
 } from './mutation-types'
 
 export default {
@@ -24,5 +25,8 @@ export default {
     },
     [GET_REC_SHOP_LIST](state, {recshoplist}) {
         state.recshoplist = recshoplist
+    },
+    [GET_SEARCH_GOODS](state, {searchgoods}) {
+        state.searchgoods = searchgoods
     },
 }

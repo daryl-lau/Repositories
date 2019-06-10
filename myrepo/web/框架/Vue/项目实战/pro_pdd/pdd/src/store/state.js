@@ -5,5 +5,6 @@ export default {
     homenav:{},
     homeshoplist:{},
     homebanner:{},
-    recshoplist:{}
+    recshoplist:{},
+    searchgoods:{},
 }

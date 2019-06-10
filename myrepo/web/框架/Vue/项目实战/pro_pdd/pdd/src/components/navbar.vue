@@ -83,6 +83,7 @@ export default {
     bottom: 0;
     box-shadow: 0 -2px 5px #b6b6b6;
     background-color: #FFFFFF;
+    z-index: 999;
     .items {
         padding-top: 4px;
         display: flex;

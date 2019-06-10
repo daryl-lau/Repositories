@@ -5,7 +5,8 @@ import {
     GET_HOME_NAV,
     GET_HOME_SHOP_LIST,
     GET_HOME_BANNER,
-    GET_REC_SHOP_LIST
+    GET_REC_SHOP_LIST,
+    GET_SEARCH_GOODS
 } from './mutation-types'
 
 import {
@@ -13,7 +14,8 @@ import {
     getHomeNav,
     getHomeShopList,
     getHomeBanner,
-    getRecShopList
+    getRecShopList,
+    getSearchGoods
 } from './../api'
 
 export default {
@@ -50,6 +52,14 @@ export default {
         console.log(result);
         if (result.success === true) {
             commit(GET_REC_SHOP_LIST, {recshoplist: result.data})
+        }
+    },
+
+    async getSearchGoods({commit}) {
+        const result = await getSearchGoods();
+        if (result.success_code === 200) {
+            console.log(result.message);
+            commit(GET_SEARCH_GOODS, {searchgoods: result.message})
         }
     },
 
