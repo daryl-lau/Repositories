@@ -18,14 +18,12 @@
                             <div class="search-title">{{items.name}}</div>
                             <div class="more">查看更多 ></div>
                         </div>
-                        <div class="search-good">
-                            <ul>
-                                <li v-for="(item, index) in items.items">
-                                    <img :src="item.icon" alt="">
-                                    <span v-text="item.title"></span>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul class="shops-items">
+                            <li v-for="(item, index) in items.items" :key="index">
+                                <img :src="item.icon" alt="">
+                                <span v-text="item.title"></span>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -100,11 +98,13 @@
         bottom: 55px;
         display: flex;
         width: 100%;
+        overflow: hidden;
 
         .search-class {
             width: 20%;
-            height: 100%;
-            overflow: hidden;
+            /*height: 100%;*/
+            /*overflow: hidden;*/
+
 
             ul li {
                 color: #666;
@@ -134,59 +134,58 @@
 
         .search-goods {
             width: 80%;
-            height: 100%;
-            overflow: hidden;
+            /*height: 100%;*/
+            /*overflow: hidden;*/
 
-            ul {
-                /*height: 7668px;*/
-                .search-goods-items {
-                    .title {
-                        width: 100%;
-                        height: 3rem;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
 
-                        .search-title {
-                            color: #999;
-                            font-size: 1.2rem;
-                            margin-left: 1rem;
-                        }
+            .search-goods-items {
+                .title {
+                    /*width: 100%;*/
+                    height: 3rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
 
-                        .more {
-                            margin-right: 1rem;
-                            font-size: 1.2rem;
-                            color: #999;
-                        }
+                    .search-title {
+                        color: #999;
+                        font-size: 1.2rem;
+                        margin-left: 1rem;
                     }
 
-                    .search-good {
+                    .more {
+                        margin-right: 1rem;
+                        font-size: 1.2rem;
+                        color: #999;
+                    }
+                }
 
-                        ul {
-                            display: flex;
-                            width: 100%;
-                            flex-wrap: wrap;
 
-                            li {
-                                width: 33%;
-                                display: flex;
-                                flex-flow: column;
-                                justify-content: center;
-                                align-items: center;
-                                padding: 1rem;
+                .shops-items {
+                    display: flex;
+                    /*width: 100%;*/
+                    flex-wrap: wrap;
 
-                                img {
-                                    width: 90px;
-                                }
+                    li {
+                        width: 33%;
+                        height: 130px;
+                        display: flex;
+                        flex-flow: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 1rem;
 
-                                span {
-                                    color: #666;
-                                }
-                            }
+                        img {
+                            width: 90px;
+                        }
+
+                        span {
+                            color: #666;
                         }
                     }
                 }
+
             }
+
         }
     }
 </style>
