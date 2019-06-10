@@ -21,7 +21,7 @@
     import {mapState} from 'vuex'
     // import IScroll from 'iscroll'
 
-    import BScroll from '@better-scroll/core'
+    import BScroll from 'better-scroll'
 
     export default {
         name: "hotsnav",

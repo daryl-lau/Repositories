@@ -88,8 +88,8 @@
 
             .search-nav {
                 width: 100%;;
-                height: 60px;
-                border-bottom: 1px solid #dddddd;
+                height: 50px;
+                /*border-bottom: 1px solid #dddddd;*/
                 padding: 0 20px;
                 display: flex;
                 flex-direction: row;
@@ -121,6 +121,17 @@
                     background-color: transparent;
                     font-size: 16px;
                     color: #aaa
+                }
+
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 1px;
+                    background-color: #e8e8e8;
+                    position: absolute;
+                    left: 0;
+                    top: 50px;
+                    /*bottom: 0;*/
                 }
             }
 
