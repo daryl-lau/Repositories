@@ -2,6 +2,7 @@
     <div class="search-wrap">
         <searchbar></searchbar>
         <div class="search-content">
+            <!--左边-->
             <div class="search-class">
                 <ul>
                     <li v-for="(value, index) in searchgoods.data" :key="index">
@@ -9,6 +10,7 @@
                     </li>
                 </ul>
             </div>
+            <!--右边-->
             <div class="search-goods">
                 <ul>
                     <li class="search-goods-items" v-for="(items, index) in searchgoods.data" :key="index">
@@ -132,54 +134,54 @@
 
         .search-goods {
             width: 80%;
+            height: 100%;
             overflow: hidden;
 
-            .search-goods-items {
-                height: 100%;
-                .title {
-                    width: 100%;
-                    height: 3rem;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    .search-title {
-                        color: #999;
-                        font-size: 1.2rem;
-                        margin-left: 1rem;
-                    }
-
-                    .more {
-                        margin-right: 1rem;
-                        font-size: 1.2rem;
-                        color: #999;
-                    }
-                }
-
-                .search-good {
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-
-                    ul {
-                        display: flex;
+            ul {
+                /*height: 7668px;*/
+                .search-goods-items {
+                    .title {
                         width: 100%;
-                        flex-wrap: wrap;
+                        height: 3rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
 
-                        li {
-                            width: 33%;
+                        .search-title {
+                            color: #999;
+                            font-size: 1.2rem;
+                            margin-left: 1rem;
+                        }
+
+                        .more {
+                            margin-right: 1rem;
+                            font-size: 1.2rem;
+                            color: #999;
+                        }
+                    }
+
+                    .search-good {
+
+                        ul {
                             display: flex;
-                            flex-flow: column;
-                            justify-content: center;
-                            align-items: center;
-                            padding: 1rem;
+                            width: 100%;
+                            flex-wrap: wrap;
 
-                            img {
-                                width: 90px;
-                            }
+                            li {
+                                width: 33%;
+                                display: flex;
+                                flex-flow: column;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 1rem;
 
-                            span {
-                                color: #666;
+                                img {
+                                    width: 90px;
+                                }
+
+                                span {
+                                    color: #666;
+                                }
                             }
                         }
                     }

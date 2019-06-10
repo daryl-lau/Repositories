@@ -17,6 +17,6 @@ const PDD_BASE_URL = 'http://mobile.yangkeduo.com/proxy/api/api/barrow/query';
 export const getRecShopList = (params) => request('/api', params);
 
 
-export const getSearchGoods = (params) => request(BASE_URL + '/api/searchgoods');
+export const getSearchGoods = () => request(BASE_URL + '/api/searchgoods');
 
 
