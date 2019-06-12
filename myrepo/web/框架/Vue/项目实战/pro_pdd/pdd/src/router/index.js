@@ -29,32 +29,32 @@ export default new Router({
         {
             path: '/home', component: home,
             children: [
-                {path: 'department', component: department},
-                {path: 'dress', component: dress},
-                {path: 'electrical', component: electrical},
-                {path: 'foods', component: foods},
-                {path: 'hots', component: hots},
-                {path: 'mbaby', component: mbaby},
-                {path: 'mens', component: mens},
-                {path: 'shoes', component: shoes},
-                {path: 'underwear', component: underwear},
+                {path: 'department', component: department, meta: {isShow: true}},
+                {path: 'dress', component: dress, meta: {isShow: true}},
+                {path: 'electrical', component: electrical, meta: {isShow: true}},
+                {path: 'foods', component: foods, meta: {isShow: true}},
+                {path: 'hots', component: hots, meta: {isShow: true}},
+                {path: 'mbaby', component: mbaby, meta: {isShow: true}},
+                {path: 'mens', component: mens, meta: {isShow: true}},
+                {path: 'shoes', component: shoes, meta: {isShow: true}},
+                {path: 'underwear', component: underwear, meta: {isShow: true}},
                 {path: '/', redirect: 'hots'}
             ]
         },
         {
-            path: '/intro', component: intro
+            path: '/intro', component: intro, meta: {isShow: true}
         },
         {
-            path: '/search', component: search
+            path: '/search', component: search, meta: {isShow: true}
         },
         {
-            path: '/chat', component: chat
+            path: '/chat', component: chat, meta: {isShow: true}
         },
         {
-            path: '/mine', component: mine
+            path: '/mine', component: mine, meta: {isShow: true}
         },
         {
-            path: '/login', component: login, meta: {isShow: true}
+            path: '/login', component: login, meta: {isShow: false}
         },
         {
             path: '/', redirect: '/home'
