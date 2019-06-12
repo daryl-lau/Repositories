@@ -16,6 +16,7 @@
     <h1>{{msg}}</h1>
     <p>{{message}}</p>
     <input type="text" name="" title="" v-model="msg">
+    <button @click="showMsg">按钮</button>
 </div>
 
 
@@ -27,6 +28,11 @@
         data: {
             message: 'Hello,Vue!',
             msg: '你好, Vue!'
+        },
+        methods:{
+            showMsg(){
+                alert(this.msg);
+            }
         }
     })
 </script>

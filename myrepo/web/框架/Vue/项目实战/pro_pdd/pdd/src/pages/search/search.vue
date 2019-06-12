@@ -5,7 +5,12 @@
             <!--左边-->
             <div class="search-class">
                 <ul>
-                    <li v-for="(value, index) in searchgoods.data" :key="index">
+                    <li v-for="(value, index) in searchgoods.data"
+                        :key="index"
+                        :class="{current: curIndex === index}"
+                        @click="clickLeftLi(index)"
+                        ref="menuList"
+                    >
                         <span>{{value.name}}</span>
                     </li>
                 </ul>
@@ -41,10 +46,22 @@
     export default {
         name: 'search',
         data() {
-            return {}
+            return {
+                scrollY: 0,
+                rightLiTops: [],
+            }
         },
         computed: {
-            ...mapState(['searchgoods'])
+            ...mapState(['searchgoods']),
+            curIndex() {
+                // 1.1 获取数据
+                const {scrollY, rightLiTops} = this;
+                // 1.2 取出索引
+                return rightLiTops.findIndex((liTop, index) => {
+                    this._leftScroll(index);
+                    return scrollY >= liTop && scrollY < rightLiTops[index + 1];
+                });
+            }
         },
         components: {
             searchbar,
@@ -62,10 +79,43 @@
                     probeType: 3
                 });
                 // 1.2.3 监听右边的滚动
-                // this.rightScroll.on('scroll', (pos) => {
-                //     this.scrollY = Math.abs(Math.round(pos.y));
-                // });
+                this.rightScroll.on('scroll', (pos) => {
+                    this.scrollY = Math.abs(Math.round(pos.y));
+                });
             },
+            // 1.3初始化右边高度数组
+            _initRightLiTops() {
+                let tempArr = [];
+                let top = 0;
+                tempArr.push(top);
+                let allLis = this.$el.getElementsByClassName('search-goods-items');
+                // console.log(allLis);
+                Array.prototype.slice.call(allLis).forEach((li, index) => {
+                    if (index === allLis.length - 1) {
+                        li.style.paddingBottom = `${window.innerHeight - li.clientHeight - 100}px`;
+                    }
+                    top += li.offsetHeight;
+                    tempArr.push(top);
+                });
+                // console.log(tempArr);
+                this.rightLiTops = tempArr;
+            },
+            // 1.4 点击左边
+            clickLeftLi(index) {
+                this.scrollY = this.rightLiTops[index];
+                // this._leftScroll(index);
+                this.rightScroll.scrollTo(0, -this.scrollY, 300);
+            },
+            // 1.5 左边联动
+            _leftScroll(index) {
+                console.log(index);
+                // 1. 取出左边所有的li标签
+                let menuLists = this.$refs.menuList;
+                let el = menuLists[index];
+                // console.log(menuLists);
+                // 2. 滚动到对应的元素上去
+                this.leftScroll.scrollToElement(el, 0, 0, -100);
+            }
         },
         watch: {
             searchgoods() {
@@ -73,10 +123,11 @@
                     // 1.1 初始化
                     this._initBScroll();
                     // 1.2 求出右边所有版块的头部高度
-                    // this._initRightLiTops();
+                    this._initRightLiTops();
                 });
             }
         },
+
     }
 </script>
 
@@ -117,7 +168,9 @@
             }
 
             .current {
-                color: #e02e24;
+                span {
+                    color: #e02e24;
+                }
             }
 
 

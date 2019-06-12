@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+
+// 引入一级界面
 import home from './../pages/home/home.vue'
 import intro from './../pages/intro/intro.vue'
 import search from './../pages/search/search.vue'
 import chat from './../pages/chat/chat.vue'
 import mine from './../pages/mine/mine.vue'
+import login from './../pages/login/login'
 
+// 引入二级界面
 import department from './../pages/home/department/department'
 import dress from './../pages/home/dress/dress'
 import electrical from './../pages/home/electrical/electrical'
@@ -48,6 +52,9 @@ export default new Router({
         },
         {
             path: '/mine', component: mine
+        },
+        {
+            path: '/login', component: login, meta: {isShow: true}
         },
         {
             path: '/', redirect: '/home'
