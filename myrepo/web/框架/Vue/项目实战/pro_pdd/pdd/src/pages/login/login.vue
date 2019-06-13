@@ -9,21 +9,27 @@
                 </div>
                 <!--面板标题-->
                 <div class="login-header-title">
-                    <a href="javascript:;">短信登录</a>
-                    <a href="javascript:;">验证码登录</a>
+                    <a href="javascript:;" :class="{current: loginMethod}"
+                       @click.prevent="changeLoginMethod(true)">短信登录</a>
+                    <a href="javascript:;" :class="{current: !loginMethod}" @click.prevent="changeLoginMethod(false)">验证码登录</a>
                 </div>
             </div>
             <!--面板表单部分-->
             <div class="login-content">
                 <form>
                     <!--手机验证码登录部分-->
-                    <div class="current">
+                    <div :class="{current: loginMethod}">
                         <section class="login-message">
-                            <input type="tel" maxlength="11" placeholder="手机号">
-                            <button class="get-verification">获取验证码</button>
+                            <input type="tel" maxlength="11" placeholder="手机号" v-model="phoneNumber">
+                            <button class="get-verification" :disabled="!checkPhone" :class="{phone_right: checkPhone}"
+                                    @click="getPhoneCode()" v-if="!countDown"
+
+                            >获取验证码
+                            </button>
+                            <button v-else disabled class="send">已发送({{countDown}})</button>
                         </section>
                         <section class="login-verification">
-                            <input type="tel" maxlength="4" placeholder="验证码">
+                            <input type="tel" maxlength="4" placeholder="验证码" v-model="phoneCode">
                         </section>
                         <section class="login-hint">
                             温馨提示：未注册撩课帐号的手机号，登录时将自动注册，且代表已同意
@@ -31,24 +37,30 @@
                         </section>
                     </div>
                     <!--账号登录部分-->
-                    <div>
+                    <div :class="{current: !loginMethod}">
                         <section>
                             <section class="login-message">
-                                <input type="tel" maxlength="11" placeholder="用户名">
+                                <input type="tel" maxlength="11" placeholder="用户名" v-model="username">
                             </section>
                             <section class="login-verification">
-                                <input type="password" maxlength="20" placeholder="密码">
-<!--                                <input type="text" maxlength="20" placeholder="密码">-->
+                                <input type="password" maxlength="20" placeholder="密码" v-model="password"
+                                       v-if="switchShow">
+                                <input type="text" maxlength="20" placeholder="密码" v-model="password" v-else>
                                 <div class="switch-show">
-                                    <img src="./images/hide_pwd.png" alt="" width="20">
+                                    <img src="./images/hide_pwd.png" alt="" width="20" v-if="switchShow"
+                                         @click.prevent="switchImg(false)">
+                                    <img src="./images/show_pwd.png" alt="" width="20" v-else
+                                         @click.prevent="switchImg(true)">
                                 </div>
                             </section>
                             <section class="login-message">
-                                <input type="text" maxlength="4" placeholder="验证码">
+                                <input type="text" maxlength="4" placeholder="验证码" v-model="captchaCode">
                                 <img
                                     class="get-verification"
-                                    src="./images/captcha.svg"
+                                    src="http://localhost:1688/api/captcha"
                                     alt="captcha"
+                                    @click.prevent="getCaptchaCode()"
+                                    ref="captcha"
                                 >
                             </section>
                         </section>
@@ -63,7 +75,45 @@
 
 <script>
     export default {
-        name: "login"
+        name: "login",
+        data() {
+            return {
+                loginMethod: true,
+                phoneNumber: '',
+                phoneCode: '',
+                countDown: 0,
+                username: '',
+                password: '',
+                captchaCode: '',
+                switchShow: true,
+            }
+        },
+        methods: {
+            changeLoginMethod(flag) {
+                this.loginMethod = flag;
+            },
+            getPhoneCode() {
+                this.countDown = 60;
+                this.intervalId = setInterval(() => {
+                    this.countDown--;
+                    if (this.countDown === 0) {
+                        clearInterval(this.intervalId)
+                    }
+                }, 1000)
+            },
+            switchImg(flag) {
+                this.switchShow = flag;
+            },
+            getCaptchaCode() {
+                this.$refs.captcha.src = 'http://localhost:1688/api/captcha?time=' + new Date();
+            }
+        },
+        computed: {
+            checkPhone() {
+                const reg = new RegExp('^1[3456789]\\d{9}$');
+                return reg.test(this.phoneNumber)
+            }
+        }
     }
 </script>
 
@@ -141,7 +191,7 @@
                             font-size: 14px;
                             background: #fff;
 
-                            .get-verification {
+                            .get-verification, .send {
                                 position: absolute;
                                 top: 50%;
                                 right: 10px;
@@ -155,7 +205,6 @@
                                     color: purple;
                                 }
                             }
-
                         }
 
                         .login-verification {
