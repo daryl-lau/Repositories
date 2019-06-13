@@ -19,4 +19,7 @@ export const getRecShopList = (params) => request('/api', params);
 
 export const getSearchGoods = () => request(BASE_URL + '/api/searchgoods');
 
+// 获取短信验证码
+export const getPhoneCode = (phone) => request(BASE_URL + '/api/send_code' + '?phone=' + phone);
+
 

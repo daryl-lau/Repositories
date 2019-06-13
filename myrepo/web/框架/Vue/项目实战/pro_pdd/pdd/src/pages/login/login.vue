@@ -22,7 +22,7 @@
                         <section class="login-message">
                             <input type="tel" maxlength="11" placeholder="手机号" v-model="phoneNumber">
                             <button class="get-verification" :disabled="!checkPhone" :class="{phone_right: checkPhone}"
-                                    @click="getPhoneCode()" v-if="!countDown"
+                                    @click="getVerifyCode()" v-if="!countDown"
 
                             >获取验证码
                             </button>
@@ -47,9 +47,9 @@
                                        v-if="switchShow">
                                 <input type="text" maxlength="20" placeholder="密码" v-model="password" v-else>
                                 <div class="switch-show">
-                                    <img src="./images/hide_pwd.png" alt="" width="20" v-if="switchShow"
+                                    <img src="./images/hide_pwd.png" alt="" style="width: 20px" v-if="switchShow"
                                          @click.prevent="switchImg(false)">
-                                    <img src="./images/show_pwd.png" alt="" width="20" v-else
+                                    <img src="./images/show_pwd.png" alt="" style="width: 20px" v-else
                                          @click.prevent="switchImg(true)">
                                 </div>
                             </section>
@@ -74,6 +74,9 @@
 </template>
 
 <script>
+    import {getPhoneCode} from './../../api/index'
+    import {Toast} from 'mint-ui';
+
     export default {
         name: "login",
         data() {
@@ -92,21 +95,37 @@
             changeLoginMethod(flag) {
                 this.loginMethod = flag;
             },
-            getPhoneCode() {
+            async getVerifyCode() {
                 this.countDown = 60;
                 this.intervalId = setInterval(() => {
                     this.countDown--;
                     if (this.countDown === 0) {
                         clearInterval(this.intervalId)
                     }
-                }, 1000)
+                }, 1000);
+                const result = await getPhoneCode(this.phoneNumber);
+
+                if (result.err_code === 0) {
+                    // console.log(result.message);
+                    Toast({
+                        message: result.message,
+                        position: 'middle',
+                        duration: 3000
+                    });
+
+                    // 2.5 后续处理
+                    setTimeout(() => {
+                        clearInterval(this.intervalId);
+                        this.countDown = 0;
+                    }, 3000);
+                }
             },
             switchImg(flag) {
                 this.switchShow = flag;
             },
             getCaptchaCode() {
                 this.$refs.captcha.src = 'http://localhost:1688/api/captcha?time=' + new Date();
-            }
+            },
         },
         computed: {
             checkPhone() {

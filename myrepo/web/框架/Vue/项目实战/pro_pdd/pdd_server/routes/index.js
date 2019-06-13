@@ -150,16 +150,16 @@ router.get('/api/send_code', (req, res) => {
     });
     */
     // 3. 成功
-    setTimeout(() => {
-        users[phone] = code;
-        console.log(users);
-        res.send({success_code: 200, message: '验证码获取成功!', code});
-    }, 2000);
-
+    // setTimeout(() => {
+    //     users[phone] = code;
+    //     console.log(users);
+    //     res.send({success_code: 200, message: '验证码获取成功!', code});
+    // }, 2000);
+    // console.log(users);
     // 4. 失败
-    /*setTimeout(()=>{
+    setTimeout(()=>{
         res.send({err_code: 0, message: '验证码获取失败!'});
-    }, 2000);*/
+    }, 2000);
 });
 
 /**
