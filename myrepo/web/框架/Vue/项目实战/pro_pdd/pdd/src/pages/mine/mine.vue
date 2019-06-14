@@ -1,17 +1,17 @@
 <template>
-   <div class="">
-       <span>mine</span>
-   </div>
+    <SelectLogin></SelectLogin>
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-   name: 'mine',
-   data() {
-       return {}
-   },
-  components: {}
-}
+    import SelectLogin from './../login/selectLogin'
+
+    export default {
+        name: 'mine',
+        data() {
+            return {}
+        },
+        components: {SelectLogin}
+    }
 </script>
 
 <style lang="less" scoped>

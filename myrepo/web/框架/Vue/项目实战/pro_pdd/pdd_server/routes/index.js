@@ -80,12 +80,13 @@ router.get('/api/captcha', (req, res) => {
  * 用户名和密码登录
  */
 router.post('/api/login_pwd', (req, res) => {
+    console.log(req.session);
     //  1. 获取数据
     var name = req.body.name;
     var pwd = md5(req.body.pwd);
     var captcha = req.body.captcha.toLocaleLowerCase();
 
-    console.log('/api/login_pwd', name, pwd, captcha, req.session);
+    console.log('/api/login_pwd', name, pwd, captcha, req.session.captcha);
 
     // 2. 合法验证
     if (captcha !== req.session.captcha) {
@@ -98,6 +99,7 @@ router.post('/api/login_pwd', (req, res) => {
     // 4. 查询数据库
     User.findOne({name}, (err, user) => {
         if (user) { // 4.1 用户已经注册
+            console.log(1);
             if (user.pwd !== pwd) { // 密码错误
                 res.send({err_code: 0, message: '用户名或密码不正确!'});
             } else {
@@ -112,6 +114,7 @@ router.post('/api/login_pwd', (req, res) => {
                 });
             }
         } else { // 4.2 用户没有注册
+            // console.log(1);
             var userModel = new User({name, pwd});
             userModel.save(function (err, user) {
                 req.session.userid = user._id;
@@ -150,16 +153,16 @@ router.get('/api/send_code', (req, res) => {
     });
     */
     // 3. 成功
-    // setTimeout(() => {
-    //     users[phone] = code;
-    //     console.log(users);
-    //     res.send({success_code: 200, message: '验证码获取成功!', code});
-    // }, 2000);
+    setTimeout(() => {
+        users[phone] = code;
+        console.log(users);
+        res.send({success_code: 200, message: '验证码获取成功!', code});
+    }, 2000);
     // console.log(users);
     // 4. 失败
-    setTimeout(()=>{
+    /*setTimeout(()=>{
         res.send({err_code: 0, message: '验证码获取失败!'});
-    }, 2000);
+    }, 2000);*/
 });
 
 /**

@@ -1,10 +1,11 @@
 // 组件所有的状态
 
 export default {
-    homecarousel:[],
-    homenav:{},
-    homeshoplist:{},
-    homebanner:{},
-    recshoplist:{},
-    searchgoods:{},
+    homecarousel: [],
+    homenav: {},
+    homeshoplist: {},
+    homebanner: {},
+    recshoplist: {},
+    searchgoods: {},
+    userinfo: {}
 }

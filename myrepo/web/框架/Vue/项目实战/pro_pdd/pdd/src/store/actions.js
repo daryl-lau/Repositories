@@ -6,7 +6,8 @@ import {
     GET_HOME_SHOP_LIST,
     GET_HOME_BANNER,
     GET_REC_SHOP_LIST,
-    GET_SEARCH_GOODS
+    GET_SEARCH_GOODS,
+    SYNC_USER_INFO
 } from './mutation-types'
 
 import {
@@ -62,5 +63,9 @@ export default {
             commit(GET_SEARCH_GOODS, {searchgoods: result.message})
         }
     },
+
+    syncUserInfo({commit}, params){
+        commit(SYNC_USER_INFO, {userinfo: params})
+    }
 
 }

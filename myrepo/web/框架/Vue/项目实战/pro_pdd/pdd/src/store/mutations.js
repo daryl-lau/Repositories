@@ -7,7 +7,8 @@ import {
     GET_HOME_SHOP_LIST,
     GET_HOME_BANNER,
     GET_REC_SHOP_LIST,
-    GET_SEARCH_GOODS
+    GET_SEARCH_GOODS,
+    SYNC_USER_INFO
 } from './mutation-types'
 
 export default {
@@ -29,4 +30,7 @@ export default {
     [GET_SEARCH_GOODS](state, {searchgoods}) {
         state.searchgoods = searchgoods
     },
+    [SYNC_USER_INFO](state, {userinfo}){
+        state.userinfo = userinfo
+    }
 }

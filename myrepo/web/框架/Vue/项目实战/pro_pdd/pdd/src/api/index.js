@@ -20,6 +20,12 @@ export const getRecShopList = (params) => request('/api', params);
 export const getSearchGoods = () => request(BASE_URL + '/api/searchgoods');
 
 // 获取短信验证码
-export const getPhoneCode = (phone) => request(BASE_URL + '/api/send_code' + '?phone=' + phone);
+export const getPhoneCode = (phone) => request(BASE_URL + '/api/send_code', {phone});
+
+// 手机短信登录
+export const phoneCodeLogin = (phone, code) => request(BASE_URL + '/api/login_code', {phone:phone, code:code}, 'POST');
+
+// 账号密码、图形验证码登录
+export const pwdLogin = (username, pwd, code) => request(BASE_URL + '/api/login_pwd', {name: username, pwd: pwd, captcha: code}, 'POST');
 
 
