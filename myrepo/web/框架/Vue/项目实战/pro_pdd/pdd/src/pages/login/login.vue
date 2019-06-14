@@ -75,7 +75,7 @@
 
 <script>
     import {getPhoneCode} from './../../api/index'
-    import {Toast} from 'mint-ui';
+    // import {Toast} from 'mint-ui';
 
     export default {
         name: "login",
@@ -107,17 +107,27 @@
 
                 if (result.err_code === 0) {
                     // console.log(result.message);
-                    Toast({
-                        message: result.message,
-                        position: 'middle',
-                        duration: 3000
+                    // Toast({
+                    //     message: result.message,
+                    //     position: 'middle',
+                    //     duration: 3000
+                    // });
+                    this.toast = this.$createToast({
+                        txt: result.message,
+                        type: 'txt',
+                        time: 2000,
+                        onTimeout: ()=>{
+                            clearInterval(this.intervalId);
+                            this.countDown = 0;
+                        }
                     });
+                     this.toast.show();
 
                     // 2.5 后续处理
-                    setTimeout(() => {
-                        clearInterval(this.intervalId);
-                        this.countDown = 0;
-                    }, 3000);
+                    // setTimeout(() => {
+                    //     clearInterval(this.intervalId);
+                    //     this.countDown = 0;
+                    // }, 3000);
                 }
             },
             switchImg(flag) {
@@ -126,6 +136,7 @@
             getCaptchaCode() {
                 this.$refs.captcha.src = 'http://localhost:1688/api/captcha?time=' + new Date();
             },
+
         },
         computed: {
             checkPhone() {

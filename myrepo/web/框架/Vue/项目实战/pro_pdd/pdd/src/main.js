@@ -8,6 +8,9 @@ import 'mint-ui/lib/style.css'
 import wtb from './components/wrapTabBar'
 import store from './store'
 
+import Cube from 'cube-ui'
+
+Vue.use(Cube)
 Vue.use(wtb);
 Vue.use(MintUI);
 
