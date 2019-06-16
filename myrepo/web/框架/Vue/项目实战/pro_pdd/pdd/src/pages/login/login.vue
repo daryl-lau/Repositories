@@ -221,6 +221,11 @@
                     if (result.success_code === 200) {
                         this.userInfo = result.data;
                     } else {
+                        this.toast = this.$createToast({
+                            txt: '验证码错误!',
+                            type: 'txt',
+                        });
+                        this.toast.show();
                         this.userInfo = {
                             message: '登录失败, 用户名和密码不正确!'
                         }

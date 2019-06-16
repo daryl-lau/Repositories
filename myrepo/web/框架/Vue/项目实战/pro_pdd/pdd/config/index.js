@@ -18,6 +18,13 @@ module.exports = {
                     '^/api': '' //路径重写
                 }
             },
+            '/local_api': {  //使用"/api"来代替线上服务器地址
+                target: 'http://localhost:1688', //源地址
+                changeOrigin: true, //改变源
+                pathRewrite: {
+                    '^/local_api': '' //路径重写
+                }
+            }
         },
 
         // Various Dev Server settings
