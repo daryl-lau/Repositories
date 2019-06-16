@@ -16,7 +16,8 @@ import {
     getHomeShopList,
     getHomeBanner,
     getRecShopList,
-    getSearchGoods
+    getSearchGoods,
+    getUserInfo
 } from './../api'
 
 export default {
@@ -66,6 +67,12 @@ export default {
 
     syncUserInfo({commit}, params){
         commit(SYNC_USER_INFO, {userinfo: params})
+    },
+
+    async getUserInfo({commit}){
+        const userinfo = await getUserInfo();
+        // console.log(userinfo.data);
+        commit(SYNC_USER_INFO, {userinfo: userinfo.data})
     }
 
 }

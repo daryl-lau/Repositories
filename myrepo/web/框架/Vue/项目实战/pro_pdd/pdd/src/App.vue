@@ -13,6 +13,9 @@
         components: {
             navbar,
         },
+        mounted() {
+            this.$store.dispatch('getUserInfo');
+        }
     }
 </script>
 

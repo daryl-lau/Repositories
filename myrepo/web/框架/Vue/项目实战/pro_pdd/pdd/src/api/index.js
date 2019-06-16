@@ -32,4 +32,6 @@ export const phoneCodeLogin = (phone, code) => request(BASE_URL + '/api/login_co
 // 账号密码、图形验证码登录
 export const pwdLogin = (username, pwd, code) => request(BASE_URL + '/api/login_pwd', {name: username, pwd: pwd, captcha: code}, 'POST');
 
+export const getUserInfo = () => request(BASE_URL + '/api/userinfo');
+
 

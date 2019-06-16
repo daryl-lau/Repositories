@@ -67,7 +67,7 @@
                     </div>
                     <button class="login-submit" @click.prevent="login()">登录</button>
                 </form>
-                <button class="login-back">返回</button>
+                <button class="login-back" @click.prevent="$router.back()">返回</button>
             </div>
         </div>
     </div>
@@ -231,8 +231,18 @@
                         }
                     }
                 }
-                console.log(this.userInfo);
-                this.syncUserInfo(this.userInfo)
+                if (!this.userInfo._id) {
+                    this.toast = this.$createToast({
+                            txt: this.userInfo.message,
+                            type: 'txt',
+                        });
+                        this.toast.show();
+                } else {
+                    // 6.1 同步用户的信息
+                    this.syncUserInfo(this.userInfo);
+                    // 6.2 回到主界面
+                    this.$router.back();
+                }
             },
             ...mapActions(['syncUserInfo'])
         },

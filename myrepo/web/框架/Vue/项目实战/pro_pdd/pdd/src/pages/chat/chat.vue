@@ -1,17 +1,22 @@
 <template>
-   <div class="">
-       <span>char</span>
-   </div>
+    <div v-if="this.userinfo._id">聊天</div>
+    <SelectLogin v-else></SelectLogin>
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-   name: 'chat',
-   data() {
-       return {}
-   },
-  components: {}
-}
+    import SelectLogin from './../login/selectLogin'
+    import {mapState} from 'vuex'
+
+    export default {
+        name: 'mine',
+        data() {
+            return {}
+        },
+        components: {SelectLogin},
+        computed: {
+            ...mapState(['userinfo'])
+        }
+    }
 </script>
 
 <style lang="less" scoped>

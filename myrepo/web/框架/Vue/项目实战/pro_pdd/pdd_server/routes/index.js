@@ -216,12 +216,13 @@ const filter = {'pwd': 0, 'l_time': 0, '__v': 0};
 router.get('/api/userinfo', (req, res) => {
     // 1. 取出userId
     const userId = req.session.userid;
+    console.log(userId);
     // 2. 查询
     User.findOne({_id: userId}, filter, (err, user) => {
         if (!user) {
             // 清除上一次的userId
             delete req.session.userid;
-            res.send({err_code: 0, message: '请先登录'});
+            res.send({err_code: 0, data: '请先登录'});
         } else {
             res.send({success_code: 200, data: user});
         }

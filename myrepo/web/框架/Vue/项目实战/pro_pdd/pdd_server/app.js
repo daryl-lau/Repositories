@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
    secret: '12345', // 对sessionId进行cookie签名
    cookie: {maxAge: 1000 * 60 * 60 * 24}, // 设置session的有效时间, 单位ms
+   // cookie: {maxAge: 1000 * 60}, // 设置session的有效时间, 单位ms
    resave: false,
    saveUninitialized: true,
 }));
