@@ -22,7 +22,7 @@
                         <section class="login-message">
                             <input type="tel" maxlength="11" placeholder="手机号" v-model="phoneNumber">
                             <button class="get-verification" :disabled="!checkPhone" :class="{phone_right: checkPhone}"
-                                    @click="getVerifyCode()" v-if="!countDown"
+                                    @click.prevent="getVerifyCode()" v-if="!countDown"
 
                             >获取验证码
                             </button>
@@ -65,7 +65,7 @@
                             </section>
                         </section>
                     </div>
-                    <button class="login-submit" @click="login()">登录</button>
+                    <button class="login-submit" @click.prevent="login()">登录</button>
                 </form>
                 <button class="login-back">返回</button>
             </div>
@@ -215,6 +215,7 @@
                         return;
                     }
                     // 5.2 发起请求
+                    console.log('发起请求');
                     const result = await pwdLogin(this.username, this.password, this.captchaCode);
                     console.log(result);
                     if (result.success_code === 200) {
