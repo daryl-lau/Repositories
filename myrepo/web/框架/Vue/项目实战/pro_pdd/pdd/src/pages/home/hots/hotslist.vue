@@ -68,7 +68,7 @@
 
                 .shoplist-name {
                     padding: .2rem 1rem;
-                    font-size: 1.2rem;
+                    /*font-size: 1.2rem;*/
                 }
 
                 .shoplist-detail {
@@ -88,7 +88,7 @@
 
                             span {
                                 color: #ff4400;
-                                font-size: 1.3rem;
+                                /*font-size: 1.3rem;*/
                                 font-weight: bolder;
                             }
 
@@ -112,7 +112,7 @@
 
                             div {
                                 img {
-                                    width: 2.5rem;
+                                    width: 1.5rem;
                                     border-radius: 50%;
                                 }
                             }
@@ -121,7 +121,7 @@
                         .btn {
                             margin-right: 1rem;
                             button {
-                                font-size: 1.2rem;
+                                /*font-size: 1.2rem;*/
                                 color: #FFFFFF;
                                 background-color: red;
                                 padding: .2rem;

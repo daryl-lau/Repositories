@@ -163,7 +163,7 @@
                 justify-content: center;
                 align-items: center;
                 height: 5rem;
-                font-size: 1.2rem;
+                font-size: 1rem;
                 background-color: #fafafa;
             }
 
@@ -201,13 +201,13 @@
 
                     .search-title {
                         color: #999;
-                        font-size: 1.2rem;
+                        font-size: 1rem;
                         margin-left: 1rem;
                     }
 
                     .more {
                         margin-right: 1rem;
-                        font-size: 1.2rem;
+                        font-size: 1rem;
                         color: #999;
                     }
                 }
@@ -233,6 +233,7 @@
 
                         span {
                             color: #666;
+                            font-size: .7rem;
                         }
                     }
                 }

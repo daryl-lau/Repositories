@@ -64,6 +64,9 @@
 </script>
 
 <style scoped>
+    #hots {
+        font-size: 1rem;
+    }
     .home-carousel {
         width: 100%;
         height: 100%;

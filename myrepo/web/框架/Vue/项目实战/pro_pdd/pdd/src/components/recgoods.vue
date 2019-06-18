@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="found">
-                <button>发现></button>
+                <button>发现 ></button>
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
 
         .goods-name {
             height: 2rem;
-            font-size: 1.3rem;
+            font-size: .5rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -64,12 +64,13 @@
 
         .goods-tag {
             padding-left: .5rem;
-            font-size: 1.2rem;
-            margin: .4rem 0;
+            font-size: .5rem;
+            margin: .2rem 0;
             height: 1.5rem;
 
             span {
-                background-color: rgba(255, 87, 6, 0.08)
+                background-color: rgba(255, 87, 6, 0.08);
+                margin-right: .2rem;
             }
         }
 
@@ -97,21 +98,22 @@
                     }
 
                     span:nth-child(2) {
-                        font-size: 1.5rem;
+                        /*font-size: 1.5rem;*/
                         margin-left: -.1rem;
                     }
                 }
 
                 .goods-sale {
                     span {
+                        font-size: .3rem;
                         color: #9c9c9c;
                     }
                 }
             }
 
             .found {
-                width: 4rem;
-                height: 2rem;
+                width: 3rem;
+                height: 1.5rem;
 
 
                 button {
@@ -123,6 +125,7 @@
                     border-bottom-left-radius: 1rem;
                     border-top-left-radius: 1rem;
                     padding-left: .5rem;
+                    font-size: .5rem;
                     /*background-color: #fff;*/
                     /*border: 1px #9c9c9c;*/
                 }
