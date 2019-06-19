@@ -1,0 +1,16 @@
+
+# 安装
+npm i @babel/core @babel/cli @babel/preset-env -D
+
+# 编辑package.json
+"scripts": {
+    "babel_build": "babel src -d dest"   // 添加快速执行脚本， 使用npm run babel_build 进行编译
+  },
+
+
+# 修改 .babelrc 文件，如果没有，自己新建
+{
+    "presets": ["@babel/preset-env"]
+}
+
+# 工程根目录下，运行 npm run babel_build 进行编译

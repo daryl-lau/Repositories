@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<script>
+    // map 映射
+    let arr = [123, 242, 1231, 4132];
+    let res = arr.map((value, index) => {
+        // console.log(value);
+        // console.log(index);
+
+
+        /*
+        if (value > 1000) {
+            return true
+        } else {
+            return false
+        }
+        */
+
+        return value > 1000
+    });
+    console.log(res);
+
+    // forEach 遍历
+    let arr1 = [123,231,415,3,353];
+    arr1.forEach((value, index)=>{
+        console.log('第' + index + '个数是' + value);
+        console.log(`第${index}个数是${value}`)
+    });
+
+
+    // filter过滤，不能修改原来的数组，只能通过新数组接收
+    let arr3 = [12,31,25,235,231,522];
+    let newarr3 = arr3.filter(item => item%2 === 0);
+    console.log(newarr3);
+
+
+    // reduce, tmp初始值为数组的第一个值，value初始值为数组第二个值，index从1递增至数组长度减1，
+    // tmp从第二次开始就是数组第一个值和第二个值计算的结果，再依次进行后续的计算
+    let arr4 = [1,2,3,4,5,6,7,8,9];
+    let newarr4 = arr4.reduce((tmp, value, index)=>{
+        console.log(tmp, value, index);
+        return tmp + value
+    });
+    console.log(newarr4);
+
+</script>
+<body>
+
+</body>
+</html>
