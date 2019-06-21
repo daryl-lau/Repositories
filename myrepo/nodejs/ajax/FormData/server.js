@@ -9,7 +9,7 @@ http.createServer((req, res) => {
 
     form.parse(req);
 
-    form.on('filed', (name, value) => {
+    form.on('field', (name, value) => {
         console.log('filed:', name, value)
     });
 
