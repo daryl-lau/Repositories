@@ -15,38 +15,38 @@
 
 <!--FormData主要处理文件等二进制数据的上传，get、post请求方式都可使用-->
 
-<form action="http://localhost:8080" method="post" id="form1">
+<form action="http://localhost:8080/" method="post" id="form1">
     用户：<input type="text" name="username" title=""><br>
     密码：<input type="password" name="password"><br>
-<!--    文件：<input type="file" name="filename" title=""><br>-->
+    <!--    文件：<input type="file" name="filename" title=""><br>-->
     <input type="submit" name="" title="" value="提交">
 </form>
 
-<script>
-    window.onload = function () {
-        let oForm = document.getElementById('form1');
-        oForm.onsubmit = function () {
-            let formData = new FormData(oForm);
-
-            let xhr = new XMLHttpRequest();
-
-            xhr.open(oForm.method, oForm.action, true);
-            xhr.send(formData);
-            xhr.onreadystatechange = function () {
-                if (xhr.response === 4) {
-                    if(xhr.status === 200){
-                        alert('成功')
-                    }else {
-                        alert('失败')
-                    }
-                }
-            };
-
-            // 需要组织submit的默认事件
-            return false;
-        }
-    }
-</script>
 
 </body>
+<script>
+
+    let oForm = document.getElementById('form1');
+    oForm.onsubmit = function () {
+        let formdata = new FormData(oForm);
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.open(oForm.method, oForm.action, true);
+        xhr.send(formdata);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    alert('成功')
+                } else {
+                    alert('失败')
+                }
+            }
+        };
+
+        // 需要组织submit的默认事件
+        return false;
+    }
+
+</script>
 </html>
