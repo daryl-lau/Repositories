@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+
+    <!--客户端需要引入服务器端的socket.io， ws自动处理，客户端只需引入-->
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+    <script>
+        // 建立ws连接，协议是ws，而不是http，并且使用ws没有跨域问题
+        let sock = io.connect('ws://localhost:8080');
+
+        // 向服务端发送数据，同样有两个方法，一个emit一个on，作用和服务端相同，一个用于发送数据，一个用于接收数据
+        sock.emit('data1', [1, 2, 3]);
+
+        sock.on('time', time=>{
+            console.log(time);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>
