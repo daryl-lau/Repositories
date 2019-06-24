@@ -19,7 +19,7 @@
 
         // 向服务端发送数据，同样有两个方法，一个emit一个on，作用和服务端相同，一个用于发送数据，一个用于接收数据
         // 这个'data1'的名字，需要客户端与服务端保持一致，否则无法接收
-        sock.emit('data1', [1, 2, 3]);
+        sock.emit('data1', 1, 2, 3);
 
         sock.on('time', time=>{
             console.log(time);

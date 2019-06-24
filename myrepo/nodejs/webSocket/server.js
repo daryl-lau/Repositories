@@ -1,7 +1,9 @@
 const http = require('http');
 const socket = require('socket.io');
 
-// 建立普通的http服务
+// ws安全，快，自动数据解析
+
+// 建立普通的http服务，ws在建立连接的时候一开始是使用的http协议
 let server = http.createServer(() => {
 });
 server.listen(8080);
@@ -20,7 +22,7 @@ ws.on('connection', sock => {
 
     // 接收数据，sock.on('name', (data)=>{})
     // sock.on();
-    sock.on('data1', ([a, b, c]) => {
+    sock.on('data1', (a, b, c) => {
         console.log(a, b, c, a + b + c);
     })
 });
