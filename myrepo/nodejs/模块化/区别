@@ -1,0 +1,56 @@
+一、ES6标准发布后，module成为标准，标准的使用时以export指令导出接口，以import引入模块，但是在以往的node模块中，
+我们采用的是CommonJS规范，使用require引入模块，使用module.exports导出接口
+
+1、NodeJS模块化遵循了CommonJS规范，根据CommonJS规范，每个文件就是一个模块，NodeJS会为每一个JS文件生成一个module对象，这个module对象
+会有一个exports属性，并且这个exports属性是一个空对象：
+
+module={
+exports:{}
+}
+
+
+2、NodeJS模块化的步骤：创建模块、导出模块（exports）、加载模块（require）、使用模块
+
+
+3、导出模块exports：module对象的exports属性用来对外暴露变量、方法和整个模块，当其他文件require该模块的时候，实际上就是读取了该
+   模块module对象的exports属性
+
+
+4、导入模块——require：是 CommonJS/AMD规范引入方式，是运行时加载，因此理论上require可以放在运行代码的任何地方，本质上require是
+   赋值过程，其实require的结果就是对象、数字、字符串、函数等，再把require的结果赋值给某个变量
+
+
+5、导入模块——import：import是ES6的一个语法标准，如果要兼容浏览器的话必须转化成ES5的语法，是编译时调用，因此必须放在文件开头，
+   本质上import是解构过程，但是目前所有的引擎都还没有实现import，我们在node中使用babel支持ES6，也仅仅是将ES6转码为ES5再执行，
+   import语法会被转码为require
+
+
+
+二、module.exports、exports与export、export default的区别
+
+1、用法上的不同：前两者用法是后面加等号，后两者的用法是后面直接接具体的导出，不需要等号
+module.exports = ...
+exports = ...
+export ...
+export default ...
+
+
+2、exports实际上是module.exports的引用，在NodeJS中每一个JS文件都被看做是一个模块，NodeJS会为每一个JS文件生成一个module对象，
+   这个mosule对象有一个exports属性，并且这个exports属性是一个空对象。同时，还有一个exports，引用的是module的exports属性，
+   即：exports=module.exports
+
+
+3、export和exports的区别：首先两者是完全不同的两个东西，export是ES6引入的语法，用于导出模块中的变量，对象，函数，类。对应的导入
+   关键字是import，而exports是一个对象，不是语法。
+
+
+4、export和export default的区别：两者都是ES6的导出语法，区别在于export default在一个模块中最多只能有一个，而export在一个模块
+   中可以有多个；export default的对象、变量、函数、类，可以没有名字。export的必须有名字；export default对应的import和export对应
+   的import有所区别（其中test是导出模块所在的JS文件名），如：
+        export default const a = 1;  =>  import a from 'test'
+        export const a = 1;  =>  import {a} from 'test'
+
+        两者在import时都可以取别名，如把导入的a取名为b：
+        export default对应的取别名方式：import b from 'test'
+        export 对应的取别名方式：import {a as b} from 'test'
+

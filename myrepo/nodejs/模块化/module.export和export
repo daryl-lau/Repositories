@@ -1,0 +1,36 @@
+在学习Node.js时，经常能看到两种导出模块的方式：module.exports和exports。
+
+ES5 用法
+穿插一个必备小知识：在文件a.js中用exports或module.exports导出的对象（方法、变量），可以在另一个文件b.js中通过require('./a')引用。
+
+module和exports是Node.js给每个js文件内置的两个对象。
+可以通过console.log(module)和console.log(exports)打印出来。
+如果你在main.js中写入下面两行，然后运行$ node main.js:
+
+console.log(exports);   //输出：{}
+console.log(module);    //输出：Module {..., exports: {}, ...} （注：...代表省略了其他一些属性）
+
+从打印我们可以看出，module.exports和exports一开始都是一个空对象{}，实际上，这两个对象指向同一块内存。
+这也就是说module.exports和exports是等价的（有个前提：不去改变它们指向的内存地址）。
+
+例如：exports.age = 18 和 module.export.age = 18，这两种写法是一致的（都相当于给最初的空对象{}添加了一个属性，通过require得到的就是{age: 18}）。
+
+但是，require引入的对象本质上是module.exports。
+这就产生了一个问题，当 module.exports和exports指向的不是同一块内存时，exports的内容就会失效。
+
+例如：
+module.exports = {name: '萤火虫叔叔'}；
+exports = {name: '萤火虫老阿姨'}
+
+此时module.exports指向了一块新的内存（该内存的内容为{name: '萤火虫叔叔'}），
+exports指向了另一块新的内存（该内存的内容为{name: '萤火虫老阿姨'}）。
+require得到的是{name: '萤火虫叔叔'}。
+
+附上代码（在main.js中引入people.js）：
+//people.js
+module.exports = {name: '萤火虫叔叔'}；
+exports = {name: '萤火虫老阿姨'};
+
+//main.js
+let people = require('./people');
+console.log(people);//输出：{name: '萤火虫叔叔'}

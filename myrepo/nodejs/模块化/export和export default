@@ -1,0 +1,74 @@
+
+在es5中，用module.exports和exports导出模块，用require引入模块。
+es6新增export和export default导出模块，import导入模块。
+
+一、在es6中的两种基本用法
+新建两个文件：a.js, b.js。a.js用于导出模块，b.js用户导入模块。两个文件放在同一目录下。
+
+第一种用法
+export default导出：
+
+//a.js
+const Programmer = {name: 'UncleFirefly',age:25}
+export default Programmer
+
+export default导出对应的导入：
+//b.js
+import Programmer from './a.js'
+## 引入是不需要加{}
+
+
+第二种用法
+export导出：
+
+//a.js
+const uncle = {name: 'UncleFirefly',age:25}
+const aunt = {name: 'AuntFirefly',age:25}
+export {uncle, aunt}
+
+export default导出对应的导入：
+//b.js
+import {uncle, aunt} from './a.js'
+## 引入是需要加{}
+
+二、区别
+可以在a.js中打印出module，通过打印的内容找到4种导出模块的区别。
+
+exports和module.exports的区别，另外一个文档里有说明
+export和export default的区别
+
+//a.js
+const Programmer = {name: 'UncleFirefly',age:25}
+export default Programmer
+console.log(module)
+/*
+//打印结果
+{exports: {default:{age:25,name:'UncleFirefly'}, hot:{...}}
+*/
+
+//a.js
+const uncle = {name: 'UncleFirefly',age:25}
+const aunt = {name: 'AuntFirefly',age:25}
+export {uncle, aunt}
+/*
+//打印结果
+{exports: {aunt:{age:25,name:'AuntFirefly'},uncle:{age:25,name:'UncleFirefly'}, hot:{...}}
+*/
+
+从打印可以看出:
+
+导出时
+export相当于把对象添加到module的exports中。
+export default相当于把对象添加到module的exports中，并且对象的key叫default。
+
+
+导入时：
+不带{}的导入
+本质上就是导入exports中的default属性（注：如果default属性不存在，则导入exports对象）。
+带{}的导入
+本质上按照属性key值导入exports中对应的属性值。
+
+
+
+三、小tips
+一般来说，module.exports和exports与require对应。也就是用module.exports和exports导出的模块，则用require导入。（不是绝对，如果代码支持es6，也可以用import引入）。

@@ -10,6 +10,7 @@ http.createServer((req, res) => {
 
     // 如果不写错误处理函数，那么fs在找不到文件的时候，会直接抛出异常，导致程序中断
     rs.on('error', () => {
+        res.setHeader('content-encoding', 'deflate');
         res.writeHead(404);
         res.write('404 not found');
         res.end()
