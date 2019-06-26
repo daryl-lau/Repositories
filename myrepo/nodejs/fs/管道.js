@@ -4,6 +4,7 @@ let fs = require('fs');
 let rs = fs.createReadStream('./v.f30.mp4');
 let ws = fs.createWriteStream('./new.mp4');
 
+// 使用管道，即可读写文件，内部不需要自己处理
 rs.pipe(ws);
 
 
