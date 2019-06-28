@@ -18,7 +18,10 @@ router.get('/a', async (ctx, next) => {
     console.log(ctx.res);
 
     // 返回数据直接在ctx的body中
-    ctx.body = 'aaaaaa'
+    ctx.body = 'aaaaaa';
+
+    // 如果需要调用next()， 需要再前面加 await, 因为下一个处理函数也是async的
+    await next();
 });
 
 
