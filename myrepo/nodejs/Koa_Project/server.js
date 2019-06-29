@@ -15,4 +15,5 @@ Static(router, {
     javascript: 1
 });
 
+
 server.use(router.routes());

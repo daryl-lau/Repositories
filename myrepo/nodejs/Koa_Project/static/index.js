@@ -24,4 +24,7 @@ module.exports = function Static(route, options) {
     route.all(/(\.js)|(\.jsx)/i, koa_static(static_path, {
         maxAge: 86400 * 1000 * options.javascript
     }));
+    route.all('*', koa_static(static_path, {
+        maxAge: 0
+    }));
 };
