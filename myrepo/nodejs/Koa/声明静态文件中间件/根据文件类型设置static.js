@@ -30,7 +30,7 @@ staticRouter.all(/(\.html|\.htm)$/i, static('./static', {
     maxAge: 86400 * 1000
 }));
 
-staticRouter.all('', static('./static', {
+staticRouter.all('*', static('./static', {
     maxAge: 5 * 86400 * 1000
 }));
 
