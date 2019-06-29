@@ -7,6 +7,7 @@ server.listen(8080);
 
 let router = new Router;
 
+router.use('/admin', require('./routers/admin'));
 
 Static(router, {
     html: 1,
