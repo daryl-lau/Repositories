@@ -1,9 +1,9 @@
 const Router = require('koa-router');
+const path = require('path');
+let router = new Router();
 
-let router = new Router()
-
-router.get('/aaa', async ctx=>{
-    ctx.body = 'aaa'
+router.get('/login', async ctx=>{
+    await ctx.render('login', {})
 });
 
 module.exports = router.routes();

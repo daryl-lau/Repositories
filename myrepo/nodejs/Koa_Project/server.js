@@ -4,6 +4,8 @@ const Static = require('./static');
 const session = require('koa-session');
 const fs = require('fs');
 const db = require('./libs/db');
+const ejs = require('koa-ejs');
+const path = require('path');
 
 let server = new Koa();
 server.listen(8080);
@@ -25,6 +27,14 @@ server.use(async (ctx, next) => {
     } catch (e) {
         ctx.throw(500, e)
     }
+});
+
+ejs(server, {
+    root: path.resolve(__dirname, './template'),
+    layout: false,
+    cache: false,
+    viewExt: 'ejs',
+    debug: false
 });
 
 let router = new Router;
