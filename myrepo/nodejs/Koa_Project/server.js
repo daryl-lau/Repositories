@@ -6,6 +6,7 @@ const fs = require('fs');
 const db = require('./libs/db');
 const ejs = require('koa-ejs');
 const path = require('path');
+const body = require('koa-better-body');
 
 let server = new Koa();
 server.listen(8080);
@@ -36,6 +37,10 @@ ejs(server, {
     viewExt: 'ejs',
     debug: false
 });
+
+server.use(body({
+    uploadDir: path.resolve(__dirname, './static/upload'),
+}));
 
 let router = new Router;
 
