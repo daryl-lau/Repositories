@@ -12,15 +12,9 @@
     <!--<script src="./js/main.js"></script>-->
 </head>
 <body>
-<!--只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。-->
-<div id="box1">
-    <p v-once>原始值：{{msg}}</p>
-    <p>修改值：{{msg}}</p>
-    <input type="text" name="" title="" v-once="msg">
-    <input type="text" name="" title="" v-model="msg">
-</div>
-
-
+<!-- v-cloak当vue还未编译完成的时候，会加上这个类，一旦vue编译完成，vue会自动移除这个类，可以自己再样式里面写一个v-cloak的类，进行还未
+    还未编译完成时的样式，加个loading什么的
+ -->
 
 <script src="../../node_modules/vue/dist/vue.js"></script>
 <script>
