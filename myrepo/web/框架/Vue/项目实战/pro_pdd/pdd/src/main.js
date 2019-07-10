@@ -10,7 +10,7 @@ import store from './store'
 
 import Cube from 'cube-ui'
 
-Vue.use(Cube)
+Vue.use(Cube);
 Vue.use(wtb);
 Vue.use(MintUI);
 

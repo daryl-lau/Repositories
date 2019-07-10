@@ -21,6 +21,7 @@ router.get('/', function (req, res, next) {
   获取首页轮播图
 */
 router.get('/api/homecasual', (req, res) => {
+    console.log(req.query);
     const data = require('./../data/homecasual');
     res.json(data);
 });
@@ -80,6 +81,7 @@ router.get('/api/captcha', (req, res) => {
  * 用户名和密码登录
  */
 router.post('/api/login_pwd', (req, res) => {
+    console.log(req.body);
     console.log(req.session);
     //  1. 获取数据
     var name = req.body.name;
@@ -169,6 +171,7 @@ router.get('/api/send_code', (req, res) => {
  * 手机验证码登录
  */
 router.post('/api/login_code', (req, res) => {
+    console.log(req.body);
     // 1. 获取数据
     const phone = req.body.phone;
     const code = req.body.code;

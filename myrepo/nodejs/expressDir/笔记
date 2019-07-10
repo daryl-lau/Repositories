@@ -1,0 +1,1 @@
+express中，get传递过来的参数通过req.query获取，post传过来的数据通过req.body获取，获取到的数据都是json对象

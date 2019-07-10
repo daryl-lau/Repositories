@@ -11,11 +11,6 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <script src="./js/vue.min.js"></script>
     <script src="js/vue-router.js"></script>
-    <style>
-        .tabs ul {
-            padding-left: 0;
-        }
-    </style>
 </head>
 <body>
 <div id="app">
@@ -30,11 +25,11 @@
         <div class="col-xl-2 offset-2">
             <div class="list-group">
 
-                <!-- 使用 router-link 组件来导航. tag=li  -->
+                <!-- 使用 router-link 组件来导航. -->
                 <!-- 通过传入 `to` 属性指定链接. -->
                 <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
 
-                <router-link to="/H5" class="list-group-item">H5</router-link>
+                <router-link to="/H5/999" class="list-group-item">H5</router-link>
                 <router-link to="/Linux" class="list-group-item">Linux</router-link>
                 <router-link to="/Python" class="list-group-item">Python</router-link>
 
@@ -58,50 +53,21 @@
 <template id="h5">
     <div>
         <h2>HTML5</h2>
-        <p>标准通用标记语言下的一个应用HTML标准自1999年12月发布的HTML4.01后，后继的HTML5和其它标准被束之高阁，为了推动Web标准化运动的发展，一些公司联合起来，成立了一个叫做 Web Hypertext
-            Application Technology Working Group （Web超文本应用技术工作组 -WHATWG） 的组织。WHATWG 致力于 Web 表单和应用程序，而W3C（World Wide Web
-            Consortium，万维网联盟） 专注于XHTML2.0。在 2006 年，双方决定进行合作，来创建一个新版本的 HTML。</p>
-        <div class="tabs">
-            <div><p>前端三剑客</p></div>
-            <ul>
-                <!-- tag="li" 将标签渲染成li标签，默认是a标签 -->
-                <router-link to="/h5/html">HTML</router-link>
-                <router-link to="/h5/css">CSS</router-link>
-                <router-link to="/h5/js">JavaScript</router-link>
-            </ul>
-        </div>
-        <div>
-            <router-view></router-view>
-        </div>
+        <p>标准通用标记语言下的一个应用HTML标准自1999年12月发布的HTML4.01后，后继的HTML5和其它标准被束之高阁，为了推动Web标准化运动的发展，一些公司联合起来，成立了一个叫做 Web Hypertext Application Technology Working Group （Web超文本应用技术工作组 -WHATWG） 的组织。WHATWG 致力于 Web 表单和应用程序，而W3C（World Wide Web Consortium，万维网联盟） 专注于XHTML2.0。在 2006 年，双方决定进行合作，来创建一个新版本的 HTML。</p>
+        <p>$route 保存当前路由信息</p>
+        {{$route.params.id}}
     </div>
 </template>
 <template id="linux">
     <div>
         <h2>Linux</h2>
-        <p>
-            Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。！</p>
+        <p>Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。！</p>
     </div>
 </template>
 <template id="python">
     <div>
         <h2>Python</h2>
         <p>Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。！</p>
-    </div>
-</template>
-
-<template id="html">
-    <div>
-        <p>超文本标记语言</p>
-    </div>
-</template>
-<template id="css">
-    <div>
-        <p>层叠样式表</p>
-    </div>
-</template>
-<template id="js">
-    <div>
-        <p>客户端脚本语言</p>
     </div>
 </template>
 
@@ -119,16 +85,6 @@
     const python = Vue.extend({
         template: '#python',
     });
-    const html = Vue.extend({
-        template: '#html',
-    });
-    const css = Vue.extend({
-        template: '#css',
-    });
-    const js = Vue.extend({
-        template: '#js',
-    });
-
 
     // 2. 定义路由
     // 每个路由应该映射一个组件。 其中"component" 可以是
@@ -136,18 +92,10 @@
     // 或者，只是一个组件配置对象。
     // 我们晚点再讨论嵌套路由。
     const routes = [
-        {
-            path: '/H5', component: h5,
-            children: [
-                {path: 'html', component: html},
-                {path: 'css', component: css},
-                {path: 'js', component: js},
-                {path: '/', redirect: 'html'}
-            ]
-        },
+        {path: '/H5/:id', component: h5},
         {path: '/Linux', component: linux},
         {path: '/Python', component: python},
-        {path: '/', redirect: '/H5'}
+        {path: '/', redirect: '/Linux'}
     ];
 
     // 3. 创建 router 实例，然后传 `routes` 配置

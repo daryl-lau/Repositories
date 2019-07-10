@@ -16,4 +16,10 @@ router.post('/login', async ctx=>{
     ctx.body = JSON.parse(file.toString())
 });
 
+// router.post('/aaa', async ctx=>{
+//     let params = ctx.request.fields;
+//     console.log(params);
+//     console.log(params.name);
+// });
+
 module.exports = router.routes();
