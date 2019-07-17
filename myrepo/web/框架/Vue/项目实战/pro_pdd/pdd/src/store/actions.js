@@ -74,5 +74,4 @@ export default {
         // console.log(userinfo.data);
         commit(SYNC_USER_INFO, {userinfo: userinfo.data})
     }
-
 }

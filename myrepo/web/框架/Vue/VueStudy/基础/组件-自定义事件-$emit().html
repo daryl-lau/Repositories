@@ -49,7 +49,19 @@
         methods: {
             counter() {
                 this.count += 1;
-                this.$emit('total'); // 通知外部，我要调用这个方法
+
+                // this.$emit('fn', params)   emit还可以向上传递参数
+
+                // this.$emit()是向自己这个组件发送emit，如果要向别的组件发送emit可以使用 this.$refs.name.$emit('add', 10)
+                // 此时，收到emit的组件
+                /*
+                    created(){
+                        this.$on('add', function(n){
+                            console.log(n)
+                        })
+                    }
+                */
+                this.$emit('total'); // 这里是通知自己，我调用了这个方法
             }
         }
 
