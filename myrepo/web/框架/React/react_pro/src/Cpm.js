@@ -17,6 +17,7 @@ class Cmp extends React.Component {
 
 
 export default connect(function (state, props) {
+        console.log(state,props);
         return state
     },
     {}
