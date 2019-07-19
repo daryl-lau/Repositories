@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+import '../static/css/App.css';
 
 import {connect} from 'react-redux';
 
-import {SET_NAME, ADD_AGE, CHANGE_COMPANY_NAME} from "./types/index";
+import {SET_NAME, ADD_AGE, CHANGE_COMPANY_NAME} from "../types/index";
 
 import Cmp from './Cpm'
 
