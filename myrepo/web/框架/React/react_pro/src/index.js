@@ -11,15 +11,19 @@ import {Provider} from 'react-redux';
 
 // 2、创建存储
 function reducer1(state = {name: 'aaa', age: 18}, action) {
-    console.log(action);
-    if (action.type === 'set_name') {
-        // 返回的是一个新的状态
-        return {
-            ...state,
-            name: action.name
-        };
-    } else {
-        return state
+    switch (action.type) {
+        case 'set_name':
+            return {
+                ...state,
+                name: action.name
+            };
+        case 'add_age':
+            return {
+                ...state,
+                age: state.age + action.n
+            };
+        default:
+            return state
     }
 }
 
