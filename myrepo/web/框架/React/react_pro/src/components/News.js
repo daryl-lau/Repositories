@@ -1,16 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-class Cmp extends React.Component {
+class News extends React.Component {
     // constructor(...args) {
     //     super(...args)
     // }
 
     render() {
         return (
-            <div>
-                ssdfasdf
-            </div>
+            <section>
+                <p>News</p>
+            </section>
         )
     }
 }
@@ -21,4 +21,4 @@ export default connect(function (state, props) {
         return state
     },
     {}
-)(Cmp)
+)(News)

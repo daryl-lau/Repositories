@@ -5,7 +5,13 @@ import {connect} from 'react-redux';
 
 import {SET_NAME, ADD_AGE, CHANGE_COMPANY_NAME} from "../types/index";
 
-import Cmp from './Cpm'
+
+// router
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+
+import Cmp1 from './Cpm1';
+import Cmp2 from './Cpm2';
+import News from './News';
 
 class App extends React.Component {
     // constructor(...args){
@@ -27,18 +33,40 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                {/*需要用bind(this)来改变this指向为App，否则为undefined*/}
-                <input type="button" name="" title="" value="改名" onClick={this.fn.bind(this)}/>
-                <input type="button" name="" title="" value="+5" onClick={this.fn2.bind(this)}/>
-                <input type="button" name="" title="" value="修改company" onClick={this.fn3.bind(this)}/><br/>
-                company name: {this.props.company.name}<br/>
-                users name: {this.props.users.name}<br/>
-                users age: {this.props.users.age}<br/>
-                props gender: {this.props.gender}<br/>
-                props age: {this.props.age}
-                <Cmp/>
-            </div>
+            <Router>
+                <div>
+                    {/*需要用bind(this)来改变this指向为App，否则为undefined*/}
+                    <input type="button" name="" title="" value="改名" onClick={this.fn.bind(this)}/>
+                    <input type="button" name="" title="" value="+5" onClick={this.fn2.bind(this)}/>
+                    <input type="button" name="" title="" value="修改company" onClick={this.fn3.bind(this)}/><br/>
+                    company name: {this.props.company.name}<br/>
+                    users name: {this.props.users.name}<br/>
+                    users age: {this.props.users.age}<br/>
+                    props gender: {this.props.gender}<br/>
+                    props age: {this.props.age}
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+
+                    {/* Link可以放在Router里面的任何位置，Link会渲染成a标签，Link放在哪里，a标签就在哪里 */}
+                    <Link to='/'>首页</Link>
+                    <Link to='/cmp1'>cmp1</Link>
+                    <Link to='/cmp2'>cmp2</Link>
+
+                    {/*路由参数*/}
+                    <Link to='/news/1'>news1</Link>
+                    <Link to='/news/2'>news2</Link>
+
+                    {/* exact 表示不向后匹配，Route可以放在Router里的任何位置，且组件会渲染到相应的位置，组件内返回什么标签，就渲染成什么标签，不会固定渲染成div啥的 */}
+                    <Route path='/cmp1' exact component={Cmp1}/>
+                    <Route path='/cmp2' exact component={Cmp2}/>
+                    <Route path='/news/:id' component={News} />
+
+
+                </div>
+            </Router>
         );
     }
 }
