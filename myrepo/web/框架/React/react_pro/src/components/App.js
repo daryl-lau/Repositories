@@ -62,6 +62,9 @@ class App extends React.Component {
                     {/* exact 表示不向后匹配，Route可以放在Router里的任何位置，且组件会渲染到相应的位置，组件内返回什么标签，就渲染成什么标签，不会固定渲染成div啥的 */}
                     <Route path='/cmp1' exact component={Cmp1}/>
                     <Route path='/cmp2' exact component={Cmp2}/>
+
+                    {/* 上面传过来的路由参数会传到指定组件的props中去 this.props.match.params.id  这个id在Route指定的是什么，传过去的就是什么 */}
+                    {/* 和koa一样，支持多参数  /news/:id1/:id2 */}
                     <Route path='/news/:id' component={News} />
 
 
