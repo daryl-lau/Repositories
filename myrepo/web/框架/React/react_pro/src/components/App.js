@@ -12,6 +12,7 @@ import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Cmp1 from './Cpm1';
 import Cmp2 from './Cpm2';
 import News from './News';
+import Qt from './Qt'
 
 class App extends React.Component {
     // constructor(...args){
@@ -65,7 +66,11 @@ class App extends React.Component {
 
                     {/* 上面传过来的路由参数会传到指定组件的props中去 this.props.match.params.id  这个id在Route指定的是什么，传过去的就是什么 */}
                     {/* 和koa一样，支持多参数  /news/:id1/:id2 */}
-                    <Route path='/news/:id' component={News} />
+                    <Route path='/news/:id' component={News}/>
+
+                    {/* 嵌套路由 */}
+                    <Link to='/qt'>嵌套</Link>
+                    <Route path='/qt' component={Qt} />
 
 
                 </div>
