@@ -36,6 +36,7 @@ class App extends React.Component {
         return (
             <Router>
                 <div>
+                    <Link to='/qt/qt_a'>跳转到嵌套a</Link>
                     {/*需要用bind(this)来改变this指向为App，否则为undefined*/}
                     <input type="button" name="" title="" value="改名" onClick={this.fn.bind(this)}/>
                     <input type="button" name="" title="" value="+5" onClick={this.fn2.bind(this)}/>
@@ -49,7 +50,6 @@ class App extends React.Component {
                     <br/>
                     <br/>
                     <br/>
-
 
                     {/* Link可以放在Router里面的任何位置，Link会渲染成a标签，Link放在哪里，a标签就在哪里 */}
                     <Link to='/'>首页</Link>
