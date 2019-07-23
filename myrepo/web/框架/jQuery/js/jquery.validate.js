@@ -16,7 +16,7 @@
 	}
 }(function( $ ) {
 
-$.extend( $.fn, {
+$.extend( App.fn, {
 
 	// https://jqueryvalidation.org/validate/
 	validate: function( options ) {
@@ -539,7 +539,7 @@ $.extend( $.validator, {
 
 		// https://jqueryvalidation.org/Validator.resetForm/
 		resetForm: function() {
-			if ( $.fn.resetForm ) {
+			if ( App.fn.resetForm ) {
 				$( this.currentForm ).resetForm();
 			}
 			this.invalid = {};

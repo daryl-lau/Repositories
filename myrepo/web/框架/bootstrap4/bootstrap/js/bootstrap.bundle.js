@@ -118,7 +118,7 @@
     }
 
     function setTransitionEndSupport() {
-      $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
+      App.fn.emulateTransitionEnd = transitionEndEmulator;
       $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
     /**
@@ -217,7 +217,7 @@
     var DATA_KEY = 'bs.alert';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var Selector = {
       DISMISS: '[data-dismiss="alert"]'
     };
@@ -363,11 +363,11 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = Alert._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Alert;
+    App.fn[NAME] = Alert._jQueryInterface;
+    App.fn[NAME].Constructor = Alert;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Alert._jQueryInterface;
     };
 
@@ -392,7 +392,7 @@
     var DATA_KEY = 'bs.button';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var ClassName = {
       ACTIVE: 'active',
       BUTTON: 'btn',
@@ -527,11 +527,11 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = Button._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Button;
+    App.fn[NAME] = Button._jQueryInterface;
+    App.fn[NAME].Constructor = Button;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Button._jQueryInterface;
     };
 
@@ -556,7 +556,7 @@
     var DATA_KEY = 'bs.carousel';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var ARROW_LEFT_KEYCODE = 37; // KeyboardEvent.which value for left arrow key
 
     var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
@@ -1031,11 +1031,11 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = Carousel._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Carousel;
+    App.fn[NAME] = Carousel._jQueryInterface;
+    App.fn[NAME].Constructor = Carousel;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Carousel._jQueryInterface;
     };
 
@@ -1060,7 +1060,7 @@
     var DATA_KEY = 'bs.collapse';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var Default = {
       toggle: true,
       parent: ''
@@ -1399,11 +1399,11 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = Collapse._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Collapse;
+    App.fn[NAME] = Collapse._jQueryInterface;
+    App.fn[NAME].Constructor = Collapse;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Collapse._jQueryInterface;
     };
 
@@ -2281,7 +2281,7 @@
         // eslint-disable-line dot-notation
         console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
       }
-      var fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
+      var fn = modifier['function'] || App.fn; // eslint-disable-line dot-notation
       if (modifier.enabled && isFunction(fn)) {
         // Add properties to offsets to make them a complete clientRect object
         // we do this before each modifier to make sure the previous one doesn't
@@ -3946,7 +3946,7 @@
     var DATA_KEY = 'bs.dropdown';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 
     var SPACE_KEYCODE = 32; // KeyboardEvent.which value for space key
@@ -4405,11 +4405,11 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = Dropdown._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Dropdown;
+    App.fn[NAME] = Dropdown._jQueryInterface;
+    App.fn[NAME].Constructor = Dropdown;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Dropdown._jQueryInterface;
     };
 
@@ -4434,7 +4434,7 @@
     var DATA_KEY = 'bs.modal';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 
     var Default = {
@@ -4976,11 +4976,11 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = Modal._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Modal;
+    App.fn[NAME] = Modal._jQueryInterface;
+    App.fn[NAME].Constructor = Modal;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Modal._jQueryInterface;
     };
 
@@ -5004,7 +5004,7 @@
     var VERSION = '4.1.3';
     var DATA_KEY = 'bs.tooltip';
     var EVENT_KEY = "." + DATA_KEY;
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var CLASS_PREFIX = 'bs-tooltip';
     var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
     var DefaultType = {
@@ -5646,11 +5646,11 @@
      */
 
 
-    $$$1.fn[NAME] = Tooltip._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Tooltip;
+    App.fn[NAME] = Tooltip._jQueryInterface;
+    App.fn[NAME].Constructor = Tooltip;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Tooltip._jQueryInterface;
     };
 
@@ -5674,7 +5674,7 @@
     var VERSION = '4.1.3';
     var DATA_KEY = 'bs.popover';
     var EVENT_KEY = "." + DATA_KEY;
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var CLASS_PREFIX = 'bs-popover';
     var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 
@@ -5843,11 +5843,11 @@
      */
 
 
-    $$$1.fn[NAME] = Popover._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Popover;
+    App.fn[NAME] = Popover._jQueryInterface;
+    App.fn[NAME].Constructor = Popover;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Popover._jQueryInterface;
     };
 
@@ -5872,7 +5872,7 @@
     var DATA_KEY = 'bs.scrollspy';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var Default = {
       offset: 10,
       method: 'auto',
@@ -6159,11 +6159,11 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = ScrollSpy._jQueryInterface;
-    $$$1.fn[NAME].Constructor = ScrollSpy;
+    App.fn[NAME] = ScrollSpy._jQueryInterface;
+    App.fn[NAME].Constructor = ScrollSpy;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return ScrollSpy._jQueryInterface;
     };
 
@@ -6188,7 +6188,7 @@
     var DATA_KEY = 'bs.tab';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var JQUERY_NO_CONFLICT = App.fn[NAME];
     var Event = {
       HIDE: "hide" + EVENT_KEY,
       HIDDEN: "hidden" + EVENT_KEY,
@@ -6408,11 +6408,11 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = Tab._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Tab;
+    App.fn[NAME] = Tab._jQueryInterface;
+    App.fn[NAME].Constructor = Tab;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+    App.fn[NAME].noConflict = function () {
+      App.fn[NAME] = JQUERY_NO_CONFLICT;
       return Tab._jQueryInterface;
     };
 
@@ -6431,7 +6431,7 @@
       throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
     }
 
-    var version = $$$1.fn.jquery.split(' ')[0].split('.');
+    var version = App.fn.jquery.split(' ')[0].split('.');
     var minMajor = 1;
     var ltMajor = 2;
     var minMinor = 9;

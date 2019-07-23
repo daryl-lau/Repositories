@@ -1,0 +1,105 @@
+import React, {Component} from 'react';
+
+import img1 from './img1.jpg';
+
+import './App.css'
+
+
+// 函数型组件，用props接收父组件传递的属性
+// 如果组件无状态，最好使用function来定义组件，如果组件有状态，则用class来定义组件
+function Welcome(props) {
+    return (
+        <div>
+            <p>Welcome, {props.name}</p>
+        </div>
+    )
+}
+
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+
+        // 初始化状态
+        this.state = {
+            date: new Date().toLocaleTimeString(),
+            count: 0
+        }
+    }
+
+
+    componentDidMount() {
+        this.timer = setInterval(() => {
+
+            // 更新状态，不能直接this.state.date修改状态，单向数据流
+            this.setState({
+                date: new Date().toLocaleTimeString()
+            })
+        }, 1000);
+
+
+        // setState()是异步的，setState()会批量统一执行,
+        // setState()提供一个回调函数，用于实时获取修改后的数据
+
+        /*this.setState({
+            count: this.state.count + 1
+        }, ()=>{
+            console.log(this.state.count)
+        });*/
+
+
+        // 如果新改的属性值依赖前一个属性值，上面的写法是不合理的，可能会导致数据混乱
+        // 正确的写法是使用函数，如果函数很简单，有且仅有一个return，可以简写为 (prevState, prevProps)=>( {count: prevState.count + 1} )
+        this.setState((prevState, prevProps) => {
+            return {
+                count: prevState.count + 1
+            }
+        }, () => {
+            console.log(this.state.count)  // 返回的是1
+        });
+
+        console.log(this.state.count)   // 返回0而不是1
+    }
+
+    // 定时器需要手动清除，和Vue一样
+    componentWillUnmount() {
+        clearInterval(this.timer)
+    }
+
+    fn() {
+        alert('aaaa')
+    }
+
+    render() {
+        const name = 'React';
+        const dom = <p>Dom</p>;
+
+        return (
+            <div>
+                <h2>React真好用</h2>
+
+                {/*    表达式  */}
+                {name}
+
+
+                {/*<p>{this.fn()}</p>*/}
+
+                <button onClick={this.fn.bind(this)}>aaaaa</button>
+
+                {/* 图片src可以直接从外部导入 */}
+                {/* 行间样式需要使用json格式指定*/}
+                <img src={img1} alt="" style={{width: 150}} className="img"/>
+
+
+                {dom}
+
+                {/* 传入组件属性是只读的，单向数据流 */}
+                <Welcome name='Tom'> </Welcome>
+
+                <p>{this.state.date}</p>
+            </div>
+        )
+    }
+}
+
+export default App;

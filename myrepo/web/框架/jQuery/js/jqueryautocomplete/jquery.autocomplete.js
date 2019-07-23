@@ -946,7 +946,7 @@
     };
 
     // Create chainable jQuery plugin:
-    $.fn.autocomplete = $.fn.devbridgeAutocomplete = function (options, args) {
+    App.fn.autocomplete = App.fn.devbridgeAutocomplete = function (options, args) {
         var dataKey = 'autocomplete';
         // If function invoked without argument return
         // instance of the first matched element:

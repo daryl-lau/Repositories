@@ -851,7 +851,7 @@ jQuery.extend({
 		}
 		jQuery.extend( true, jQuerySub, this );
 		jQuerySub.superclass = this;
-		jQuerySub.fn = jQuerySub.prototype = this();
+		App.fn = jQuerySub.prototype = this();
 		jQuerySub.fn.constructor = jQuerySub;
 		jQuerySub.sub = this.sub;
 		jQuerySub.fn.init = function init( selector, context ) {

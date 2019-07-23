@@ -165,7 +165,7 @@
     return new Dom7(arr);
   }
 
-  $.fn = Dom7.prototype;
+  App.fn = Dom7.prototype;
   $.Class = Dom7;
   $.Dom7 = Dom7;
 

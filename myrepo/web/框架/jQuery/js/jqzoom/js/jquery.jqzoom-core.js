@@ -24,7 +24,7 @@
     var body = $(document.body);
     var window = $(window);
     var jqzoompluging_disabled = false; //disabilita globalmente il plugin
-    $.fn.jqzoom = function (options) {
+    App.fn.jqzoom = function (options) {
         return this.each(function () {
             var node = this.nodeName.toLowerCase();
             if (node == 'a') {

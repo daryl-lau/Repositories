@@ -54,7 +54,7 @@ const Methods = {
 };
 
 Object.keys(Methods).forEach((methodName) => {
-  $.fn[methodName] = Methods[methodName];
+  App.fn[methodName] = Methods[methodName];
 });
 
 const Utils = {
