@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 
 import img1 from './img1.jpg';
-
 import './App.css'
 
+import Lifecycle from './Lifecycle';
+import Cart from './Cart'
 
-// 函数型组件，用props接收父组件传递的属性
+
+// 函数型组件，在父组件内部，则直接用props接收父组件传递的属性，而不是this.props
+// 如果组件在外部，则该组件使用this.props来接收参数
 // 如果组件无状态，最好使用function来定义组件，如果组件有状态，则用class来定义组件
 function Welcome(props) {
     return (
@@ -29,13 +32,13 @@ class App extends Component {
 
 
     componentDidMount() {
-        this.timer = setInterval(() => {
-
-            // 更新状态，不能直接this.state.date修改状态，单向数据流
-            this.setState({
-                date: new Date().toLocaleTimeString()
-            })
-        }, 1000);
+        // this.timer = setInterval(() => {
+        //
+        //     // 更新状态，不能直接this.state.date修改状态，单向数据流
+        //     this.setState({
+        //         date: new Date().toLocaleTimeString()
+        //     })
+        // }, 1000);
 
 
         // setState()是异步的，setState()会批量统一执行,
@@ -55,10 +58,10 @@ class App extends Component {
                 count: prevState.count + 1
             }
         }, () => {
-            console.log(this.state.count)  // 返回的是1
+            // console.log(this.state.count)  // 返回的是1
         });
 
-        console.log(this.state.count)   // 返回0而不是1
+        // console.log(this.state.count)   // 返回0而不是1
     }
 
     // 定时器需要手动清除，和Vue一样
@@ -97,6 +100,10 @@ class App extends Component {
                 <Welcome name='Tom'> </Welcome>
 
                 <p>{this.state.date}</p>
+
+                {/*<Lifecycle aaa='aaa'/>*/}
+
+                <Cart title='购物车'></Cart>
             </div>
         )
     }
