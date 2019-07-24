@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './Cart.css'
 
 function CartShow(props) {
-    console.log('cart',props.cart);
+    console.log('cart', props.cart);
     return (
         <div>
         </div>
@@ -53,8 +53,10 @@ class Cart extends Component {
 
         // 存在，count+1
         if (this.state.tempGoods.indexOf(good.id) !== -1) {
-            let item = this.state.cart.find(g =>{ return g.id === good.id});
-            console.log('item',item);
+            let item = this.state.cart.find(g => {
+                return g.id === good.id
+            });
+            console.log('item', item);
             let index = this.state.cart.indexOf(item);
             this.setState(prevState => {
                 prevState.cart.splice(index, 0)
