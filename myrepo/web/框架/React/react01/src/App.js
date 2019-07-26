@@ -7,6 +7,10 @@ import Lifecycle from './Lifecycle';
 import Cart from './Cart'
 
 
+// antd
+import {Button} from 'antd';
+
+
 // 函数型组件，在父组件内部，则直接用props接收父组件传递的属性，而不是this.props
 // 如果组件在外部，则该组件使用this.props来接收参数
 // 如果组件无状态，最好使用function来定义组件，如果组件有状态，则用class来定义组件
@@ -17,6 +21,7 @@ function Welcome(props) {
         </div>
     )
 }
+
 
 
 class App extends Component {
@@ -104,6 +109,10 @@ class App extends Component {
                 {/*<Lifecycle aaa='aaa'/>*/}
 
                 <Cart title='购物车'></Cart>
+
+
+                {/*antd*/}
+                <Button type="primary">按钮</Button>
             </div>
         )
     }

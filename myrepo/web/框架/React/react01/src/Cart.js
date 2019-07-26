@@ -5,6 +5,17 @@ function CartShow(props) {
     console.log('cart', props.cart);
     return (
         <div>
+            <ul>
+                {props.cart.map(item =>
+                    <li key={item.id}>
+                        商品号：{item.id},
+                        商品：{item.name},
+                        总价：¥{item.count * item.price},
+                        <button onClick={() => props.reduceCount(item)}>-</button>
+                        {item.count}
+                        <button onClick={() => props.addCount(item)}>+</button>
+                    </li>)}
+            </ul>
         </div>
     )
 }
@@ -19,7 +30,6 @@ class Cart extends Component {
             price: 0,
             // cart: [{id:1, name:'aaa', count: 2, allprice: 2321}]
             cart: [],
-            tempGoods: []
         }
     }
 
@@ -48,37 +58,44 @@ class Cart extends Component {
     };
 
     addToCart = (good) => {
-        // let newCart = [...this.state.cart]
-        // let item = this.state.cart.
+        this.setState(prevState => {
+            if (prevState.cart.filter(g => g.id === good.id).length > 0) {
 
-        // 存在，count+1
-        if (this.state.tempGoods.indexOf(good.id) !== -1) {
-            let item = this.state.cart.find(g => {
-                return g.id === good.id
-            });
-            console.log('item', item);
-            let index = this.state.cart.indexOf(item);
-            this.setState(prevState => {
-                prevState.cart.splice(index, 0)
-            })
-        } else {
+                // 错误写法，map出来的应该还是一个对象的数组，下面这样写的话，i.count++ 返回的是一个数字
+                // return {cart: prevState.cart.map(i => i.id === good.id ? i.count++ : i)}
 
-            // 不存在，添加商品
-            this.state.tempGoods.push(good.id);
-            this.setState({
-                cart: [...this.state.cart, {id: good.id, name: good.name, count: 1, price: good.price}]
-            })
-        }
+                // 并且由于修改对象里面的count不会改变数组的指针引用，所以不会导致页面刷新，需要将新的数组重新赋值给cart，触发页面渲染
 
-
-        // this.setState({
-        //     cart: [...this.state.cart, {id: good.id, name: good.name, count: 1, allprice: good.price}]
-        // }, () => {
-        //     // console.log(this.state.cart);
-        // });
-
-
+                return {cart: prevState.cart.map(i => i.id === good.id ? {...i, count: i.count += 1} : i)}
+            } else {
+                return {
+                    cart: [...prevState.cart, {
+                        id: good.id,
+                        name: good.name,
+                        count: 1,
+                        price: parseFloat(good.price)
+                    }]
+                }
+            }
+        });
     };
+
+    addCount = (item) => {
+        let newCart = [...this.state.cart];
+        let index = newCart.findIndex(i => i.id === item.id);
+        newCart.splice(index, 1, {...item, count: item.count += 1});
+        this.setState({cart: newCart})
+    };
+    reduceCount = (item) => {
+        let newCart = [...this.state.cart];
+        let index = newCart.findIndex(i => i.id === item.id);
+        newCart.splice(index, 1, {...item, count: item.count === 0 ? 0 : item.count -= 1});
+
+        // 如果数量为零，则移除
+        let result = newCart.filter(g => g.count !== 0);
+        this.setState({cart: result})
+    };
+
 
     render() {
         const title = this.props.title ? <h2>{this.props.title}</h2> : null;
@@ -127,7 +144,7 @@ class Cart extends Component {
                     })}
                 </ul>
                 <p>------------</p>
-                <CartShow cart={this.state.cart}/>
+                <CartShow cart={this.state.cart} addCount={this.addCount} reduceCount={this.reduceCount}/>
             </div>
         )
     }
