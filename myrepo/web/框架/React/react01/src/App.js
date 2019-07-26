@@ -103,7 +103,8 @@ class App extends Component {
 
                 {dom}
 
-                {/* 传入组件属性是只读的，单向数据流 */}
+                {/* 传入组件自定义属性是只读的，单向数据流，不能修改，子组件想要修改的话，需要调用父级组件的回调函数，
+                传入组件的自定义属性会全部包含在一个数组里面进行传递 */}
                 <Welcome name='Tom'> </Welcome>
 
                 <p>{this.state.date}</p>
