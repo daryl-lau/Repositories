@@ -6,6 +6,7 @@ import './App.css'
 import Lifecycle from './Lifecycle';
 import Cart from './Cart'
 import CommentList from './components/CommentList'
+import WelcomeDialog from './components/composite'
 
 
 
@@ -111,7 +112,7 @@ class App extends Component {
 
                 {/*<Lifecycle aaa='aaa'/>*/}
 
-                <Cart title='购物车'></Cart>
+                <Cart title='购物车' />
 
 
                 {/*antd*/}
@@ -119,7 +120,10 @@ class App extends Component {
 
 
 
-                <CommentList></CommentList>
+                <CommentList />
+
+                <WelcomeDialog />
+
             </div>
         )
     }
