@@ -37,7 +37,8 @@ function WelcomeDialog() {
         // 传递属性时可以传递JSX，直接传一个组件下去
         <Dialog button={<Button type={"danger"} onClick={click}>确定</Button>}>
 
-            {/* 下面两个没有定义自定义属性，将下面两个标签转为对象，组成一个数组，数组属性名为children，然后传递下去，子组件用props.children获取 */}
+            {/* 父组件在子组件内定义了两个新的元素，也没有像上面button那样显式传递给子组件，
+                此时React将下面两个标签转为对象，组成一个数组，数组属性名为children，然后传递给子组件，子组件用props.children获取 */}
             <h3>欢迎光临！</h3>
             <p>感谢使用React!</p>
 
