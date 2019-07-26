@@ -5,6 +5,8 @@ import './App.css'
 
 import Lifecycle from './Lifecycle';
 import Cart from './Cart'
+import CommentList from './components/CommentList'
+
 
 
 // antd
@@ -113,6 +115,10 @@ class App extends Component {
 
                 {/*antd*/}
                 <Button type="primary">按钮</Button>
+
+
+
+                <CommentList></CommentList>
             </div>
         )
     }
