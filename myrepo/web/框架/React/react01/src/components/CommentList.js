@@ -56,7 +56,7 @@ import {Button} from "antd";
     }
 }*/
 
-// {content, author} 直接解构props
+// {content, author} 直接解构props， memo实际上是一个高阶组件
 const Comment = React.memo(({content, author}) => {
     return (
         <div>

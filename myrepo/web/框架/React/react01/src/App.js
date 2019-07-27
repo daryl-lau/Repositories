@@ -8,6 +8,8 @@ import Cart from './Cart'
 import CommentList from './components/CommentList'
 import WelcomeDialog from './components/composite'
 
+import HOC from './components/HigherOrderComponent'
+
 
 
 // antd
@@ -123,6 +125,12 @@ class App extends Component {
                 <CommentList />
 
                 <WelcomeDialog />
+
+
+
+                <h2>高阶组件</h2>
+                {/*高阶组件传递属性给下层*/}
+                <HOC id='1'/>
 
             </div>
         )
