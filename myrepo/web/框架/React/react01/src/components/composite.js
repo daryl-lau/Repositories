@@ -42,7 +42,6 @@ function WelcomeDialog() {
             <h3>欢迎光临！</h3>
             <p>感谢使用React!</p>
 
-
         </Dialog>
     )
 }
