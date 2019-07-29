@@ -5,16 +5,6 @@ import {Button} from "antd";
 // 高阶组件是将下层的组件拿到高阶组件内部使用，函数返回的是本组件，高阶函数需要将下层函数作为参数传递给上层
 // 复合组件不需要将下层函数作为参数传递给上层，直接使用标签引用
 
-// 展示组件
-function Show(props) {
-    return (
-        <div>
-            {props.id} - {props.name}
-            {props.button}
-        </div>
-    )
-}
-
 
 // 高阶组件 高阶组件实际上是一个函数，以需要扩展的组件为参数，返回一个新的组件
 /*const ShowWrap = (Cmp) => {
@@ -65,5 +55,32 @@ const Log = Cmp => {
     }
 };
 
+// 展示组件
+/*function Show(props) {
+    return (
+        <div>
+            {props.id} - {props.name}
+            {props.button}
+        </div>
+    )
+}
+
 // 导出时，需要导出高阶组件包装后的组件
-export default Log(ShowWrap(Show));
+export default Log(ShowWrap(Show));*/
+
+
+// 使用装饰器写法, 装饰器写法只能用于class声明的组件，不能用于function声明的
+@ShowWrap
+@Log
+class Show extends Component {
+    render() {
+        return (
+            <div>
+                {this.props.id} - {this.props.name}
+                {this.props.button}
+            </div>
+        )
+    }
+}
+
+export default Show
