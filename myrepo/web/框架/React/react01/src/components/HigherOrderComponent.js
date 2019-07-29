@@ -63,7 +63,7 @@ const Log = Cmp => {
     return props => {
         return <Cmp {...props} />
     }
-}
+};
 
 // 导出时，需要导出高阶组件包装后的组件
 export default Log(ShowWrap(Show));
