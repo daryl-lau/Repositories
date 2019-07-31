@@ -2,6 +2,7 @@ import {CHANGE_COMPANY_NAME} from "../types/index";
 
 // 2、创建存储
 
+// 初始化数据
 let data = {name: 'beings.com'};
 
 function company(state = data, action) {

@@ -45,6 +45,7 @@ const ShowWrap = Cmp => {
         }
     }
 
+    // 高阶组件需要将新组件return出去
     return NewCmp;
 };
 

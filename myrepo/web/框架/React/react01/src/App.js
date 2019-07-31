@@ -7,9 +7,9 @@ import Lifecycle from './Lifecycle';
 import Cart from './Cart'
 import CommentList from './components/CommentList'
 import WelcomeDialog from './components/composite'
+import ContextExp from './components/ContextExp'
 
 import HOC from './components/HigherOrderComponent'
-
 
 
 // antd
@@ -26,7 +26,6 @@ function Welcome(props) {
         </div>
     )
 }
-
 
 
 class App extends Component {
@@ -114,24 +113,24 @@ class App extends Component {
 
                 {/*<Lifecycle aaa='aaa'/>*/}
 
-                <Cart title='购物车' />
+                <Cart title='购物车'/>
 
 
                 {/*antd*/}
                 <Button type="primary">按钮</Button>
 
 
+                <CommentList/>
 
-                <CommentList />
-
-                <WelcomeDialog />
-
+                <WelcomeDialog/>
 
 
                 <h2>高阶组件</h2>
                 {/*高阶组件传递属性给下层*/}
                 <HOC id='1'/>
 
+
+                <ContextExp/>
             </div>
         )
     }
