@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
 
 import img1 from './img1.jpg';
 import './App.css'
@@ -10,6 +11,8 @@ import WelcomeDialog from './components/composite'
 import ContextExp from './components/ContextExp'
 
 import HOC from './components/HigherOrderComponent'
+
+import {SET_NAME, ADD_AGE} from './types'
 
 
 // antd
@@ -78,9 +81,14 @@ class App extends Component {
         clearInterval(this.timer)
     }
 
-    fn() {
-        alert('aaaa')
-    }
+    fn = () => {
+        console.log(this.props.setName);
+        this.props.setName('newName')
+    };
+
+    fn1 = () => {
+        this.props.addAge(1)
+    };
 
     render() {
         const name = 'React';
@@ -131,9 +139,68 @@ class App extends Component {
 
 
                 <ContextExp/>
+                <p>{this.props.users.name}</p>
+                <p>{this.props.users.age}</p>
+                <Button type={"primary"} onClick={this.fn}>修改名字</Button>
+                <Button type={"primary"} onClick={this.fn1}>年龄+1</Button>
             </div>
         )
     }
 }
 
-export default App;
+export default connect(
+    function (state, props) {
+        // 这里的state是所有的state，包括users和company
+        // props是通过组件传递过来的属性
+        console.log(state);
+        return {
+            // 保留状态机里的属性,
+            /*
+                如果是使用...state.users, ...state.company来保留属性，那么如果users和company中有相同的属性名，那么将只会保留写在
+                后面的那个属性,并且上面使用属性的时候，不能使用this.props.users.name，而只能使用this.props.name，这个name将会显示
+                最后一个name属性值（如果组件传递的属性也有name，也将计算进去，显示写在代码最后的那个name属性值）
+
+                按需保留state的属性，但是需要注意顺序覆盖关系，如果不想这样，直接全部保留，使用this.props.users.name引用，组件传递
+                过来的属性直接this.props.name来引用，不会造成冲突，也就没有顺序覆盖关系
+            */
+            ...state,
+
+            // 如果组件传递了相同的属性名，使用props里的覆盖之前的
+            // name: props.name
+            ...props,
+        }
+    },
+    {
+        // 这里写的方法，都会放在this.props上，调用的时候也需要使用this.props
+        setName(newName) {
+            // 这里返回给action，在reducer里的action
+            return {
+                type: SET_NAME,
+                name: newName
+            }
+        },
+
+
+        // addAge(n) {
+        //     return {
+        //         type: ADD_AGE,
+        //         n
+        //     }
+        // },
+        addAge(n) {
+            return function (dispatch) {
+                setTimeout(function () {
+                    dispatch({type: ADD_AGE, n})
+                }, 1000)
+            }
+        }
+
+
+        // changeCompanyName(comName) {
+        //     return {
+        //         type: CHANGE_COMPANY_NAME,
+        //         comName: comName
+        //     }
+        // }
+    }
+)(App);
