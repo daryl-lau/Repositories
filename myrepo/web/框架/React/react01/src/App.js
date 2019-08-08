@@ -12,6 +12,8 @@ import ContextExp from './components/ContextExp'
 
 import HOC from './components/HigherOrderComponent'
 
+import RouterTest from './components/RouterTest'
+
 import {SET_NAME, ADD_AGE} from './types'
 
 
@@ -30,6 +32,11 @@ function Welcome(props) {
     )
 }
 
+function Home() {
+    return <div>
+        Home
+    </div>
+}
 
 class App extends Component {
     constructor(props) {
@@ -143,6 +150,9 @@ class App extends Component {
                 <p>{this.props.users.age}</p>
                 <Button type={"primary"} onClick={this.fn}>修改名字</Button>
                 <Button type={"primary"} onClick={this.fn1}>年龄+1</Button>
+
+
+                <RouterTest></RouterTest>
             </div>
         )
     }
