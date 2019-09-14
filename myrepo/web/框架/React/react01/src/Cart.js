@@ -27,7 +27,7 @@ class Cart extends Component {
         this.state = {
             goods: [{id: 1, name: '鞋子', price: 99}, {id: 2, name: '裤子', price: 80}, {id: 3, name: '衣服', price: 120}],
             text: '',
-            price: 0,
+            price: '',
             // cart: [{id:1, name:'aaa', count: 2, allprice: 2321}]
             cart: [],
         }
@@ -51,7 +51,9 @@ class Cart extends Component {
             let le = prevState.goods.length + 1;
             if (this.state.text && this.state.price) {
                 return {
-                    goods: [...prevState.goods, {id: le, name: this.state.text, price: this.state.price}]
+                    goods: [...prevState.goods, {id: le, name: this.state.text, price: this.state.price}],
+                    text: '',
+                    price: ''
                 };
             }
         })
@@ -105,11 +107,11 @@ class Cart extends Component {
 
                 <div>添加商品</div>
 
-                {/* React是单向数据流，不是双向绑定 */}
-                <input type="text" name="" title="" placeholder="商品名" ref="good" onChange={(e) => {
+                {/* React是单向数据流，不是双向绑定, 通过onChange事件实现数据双向绑定*/}
+                <input type="text" name="" title="" placeholder="商品名" ref="good" value={this.state.text} onChange={(e) => {
                     this.goodChange(e)
                 }}/>
-                <input type="text" name="" title="" placeholder="单价(默认是0)" ref="price" onChange={(e) => {
+                <input type="text" name="" title="" placeholder="单价(默认是0)" ref="price" value={this.state.price} onChange={(e) => {
                     this.priceChange(e)
                 }}/>
 

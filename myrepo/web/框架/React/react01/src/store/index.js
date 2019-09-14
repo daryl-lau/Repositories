@@ -2,16 +2,27 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 
 import logger from 'redux-logger'
-import trunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
 
 import users from './users';
 import company from './company'
+import mySaga from '../components/sagas'
+
+
+
+const sagaMid = createSagaMiddleware();
+
+
 
 let reducers = combineReducers({
     users,
     company
 });
 
+const store = createStore(reducers, applyMiddleware(logger, sagaMid));
+
 // 3、创建存储对象
-// export default createStore(reducers);
-export default createStore(reducers, applyMiddleware(logger,trunk));
+
+sagaMid.run(mySaga);
+
+export default store

@@ -41,7 +41,6 @@ function WelcomeDialog() {
                 此时React将下面两个标签转为对象，组成一个数组，数组属性名为children，然后传递给子组件，子组件用props.children获取 */}
             <h3>欢迎光临！</h3>
             <p>感谢使用React!</p>
-
         </Dialog>
     )
 }

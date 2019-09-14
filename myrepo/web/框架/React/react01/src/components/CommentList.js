@@ -93,9 +93,6 @@ class CommentList extends Component {
     };
 
     render() {
-
-
-
         return (
             <div>
                 <Button type='primary' onClick={this.change}>修改</Button>
