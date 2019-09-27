@@ -1,8 +1,8 @@
 import {getGoods} from '../../../../services/getGoods'
 
 export default {
-  // namespace: 'goods',
-  state: [],
+  namespace: 'goods',
+  state: [],  // [{title: 'web'}, {title: 'java'}]
   effects: {
     * getList(action, {call, put}) {
       const res = yield call(getGoods);
@@ -10,8 +10,11 @@ export default {
     }
   },
   reducers: {
-    initGoods(state, action) {
+    initGoods: (state, action) => {
       return action.result
+    },
+    addGood(state, action){
+      return [...state, {title: action.title}]
     }
   }
 }

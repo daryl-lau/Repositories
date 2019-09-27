@@ -1,7 +1,7 @@
 import styles from './index.css';
 import {Component} from 'react'
 import {connect} from 'dva';
-import {Card} from "antd";
+import {Card, Button} from "antd";
 
 // export default function() {
 //   return (
@@ -50,6 +50,7 @@ class Goods extends Component {
         <ul>
           {this.props.goodList.map(good => <Card>{good.title}</Card>)}
         </ul>
+        <Button onClick={()=>{this.props.addGood(`python ${new Date().getTime()}`)}}>添加</Button>
       </div>
     )
   }
