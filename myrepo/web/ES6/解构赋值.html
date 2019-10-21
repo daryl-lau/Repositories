@@ -37,11 +37,12 @@
 
     let dog = {name:'huang', age:1, gender: 'male'};
 
+    // 解构的键必须相同，如果想要修改，可以重命名
     // let {name, age, gender} = dog;
     // cole.log(name, age, gender);
 
 
-    // 结构可以重命名
+    // 解构可以重命名
     let {name:newname, age:newage, gender:newgender} = dog;
     console.log(newname, newage, newgender);
 

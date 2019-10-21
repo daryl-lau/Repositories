@@ -23,15 +23,30 @@
     // });
 
     // this指向问题，箭头函数内部的this就是外层代码块的this
+    // let声明的变量不会放在window上
+    // 对象不是作用域
+
 
     // let obj = {
     //     name: 'jerry',
     //     logThis: function () {
+    //         console.log(this);   // 这里先指向obj
     //         setTimeout(function () {
+    //             console.log(this);
     //             console.log(this.name);     //这里的this指向的是window，而不是obj
-    //         }, 20)
+    //         }, 2000)
     //     }
     // };
+    // obj.logThis();                 // 如果是对象直接调用函数，这里的this指向的是window
+    //
+    // func = obj.logThis;            // 如果将函数赋值，则this指向的是window
+    // func()
+
+    /*
+    为什么this最终指向window？
+    因为obj.logThis();调用的时候，this先绑定到obj身上，但是进入setTimeout这个函数里后，并没有明确的指出谁调用的setTimeout
+    所以this由obj失效绑定到默认的window对象上。
+    */
 
     // let obj = {
     //     name: 'jerry',
@@ -39,7 +54,7 @@
     //         setTimeout(() => {
     //             console.log(this);
     //             console.log(this.name);         //这里的this指向的是obj
-    //         }, 20)
+    //         }, 2000)
     //     }
     // };
     // obj.logThis();            // 如果是对象直接调用函数，则this指向的是obj
@@ -48,12 +63,27 @@
     // func();                   // 如果将函数赋值，则this指向的是window
 
 
+    //  let obj = {
+    //     name: 'jerry',
+    //     logThis: () => {
+    //         setTimeout(() => {
+    //             console.log(this);
+    //             console.log(this.name);         //由于上层函数也是箭头函数，且对象不是作用域，则这里的this指向的是window
+    //         }, 2000)
+    //     }
+    // };
+    // obj.logThis();            // 如果是对象直接调用函数，则this指向的也是window
+    //
+    // func = obj.logThis;
+    // func();                   // 如果将函数赋值，则this指向的也是window
+
+
     // let声明的变量不会放在window上
     // 对象不是作用域
 
-    // let site = 'www.ywzone.com';
+    // let site = 'www.ywzone1.com';
     // let obj = {
-    //     site: 'www.ywzone.com',
+    //     site: 'www.ywzone2.com',
     //     func: function () {
     //         console.log(this);
     //         console.log(this.site);
@@ -65,22 +95,18 @@
     // func()
 
 
-    let site = 'www.ywzone.com';
-    let obj = {
-        site: 'www.ywzone.com',
-        func: () => {
-            console.log(this);
-            console.log(this.site);
-        }
-    };
-    obj.func();                 // 如果是对象直接调用函数，this指向的还是window，因为对象没有作用域，函数有作用域，没有作用域的话就会往上层找，找到window
-
-    func = obj.func;            // 如果将函数赋值，则this指向的是window
-    func()
-
-
-
-
+    // let site = 'www.ywzone.com';
+    // let obj = {
+    //     site: 'www.ywzone.com',
+    //     func: () => {
+    //         console.log(this);
+    //         console.log(this.site);
+    //     }
+    // };
+    // obj.func();                 // 如果是对象直接调用函数，this指向的还是window，因为对象没有作用域，函数有作用域，没有作用域的话就会往上层找，找到window
+    //
+    // func = obj.func;            // 如果将函数赋值，则this指向的是window
+    // func()
 
 </script>
 </body>
