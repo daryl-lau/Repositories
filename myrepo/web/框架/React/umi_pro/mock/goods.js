@@ -1,3 +1,5 @@
+let data = [{title: 'web'}, {title: 'java'}]
+
 export default {
   // 支持值为 Object 和 Array
   'GET /api/users': {users: [1, 2]},
@@ -16,5 +18,10 @@ export default {
     userid: '00000001',
     notifyCount: 12,
   },
-  'GET /api/goods': [{title: 'web'}, {title: 'java'}]
+
+  'GET /api/goods': (req, res)=>{
+    setTimeout(()=>{
+      res.json({result:data})
+    },2000)
+  }
 };

@@ -27,7 +27,11 @@ export default {
       routes: [
         {path: '/', component: './index'},
         {path: '/about', component: './about'},
-        {path: '/goods', component: './goods/index'},
+        {
+          path: '/goods', component: './goods/_layout', routes: [
+            {path: '/goods', component: './goods/index'},
+          ]
+        },
         {path: '/gooods', component: './gooods/index'}
       ]
     },

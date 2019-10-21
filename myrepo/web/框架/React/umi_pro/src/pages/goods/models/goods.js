@@ -6,7 +6,7 @@ export default {
   effects: {
     * getList(action, {call, put}) {
       const res = yield call(getGoods);
-      yield put({type: 'initGoods', result: res.data})
+      yield put({type: 'initGoods', result: res.data.result})
     }
   },
   reducers: {

@@ -14,7 +14,7 @@
 <body>
 
 
-<script id='数组解构' type="text/html">
+<script id='数组解构' type="text/javascript">
 
     // 普通写法
     // var nameArray = ['name1', 'name2', 'name3'];
@@ -33,12 +33,12 @@
 
 </script>
 
-<script id='对象解构' type="text/html">
+<script id='对象解构' type="text/javascript">
 
     let dog = {name:'huang', age:1, gender: 'male'};
 
     // let {name, age, gender} = dog;
-    // console.log(name, age, gender);
+    // cole.log(name, age, gender);
 
 
     // 结构可以重命名
@@ -48,18 +48,18 @@
 </script>
 
 
-<script id="默认解构" type="text/html">
+<script id="默认解构" type="text/javascript">
 
-    let dog = {name:'huang', age:1};
-    let {name, age, gender = 'male'} = dog;
+    let dog1 = {name:'huang', age:1};
+    let {name, age, gender = 'female'} = dog1;
     console.log(name, age, gender);
 </script>
 
 <script id="省略解构" type="text/javascript">
 
-    let nameArray = ['name1', 'name2', 'name3'];
-    let [, n2,] = nameArray;
-    console.log(n2);
+    let nameArray1 = ['name1', 'name2', 'name3'];
+    let [, name2,] = nameArray1;
+    console.log(name2);
 </script>
 
 <script id="应用">
