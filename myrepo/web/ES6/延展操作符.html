@@ -31,6 +31,14 @@
     // 如果说对象中的键名字是一样的话，后面的键值将会覆盖前面的
 </script>
 
+<script id="收集剩余参数">
+    // 剩余参数必须是最后一个
+    function show(a,b,...arr) {
+        console.log(a,b,arr)
+    }
+    show(1,2,3,4,5,6)   // 1,2,[3,4,5,6]
+</script>
+
 <script>
     function getMinValue() {
         let result = Math.min(...arguments);
