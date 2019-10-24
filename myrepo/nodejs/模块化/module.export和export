@@ -18,6 +18,7 @@ console.log(module);    //输出：Module {..., exports: {}, ...} （注：...�
 但是，require引入的对象本质上是module.exports。
 这就产生了一个问题，当 module.exports和exports指向的不是同一块内存时，exports的内容就会失效。
 
+
 例如：
 module.exports = {name: '萤火虫叔叔'}；
 exports = {name: '萤火虫老阿姨'}

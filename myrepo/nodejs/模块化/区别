@@ -29,14 +29,15 @@ exports:{}
 二、module.exports、exports与export、export default的区别
 
 1、用法上的不同：前两者用法是后面加等号，后两者的用法是后面直接接具体的导出，不需要等号
-module.exports = ...
-exports = ...
-export ...
-export default ...
+module.exports = ...        ==>   const xxx = require('PATH')
+exports = ...               ==>   const xxx = require('PATH')
+
+export ...                  ==>   import {xxx1, xxx2} from 'PATH'
+export default ...          ==>   import xxx from 'PATH'
 
 
 2、exports实际上是module.exports的引用，在NodeJS中每一个JS文件都被看做是一个模块，NodeJS会为每一个JS文件生成一个module对象，
-   这个mosule对象有一个exports属性，并且这个exports属性是一个空对象。同时，还有一个exports，引用的是module的exports属性，
+   这个module对象有一个exports属性，并且这个exports属性是一个空对象。同时，还有一个exports，引用的是module的exports属性，
    即：exports=module.exports
 
 

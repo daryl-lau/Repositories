@@ -1,5 +1,6 @@
 
 在es5中，用module.exports和exports导出模块，用require引入模块。
+
 es6新增export和export default导出模块，import导入模块。
 
 一、在es6中的两种基本用法
