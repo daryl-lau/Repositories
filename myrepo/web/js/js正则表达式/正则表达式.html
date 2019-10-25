@@ -10,19 +10,23 @@
 <script>
     // 判断字符串是否符合正则表达式
     let re1 = new RegExp(/s/ig);
-    console.log(re1.test('sfsdfsfda'));
+    console.log(re1.test('sfsdfsfda'));  // true
 
     // 找出字符串中符合正则表达式的内容
     let str2 = '12sf3234asds32123dfsf';
     let re2 = new RegExp(/\d+/g);
-    console.log(str2.match(re2));
+    console.log(str2.match(re2));    // ["12", "3234", "32123"]
 
     // 替换符合正则表达式的内容
     let str3 = 'fweradfaaafsss';
-    console.log(str3.replace(/a/g, '*'));
+    console.log(str3.replace(/a/g, '*'));   // fwer*df***fsss
 
     let str4 = 'fw21323aaer123adfaaaf54sss';
-    console.log(str4.replace(/2\d{3}3/g, '*'))
+    console.log(str4.replace(/2\d{3}3/g, '*'));   // fw*aaer123adfaaaf54sss
+
+    // 找出符合正则表达式的字符串所在的位置，返回的是符合字符串第一个字符的索引值
+    let str5 = 'f21323waaer123adfaaaf54sss';
+    console.log(str5.search(/2\d{3}3/g))    // 返回的是1
 
 
     /*
@@ -48,6 +52,13 @@
         1、任何一个  [abc]
         2、范围      [0-9a-zA-Z]
         3、排除      [^a]
+
+    修饰符
+        ^ 行首
+        $ 行尾
+
+    或
+        |   通常需要提升优先级 /\.(jpg|png|gif)$/
     * */
 </script>
 
