@@ -73,3 +73,9 @@ export default相当于把对象添加到module的exports中，并且对象的ke
 
 三、小tips
 一般来说，module.exports和exports与require对应。也就是用module.exports和exports导出的模块，则用require导入。（不是绝对，如果代码支持es6，也可以用import引入）。
+
+
+四、从另一个模块导出
+export * from 'PATH'
+export {a, b, c, d} from 'PATH'
+export {default} from 'PATH'

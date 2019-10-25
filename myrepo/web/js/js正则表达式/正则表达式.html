@@ -7,22 +7,49 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    // 判断字符串是否符合正则表达式
+    let re1 = new RegExp(/s/ig);
+    console.log(re1.test('sfsdfsfda'));
+
+    // 找出字符串中符合正则表达式的内容
+    let str2 = '12sf3234asds32123dfsf';
+    let re2 = new RegExp(/\d+/g);
+    console.log(str2.match(re2));
+
+    // 替换符合正则表达式的内容
+    let str3 = 'fweradfaaafsss';
+    console.log(str3.replace(/a/g, '*'));
+
+    let str4 = 'fw21323aaer123adfaaaf54sss';
+    console.log(str4.replace(/2\d{3}3/g, '*'))
 
 
+    /*
 
-<!--
+     \d 所有数字，同 [0-9]
+     \w [a-z0-9_]
+     \s 空白字符
+     .  匹配任意字符
 
+     \D [^0-9]
+     \W [^a-z0-9_]
+     \S 非空白字符
 
+    量词
+        {n} 具体个数   /1(32|73|39)\d{8}/  8个数字
+        {n,m}         /[1-9]\d{5-12}/     2-12个数字
+        {n,}          /\w{6,}/            至少6个字符
 
+        + 匹配前一个字符1个或多个, 同 {1,}
+        ? 匹配前一个字符0个或1个，同 {0,1}
 
-
-
-
-
--->
-
-
-
+    [] 只能匹配一个字符，不可能匹配出两个
+        1、任何一个  [abc]
+        2、范围      [0-9a-zA-Z]
+        3、排除      [^a]
+    * */
+</script>
 
 
 </body>
