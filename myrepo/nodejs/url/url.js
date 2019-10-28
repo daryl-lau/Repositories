@@ -3,16 +3,13 @@ let url = require('url');
 
 http.createServer((req, res)=>{
 
+    // url模块获取请求的域名后的uri，此uri可以通过querystring模块解析成对象
     console.log(req.url);   //   /aaa?username=admin&password=123123
 
-    console.log(JSON.stringify(url.parse(req.url, true).query));
+    // url.parse()方法可以将请求的url路径进行拆分
+    console.log(url.parse(req.url, true));
 
-
-    // querystring的parse方法可以将请求的数据转化为对象，通过&符分割
-    // let result = querystring.parse(query);
-    // console.log(result);  //   { username: 'admin', password: '123123' }
-    //
-    // console.log(result.username);   // admin
-    // console.log(result.password);   // 123123
+    res.write(JSON.stringify(url.parse(req.url, true)));
+    res.end()
 
 }).listen(3000);
