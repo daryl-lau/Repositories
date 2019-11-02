@@ -79,3 +79,7 @@ export default相当于把对象添加到module的exports中，并且对象的ke
 export * from 'PATH'
 export {a, b, c, d} from 'PATH'
 export {default} from 'PATH'
+
+五、require
+    1、如果带有路径，则去该路径下面找    --- require('./mod')
+    2、如果不带路径，则先去本地的node_modules目录下面找，如果没有，则去系统的node_modules目录下面找，如果都没有，则报错   --- require('mod')

@@ -23,4 +23,4 @@ http.createServer((req, res) => {
 
     let gz = zlib.createGzip();
     rs.pipe(gz).pipe(res)
-}).listen(3000);
+}).listen(3000)
