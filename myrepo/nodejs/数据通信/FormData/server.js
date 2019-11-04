@@ -1,8 +1,8 @@
 const http = require('http');
 const multiparty = require('multiparty');
 
-http.createServer((req, res) => {
 
+http.createServer((req, res) => {
 
 
     let form = new multiparty.Form({
@@ -23,7 +23,8 @@ http.createServer((req, res) => {
         console.log('上传成功')
     });
 
-    res.setHeader("Access-Control-Allow-Origin","*");
+    // 跨域声明
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.writeHead(200);
     res.end()
 

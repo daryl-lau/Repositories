@@ -21,11 +21,11 @@
 
     // JSON对象,stringify方法可以把js中的json对象转成可用于网络传输的格式,转换后的是字符串格式
     let newjson = JSON.stringify(json);
-    console.log(newjson);
+    console.log(newjson);   // {"a":12,"b":34,"c":"hello"}
 
     // 反序列化
     let newjson1 = JSON.parse(newjson);
-    console.log(newjson1);
+    console.log(newjson1);  // {a: 12, b: 34, c: "hello"};
 </script>
 <body>
 
