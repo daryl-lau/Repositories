@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<button id="btn_get">get</button>
+<button id="btn_get_async">get_async</button>
+<button id="btn_post">post</button>
+<script>
+
+    let btn_get = document.getElementById('btn_get');
+
+    // GET方法
+    btn_get.addEventListener("click", () => {
+        fetch('http://localhost:8000')
+            .then(response => {
+                // fetch返回的响应包括了数据还有响应头、响应状态码等一系列信息
+                console.log(response);
+
+                // 请求的数据资源都存储在body中，作为一种可读的流。所以需要调用一个恰当方法将可读流转换为我们可以使用的数据。
+                // 如果返回的响应是JSON格式的，就调用response.json方法来转换数据。
+                // 还有其他方法来处理不同类型的响应。如果请求一个XML格式文件，则调用response.text。如果请求图片，使用response.blob方法。
+                // 所有这些方法(response.json等等）返回另一个Promise，所以可以调用.then方法处理我们转换后的数据。
+                return response.json();   // 返回一个promise对象
+            })
+            // 请求的数据
+            .then(data => {
+                console.log(data);
+            });
+    });
+
+    // GET方法 async await方式
+    let btn_get_async = document.getElementById('btn_get_async');
+    btn_get_async.addEventListener("click", async () => {
+        // 请求，请求是异步，需要await
+        let res = await fetch('http://localhost:8000');
+        // 解析，也是异步操作，也需要await
+        let data = await res.json();
+        console.log(data)
+    });
+
+
+    // POST方法
+
+    // let btn_post = document.getElementById('btn_get');
+    // let content = {"name": "user", "pwd": "pwd", "captcha": "143123"};
+    // let formdata = new FormData();
+    // formdata.append('name', 'user');
+    // formdata.append('pwd', 'pwd');
+    // formdata.append('captcha', 'dfse');
+    //
+    // console.log(formdata);
+    //
+    // btn_post.addEventListener("click", () => {
+    //     fetch('http://localhost:8080', {
+    //         method: 'post',
+    //         body: formdata
+    //     })
+    //         .then(res => {
+    //             console.log(res.json());
+    //         }).then(data => {
+    //         console.log(data);
+    //     })
+    // })
+</script>
+</body>
+</html>
