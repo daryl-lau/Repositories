@@ -11,11 +11,11 @@ jsonp跨域只能处理get请求
         console.log(data);
     }
 </script>
-<script src="http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e"></script>
+<script src="http://localhost:3000/api"></script>
 
 
 后端：
-router.get('/', function (req, res, next) {
+router.get('/api', function (req, res, next) {
     console.log(req.query);
     peopleModel.findOne({_id: req.query.id}, (err, result) => {
         if (err) {
@@ -38,10 +38,10 @@ router.get('/', function (req, res, next) {
         console.log(data);
     }
 </script>
-<script src="http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e&callback=getData"></script>
+<script src="http://localhost:3000/api?callback=getData"></script>
 
 后端：
-router.get('/', function (req, res, next) {
+router.get('/api', function (req, res, next) {
     console.log(req.query);
     peopleModel.findOne({_id: req.query.id}, (err, result) => {
         if (err) {
