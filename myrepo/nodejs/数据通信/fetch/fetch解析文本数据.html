@@ -51,26 +51,26 @@
 
     // POST方法
 
-    // let btn_post = document.getElementById('btn_get');
-    // let content = {"name": "user", "pwd": "pwd", "captcha": "143123"};
-    // let formdata = new FormData();
-    // formdata.append('name', 'user');
-    // formdata.append('pwd', 'pwd');
-    // formdata.append('captcha', 'dfse');
-    //
-    // console.log(formdata);
-    //
-    // btn_post.addEventListener("click", () => {
-    //     fetch('http://localhost:8080', {
-    //         method: 'post',
-    //         body: formdata
-    //     })
-    //         .then(res => {
-    //             console.log(res.json());
-    //         }).then(data => {
-    //         console.log(data);
-    //     })
-    // })
+    let btn_post = document.getElementById('btn_post');
+    let content = {"name": "user", "pwd": "pwd", "captcha": "143123"};
+    let formdata = new FormData();
+    formdata.append('name', 'user');
+    formdata.append('pwd', 'pwd');
+    formdata.append('captcha', 'dfse');
+
+    console.log(formdata);
+
+    btn_post.addEventListener("click", () => {
+        fetch('http://localhost:8000', {
+            method: 'post',
+            body: formdata
+        })
+            .then(res => {
+                console.log(res.json());
+            }).then(data => {
+            console.log(data);
+        })
+    })
 </script>
 </body>
 </html>
