@@ -6,7 +6,7 @@ const bd_parser = require('body-parser');
 let server = express();
 server.listen(8080);
 
-// body-parser中间件需要放在路由请求之前
+// body-parser中间件需要放在路由请求之前, extended不给会警告，开了没什么用反而影响性能，设置false，
 server.use(bd_parser.urlencoded({extended: false}));
 
 server.post('/reg', (req, res, next) => {
