@@ -34,3 +34,7 @@ ws.once('open', () => {
 ws.once('close', () => {
     console.log('写入通道已关闭')
 });
+
+ws.on('finish', () => {
+    console.log('finish')
+});

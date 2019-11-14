@@ -1,0 +1,11 @@
+npm i forever -g
+
+forever start server.js
+forever list
+forever stop server.js
+forever stopall
+forever restart server.js
+forever restartall
+
+监听文件改变，不建议这么做
+forever start -w server.js
