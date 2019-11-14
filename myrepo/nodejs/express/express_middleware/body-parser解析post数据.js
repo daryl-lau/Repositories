@@ -9,7 +9,7 @@ server.listen(8080);
 // body-parser中间件需要放在路由请求之前
 server.use(bd_parser.urlencoded({extended: false}));
 
-server.post('/a', (req, res, next) => {
+server.post('/reg', (req, res, next) => {
     // 解析后的请求会放在req的body属性里面
     console.log(req.body);
 });
