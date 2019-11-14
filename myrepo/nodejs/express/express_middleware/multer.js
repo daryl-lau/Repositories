@@ -14,7 +14,7 @@ let obj = multer({dest: './static/upload'});
 // 可以控制上传的文件类型，any表示全部接受
 server.use(obj.any());
 
-server.post('/upload', (req, res, next)=>{
+server.post('/upload', (req, res, next) => {
     // 上传后的信息会放在req的file属性里面
     console.log(req.files);
 });
