@@ -6,6 +6,8 @@ server.listen(8080);
 
 
 server.use(cookieSession({
+    name: 'session',
+
     // 循环秘钥
     keys: ['sdfa97sdfasdfasf922i3n2n3i42h3912', 'sdfjasdfasdf9weqk9s8dfagllopdfd9', 'sdfa89s7df8asdf9as87asohou89v'],
 
@@ -14,7 +16,9 @@ server.use(cookieSession({
 }));
 
 server.get('/a', (req, res) => {
+    console.log(req.headers.cookie);
     console.log(req.session);
+
     if (!req.session['view']) {
         req.session['view'] = 1;
     } else {

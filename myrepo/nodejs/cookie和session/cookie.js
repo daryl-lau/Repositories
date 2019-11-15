@@ -7,7 +7,7 @@ server.listen(8080);
 // 解析客户端发过来的cookie，存放到req.cookies中
 server.use(cookieParser(
     // cookie签名秘钥，这个确定是保密的
-    'dfs^^%dfsf8&&fs8&^%%&ssdfs'
+    'dfs^^%dfsf8&&f@*@$*@fsd2@@f@$_%)9s8&^%%&ssdfs'
 ));
 
 server.get('/a', (req, res)=>{
@@ -40,7 +40,7 @@ server.get('/a', (req, res)=>{
         // 设置这个cookie只能由服务器操作
         httpOnly: true,
 
-        // 只有https
+        // 只有https才能使用此配置
         // secure: true,
 
         // 签名,需要配合上面的签名秘钥一起使用
