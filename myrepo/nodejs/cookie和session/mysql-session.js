@@ -4,10 +4,10 @@ const mysql = require("mysql");
 const session = require("express-session");
 const MySQLStore = require('express-mysql-session')(session);
 
-var app = express();
+const app = express();
 
 // 配置mysql
-var options = {
+const options = {
     host: 'localhost',
     port: 3306,
     user: 'root',
@@ -15,12 +15,13 @@ var options = {
     database: 'session'
 };
 
-var sessionConnection = mysql.createConnection(options);
-var sessionStore = new MySQLStore({
+const sessionConnection = mysql.createConnection(options);
+
+const sessionStore = new MySQLStore({
     expiration: 10800000,
     createDatabaseTable: true,  //是否创建表
     schema: {
-        tableName: 'session_tab',   //表名
+        tableName: 'sessions',   //表名
         columnNames: {      //列选项
             session_id: 'session_id',
             expires: 'expires',
