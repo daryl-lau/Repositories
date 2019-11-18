@@ -74,7 +74,4 @@ router.get('/user', async (ctx, next) => {
 });
 
 
-// express中，use会处理所有请求，get、post等
-// koa中，use只是用作中间件，处理所有的请求使用 all 来处理
-
 server.use(router.routes());
