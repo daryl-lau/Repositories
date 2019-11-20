@@ -24,6 +24,7 @@ server.keys = [
 // 设置cookie和获取cookie的时候，都需要进行签名，保证数据的安全性
 
 router.get('/', ctx=>{
+    // name value
     ctx.cookies.set('user2', 'bhz2', {
         // cookie里有属性这里都有
         signed: true,

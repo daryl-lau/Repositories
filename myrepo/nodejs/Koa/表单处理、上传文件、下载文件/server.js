@@ -27,8 +27,9 @@ router.post('/upload', async ctx => {
 });
 
 
-router.get('/download', async ctx => {
-    const path = `./download/pic.png`;
+router.get('/download/:filename', async ctx => {
+    const {filename} = ctx.params;
+    const path = `./download/${filename}`;
     ctx.attachment(path);
     await send(ctx, path)
 });
