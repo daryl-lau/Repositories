@@ -16,7 +16,7 @@ server.keys = fs.readFileSync('./.keys').toString().split('\n');
 
 server.use(session({
     key: 'ID',
-    maxAge: 20 * 60 * 1000,
+    maxAge: 10 * 60 * 1000,
     renew: true
 }, server));
 
