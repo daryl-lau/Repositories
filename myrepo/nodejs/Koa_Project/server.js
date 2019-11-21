@@ -20,8 +20,10 @@ server.use(session({
     renew: true
 }, server));
 
+// 数据库
 server.context.db = db;
 
+// 全局错误处理
 server.use(async (ctx, next) => {
     try {
         await next()
@@ -30,6 +32,7 @@ server.use(async (ctx, next) => {
     }
 });
 
+// ejs后端渲染
 ejs(server, {
     root: path.resolve(__dirname, './template'),
     layout: false,
@@ -38,6 +41,7 @@ ejs(server, {
     debug: false
 });
 
+// 文件上传目录
 server.use(body({
     uploadDir: path.resolve(__dirname, './static/upload'),
 }));
@@ -46,6 +50,8 @@ let router = new Router;
 
 router.use('', require('./routers'));
 
+
+// 静态文件声明
 Static(router, {
     html: 1,
     image: 1,

@@ -19,8 +19,8 @@ server.context.db = require('./libs/mysql');
 
 router.get('/getUsers', async ctx => {
     let data = await ctx.db.query('SELECT * FROM USER_T');
+    console.log(data);
     ctx.body = data;
-
 });
 
 server.use(router.routes());

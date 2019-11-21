@@ -7,5 +7,8 @@ router.get('/', ctx=>{
 });
 
 router.use('/admin', require('./admin'));
+router.use('/reg', require('./api/reg'));
+router.use('/login', require('./api/login'));
+router.use('/loginOut', require('./api/loginOut'));
 
 module.exports = router.routes();

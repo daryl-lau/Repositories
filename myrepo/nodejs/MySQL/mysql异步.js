@@ -13,6 +13,8 @@ http.createServer(async (req, res) => {
             throw err
         } else {
             console.log(data);
+            res.write('ok');
+            res.end();
         }
     });
 }).listen(8080);
