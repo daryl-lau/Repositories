@@ -9,7 +9,7 @@ const ws = fs.createWriteStream('./.keys');
 for (let i = 0; i < count; i++) {
     let str = '';
     for (let j = 0; j < length; j++) {
-        let single = char[Math.floor(Math.random() * char.length)]
+        let single = char[Math.floor(Math.random() * char.length)];
         str += single;
     }
     if (i === count - 1) {
