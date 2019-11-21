@@ -3,7 +3,7 @@ const path = require('path');
 
 const static_path = path.resolve(__dirname, '../static');
 
-module.exports = function Static(route, options) {
+module.exports = function Static(router, options) {
 
     options = options || {};
     options.image = options.image || 30;
@@ -12,19 +12,19 @@ module.exports = function Static(route, options) {
     options.javascript = options.javascript || 1;
 
 
-    route.all(/(\.jpg)|(\.png)|(\.gif)|(\.jpeg)/i, koa_static(static_path, {
+    router.all(/(\.jpg)|(\.png)|(\.gif)|(\.jpeg)/i, koa_static(static_path, {
         maxAge: 86400 * 1000 * options.image
     }));
-    route.all(/\.css/i, koa_static(static_path, {
+    router.all(/\.css/i, koa_static(static_path, {
         maxAge: 86400 * 1000 * options.style
     }));
-    route.all(/(\.html)|(\.htm)/i, koa_static(static_path, {
+    router.all(/(\.html)|(\.htm)/i, koa_static(static_path, {
         maxAge: 86400 * 1000 * options.html
     }));
-    route.all(/(\.js)|(\.jsx)/i, koa_static(static_path, {
+    router.all(/(\.js)|(\.jsx)/i, koa_static(static_path, {
         maxAge: 86400 * 1000 * options.javascript
     }));
-    route.all('*', koa_static(static_path, {
+    router.all('*', koa_static(static_path, {
         maxAge: 0
     }));
 };

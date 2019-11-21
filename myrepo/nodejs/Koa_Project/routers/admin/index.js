@@ -6,9 +6,15 @@ const fs = require('await-fs');
 
 let router = new Router();
 
+router.get('/',  ctx => {
+     ctx.body='admin'
+});
+
 router.get('/login', async ctx=>{
     await ctx.render('login', {})
 });
+
+
 
 router.post('/login', async ctx=>{
     let file = await fs.readFile(path.resolve(__dirname, '../../admins.json'));

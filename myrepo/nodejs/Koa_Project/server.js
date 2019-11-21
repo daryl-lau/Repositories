@@ -44,7 +44,7 @@ server.use(body({
 
 let router = new Router;
 
-router.use('/admin', require('./routers/admin'));
+router.use('', require('./routers'));
 
 Static(router, {
     html: 1,
