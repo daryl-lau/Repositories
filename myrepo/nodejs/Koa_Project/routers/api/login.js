@@ -20,12 +20,16 @@ router.post('/', async ctx => {
     let {username, password} = ctx.request.fields;
     let pass = md5(password);
     let data = await ctx.db.query(`SELECT PASSWORD FROM USER_T WHERE USERNAME='${username}'`);
-    if (data[0].PASSWORD === pass) {
-        ctx.session['login'] = true;
-        ctx.session['username'] = username;
-        ctx.body = `登录成功! ${username}`;
-    }else {
-         ctx.body = '用户名或密码错误！'
+    if (data.length === 0) {
+        ctx.body = '用户名或密码错误！'
+    } else {
+        if (data[0].PASSWORD === pass) {
+            ctx.session['login'] = true;
+            ctx.session['username'] = username;
+            ctx.body = `登录成功! ${username}`;
+        } else {
+            ctx.body = '用户名或密码错误！'
+        }
     }
 });
 
