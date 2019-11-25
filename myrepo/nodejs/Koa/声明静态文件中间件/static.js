@@ -19,8 +19,6 @@ server.use(router.routes());
 
 // 静态文件路径声明，
 // 需要放在路由之后，否则如果静态文件名字为index.html，且将这个放在路由之前，将会先请求静态文件index.html，谁在前面先请求谁
-// 比如static文件夹下有名为index.html的文件，同时路由又配置了 '/'，则访问地址根目录的时候，
-//
 // server.use(static('./static'));
 
 
