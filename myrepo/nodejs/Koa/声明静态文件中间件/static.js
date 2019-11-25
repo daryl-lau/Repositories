@@ -17,7 +17,7 @@ router.get('/', async ctx => {
 server.use(router.routes());
 
 
-// 静态文件路径声明，
+// 静态文件路径声明
 // 需要放在路由之后，否则如果静态文件名字为index.html，且将这个放在路由之前，将会先请求静态文件index.html，谁在前面先请求谁
 // server.use(static('./static'));
 
