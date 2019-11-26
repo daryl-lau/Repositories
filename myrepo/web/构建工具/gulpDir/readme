@@ -1,0 +1,1 @@
+直接在此目录下执行gulp，gulp会自动去找gulpfile.js配置文件，进行打包
