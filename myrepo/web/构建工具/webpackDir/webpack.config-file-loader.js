@@ -9,7 +9,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         // 设置全路径
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dest')
     },
 
     /*
