@@ -14,7 +14,7 @@ gulp.task('js', () => {
     // 是否打包成一个文件，如果是，传入最后打包文件的名字
     //     .pipe(concat('bundle.min.js'))
 
-        // 是否启用source map，和后面的sourcemaps.write()配合使用
+    // 是否启用source map，和后面的sourcemaps.write()配合使用
         .pipe(sourcemaps.init())
 
         // 先用babel将高级语法转成低级，否则uglify会报错
@@ -40,13 +40,14 @@ gulp.task('style', () => {
         .pipe(gulp.dest('./build/css'))
 });
 
-gulp.task('image',()=>{
+gulp.task('image', () => {
     return gulp.src(['./src/img/**/*.jpg', './src/img/**/*.png', './src/img/**/*.gif'])
         .pipe(imagemin([
             imagemin.gifsicle({interlaced: true}),
             imagemin.jpegtran({propressive: true}),
             imagemin.optipng({optimizationLevel: 5})
         ]))
+        .pipe(gulp.dest('./build/img'))
 });
 
 

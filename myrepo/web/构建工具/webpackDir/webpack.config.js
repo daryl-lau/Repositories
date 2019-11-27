@@ -31,6 +31,9 @@ module.exports = {
             {
                 test: /\.css$/,
                 // use里面调用顺序是从后往前开始调用的
+                // style-loader用来将加载的css应用到页面中，否则无法启用样式
+                // css-loader用来加载css并压缩
+                // postcss-loader用来自动添加浏览器兼容的前缀，依赖autoprefixer模块
                 use: ['style-loader', 'css-loader', 'postcss-loader']
             },
             {
