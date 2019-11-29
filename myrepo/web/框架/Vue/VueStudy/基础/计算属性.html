@@ -50,7 +50,8 @@
                 this.name = 'wang wu'
             },
             changeNewName() {
-                this.fullname = 'ccc ddd';
+                this.fullname = 'ccc ddd';     // 调用计算属性的set方法，直接赋值就行了，不能调用set()方法，会报错
+                // this.fullname.set('ccc ddd')  // 不能使用下面这种方式修改计算属性，报错
             }
         },
         computed: {
