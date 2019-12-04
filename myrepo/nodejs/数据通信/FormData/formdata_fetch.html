@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+
+<script src="lib/jquery-3.3.1.js"></script>
+
+<!--FormData主要处理文件等二进制数据的上传，get、post请求方式都可使用-->
+
+<form action="http://localhost:8080/" method="post" id="form1">
+    用户：<input type="text" name="username" title=""><br>
+    密码：<input type="password" name="password"><br>
+    文件：<input type="file" name="filename" title=""><br>
+    <input type="submit" name="" title="" value="提交">
+</form>
+
+
+</body>
+<script>
+
+    let oForm = document.getElementById('form1');
+    oForm.onsubmit = function () {
+        let formdata = new FormData(oForm);
+        fetch(oForm.action, {
+            method: oForm.method,
+            body: formdata
+        });
+        // 需要阻止submit的默认事件
+        return false;
+    }
+
+
+</script>
+</html>

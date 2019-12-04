@@ -34,7 +34,7 @@
                 <!-- 通过传入 `to` 属性指定链接. -->
                 <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
 
-                <router-link to="/H5" class="list-group-item">H5</router-link>
+                <router-link to="/h5" class="list-group-item">H5</router-link>
                 <router-link to="/Linux" class="list-group-item">Linux</router-link>
                 <router-link to="/Python" class="list-group-item">Python</router-link>
 
@@ -137,16 +137,17 @@
     // 我们晚点再讨论嵌套路由。
     const routes = [
         {
-            path: '/H5', component: h5,
+            path: '/h5/', component: h5,
             children: [
-                {path: 'html', component: html},
-                {path: 'css', component: css},
-                {path: 'js', component: js},
+                // 子路由用相对路径
+                {path: 'html/', component: html},
+                {path: 'css/', component: css},
+                {path: 'js/', component: js},
                 {path: '/', redirect: 'html'}
             ]
         },
-        {path: '/Linux', component: linux},
-        {path: '/Python', component: python},
+        {path: '/Linux/', component: linux},
+        {path: '/Python/', component: python},
         {path: '/', redirect: '/H5'}
     ];
 
