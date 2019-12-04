@@ -88,7 +88,8 @@
     // 每个路由应该映射一个组件。 其中"component" 可以是
     // 通过 Vue.extend() 创建的组件构造器，
     // 或者，只是一个组件配置对象。
-    // 我们晚点再讨论嵌套路由。
+
+    // 路由按顺序匹配，一旦匹配到就不往下匹配了
     const routes = [
         {path: '/H5', component: h5},
         {path: '/Linux', component: linux},

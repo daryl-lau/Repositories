@@ -92,7 +92,6 @@
     // 每个路由应该映射一个组件。 其中"component" 可以是
     // 通过 Vue.extend() 创建的组件构造器，
     // 或者，只是一个组件配置对象。
-    // 我们晚点再讨论嵌套路由。
     const routes = [
         {path: '/H5', component: h5},
         {path: '/Linux', component: linux},
@@ -115,6 +114,11 @@
         methods: {
             fn1(){
                 this.$router.push('/H5')
+
+                // this.$router.push({name: 'H5', params: {id: 999}})
+
+                // this.$router.replace()  替换最后一个路由（即当前路由）
+                // this.$router.go(数字)  go(-1) 退后   go(1) 前进
             },
             fn2(){
                 this.$router.push('/Linux')
