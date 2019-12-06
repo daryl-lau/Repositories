@@ -26,6 +26,7 @@ http.createServer((req, res) => {
     // 跨域声明
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.writeHead(200);
+    res.write('success');
     res.end()
 
 }).listen(8080);
