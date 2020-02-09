@@ -80,7 +80,7 @@ function variableMove(obj, json, speed, endFunc) {
 
 /**
  *
- * @param {obkect}obj
+ * @param {object}obj
  * @param {json}json
  * @param {number}speed
  * @param {function}endFunc
