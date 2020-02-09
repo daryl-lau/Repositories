@@ -167,7 +167,7 @@ function uniformMove(obj, json, speed, endFunc) {
  */
 function clear_arr_trim(array) {
     for (var i = 0; i < array.length; i++) {
-        if (array[i] === "" || typeof(array[i]) === "undefined") {
+        if (array[i] === "" || typeof (array[i]) === "undefined") {
             array.splice(i, 1);
             i = i - 1;
         }
