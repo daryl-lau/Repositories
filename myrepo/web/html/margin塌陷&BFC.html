@@ -33,18 +33,20 @@
     </style>
 </head>
 <body>
-   <!--margin塌陷
+    <!--
+        margin塌陷
         在标准文档流中，在垂直方向中，有margin塌陷现象，会忽略垂直方向中margin值较小的那个，可以使用浮动或定位来脱标解决
         可以触发父级盒子的BFC来解决,不是父子块也存在此现象，但如果不是父子块，直接设置就好了，没必要上下都设置。
     -->
 
-   <!--BFC
+    <!--
+      BFC
         如何触发一个盒子的BFC
         1、position: absolute;
         2、display: inline-block;
         3、float:left/right;
         4、overflow:hidden;
-   -->
+    -->
 
     <div class="wrapper">
         <div class="content">
