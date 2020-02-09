@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-    <style>
-        #id1 {
-            width: 200px;
-            height: 200px;
-            background-color: red;
-        }
-    </style>
-    <script>
-        function toRed() {
-            var odiv=document.getElementById('id1');
-            odiv.style.width='200px';
-            odiv.style.height='200px';
-            odiv.style.backgroundColor='red';
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="x-ua-compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Title</title>
+        <style>
+            #id1 {
+                width: 200px;
+                height: 200px;
+                background-color: red;
+            }
+        </style>
+        <script>
+            function toRed() {
+                var odiv = document.getElementById('id1');
+                odiv.style.width = '200px';
+                odiv.style.height = '200px';
+                odiv.style.backgroundColor = 'red';
+            }
 
-        function roGreen() {
-            var odiv=document.getElementById('id1');
-            odiv.style.width='400px';
-            odiv.style.height='400px';
-            odiv.style.backgroundColor='green';
-        }
-    </script>
-</head>
-<body>
-
-<div id="id1" onmouseover="roGreen()" onmouseout="toRed()"></div>
-
-</body>
+            function roGreen() {
+                var odiv = document.getElementById('id1');
+                odiv.style.width = '400px';
+                odiv.style.height = '400px';
+                odiv.style.backgroundColor = 'green';
+            }
+        </script>
+    </head>
+    <body>
+        <div id="id1" onmouseover="roGreen()" onmouseout="toRed()"></div>
+    </body>
 </html>

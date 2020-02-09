@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-    <style>
-        #id1 {
-            width: 200px;
-            height: 200px;
-            background-color: red;
-        }
-    </style>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="x-ua-compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Title</title>
+        <style>
+            #id1 {
+                width: 200px;
+                height: 200px;
+                background-color: red;
+            }
+        </style>
 
-    <script>
-        window.onload = function () {
-            var oDiv = document.getElementById('id1');
-
-        //    currentStyle不兼容，只在IE有用
-        //    oDiv.currentStyle.width
-
-            var a = getComputedStyle(oDiv, null)['width'];
-            alert(a);
-        }
-    </script>
-</head>
-<body>
-
-<div id="id1"></div>
-
-</body>
+        <script>
+            window.onload = function() {
+                var oDiv = document.getElementById('id1');
+                //    currentStyle不兼容，只在IE有用
+                //    oDiv.currentStyle.width
+                var a = getComputedStyle(oDiv, null)['width'];
+                alert(a);
+            };
+        </script>
+    </head>
+    <body>
+        <div id="id1"></div>
+    </body>
 </html>
