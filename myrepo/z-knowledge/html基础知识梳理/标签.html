@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>文本标签</h3>
+        <div>盒子标签，无任何样式，独占一样</div>
+        <span>无任何样式，不独占一行</span>
+
+        <em>倾斜-推荐</em>
+        <i>倾斜</i>
+
+        <strong>加粗-推荐</strong>
+        <b>加粗</b>
+
+        <del>删除线-推荐</del>
+        <s>删除线</s>
+
+        <ins>下划线-推荐</ins>
+        <u>下划线</u>
+
+        <h3>图片标签</h3>
+        <img src="./imgs/pikaqiu.jpeg" alt="皮卡皮卡" title="皮卡丘" width="100px" height="100px">
+        <!-- src：图片资源地址,可以是 1、网上url 2、本地绝对路径 3、本地相对路径 -->
+        <!-- alt：当图片无法正常显示时才会显示alt的内容 -->
+        <!-- title：鼠标放上去时显示的内容 -->
+        <!-- img是行级块元素，因此可以直接设置宽高（只用设置一个，另一个等比缩放），且不会独占一行 -->
+        <!-- border：给图片加边框，基本不使用 -->
+
+        <h3>a标签，链接标签</h3>
+        <a href="https://www.baidu.com" target="_blank" style="display: inline-block; line-height: 0px;">
+            <img src="./imgs/pikaqiu.jpeg" alt="这是图片" title="xxxxx" width="200">
+        </a>
+        <!-- target: _blank 打开链接时打开一个新的浏览器窗口 -->
+        <!-- a标签可以包括任何东西，图片、按钮等 -->
+
+        <a href="tel:123456789">打电话</a>
+        <!-- 调用电话功能 -->
+
+        <h3>表格</h3> 
+        <table>
+            <thead>
+                <tr>
+                    <!-- th和td不同在于，里面的文字会加粗和居中 -->
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

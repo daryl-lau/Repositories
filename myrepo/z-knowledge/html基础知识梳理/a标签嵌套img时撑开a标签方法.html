@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        当在a标签中嵌套img标签时，a标签的高度不会随着img高度撑开，因为a标签时行级元素，高度无法改变，
+        因此需要将其变成块级元素或者行级块元素，添加 diplay: block 或者 diplay: block 样式即可，
+        但是又有个问题就是设置这个之后，a标签的高度会略高于img的高度，那是因为img标签在a标签内部垂直
+        对齐的时候，默认是 vertical-align: baseline，所以完美解决方法有以下两种：
+        
+        方法一：
+            给a标签加上 diplay: block（或者diplay: inline-block） 和 line-height: 0（或者font-size: 0） 样式，
+     -->
+    <a href="www.baidu.com" style="display: inline-block; line-height: 0;">
+        <img src="./imgs/pikaqiu.jpeg" alt="" width="100">
+    </a>
+
+    <!-- 
+        方法二：
+            给a标签加上 diplay: block（或者diplay: inline-block）,
+            给img标签加上 vertical-align:bottom 样式
+     -->
+    <a href="www.baidu.com" style="display: inline-block;">
+        <img src=" ./imgs/pikaqiu.jpeg" alt="" width="100" style="vertical-align: baseline;">
+    </a>
+</body>
+
+</html>
