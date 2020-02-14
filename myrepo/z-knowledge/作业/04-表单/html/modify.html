@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form action="">
+            <table width="350" align="center">
+                <caption>
+                    <h2>欢迎来到修改页面</h2>
+                </caption>
+                <tr>
+                    <td>姓名:</td>
+                    <td>
+                        <input type="text" name="username" placeholder="jack">
+                    </td>
+                </tr>
+                <tr>
+                    <td>性别:</td>
+                    <td>
+                        <input type="radio" name="gender" value="female" id="female">
+                        <label for="female">女士</label>
+                        <input type="radio" name="gender" value="male" id="male">
+                        <label for="male">男士</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>学历:</td>
+                    <td>
+                        <select name="education" id="">
+                            <option value="kid">幼儿园</option>
+                            <option value="primary">小学</option>
+                            <option value="middle">中学</option>
+                            <option value="high">高中</option>
+                            <option value="college">大学</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>个人描述:</td>
+                    <td>
+                        <textarea name="description" id="" cols="30" rows="3"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="checkbox" name="private" value="private" id="private">
+                        <label for="private">不要公开我的个人信息</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="left">
+                        <input type="submit" value="保存">&nbsp;<input type="reset" value="重填">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form action="" name="register">
+            <table width="600" border="1" align="center" cellpadding="5">
+                <caption>
+                    <h2>青春不常在，抓紧谈恋爱</h2>
+                </caption>
+                <tr>
+                    <td>性别</td>
+                    <td>
+                        <input type="radio" name="gender" id="male" value="male">
+                        <label for="male"><img src="./images/man.jpg" alt="">男</label>
+                        <input type="radio" name="gender" id="female" value="female">
+                        <label for="female"><img src="./images/women.jpg" alt="">女</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>生日</td>
+                    <td>
+                        <select name="year" id="">
+                            <option value="year">--请选择年--</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                        </select>
+                        <span>年</span>
+                        <select name="month" id="">
+                            <option value="month">--请选择月--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <span>月</span>
+                        <select name="day" id="">
+                            <option value="day">--请选择日--</option>日
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <span>日</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>所在地区</td>
+                    <td>
+                        <input type="text" placeholder="请填写所在地区">
+                    </td>
+                </tr>
+                <tr>
+                    <td>婚姻状况</td>
+                    <td>
+                        <input type="radio" name="marry" value="no" id="no">
+                        <label for="no">未婚</label>
+                        <input type="radio" name="marry" value="yes" id="yes">
+                        <label for="yes">已婚</label>
+                        <input type="radio" name="marry" value="broken" id="broken">
+                        <label for="broken">离婚</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>学历</td>
+                    <td>
+                        <input type="text" placeholder="请填写学历" name="education">
+                    </td>
+                </tr>
+                <tr>
+                    <td>月薪</td>
+                    <td>
+                        <select name="salary" id="">
+                            <option value="miss">--您的月薪--</option>
+                            <option value="5000">5000以下</option>
+                            <option value="5000-10000">5000-10000</option>
+                            <option value="10000-20000">10000-20000</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>手机号码</td>
+                    <td>
+                        <input type="text" name="phone" placeholder="请填写手机号" maxlength="11">
+                    </td>
+                </tr>
+                <tr>
+                    <td>昵称</td>
+                    <td>
+                        <input type="text" name="nickname" placeholder="请填写昵称">
+                    </td>
+                </tr>
+                <tr>
+                    <td>喜欢的类型</td>
+                    <td>
+                        <input type="checkbox" name="style" value="sexy" id="sexy">
+                        <label for="sexy">性感的</label>
+                        <input type="checkbox" name="style" value="cute" id="cute">
+                        <label for="cute">可爱的</label>
+                        <input type="checkbox" name="style" value="young" id="young">
+                        <label for="young">小鲜肉</label>
+                        <input type="checkbox" name="style" value="both" id="both">
+                        <label for="both">都喜欢</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>自我介绍</td>
+                    <td>
+                        <textarea name="self_intro" id="" cols="30" rows="4" placeholder="请填写自我介绍，最多300字" maxlength="300"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="image" src="./images/btn.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="checkbox" checked="checked" id="agree">
+                        <label for="agree">我同意注册条款和会员加入标准</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <a href="./html/login.html">我是会员，立即登录</a>
+                        <a href="./html/modify.html">前往修改页面</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <h4>我承诺</h4>
+                        <ul>
+                            <li>年满18岁、单身</li>
+                            <li>抱着严肃的态度</li>
+                            <li>真诚寻找另一半</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
