@@ -40,30 +40,30 @@ body {
 /*父子选择器
     浏览器从子向父层进行搜索，性能优化
 */
-div span {}
+/* div span {} */
 
 /*直接子元素选择器*/
-div>span {}
+/* div>span {} */
 
 /*并列选择器 带有demo类的div标签 */
-div.demo {}
+/* div.demo {} */
 
 /*分组选择器*/
-div,
-em,
-span {}
+/* div, */
+/* em, */
+/* span {} */
 
 
 /*伪类选择器*/
 
 /*鼠标覆盖*/
-a:hover {}
+/* a:hover {} */
 
 /*第一个a标签*/
-a:first-child {}
+/* a:first-child {} */
 
 /*选中文本*/
-a::selection {}
+/* a::selection {} */
 
 
 
