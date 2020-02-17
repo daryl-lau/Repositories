@@ -1,7 +1,3 @@
-
-
-
-
 /*id选择器*/
 
 #id1 {
@@ -9,7 +5,7 @@
 }
 
 /*标签选择器，所有的div标签都有效果*/
-div{
+div {
     height: 100px;
     width: 100px;
     background-color: black;
@@ -42,29 +38,20 @@ body {
 
 
 /*父子选择器
-    浏览器从子向父层进行搜索
+    浏览器从子向父层进行搜索，性能优化
 */
-div span {
-
-}
+div span {}
 
 /*直接子元素选择器*/
-div > span {
+div>span {}
 
-
-}
-
-/*并列选择器*/
-div.demo {
-
-}
+/*并列选择器 带有demo类的div标签 */
+div.demo {}
 
 /*分组选择器*/
 div,
 em,
-span {
-
-}
+span {}
 
 
 /*伪类选择器*/
@@ -73,7 +60,7 @@ span {
 a:hover {}
 
 /*第一个a标签*/
-a:first-child{}
+a:first-child {}
 
 /*选中文本*/
 a::selection {}
@@ -87,84 +74,84 @@ a::selection {}
 
 
 /*div {*/
-    /*!*字体大小，设置的是高*!*/
-    /*font-size: 12px;*/
+/*!*字体大小，设置的是高*!*/
+/*font-size: 12px;*/
 
-    /*!*加粗*!*/
-    /*font-weight: bolder;*/
+/*!*加粗*!*/
+/*font-weight: bolder;*/
 
-    /*!*斜体*!*/
-    /*!*font-style: italic;*!*/
+/*!*斜体*!*/
+/*!*font-style: italic;*!*/
 
-    /*!*字体*!*/
-    /*font-family: Arial, "Times New Roman";*/
+/*!*字体*!*/
+/*font-family: Arial, "Times New Roman";*/
 
-    /*!*字体颜色*!*/
-    /*color: #f40;*/
+/*!*字体颜色*!*/
+/*color: #f40;*/
 
-    /*!*边框*!*/
-    /*!*border: 1px solid black;*!*/
+/*!*边框*!*/
+/*!*border: 1px solid black;*!*/
 
-    /*!*可以拆开*!*/
-    /*border-width: 10px;*/
-    /*border-style: dashed;*/
+/*!*可以拆开*!*/
+/*border-width: 10px;*/
+/*border-style: dashed;*/
 /*}*/
 
 /*a:link  {*/
-    /*color: #f40;*/
+/*color: #f40;*/
 /*}*/
 
 /*a:hover {*/
-    /*color: #00f;}*/
+/*color: #00f;}*/
 
 /*a:active {*/
-    /*color: #000;*/
+/*color: #000;*/
 /*}*/
 
 /*a:visited {*/
-    /*color: #00ff00;*/
+/*color: #00ff00;*/
 /*}*/
 
 /*ul.a1 {*/
-    /*list-style-type: circle;*/
-    /*vertical-align: top;border-collapse: collapse;*/
-    /*height: 10px;*/
+/*list-style-type: circle;*/
+/*vertical-align: top;border-collapse: collapse;*/
+/*height: 10px;*/
 /*}*/
 
 /*body {*/
-    /*margin: 0;*/
+/*margin: 0;*/
 /*}*/
 
 /*div {*/
-    /*margin-top: 20px;*/
-    /*margin-bottom: 5px;*/
-    /*height: 15px;*/
-    /*width: 100%;*/
-    /*background-color: dimgrey;*/
-    /*!*color: #f40;*!*/
-    /*!*border:10px solid black;*!*/
-    /*!*border-left-color: red;*!*/
-    /*cursor: not-allowed;*/
+/*margin-top: 20px;*/
+/*margin-bottom: 5px;*/
+/*height: 15px;*/
+/*width: 100%;*/
+/*background-color: dimgrey;*/
+/*!*color: #f40;*!*/
+/*!*border:10px solid black;*!*/
+/*!*border-left-color: red;*!*/
+/*cursor: not-allowed;*/
 
 /*}*/
 
 
 /*.box {*/
-    /*position: absolute;*/
-    /*opacity: 0.5;*/
-    /*!*left: 100px;*!*/
-    /*!*top: 100px;*!*/
-    /*width: 100px;*/
-    /*height: 100px;*/
-    /*background-color: red;*/
+/*position: absolute;*/
+/*opacity: 0.5;*/
+/*!*left: 100px;*!*/
+/*!*top: 100px;*!*/
+/*width: 100px;*/
+/*height: 100px;*/
+/*background-color: red;*/
 /*}*/
 
 /*.box1 {*/
-    /*!*position: absolute;*!*/
-    /*!*!*opacity: 0.5;*!*!*/
-    /*width: 200px;*/
-    /*height: 200px;*/
-    /*background-color: green;*/
+/*!*position: absolute;*!*/
+/*!*!*opacity: 0.5;*!*!*/
+/*width: 200px;*/
+/*height: 200px;*/
+/*background-color: green;*/
 /*}*/
 
 
@@ -195,16 +182,17 @@ a::selection {}
 
 
 /*容器溢出*/
-    /*单行文本*/
-    p {
-        height: 20px;
-        line-height: 20px;
-        width: 500px;
-        /*border: 1px solid black;*/
+/*单行文本*/
+p {
+    height: 20px;
+    line-height: 20px;
+    width: 500px;
+    /*border: 1px solid black;*/
 
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    /*多行文本*/
-        /*只做截断*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*多行文本*/
+/*只做截断*/
