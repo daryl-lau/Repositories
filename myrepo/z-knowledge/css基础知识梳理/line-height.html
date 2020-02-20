@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            font-size: 30px;
+            
+            /* line-height写百分比的话，会先根据这里的字号进行计算，再继承给子元素，因此这里子元素的行高为30px */
+            line-height: 100%;
+
+            /* line-height写倍数的话，会先把倍数继承给子元素，再根据子元素的字号进行计算行高，因此这里子元素的行高为60px*/
+            line-height: 1.5;
+        }
+
+        .children {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="children">哈哈哈哈哈</div>
+    </div>
+</body>
+
+</html>
