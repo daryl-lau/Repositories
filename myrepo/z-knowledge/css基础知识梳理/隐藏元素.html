@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .box1 {
+            background-color: blue;
+
+            /* 隐藏后不占据文档流位置 */
+            display: none;
+
+            /* 隐藏后仍然占据文档流位置 */
+            visibility: hidden;
+        }
+
+        .box2 {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 通过类名调用字体的时候，需要先引入字体的css -->
+    <link rel="stylesheet" href="./fonts/iconfont.css">
+    <style>
+        /* 声明字体 */
+        @font-face {
+            font-family: 'iconfont';
+            src: url('fonts/iconfont.eot');
+            src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+                url('fonts/iconfont.woff2') format('woff2'),
+                url('fonts/iconfont.woff') format('woff'),
+                url('fonts/iconfont.ttf') format('truetype'),
+                url('fonts/iconfont.svg#iconfont') format('svg');
+        }
+
+        /* 调用字体,指定font-family为上述声明的值 */
+        .github {
+            font-style: normal;
+            font-family: "iconfont";
+            font-size: 100px;
+        }
+
+        .youtube {
+            font-style: normal;
+            font-family: "iconfont";
+            font-size: 100px;
+            color: red;
+        }
+
+        span {
+            font-size: 100px !important;
+            color: skyblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 
+        字体图标使用步骤：
+            1、去iconfont网站选择字体，下载代码
+            2、把字体图标复制到fonts文件夹
+            3、声明字体，src 需要补全路径，
+            4、调用字体，demo里面有图标的unicode值，如下方式调用即可
+     -->
+    <!-- 通过unicode调用 -->
+    <i class="github">&#xe65f;</i>
+    <i class="youtube">&#xe65e;</i>
+
+    <!-- 通过类名调用 -->
+    <span class="iconfont icon-dingtalk"></span>
+</body>
+
+</html>

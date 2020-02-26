@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mi.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .buy {
+            width: 100%;
+        }
+
+        .buy .content {
+            width: 1226px;
+            margin: 0 auto;
+        }
+
+        .buy .content .top {
+            width: 100%;
+            height: 62px;
+        }
+
+        .buy .content .top span {
+            display: block;
+            font-size: 22px;
+            color: #333;
+            height: 62px;
+            line-height: 62px;
+            float: left;
+        }
+
+        .buy .content .top img {
+            float: right;
+            margin-top: 30px;
+        }
+
+        .buy .content .middle {
+            width: 1240px;
+            height: 339px;
+            margin-bottom: 42px;
+        }
+
+        .buy .content .bottom {
+            height: 120px;
+            margin-bottom: 42px;
+        }
+
+        .buy .content .middle .left {
+            width: 234px;
+            height: 339px;
+            margin-right: 14px;
+            border-top: 1px solid #e53935;
+            float: left;
+            text-align: center;
+            background-color: #f1eded;
+        }
+
+        .buy .content .middle .left h3 {
+            color: #ef3a3b;
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+
+        .buy .content .middle .left p {
+            color: #706f6f;
+            margin-top: 35px;
+            margin-bottom: 33px;
+        }
+
+        .buy .content .middle .left span:nth-child(2n+1) {
+            display: inline-block;
+            width: 46px;
+            height: 46px;
+            line-height: 46px;
+            text-align: center;
+            background-color: #605751;
+            color: #fff;
+        }
+
+        .buy .content .middle .right {
+            float: left;
+        }
+
+        .buy .content .middle .right a {
+            display: block;
+            height: 339px;
+        }
+
+        .buy .content .middle .right li {
+            width: 234px;
+            height: 339px;
+            margin-right: 14px;
+            float: left;
+            background-color: #fafafa;
+            text-align: center;
+
+        }
+
+        .buy .content .middle .right li .img {
+            height: 239px;
+        }
+
+        .buy .content .middle .right li .img img {
+            margin-top: 40px;
+        }
+
+        .buy .content .middle .right li h3 {
+            font-size: 14px;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .buy .content .middle .right li p {
+            font-size: 12px;
+            color: #706f6f;
+            height: 26px;
+            line-height: 26px;
+        }
+
+        .buy .content .middle .right li .price {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .buy .content .middle .right li .price .now-price {
+            color: #fa6509;
+        }
+
+        .buy .content .middle .right li .price .old-price {
+            color: #adadad;
+            text-decoration: line-through;
+        }
+
+        .buy .content .middle .right li:nth-child(1) {
+            border-top: 1px solid #ffac13;
+        }
+
+        .buy .content .middle .right li:nth-child(2) {
+            border-top: 1px solid #83c44e;
+        }
+
+        .buy .content .middle .right li:nth-child(3) {
+            border-top: 1px solid #2196f3;
+        }
+
+        .buy .content .middle .right li:nth-child(4) {
+            border-top: 1px solid #e53935;
+        }
+
+        .phone {
+            background-color: #f5f5f5;
+        }
+
+        .phone .content {
+            width: 1226px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .phone .content .top {
+            margin-top: 40px;
+            height: 40px;
+        }
+
+        .phone .content .top h3 {
+            display: block;
+            font-size: 22px;
+            font-weight: 200;
+            float: left;
+        }
+
+        .phone .content .top a {
+            float: right;
+            font-size: 16px;
+            color: #424242;
+        }
+
+        .phone .content .top a:hover {
+            color: #fa6509;
+        }
+
+        .phone .content .mid {
+            height: 628px;
+            margin-bottom: 42px;
+        }
+
+        .phone .content .mid .left {
+            width: 234px;
+            float: left;
+        }
+
+        .phone .content .mid .left img {
+            width: 100%;
+        }
+
+        .phone .content .mid .right {
+            width: 992px;
+            float: left;
+        }
+
+        .phone .content .mid .right li {
+            width: 234px;
+            height: 300px;
+            margin-left: 14px;
+            margin-bottom: 14px;
+            float: left;
+            background-color: #fff;
+        }
+
+        .phone .content .mid .right li a {
+            display: block;
+            height: 300px;
+            text-align: center;
+        }
+
+        .phone .content .mid .right li a .count {
+            width: 64px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+            background-color: #e53935;
+            color: #fff;
+            margin: 0 auto;
+        }
+
+        .phone .content .mid .right li h3 {
+            font-size: 14px;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .phone .content .mid .right li p {
+            font-size: 12px;
+            color: #706f6f;
+            height: 26px;
+            line-height: 26px;
+        }
+
+        .phone .content .mid .right li .price {
+            font-size: 14px;
+        }
+
+        .phone .content .mid .right li .price .now-price {
+            color: #fa6509;
+        }
+
+        .phone .content .mid .right li .price .old-price {
+            color: #adadad;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="buy">
+        <div class="content">
+            <div class="top">
+                <span>小米闪购</span>
+                <img src="./imgs/arrow.png" alt="">
+            </div>
+            <div class="middle">
+                <div class="left">
+                    <h3>20:00 场</h3>
+                    <img src="./imgs/flash.png" alt="">
+                    <p>距离开始还有</p>
+                    <div>
+                        <span>01</span>
+                        <span>:</span>
+                        <span>03</span>
+                        <span>:</span>
+                        <span>18</span>
+                    </div>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="img"><img src="./imgs/phone.png" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="img"><img src="./imgs/phone1.png" alt=""></div>
+                                <h3>米家空气净化器 Pro 白色</h3>
+                                <p>大空间，快循环</p>
+                                <div class="price">
+                                    <span class="now-price"><span>1399</span><span>元</span></span>
+                                    <span class="old-price"><span>1499</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="img"><img src="./imgs/phone2.png" alt=""></div>
+                                <h3>小米手环 2 黑色</h3>
+                                <p>OLED显示屏，触摸操作</p>
+                                <div class="price">
+                                    <span class="now-price"><span>142</span><span>元</span></span>
+                                    <span class="old-price"><span>149</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="img"><img src="./imgs/phone3.png" alt=""></div>
+                                <h3>90分金属旅行箱 20寸 银色</h3>
+                                <p>航空系铝镁合金</p>
+                                <div class="price">
+                                    <span class="now-price"><span>1709</span><span>元</span></span>
+                                    <span class="old-price"><span>1799</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <a href="#"><img src="./imgs/mid.webp" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="phone">
+        <div class="content">
+            <div class="top">
+                <h3>手机</h3>
+                <a href="#">查看全部</a>
+            </div>
+            <div class="mid">
+                <div class="left">
+                    <a href="#"><img src="./imgs/mi.jpg" alt=""></a>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="count">减200元</div>
+                                <div class="img"><img src="./imgs/1.webp" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="count">享8折</div>
+                                <div class="img"><img src="./imgs/2.webp" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="count">减200元</div>
+                                <div class="img"><img src="./imgs/3.webp" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="count">减200元</div>
+                                <div class="img"><img src="./imgs/4.webp" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="count">减200元</div>
+                                <div class="img"><img src="./imgs/1.webp" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="count">减200元</div>
+                                <div class="img"><img src="./imgs/2.webp" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="count">减200元</div>
+                                <div class="img"><img src="./imgs/3.webp" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com">
+                                <div class="count">减200元</div>
+                                <div class="img"><img src="./imgs/4.webp" alt=""></div>
+                                <h3>小米MIX 2 8GB+128GB</h3>
+                                <p>Unibody 全陶瓷</p>
+                                <div class="price">
+                                    <span class="now-price"><span>3499</span><span>元</span></span>
+                                    <span class="old-price"><span>4699</span><span>元</span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <a href="#"><img src="./imgs/heisha.png" alt=""></a>
+            </div>
+        </div>
+</body>
+
+</html>

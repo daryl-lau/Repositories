@@ -1,0 +1,556 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* -------------------头部公共样式---------------- */
+.head {
+    margin-top: 10px;
+}
+
+.head .left {
+    float: left;
+    width: 390px;
+    line-height: 60px;
+    font-size: 20px;
+    color: #494949;
+}
+
+.head .mid {
+    float: left;
+}
+
+.head .mid ul li {
+    float: left;
+    line-height: 60px;
+}
+
+.head .mid ul li a {
+    font-size: 16px;
+    color: #868686;
+    padding: 0 35px;
+}
+
+.head .mid ul li a:hover {
+    color: #00a4ff;
+}
+
+
+.head .right {
+    float: right;
+}
+
+.head .right a {
+    line-height: 60px;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin-right: 30px;
+}
+
+/* --------------------头部公共样式----------------- */
+
+/* -------------------课程公共样式------------------ */
+.lesson-list {
+    float: left;
+    width: 228px;
+    height: 270px;
+    margin: 0 15px 15px 0;
+    background-color: #fff;
+    position: relative;
+}
+
+.lesson-list img {
+    width: 100%;
+}
+
+.lesson-list .b-wrap {
+    padding: 25px 20px 0;
+}
+
+.lesson-list .b-wrap p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #050505;
+    margin-bottom: 10px;
+}
+
+.lesson-list .b-wrap span {
+    font-size: 12px;
+    color: #999999;
+}
+
+.lesson-list .b-wrap span:nth-child(2) {
+    color: #ff7c2d;
+}
+
+
+.hot::before {
+    content: "";
+    width: 40px;
+    height: 24px;
+    display: block;
+    background-image: url(../imgs/hot.png);
+    position: absolute;
+    top: 4px;
+    right: -4px;
+}
+
+.new::before {
+    content: "";
+    width: 40px;
+    height: 24px;
+    display: block;
+    background-image: url(../imgs/new.png);
+    position: absolute;
+    top: 4px;
+    right: -4px;
+}
+
+/* -----------------------课程公共样式--------------- */
+
+
+/* --------------------导航栏开始-------------------- */
+.wrapper {
+    width: 100%;
+    height: 40px;
+    background-color: #f3f5f7;
+    padding: 30px 0;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+
+.header {
+    height: 40px;
+    /* margin: 30px auto 30px; */
+    /* position: fixed; */
+}
+
+.header .logo {
+    width: 196px;
+    height: 40px;
+    float: left;
+}
+
+.header .nav {
+    float: left;
+    /* height: 40px;
+    line-height: 40px; */
+    margin-left: 70px;
+}
+
+.header .nav ul li {
+    float: left;
+    margin-right: 25px;
+}
+
+.header .nav ul li a {
+    font-size: 18px;
+    color: #050505;
+    display: block;
+    padding: 10px 8px;
+}
+
+.header .nav ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+
+
+.header .search {
+    float: left;
+    height: 40px;
+    margin-left: 70px;
+}
+
+.header .search input {
+    float: left;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    border-right: none;
+    outline: none;
+    padding-left: 10px;
+    width: 350px;
+}
+
+.header .search button {
+    float: left;
+    width: 50px;
+    height: 40px;
+    background-color: #00a4ff;
+    border: none;
+    outline: none;
+    background-image: url(../imgs/fa-search.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.header .user {
+    float: left;
+    margin-left: 31px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.header .user img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.header .user span {
+    font-size: 14px;
+    color: #666666;
+}
+
+/* ----------------------导航栏结束-------------------- */
+
+
+
+/* ----------------------轮播图开始--------------------- */
+.wrap {
+    margin-top: 100px;
+    background-color: #1c036c;
+    height: 420px;
+}
+
+.wrap .banner {
+    height: 100%;
+    background-image: url(../imgs/banner.png);
+}
+
+.wrap .banner .classic {
+    width: 190px;
+    height: 100%;
+    background-color: rgba(20, 2, 75, .3);
+    float: left;
+
+}
+
+.wrap .banner .classic ul {
+    height: 100%;
+
+}
+
+.wrap .banner .classic ul li a {
+    display: block;
+    color: #ffffff;
+    width: 170;
+    height: 46px;
+    line-height: 46px;
+    padding-left: 20px;
+    background-image: url(../imgs/arrow.png);
+    background-repeat: no-repeat;
+    background-position: 170px center;
+
+}
+
+.wrap .banner .classic ul li a:hover {
+    color: #00a4ff;
+    background-image: url(../imgs/arrow2.png);
+}
+
+.wrap .banner .table {
+    width: 228px;
+    height: 300px;
+    background-color: #fff;
+    float: right;
+    margin-top: 50px;
+}
+
+.wrap .banner .table .title {
+    height: 48px;
+    background-color: #9bceea;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.wrap .banner .table .content {
+    margin-top: 10px;
+}
+
+.wrap .banner .table .content ul li {
+    height: 60px;
+    border-bottom: 1px solid #eaeaea;
+    margin: 0 18px;
+}
+
+.wrap .banner .table .content ul li h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.wrap .banner .table .content ul li p {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.wrap .banner .table .footer {
+    width: 198px;
+    height: 38px;
+    border: 1px solid #22b0ff;
+    margin: 5px 14px 0;
+    line-height: 38px;
+    text-align: center;
+    color: #00a4ff;
+    cursor: pointer;
+}
+
+/* ----------------------轮播图结束--------------------- */
+
+
+
+/*---------------------精品推荐开始----------------------*/
+.reco {
+    height: 60px;
+    margin-top: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 2px 0px #dcdee0;
+}
+
+.reco .left {
+    float: left;
+    line-height: 60px;
+
+}
+
+.reco .left a {
+    font-size: 16px;
+    color: #00a4ff;
+    font-weight: bold;
+    padding: 0 34px;
+}
+
+.reco .mid {
+    float: left;
+}
+
+.reco .mid li {
+    float: left;
+
+}
+
+.reco .mid li a {
+    display: block;
+    font-size: 16px;
+    line-height: 60px;
+    padding: 0 26px 0 0;
+    color: #050505;
+}
+
+.reco .mid li a::before {
+    content: "丨";
+    padding-right: 26px;
+    color: #bfbfbf;
+}
+
+.reco .right {
+    float: right;
+}
+
+.reco .right a {
+    font-size: 14px;
+    line-height: 60px;
+    color: #00a4ff;
+    margin-right: 26px;
+}
+
+/* ----------------------精品推荐结束--------------------*/
+
+
+/* ----------------------精品推荐多图开始--------------------*/
+
+.recommand .head {
+    margin-top: 10px;
+}
+
+.recommand .head .left {
+    float: left;
+    line-height: 60px;
+    font-size: 20px;
+    color: #494949;
+}
+
+
+.recommand .head .right {
+    float: right;
+}
+
+.recommand .head .right a {
+    line-height: 60px;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin-right: 30px;
+}
+
+.recommand .body {
+    width: 1215px;
+    /* height: 570px; */
+}
+
+/* ----------------------精品推荐多图结束--------------------*/
+
+
+/* ----------------------编程入门开始------------------------ */
+
+.program .p-body {
+    margin-bottom: 25px;
+}
+
+.program .p-body .p-left {
+    width: 228px;
+    height: 392px;
+    float: left;
+}
+
+.program .p-body .p-right {
+    width: 972px;
+    height: 392px;
+    float: left;
+}
+
+.program .p-body .p-right .p-top {
+    width: 957px;
+    height: 100px;
+    padding: 0 0 22px 15px;
+}
+
+.program .p-body .p-right .p-bottom {
+    width: 975px;
+    margin-left: 15px;
+}
+
+/* ----------------------编程入门结束------------------------ */
+
+
+/* ----------------------前端开发开始------------------------ */
+.front .f-body {
+    width: 1215px;
+    /* height: 570px; */
+}
+
+/* ----------------------前端开发结束------------------------ */
+
+
+/* ----------------------底部信息开始------------------------ */
+.footer {
+    width: 100%;
+    height: 400px;
+    margin-top: 40px;
+    background-color: #fff;
+}
+
+.footer .content .left {
+    float: left;
+}
+
+.footer .content .left img {
+    margin: 34px 0 24px 20px;
+}
+
+.footer .content .left p {
+    margin-left: 20px;
+    color: #666666;
+    font-size: 12px;
+}
+
+.footer .content .left button {
+    background-color: #fff;
+    color: #00a4ff;
+    outline: none;
+    cursor: pointer;
+    width: 118px;
+    height: 34px;
+    border: 1px solid #00a4ff;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.footer .content .right {
+    float: right;
+}
+
+.footer .content .right dl {
+    float: left;
+    margin: 34px 30px 0 116px;
+}
+
+.footer .content .right dl dt {
+
+    margin-bottom: 10px;
+}
+
+.footer .content .right dl dt a {
+    color: #333333;
+    font-size: 16px;
+}
+
+.footer .content .right dl dt a:hover {
+    color: #00a4ff;
+}
+
+.footer .content .right dl dd a {
+    font-size: 12px;
+    line-height: 20px;
+    color: #333333;
+}
+
+.footer .content .right dl dd a:hover {
+    color: #00a4ff;
+}
+
+/* ----------------------底部信息结束------------------------ */
+
+
+/* ---------------------广告开始------------------------------ */
+.ad-l, .ad-r {
+    width: 122px;
+    height: 288px;
+    position: fixed;
+    top: 550px;
+}
+
+.ad-l {
+    left: 50%;
+    margin-left: -740px;
+}
+
+.ad-r {
+    right: 50%;
+    margin-right: -740px;
+}
+/* ---------------------广告结束------------------------------ */

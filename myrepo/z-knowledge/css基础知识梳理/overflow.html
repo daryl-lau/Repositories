@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 超出隐藏，解决margin塌陷 */
+            overflow: hidden;
+
+            /* 默认，超出可见 */
+            overflow: visible; 
+
+            /* 超出部分添加滚动条，横向竖向都加 */
+            overflow: scroll;
+
+            /* 自动，竖向添加滚动条，如果不超出，则没有滚动条 */
+            overflow:auto;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
