@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* z-index 只能给定位的盒子用,对没有定位的盒子不起效果 */
+        div {
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+
+        .one {
+            background-color: red;
+            z-index: 999;
+            position: relative;
+        }
+
+        .two {
+            background-color: teal;
+            margin-left: -50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- z-index 只能给定位的盒子用 -->
+
+    <div class="one"></div>
+    <div class="two"></div>
+</body>
+
+</html>

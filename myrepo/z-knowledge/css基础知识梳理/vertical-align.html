@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* vertical-align只对行内块元素有效 */
+        /* vertical-align设置垂直方向对齐方式，基线，中线，或底线对齐 */
+        /*  vertical-align不是设置子盒子在父盒子中垂直对齐的，是设置兄弟行内块元素之间的对齐方式 */
+        img {
+            vertical-align: middle;
+        }
+
+        span {
+            line-height: 500px;
+        }
+
+        div  {
+            width: 1000px;
+            height: 500px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./imgs/jd.jpg" alt="">
+    <span>哈哈</span>
+    </div>
+</body>
+
+</html>
