@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 160px;
+            height: 24px;
+            border: 1px solid red;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .wrap .now-price {
+            width: 80px;
+            height: 24px;
+            float: left;
+            background-color: red;
+            color: #ffffff;
+            line-height: 24px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .wrap .now-price::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 6px solid red;
+            border-top: 12px solid red;
+            border-right: 6px solid transparent;
+            border-bottom: 12px solid transparent;
+            position: absolute;
+            top: 0;
+            left: 80px;
+        }
+
+        .wrap .old-price {
+            float: left;
+            width: 80px;
+            height: 24px;
+            font-size: 12px;
+            line-height: 24px;
+            color: #999999;
+            text-align: center;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="now-price">¥89</div>
+        <div class="old-price">¥159</div>
+    </div>
+</body>
+
+</html>
