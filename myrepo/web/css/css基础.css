@@ -29,7 +29,7 @@ body {
 
 
 /*属性选择器*/
-[id1] {
+div[type="button"] {
 
     /*!important 优先级最高*/
     background-color: deeppink;
@@ -40,33 +40,55 @@ body {
 /*父子选择器
     浏览器从子向父层进行搜索，性能优化
 */
-/* div span {} */
+div span {
+    color: red;
+}
 
 /*直接子元素选择器*/
-/* div>span {} */
+div>span {
+    color: red;
+}
 
 /*并列选择器 带有demo类的div标签 */
-/* div.demo {} */
+div.demo {
+    color: red;
+}
 
 /*分组选择器*/
-/* div, */
-/* em, */
-/* span {} */
+div,
+em,
+span {
+    color: red;
+}
 
 
 /*伪类选择器*/
 
 /*鼠标覆盖*/
-/* a:hover {} */
+a:hover {
+    color: red;
+}
 
 /*第一个a标签*/
-/* a:first-child {} */
+a:first-child {
+    color: red;
+}
 
 /*选中文本*/
-/* a::selection {} */
+a::selection {
+    color: red;
+}
 
 
+/* 选中div的父元素中子元素的第二个是div的元素 */
+div:nth-child(2) {
+    color: red;
+}
 
+/* 选中div的父元素中子元素的第二个div元素 */
+div:nth-of-type(2) {
+    color: red;
+}
 
 
 

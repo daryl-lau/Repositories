@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    height: 62px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.head {
+    width: 980px;
+    height: 62px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 179px;
+    height: 25px;
+    float: left;
+    margin-top: 20px;
+    background: url(../imgs/logo.png) no-repeat;
+}
+
+.search {
+    width: 199px;
+    height: 31px;
+    background-color: #f40;
+    float: right;
+    margin-top: 20px;
+    margin-right: 8px;
+}
+
+.search input {
+    width: 158px;
+    height: 31px;
+    border: 0;
+    background: url(../imgs/input.png) no-repeat;
+    outline: none;
+    color: #979797;
+    padding-left: 8px;
+    float: left;
+}
+
+.search button {
+    width: 33px;
+    height: 31px;
+    background: url(../imgs/button.png) no-repeat;
+    border: 0;
+    outline: none;
+    float: left;
+}
+
+
+.nav {
+    height: 55px;
+    background: url(../imgs/nav-bg.png) repeat-x;
+}
+
+.navbar {
+    width: 980px;
+    height: 55px;
+    margin: 0 auto;
+}
+
+.navbar ul li {
+    width: 130px;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    float: left;
+    background: url(../imgs/nav-line.png) no-repeat right;
+}
+
+.navbar a {
+    font: 700 14px "微软雅黑";
+    color: #00004b;
+    text-decoration: none;
+
+}
+
+.navbar a:hover {
+    color: #91BB35;
+}
+
+.navbar .hotli {
+    position: relative;
+}
+
+.navbar .hot {
+    width: 27px;
+    height: 20px;
+    display: inline-block;
+    background-image: url(../imgs/hot.png);
+    position: absolute;
+    top: -10px;
+    left: 50px;
+}
+
+
+.banner {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.notice {
+    height: 29px;
+    background-color: #fbfbfb;
+    border-top: 1px solid #EFEFEF;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.notice-in {
+    width: 980px;
+    height: 29px;
+    margin: 0 auto;
+    line-height: 29px;
+}
+
+.notice-in p {
+    float: left;
+    font-size: 12px;
+}
+
+.notice-in p a {
+    color: #000;
+    text-decoration: none;
+}
+
+.notice-in p a:hover {
+    color: #91BB35;
+    text-decoration: underline;
+}
+
+.notice-in span {
+    float: right;
+    margin-top: 5px;
+}
+
+.main {
+    width: 980px;
+    height: 228px;
+    margin: 14px auto 50px auto;
+}
+
+.product {
+    width: 310px;
+    height: 224px;
+    border: 1px solid #efefef;
+    float: left;
+}
+
+.news {
+    width: 373px;
+    height: 224px;
+    border: 1px solid #efefef;
+    float: left;
+    margin-left: 12px;
+}
+
+.support {
+    width: 267px;
+    height: 224px;
+    border: 1px solid #efefef;
+    float: right;
+}
+
+.main h4 {
+    height: 38px;
+    line-height: 38px;
+    font-size: 12px;
+    color: #7AB800;
+    margin-left: 6px;
+    background: url(../imgs/arrow.png) no-repeat left center;
+    padding-left: 22px;
+}
+
+.more {
+    float: right;
+    margin-right: 5px;
+    color: #7AB800;
+
+}
+
+.pic {
+    text-align: center;
+}
+
+.news ul {
+    padding: 0px 22px;
+
+}
+
+.news ul li {
+    height: 27px;
+    line-height: 27px;
+    border-bottom: 1px dashed #DCDCDC;
+}
+
+.news ul a {
+    font-size: 12px;
+    color: #666666;
+
+}
+
+.news ul a:hover {
+    color: #91BB35;
+    text-decoration: underline;
+}
+
+.news .red {
+    color: #f00;
+    font-weight: 700;
+}
+
+.support ul {
+    padding: 0 22px;
+    margin-bottom: 40px;
+}
+
+.support li {
+    height: 13px;
+    line-height: 13px;
+    border-left: 3px solid #98CB00;
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+.support ul a {
+    font-size: 12px;
+    color: #666666
+}
+
+.support p {
+    font-size: 12px;
+    color: #666;
+    line-height: 22px;
+    margin-left: 22px;
+}
+
+.footer {
+    height: 306px;
+    background: #2d2d2d url(../imgs/footer-bottomg.png) repeat-x;
+
+}
+
+.footer-top {
+    height: 220px;
+    border-bottom: 1px dashed #414141;
+}
+
+.footer-content {
+    width: 960px;
+    height: 205px;
+    margin: 0 auto;
+    padding: 15px 0 0 20px;
+    position: relative;
+}
+
+.footer-content dl {
+    float: left;
+    width: 110px;
+}
+
+.footer-content dl dt {
+    font-size: 14px;
+    color: #C7C7C7;
+    height: 35px;
+    font-weight: 700;
+}
+
+.footer-content dl dd {
+    height: 20px;
+}
+
+.footer-content dl dd a {
+    font-size: 12px;
+    color: #707070;
+}
+
+.footer-content dl dd a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.footer .footer-content .gotop {
+    width: 64px;
+    height: 32px;
+    display: inline-block;
+    background-image: url(../imgs/back.png);
+    position: absolute;
+    top: 0;
+    right: 10px;
+}

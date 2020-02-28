@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /* css权重 */
+    /* !important                infinity */
+    /* 行间样式                   1 0 0 0 */
+    /* id                        0 1 0 0 */
+    /* class | 属性选择器 | 伪类  0 0 1 0 */
+    /* 标签选择器| 伪元素         0 0 0 1 */
+    /* 继承或通配符               0 0 0 0 */
+    /*  计算时，不进位 */
+
+
+    /* 标签选择器 */
+    div {
+        color: red;
+    }
+
+    /* 类选择器 */
+    .div1 {
+        color: green;
+    }
+
+    /* id选择器 */
+    #div {
+        background-color: #ff4400;
+    }
+
+
+    /* css3中的选择器 */
+
+    /* 先选中第一个元素，再判断该元素是不是li，如果不是li则无法选中 */
+    .div2 ul li:first-child {
+        color: blue;
+    }
+
+    /* 先选中第二个元素，再判断该元素是不是li， 如果不是li则无法选中 */
+    .div2 ul li:nth-child(2) {
+        color: green;
+    }
+
+    /* 先选中所有li元素，然后在里面选取第三个元素，和xxx-child的选取方式正好相反 */
+    .div2 ul li:nth-of-type(3) {
+        color: hotpink;
+    }
+</style>
+
+<body>
+    <div id="div">
+        <div>我是一个div</div>
+    </div>
+
+    <div class="div1">我是div1</div>
+
+    <div class="div2">
+        <ul>
+            <!-- <span>0</span> -->
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</body>
+
+</html>
