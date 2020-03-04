@@ -22,13 +22,14 @@
         autoplay 自动播放，chrome浏览器自动播放需要添加muted属性 
         muted 静音
         poster 封面图片
+        preload 预加载
     -->
 
     <video src="./v.mp4" autoplay muted></video>
 
 
     <!--  -->
-    <video controls loop autoplay muted poster="">
+    <video controls loop muted poster="../imgs/pikaqiu.jpeg" preload="auto">
         <!-- 
             当浏览器不支持格式的时候，寻找下一个格式，
             并不是找不到视频，就往下找，而是浏览器格式不支持才会往下找

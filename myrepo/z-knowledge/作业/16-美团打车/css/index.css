@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.clearfix::after {
+    content: "";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+.header .logo {
+    float: left;
+    width: 200px;
+    height: 60px;
+}
+
+.header .logo img {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.header .nav {
+    float: right;
+    height: 60px;
+}
+
+.header .nav ul li {
+    float: left;
+    padding: 0 20px;
+}
+
+.header .nav ul li a {
+    line-height: 60px;
+    color: #333333;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.banner ul li {
+    float: left;
+    width: 60px;
+    height: 10px;
+    background-color: #fff;
+    margin: 0 10px;
+}
+
+.banner ul li[class='active'] {
+    background-color: yellow;
+}
+
+.banner ul {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -80px;
+}
+
+
+
+.content {
+    height: 400px;
+}
+
+.content .image {
+    width: 400px;
+    float: left;
+}
+
+.content .image img {
+    width: 100%;
+}
+
+.content .about {
+    width: 800px;
+    float: right;
+}
+
+.content .about h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 10px 0 20px;
+}
+
+.content .about p {
+    text-indent: 2em;
+}
+
+.content .about h2 {
+    text-align: center;
+    margin: 20px 0 20px;
+    font-weight: 400;
+}
+
+
+.content .about .phone .customer {
+    float: left;
+    width: 260px;
+    height: 50px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    line-height: 50px;
+}
+
+.content .about .phone .customer span {
+    margin: 0 15px;
+
+}
+
+.content .about .phone .customer a {
+    color: skyblue;
+}
+
+
+
+.content .about .phone .driver {
+    float: right;
+    width: 260px;
+    height: 50px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    line-height: 50px;
+}
+
+.content .about .phone .driver span {
+    margin: 0 15px;
+
+}
+
+.content .about .phone .driver a {
+    color: skyblue;
+}
+
+
+
+.footer {
+    background-color: red;
+}
+
+.footer .top ul li {
+    float: left;
+}
+

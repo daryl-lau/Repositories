@@ -1,0 +1,1072 @@
+/* -----------------------轮播图区------------------------ */
+.banner {
+    width: 1198px;
+    height: 465px;
+    margin: 0 auto;
+    border: 1px solid #c81623;
+    border-top: none;
+    position: relative;
+}
+
+.banner .center {
+    position: absolute;
+    bottom: 0;
+    left: 220px;
+    width: 721px;
+    height: 455px;
+    overflow: hidden;
+}
+
+.banner .center .imgs {
+    width: 500%;
+    height: 100%;
+}
+
+.banner .center .imgs li {
+    width: 721px;
+    height: 455px;
+    float: left;
+}
+
+.banner .center .imgs li a {
+    display: block;
+}
+
+.banner .center .dots {
+    position: absolute;
+    left: 50%;
+    margin-left: -45px;
+    bottom: 20px;
+}
+
+.banner .center .dots li {
+    float: left;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    margin: 0 4px;
+    border-radius: 50%;
+}
+
+.banner .center .dots li:hover {
+    cursor: pointer;
+}
+
+.banner .center .dots li.active {
+    background-color: #c81623;
+}
+
+.banner .center button {
+    font-size: 60px;
+    position: absolute;
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.banner .center button:hover {
+    color: #c81623;
+}
+
+.banner .center .prev {
+    left: 10px;
+    top: 185px;
+}
+
+.banner .center .next {
+    right: 10px;
+    top: 185px;
+}
+
+
+.banner .news .top {
+    width: 246px;
+    height: 140px;
+    border: 1px solid #e4e4e4;
+    position: absolute;
+    right: 0;
+    bottom: 305px;
+}
+
+.banner .news .top .more {
+    height: 30px;
+    position: relative;
+    border-bottom: 1px dashed #e4e4e4;
+}
+
+.banner .news .top .more .p-new {
+    float: left;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.banner .news .top .more .p-new a {
+    margin-left: 10px;
+    color: #333333;
+}
+
+.banner .news .top .more .p-more {
+    float: right;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.banner .news .top .more .p-more a {
+    margin-right: 25px;
+    color: #333333;
+}
+
+.banner .news .top .more .p-more a::after {
+    content: "\e920";
+    font-family: "icomoon";
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+.banner .news .top .details ul li {
+    margin-left: 10px;
+    height: 20px;
+}
+
+.banner .news .top .details ul li a {
+    line-height: 20px;
+}
+
+.banner .news .top .details ul li span:first-child {
+    margin-right: 3px;
+    font-weight: 700;
+}
+
+.banner .news .lists {
+    width: 248px;
+    height: 216px;
+    position: absolute;
+    right: 0;
+    bottom: 90px;
+}
+
+.banner .news .lists ul li {
+    width: 60px;
+    height: 70px;
+    border: 1px solid #e4e4e4;
+    float: left;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.banner .news .lists .sale::after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 15px;
+    background-image: url(../statics/jian.jpg);
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.banner .news .lists ul li:nth-child(3n) {
+    border-right-color: 1px solid #e4e4e4;
+}
+
+.item1 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -18px -16px;
+    margin: 10px 20px;
+}
+
+
+.item2 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -78px -16px;
+    margin: 10px 20px;
+}
+
+.item3 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -142px -16px;
+    margin: 10px 20px;
+}
+
+.item4 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -206px -16px;
+    margin: 10px 20px;
+}
+
+.item5 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -17px -88px;
+    margin: 10px 20px;
+}
+
+.item6 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -78px -88px;
+    margin: 10px 20px;
+}
+
+.item7 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -142px -88px;
+    margin: 10px 20px;
+}
+
+.item8 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -206px -88px;
+    margin: 10px 20px;
+}
+
+.item9 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -17px -159px;
+    margin: 10px 20px;
+}
+
+.item10 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -78px -159px;
+    margin: 10px 20px;
+}
+
+.item11 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -142px -159px;
+    margin: 10px 20px;
+}
+
+.item12 i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(../statics/icons.png);
+    background-position: -206px -159px;
+    margin: 10px 20px;
+}
+
+.banner .news .lists ul li span {
+    /* margin-left: 16px; */
+    font-size: 14px;
+}
+
+
+.banner .ad {
+    width: 250px;
+    height: 75px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+/* -----------------------轮播图区结束------------------------ */
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------今日推荐-------------------- */
+
+
+
+
+.t-reco {
+    margin-top: 10px;
+}
+
+.bg-skyblue p:first-of-type {
+    background-color: #00a0e8;
+}
+
+.bg-skyblue::after {
+    background-color: #00a0e8;
+}
+
+.bg-green p:first-of-type {
+    background-color: #5fb200;
+}
+
+.bg-green::after {
+    background-color: #5fb200;
+}
+
+.bg-red p:first-of-type {
+    background-color: #e2162f;
+}
+
+.bg-red::after {
+    background-color: #e2162f;
+}
+
+.bg-blue p:first-of-type {
+    background-color: #0085fb;
+}
+
+.bg-blue::after {
+    background-color: #0085fb;
+}
+
+.team-buy::after {
+    content: "团购";
+    text-align: center;
+    display: block;
+    width: 56px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.flash-buy::after {
+    content: "闪购";
+    text-align: center;
+    display: block;
+    width: 56px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.t-reco .clock {
+    float: left;
+    width: 206px;
+    height: 164px;
+    background-color: #5c5251;
+    background-image: url(../statics/clock.png);
+    background-repeat: no-repeat;
+    background-position: center 30px;
+    text-align: center;
+}
+
+.t-reco .clock span {
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 100px;
+}
+
+.t-reco .prod {
+    float: left;
+    width: 994px;
+    height: 164px;
+    background-color: #ebebeb;
+}
+
+.t-reco .prod ul li {
+    float: left;
+    height: 164px;
+    width: 230px;
+}
+
+.t-reco .prod ul li:nth-child(even) {
+    width: 1px;
+    height: 130px;
+    margin: 15px 10px 0 10px;
+    background-color: #dddddd;
+}
+
+.t-reco .prod ul li div {
+    float: left;
+    /* width: 100px; */
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px 0 0 15px;
+    margin-right: 10px;
+}
+
+.t-reco .prod ul li div h3 {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.t-reco .prod ul li div p:nth-child(2) {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+.t-reco .prod ul li img {
+    width: 120px;
+    height: 135px;
+    float: right;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* -------------------猜你喜欢---------------------- */
+
+
+
+.like {
+    margin-top: 10px;
+    position: relative;
+}
+
+.like .head .like-l {
+    float: left;
+    font-size: 18px;
+    color: #333333;
+    line-height: 40px;
+}
+
+.like .head .like-r {
+    float: right;
+    line-height: 40px;
+}
+
+.like .head .like-r span {
+    margin-right: 45px;
+}
+
+.like .head .like-r i {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-image: url(../statics/icons.png);
+    background-position: -420px -110px;
+    position: absolute;
+    right: 20px;
+    top: 12px;
+}
+
+.like .content {
+    border: 1px solid #e4e4e4;
+}
+
+.like .content ul li {
+    width: 198px;
+    float: left;
+    text-align: center;
+}
+
+.like .content ul li a {
+    display: block;
+}
+
+.like .content ul li img {
+    width: 110px;
+    height: 130px;
+    margin: 20px 0;
+}
+
+.like .content ul li .info {
+    text-align: left;
+    padding: 0 35px;
+    position: relative;
+}
+
+.like .content ul li .info::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 40px;
+    background-color: #e4e4e4;
+    position: absolute;
+    top: 12px;
+    right: 0;
+}
+
+.like .content ul li:last-child .info::after {
+    content: "";
+    visibility: hidden;
+}
+
+.like .content ul li .info p {
+    margin: 4px 0;
+}
+
+.like .content ul li .info .price span:first-child {
+    font-size: 14px;
+    color: #df3033;
+}
+
+.like .content ul li .info .price span:last-child {
+    font-size: 18px;
+    color: #df3033;
+}
+
+
+
+/* ---------------------------今日推荐结束-------------------- */
+
+
+
+
+
+
+/* ------------------------有趣区----------------------- */
+.funny {
+    margin-top: 10px;
+}
+
+.style-funny h1 {
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #333333;
+}
+
+.style-funny h3 {
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    color: #333333;
+}
+
+.style-funny p {
+    font-size: 12px;
+    color: #e60012;
+}
+
+.funny .head {
+    font-size: 18px;
+    color: #333333;
+    line-height: 40px;
+}
+
+.funny .head span {
+    font-weight: 700;
+}
+
+.funny .content {
+    height: 406px;
+    border: 1px solid #e4e4e4;
+}
+
+.funny .content .ad1 {
+    box-sizing: border-box;
+    width: 404px;
+    height: 100%;
+    float: left;
+    background-color: #b8bddd;
+    position: relative;
+    padding: 20px;
+}
+
+.funny .content .ad1 img {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+
+.funny .content .ad1 div p {
+    font-size: 18px;
+    color: #3b468d;
+}
+
+.funny .content .ad2 {
+    width: 225px;
+    height: 100%;
+    float: left;
+}
+
+.funny .content .ad2 h2 {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #333333;
+    position: relative;
+    text-align: center;
+}
+
+.funny .content .ad2 h2::after {
+    content: "";
+    width: 190px;
+    height: 0px;
+    border-top: 1px dashed #e4e4e4;
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+}
+
+.funny .content .ad2 .ad2-t {
+    height: 206px;
+    width: 100%;
+    border-bottom: 1px solid #e4e4e4;
+    position: relative;
+}
+
+.funny .content .ad2 .ad2-t div {
+    position: absolute;
+    top: 62px;
+    left: 12px;
+}
+
+.funny-t-img {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+
+.funny-b-img {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+}
+
+
+.funny .content .ad2 .ad2-b {
+    width: 100%;
+    height: 159px;
+    position: relative;
+}
+
+.funny .content .ad2 .ad2-b div {
+    position: absolute;
+    top: 45px;
+    left: 12px;
+}
+
+
+.funny .content .ad3 {
+    width: 404px;
+    height: 100%;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+    float: left;
+    background-color: #f7f7f7;
+}
+
+
+.funny .content .ad3 h2 {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #333333;
+    position: relative;
+    text-align: center;
+}
+
+.funny .content .ad3 h2::after {
+    content: "";
+    width: 368px;
+    height: 0px;
+    border-top: 1px dashed #e4e4e4;
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+}
+
+.funny .content .ad3 .ad3-t {
+    height: 206px;
+    width: 100%;
+    border-bottom: 1px solid #e4e4e4;
+    position: relative;
+}
+
+.funny .content .ad3 .ad3-b {
+    width: 100%;
+    height: 159px;
+    position: relative;
+}
+
+.funny .content .ad3 .ad3-t div {
+    position: absolute;
+    top: 62px;
+    left: 45px;
+}
+
+.funny .content .ad3 .ad3-b {
+    height: 159px;
+    width: 100%;
+}
+
+.funny .content .ad3 .ad3-b .ad3-b-l {
+    width: 201px;
+    height: 100%;
+    border-right: 1px solid #e4e4e4;
+    float: left;
+    position: relative;
+}
+
+.funny .content .ad3 .ad3-b .ad3-b-r {
+    width: 202px;
+    height: 100%;
+    /* border-right: 1px solid #e4e4e4; */
+    float: left;
+    position: relative;
+}
+
+.funny .content .ad3 .ad3-b .style-funny {
+    position: absolute;
+    left: 12px;
+    top: 45px;
+}
+
+.funny .content .ad4 {
+    width: 162px;
+    height: 100%;
+    float: left;
+}
+
+.funny .content .ad4 img {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* ------------------------有趣区结束----------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------家用电器------------------- */
+
+.electric {
+    margin-top: 10px;
+
+}
+
+.electric .nav .title {
+    height: 100%;
+    font-size: 18px;
+    line-height: 40px;
+    float: left;
+    color: #c81623;
+}
+
+.electric .nav {
+    border-bottom: 2px solid #c81623;
+}
+
+.electric .nav .lists {
+    float: right;
+}
+
+.electric .nav .lists ul li {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
+
+.electric .nav .lists ul li::after {
+    content: "丨";
+    font-size: 12px;
+    color: #999999;
+    margin: 0 6px;
+}
+
+.electric .nav .lists ul li:last-child a::after {
+    content: "";
+    visibility: hidden;
+}
+
+.electric .nav .lists li.active a {
+    color: #c81623;
+}
+
+
+
+
+.electric .content .out>li {
+    width: 100%;
+    height: 360px;
+}
+
+.electric .content .out>li div {
+    float: left;
+    box-sizing: border-box;
+}
+
+.electric .content .col-210 {
+    width: 210px;
+    height: 100%;
+    background-color: #f9f9f9;
+    padding: 6px;
+    text-align: center;
+}
+
+.electric .content .col-210 ul li {
+    width: 87px;
+    height: 32px;
+    float: left;
+    margin: 0 6px;
+    border-bottom: 1px solid #ededed;
+}
+
+.electric .content .col-210 ul li a {
+    display: block;
+    line-height: 32px;
+}
+
+.electric .content .col-210 h1 {
+    font-size: 18px;
+    color: #c81623;
+    margin-top: 25px;
+}
+
+.electric .content .col-210 p {
+    font-size: 12px;
+    color: #c81623;
+}
+
+.electric .content .col-210 img {
+    margin-top: 20px;
+    width: 150px;
+    height: 140px;
+}
+
+.electric .content .col-330 {
+    width: 330px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.electric .content .col-330 .content {
+    width: 300%;
+    height: 100%;
+}
+
+.electric .content .col-330 .content li {
+    width: 330px;
+    height: 360px;
+    padding: 35px 30px;
+    float: left;
+    box-sizing: border-box;
+    background-color: #aed6d8;
+    text-align: center;
+}
+
+.electric .content .col-330 .content li h1 {
+    text-align: left;
+    font-size: 18px;
+    color: #066c7d;
+}
+
+.electric .content .col-330 .content li p {
+    text-align: left;
+    font-size: 16px;
+    color: #066c7d;
+}
+
+.electric .content .col-330 .content li img {
+    width: 224px;
+    height: 225px;
+    margin-top: 34px;
+}
+
+
+.electric .content .col-330 .dots {
+    position: absolute;
+    left: 50%;
+    margin-left: -27px;
+    bottom: 15px;
+}
+
+.electric .content .col-330 .dots li {
+    background-color: #000;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 4px;
+    float: left;
+}
+
+.electric .content .col-330 .dots li.active {
+    background-color: #fff;
+}
+
+
+
+.elec-style h1 {
+    font-size: 16px;
+    color: #333333;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.elec-style p {
+    font-size: 14px;
+    color: #e60012;
+    margin-left: 20px;
+}
+
+.elec-style img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+
+
+.electric .content .col-218 {
+    width: 218px;
+    height: 100%;
+
+}
+
+.electric .content .col-218 .up {
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid #ededed;
+    position: relative;
+}
+
+.electric .content .col-218 .down {
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+
+
+.electric .content .col-222 {
+    width: 222px;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    border-left: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+}
+
+.electric .content .col-222 h1 {
+    font-size: 18px;
+    color: #333333;
+    margin-top: 72px;
+}
+
+.electric .content .col-222 p {
+    font-size: 16px;
+    color: #999999;
+}
+
+.electric .content .col-222 img {
+    width: 175px;
+    height: 112px;
+    margin-top: 84px;
+}
+
+.electric .content .col-220 {
+    width: 220px;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid #e4e4e4;
+}
+
+.electric .content .col-220 .up {
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid #ededed;
+    position: relative;
+}
+
+.electric .content .col-220 .down {
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+
+
+
+
+/* ------------------------------家用电器结束------------------- */
+
+
+
+/* ------------------------------侧边导航----------------------- */
+
+.fastnav {
+    position: fixed;
+    top: 350px;
+    left: 50%;
+    margin-left: -675px;
+}
+
+.fastnav ul li {
+    width: 66px;
+    height: 32px;
+    border-bottom: 1px solid #ededed;
+    text-align: center;
+}
+
+.fastnav ul li a {
+    display: block;
+    color: #666666;
+    line-height: 32px;
+    background-color: #fff;
+}
+
+.fastnav ul li:last-child {
+    border-bottom: none;
+}
+
+.fastnav ul li:last-child a {
+    font-family: "icomoon";
+    font-size: 20px;
+
+}
+
+.fastnav ul li.active a {
+    color: #fff;
+    background-color: #c81623;
+}
+
+
+
+/* ------------------------------侧边导航结束----------------------- */

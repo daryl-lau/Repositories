@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #666666;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: #666666;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+}
+i {
+    font-style: normal;
+}
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.clearfix::after {
+    content: "";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}

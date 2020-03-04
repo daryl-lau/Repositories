@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            /* transition: 过渡属性 花费时间 运动曲线 延迟时间 */
+            /* 凡是数值间的变化都可以过渡，但是像字体、display这种以文字为值得属性不能过渡，颜色会把单词转换为rgb再进行过渡 */
+            transition: width 1s ease 1s;
+        }
+
+        .div1:active {
+            width: 200px;
+        }
+
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: relative;
+            left: 0;
+            top: 0;
+
+            /* 多组属性变化用逗号隔开，如果太多，可以用 transition: all 1s; 过渡所有属性*/
+            transition: width 1s, height 1s, left 1s, top 1s, background-color 1s;
+        }
+
+        .div2:active {
+            width: 200px;
+            height: 200px;
+            left: 100px;
+            top: 200px;
+            background-color: red;
+        }
+
+        /* 下拉菜单案例 */
+        .hover {
+            width: 100px;
+            height: 20px;
+            background-color: #000000;
+            position: relative;
+        }
+
+        .div3 {
+            width: 130px;
+            height: 0px;
+            background-color: burlywood;
+            overflow: hidden;
+            transition: height 1s;
+            position: absolute;
+            top: 20px;
+            left: 0;
+        }
+
+        .hover:hover .div3 {
+            height: 100px;
+        }
+
+        /* 进度条案例 */
+        .out {
+            width: 200px;
+            height: 20px;
+            border: 1px solid red;
+            border-radius: 30px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .in {
+            width: 30%;
+            height: 20px;
+            background-color: red;
+            transition: width 1s;
+        }
+
+        .out:hover .in {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="div1"></div>
+    <p></p>
+    <div class="div2"></div>
+    <p></p>
+
+    <!-- 下拉菜单 -->
+    <div class="hover">
+        <div class="div3"><a href="#">www.baihuzi.com</a></div>
+    </div>
+
+    <p></p>
+
+
+    <p></p>
+    <!-- 进度条案例 -->
+    <div class="out">
+        <div class="in">
+        </div>
+    </div>
+</body>
+
+</html>
