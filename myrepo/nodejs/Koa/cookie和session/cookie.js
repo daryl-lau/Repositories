@@ -28,7 +28,7 @@ router.get('/', ctx=>{
     ctx.cookies.set('user2', 'bhz2', {
         // cookie里有属性这里都有
         signed: true,
-        maxAge: 86400 * 1000
+        maxAge: 86400 * 30
     })
 });
 

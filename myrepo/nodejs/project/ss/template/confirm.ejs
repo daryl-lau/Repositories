@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title> New Document </title>
+    <meta name="Generator" content="vsCode">
+    <meta name="Author" content="x">
+    <meta name="Keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+    <!--IE8浏览器的显示方式：IE=edge以IE最高版本显示 Chrome=1以谷歌浏览器模式渲染-->
+    <meta name="referrer" content="never">
+    <!--告诉浏览器链接的来源（可以计算链接的访问量）-->
+    <meta name="format-detection" content="telephone=no,email=no,address=no">
+    <!--格式检测（数字，邮箱，地址）no 不识别为电话号码，邮箱，地址-->
+    <meta name="renderer" content="webkit">
+    <meta name="Description" content="">
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        input {
+            outline-style: none;
+            border: 0px;
+        }
+
+        #form1 {
+
+            margin-top: 20px;
+            width: 80%;
+            margin: 2px auto;
+        }
+
+        /* #form1 form span {
+            color: #999;
+        } */
+
+        .row {
+            margin-top: 25px;
+            /* height: 50px; */
+            /* line-height: 26px; */
+            /* border-bottom: 1px solid #c7c6c6; */
+            width: 100%;
+        }
+
+
+
+        input[type=date]::-webkit-inner-spin-button {
+            visibility: hidden;
+        }
+
+        .button {
+            width: 80px;
+            height: 80px;
+            background: #ff961e;
+            outline: none;
+            margin: 50px auto;
+            border-radius: 50%;
+        }
+
+        .button button {
+            border: 0px;
+            background-color: transparent;
+            color: white;
+            width: 100%;
+            height: 80px;
+            margin: 0 auto;
+            font-size: 17px;
+            outline: none;
+        }
+
+        #form1 h3 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #form1 p {
+            height: 32px;
+        }
+
+        #form1 .pass-style {
+            height: 55px;
+        }
+
+        #form1 .pass-style span {
+            margin-top: 5px;
+            display: block;
+        }
+
+        #form1 p span {
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="form1">
+        <form action="http://localhost:8000/confirm" method="post" enctype="multipart/form-data">
+            <br>
+            <h3>天河机场员工通行登记</h3>
+            <p><i>员工姓名：</i><span><%= name%></span></p>
+            <p><i>工作牌号：</i><span><%= work_id%></span></p>
+            <p><i>车牌号：</i><span><%= car_id%></span></p>
+            <p class="pass-style"><i>武汉市疫情防控车辆中心城区专用通行证号：</i><span><%= pass_id%></span></p>
+            <p><i>身份证号：</i><span><%= id%></span></p>
+            <p><i>手机号：</i><span><%= phone%></span></p>
+            <p><i>单位：</i><span><%= org%></span></p>
+            <p><i>方向：</i><span><%= fx%></span></p>
+            <p><i>通行日期：</i><span><%= nowDate%></span></p>
+            <p>
+                <i>随车人员：</i>
+                <span><%= passenger1%></span>&nbsp;
+                <span><%= passenger2%></span>&nbsp;
+                <span><%= passenger3%></span>&nbsp;
+                <span><%= passenger4%></span>&nbsp;
+                <span><%= passenger5%></span>&nbsp;
+                <span><%= passenger6%></span>&nbsp;
+                <span><%= passenger7%></span>&nbsp;
+                <span><%= passenger8%></span>&nbsp;
+                <span><%= passenger9%></span>&nbsp;
+                <span><%= passenger10%></span>&nbsp;
+            </p>
+            <input style="height: 0;" type="text" name="code" value=<%= code%>>
+            <div class="button">
+                <button type="submit">确认</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
