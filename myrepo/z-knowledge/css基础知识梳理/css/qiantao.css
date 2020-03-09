@@ -1,0 +1,38 @@
+.box {
+  width: 400px;
+  height: 400px;
+  background-color: gold;
+}
+.box h1 {
+  color: red;
+}
+.box div {
+  width: 200px;
+  height: 200px;
+  background-color: #0c5460;
+}
+.box div ul li {
+  color: #1e7e34;
+}
+.box div ul li {
+  color: #11ee77;
+}
+.box div ul li {
+  color: #11ee22;
+}
+.box div ul li {
+  color: #2e3133;
+}
+.box div {
+  width: 100px;
+  height: 100px;
+  background-color: #3acaff;
+}
+.box div h2 {
+  color: green;
+}
+.box div div {
+  width: 50px;
+  height: 50px;
+  background-color: #1d2124;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 50px;
+
+            /* 渐变色，默认是从上到下渐变 */
+            /* background: linear-gradient(skyblue, purple); */
+
+            /* 可以写多种颜色 */
+            /* background: linear-gradient(skyblue, purple, red); */
+
+            /* 可以设置渐变方向 */
+            /* background: linear-gradient(to right, skyblue, purple); */
+            /* background: linear-gradient(to left, skyblue, purple); */
+
+
+            /* 建议加上私有前缀，兼容性不是很好，加上私有前缀后，方向那里不能使用to，只能定义渐变开始的位置 */
+            /* 渐变只能设置在background上，不能设置在background-color上 */
+            background:-webkit-linear-gradient(left, skyblue, purple);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

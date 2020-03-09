@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        display: flex 中的子盒子可以直接设置宽高，无需转化为block或者inline-block
+        display: flex 中的子盒子float效果无效，定位，盒子模型等属性均有效
+        display: flex 侧周永远垂直于主轴，主轴垂直了，侧周就是水平的
+        */
+        .father {
+            width: 800px;
+            height: 400px;
+            background-color: yellowgreen;
+            display: flex;
+
+
+            /* flex-direction定义主轴方向，默认是row */
+            flex-direction: row;
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+
+            /* justify-content定义子项在主轴方向上的排列方式，默认flex-start*/
+            justify-content: flex-start;
+            /* justify-content: flex-start;  左对齐 */
+            /* justify-content: flex-end;  右对齐*/
+            /* justify-content: center;  居中*/
+            /* justify-content: space-between;  两边顶边，中间空白*/
+            /* justify-content: space-around;  环绕空白*/
+            /* justify-content: space-evenly;  */
+
+            /* flex-wrap定义换行方式，默认不换行 */
+            flex-wrap: nowrap;
+            /* flex-wrap: wrap */
+
+            /* align-content定义子项在侧轴上的排列方式，只有在多行的情况下（设置了flex-wrap: wrap）才会生效，在单行（flex-wrap: nowrap）下是没有效果的！ */
+            align-content: normal;
+            /* align-content: flex-start; */
+            /* align-content: flex-end; */
+            /* align-content: center; */
+            /* align-content: space-between; */
+            /* align-content: space-around; */
+            /* align-content: stretch; 子项平分父项的高度，注意当子项有高度的时候，此样式无效 */
+            /* align-content: stretch; */
+
+            /* align-items定义子项在侧轴上的排列方式，在子项为单项的时候使用 */
+            align-items: flex-start;
+            /* align-items: flex-end; */
+            /* align-items: center; */
+            /* align-items: stretch; */
+            /* align-items: baseline; 以项目第一行文字的基线对齐*/
+
+            /* flex-flow定义flex-direction和flex-wrap的复合属性 */
+            /* flex-flow: row wrap; */
+        }
+
+        .father div {
+            /* width: 100px; */
+            height: 100px;
+            background-color: red;
+            flex: 1;
+        }
+
+        .son5 {
+            /* width: 100px; */
+            height: 100px;
+            background-color: royalblue;
+
+            /* 子项flex属性 */
+            /* align-self定义子项在侧轴上的排列方式， 属性值和align-items一样，align-self权重比align-items和align-content高*/
+            align-self: flex-end;
+
+            /* order定义子项的权重，默认所有权重都为0，权重越小，位置越靠前，权重越大，位置越靠后 */
+            order: -1;
+
+            /* flex定义子项宽度占父项宽度的比例，当子项设置了宽度时无效 */
+            /* 计算方式：父项宽度 * ( 子项flex / 总felx数 ) */
+            /* 设置了flex的话，换行flex-wrap: wrap 无效，一般不会一起使用 */
+            flex: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son1">1</div>
+        <div class="son2">2</div>
+        <div class="son3">3</div>
+        <div class="son4">4</div>
+        <span class="son5">5</span>
+        <div class="son1">1</div>
+        <div class="son2">2</div>
+        <div class="son3">3</div>
+        <div class="son4">4</div>
+        <span class="son5">5</span>
+    </div>
+</body>
+
+</html>

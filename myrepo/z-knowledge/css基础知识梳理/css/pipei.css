@@ -1,0 +1,25 @@
+div {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+}
+.box1 {
+  background-color: red;
+  border-top-left-radius: 50%;
+}
+.box2 {
+  background-color: green;
+  border-bottom-left-radius: 50%;
+}
+.box3 {
+  background-color: yellow;
+  border-top-right-radius: 50%;
+}
+.box4 {
+  background-color: pink;
+  border-bottom-right-radius: 50%;
+}
+.box5 {
+  background-color: darkcyan;
+  border-radius: 50%;
+}

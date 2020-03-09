@@ -1,0 +1,37 @@
+@boxW: 400px;
+@boxH: 400px;
+
+
+
+.box {
+  width: @boxW;
+  height: @boxH;
+  background-color: gold;
+  h1{
+    color: red;
+  }
+  div {
+    width: @boxW / 2;
+    height: @boxH / 2;
+    background-color: #0c5460;
+    ul {
+      li{color: #1e7e34}
+      li{color: #11ee77}
+      li{color: #11ee22}
+      li{color: #2e3133}
+    }
+  };
+  div {
+    width: @boxW / 4;
+    height: @boxH / 4;
+    background-color: #3acaff;
+    h2 {
+      color: green;
+    }
+    div {
+      width: @boxW / 8;
+      height: @boxH / 8;
+      background-color: #1d2124;
+    };
+  }
+}
