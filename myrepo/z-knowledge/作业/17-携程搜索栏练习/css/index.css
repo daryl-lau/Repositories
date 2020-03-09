@@ -1,0 +1,266 @@
+/* 把我们所有标签的内外边距清零 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* em 和 i 斜体的文字不倾斜 */
+em,
+i {
+  font-style: normal;
+}
+/* 去掉li 的小圆点 */
+li {
+  list-style: none;
+}
+img {
+  /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+  border: 0;
+  /* 取消图片底侧有空白缝隙的问题 */
+  vertical-align: middle;
+}
+button {
+  /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+button,
+input {
+  /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
+  font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+}
+body {
+  /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  font: 12px Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('../fonts/iconfont.eot');
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('../fonts/iconfont.woff2') format('woff2'), url('../fonts/iconfont.woff') format('woff'), url('../fonts/iconfont.ttf') format('truetype'), url('../fonts/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: 'iconfont';
+}
+img {
+  width: 100%;
+}
+a {
+  color: #ffffff;
+}
+.view {
+  width: 450px;
+  margin: 0 auto;
+  height: 2000px;
+}
+.w {
+  width: 430px;
+  margin: 0 auto;
+}
+.search {
+  width: 450px;
+  height: 44px;
+  display: flex;
+  padding: 5px 10px;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+}
+.search .input {
+  flex: 1;
+  height: 28px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  line-height: 28px;
+  padding-left: 30px;
+  position: relative;
+  color: #666666;
+}
+.search .input::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  display: block;
+  background: url('../imgs/home-common-sprite2x@v7.15.png') no-repeat;
+  background-size: 21px 123px;
+  position: absolute;
+  left: 8px;
+  top: 7px;
+}
+.search .user {
+  width: 51px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+.search .user::before {
+  content: "";
+  width: 21px;
+  height: 21px;
+  display: block;
+  background: url('../imgs/home-common-sprite2x@v7.15.png') no-repeat;
+  background-size: 21px 123px;
+  background-position: 0 -36px;
+}
+.content {
+  position: relative;
+  top: -30px;
+}
+.nav {
+  padding: 5px 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px 0px #cccccc;
+}
+.nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+.nav ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #222222;
+}
+.nav ul li a::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url('../imgs/home-fivemain-sprite2x@v7.15.png');
+  background-size: 40px 200px;
+  background-position: -5px -5px;
+  margin-bottom: 5px;
+}
+.nav ul li:nth-child(2) a::before {
+  background-position: -5px -45px;
+}
+.nav ul li:nth-child(3) a::before {
+  background-position: -5px -85px;
+}
+.nav ul li:nth-child(4) a::before {
+  background-position: -5px -125px;
+}
+.nav ul li:nth-child(5) a::before {
+  background-position: -5px -165px;
+}
+.nav-more {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.nav-more .hotel {
+  display: flex;
+  height: 65px;
+  background: -webkit-linear-gradient(left, #fa5956, #ffd252);
+}
+.nav-more .hotel a:nth-child(1) {
+  flex: 3;
+  border-right: 1px solid #ffffff;
+  line-height: 65px;
+  text-indent: 15px;
+  background: url('../imgs/grid-nav-items-hotel@v7.15.png') no-repeat right bottom;
+  background-size: 73px 32.5px;
+}
+.nav-more .hotel a:nth-child(2) {
+  flex: 2;
+  border-right: 1px solid #ffffff;
+  text-align: center;
+  line-height: 65px;
+  background: url('../imgs/grid-nav-items-minsu@v7.15.png') no-repeat left bottom;
+  background-size: 37px 20px;
+}
+.nav-more .hotel a:nth-child(3) {
+  flex: 4;
+  text-align: center;
+  line-height: 65px;
+  background: url('../imgs/grid-nav-items-jhj@v7.15.png') no-repeat right bottom;
+  background-size: 86.5px 32px;
+  color: #a05416;
+  position: relative;
+}
+.nav-more .hotel a:nth-child(3)::after {
+  content: '方便又便宜';
+  background-color: #f54c45;
+  color: #ffffff;
+  display: block;
+  position: absolute;
+  left: 90px;
+  top: 8px;
+  line-height: normal;
+  padding: 0 5px;
+  border-radius: 7px;
+  border-bottom-left-radius: 0;
+}
+.nav-more .ticket {
+  display: flex;
+  height: 65px;
+  background: -webkit-linear-gradient(left, #4b8fed, #53bced);
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.nav-more .ticket a:nth-child(1) {
+  flex: 3;
+  border-right: 1px solid #ffffff;
+  line-height: 65px;
+  text-indent: 15px;
+  background: url('../imgs/grid-nav-items-flight@v7.15.png') no-repeat right bottom;
+  background-size: 84.5px 34px;
+}
+.nav-more .ticket a:nth-child(2) {
+  flex: 2;
+  border-right: 1px solid #ffffff;
+  text-align: center;
+  line-height: 65px;
+  background: url('../imgs/grid-nav-items-train.png') no-repeat left bottom;
+  background-size: 37px 26.5px;
+}
+.nav-more .ticket a:nth-child(3) {
+  flex: 2;
+  border-right: 1px solid #ffffff;
+  text-align: center;
+  line-height: 65px;
+}
+.nav-more .ticket a:nth-child(4) {
+  flex: 2;
+  text-align: center;
+  line-height: 65px;
+}
+.nav-more .travel {
+  display: flex;
+  height: 65px;
+  background: -webkit-linear-gradient(left, #34c2aa, #6cd557);
+}
+.nav-more .travel a:nth-child(1) {
+  flex: 3;
+  border-right: 1px solid #ffffff;
+  line-height: 65px;
+  text-indent: 15px;
+  background: url('../imgs/grid-nav-items-travel@v7.15.png') no-repeat right bottom;
+  background-size: 93.5px 47px;
+}
+.nav-more .travel a:nth-child(2) {
+  flex: 2;
+  border-right: 1px solid #ffffff;
+  text-align: center;
+  line-height: 65px;
+  background: url('../imgs/grid-nav-items-dingzhi@v7.15.png') no-repeat left bottom;
+  background-size: 61px 20.5px;
+}
+.nav-more .travel a:nth-child(3) {
+  flex: 2;
+  border-right: 1px solid #ffffff;
+  text-align: center;
+  line-height: 65px;
+}
+.nav-more .travel a:nth-child(4) {
+  flex: 2;
+  text-align: center;
+  line-height: 65px;
+}

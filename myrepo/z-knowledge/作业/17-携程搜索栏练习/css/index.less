@@ -1,0 +1,277 @@
+@import './base.less';
+
+img {
+    width: 100%;
+}
+
+a {
+    color: #ffffff;
+}
+
+.view {
+    width: 450px;
+    margin: 0 auto;
+    // background-color: #cccccc;
+    height: 2000px;
+
+}
+
+.w {
+    width: 430px;
+    margin: 0 auto;
+}
+
+.search {
+    width: 450px;
+    height: 44px;
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+
+    .input {
+        flex: 1;
+        height: 28px;
+        background-color: #ffffff;
+        border-radius: 14px;
+        line-height: 28px;
+        padding-left: 30px;
+        position: relative;
+        color: #666666;
+
+        &::before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            display: block;
+            background: url('../imgs/home-common-sprite2x@v7.15.png') no-repeat;
+            background-size: 42px/2 246px/2;
+            position: absolute;
+            left: 8px;
+            top: 7px;
+        }
+    }
+
+    .user {
+        width: 51px;
+        height: 44px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+
+        &::before {
+            content: "";
+            width: 21px;
+            height: 21px;
+            display: block;
+            background: url('../imgs/home-common-sprite2x@v7.15.png') no-repeat;
+            background-size: 42px/2 246px/2;
+            background-position: 0 -72px / 2;
+        }
+    }
+}
+
+.content {
+    position: relative;
+    top: -30px;
+}
+
+.nav {
+    padding: 5px 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px 0px #cccccc;
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #222222;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    background: url('../imgs/home-fivemain-sprite2x@v7.15.png');
+                    background-size: 80px/2 400px/2;
+                    background-position: -5px -5px;
+                    margin-bottom: 5px;
+                }
+            }
+
+            &:nth-child(2) {
+                a {
+                    &::before {
+                        background-position: -5px -45px;
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                a {
+                    &::before {
+                        background-position: -5px -85px;
+                    }
+                }
+            }
+
+            &:nth-child(4) {
+                a {
+                    &::before {
+                        background-position: -5px -125px;
+                    }
+                }
+            }
+
+            &:nth-child(5) {
+                a {
+                    &::before {
+                        background-position: -5px -165px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav-more {
+    border-radius: 10px;
+    overflow: hidden;
+
+    .hotel {
+        display: flex;
+        height: 65px;
+        background: -webkit-linear-gradient(left, #fa5956, #ffd252);
+
+        a:nth-child(1) {
+            flex: 3;
+            border-right: 1px solid #ffffff;
+            line-height: 65px;
+            text-indent: 15px;
+            background: url('../imgs/grid-nav-items-hotel@v7.15.png') no-repeat right bottom;
+            background-size: 146px/2 65px/2;
+        }
+
+        a:nth-child(2) {
+            flex: 2;
+            border-right: 1px solid #ffffff;
+            text-align: center;
+            line-height: 65px;
+            background: url('../imgs/grid-nav-items-minsu@v7.15.png') no-repeat left bottom;
+            background-size: 74px/2 40px/2;
+        }
+
+        a:nth-child(3) {
+            flex: 4;
+            text-align: center;
+            line-height: 65px;
+            background: url('../imgs/grid-nav-items-jhj@v7.15.png') no-repeat right bottom;
+            background-size: 173px/2 64px/2;
+            color: #a05416;
+            position: relative;
+            // linear-gradient(to right,#ffbc49,#ffd252
+
+
+            &::after {
+                content: '方便又便宜';
+                background-color: #f54c45;
+                color: #ffffff;
+                display: block;
+                position: absolute;
+                left: 90px;
+                top: 8px;
+                // height: 14px;
+                line-height: normal;
+                padding: 0 5px;
+                border-radius: 7px;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+
+    .ticket {
+        display: flex;
+        height: 65px;
+        background: -webkit-linear-gradient(left, #4b8fed, #53bced);
+        border-top: 1px solid #ffffff;
+        border-bottom: 1px solid #ffffff;
+
+        a:nth-child(1) {
+            flex: 3;
+            border-right: 1px solid #ffffff;
+            line-height: 65px;
+            text-indent: 15px;
+            background: url('../imgs/grid-nav-items-flight@v7.15.png') no-repeat right bottom;
+            background-size: 169px/2 68px/2;
+        }
+
+        a:nth-child(2) {
+            flex: 2;
+            border-right: 1px solid #ffffff;
+            text-align: center;
+            line-height: 65px;
+            background: url('../imgs/grid-nav-items-train.png') no-repeat left bottom;
+            background-size: 74px/2 53px/2;
+        }
+
+        a:nth-child(3) {
+            flex: 2;
+            border-right: 1px solid #ffffff;
+            text-align: center;
+            line-height: 65px;
+        }
+
+        a:nth-child(4) {
+            flex: 2;
+            text-align: center;
+            line-height: 65px;
+        }
+    }
+
+    .travel {
+        display: flex;
+        height: 65px;
+        background: -webkit-linear-gradient(left, #34c2aa, #6cd557);
+
+        a:nth-child(1) {
+            flex: 3;
+            border-right: 1px solid #ffffff;
+            line-height: 65px;
+            text-indent: 15px;
+            background: url('../imgs/grid-nav-items-travel@v7.15.png') no-repeat right bottom;
+            background-size: 187px/2 94px/2;
+        }
+
+        a:nth-child(2) {
+            flex: 2;
+            border-right: 1px solid #ffffff;
+            text-align: center;
+            line-height: 65px;
+            background: url('../imgs/grid-nav-items-dingzhi@v7.15.png') no-repeat left bottom;
+            background-size: 122px/2 41px/2;
+        }
+
+        a:nth-child(3) {
+            flex: 2;
+            border-right: 1px solid #ffffff;
+            text-align: center;
+            line-height: 65px;
+        }
+
+        a:nth-child(4) {
+            flex: 2;
+            text-align: center;
+            line-height: 65px;
+        }
+    }
+}
