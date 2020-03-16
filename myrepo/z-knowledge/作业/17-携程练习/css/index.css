@@ -52,22 +52,23 @@ a {
   color: #ffffff;
 }
 .view {
-  width: 450px;
+  width: 100%;
   margin: 0 auto;
   height: 2000px;
 }
 .w {
-  width: 430px;
+  width: 95%;
   margin: 0 auto;
 }
 .search {
-  width: 450px;
+  width: 100%;
   height: 44px;
   display: flex;
   padding: 5px 10px;
   align-items: center;
   position: fixed;
   z-index: 999;
+  background: -webkit-linear-gradient(#4b8fed, #53bced);
 }
 .search .input {
   flex: 1;
@@ -160,40 +161,44 @@ a {
   height: 65px;
   background: -webkit-linear-gradient(left, #fa5956, #ffd252);
 }
-.nav-more .hotel a:nth-child(1) {
-  flex: 3;
+.nav-more .hotel div:nth-child(1) {
+  flex: 33.33333333%;
   border-right: 1px solid #ffffff;
   line-height: 65px;
   text-indent: 15px;
   background: url('../imgs/grid-nav-items-hotel@v7.15.png') no-repeat right bottom;
   background-size: 73px 32.5px;
 }
-.nav-more .hotel a:nth-child(2) {
-  flex: 2;
+.nav-more .hotel div:nth-child(2) {
+  flex: 22.22222222%;
   border-right: 1px solid #ffffff;
   text-align: center;
   line-height: 65px;
   background: url('../imgs/grid-nav-items-minsu@v7.15.png') no-repeat left bottom;
   background-size: 37px 20px;
 }
-.nav-more .hotel a:nth-child(3) {
-  flex: 4;
+.nav-more .hotel div:nth-child(3) {
+  flex: 44.44444444%;
   text-align: center;
   line-height: 65px;
   background: url('../imgs/grid-nav-items-jhj@v7.15.png') no-repeat right bottom;
   background-size: 86.5px 32px;
   color: #a05416;
+}
+.nav-more .hotel div:nth-child(3) a {
   position: relative;
 }
-.nav-more .hotel a:nth-child(3)::after {
+.nav-more .hotel div:nth-child(3) a::after {
   content: '方便又便宜';
   background-color: #f54c45;
   color: #ffffff;
   display: block;
   position: absolute;
-  left: 90px;
-  top: 8px;
-  line-height: normal;
+  left: 44px;
+  top: -14px;
+  width: 62px;
+  height: 14px;
+  line-height: 14px;
   padding: 0 5px;
   border-radius: 7px;
   border-bottom-left-radius: 0;
@@ -206,7 +211,7 @@ a {
   border-bottom: 1px solid #ffffff;
 }
 .nav-more .ticket a:nth-child(1) {
-  flex: 3;
+  flex: 33.33333333%;
   border-right: 1px solid #ffffff;
   line-height: 65px;
   text-indent: 15px;
@@ -214,7 +219,7 @@ a {
   background-size: 84.5px 34px;
 }
 .nav-more .ticket a:nth-child(2) {
-  flex: 2;
+  flex: 22.22222222%;
   border-right: 1px solid #ffffff;
   text-align: center;
   line-height: 65px;
@@ -222,13 +227,13 @@ a {
   background-size: 37px 26.5px;
 }
 .nav-more .ticket a:nth-child(3) {
-  flex: 2;
+  flex: 22.22222222%;
   border-right: 1px solid #ffffff;
   text-align: center;
   line-height: 65px;
 }
 .nav-more .ticket a:nth-child(4) {
-  flex: 2;
+  flex: 22.22222222%;
   text-align: center;
   line-height: 65px;
 }
@@ -238,7 +243,7 @@ a {
   background: -webkit-linear-gradient(left, #34c2aa, #6cd557);
 }
 .nav-more .travel a:nth-child(1) {
-  flex: 3;
+  flex: 33.33333333%;
   border-right: 1px solid #ffffff;
   line-height: 65px;
   text-indent: 15px;
@@ -246,7 +251,7 @@ a {
   background-size: 93.5px 47px;
 }
 .nav-more .travel a:nth-child(2) {
-  flex: 2;
+  flex: 22.22222222%;
   border-right: 1px solid #ffffff;
   text-align: center;
   line-height: 65px;
@@ -254,13 +259,148 @@ a {
   background-size: 61px 20.5px;
 }
 .nav-more .travel a:nth-child(3) {
-  flex: 2;
+  flex: 22.22222222%;
   border-right: 1px solid #ffffff;
   text-align: center;
   line-height: 65px;
 }
 .nav-more .travel a:nth-child(4) {
-  flex: 2;
+  flex: 22.22222222%;
   text-align: center;
   line-height: 65px;
+}
+.nav-free ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+.nav-free ul li {
+  width: 20%;
+}
+.nav-free ul li a {
+  color: #222222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-free ul li a::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 10px 0;
+  background: url('../imgs/un_ico_subnav2x@v7.152.png') no-repeat;
+  background-size: 28px 280px;
+  background-position: 0 0;
+}
+.nav-free ul li:nth-child(2) a::before {
+  background-position: 0 -28px;
+}
+.nav-free ul li:nth-child(3) a::before {
+  background-position: 0 -56px;
+}
+.nav-free ul li:nth-child(4) a::before {
+  background-position: 0 -84px;
+}
+.nav-free ul li:nth-child(5) a::before {
+  background-position: 0 -112px;
+}
+.nav-free ul li:nth-child(6) a::before {
+  background-position: 0 -140px;
+}
+.nav-free ul li:nth-child(7) a::before {
+  background-position: 0 -168px;
+}
+.nav-free ul li:nth-child(8) a::before {
+  background-position: 0 -196px;
+}
+.nav-free ul li:nth-child(9) a::before {
+  background-position: 0 -224px;
+}
+.nav-free ul li:nth-child(10) a::before {
+  background-position: 0 -252px;
+}
+.hot h2 {
+  height: 16px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -30px;
+  align-items: center;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+.hot h2 i {
+  width: 80px;
+  height: 16px;
+  background-color: #fa5956;
+  background: url('../imgs/un_home_text.png') no-repeat;
+  background-size: 79px 58px;
+  background-position: 0 -19px;
+}
+.hot h2 span {
+  background: -webkit-linear-gradient(left, #ff4e63, #ff6cc9);
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+  font-weight: normal;
+  padding: 2px 4px;
+  border-radius: 10px;
+}
+.ad ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ad ul li {
+  width: 50%;
+  border-bottom: 1px solid #dbdbdb;
+  position: relative;
+}
+.ad ul li::after {
+  content: "广告";
+  font-size: 12px;
+  color: #ffffff;
+  background-color: #ccc;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 6px;
+  padding: 0 1px;
+}
+.ad ul li:nth-child(1) {
+  border-right: 1px solid #dbdbdb;
+}
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-bottom: 1px solid #dbdbdb;
+}
+.footer a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333333;
+}
+.footer a i {
+  font-size: 24px;
+  color: #999999;
+}
+.info p {
+  text-align: center;
+  margin: 5px 0;
+}
+.info p:nth-child(1) a {
+  font-size: 14px;
+  color: #333333;
+}
+.info p:nth-child(1) span {
+  padding: 0 3px;
+  color: #333333;
+}
+.info p:nth-child(2) a {
+  color: #999999;
+}
+.info p:nth-child(2) span {
+  color: #999999;
 }

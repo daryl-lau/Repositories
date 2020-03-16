@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title></title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
-</head>
-<body>
-<!-- v-cloak当vue还未编译完成的时候，会加上这个类，一旦vue编译完成，vue会自动移除这个类，可以自己再样式里面写一个v-cloak的类，进行还未
-    还未编译完成时的样式，加个loading什么的
- -->
 
-<script src="../../node_modules/vue/dist/vue.js"></script>
-<script>
-    const vm = new Vue({
-        el: '#box1',
-        data: {
-            message: 'Hello,Vue!',
-            msg: '你好, Vue!'
+    <style>
+        p[v-cloak] {
+            visibility: hidden;
         }
-    })
-</script>
+    </style>
+</head>
+
+<body>
+    <!-- 
+        v-cloak当vue还未编译完成的时候，会加上这个属性（！！不是类！！），一旦vue编译完成，vue会自动移除这个属性；
+        可以自己在样式里面写一个带有v-cloak属性的样式，在还未编译完成的时候，加个隐藏或者loading图什么的
+    -->
+    <div id=box1>
+        <p v-cloak>
+            {{message}}
+        </p>
+    </div>
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box1',
+            data: {
+                message: 'Hello,Vue!',
+                msg: '你好, Vue!'
+            }
+        })
+    </script>
 </body>
+
 </html>

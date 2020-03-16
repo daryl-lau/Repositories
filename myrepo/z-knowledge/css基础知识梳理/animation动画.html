@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            margin: 200px auto;
+
+            animation: changeBox 2s;
+            animation-iteration-count: 2;
+
+            /* 复合写法 animation: 动画名称 过渡时间 过渡曲线 延迟时间 循环次数 循环方向 动画等待或者结束的状态*/
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            /*  1、动画名
+                    设置要使用的动画名 
+                    animation-name:xxx;
+                2、持续时间
+                    设置动画播放的持续时间  
+                    animation-duration:3s
+                3、速度曲线
+                    和设置过渡的速度曲线一样 
+                    animation-timing-function:linear;
+                    - linear： 匀速
+                    - ease： 慢-快-慢  默认值
+                    - ease-in： 慢-快。
+                    - ease-out： 快-慢。
+                    - ease-in-out： 慢-快-慢。
+                    - steps 设置 跳跃性的动画 
+                        steps (n,start) 在该段时间的开始 触发
+                        steps(n,end) 在该段时间的 末端 出发
+                4、延迟时间
+                    animation-delay: 0s;
+                5、循环次数
+                    设置动画播放的循环次数  animation-iteration-count: 2;  infinite 为无限循环
+                6、循环方向
+                    animation-direction
+                    如在动画中定义了  0%：红色  100%：黑色 那么 当属性值为 
+                    1. normal  默认值  红 -> 黑
+                    2. reverse 反向运行    黑 -> 红
+                    3. alternate  正-反-正...  红 -> 黑 -> 红...  
+                    4. alternate-reverse  反-正-反..   黑 -> 红 -> 黑 ... 
+                    5. 以上与循环次数有关
+                7、动画等待或者结束的状态
+                    animation-fill-mode 设置动画在等待或者结束的时候的状态
+                    - backwards： 在延迟等待的时间内，元素样式停留在第0帧的样式
+                    - forwards：动画结束后，元素样式停留在 100% 的样式
+                    - both： 同时设置了 forwards和backwards两个属性值
+                8、暂停和播放
+                    animation-play-state  控制 播放 还是 暂停 
+                    running 播放   paused 暂停
+            */
+        }
+
+        @keyframes changeBox {
+            0% {
+                background-color: green;
+            }
+
+            50% {
+                border-radius: 50%;
+                width: 200px;
+                height: 200px;
+            }
+
+            100% {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

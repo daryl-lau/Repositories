@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .out {
+            width: 400px;
+            height: 400px;
+            background-color: steelblue;
+            margin: 100px auto;
+        }
+
+        .in {
+            width: 200px;
+            height: 200px;
+            background-color: tan;
+            
+            transition: transform 1s;
+
+            /* 旋转点设置 */
+            transform-origin: left top;
+            transform-origin: 5px 5px;
+            transform-origin: 100% 50%;
+
+        }
+
+        .in:hover {
+            /* 角度为正数时顺时针旋转 */
+            transform: rotate(50deg);
+
+            /* 角度为负数时逆时针旋转 */
+            /* transform: rotate(-50deg); */
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <div class="in"></div>
+    </div>
+</body>
+
+</html>

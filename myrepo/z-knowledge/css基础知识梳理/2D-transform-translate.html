@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .out {
+            width: 400px;
+            height: 400px;
+            background-color: steelblue;
+        }
+
+        .in {
+            width: 200px;
+            height: 200px;
+            background-color: tan;
+
+            /* 值为x轴和y轴 */
+            transform: translate(50px, 50px);
+
+
+            /* margin和定位设置百分比的时候，宽高计算根据父元素的宽高进行计算 */
+            /* translate设置百分比的时候，宽高计算时根据自身的宽高进行计算的 */
+            transform: translate(50%, 50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <div class="in"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .out {
+            width: 400px;
+            height: 400px;
+            background-color: steelblue;
+            margin: 300px auto;
+        }
+
+        .in {
+            width: 200px;
+            height: 200px;
+            background-color: tan;
+
+            transition: transform 1s;
+
+
+        }
+
+        .in:hover {
+            /* 值为宽高的缩放倍数 */
+            transform: scale(2, 3);
+            /* 值大于1，则是放大，值小于1，则是缩小 */
+            transform: scale(.5, .5);
+
+            /* 缩放的值可以设置为负值，很少用到，是反向缩放 */
+            transform: scale(-2, -0.5);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <div class="in"></div>
+    </div>
+</body>
+
+</html>

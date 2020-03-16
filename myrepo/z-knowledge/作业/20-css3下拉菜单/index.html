@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            margin: 50px auto;
+            width: 100px;
+        }
+
+        .first {
+            width: 100px;
+            background-color: blue;
+            margin-bottom: 1px;
+        }
+
+        .second li {
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .second {
+            background-color: skyblue;
+            height: 0;
+            overflow: hidden;
+            transition: height 1s;
+        }
+
+        .first:hover .second {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="wrap">
+        <li class="first">一级菜单
+            <!-- <div class="first"></div> -->
+            <ul class="second">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+        <li class="first">一级菜单
+            <!-- <div class="first"></div> -->
+            <ul class="second">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+        <li class="first">一级菜单
+            <!-- <div class="first"></div> -->
+            <ul class="second">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+
+    </ul>
+
+</body>
+
+</html>

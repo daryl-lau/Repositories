@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+    <div id="box1">
+        <h1>{{msg}}</h1>
+        <p>{{message}}</p>
+        <input type="text" name="" title="" v-model="msg">
+        <button @click="showMsg">按钮</button>
+    </div>
+
+
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box1',
+            data: {
+                message: 'Hello,Vue!',
+                msg: '你好, Vue!'
+            },
+            methods: {
+                showMsg() {
+                    alert(this.msg);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

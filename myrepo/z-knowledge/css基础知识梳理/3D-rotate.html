@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            3D旋转可以使用左手法则，大拇指方向为轴线方向，四指弯曲方向为旋转方向
+         */
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            margin: 50px auto;
+
+            transition: all 1s;
+        }
+
+        .div1:hover {
+            /* X轴旋转，以X轴为轴心进行旋转 */
+            transform: rotateX(80deg);
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 50px auto;
+
+            transition: all 1s;
+        }
+
+        .div2:hover {
+            /* Y轴旋转，以Y轴为轴心进行旋转 */
+            transform: rotateY(80deg);
+        }
+
+        .div3 {
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            margin: 50px auto;
+
+            transition: all 1s;
+        }
+
+        .div3:hover {
+            /* Z轴旋转，以Z轴为轴心进行旋转 */
+            transform: rotateZ(80deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">哈哈哈哈哈</div>
+    <div class="div2">嘿嘿嘿嘿嘿</div>
+    <div class="div3">嘻嘻嘻嘻嘻</div>
+</body>
+
+</html>

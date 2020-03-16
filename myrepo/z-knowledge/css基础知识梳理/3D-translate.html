@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 在父元素上设置 */
+            perspective: 1000px;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            margin: 300px auto;
+
+            transition: all 1s;
+        }
+
+        div:hover {
+            /* translateX() 和 translateY() 就是沿x轴Y轴平移，和2D是一样的 */
+            /* 因为z轴是垂直屏幕，由里指向外面，所以 默认是看不到元素在z轴的方向上移动，想要看到，可以使用下面的 视距 属性设置 */
+            /* perspective: 1000px;  在父元素上设置 */
+            /* translateZ的值和perspertive都要大于0 否则容易出现兼容性问题 */
+            transform: translateZ(300px);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>Document</title>
+    <style>
+        /* 
+        vw单位是以当前视口宽度(view width)作为基准，100vw 等于当前视口宽度  100vw=320px  1vw = 3.2px
+
+        rem单位是以当前html font-size大小作为基准，1rem 等于html的font-size
+        */
+        div {
+            width: calc(100rem/36);
+            height: calc(100rem/36);
+            background-color: red;
+            font-size: calc(14vw/3.2);
+            font-size: .4375rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>哈哈哈哈</div>
+
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+    </script>
+</body>
+
+</html>

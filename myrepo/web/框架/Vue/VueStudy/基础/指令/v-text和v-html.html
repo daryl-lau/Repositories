@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+    <div id="box1">
+        <!--  v-text使其值传入，不能对其进行更改   -->
+        <p v-text="msg">
+            哈哈哈
+            <!--这里将不会显示“哈哈哈”，而是baihuzi.com-->
+        </p>
+        <p>
+            {{msg}}，哈哈哈哈
+            <!--这里将会显示“哈哈哈baihuzi.com”-->
+        </p>
+
+
+
+        <div v-html="html">
+            <!--内容按普通 HTML 插入 - 不会作为 Vue 模板进行编译-->
+            <!-- 这里显示html代码，而不是 哈哈哈 -->
+            哈哈哈
+        </div>
+        <!--这里将会插入html,同样子标签的内容将不会生效-->
+    </div>
+
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box1',
+            data: {
+                msg: 'baihuzi.com',
+                html: '<h1>baihuzi.com</h1>'
+            }
+        })
+    </script>
+</body>
+
+</html>
