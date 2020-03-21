@@ -10,10 +10,27 @@
 
 <body>
     <script>
-        // 判断字符串是否符合正则表达式
-        let re1 = new RegExp(/s/ig);
-        console.log(re1.test('sfsdfsfda'));  // true
+        // 正则表达式方法
+        // test() 方法用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回 true，否则返回 false。
+        let re1 = new RegExp(/s/ig);   // 字符串中含有d，则为true
+        console.log(re1.test('dsfdfsfda'));  // true
 
+        // 可以省略new RegExp
+        console.log(/s/g.test('qqweqr'));  // false
+
+
+        // exec() 方法用于检索字符串中的正则表达式的匹配。
+        // 该函数返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。
+        // 如果输出方式log，控制台输出的是数组，如下所示
+        console.log(/w/g.exec('hello, world'));   // ["o", index: 4, input: "hello, world", groups: undefined]
+        console.log(/k/g.exec('hello, world'));   // null
+
+        // 如果输出方式是alert()或document.write();则输出的是匹配到的值
+        alert(/he/g.exec('hello, world'));   // alert的结果是he
+        document.write(/wo/g.exec('hello, world')); // 页面显示wo
+
+
+        //下面的方法都是字符串方法，只不过参数可以是一个正则表达式，并不是正则表达式的方法
         // 找出字符串中符合正则表达式的内容
         let str2 = '12sf3234asds32123dfsf';
         let re2 = new RegExp(/\d+/g);
@@ -32,33 +49,33 @@
 
 
         /*
-    
+
          \d 所有数字，同 [0-9]
          \w [a-z0-9_]
          \s 空白字符
          .  匹配任意字符
-    
+
          \D [^0-9]
          \W [^a-z0-9_]
          \S 非空白字符
-    
+
         量词
             {n} 具体个数   /1(32|73|39)\d{8}/  8个数字
             {n,m}         /[1-9]\d{5-12}/     2-12个数字
             {n,}          /\w{6,}/            至少6个字符
-    
+
             + 匹配前一个字符1个或多个, 同 {1,}
             ? 匹配前一个字符0个或1个，同 {0,1}
-    
+
         [] 只能匹配一个字符，不可能匹配出两个
             1、任何一个  [abc]
             2、范围      [0-9a-zA-Z]
             3、排除      [^a]
-    
+
         修饰符
             ^ 行首
             $ 行尾
-    
+
         或
             |   通常需要提升优先级 /\.(jpg|png|gif)$/
         * */

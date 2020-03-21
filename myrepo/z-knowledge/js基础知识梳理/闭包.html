@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+
+    <script>
+        window.onload = function () {
+
+            // 每个button标签的onclick事件执行时，本身onclick绑定的function的作用域中没有变量i，i为undefined
+            // 则解析引擎会寻找父级作用域，发现父级作用域中有i，且for循环绑定事件结束后，i已经赋值为4，
+            // 所以每个button标签的onclick事件执行时，alert的都是父作用域中的i，也就是4。这是作用域的问题。
+
+            // var aBtn = document.getElementsByTagName('button');
+            // for (var i = 0; i < aBtn.length; i++) {
+            //     aBtn[i].onclick = function () {
+            //         alert(i)
+            //     }
+            // }
+
+            // 使用闭包解决问题
+            // 让变量i始终保存在内存中（j），不会随着函数的结束而自动销毁。
+            // i是实参，j是形参，j保存了每个i的值，并且不会销毁
+            var aBtn = document.getElementsByTagName('button');
+            for (var i = 0; i < aBtn.length; i++) {
+                (function (j) {
+                    aBtn[j].onclick = function () {
+                        alert(j)
+                    }
+                })(i)
+            }
+
+
+            // 此时当show()执行完毕，show里面定义的变量并没有被回收，因为onclick还在使用变量a
+            (function show() {
+                let a = 111;
+                document.onclick = function () {
+                    alert(a)
+                }
+            })()
+
+
+        }
+    </script>
+</body>
+
+</html>

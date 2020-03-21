@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 合并两个或多个数组，返回一个新的合并后的数组（不会改变原始数组）
+        // array1.concat(array2,array3,...,arrayX)
+        // 按顺序依次往后排
+
+        let arr1 = [1, 2, 3];
+        let arr2 = ['a', 'b', 'c'];
+        let arr3 = [undefined, NaN, false];
+
+        let arr12 = arr1.concat(arr2);          // [1, 2, 3, "a", "b", "c"] 
+        let arr123 = arr1.concat(arr2, arr3);   // [1, 2, 3, "a", "b", "c", undefined, NaN, false]
+        let arr321 = arr3.concat(arr2, arr1)    // [undefined, NaN, false, "a", "b", "c", 1, 2, 3]
+
+        console.log(arr1)  // 原数组不会发生改变 [1, 2, 3]
+        console.log(arr12, arr123, arr321);
+
+
+        // 一道面试题：传递两个参数m，n，返回长度为m，所有元素都为n的数组，要求不能用循环。
+        // 利用函数的递归和 concat() 方法可以实现，代码如下：
+        function fn(m, n) {
+            return m ? fn(m - 1, n).concat(n) : [];
+        }
+
+        /*
+        fn(5, 2) => fn(4, 2).concat(2)
+        fn(4, 2) => fn(3, 2).concat(2)
+        fn(3, 2) => fn(2, 2).concat(2)
+        fn(2, 2) => fn(1, 2).concat(2)
+        fn(1, 2) => fn(0, 2).concat(2)
+        fn(0, 2) => []
+        [].concat(2).concat(2).concat(2).concat(2).concat(2)  => [2, 2, 2, 2, 2]
+        */
+
+        let res = fn(5, 2)
+        console.log(res);
+
+    </script>
+</body>
+
+</html>

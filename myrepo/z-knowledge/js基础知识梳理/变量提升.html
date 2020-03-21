@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。
+        JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。
+        */
+
+        a = 5;
+        fn1()
+        function fn1() {
+            console.log(`a的值为${a}`);  // a的值为5
+        }
+        var a;
+
+        /*
+        以上代码会变成这样，函数和变量提升，函数提升是把整个函数提升在执行环境最顶端
+            function fn1() {
+                console.log(a);
+            }
+            var a;
+            a = 5;
+            fn1();
+
+        如果fn1()函数调用是写在 a = 5 之前，将会打印undefined；
+        因为除了函数和变量会提升之外，其他代码都是按照上下文执行下来，此时a还没有被赋值，因此会是undefined
+        */
+
+
+
+        // 只有变量声明才会提升，变量的初始化赋值不会提升，还是按照上下文依次执行
+        x = 10;
+        fn2()
+        function fn2() {
+            console.log(`x的值为${x}，y的值为${y}`);   // x的值为undefined，y的值为undefined
+        }
+        var x;
+        var y = 20;
+        /*
+        以上代码会变成这样
+            function fn2() {
+                console.log(`x的值为${x}，y的值为${y}`);   // x的值为undefined，y的值为undefined
+            }
+            var x;
+            var y;
+            x = 10;
+            fn2()
+            y = 20;
+        */
+
+
+        // 使用匿名函数的方式不存在函数提升，因为函数名称使用变量表示的，只存在变量提升。
+        // 匿名函数
+        var getName = function () {
+            console.log(2);
+        }
+
+        function getName() {
+            console.log(1);
+        }
+
+        getName();  // 2
+
+        /*
+        函数变量声明提升，函数优先提升
+        getName也是一个变量，赋的值是一个函数，所以getName变量声明也会提升
+        然后再进行变量赋值，赋值后函数输出2
+
+            function getName() {
+                console.log(1);
+            }
+
+            var getName;
+
+            getName = function () {
+                console.log(2);
+            }
+
+            getName();
+        */
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // slice()方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。（不会改变原始数组）
+
+        // array.slice(start, end)
+        // start: 从数组的哪个索引开始切分，如果是负数，那么它规定从数组尾部开始算起的位置。也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。
+        // end: 到数组的哪个索引结束，如果是负数，同start
+
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+        let res1 = arr.slice(2, 5);         // [3, 4, 5]
+        let res2 = arr.slice(5, 2);         // []   开始索引和结束索引不能倒着来
+        let res3 = arr.slice(-5, 5)         // [3, 4, 5]
+        let res4 = arr.slice(-3, 2)         // []   同上，开始索引和结束索引不能倒着来
+
+        console.log(arr);
+        console.log(res1);
+        console.log(res2);
+        console.log(res3);
+        console.log(res4);
+    </script>
+</body>
+
+</html>

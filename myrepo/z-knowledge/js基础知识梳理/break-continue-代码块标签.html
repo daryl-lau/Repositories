@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // break 语句（不带标签引用），只能用在循环或 switch 中。
+        // 通过标签引用，break 语句可用于跳出任何 JavaScript 代码块：
+
+        // continue 语句（带有或不带标签引用）都只能用在循环中（不能用于switch）。
+
+
+        // 定义了标签label的代码块，可以使用break label来跳出该代码块
+        // 将外部循环设置一个outloop标签
+        outloop:
+        for (let i = 0; i < 5; i++) {
+
+            // 将内部循环设置一个innerloop标签
+            innerloop:
+            for (let j = 0; j < 10; j++) {
+
+                if (j == 1) {
+                    // 如果这里是break outloop，则下面的log将只会输出一个0，因为当j=1的时候，直接跳出了外部循环
+                    // break outloop;
+
+                    // 如果这里是break innerloop，则下面的log将会输出五个0，因为当j=1的时候，只是跳出了内部循环，外部还在循环
+                    // 这里用break innerloop; 和 berak; 效果相同，因为break本来就是跳出当前代码块
+                    // break innerloop;
+
+
+                    // 如果这里是continue outloop; 则会输出五个0，因为当j=1的时候，直接进入到了下一个outloop循环
+                    continue outloop;
+
+                    // 如果这里是continue innerloop，则会输出5个 0 2 3 ... 9，没有1，因为当j=1的时候，直接跳到了下一个innerloop循环，没有输出1
+                    // 这里用continue innerloop 和 continue 效果相同，因为continue本来就是跳出当前循环
+                    // continue innerloop;
+                }
+
+                console.log(j);
+            }
+        }
+
+
+        // 这里定义了一组log，使用logList标签标记，
+        // 通过标签引用，break 语句可用于跳出任何 JavaScript 代码块：continue只能用于循环中（不能用于switch）
+        logList:
+        {
+            console.log(1);
+            console.log(2);
+            console.log(3);
+            // break;  // 这里不能单独使用break，因为break只能在循环或switch中使用，退出当前循环，这里如果单独使用break，会报错Uncaught SyntaxError: Illegal break statement
+            break logList;  // 退出名为logList的代码块
+            console.log(4);
+            console.log(5);
+        }
+    </script>
+</body>
+
+</html>

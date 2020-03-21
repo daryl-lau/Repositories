@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // string类型转成number类型
+        // 隐式转换
+        let str = '123.5'
+        // 方式1，字符串进行运算，减去0，除以1等，但是不能用+，因为会变成字符串连接
+        n = str - 0;
+        console.log(n);     // 123
+
+        // 方式2，在字符串前面加一个加号
+        n1 = +str;
+        console.log(n1);    // 123
+
+        // 对于一个不是数字的字符串类型进行转换，会得到NaN(Not a Number)
+        str1 = 'abc';
+        n2 = +str1;
+        console.log(n2);
+
+        // 显示转换（强制转换）
+        // 方式1，Number()
+        console.log(Number('123'));         // 123
+        console.log(Number('123哈哈哈'));   // NaN
+        console.log(Number('嘿嘿嘿123哈哈哈'));   // NaN
+
+        // 方式2，parseInt()，只能取到整数位，不能取到小数位
+        console.log(parseInt('123'));            // 123
+        console.log(parseInt('123.5哈哈哈哈'));   //123
+        console.log(parseInt('嘿嘿嘿123.5哈哈哈哈'));  //NaN
+        // 如果 string 以 "0x" 开头，parseInt() 会把 string 的其余部分解析为十六进制的整数。
+        console.log(parseInt('0x1000'));        // 4096
+        // 如果定义了进制，则不需要字符串前面的0x
+        console.log(parseInt('1000', 16));      // 4096
+        console.log(parseInt('1000', 2));       // 8
+        // 如果 string 以 1 ~ 9 的数字开头，parseInt() 将把它解析为十进制的整数。
+        console.log(parseInt('230'));           // 230
+
+        // 方式3，parseFloat()，可以取到小数位
+        console.log(parseFloat('123'));       // 123
+        console.log(parseFloat('123.5哈哈哈哈'));     //123.5
+        console.log(parseFloat('嘿嘿嘿123.5哈哈哈哈'));  //NaN
+
+
+
+        // string类型转bool类型，字符串里面只要有内容，不管是什么内容，哪怕一个空格也好，转换出来就是true
+        // 只有是空字符串（''）才转换成false
+        // 隐式转换
+        console.log(!!'aa');  // true
+        console.log(!!'');    // false
+
+        // 显示转换
+        console.log(Boolean('aa')); // true
+        console.log(Boolean(''));   // false
+
+
+        // number类型转string类型
+        // 隐式转换
+        console.log(100 + '');   // '100'
+
+        // 显示转换  null 和 undefined 无法使用.toString()
+        let n3 = 1000.5
+        console.log(String(n3));   // '1000.5'
+        console.log(n3.toString()); // '1000.5'
+
+        console.log(String(NaN));   // 'NaN'
+        console.log(NaN.toString()); // 'NaN'
+
+        // 拓展一下
+        let arr = [1, 2, 3]
+        let obj = { a: 1, b: 2, c: 3 }
+        console.log(arr.toString());   // '1, 2, 3'
+        console.log(obj.toString());   // [object Object]
+
+
+
+        // number类型转bool类型，只有 0 和 NaN 是false，其他任何number类型的值都是true
+        // 隐式转换
+        console.log(!!0);   // false
+        console.log(!!1);   // true
+        console.log(!!123);   // true
+
+        // 显示转换
+        console.log(Boolean(0));    // false
+        console.log(Boolean(1));    // true
+        console.log(Boolean(123));    // true
+
+        // NaN
+        console.log(Boolean(NaN));  // false
+
+
+
+
+        // boolean类型转string类型
+        // 隐式转换
+        let t = true;
+        console.log(t + '');      // true
+        // 显示转换
+        console.log(String(t));     // true
+        console.log(t.toString());  // true
+
+
+        // boolean类型转number类型
+        // 隐式转换
+        let f = false;
+        console.log(+f);    // 0
+        console.log(f * 1); // 0
+
+        // 显示转换，Number()进行转换
+        console.log(Number(f)); // 0
+
+        // parseInt 和 parseFloat 转换的时候，只会转为成NaN
+        console.log(parseInt(f));       // NaN
+        console.log(parseFloat(f));     // NaN
+
+
+
+
+        // 特殊情况null和undefined
+        console.log(String(null));  // 'null'
+        console.log(String(undefined));  // 'undefined'
+        // console.log(null.toString());   // 报错
+        // console.log(undefined.toString());   // 报错
+    </script>
+</body>
+
+</html>

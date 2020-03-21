@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 局部变量：在函数中通过var声明的变量。
+        // 全局变量：在函数外通过var声明的变量。
+        // 没有声明就使用的变量，默认为全局变量，不论这个变量在哪被使用。
+
+
+        // 局部作用域，变量在函数内声明，变量仅能在函数内部访问
+        function fn1() {
+            var username = 'jerry';
+            console.log(username);
+        }
+        fn1()   // jerry
+
+        // console.log(username);  // 报错，username未定义
+
+
+
+        // 全局作用域，函数内部和外部都可以访问该变量
+        var age = 12;
+        function fn2() {
+            console.log(age);
+        }
+        fn2()     // 12
+
+        console.log(age);  // 12
+
+
+
+        // 如果在函数内部没有使用var定义变量，那么此变量是一个全局变量
+        function fn3() {
+            gender = 'male';
+            console.log(gender);
+        }
+        fn3();
+
+        // 如果上面的函数没有调用，那么这里将会报错
+        // 在 fn3() 被第一次调用之前， gender变量是不存在的，console将会报错。fn3() 被调用过之后，gender成为全局变量。
+        console.log(gender);
+
+
+        // 在html中，var定义的全局变量都是window对象，所有变量都属于window对象
+        console.log(window.age);   // 12
+        console.log(window.gender);  // male
+
+        // 在html中，let定义的全局变量，不属于window对象
+        let id = '420116';
+        console.log(window.id);   // undefined
+
+
+    </script>
+
+</body>
+
+</html>

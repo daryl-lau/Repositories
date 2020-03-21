@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3];
+        let obj = { a: 1, b: 2 };
+        let str = 'aaaa';
+        let num = 100;
+        let fn = function () { console.log(1); }
+        let n = null;
+        let ud = undefined;
+        let nan = NaN;
+        let t = true;
+
+        //  typeof 操作符来检测变量的数据类型，其返回值全部都是数据类型的字符串
+        console.log(typeof (arr));  // object
+        console.log(typeof (obj));  // object
+        console.log(typeof (str));  // string
+        console.log(typeof (num));  // number
+        console.log(typeof (fn));   // function
+        console.log(typeof (n));    // object
+        console.log(typeof (ud));   // undefined
+        console.log(typeof (nan));  // number
+        console.log(typeof (t));    // boolean
+
+        // null 和 undefined 的值相等，但类型不等：
+        console.log(null == undefined);     // true     null的类型为object
+        console.log(null === undefined);    // false    undefined的类型为undefined
+
+
+
+        // 判断一个引用数据类型的变量具体是不是某种类型的对象
+        // ！！！！只能判断引用数据类型！！！！
+        console.log(num instanceof Number);     // false 因为instanceof 只能判断引用数据类型
+        console.log(str instanceof String);     // false 因为instanceof 只能判断引用数据类型
+
+        console.log(fn instanceof Function);    // true
+        console.log(arr instanceof Array);      // true
+        console.log(obj instanceof Object);     // true
+        console.log((/w+/g) instanceof RegExp); // true
+
+        let date = new Date();
+        console.log(date instanceof Date);      // true
+
+        // typeof 和 instanceof 都不是函数，而是js的关键字
+
+    </script>
+</body>
+
+</html>

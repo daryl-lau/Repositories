@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="fn1()">点我alert</button>
+    <button onclick="fn2()">点我prompt</button>
+    <button onclick="fn3()">点我confirm</button>
+    <script>
+        // alert 弹出警示框
+        // alert('提示信息')
+        // 没有返回值
+        function fn1() {
+            alert('确认');
+        }
+
+        // prompt 带输入的弹出框
+        // prompt('提示信息', '默认文字')
+        // 点击了确认，返回值为输入的文字，点击了取消，返回值为null
+        function fn2() {
+            let name = prompt('请输入姓名', 'jerry');
+            if (name != null && name != '') {
+                alert(`您好！${name}`)
+            }
+        }
+
+        // confirm() 确认框
+        // confirm('提示信息')
+        // 点击了确认，返回值为true，点击了取消，返回值为false
+        function fn3() {
+            if (confirm('确认？')) {
+                alert('点击了确认')
+            } else {
+                alert('点击了取消')
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>这是一个p</p>
+    <button onclick='fn1()'>点击</button>
+
+    <script>
+
+        // document.write 写入的内容追加在body最后面
+        document.write(`<h1>这是一个标题</h1>`);
+        document.write(Date())
+
+
+
+        // 绝对不要在文档(DOM)加载完成之后使用 document.write()。这会覆盖该文档；
+        function fn1() {
+            document.write('点击后，覆盖了整个原文档')
+        }
+    </script>
+</body>
+
+</html>

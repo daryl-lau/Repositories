@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // copyWithin() 方法用于从数组的指定位置拷贝元素到数组的另一个指定位置中。（会改变原始数组）
+
+        // copyWithin(target, copyStart, copyEnd)
+        // target: 复制到指定目标索引位置（必须填一个数）
+        // copyStart: 开始复制的索引位置（同数组slice()方法的start）
+        // copyEnd: 结束复制的索引位置（不包括当前位置，同数组slice()方法的end）
+
+
+        let arr1 = ["A", "B", "C", "D", "E", "F"];
+        // 复制整个数组（开始为0，结束为最后），放到原数组索引为2的位置，如果长度超出了原数组的长度，直接截断
+        // ["A", "B", "C", "D", "E", "F"]               原数组
+        //           ["A", "B", "C", "D", "E", "F"];    复制整个数组到目标索引位置
+        // ["A", "B", "A", "B", "C", "D"]               长度超出，直接截断
+        let res1 = arr1.copyWithin(2, 0, arr1.length);   // ["A", "B", "A", "B", "C", "D"]
+
+
+
+        let arr2 = ["A", "B", "C", "D", "E", "F"];
+        // 复制整个数组（开始为0，结束为最后），放到原数组索引为2的位置，如果长度超出了原数组的长度，直接截断
+        // ["A", "B", "C", "D", "E", "F"]               原数组
+        //                ["B", "C", "D"];              复制整个数组到目标索引位置
+        // ["A", "B", "C", "B", "C", "D"]               长度超出，直接截断
+        let res2 = arr2.copyWithin(3, 1, 4);   // ["A", "B", "C", "B", "C", "D"]
+
+
+        let arr3 = ["A", "B", "C", "D", "E", "F"];
+        // 复制整个数组（开始为0，结束为最后），放到原数组索引为2的位置，如果长度超出了原数组的长度，直接截断
+        // ["A", "B", "C", "D", "E", "F"]               原数组
+        // ["B", "C"];                             复制整个数组到目标索引位置
+        // ["B", "C", "C", "D", "E", "F"]               长度超出，直接截断
+        let res3 = arr3.copyWithin(0, 1, -3);   // ["B", "C", "C", "D", "E", "F"]
+
+        console.log(arr1, res1);
+        console.log(arr2, res2);
+        console.log(arr3, res3);
+
+    </script>
+</body>
+
+</html>

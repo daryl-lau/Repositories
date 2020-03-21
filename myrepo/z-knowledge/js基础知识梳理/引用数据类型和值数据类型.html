@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 引用数据类型：对象(Object)、数组(Array)、函数(Function)、正则(RegExp)、日期(Date)等
+        // 栈内存中保存了变量标识符和指向堆内存中该对象的指针，堆内存中保存了对象的内容
+
+        // 如果变量引用了同一块内存地址（如下所示），修改其中一个变量的值，其他变量也会跟着修改
+        let arr1 = [1, 2, 3];
+        let arr2 = arr1;
+        arr2[0] = 999;
+        console.log(arr1, arr2);  // [999, 2, 3]  [999, 2, 3]
+
+        let obj1 = obj2 = { name: 'jerry', age: 2 };
+        obj2['age'] = 10;
+        console.log(obj1, obj2); // {name: "jerry", age: 10} {name: "jerry", age: 10}
+
+        // 这种写法虽然值是相同的，但其实是两块内存地址，arr2修改了，arr1也不会跟着修改
+        let arr3 = [4, 5, 6]
+        let arr4 = [4, 5, 6]
+        arr4[0] = 999;
+        console.log(arr3, arr4);  // [4, 5, 6] [999, 5, 6]
+
+
+        // 值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol。
+        // 栈内存中包括了变量的标识符和变量的值。
+        // 如下所示，其实是分配了两块地址，修改其中一个变量，另一个变量不会随之修改
+        let str1 = str2 = 'hello';
+        str2 = 'world';
+        console.log(str1, str2);  // hello world
+
+
+    </script>
+</body>
+
+</html>

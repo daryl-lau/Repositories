@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 条件判断
+        // 判断语句不支持 70 <= score <= 100 这种写法，需要是这种  score >= 70 && score <= 100
+
+
+        // if ... else ...
+        if (condition) {
+            // 当条件为 true 时执行的代码
+        }
+
+
+
+        // if ...  else if ... else
+        if (condition1) {
+            // 当条件 1 为 true 时执行的代码
+        }
+        else if (condition2) {
+            // 当条件 2 为 true 时执行的代码
+        }
+        else {
+            // 当条件 1 和 条件 2 都不为 true 时执行的代码
+        }
+
+
+
+        // switch  首先设置表达式 n（通常是一个变量）。随后表达式的值会与结构中的每个 case 的值做比较。
+        // 如果存在匹配，则与该 case 关联的代码块会被执行。
+        // 使用 break 来阻止代码自动地向下一个 case 运行。如果没有break，则会继续向下执行，且不会进行case匹配，直接执行case中的代码。
+        // 出了default，其他都需要加上break。
+        // switch 中 case的判断是===的判断，即数据类型和值的双重判断，这点要注意。
+        // 另外switch的判断条件可以是String 、Number、Boolean、char、枚举、null、undefined
+        // case条件可以设置多个，两种情况执行的代码相同的
+        switch (number) {
+            case 1:
+                alert(1)
+                break;
+            case 2:
+                alert(2)
+                break;
+            case 3:
+            case 4:
+                alert(3, 4)
+                // case 3 和 case 4 需要执行的代码相同时可以写在一起
+                break;
+            default:
+                // 与上面条件都不同时执行的代码
+                alert('default');
+        }
+    </script>
+</body>
+
+</html>

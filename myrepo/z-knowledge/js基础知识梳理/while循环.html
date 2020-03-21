@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 只要指定条件为 true，循环就可以一直执行代码块。
+        /*
+        while (condition) {
+             需要执行的代码
+        }
+        */
+
+        let i = 0;
+        while (i < 5) {
+            console.log(i);
+            i++;
+        }
+
+
+        // do/while 循环是 while 循环的变体。
+        // 该循环会在检查条件是否为真之前执行一次代码块，然后如果条件为真的话，就会重复这个循环。
+
+        // 如下代码会输出一个0，因为会先执行一次，然后再开始判断，条件不成立，就不再执行了
+        let j = 0;
+        do {
+            console.log(j);
+            j++;
+        }
+        while (j < 0);
+    </script>
+</body>
+
+</html>

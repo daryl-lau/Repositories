@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+        使用var关键字声明的全局作用域变量属于window对象。
+        使用let关键字声明的全局作用域变量不属于window对象。
+
+        使用var关键字声明的变量在任何地方都可以修改。
+        在相同的作用域或块级作用域中，不能使用let关键字来重置var关键字声明的变量。
+        在相同的作用域或块级作用域中，不能使用let关键字来重置let关键字声明的变量。
+        let关键字在不同作用域，或不用块级作用域中是可以重新声明赋值的。
+
+        在相同的作用域或块级作用域中，不能使用const关键字来重置var和let关键字声明的变量。
+        在相同的作用域或块级作用域中，不能使用const关键字来重置const关键字声明的变量
+        const 关键字在不同作用域，或不同块级作用域中是可以重新声明赋值的:
+
+        var关键字定义的变量可以先使用后声明。
+        let关键字定义的变量需要先声明再使用。
+        const关键字定义的常量，声明时必须进行初始化，且初始化后不可再修改。
+        */
+        let x = 10;
+        function fn1() {
+            let x = 20;
+            console.log(`函数内部x=${x}`);  // 函数内部x=20
+        }
+        fn1();
+        console.log(`函数外部x=${x}`);  // 函数外部x=10
+
+
+        // 块级作用域不只是在函数中算块级，只要是{}包括的都算是块级
+        let y = 123;
+        {
+            let y = 456
+            console.log(`{}内部y=${y}`);   // {}内部y=456
+
+        }
+        console.log(`{}内部y=${y}`);   // {}内部y=123
+
+
+
+        // 循环作用域
+        // 使用了 var 关键字，它声明的变量是全局的，包括循环体内与循环体外
+        var i = 5;
+        for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }
+        console.log(i);  // 10
+
+        // 使用 let 关键字， 它声明的变量作用域只在循环体内，循环体外的变量不受影响。
+        let j = 5;
+        for (let j = 0; j < 10; j++) {
+            console.log(j);
+        }
+        console.log(j);   // 5
+
+
+        // let定义的全局变量，不属于window对象
+        let id = '420116';
+        console.log(window.id);   // undefined
+    </script>
+</body>
+
+</html>

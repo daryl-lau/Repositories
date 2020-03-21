@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // for
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        // for in 
+        // for in 遍历数组时，遍历的值是数组的索引
+        let arr = ['a', 'b', 'c'];
+        for (index in arr) {
+            console.log(arr[index]);  //  'a' 'b' 'c'
+        }
+
+        // for in 遍历对象时，遍历的值是对象的属性名
+        let obj = { name: 'jerry', age: 18 };
+        for (key in obj) {
+            console.log(obj[key]);    // 'jerry' 18
+        }
+
+        // for遍历数组时，如果遇到undefined的值，会显示undefined
+        // 但是使用for in的时候，如果遇到undefined的值，会直接跳过
+        let arr1 = new Array();
+        arr1[0] = 1;
+        arr1[2] = 2;
+        arr1[4] = undefined;
+        arr1[5] = 3;
+        arr1[6] = 4;
+        console.log(arr1);  // [1, empty, 2, empty, undefined, 3, 4]
+
+        for (let i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);  // 1 undefined 2 undefined undefined 3 4
+        }
+
+        for (i in arr1) {
+            console.log(arr1[i]);  // 1 2 undefined 3 4
+        }
+    </script>
+</body>
+
+</html>

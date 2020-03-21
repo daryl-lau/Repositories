@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建数组，数组里面可以放任何类型的数据
+        let arr1 = [];
+        let arr2 = [1, 2, 3]
+        let arr3 = ['a', 'b', 'c']
+        let arr4 = [1, 'abc', [1, 2, 3], undefined, false, NaN]
+
+
+        // 使用构造函数创建数组
+        let arr5 = new Array();  // 创建一个空数组
+        let arr6 = new Array(1, 2, 3, 4, 5);
+        let arr7 = new Array('a', 'b', 'c');
+
+        // 注意这里，创建的并不是数组[10]，而是创建了一个长度为10的数组（不是空数组），长度为10
+        // 只有当里面只有一个值且值为数字的时候，才表示长度
+        let arr8 = new Array(10);
+
+
+        // 插入数组，没有插入的位置会空着
+        arr1[0] = 1;
+        arr1[3] = 2;
+        console.log(arr1); //  [1, empty × 2, 2]
+
+    </script>
+</body>
+
+</html>
