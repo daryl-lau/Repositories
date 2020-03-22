@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getSum(a, b, c) {
+            console.log(a + b + c);
+        }
+
+        // ES5 中如果函数在调用时如果未提供隐式参数（实参），参数会默认设置为： undefined
+        let res1 = getSum(1, 2)         // NaN，形参c没有赋值，为undefined，结果是 1 + 2 + undefined ,NaN
+        let res2 = getSum(1, 2, 3, 4)   // 实参比形参多的时候，多出来的直接被忽略
+
+        // 默认参数，ES5中不值吃形参直接定义默认参数，需要自己再函数体中自己判断
+        function fn1(x, y) {
+            if (y === undefined) {
+                y = 0;
+            }
+        }
+        // 或者
+        function fn2(x, y) {
+            y = y || 0;
+        }
+
+        // 在ES6中，可以再形参中直接设置默认参数；
+        function sumAll(a, b = 10) {
+            console.log(a + b);
+        }
+
+        sumAll(2, 2);       // 输出4，此时a = 2，b = 10
+        sumAll(2);          // 输出12，此时a = 2，b = 10（取默认值）；
+
+
+
+
+        
+        // arguments 对象
+        // JavaScript 函数有个内置的对象 arguments 对象。
+        // argument 对象包含了函数调用的参数数组。
+        // arguments是一个伪数组，具有数组特性的arguments对象
+
+        function fn3() {
+            console.log(arguments);   // Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+            for (let i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);   // 1, 2, 3
+            }
+        }
+        fn3(1, 2, 3)
+
+        // 通过这种方式你可以很方便的找到最大的一个参数的值。
+        function findMax() {
+            var i, max = arguments[0];
+
+            if (arguments.length < 2) return max;
+
+            for (i = 0; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        let res = findMax(1, 123, 500, 115, 44, 88);
+        console.log(res);
+
+    </script>
+</body>
+
+</html>

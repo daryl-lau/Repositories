@@ -12,8 +12,6 @@
         // 首先说一下，其他数据类型转换为布尔类型的规则: null、undefined、0、NaN、空字符、false串转换为false，其他转化为 true。
         // JavaScript 中有三种逻辑运算符：
 
-        // 下面的都是console出来的值，如果是Boolean()，结果只会是bool值
-
         // 1. 逻辑非 !
         // 首先把数据转化为布尔值，然后取反，结果为 true 或 false。
 
@@ -27,6 +25,14 @@
         console.log(!a);    //false
         console.log(!b);    //false
         console.log(!obj);  //false
+
+
+        // 下面的都是console出来的值，如果是Boolean()，结果只会是bool值
+        // 和bash中的&& 和 || 类似
+        // 在bash中，cmd1 && cmd2，当cmd1执行成功的时候，才执行cmd2，否则不执行
+        // 在bash中，cmd1 || cmd2，当cmd1执行失败的时候，才执行cmd2，否则不执行
+        // 下面的&&可以理解为，当第一个值为true的时候，返回第二个值，否则返回第一个值；
+        // 下面的||可以理解为，当第一个值为false的时候，返回第二个值，否则返回第一个值；
 
         // 2. 逻辑与 &&
         // JavaScript 中逻辑与和其他语言不太一样，如果第一个操作数是 true(或者能够转为 true) ，计算结果就是第二个操作数，

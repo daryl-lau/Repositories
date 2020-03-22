@@ -36,16 +36,40 @@
 
 
 
-        // 如果在函数内部没有使用var定义变量，那么此变量是一个全局变量
+        // 如果在函数内部没有使用var定义变量，那么 gender = 'male';就是个赋值语句，会找到最近的定义的变量进行赋值（注意变量提升），如果都没找到，则为全局变量
         function fn3() {
             gender = 'male';
             console.log(gender);
         }
         fn3();
-
         // 如果上面的函数没有调用，那么这里将会报错
         // 在 fn3() 被第一次调用之前， gender变量是不存在的，console将会报错。fn3() 被调用过之后，gender成为全局变量。
         console.log(gender);
+
+        // 多层函数嵌套，如果内层函数没有使用var定义变量，则可以看做是赋值语句，会向上层依次找到该变量的定义语句，并赋值给它,如果没找到，则为全局变量
+        var num = 1;
+        function fn4() {
+            var num = 10
+            console.log('fn4里在fn5调用前的num' + num); // 10
+            function fn5() {
+                aaa = 'aaa';
+                num = 100   // 这里由于下面有var语句，下面的var会先进行变量提升，因此不会赋值到fn4里面的num上
+                var num = 200   // 如果这里没有这一行代码，那么上面的num=100在fn5函数作用域中找不到定义的num，因此会向上找，找到fn4的定义的num
+                // let num = 200   // 如果这里使用let，此时会报错，Cannot access 'num' before initialization
+                console.log('fn5里的num' + num);  // 200
+            }
+            fn5()
+            console.log('fn4里在fn5调用后的num' + num); // 10
+        }
+        console.log('全局的num' + num);   // 1
+        fn4()
+        console.log(aaa);
+
+
+
+
+
+
 
 
         // 在html中，var定义的全局变量都是window对象，所有变量都属于window对象

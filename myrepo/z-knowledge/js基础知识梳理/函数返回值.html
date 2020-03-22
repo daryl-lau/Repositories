@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数中没有return的时候，函数执行的返回值是undefined
+        // 函数使用return跳出函数的时候（不带返回值），函数的执行的返回值也是undefined
+        // return后，直接跳出函数，return后面的代码都不会被执行
+
+        function fn1() {
+            console.log('aa');
+        }
+
+        let res1 = fn1();    // res的结果是undefined，因为没有return返回值
+        console.log(res1);
+
+
+        function fn2() {
+            return;
+        }
+        let res2 = fn2();   // res2的结果也是undefined，因为只return了，没有返回值
+        console.log(res2);
+
+    </script>
+</body>
+
+</html>

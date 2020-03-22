@@ -25,9 +25,14 @@
         console.log(/w/g.exec('hello, world'));   // ["o", index: 4, input: "hello, world", groups: undefined]
         console.log(/k/g.exec('hello, world'));   // null
 
-        // 如果输出方式是alert()或document.write();则输出的是匹配到的值
+        // 如果输出方式是alert()或document.write();则输出的是匹配到的值，如果没有匹配到值，则输出null
         alert(/he/g.exec('hello, world'));   // alert的结果是he
         document.write(/wo/g.exec('hello, world')); // 页面显示wo
+
+
+
+
+
 
 
         //下面的方法都是字符串方法，只不过参数可以是一个正则表达式，并不是正则表达式的方法

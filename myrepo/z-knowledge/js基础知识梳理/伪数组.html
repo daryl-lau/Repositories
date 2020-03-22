@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        // 下面获取到的一组li就是一个伪数组，可以看到原型对象是HTMLCollection，而不是Array
+        // 伪数组具有length属性，且按索引方式存储数据，但是不具有数组的push()、pop()、slice()等方法；
+
+        let aLi = document.getElementsByTagName('li');
+        console.log(aLi);
+        /* 
+        HTMLCollection(3)[li, li, li]
+        length: 3
+        0: li
+        1: li
+        2: li
+        __proto__: HTMLCollection 
+        */
+
+
+
+
+        // 通过以下方式可以将一个伪数组转化为真的数组，原型对象是Array
+        let newLi = Array.prototype.slice.call(aLi);
+        console.log(newLi);
+        /*
+        (3) [li, li, li]
+        0: li
+        1: li
+        2: li
+        length: 3
+        __proto__: Array(0)
+        */
+
+    </script>
+</body>
+
+</html>
