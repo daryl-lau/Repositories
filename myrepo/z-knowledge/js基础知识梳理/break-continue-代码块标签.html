@@ -13,7 +13,7 @@
         // break 语句（不带标签引用），只能用在循环或 switch 中。
         // 通过标签引用，break 语句可用于跳出任何 JavaScript 代码块：
 
-        // continue 语句（带有或不带标签引用）都只能用在循环中（不能用于switch）。
+        // continue 语句（无论带有或不带标签引用）都只能用在循环中（且不能用于switch）。
 
 
         // 定义了标签label的代码块，可以使用break label来跳出该代码块
@@ -48,7 +48,7 @@
 
 
         // 这里定义了一组log，使用logList标签标记，
-        // 通过标签引用，break 语句可用于跳出任何 JavaScript 代码块：continue只能用于循环中（不能用于switch）
+        // 通过标签引用，break 语句可用于跳出任何 JavaScript 代码块；continue只能用于循环中（且不能用于switch）
         logList:
         {
             console.log(1);

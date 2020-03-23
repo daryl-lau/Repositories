@@ -15,11 +15,11 @@
         let str = '123.5'
         // 方式1，字符串进行运算，减去0，除以1等，但是不能用+，因为会变成字符串连接
         n = str - 0;
-        console.log(n);     // 123
+        console.log(n);     // 123.5
 
         // 方式2，在字符串前面加一个加号
         n1 = +str;
-        console.log(n1);    // 123
+        console.log(n1);    // 123.5
 
         // 对于一个不是数字的字符串类型进行转换，会得到NaN(Not a Number)
         str1 = 'abc';
@@ -29,6 +29,7 @@
         // 显示转换（强制转换）
         // 方式1，Number()
         console.log(Number('123'));         // 123
+        console.log(Number('123.5'));         // 123.5
         console.log(Number('123哈哈哈'));   // NaN
         console.log(Number('嘿嘿嘿123哈哈哈'));   // NaN
 
@@ -66,7 +67,7 @@
         // 隐式转换
         console.log(100 + '');   // '100'
 
-        // 显示转换  null 和 undefined 无法使用.toString()
+        // 显示转换  注意！！！ null 和 undefined 无法使用.toString()
         let n3 = 1000.5
         console.log(String(n3));   // '1000.5'
         console.log(n3.toString()); // '1000.5'
@@ -102,10 +103,10 @@
         // boolean类型转string类型
         // 隐式转换
         let t = true;
-        console.log(t + '');      // true
+        console.log(t + '');      // 'true'
         // 显示转换
-        console.log(String(t));     // true
-        console.log(t.toString());  // true
+        console.log(String(t));     // 'true'
+        console.log(t.toString());  // 'true'
 
 
         // boolean类型转number类型
@@ -116,6 +117,7 @@
 
         // 显示转换，Number()进行转换
         console.log(Number(f)); // 0
+        console.log(Number(t)); // 1
 
         // parseInt 和 parseFloat 转换的时候，只会转为成NaN
         console.log(parseInt(f));       // NaN
@@ -127,8 +129,8 @@
         // 特殊情况null和undefined
         console.log(String(null));  // 'null'
         console.log(String(undefined));  // 'undefined'
-        // console.log(null.toString());   // 报错
-        // console.log(undefined.toString());   // 报错
+        // console.log(null.toString());   // 报错   Cannot read property 'toString' of undefined
+        // console.log(undefined.toString());   // 报错   Cannot read property 'toString' of undefined
     </script>
 </body>
 

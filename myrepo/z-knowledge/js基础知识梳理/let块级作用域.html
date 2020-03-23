@@ -53,14 +53,14 @@
         // 使用了 var 关键字，它声明的变量是全局的，包括循环体内与循环体外
         var i = 5;
         for (var i = 0; i < 10; i++) {
-            console.log(i);
+            console.log(i);  // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
         }
         console.log(i);  // 10
 
         // 使用 let 关键字， 它声明的变量作用域只在循环体内，循环体外的变量不受影响。
         let j = 5;
         for (let j = 0; j < 10; j++) {
-            console.log(j);
+            console.log(j);   // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
         }
         console.log(j);   // 5
 
