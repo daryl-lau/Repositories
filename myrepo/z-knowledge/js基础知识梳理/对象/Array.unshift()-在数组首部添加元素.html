@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。（改变原始数组）
+        // array.unshift(item1,item2, ..., itemX)
+        // item1,item2, ..., itemX:     可选。向数组起始位置添加一个或者多个元素。
+        let arr1 = [1, 2, 3, 4, 5];
+        let res1 = arr1.unshift('A', 'B', 'C');
+
+        console.log(res1);      // 8
+        console.log(arr1);      // ["A", "B", "C", 1, 2, 3, 4, 5]
+    </script>
+</body>
+
+</html>

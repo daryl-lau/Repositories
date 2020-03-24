@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // join() 方法用于把数组中的所有元素转换一个字符串。（不会改变原始数组）
+        // 元素是通过指定的分隔符进行分隔的。
+        // array.join(separator)
+        // separator:   可选。指定要使用的分隔符。如果省略该参数，则使用逗号作为分隔符。
+        let arr = ['A', 'B', 'C', 'D', 1, 2, 3, false, [7, 8, 9], undefined, null, NaN];
+
+        // ！！！undefined 和 null 转字符串的时候，会转成空字符串
+
+        let res = arr.join()
+        console.log(res);       // A,B,C,D,1,2,3,false,7,8,9,,,NaN
+
+        let res1 = arr.join(' and ')
+        console.log(res1);      // A and B and C and D and 1 and 2 and 3 and false and 7,8,9 and  and  and NaN
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // splice() 方法用于添加、删除或替换数组中的元素。返回含有被删除的元素的数组（会改变原始数组）
+        // array.splice(index,howmany,item1,.....,itemX)
+        // index:   必需。规定从何处添加 / 删除元素。该参数是开始插入和（或）删除的数组元素的下标，必须是数字。
+        // howmany: 可选。规定应该删除多少元素。必须是数字，但可以是 "0"。 如果未规定此参数，则删除从 index 开始到原数组结尾的所有元素。
+        // item1, ..., itemX:   可选。要添加到数组的新元素
+
+
+        // 只传入一个参数，从指定索引删除到结尾，返回含有删除元素的数组
+        let arr1 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+        let res1 = arr1.splice(2);
+        console.log(res1);              // ["C", "D", "E", "F", "G"]
+        console.log(arr1);              // ["A", "B"]
+
+        // 只传入两个参数，从指定索引开始，删除后面指定个数的元素（包括该索引元素），返回含有删除元素的数组
+        // 和slice()的区别是，slice()两个参数都是索引，开始索引和结束索引，而splice()第二个参数是往后删除的个数
+        let arr2 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+        let res2 = arr2.splice(1, 4);   // 从1号索引开始，删除后面的4个元素（包括该索引元素）
+        console.log(res2);              // ["B", "C", "D", "E"]
+        console.log(arr2);              // ["A", "F", "G"]
+
+        // 传入三个参数或三个以上，从第三个参数开始，表示用这些元素替换掉删除的元素，返回含有删除元素的数组
+        let arr3 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+        let res3 = arr3.splice(2, 2, 1, 2, 3);
+        console.log(res3);              // ["C", "D"]
+        console.log(arr3);              // ["A", "B", 1, 2, 3, "E", "F", "G"]
+
+        // 巧妙用法，当第二个参数是0的时候，表示不删除任何元素，可以实现向指定位置插入元素。返回含有删除元素的数组，没有删除元素时返回空数组
+        // 但是注意，插入的元素是在指定索引之前，即插入的元素占着该索引的位置
+        let arr4 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+        let res4 = arr4.splice(2, 0, 'hello');
+        console.log(res4);              // []
+        console.log(arr4);              // ["A", "B", "hello", "C", "D", "E", "F", "G"]
+    </script>
+</body>
+
+</html>

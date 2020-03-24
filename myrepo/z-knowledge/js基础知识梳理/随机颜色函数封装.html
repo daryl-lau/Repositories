@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function rgbRandomColor() {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            return `rgb(${r},${g},${b})`;
+        }
+
+        let res = rgbRandomColor();
+
+
+
+        function hexRandomColor() {
+            let hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+            let str = '#';
+            for (let i = 0; i < 6; i++) {
+                str += hex[Math.floor(Math.random() * 16)]
+            };
+            return str;
+        }
+
+        let res1 = hexRandomColor();
+
+        document.write(`<p style="background-color: ${res};">1</p>`)
+        document.write(`<p style="background-color: ${res1};">1</p>`)
+    </script>
+</body>
+
+</html>

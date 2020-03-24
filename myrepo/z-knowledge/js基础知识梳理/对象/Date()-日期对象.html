@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let date = new Date();
+        console.log(date);                              // Tue Mar 24 2020 14:38:56 GMT+0800 (中国标准时间)
+
+        console.log(date.toLocaleString());             // 2020/3/24 下午2:38:56    据本地时间格式，把 Date 对象转换为字符串。
+        console.log(date.toLocaleDateString());         // 2020/3/24                根据本地时间格式，把 Date 对象的日期部分转换为字符串。
+        console.log(date.toLocaleTimeString());         // 下午2:38:56              根据本地时间格式，把 Date 对象的时间部分转换为字符串。
+
+        console.log(date.toDateString());               // Tue Mar 24 2020          把 Date 对象的日期部分转换为字符串。
+
+        console.log(date.getFullYear());                // 2020                     从 Date 对象以四位数字返回年份。
+        console.log(date.getMonth());                   // 2                        从 Date 对象返回月份 (0 ~ 11)。
+        console.log(date.getDate());                    // 24                       从 Date 对象返回日 (1 ~ 31)。
+        console.log(date.getHours());                   // 14                       返回 Date 对象的小时 (0 ~ 23)。
+        console.log(date.getMinutes());                 // 38                       返回 Date 对象的分钟 (0 ~ 59)。
+        console.log(date.getSeconds());                 // 56                       返回 Date 对象的秒数 (0 ~ 59)。
+        console.log(date.getUTCMilliseconds());         // 563                      返回 Date 对象的毫秒(0 ~ 999)。
+        console.log(date.getDay());                     // 2                        从 Date 对象返回星期 (0 ~ 6)。 星期天为 0, 星期一为 1, 以此类推
+
+
+        // 返回距 1970 年 1 月 1 日之间F的毫秒数（时间戳）
+        // js时间戳是精确到毫秒，总共有13位，但是有些系统或语言（如mysql，unix，php）时间戳都是精确到秒，时间戳只有10位，这个需要注意下
+        console.log(date.getTime());                    // 1585031936563    返回距 1970 年 1 月 1 日之间的毫秒数
+        console.log(Date.now());                        // 1585031936565    IE9以上才支持
+        console.log(+new Date());                       // 1585031936565    隐式转换成毫秒数
+
+        function formatDate() {
+            let date = new Date();
+            let y = date.getFullYear();
+            let m = date.getMonth() + 1;
+            let d = date.getDate();
+            m = m < 10 ? '0' + m : m;
+            d = d < 10 ? '0' + d : d;
+            return `${y}-${m}-${d}`
+        }
+
+        function formatTime() {
+            let date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            return `${h}:${m}:${s}`
+        }
+
+        let res = formatTime();
+        console.log(res);
+    </script>
+</body>
+
+</html>

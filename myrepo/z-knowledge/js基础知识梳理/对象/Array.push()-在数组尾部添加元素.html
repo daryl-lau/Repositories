@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。（会改变原始数组）
+        // 注意： 新元素将添加在数组的末尾。
+        // array.push(item1, item2, ..., itemX)
+        // 在数组起始位置添加元素请使用 unshift() 方法。
+
+        let arr1 = [1, 2, 3];
+        let res1 = arr1.push('A', 'B', 'C')
+
+        console.log(res1);          // 6
+        console.log(arr1);          // [1, 2, 3, "A", "B", "C"]
+
+
+        // push一个数组的时候，整个数组会当作一个项，如果要再后面添加数组的项，可以使用concat()方法
+        let arr2 = ['!', '@', '#'];
+        let res2 = arr1.push(arr2);
+        console.log(res2);          // 7，原数组前面发生了修改，这里是在那基础上再进行修改
+        console.log(arr1);          // [1, 2, 3, "A", "B", "C", ['!', '@', '#']]
+    </script>
+</body>
+
+</html>
