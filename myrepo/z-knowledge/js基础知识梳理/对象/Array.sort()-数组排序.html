@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // sort() 方法用于对数组的元素进行排序。（改变原始数组）
+        // 排序顺序可以是字母或数字，并按升序或降序。
+        // 默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的
+        // 默认排序顺序为按字母升序。
+        // 注意：当数字是按字母顺序排列时"40"将排在"5"前面。
+        let arr1 = [1, 2, 31, 231, 2, 12, 5, 12];
+        let res1 = arr1.sort();
+        console.log(res1);          // [1, 12, 12, 2, 2, 231, 31, 5]
+
+
+        // arr.sort([compareFunction])
+        // 如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：
+        // 如果 compareFunction(a, b) 小于 0 ，那么 a 会被排列到 b 之前；换言之，如果你想要a排在b的前面，那么就让函数的执行结果小于0就行了
+        // 如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变。备注： ECMAScript 标准并不保证这一行为，而且也不是所有浏览器都会遵守（例如 Mozilla 在 2003 年之前的版本）；
+        // 如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。
+        // compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
+
+        // !!!!这里需要特别注意的是，compareFunction(a, b)的参数 a 和 b ，对应的是数组的后一个值和前一个值
+        // 比如数组[1, 2]; compareFunction(a, b) 的参数 a 是 2， b 是 1
+
+        let res2 = arr1.sort((a, b) => a - b);
+        console.log(res2);          // [1, 2, 2, 5, 12, 12, 31, 231]
+
+
+        let arr3 = [10, 100, 50]
+        let arr4 = [10, 100, 50]
+
+        // 升序
+        function upSort(a, b) {
+            if (a < b) {
+                return -1
+            } else if (a > b) {     // a = 100, b = 10, a 大于 b，要想升序排列，需要函数返回值大于0，则 b 排在 a 前面，实现升序排列
+                return 1
+            } else {
+                return 0
+            }
+        }
+
+        // 降序
+        function downSort(a, b) {
+            if (a < b) {
+                return 1
+            } else if (a > b) {     // a = 100, b = 10, a 大于 b，要想降序排列，需要函数返回值小于0，则 a 排在在 b 前面，实现降序排列
+                return -1
+            } else {
+                return 0
+            }
+        }
+
+        let res3 = arr3.sort(upSort);
+        let res4 = arr4.sort(downSort)
+        console.log(res3);
+        console.log(res4);
+
+
+        // sort实现数组的翻转
+        let arr5 = ['A', 'B', 'C', 'D', 1, 2, 3, '1', '2', '3'];
+        let res5 = arr5.sort((a, b) => -1)      // a = 'B', b = 'A', 想要翻转，需要返回值小于0， 则 a 排在 b 前面，返回固定值-1，实现翻转
+        console.log(res5);
+
+    </script>
+</body>
+
+</html>

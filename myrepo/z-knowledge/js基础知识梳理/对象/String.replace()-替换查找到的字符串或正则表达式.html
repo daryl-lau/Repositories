@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。（不会改变原始字符串）
+        // 如果没有正则表达式的全局模式，那么将只替换找到的第一个字符串；
+        // string.replace(searchvalue,newvalue)
+        let str = 'Mr Blue has a blue house and a blue car';
+
+        let res1 = str.replace('blue', 'red');      // Mr Blue has a red house and a blue car
+        let res2 = str.replace(/blue/i, 'red');     // Mr red has a blue house and a blue car
+        let res3 = str.replace(/blue/g, 'red');     // Mr Blue has a red house and a red car
+
+        console.log(res1);
+        console.log(res2);
+        console.log(res3);
+    </script>
+</body>
+
+</html>

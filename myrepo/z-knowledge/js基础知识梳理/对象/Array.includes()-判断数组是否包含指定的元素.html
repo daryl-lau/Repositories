@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // includes() 方法用来判断一个数组是否包含一个指定的值，如果是返回 true，否则false。
+        // arr.includes(searchElement, start)
+        // searchElement:   必需，查找的元素
+        // start：          开始查找的索引
+        console.log([1, 2, 3].includes(2));         // true
+        console.log([1, 2, 3].includes(4));         // false
+        console.log([1, 2, 3].includes(3, 3));      // false
+        console.log([1, 2, 3].includes(3, -1));     // true
+        console.log([1, 2, NaN].includes(NaN));     // true
+    </script>
+</body>
+
+</html>

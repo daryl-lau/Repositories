@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。（不会改变原始数组）
+        // forEach() 对于空数组是不会执行回调函数的。
+        // 返回值是undefined
+        let arr = [1, 2, 3, 'a', 'b', 'c'];
+
+        let newArr = [];
+        let res = arr.forEach(function (item, index) {
+            newArr.push(`${item}的索引是${index}`)
+        })
+        console.log(newArr);    //  ["1的索引是0", "2的索引是1", "3的索引是2", "a的索引是3", "b的索引是4", "c的索引是5"]
+        console.log(res);       // udnefined
+        console.log(arr);       // [1, 2, 3, 'a', 'b', 'c'];
+    </script>
+</body>
+
+</html>

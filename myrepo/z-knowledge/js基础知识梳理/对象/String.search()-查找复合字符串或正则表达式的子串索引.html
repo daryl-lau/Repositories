@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。
+        // 返回匹配到的结果的起始索引，如果没有找到任何匹配的子串，则返回 -1
+        // 无论正则表达式是不是全局模式，都只返回第一个匹配到的结果的索引
+        let str = ' My name baihuzi.com, welcome to my site! ';
+        let res1 = str.search('welcome');       // 22
+        let res2 = str.search(/name/ig);        // 3
+        let res3 = str.search(/my/ig);          // 1
+
+
+        console.log(res1);       // 22
+        console.log(res2);       // 3
+        console.log(res3);       // 1
+    </script>
+</body>
+
+</html>

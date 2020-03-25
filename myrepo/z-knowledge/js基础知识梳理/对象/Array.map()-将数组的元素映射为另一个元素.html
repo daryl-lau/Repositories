@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。（不会改变原始数组）
+        // map() 方法按照原始数组元素顺序依次处理元素。
+        // 注意： map() 不会对空数组进行检测。
+        let arr = [1, 2, 3, 'a', 'b', 'c'];
+        let res = arr.map((item, index) => `${index}: ${item}`)
+        console.log(res);       // ["0: 1", "1: 2", "2: 3", "3: a", "4: b", "5: c"]
+    </script>
+</body>
+
+</html>

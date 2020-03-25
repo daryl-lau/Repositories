@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // match() 方法将检索字符串 String Object，以找到一个或多个与 regexp 匹配的文本。
+        // 返回值是匹配结果的数组
+        // 这个方法的行为在很大程度上依赖于 regexp 是否具有标志 g。
+        // 如果 regexp 没有标志 g，那么 match() 方法就只能在 stringObject 中执行一次匹配。
+        // 如果没有找到任何匹配的文本， match() 将返回 null。否则，它将返回一个数组，其中存放了与它找到的匹配文本有关的信息。
+        // string.match(regexp)
+        let str = 'hello, welcome to Baihuzi.com!'
+        let res1 = str.match(/o/i);
+        let res2 = str.match(/o/gi);
+        console.log(res1);      // ["o", index: 4, input: "hello, welcome to Baihuzi.com!", groups: undefined]
+        console.log(res2);      // ["o", "o", "o", "o"]
+        alert(res1);            // 'o'
+        alert(res2);            // 'o,o,o,o'
+    </script>
+</body>
+
+</html>

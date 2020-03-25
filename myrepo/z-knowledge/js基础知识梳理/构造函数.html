@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数，本质是函数，用来创建对象
+        // 构造函数首字母大写
+        // this指向的是调用此构造函数的实例对象
+        function Person(name, age, birth) {
+            this.name = name;
+            this.age = age;
+            this.birth = birth;
+            this.sayHi = function (uname) { console.log('hello, ' + uname); }
+        }
+
+        // new 做的事情
+        // 1. new构造函数，在内存中创建一个空对象
+        // 2. 将构造函数中的this指向这个内存中的空对象
+        // 3. 给对象添加属性和方法，对象身上就有了属性和方法
+        // 4. 将这个有数据的对象返回出来
+
+        let jerry = new Person('jerry', 18, 1990);
+        console.log(jerry.name);
+        console.log(jerry.age);
+        console.log(jerry.birth);
+        jerry.sayHi('bob');
+    </script>
+</body>
+
+</html>
