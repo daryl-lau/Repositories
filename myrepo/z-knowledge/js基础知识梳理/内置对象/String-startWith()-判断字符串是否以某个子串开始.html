@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // startsWith() 方法用于检测字符串是否以指定的子字符串开始。
+        // 如果是以指定的子字符串开头返回 true，否则 false。
+        // startsWith() 方法对大小写敏感。
+        // string.startsWith(searchvalue, start)
+        // start:   指定开始检测的位置
+        let site = 'http://www.baihuzi.com';
+        let res1 = site.startsWith('http')          // true
+        let res2 = site.startsWith('Http')          // false
+        let res3 = site.startsWith('https')         // false
+        let res4 = site.startsWith('http', 5)       // false
+
+        console.log(res1);
+        console.log(res2);
+        console.log(res3);
+        console.log(res4);
+    </script>
+</body>
+
+</html>

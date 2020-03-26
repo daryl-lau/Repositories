@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // split() 方法用于把一个字符串分割成字符串数组。（不会改变原始字符串）
+        // 提示： 如果把空字符串 ("") 用作 separator，那么 stringObject 中的每个字符之间都会被分割。
+
+        let str = 'welcome to baihuzi.com';
+        let res = str.split('');
+        console.log(res);       //  ["welcome", "to", "baihuzi.com"]
+
+        let str1 = '#abc#def#123#'
+        let res1 = str1.split('#');
+        console.log(res1);      // ["", "abc", "def", "123", ""]     注意前后有空格
+
+        // 如果把空字符串 ("") 用作 separator，那么 stringObject 中的每个字符之间都会被分割。
+        let res2 = str.split('');
+        console.log(res2);  // ["w", "e", "l", "c", "o", "m", "e", " ", "t", "o", " ", "b", "a", "i", "h", "u", "z", "i", ".", "c", "o", "m"]
+    </script>
+</body>
+
+</html>

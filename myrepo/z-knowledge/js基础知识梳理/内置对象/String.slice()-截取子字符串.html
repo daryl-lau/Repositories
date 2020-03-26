@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // slice()的用处和substring()一样，只是slice()接收负数作为参数，substring()只能接收正整数
+
+        // slice(start, end) 方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。（不会改变原始字符串）
+        // 使用 start（包含） 和 end（不包含） 参数来指定字符串提取的部分。
+        // 字符串中第一个字符位置为 0, 第二个字符位置为 1, 以此类推。
+        // 提示： 如果是负数，则该参数规定的是从字符串的尾部开始算起的位置。也就是说，-1 指字符串的最后一个字符，-2 指倒数第二个字符，以此类推。
+        let str = 'welcome to baihuzi.com!';
+        let res1 = str.slice(11, 18);       // baihuzi
+        let res2 = str.slice(-4, -1);       // com
+        console.log(res1);
+        console.log(res2);
+    </script>
+</body>
+
+</html>

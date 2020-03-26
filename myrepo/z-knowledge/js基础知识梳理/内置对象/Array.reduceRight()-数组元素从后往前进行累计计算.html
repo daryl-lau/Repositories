@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 和reduce()方法一样，只不过是从后往前进行累计计算；
+        // reduceRight() 方法接收一个函数作为累加器，数组中的每个值（从右到左）开始缩减，最终计算为一个值。（不会改变原始数组）
+        // reduceRight() 可以作为一个高阶函数，用于函数的 compose。
+        // 注意: reduceRight() 对于空数组是不会执行回调函数的。
+        // array.reduceRight(function(total, currentValue, currentIndex, arr), initialValue)
+        // total:           必需。初始值, 或者计算结束后的返回值。
+        // currentValue:    必需。当前元素
+        // currentIndex:    可选。当前元素的索引
+        // arr:             可选。当前元素所属的数组对象。
+        // initialValue:    可选。传递给函数的初始值
+
+        let arr = [1, 2, 3, 4, 5];
+
+        // 根据初始值，数组中的每个元素在初始值的基础上进行相加，最后得到一个总和
+        let res1 = arr.reduceRight((total, value) => total + value);             // 15
+        let res2 = arr.reduceRight((total, value) => total + value, 100);        // 115
+
+        console.log(res1);           // 15
+        console.log(res2);           // 115
+
+
+        // 如果没有给一个初始值，当数组为空数组的时候，会报错
+        let arr1 = [];
+        // let res3 = arr1.reduce((total, value) => total + value);     // 报错 Reduce of empty array with no initial value
+        let res4 = arr1.reduceRight((total, value) => total + value, 100);   // 100
+        console.log(res4);
+
+        let arr2 = [1, 2, 3, 4, 5]
+        let res5 = arr2.reduceRight((total, value) => total * value);        // 0 元素中含有0，所有相乘还是0
+        console.log(res5);
+    </script>
+</body>
+
+</html>
