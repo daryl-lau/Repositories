@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">div1</div>
+    <div class="div2">div2</div>
+    <input type="text" name="username">
+
+
+    <script>
+        // querySelectorAll() 方法返回文档中匹配指定 CSS 选择器的所有元素
+        // 不管获取到几个元素，返回的都是 NodeList 数组对象。
+        // NodeList 对象表示节点的集合。可以通过索引访问，索引值从 0 开始。
+        let aDiv = document.querySelectorAll('div');
+        let oDiv1 = document.querySelectorAll('#div1')[0];
+        let oDiv2 = document.querySelectorAll('.div2')[0];
+        let oInput = document.querySelectorAll('input[type="text"]')[0];
+        console.log(aDiv);
+        console.log(oDiv1);
+        console.log(oDiv2);
+        console.log(oInput);
+    </script>
+</body>
+
+</html>

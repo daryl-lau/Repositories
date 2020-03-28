@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text">
+        <input type="submit">
+    </form>
+    <script>
+
+        // 在表单发生了提交的时候，触发事件
+        // 注意事件源是form表单，不是submit类型的input元素
+        let oForm = document.querySelector('form');
+        oForm.onsubmit = function () {
+            alert('提交了表单')
+        }
+
+    </script>
+</body>
+
+</html>

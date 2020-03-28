@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+    </ul>
+</body>
+<script>
+    // 排它，循环取消所有，再添加单个
+    // let aLi = document.getElementsByTagName('li');
+    // for (let i = 0; i < aLi.length; i++) {
+    //     aLi[i].onmouseover = function () {
+    //         for (let i = 0; i < aLi.length; i++) {
+    //             aLi[i].className = '';
+    //         }
+    //         this.className = 'active'
+    //     }
+    // }
+
+    // 高级排它，闭包形式
+    // var aLi = document.getElementsByTagName('li');
+    // var lastIndex = 0;
+    // for (var i = 0; i < aLi.length; i++) {
+    //     (function (i) {
+    //         aLi[i].onmouseover = function () {
+    //             aLi[lastIndex].className = ''
+    //             this.className = 'active'
+    //             lastIndex = i;
+    //         }
+    //     })(i)
+    // }
+
+    // 高级排它，用了let就不需要用闭包了
+    let aLi = document.getElementsByTagName('li');
+    let lastIndex;
+    for (let i = 0; i < aLi.length; i++) {
+        aLi[i].onmouseover = function () {
+            this.className = 'active'
+            lastIndex = i;
+        }
+        aLi[i].onmouseout = function () {
+            aLi[lastIndex].className = ''
+        }
+    }
+
+</script>
+
+</html>

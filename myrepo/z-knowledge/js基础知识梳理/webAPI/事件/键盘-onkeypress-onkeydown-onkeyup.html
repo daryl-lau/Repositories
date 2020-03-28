@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <input type="text" value="onkeydown"><br>
+    <input type="text" value="onkeyup"><br>
+    <input type="text" value="onkeypress"><br>
+    <input type="text" value="搜索"><br>
+    <input type="text" value="搜索"><br>
+    <input type="text" value="搜索"><br>
+    <script>
+        // 
+
+        let oInput1 = document.querySelectorAll('input')[0];
+        let oInput2 = document.querySelectorAll('input')[1];
+        let oInput3 = document.querySelectorAll('input')[2];
+        let oInput4 = document.querySelectorAll('input')[3];
+        let oInput5 = document.querySelectorAll('input')[4];
+        let oInput6 = document.querySelectorAll('input')[5];
+        let oDiv = document.querySelector('div');
+
+        // 键盘事件一般对document或者input添加，对普通元素（如div啥的）添加没用
+        oDiv.onkeydown = function () {
+            alert('搜索')       // 不会添加事件
+        }
+
+        // 对input添加后，只有焦点在input上按下键盘才会触发事件
+        oInput1.onkeydown = function () {
+            alert('input onkeydown')
+        }
+        oInput2.onkeyup = function () {
+            alert('input onkeyup')
+        }
+        oInput3.onkeypress = function () {
+            alert('input onkeypress')
+        }
+
+        // 键盘事件属性
+        document.onkeydown = function (event) {
+            alert(event.keyCode)
+        }
+
+        // 对document添加后，任何时候按下都会触发事件
+        // document.onkeydown = function () {
+        //     alert('document onkeydown')
+        // }
+    </script>
+</body>
+
+</html>

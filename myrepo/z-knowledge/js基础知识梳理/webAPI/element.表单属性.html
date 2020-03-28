@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="哈哈哈哈">
+    <input type="radio">
+    <input type="checkbox">
+    <select name="" id="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+
+
+    <script>
+        let oInputText = document.getElementsByTagName('input')[0];
+        let oInputRadio = document.getElementsByTagName('input')[1];
+        let oInputCheckbox = document.getElementsByTagName('input')[2];
+        let aSelectOption = document.getElementsByTagName('option');
+
+        alert(oInputText.value);
+
+        // 表单的值
+        oInputText.value = 'input something...';
+
+        // 表单的disable属性
+        oInputText.disabled = true;
+
+        // 表单选中状态， checked控制单选或复选选中状态
+        oInputRadio.checked = true;
+        oInputCheckbox.checked = true;
+
+        // 下拉选中，selected控制下拉选项的选中状态
+        aSelectOption[1].selected = true;
+    </script>
+</body>
+
+</html>

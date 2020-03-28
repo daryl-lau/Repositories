@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        哈哈哈哈哈哈
+        <!-- 注释 -->
+        <img src="" alt="">
+        <div style="background-color: aqua;">
+            <a href="">嘿 嘿，&</a>
+            <span>嘻 嘻，<>，</span>
+            <div style="display: none;">none</div>
+            <div style="visibility: hidden;">hidden</div>
+        </div>
+    </div>
+
+    <script>
+        // innerHTML 属性设置或获取HTML语法表示的元素的后代
+        // 如果一个 <div>, <span>, 或 <noembed> 节点有一个文本子节点，
+        // 该节点包含字符 (&), (<),  或(>), 
+        // innerHTML 将这些字符分别返回为&amp;, &lt; 和 &gt; 。
+        // 使用Node.textContent  可获取一个这些文本节点内容的正确副本。
+        let oDiv = document.getElementById('div1');
+
+        console.log(oDiv.innerHTML);
+        /*
+            哈哈哈哈哈哈
+            <!-- 注释 -->
+            <img src="" alt="">
+            <div style="background-color: aqua;">
+                <a href="">嘿 嘿，&amp;</a>
+                <span>嘻 嘻，&lt;&gt;，</span>
+                <div style="display: none;">none</div>
+                <div style="visibility: hidden;">hidden</div>
+            </div>
+         */
+
+
+        // 属性表示一个节点及其后代的“渲染”文本内容，上面的html渲染后，文字none和hidden被隐藏，因此不会获取到
+        console.log(oDiv.innerText);
+        /* 
+            哈哈哈哈哈哈 
+            嘿 嘿，& 嘻 嘻，<>，
+         */
+
+        // textContent属性表示一个节点及其后代的文本内容，包括被隐藏的元素
+        // IE8一下不兼容
+        console.log(oDiv.textContent);
+        /*
+            哈哈哈哈哈哈
+            嘿 嘿，&
+            嘻 嘻，<>，
+            none
+            hidden
+        */
+
+    </script>
+</body>
+
+</html>

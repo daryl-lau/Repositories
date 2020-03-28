@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+
+        // 在输入的过程中，只要有输入，就触发事件，执行函数
+        let oInput = document.querySelector('input');
+        oInput.oninput = function () {
+            console.log('输入改变了')
+        }
+
+    </script>
+</body>
+
+</html>

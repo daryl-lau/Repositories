@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+
+        // 当用户输入的内容发生了改变才会触发，但是需要移出焦点的时候才会执行函数
+        // 用户输入的内容如果没有发生变化，那即使鼠标移出焦点了也不会触发
+        let oInput = document.querySelector('input');
+        oInput.onchange = function () {
+            console.log('输入改变了')
+        }
+
+    </script>
+</body>
+
+</html>

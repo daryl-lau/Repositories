@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: forestgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <script>
+        let oDiv1 = document.querySelector('.div1');
+        let oDiv2 = document.querySelector('.div2');
+
+
+        // onmouseenter和onmouseleave事件不支持事件冒泡
+        oDiv1.onmouseenter = function () {
+            alert('鼠标移入了')
+        }
+
+        oDiv2.onmouseleave = function () {
+            alert('鼠标移出了')
+        }
+    </script>
+</body>
+
+</html>

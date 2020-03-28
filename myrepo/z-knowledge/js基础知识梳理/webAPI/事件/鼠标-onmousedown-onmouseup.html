@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let oDiv = document.querySelector('div');
+        oDiv.onmousedown = function () {
+            console.log('鼠标按下了')
+        }
+
+        // 如果鼠标按下，然后移出了盒子，再抬起，将不会触发抬起事件
+        oDiv.onmouseup = function () {
+            console.log('鼠标抬起了');
+        }
+    </script>
+</body>
+
+</html>

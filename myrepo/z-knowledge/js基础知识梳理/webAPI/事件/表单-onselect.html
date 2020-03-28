@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+
+        // 在有选中文字操作的时候，就触发事件，执行函数
+        let oInput = document.querySelector('input');
+        oInput.onselect = function () {
+            console.log('选中了一些文字')
+        }
+
+    </script>
+</body>
+
+</html>

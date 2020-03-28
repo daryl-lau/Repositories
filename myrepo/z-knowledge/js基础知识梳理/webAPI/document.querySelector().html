@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">div1</div>
+    <div class="div2">div2</div>
+    <input type="text" name="username">
+
+    <script>
+        // querySelector() 方法返回文档中匹配指定 CSS 选择器的一个元素。
+        // querySelector() 方法仅仅返回匹配指定选择器的第一个元素。如果你需要返回所有的元素，请使用 querySelectorAll() 方法替代。
+        let oDiv1 = document.querySelector('div')
+        let oDiv2 = document.querySelector('#div1')
+        let oDiv3 = document.querySelector('.div2')
+        let oDiv4 = document.querySelector('input[name=username]')
+        console.log(oDiv1);
+        console.log(oDiv2);
+        console.log(oDiv3);
+        console.log(oDiv4);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: forestgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+
+    <!-- onmouseover事件冒泡 -->
+    <div style="background-color: grey; width: 200px; height: 200px;" onmouseover="console.log('移入外层的盒子')">外面的盒子
+        <div style="background-color: aqua; width: 100px; height: 100px;" onmouseover="console.log('移入里面的盒子')">里面的盒子
+        </div>
+    </div>
+
+
+
+    <script>
+        let oDiv1 = document.querySelector('.div1');
+        let oDiv2 = document.querySelector('.div2');
+
+        oDiv1.onmouseover = function () {
+            alert('鼠标移入了')
+        }
+
+        oDiv2.onmouseout = function () {
+            alert('鼠标移出了')
+        }
+    </script>
+</body>
+
+</html>
