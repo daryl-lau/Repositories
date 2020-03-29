@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            /*合并单元格的边框线*/
+            border-collapse: collapse;
+
+            border: 1px solid #c0c0c0;
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+            height: 24px;
+        }
+
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>
+                <input type="checkbox" name="" id="checkAll" />全选/全不选
+            </th>
+            <th>菜名</th>
+            <th>商家</th>
+            <th>价格</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="check" />
+            </td>
+            <td>红烧肉</td>
+            <td>隆江猪脚饭</td>
+            <td>￥200</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="check" />
+            </td>
+            <td>香酥排骨</td>
+            <td>隆江猪脚饭</td>
+            <td>￥998</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="check" />
+            </td>
+            <td>北京烤鸭</td>
+            <td>隆江猪脚饭</td>
+            <td>￥88</td>
+        </tr>
+    </table>
+
+    <script>
+        let oInput = document.querySelector('th input');
+        let aInput = document.querySelectorAll('td input');
+
+        oInput.onclick = function () {
+            for (let i = 0; i < aInput.length; i++) {
+                aInput[i].checked = this.checked;
+            }
+        }
+
+        for (let i = 0; i < aInput.length; i++) {
+            aInput[i].onclick = function () {
+
+                // 先假设都为选中状态
+                oInput.checked = true;
+
+                // 然后再循环判断，只要有未选中的，就把上面的选中修改为未选中
+                for (let j = 0; j < aInput.length; j++) {
+                    if (!aInput[j].checked) {
+                        oInput.checked = false;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

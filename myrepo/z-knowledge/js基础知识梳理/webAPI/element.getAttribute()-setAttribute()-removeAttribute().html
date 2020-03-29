@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="username" class="class1">
+    <input type="text" name="username" class="class1">
+    <input type="text" name="username" class="class1">
+    <script>
+
+        // 使用.语法和[]语法操作class属性的时候，使用className操作
+        // 而使用getAttribute()、setAttribute()、removeAttribute()方法的时候，直接使用class进行操作
+        // setAttribute()设置的自定义属性，使用.语法和[]语法无法获取到，返回undefined。
+        // 使用.语法或[]语法设置的自定义属性，使用getAttribute()方法无法获取到，返回null。
+        // 操作样式style不要使用属性的形式操作，而是使用element.style的方式，
+        // 因为操作属性的方法，无论样式是否冲突，后面都会覆盖前面的，而element.style可以进行分别添加不同的样式
+
+
+        let oInput1 = document.querySelectorAll('input')[0];
+        let oInput2 = document.querySelectorAll('input')[1];
+        let oInput3 = document.querySelectorAll('input')[2];
+
+        // 获取属性
+        // 可以使用.语法来获取元素的属性，注意获取class的时候使用的是className
+        console.log(oInput1.type);                       // text
+        console.log(oInput1.name);                       // username
+        console.log(oInput1.class);                      // undefined
+        console.log(oInput1.className);                  // class1
+
+        // 可以使用['']语法获取元素的属性，和.语法用法相同，获取class的时候使用的是className
+        console.log(oInput2['type']);                       // text
+        console.log(oInput2['name']);                       // username
+        console.log(oInput2['class']);                      // undefined
+        console.log(oInput2['className']);                  // class1
+
+        // 或者使用getAttribute()方法来获取，注意，获取class属性的时候，getAttribute()方法直接获取class，而不是className
+        console.log(oInput3.getAttribute('name'));       // username
+        console.log(oInput3.getAttribute('type'));       // text
+        console.log(oInput3.getAttribute('class'));      // class1
+        console.log(oInput3.getAttribute('className'));  // null
+
+
+        // 设置属性
+        // 可以使用.语法设置属性，如果不是系统自带的属性，那么将不会显示在html标签上，但是实际是设置上的，可以获取得到
+        oInput1.disabled = 'disabled';
+        oInput1.attr = 'attr';
+        oInput1.class = 'class2';                       // 无效
+        oInput1.className = 'class2';
+        console.log(oInput1.attr);                      // attr
+
+        // setAttribute()设置的自定义属性，使用.语法和[]语法无法获取到。反之亦然。
+        console.log(oInput1.getAttribute('attr'));      // null
+
+        // 可以使用['']语法设置元素的属性，class需要使用className操作
+        oInput2['disabled'] = 'disabled';
+        oInput2['attr'] = 'attr';
+        oInput2['class'] = 'class2';                     // 无效
+        oInput2['className'] = 'class2';
+        console.log(oInput2.attr);                       // attr
+
+        // 使用setAttribute()方法设置属性
+        // 设置class属性的时候，setAttribute()方式直接设置class，而不是className，如果是className，那么将设置上classname属性
+        oInput3.setAttribute('name', 'user')
+        oInput3.setAttribute('class', 'red')
+        oInput3.setAttribute('className', 'red')
+        oInput3.setAttribute('myAttr', 'myAttr')
+
+
+        // setAttribute()设置的自定义属性，使用.语法和[]语法无法获取到。
+        console.log(oInput3.myAttr);                    // undefined
+        console.log(oInput3['myAttr']);                 // undefined
+        console.log(oInput3.getAttribute('myAttr'));    // myAttr
+
+
+        // 删除属性
+        // 使用.语法设置属性为空可以删除属性，但是属性还是存在的
+        oInput1.name = ''
+
+        // removeAttribute()方法删除属性，将彻底删除属性
+        oInput1.removeAttribute('type')
+        oInput2.removeAttribute('disabled')
+        oInput3.removeAttribute('class')
+
+
+    </script>
+</body>
+
+</html>

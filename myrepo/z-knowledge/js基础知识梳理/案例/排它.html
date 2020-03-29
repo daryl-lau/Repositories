@@ -41,10 +41,12 @@
     // let aLi = document.getElementsByTagName('li');
     // for (let i = 0; i < aLi.length; i++) {
     //     aLi[i].onmouseover = function () {
-    //         for (let i = 0; i < aLi.length; i++) {
-    //             aLi[i].className = '';
-    //         }
     //         this.className = 'active'
+    //     }
+    //     aLi[i].onmouseout = function () {
+    //         for (let j = 0; j < aLi.length; j++) {
+    //             aLi[j].className = '';
+    //         }
     //     }
     // }
 
@@ -54,9 +56,12 @@
     // for (var i = 0; i < aLi.length; i++) {
     //     (function (i) {
     //         aLi[i].onmouseover = function () {
-    //             aLi[lastIndex].className = ''
+
     //             this.className = 'active'
     //             lastIndex = i;
+    //         };
+    //         aLi[i].onmouseout = function () {
+    //             aLi[lastIndex].className = ''
     //         }
     //     })(i)
     // }
@@ -73,6 +78,20 @@
             aLi[lastIndex].className = ''
         }
     }
+
+    // 如果上面使用的是var，则会报错 Cannot set property 'className' of undefined
+    // 如果使用的是var，lastIndex = i，这里的i始终都是20，因为var没有块级作用域，也没有闭包，当事件调用的时候，循环已经完了，此时i是20；
+    // var aLi = document.getElementsByTagName('li');
+    // var lastIndex;
+    // for (var i = 0; i < aLi.length; i++) {
+    //     aLi[i].onmouseover = function () {
+    //         this.className = 'active'
+    //         lastIndex = i;
+    //     }
+    //     aLi[i].onmouseout = function () {
+    //         aLi[lastIndex].className = ''
+    //     }
+    // }
 
 </script>
 
