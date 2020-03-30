@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .clearfix::before,
+        .clearfix:after {
+            clear: both;
+            content: "";
+            display: table;
+            height: 0;
+        }
+
+        ul li {
+            float: left;
+            list-style: none;
+        }
+
+        .tab {
+            width: 500px;
+            margin: 50px auto 0;
+        }
+
+        .nav1 li {
+            /*注意没给宽度*/
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .nav2 li {
+            width: 100%;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 30px;
+            display: none;
+        }
+
+        ul .active {
+            display: block;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="tab">
+        <ul class="nav1 clearfix"></ul>
+        <ul class="nav2 clearfix"></ul>
+    </div>
+    <script>
+        let colors = ["red", "orange", "yellow", 'green', 'blue', 'pink', 'skyblue'];
+        let oUl1 = document.querySelectorAll('ul')[0];
+        let oUl2 = document.querySelectorAll('ul')[1];
+
+        for (let i = 0; i < colors.length; i++) {
+            let tabLi = document.createElement('li');
+            let blockLi = document.createElement('li');
+            if (i == 0) {
+                tabLi.setAttribute('class', 'active')
+                tabLi.style.borderBottom = '1px solid ' + colors[i];
+                blockLi.setAttribute('class', 'active');
+            }
+            tabLi.innerText = colors[i];
+            tabLi.style.backgroundColor = colors[i];
+            tabLi.style.width = 500 / colors.length + 'px';
+            oUl1.appendChild(tabLi);
+            blockLi.innerText = colors[i];
+            blockLi.style.backgroundColor = colors[i];
+            oUl2.appendChild(blockLi)
+        };
+
+
+        let aLi1 = document.querySelectorAll('.nav1 li');
+        let aLi2 = document.querySelectorAll('.nav2 li');
+        for (let i = 0; i < aLi1.length; i++) {
+            aLi1[i].onmouseover = function () {
+                for (let j = 0; j < aLi1.length; j++) {
+                    aLi1[j].setAttribute('class', '');
+                    aLi1[j].style.borderBottom = '1px solid black'
+                    aLi2[j].setAttribute('class', '');
+                };
+                this.style.borderBottom = '1px solid ' + colors[i];
+                this.setAttribute('class', 'active');
+                aLi2[i].setAttribute('class', 'active')
+            }
+        };
+
+    </script>
+</body>
+
+</html>

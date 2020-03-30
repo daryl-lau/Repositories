@@ -27,12 +27,28 @@
         console.log(date.getUTCMilliseconds());         // 563                      返回 Date 对象的毫秒(0 ~ 999)。
         console.log(date.getDay());                     // 2                        从 Date 对象返回星期 (0 ~ 6)。 星期天为 0, 星期一为 1, 以此类推
 
+        // 和get获取日期相对应的，有一套设置日期的方法，可以设置指定的日期；
+        let d1 = new Date();
+        d1.setDate(18)
+        console.log(d1);     // Wed Mar 18 2020 21:54:48 GMT+0800 (中国标准时间)
 
-        // 返回距 1970 年 1 月 1 日之间F的毫秒数（时间戳）
+        let d2 = new Date();
+        d2.setDate(d2.getDate() + 30);   // 当前日期加30天，如果跨月跨年，会自动进行计算
+        console.log(d2);    // Wed Apr 29 2020 22:01:07 GMT+0800 (中国标准时间)
+
+        // 设置时间不要赋值，否则会隐式转换为时间戳
+        let d3 = new Date();
+        let newD3 = d3.setDate(20);
+        console.log(newD3);             // 1584712973440
+
+        // 返回距 1970 年 1 月 1 日之间的毫秒数（时间戳）
         // js时间戳是精确到毫秒，总共有13位，但是有些系统或语言（如mysql，unix，php）时间戳都是精确到秒，时间戳只有10位，这个需要注意下
         console.log(date.getTime());                    // 1585031936563    返回距 1970 年 1 月 1 日之间的毫秒数
         console.log(Date.now());                        // 1585031936565    IE9以上才支持
         console.log(+new Date());                       // 1585031936565    隐式转换成毫秒数
+
+        // 返回指定日期到1970 年 1 月 1 日之间的毫秒数
+        console.log(Date.parse('2018/3/24'));                  // 1521820800000
 
         function formatDate() {
             let date = new Date();

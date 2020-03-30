@@ -11,12 +11,15 @@
     <input type="text" name="username" class="class1">
     <input type="text" name="username" class="class1">
     <input type="text" name="username" class="class1">
+    <input type="text" name="username" class="class1">
+    <input>
     <script>
 
         // 使用.语法和[]语法操作class属性的时候，使用className操作
         // 而使用getAttribute()、setAttribute()、removeAttribute()方法的时候，直接使用class进行操作
         // setAttribute()设置的自定义属性，使用.语法和[]语法无法获取到，返回undefined。
         // 使用.语法或[]语法设置的自定义属性，使用getAttribute()方法无法获取到，返回null。
+        // !!!注意上面说的是自定义属性，只有自定义属性才区分开，系统自带的属性可以互相获取到
         // 操作样式style不要使用属性的形式操作，而是使用element.style的方式，
         // 因为操作属性的方法，无论样式是否冲突，后面都会覆盖前面的，而element.style可以进行分别添加不同的样式
 
@@ -24,6 +27,8 @@
         let oInput1 = document.querySelectorAll('input')[0];
         let oInput2 = document.querySelectorAll('input')[1];
         let oInput3 = document.querySelectorAll('input')[2];
+        let oInput4 = document.querySelectorAll('input')[3];
+        let oInput5 = document.querySelectorAll('input')[4];
 
         // 获取属性
         // 可以使用.语法来获取元素的属性，注意获取class的时候使用的是className
@@ -43,6 +48,8 @@
         console.log(oInput3.getAttribute('type'));       // text
         console.log(oInput3.getAttribute('class'));      // class1
         console.log(oInput3.getAttribute('className'));  // null
+
+
 
 
         // 设置属性
@@ -86,6 +93,32 @@
         oInput2.removeAttribute('disabled')
         oInput3.removeAttribute('class')
 
+
+
+        // hasAttribute()判断元素是否有指定属性，返回bool值
+        // 同样的，使用.语法或[]语法设置的自定义属性，无法通过hasAttribute来进行判断，反之亦然
+        oInput4.aaa = 'aaa'
+        oInput4.setAttribute('bbb', 'bbb');
+
+        console.log(oInput4.hasAttribute('type'));      // true
+        console.log(oInput4.hasAttribute('id'));        // false
+        console.log(oInput4.hasAttribute('aaa'));        // false
+        console.log(oInput4.hasAttribute('bbb'));        // true
+
+        // 使用.语法或[]语法只能通过返回值是否为空或undefined来进行判断
+        console.log(oInput4.id);                        // ''
+        console.log(oInput4.asd);                       // undefined
+        console.log(oInput4.aaa);                       // aaa
+        console.log(oInput4.bbb);                       // undefined
+
+
+        // hasAttributes()判断元素是否含有任意一个属性，返回bool值
+        // 同样的，使用.语法或[]语法设置的自定义属性，无法通过hasAttributes()进行判断，反之亦然
+        console.log(oInput5.hasAttributes());           // false
+
+        // oInput5.setAttribute('any', 'any');
+        oInput5.type = 'text'
+        console.log(oInput5.hasAttributes());           // true
 
     </script>
 </body>

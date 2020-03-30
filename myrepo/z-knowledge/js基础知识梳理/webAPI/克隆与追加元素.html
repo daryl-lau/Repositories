@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <button>添加元素</button>
+    <button>追加已经存在的元素</button>
+    <div id="father"><a href="#">father</a></div>
+    <p id="1">P</p>
+
+
+
+    <script>
+
+        // appendChild() 方法可向节点的子节点列表的末尾添加新的子节点。
+        // 如果文档树中已经存在了追加的元素，那么它将从文档树中删除，然后重新插入它的新位置。
+        // 因此也可以使用 appendChild() 方法移除元素到另外一个元素。
+
+
+        let oFather = document.querySelector('#father');
+        let oBtn1 = document.querySelectorAll('button')[0];
+        let oBtn2 = document.querySelectorAll('button')[1];
+        let oP = document.querySelector('p');
+
+
+        // 浅克隆，只克隆标签和属性
+        let son1 = oFather.cloneNode();
+        console.log(son1);                  // <div id="father"></div>
+
+        // 添加参数true，深克隆，不仅克隆标签和属性，还克隆内容
+        let son2 = oFather.cloneNode(true);
+        console.log(son2);                  // <div id="father"><a href="#">father</a></div>
+
+        let i = 1;
+        oBtn1.onclick = function () {
+            let newOp = oP.cloneNode(true);
+            newOp.id += i;
+            oFather.appendChild(newOp);
+            i++;
+        }
+
+        // 如果文档树中已经存在了追加的元素，那么它将从文档树中删除，然后重新插入它的新位置。
+        // 点击后，div外面的p表现跑到了div里面
+        oBtn2.onclick = function () {
+            oFather.appendChild(oP);
+        }
+    </script>
+</body>
+
+</html>

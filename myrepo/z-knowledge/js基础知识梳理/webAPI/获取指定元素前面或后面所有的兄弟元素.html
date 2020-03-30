@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p class="tag">4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+    </div>
+
+    <script>
+        let tag = document.querySelector('.tag');
+        function getAllPreviousSiblings(ele) {
+            let arr = [];
+            while (ele) {
+                ele = ele.previousElementSibling;
+                if (ele) {
+                    arr.unshift(ele)
+                }
+            }
+            return arr;
+        }
+
+        function getAllNextSiblings(ele) {
+            let arr = [];
+            while (ele) {
+                ele = ele.nextElementSibling;
+                if (ele) {
+                    arr.push(ele)
+                }
+            }
+            return arr;
+        }
+
+        let res1 = getAllPreviousSiblings(tag);
+        let res2 = getAllNextSiblings(tag);
+        console.log(res1);
+        console.log(res2);
+
+    </script>
+</body>
+
+</html>

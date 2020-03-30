@@ -12,12 +12,14 @@
         // split() 方法用于把一个字符串分割成字符串数组。（不会改变原始字符串）
         // 提示： 如果把空字符串 ("") 用作 separator，那么 stringObject 中的每个字符之间都会被分割。
         // string.split(separator,limit)
-        // separator    可选。字符串或正则表达式，从该参数指定的地方分割 string Object。如果不给，那么返回整个字符串的一个数组
+        // separator    可选。字符串或正则表达式，从该参数指定的地方分割 string Object。如果不给，那么返回整个字符串为元素的一个数组
         // limit        可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。
 
         let str = 'welcome to baihuzi.com';
         let res = str.split(' ');
-        console.log(res);       //  ["welcome", "to", "baihuzi.com"]
+        let res3 = str.split();
+        console.log(res);       // ["welcome", "to", "baihuzi.com"]
+        console.log(res3);      // ["welcome to baihuzi.com"]
 
         let str1 = '#abc#def#123#'
         let res1 = str1.split('#');

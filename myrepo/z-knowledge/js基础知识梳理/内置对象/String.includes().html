@@ -12,11 +12,14 @@
         // includes() 方法用于判断字符串是否包含指定的子字符串。
         // 如果找到匹配的字符串则返回 true，否则返回 false。
         // 注意： includes() 方法区分大小写。
+        // string.includes(searchvalue, start)
         let str = 'welcome to http://baihuzi.com !';
         let res1 = str.includes('http');        // true
-        let res2 = str.includes('https');       // false
+        let res2 = str.includes('http', 15);    // false
+        let res3 = str.includes('https');       // false
         console.log(res1);
         console.log(res2);
+        console.log(res3);
     </script>
 </body>
 

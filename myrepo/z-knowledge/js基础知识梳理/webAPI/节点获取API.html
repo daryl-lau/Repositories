@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>father</p>
+    <div id='father' class="class1" name="name1">
+        000000
+        <!-- son -->
+        <div class="son">
+            <!-- a -->
+            <a href="www.baihuzi.com">55555</a>
+
+        </div>
+        <p>白胡子</p>
+    </div>
+    88888
+    <!-- div2 -->
+    <div id="brother"></div>
+
+    <script>
+        let oDiv = document.querySelector('#father');
+
+        // 元素节点
+        console.log(oDiv.nodeType);             // 1
+        console.log(oDiv.nodeName);             // DIV
+        console.log(oDiv.nodeValue);            // null
+
+
+        // 属性节点
+        let aAttr = oDiv.attributes;
+        console.log(aAttr);                     // 存放所有属性的数组
+        console.log(aAttr[0].nodeType);         // 2
+        console.log(aAttr[0].nodeName);         // id
+        console.log(aAttr[0].nodeValue);        // father
+
+        // 文本节点，如果有换行，则有值为回车的文本节点，没有的话就没有
+        let oText = oDiv.firstChild;
+        console.log(oText.nodeType);            // 3
+        console.log(oText.nodeName);            // #text
+        console.log(oText.nodeValue);           // 000000
+
+        // 注释节点
+        let oComment = oDiv.childNodes[1];
+        console.log(oComment.nodeType);         // 8
+        console.log(oComment.nodeName);         // #comment
+        console.log(oComment.nodeValue);        // son
+
+
+        // 下面的所有方法，如果没有获取到，则返回null
+        // 都是通过属性调用，不是方法
+
+        // childNodes获取所有子节点
+        console.log(oDiv.childNodes);           // NodeList(5) [text, comment, text, div.son, text]
+
+        // children获取所有子元素节点
+        console.log(oDiv.children);             // HTMLCollection(2) [div.son, p]
+
+        // childElementCount获取所有子元素节点个数
+        console.log(oDiv.childElementCount);    // 2
+
+        // nextSibling/previousSibling获取下/上一个兄弟节点（文本、注释、元素）
+        console.log(oDiv.nextSibling);          // 88888
+        console.log(oDiv.previousSibling);      // #text 回车
+
+        // nextElementSibling/previousElementSibling获取下/上一个兄弟元素节点
+        console.log(oDiv.nextElementSibling);       // <div id="brother">..</div>
+        console.log(oDiv.previousElementSibling);   // <p>father</p>
+
+        // firstChild获取第一个子节点（文本、注释、元素）
+        console.log(oDiv.firstChild);               // 000000
+
+        // firstElementChild获取第一个子元素节点
+        console.log(oDiv.firstElementChild);        // <div class="son">..</div>
+
+        // lastChild获取最后一个子节点（文本、注释、元素）
+        console.log(oDiv.lastChild);                // #text 回车
+        console.log(oDiv.lastElementChild);         // <p>白胡子</p>
+
+        // 获取父元素节点
+        console.log(oDiv.parentElement);            // body
+        console.log(oDiv.parentNode);               // body
+
+
+    </script>
+</body>
+
+</html>

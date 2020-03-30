@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+
+        // parentNode跟parentElement除了前者是w3c标准，后者只ie支持
+        // 当一个节点的父节点的nodeType不是1，即不是element节点的话，它的parentElement就会是null
+        // 一般情况parentNode可以取代parentElement的所有功能
+        // parentElement匹配的是parent为element的情况，而parentNode匹配的则是parent为node的情况。element是包含在node里的，它的nodeType是1
+
+        let oFather = document.querySelector('.father');
+        let oSon = document.querySelector('.son');
+        let oHtml = document.querySelector('html');
+
+        console.log(oSon.parentNode);       // father节点
+        console.log(oSon.parentElement);    // father节点
+
+        console.log(document.body.parentNode);      // html节点
+        console.log(document.body.parentElement);   // html节点
+
+        console.log(oHtml.parentNode);              // #document
+        console.log(oHtml.parentElement);           // null
+
+    </script>
+</body>
+
+</html>
