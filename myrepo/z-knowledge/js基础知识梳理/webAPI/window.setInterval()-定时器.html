@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>开始</button>
+    <button>停止</button>
+    <script>
+        //间隔性定时器，每1000毫秒执行以下show函数，定时器是有返回值的，可以赋值给变量，通过变量来获取该定时器
+        // let timer = setInterval(show, 1000)
+        // clearInterval(timer)
+
+        //定时器必须先清除后设定，否则多次点击将会导致定时器绑定越来越多，执行的速度回越来越快。
+        let oBtn1 = document.querySelectorAll('button')[0];
+        let oBtn2 = document.querySelectorAll('button')[1];
+
+        let timer;
+        oBtn1.onclick = function () {
+            clearInterval(timer);
+            timer = setInterval(boom, 1000);
+            function boom() {
+                console.log('BoomBoomBoom');
+            }
+        };
+        oBtn2.onclick = function () {
+            clearInterval(timer)
+        }
+
+        // 通常情况下，定时器的函数传入不能加()调用，只能传入函数名，不能添加参数
+        // 但定时器处理函数可以用字符串表示，因此可以传入参数
+        setInterval('log("哈哈哈")', 1000);
+        function log(str) {
+            console.log(str);
+        }
+
+    </script>
+</body>
+
+</html>

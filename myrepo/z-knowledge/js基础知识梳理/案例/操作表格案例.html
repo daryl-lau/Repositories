@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        #tbAdd {
+            width: 30%;
+        }
+
+        table {
+            width: 30%;
+            margin: 20px auto;
+            border: 1px solid #0094ff;
+            cursor: pointer;
+            border-collapse: collapse;
+        }
+
+        table td {
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        table td a {
+            margin: 0 5px;
+        }
+
+        table th {
+            background-color: #0094ff;
+            color: #fff;
+        }
+
+        a:visited {
+            color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table id='tbAdd'>
+        <tr>
+            <td>请输入姓名</td>
+            <td><input type="text" value="" id="uname" /></td>
+        </tr>
+        <tr>
+            <td>请输入邮箱</td>
+            <td><input type="text" value="" id="email" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="添加" id="btn" /></td>
+        </tr>
+    </table>
+    <table border="1" cellpadding="0" cellspacing="0" id="tb">
+        <tbody id='tbodyObj'>
+            <tr>
+                <th>姓名</th>
+                <th>邮箱</th>
+                <th>操作</th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+<script>
+    let oBtn = document.querySelector('#btn');
+    let oName = document.querySelector('#uname');
+    let oEmail = document.querySelector('#email');
+    let oTbody = document.querySelector('#tbodyObj');
+
+    oBtn.onclick = function () {
+        let nameValue = oName.value.trim();
+        let emailValue = oEmail.value.trim();
+        if (nameValue == '' || emailValue == '') {
+            alert('请输入内容');
+            return;
+        }
+        let tr = document.createElement('tr');
+        tr.innerHTML = `<td>${nameValue}</td><td>${emailValue}</td>`;
+
+        let td = document.createElement('td');
+        let space = document.createTextNode(' ')
+
+        let del = document.createElement('a');
+        del.href = 'javascript:;'
+        del.innerText = '删除';
+        del.onclick = function () {
+            if (confirm('确定要删除吗？')) {
+                oTbody.removeChild(this.parentElement.parentElement)
+            }
+        };
+
+        let up = document.createElement('a');
+        up.href = 'javascript:;'
+        up.innerText = '上移';
+        up.onclick = function () {
+            console.log(1111);
+            if (this.parentElement.parentElement.previousElementSibling.previousElementSibling == null) {
+                alert('已经是第一个了！')
+            } else {
+                oTbody.insertBefore(this.parentElement.parentElement, this.parentElement.parentElement.previousElementSibling)
+            }
+        };
+
+        let down = document.createElement('a');
+        down.href = 'javascript:;'
+        down.innerText = '下移';
+        down.onclick = function () {
+            if (this.parentElement.parentElement.nextElementSibling == null) {
+                alert('已经是最后一个了！')
+            } else {
+                oTbody.insertBefore(this.parentElement.parentElement.nextElementSibling, this.parentElement.parentElement)
+            }
+        };
+
+        td.appendChild(del);
+        td.appendChild(up);
+        td.appendChild(down);
+        tr.appendChild(td);
+
+        oTbody.appendChild(tr);
+        oName.value = '';
+        oEmail.value = '';
+    }
+</script>
+
+</html>

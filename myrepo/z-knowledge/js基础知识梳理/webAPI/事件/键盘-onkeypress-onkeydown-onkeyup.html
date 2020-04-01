@@ -35,28 +35,28 @@
 
         // 键盘事件一般对document或者input添加，对普通元素（如div啥的）添加没用
         oDiv.onkeydown = function () {
-            alert('搜索')       // 不会添加事件
+            console.log('搜索')       // 不会添加事件
         }
 
         // 对input添加后，只有焦点在input上按下键盘才会触发事件
         oInput1.onkeydown = function () {
-            alert('input onkeydown')
+            console.log('input onkeydown')
         }
         oInput2.onkeyup = function () {
-            alert('input onkeyup')
+            console.log('input onkeyup')
         }
         oInput3.onkeypress = function () {
-            alert('input onkeypress')
+            console.log('input onkeypress')
         }
 
         // 键盘事件属性
-        document.onkeydown = function (event) {
-            alert(event.keyCode)
-        }
+        // document.onkeydown = function (event) {
+        //     console.log(event.keyCode)
+        // }
 
         // 对document添加后，任何时候按下都会触发事件
         // document.onkeydown = function () {
-        //     alert('document onkeydown')
+        //     console.log('document onkeydown')
         // }
     </script>
 </body>

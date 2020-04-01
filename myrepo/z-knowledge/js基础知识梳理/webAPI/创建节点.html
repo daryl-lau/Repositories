@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 300px;
+            height: 300px;
+            overflow: auto;
+            border: 1px solid #000000;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+
+        let oContainer = document.querySelector('#container');
+
+        // 创建元素节点步骤：
+        // 1、创建一个空标签  
+        //      let newEle = document.createElement('span');
+        // 2、向空标签里添加内容
+        //      newEle.innerText = 'some text';
+        //      newEle.innerHTML = '<a>baihuzi.com</a>'
+        // 或者appendChild()
+
+        // 创建元素节点
+        let span = document.createElement('span');              // 创建一个空的span元素节点
+
+        // 创建文本节点
+        let txt = document.createTextNode('hello world');       // 创建‘hello world’ 文本节点
+
+        // 创建注释节点
+        let comment = document.createComment('注释');           // 创建注释节点
+
+        // 创建属性节点
+        let attr = document.createAttribute('class');           // 创建空的class属性节点
+        attr.value = 'red';                                     // 将class属性的值设置为red, 即 class="red"
+        span.setAttributeNode(attr);                            // 将属性节点设置到元素节点上，通过seteAttributeNode()方法
+
+
+
+        span.appendChild(comment);
+        span.appendChild(txt);
+        oContainer.appendChild(span)
+
+        /*  最后结果
+            <div id="container">
+                <span class="red">
+                    <!--注释-->
+                    hello world
+                </span>
+            </div>
+        */
+
+    </script>
+</body>
+
+</html>

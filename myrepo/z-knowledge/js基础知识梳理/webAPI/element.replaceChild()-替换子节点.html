@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>div1</div>
+    <button>替换div1</button>
+    <script>
+        // replaceChild() 方法可将某个子节点替换为另一个。
+        // 新节点可以是文本中已存在的，或者是你新创建的。
+        // node.replaceChild(newnode,oldnode)
+        // 方法需要由子节点的父节点调用
+
+        let oDiv = document.querySelector('div');
+        let oBtn = document.querySelector('button');
+
+        let newDiv = document.createElement('div');
+        newDiv.innerText = '替换后的div';
+
+        oBtn.onclick = function () {
+            document.body.replaceChild(newDiv, oDiv)
+        }
+
+
+    </script>
+</body>
+
+</html>

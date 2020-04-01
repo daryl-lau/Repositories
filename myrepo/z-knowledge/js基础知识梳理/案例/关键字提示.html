@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 20px;
+        }
+
+        .box {
+            width: 600px;
+            height: 40px;
+            margin: 200px auto;
+            position: relative;
+        }
+
+        #txt {
+            width: 498px;
+            height: 38px;
+            border: 1px solid red;
+            font-size: 20px;
+            vertical-align: middle;
+            outline: none;
+        }
+
+        #search {
+            width: 100px;
+            height: 40px;
+            background-color: red;
+            vertical-align: middle;
+        }
+
+        #keywords {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: rgb(12, 255, 24);
+            list-style: none;
+            width: 500px;
+        }
+
+        li {
+            line-height: 24px;
+        }
+
+        li:hover {
+            background-color: red;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <input type="text" id="txt" /><input type="button" value="search" id="search" />
+        </div>
+        <ul id="keywords"></ul>
+    </div>
+</body>
+
+</html>
+
+<script>
+    window.onload = function () {
+        // 1. 先准备好数据
+        let keywords = ["波波", "力气", "波波与力气的故事", "夏东海同学", "波波是个大佬", "群姐牛逼", "群姐主播生涯", "波波你号没了", "班长的爱情故事", "班长", "社会王", "隔壁老王"];
+
+        let oText = document.querySelector('#txt');
+        let oUl = document.querySelector('#keywords');
+
+        oText.onkeyup = function () {
+            let value = this.value.trim();
+            oUl.innerHTML = '';
+            if (value == '') {
+                return
+            }
+
+            let res = keywords.filter(item => item.includes(value));
+
+            for (let i = 0; i < res.length; i++) {
+                let newLi = document.createElement('li');
+                newLi.innerText = res[i];
+                newLi.onclick = function () {
+                    oText.value = res[i];
+                    oUl.innerHTML = '';
+                }
+                oUl.appendChild(newLi)
+            };
+
+        }
+    }
+</script>

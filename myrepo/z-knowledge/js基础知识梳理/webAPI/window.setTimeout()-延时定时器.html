@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>开始</button>
+    <script>
+        // 多次点击，会生成多个timeout定时器
+        let oBtn = document.querySelector('button');
+
+        let timer;
+        oBtn.onclick = function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                console.log('BOOM!');
+            }, 3000)
+        }
+    </script>
+</body>
+
+</html>

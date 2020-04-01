@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <button>插入节点</button>
+    <script>
+        // insertBefore() 方法可在已有的子节点前插入一个新的子节点。
+        // 方法需要由子节点的父节点调用
+        // node.insertBefore(newnode,existingnode)
+        // newnode      节点对象    必须。要插入的节点对象。可以是已存在的节点对象，会移到目标位置上去，可以在一个ul中调换li的位置
+        // existingnode 节点对象    必须。要添加新的节点前的子节点。
+
+        let oUl = document.querySelector('ul');
+        let aLi = oUl.querySelectorAll('li');
+        let oBtn = document.querySelector('button');
+
+        let newLi = document.createElement('li');
+        newLi.innerText = 0;
+
+        oBtn.onclick = function () {
+            oUl.insertBefore(newLi, aLi[0])
+        }
+    </script>
+</body>
+
+</html>
