@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            white-space: nowrap;
+            margin: 50px auto;
+            border: 10px solid #000000;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+    </div>
+    <script>
+        // Element.scrollLeft   属性可以获取或设置一个元素的内容水平滚动的像素数。
+        // Element.scrollTop    属性可以获取或设置一个元素的内容垂直滚动的像素数。
+
+        // 一个元素的 scrollTop 值是这个元素的内容顶部（卷起来的）到它的视口可见内容（的顶部）的距离的度量。
+        // 当一个元素的内容没有产生垂直方向的滚动条，那么它的 scrollTop 值为0。
+
+        let oDiv = document.querySelector('div');
+        console.log(oDiv.scrollLeft);     // 0  初始值都是0
+        console.log(oDiv.scrollTop);      // 0  初始值都是0
+
+        oDiv.onscroll = function () {
+            console.log(oDiv.scrollLeft, oDiv.scrollTop);
+        }
+    </script>
+</body>
+
+</html>

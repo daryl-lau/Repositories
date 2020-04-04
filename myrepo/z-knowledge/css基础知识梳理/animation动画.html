@@ -12,8 +12,9 @@
             background-color: teal;
             margin: 200px auto;
 
-            animation: changeBox 2s;
+            animation: changeBox 1s;
             animation-iteration-count: 2;
+            position: absolute;
 
             /* 复合写法 animation: 动画名称 过渡时间 过渡曲线 延迟时间 循环次数 循环方向 动画等待或者结束的状态*/
             /* animation: name duration timing-function delay iteration-count direction fill-mode; */
@@ -60,12 +61,14 @@
         @keyframes changeBox {
             0% {
                 background-color: green;
+                left: 0;
             }
 
             50% {
                 border-radius: 50%;
                 width: 200px;
                 height: 200px;
+                left: 100px;
             }
 
             100% {
@@ -73,6 +76,7 @@
                 height: 100px;
                 background-color: red;
                 border-radius: 0;
+                left: 500px;
             }
         }
     </style>

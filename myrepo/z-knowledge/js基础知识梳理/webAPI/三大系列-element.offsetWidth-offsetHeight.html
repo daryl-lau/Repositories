@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            padding: 20px;
+            border: 5px solid #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='div1'></div>
+    <script>
+
+        //  HTMLElement.offsetWidth  是一个只读属性，它返回该元素的像素宽度，宽度包含该元素的左右内边距和边框，且是一个整数。
+        //  HTMLElement.offsetHeight 是一个只读属性，它返回该元素的像素高度，高度包含该元素的上下内边距和边框，且是一个整数。
+
+        let oDiv = document.querySelector('#div1');
+        console.log(oDiv.offsetWidth);      // 150    100 + 20*2 + 5*2  自身宽度 + 左右内边距 + 左右边框
+        console.log(oDiv.offsetHeight);     // 150    100 + 20*2 + 5*2  自身高度 + 上下内边距 + 上下边框
+
+    </script>
+</body>
+
+</html>

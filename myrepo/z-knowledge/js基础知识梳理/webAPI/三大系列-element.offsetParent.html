@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            position: relative;
+        }
+
+        .son {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">1</div>
+    </div>
+
+    <script>
+        // HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（指包含层级上的最近）包含该元素的定位元素
+        // 或者最近的 table,td,th,body元素。
+        // 当元素的 style.display 设置为 "none" 时，offsetParent 返回 null。
+        // offsetParent 很有用，因为 offsetTop 和 offsetLeft 都是相对于其内边距边界的。
+
+        let oSon = document.querySelector('.son');
+        console.log(oSon.offsetParent);     // <div class="father">...</div>
+    </script>
+</body>
+
+</html>

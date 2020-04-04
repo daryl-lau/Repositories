@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 100px;"></div>
+    <script>
+        // window.getComputedStyle() 方法用于获取指定元素的 CSS 样式。
+        // 获取的样式是元素在浏览器中最终渲染效果的样式。
+        // window.getComputedStyle(element, pseudoElement)
+        // element:         必需，要获取样式的元素。
+        // pseudoElement:   可选，伪类元素，当不查询伪类元素的时候可以忽略或者传入 null。
+        // 返回的对象是 CSSStyleDeclaration 类型的对象。
+
+        let oDiv = document.querySelector('div');
+
+        // element.style 的方式仅能获取行内样式，无法获取到内联样式和外部引入的样式
+        console.log(oDiv.style.width);          // 100px
+        console.log(oDiv.style.height);         // 空
+
+        // window.getComputedStyle 方法可以获取到最终渲染的样式，返回的对象是 CSSStyleDeclaration 类型的对象。
+        let res = getComputedStyle(oDiv, null).height;
+        console.log(res);                       // 100px
+
+        // 关于 getComputedStyle 的兼容性问题，
+        // 在 Chrome 和 Firefox 是支持该属性的，同时 IE 9 10 11 也是支持相同的特性的，IE 8并不支持这个特性。 
+        // IE 8 支持的是 element.currentStyle 这个属性，这个属性返回的值和 getComputedStyle 的返回基本一致，
+        // 只是在 float 的支持上，IE 8 支持的是 styleFloat,这点需要注意。
+        // element.currentStyle.width
+    </script>
+</body>
+
+</html>

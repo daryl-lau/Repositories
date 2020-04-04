@@ -6,12 +6,11 @@
  * @returns {string}
  */
 function getStyle(obj, name) {
-    if(obj.currentStyle) //IE
+    if (obj.currentStyle) //IE
     {
         return obj.currentStyle[name];
     }
-    else
-    {
+    else {
         return getComputedStyle(obj, null)[name];  //FF
     }
 }
@@ -35,8 +34,8 @@ function variableMove(obj, json, speed, endFunc) {
             var cur;
             if (attr === 'opacity') {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
-            }else if (attr === 'scrollTop') {
-                cur =  Math.round(parseInt(document.documentElement.scrollTop));
+            } else if (attr === 'scrollTop') {
+                cur = Math.round(parseInt(document.documentElement.scrollTop));
             }
             else {
                 cur = parseInt(getStyle(obj, attr));
@@ -46,14 +45,14 @@ function variableMove(obj, json, speed, endFunc) {
             //get the initeger
             step = step > 0 ? Math.ceil(step) : Math.floor(step);
 
-            if (cur !== json[attr]){
+            if (cur !== json[attr]) {
                 bResult = false;
             }
 
             if (attr === 'opacity') {
-                obj.style.filter='alpha(opacity:'+ (cur + step) +')';  //IE
+                obj.style.filter = 'alpha(opacity:' + (cur + step) + ')';  //IE
                 obj.style.opacity = (cur + step) / 100;
-            }else if (attr === 'scrollTop'){
+            } else if (attr === 'scrollTop') {
                 obj.scrollTop = cur + step;
             }
             else {
@@ -69,11 +68,11 @@ function variableMove(obj, json, speed, endFunc) {
             }
         }
         //execute the end function
-        if (bResult){
+        if (bResult) {
             clearInterval(obj.timer);
-            if(endFunc){endFunc()}
+            if (endFunc) { endFunc() }
         }
-    },30)
+    }, 30)
 }
 
 /**
@@ -97,7 +96,7 @@ function uniformMove(obj, json, speed, endFunc) {
 
             }
             else if (attr === 'scrollTop') {
-                cur =  Math.round(parseInt(obj.scrollTop));
+                cur = Math.round(parseInt(obj.scrollTop));
                 var speedScroll = json[attr] - cur >= 0 ? speed : -speed;
             }
             else {
@@ -106,30 +105,30 @@ function uniformMove(obj, json, speed, endFunc) {
             }
 
 
-            if (cur !== json[attr]){
+            if (cur !== json[attr]) {
                 bResult = false;
             }
 
-            if( attr === 'opacity'){
-                if (cur !== json[attr] * 100){
-                    if (Math.abs(json[attr] - cur) < Math.abs(speedOpacity)){
+            if (attr === 'opacity') {
+                if (cur !== json[attr] * 100) {
+                    if (Math.abs(json[attr] - cur) < Math.abs(speedOpacity)) {
                         speedOpacity = (json[attr] - cur);
                     }
-                    obj.style.filter='alpha(opacity:'+ (cur + speedOpacity) +')';  //IE
+                    obj.style.filter = 'alpha(opacity:' + (cur + speedOpacity) + ')';  //IE
                     obj.style.opacity = (cur + speedOpacity) / 100;
                 }
             }
-            else if(attr === 'scrollTop'){
-                if(cur !== json[attr]){
-                    if (Math.abs(json[attr] - cur) < Math.abs(speedScroll)){
+            else if (attr === 'scrollTop') {
+                if (cur !== json[attr]) {
+                    if (Math.abs(json[attr] - cur) < Math.abs(speedScroll)) {
                         speedScroll = json[attr] - cur
                     }
                     obj.scrollTop = cur + speedScroll;
                 }
             }
             else {
-                if (cur !== json[attr]){
-                    if (Math.abs(json[attr] - cur) < Math.abs(speedPx)){
+                if (cur !== json[attr]) {
+                    if (Math.abs(json[attr] - cur) < Math.abs(speedPx)) {
                         speedPx = json[attr] - cur
                     }
                     obj.style[attr] = cur + speedPx + 'px';
@@ -146,12 +145,12 @@ function uniformMove(obj, json, speed, endFunc) {
         }
 
         //execute the end function
-        if (bResult){
+        if (bResult) {
             clearInterval(obj.timer);
-            if(endFunc){endFunc()}
+            if (endFunc) { endFunc() }
         }
 
-    },10)
+    }, 10)
 }
 
 
@@ -164,12 +163,10 @@ function uniformMove(obj, json, speed, endFunc) {
  * @returns {*}
  */
 function clear_arr_trim(array) {
-    for(var i = 0 ;i<array.length;i++)
-    {
-        if(array[i] === "" || typeof(array[i]) === "undefined")
-        {
-            array.splice(i,1);
-            i= i-1;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === "" || typeof (array[i]) === "undefined") {
+            array.splice(i, 1);
+            i = i - 1;
         }
     }
     return array;
@@ -213,9 +210,9 @@ function addClass(obj, cls) {
     var clsArray = clear_arr_trim(cls.split(' '));
     var classNameArray = clear_arr_trim(obj.className.split(' '));
 
-    for (var i = 0; i < clsArray.length; i++){
+    for (var i = 0; i < clsArray.length; i++) {
         var index = classNameArray.indexOf(clsArray[i]);
-        if (index === -1){
+        if (index === -1) {
             classNameArray.push(clsArray[i]);
         }
     }
@@ -246,7 +243,7 @@ function removeClass(obj, cls) {
     obj.className = classNameArray.join(' ');
 }
 
-Array.prototype.removeEle = function(val) {
+Array.prototype.removeEle = function (val) {
     var index = this.indexOf(val);
     if (index > -1) {
         this.splice(index, 1);
@@ -267,9 +264,9 @@ function toggleClass(obj, cls) {
     var clsArray = clear_arr_trim(cls.split(' '));
     var classNameArray = clear_arr_trim(obj.className.split(' '));
 
-    for (var i = 0; i < clsArray.length; i++){
+    for (var i = 0; i < clsArray.length; i++) {
         var index = classNameArray.indexOf(clsArray[i]);
-        if (index === -1){
+        if (index === -1) {
             classNameArray.push(clsArray[i]);
         }
         else {
@@ -284,23 +281,23 @@ function toggleClass(obj, cls) {
  * ex: client().width; client().height;
  *
  */
-!function() {
-    if(window.innerHeight !== undefined) {
-        client = function() {
+!function () {
+    if (window.innerHeight !== undefined) {
+        client = function () {
             return {
                 "width": window.innerWidth,
                 "height": window.innerHeight
             }
         }
-    } else if(document.compatMode === "CSS1Compat") {
-        client = function() {
+    } else if (document.compatMode === "CSS1Compat") {
+        client = function () {
             return {
                 "width": document.documentElement.clientWidth,
                 "height": document.documentElement.clientHeight
             }
         }
     } else {
-        client = function() {
+        client = function () {
             return {
                 "width": document.body.clientWidth,
                 "height": document.body.clientHeight
@@ -308,21 +305,21 @@ function toggleClass(obj, cls) {
         }
     }
 
-    if(window.pageXOffset){
+    if (window.pageXOffset) {
         scroll = function () {
             return {
                 "left": window.pageXOffset,
                 "top": window.pageYOffset
             }
         }
-    }else if(document.compatMode === "CSS1Compat"){
+    } else if (document.compatMode === "CSS1Compat") {
         scroll = function () {
             return {
                 "left": document.documentElement.scrollLeft,
                 "top": document.documentElement.scrollTop
             }
         }
-    }else {
+    } else {
         scroll = function () {
             return {
                 "left": document.body.scrollLeft,

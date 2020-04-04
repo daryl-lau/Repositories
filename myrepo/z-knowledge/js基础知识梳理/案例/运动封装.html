@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>400</button>
+    <button>800</button>
+    <div></div>
+    <script>
+        let oBtn1 = document.querySelectorAll('button')[0];
+        let oBtn2 = document.querySelectorAll('button')[1];
+        let oDiv = document.querySelector('div');
+
+        function move(ele, target) {
+            clearInterval(ele.timer)
+            let position = ele.offsetLeft;
+            let step = target - position > 0 ? 10 : -10;
+            ele.timer = setInterval(function () {
+                position += step;
+                if (Math.abs(target - position) > Math.abs(step)) {
+                    ele.style.left = position + 'px';
+                } else {
+                    ele.style.left = target + 'px';
+                    clearInterval(ele.timer);
+                }
+            }, 10)
+        }
+
+        oBtn1.onclick = function () {
+            move(oDiv, 400)
+        };
+        oBtn2.onclick = function () {
+            move(oDiv, 800)
+        }
+
+    </script>
+</body>
+
+</html>

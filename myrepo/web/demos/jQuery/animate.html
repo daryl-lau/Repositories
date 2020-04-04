@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击</button>
+    <div></div>
+
+    <script src="./jquery.3.4.1-min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('button').click(function () {
+                $('div').css({ 'transform': 'translateX(500px)', 'transition': '' });
+                $('div').css({ 'transform': 'translateX(100px)', 'transition': 'all .2s ease' });
+            })
+
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #red {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+
+        #blue {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            position: absolute;
+            left: 0;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>移动红盒子</button>
+    <button>移动蓝盒子</button>
+    <div id='red'></div>
+    <div id='blue'></div>
+    <script>
+        let redBtn = document.querySelectorAll('button')[0];
+        let blueBtn = document.querySelectorAll('button')[1];
+        let redBox = document.querySelector('#red');
+        let blueBox = document.querySelector('#blue');
+
+        let redLeft = 0;
+        let blueLeft = 0;
+
+        redBtn.onclick = function () {
+            clearInterval(redBox.timer);
+            redBox.timer = setInterval(function () {
+                redBox.style.left = redLeft + 'px';
+                if (redLeft >= 1200) {
+                    redBox.style.left = '1200px'
+                    clearInterval(redBox.timer);
+                    return;
+                }
+                redLeft += 2;
+            }, 10)
+        };
+        blueBtn.onclick = function () {
+            clearInterval(blueBox.timer);
+            blueBox.timer = setInterval(function () {
+                blueBox.style.left = blueLeft + 'px';
+                if (blueLeft >= 1200) {
+                    blueBox.style.left = '1200px'
+                    clearInterval(blueBox.timer);
+                    return;
+                }
+                blueLeft += 2;
+            }, 10)
+        }
+    </script>
+</body>
+
+</html>

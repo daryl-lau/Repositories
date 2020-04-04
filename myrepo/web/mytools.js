@@ -11,14 +11,14 @@ function getStyle(obj, name) {
         return obj.currentStyle[name];
     }
     else {
-        return getComputedStyle(obj, null)[name];  //FF
+        return getComputedStyle(obj, null)[name];
     }
 }
 
 
 /**
  * used to set style animate.
- * ex: startMove(this, {'width':100, 'height':100}, function (){ alert('Move ended') }).
+ * ex: variableMove(oDiv, {'width':100, 'height':100}, 10, function (){ alert('Move ended') }).
  * @param {object}obj
  * @param {json}json
  *  @param {number}speed
@@ -68,7 +68,7 @@ function variableMove(obj, json, speed, endFunc) {
             }
         }
         //execute the end function
-        console.log(cur, json[attr], json[attr] - cur, bResult);
+        // console.log(cur, json[attr], json[attr] - cur, bResult);
 
         if (bResult) {
             clearInterval(obj.timer);

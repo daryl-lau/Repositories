@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            white-space: nowrap;
+            margin: 50px auto;
+            border: 10px solid #000000;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+        打小怪爆技能书，吊打boss不是梦<br>
+    </div>
+    <script>
+
+        // element.clientWidth  在页面上返回内容的可视宽度（包含内边距，但不包括边框，边距和滚动条）
+        // element.clientHeight 在页面上返回内容的可视高度（包含内边距，但不包括边框，边距和滚动条）
+
+        // 这个属性是只读属性，对于没有定义CSS或者内联布局盒子的元素为0，
+        // 否则，它是元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。
+
+        let oDiv = document.querySelector('div');
+        console.log(oDiv.clientWidth);      // 243  宽200，padding 60，滚动条默认17px，200 + 60 - 17 = 243 
+        console.log(oDiv.clientHeight);     // 243  高200，padding 60，滚动条默认17px，200 + 60 - 17 = 243 
+    </script>
+</body>
+
+</html>

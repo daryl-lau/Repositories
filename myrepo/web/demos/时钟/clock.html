@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon"/>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title>时钟</title>
 </head>
 <style>
@@ -23,23 +24,29 @@
         position: relative;
     }
 
-    #hour, #minute, #second{
+    #hour,
+    #minute,
+    #second {
         width: 30px;
         height: 600px;
         position: absolute;
         left: 50%;
         margin-left: -15px;
     }
+
     #hour {
         background: url("./imgs/hour.PNG") no-repeat center;
     }
+
     #minute {
         background: url("./imgs/minute.PNG") no-repeat center;
     }
+
     #second {
         background: url("./imgs/second.PNG") no-repeat center;
     }
 </style>
+
 <body>
     <div id="clock">
         <div id="hour"></div>
@@ -64,9 +71,10 @@
             minute.style.transform = 'rotate(' + m * 6 + 'deg)';
             hour.style.transform = 'rotate(' + h * 30 + 'deg)';
 
-        },10)
+        }, 10)
 
 
     }
 </script>
+
 </html>

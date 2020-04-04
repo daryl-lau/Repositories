@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>变化</button>
+    <script src="../../../web/mytools.js"></script>
+    <script src="../../../web/demos/jQuery/jquery.3.4.1-min.js"></script>
+    <script>
+        // let oDiv = document.querySelector('div');
+        // let oBtn = document.querySelector('button');
+        // oBtn.onclick = function () {
+        //     uniformMove(oDiv, { 'opacity': 30 }, 1)
+        // }
+
+        $('button').click(
+            function () {
+                // $('div').fadeOut('slow')
+                $('div').animate({width: '500px'})
+            }
+        )
+    </script>
+</body>
+
+</html>

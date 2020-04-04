@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>移动</button>
+    <script>
+        function changeTransform(obj) {
+            getComputedStyle(obj, null).transform;
+        }
+
+        let oDiv = document.querySelector('div');
+        let oBtn = document.querySelector('button');
+        oBtn.onclick = function () {
+            oDiv.style.transition = '';
+            oDiv.style.transform = 'translate3d(1000px, 0px, 0px)'
+            changeTransform(oDiv);
+            oDiv.style.transition = 'all 1s ease';
+            oDiv.style.transform = 'translate3d(500px, 0px, 0px)'
+        }
+    </script>
+</body>
+
+</html>

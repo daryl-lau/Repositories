@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            position: relative;
+            padding: 50px;
+            border: 5px solid #000000;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: forestgreen;
+            padding: 5px;
+            margin: 20px;
+            border: 10px solid #000000;
+            position: absolute;
+            left: 15px;
+            top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">1</div>
+    </div>
+    <script>
+        // HTMLElement.offsetLeft 是一个只读属性，返回当前元素左上角相对于  HTMLElement.offsetParent 节点的左边界偏移的像素值。
+        // HTMLElement.offsetTop  是一个只读属性，返回当前元素左上角相对于  HTMLElement.offsetParent 节点的上边界偏移的像素值。
+
+        // 因为定位可以压住父元素的padding，但是压不住border，所以在计算的时候，计算的是父元素的内边框到子元素的外边框的距离
+        // 如果子元素有margin，则也需要计算在内
+        // 即计算的是当前元素左上角相对于HTMLElement.offsetParent节点的postition的left/top值加上此元素的margin值
+
+        let oSon = document.querySelector('.son');
+        console.log(oSon.offsetLeft);       // 35
+        console.log(oSon.offsetTop);        // 50
+    </script>
+</body>
+
+</html>
