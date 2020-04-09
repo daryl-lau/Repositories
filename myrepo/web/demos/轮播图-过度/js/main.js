@@ -85,7 +85,6 @@ window.onload = function () {
     var imgNow = 1;
     var btnNow;
     btnNext.onclick = function () {
-
         // 边界值判断
         if (imgNow >= allLis.length - 1) {  // 6
             removeTransition(ul);
@@ -163,7 +162,7 @@ window.onload = function () {
         timer = setInterval(
             function () {
                 btnNext.click()
-            }, 1000)
+            }, 2000)
     }
     startTimer()
 };

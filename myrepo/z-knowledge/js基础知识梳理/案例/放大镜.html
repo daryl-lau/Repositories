@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+
+        .box img {
+            vertical-align: top;
+        }
+
+        #bigBox>img {
+            /*是让里面的图片脱标，为的就是让里面的图片进行一个移动*/
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="small" id="smallBox">
+            <img src="imgs/001.jpg" width="350" alt="" />
+
+            <div class="mask" id="mask"></div>
+        </div>
+        <div class="big" id="bigBox">
+            <img id="bigImg" src="imgs/0001.jpg" width="800" alt="" />
+        </div>
+    </div>
+    <script>
+        let box = document.querySelector('.box');
+        let smallBox = document.querySelector('.small');
+        let mask = document.querySelector('.mask');
+        let bigImg = document.querySelector('#bigImg');
+        let bigBox = document.querySelector('.big');
+
+        smallBox.onmouseover = function () {
+            mask.style.display = 'block';
+            bigBox.style.display = 'block';
+        };
+        smallBox.onmouseout = function () {
+            mask.style.display = 'none';
+            bigBox.style.display = 'none';
+        };
+        smallBox.onmousemove = function (e) {
+            e = window.event || e;
+            let left = e.pageX - box.offsetLeft - mask.offsetWidth / 2;
+            let top = e.pageY - box.offsetTop - mask.offsetHeight / 2;
+            if (left <= 0) {
+                left = 0;
+            } else if (left > smallBox.offsetWidth - mask.offsetWidth) {
+                left = smallBox.offsetWidth - mask.offsetWidth;
+            } else {
+                left = left;
+            };
+            if (top <= 0) {
+                top = 0;
+            } else if (top > smallBox.offsetHeight - mask.offsetHeight) {
+                top = smallBox.offsetHeight - mask.offsetHeight;
+            } else {
+                top = top;
+            }
+
+            mask.style.left = left + 'px';
+            mask.style.top = top + 'px';
+
+            bigImg.style.left = -bigBox.offsetWidth / smallBox.offsetWidth * left + 'px';
+            bigImg.style.top = -bigBox.offsetHeight / smallBox.offsetHeight * top + 'px';
+        }
+    </script>
+</body>
+
+</html>

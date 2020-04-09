@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>跳转</button>
+    <script>
+        let oBtn = document.querySelector('button');
+        // href 属性是一个可读可写的字符串，可设置或返回当前显示的文档的完整 URL。
+
+        // 显示当前地址栏
+        console.log(location.href);   // file:///D:/Microsoft%20VS%20Code/Repositories/myrepo/z-knowledge/js%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/webAPI/location.href.html
+
+        // 设置href，直线页面跳转，跳转后可以回退到前一个页面
+        oBtn.onclick = function(){
+            location.href = 'https://www.baidu.com'
+        }
+    </script>
+</body>
+
+</html>

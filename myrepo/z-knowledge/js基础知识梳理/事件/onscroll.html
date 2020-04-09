@@ -24,6 +24,11 @@
     <script>
 
         // 有滚动条的对象就可以使用此事件，事件在元素滚动条在滚动时触发。
+        // 在谷歌浏览器中中，onscroll可以绑定到document、body、window上，绑定到html上不生效
+        // 在ie中，可以绑定到html、window上
+        // google和ie都支持window.onscroll
+
+        let html = document.querySelector('html');
 
         let oDiv = document.querySelector('div');
         oDiv.onscroll = function () {

@@ -36,12 +36,12 @@ function variableMove(obj, json, speed, endFunc) {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
             } else if (attr === 'scrollTop') {
                 cur = Math.round(parseInt(document.documentElement.scrollTop));
-            }
-            else {
+            } else {
                 cur = parseInt(getStyle(obj, attr));
             }
 
-            var step = (json[attr] - cur) / speed;
+            var step;
+            attr === 'opacity' ? step = (json[attr] * 100 - cur) / speed : step = (json[attr] - cur) / speed;
             //get the initeger
             step = step > 0 ? Math.ceil(step) : Math.floor(step);
 
@@ -54,8 +54,9 @@ function variableMove(obj, json, speed, endFunc) {
                 obj.style.opacity = (cur + step) / 100;
             } else if (attr === 'scrollTop') {
                 obj.scrollTop = cur + step;
-            }
-            else {
+            } else if (attr === 'z-index') {
+                obj.style.zIndex = json[attr];
+            } else {
                 obj.style[attr] = cur + step + 'px';
             }
         }
@@ -108,7 +109,6 @@ function uniformMove(obj, json, speed, endFunc) {
                 var speedPx = json[attr] - cur >= 0 ? speed : -speed;
             }
 
-
             if (cur !== json[attr]) {
                 bResult = false;
             }
@@ -129,8 +129,9 @@ function uniformMove(obj, json, speed, endFunc) {
                     }
                     obj.scrollTop = cur + speedScroll;
                 }
-            }
-            else {
+            } else if (attr === 'z-index') {
+                obj.style.zIndex = json[attr];
+            } else {
                 if (cur !== json[attr]) {
                     if (Math.abs(json[attr] - cur) < Math.abs(speedPx)) {
                         speedPx = json[attr] - cur
@@ -333,7 +334,7 @@ function toggleClass(obj, cls) {
 
 
 /**
- * Deep copy
+ * 深拷贝
  * @param fromObj
  * @param toObj
  */
@@ -357,4 +358,36 @@ function deepCopy(fromObj, toObj) {
  */
 function isObj(obj) {
     return obj instanceof Object;
+}
+
+/**
+ * 获取该元素所有的前面的兄弟元素
+ * @param {Element} ele
+ * @returns {Array}
+ */
+function getAllPreviousSiblings(ele) {
+    let arr = [];
+    while (ele) {
+        ele = ele.previousElementSibling;
+        if (ele) {
+            arr.unshift(ele)
+        }
+    }
+    return arr;
+}
+
+/**
+ * 获取该元素所有的后面的兄弟元素
+ * @param {Element} ele 
+ * @returns {Array}
+ */
+function getAllNextSiblings(ele) {
+    let arr = [];
+    while (ele) {
+        ele = ele.nextElementSibling;
+        if (ele) {
+            arr.push(ele)
+        }
+    }
+    return arr;
 }

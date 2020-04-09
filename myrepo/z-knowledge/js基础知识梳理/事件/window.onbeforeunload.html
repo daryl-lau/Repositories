@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 在页面即将关闭之前触发此事件
+        // 可以用来保存某些重要信息，如草稿箱、访问时间、访问地点，用来数据分析
+        window.onbeforeunload = function () {
+            // 这里打个断点方便查看
+            console.log('页面即将关闭');
+            debugger;
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

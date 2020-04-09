@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="#id=1">点击</a>
+    <button>获取</button>
+    <script>
+        // hash 属性是一个可读可写的字符串，该字符串是 URL 的锚部分（从 # 号开始的部分）。
+
+        // 返回一个 URL 的主要部分。假设当前的 URL 是 http://www.runoob.com/test.html#id=1;
+        // 则返回 #id=1
+        // 注意如果#后面什么都没有，则返回''； 而不是'#'
+
+        let oBtn = document.querySelector('button');
+        oBtn.onclick = function () {
+            console.log(location.hash);  // '#id=1'
+        }
+    </script>
+</body>
+
+</html>

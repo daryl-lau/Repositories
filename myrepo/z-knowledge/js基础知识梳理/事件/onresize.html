@@ -12,7 +12,7 @@
     <script>
 
         // 当浏览器可视区窗口大小发生变化的时候，触发此事件
-        // 此事件绑定到window上和body上效果是一样的，绑定到html上不起效果
+        // 此事件绑定到window上和body上效果是一样的，绑定到html、document上不起效果
 
         // let body = document.querySelector('body');
         // body.onresize = function () {
@@ -20,7 +20,8 @@
         // }
 
         window.onresize = function () {
-            console.log('window窗口大小发生了改变');
+            console.log('window窗口大小发生了改变', document.documentElement.clientHeight);
+            console.log('window窗口大小发生了改变', document.documentElement.clientWidth);
         }
 
 

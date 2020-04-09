@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 2000px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+
+        // e.clientX e.clientY 获取事件触发的时候，鼠标相对于可视区左上顶点的水平垂直距离
+        // e.pageX, e.pageY 获取事件触发的时候，鼠标相对于页面 左上顶点的水平垂直距离（页面如果滚动，滚动距离计算在内）
+        // e.screenX, e.screenY 获取事件触发的时候，鼠标相对于电脑屏幕左上顶点的水平垂直距离
+
+        // ！！e.pageX 和 window.pageXOffset 注意区分，前者是事件触发时鼠标相对于页面的坐标，后面的是页面的滚动距离
+
+        let oDiv = document.querySelector('div');
+        oDiv.onclick = function (e) {
+            e = window.event || e;
+            console.log(e.clientX, e.clientY);
+            console.log(e.pageX, e.pageY, document.documentElement.scrollTop);
+            console.log(e.screenX, e.screenY);
+        }
+    </script>
+</body>
+
+</html>

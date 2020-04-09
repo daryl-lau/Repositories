@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>回到顶部</button>
+    <div>
+        1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+    </div>
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+    <script>
+
+        // documentElement 和 scrollingElement可以理解为是同一个东西，即document文档元素（就是html）
+        // 区别是，PC端在滚动的时候，滚动的元素是document.documentElement，而移动端滚动的元素是document.body。
+        // scrollingElement 把pc端和移动端统一了，都可以使用此属性来访问和设置文档的滚动高度
+
+        // 下面documentElement和scrollingElement获取到的值是相同的
+        console.log(document.documentElement.clientHeight);  // document可视区高度
+        console.log(document.documentElement.clientWidth);  // document可视区高度
+        console.log(document.scrollingElement.clientHeight);  // document可视区高度
+        console.log(document.scrollingElement.clientWidth);  // document可视区高度
+
+        // 在pc端，document.body.scrollTop无法获取到正确的滚动值，其他三个都可以
+        window.onscroll = function () {
+            console.log(document.scrollingElement.scrollTop, document.documentElement.scrollTop, document.body.scrollTop, window.pageYOffset);
+            console.log(document.documentElement.scrollHeight);
+        }
+
+        let oBtn = document.querySelector('button');
+        oBtn.onclick = function () {
+            document.scrollingElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>

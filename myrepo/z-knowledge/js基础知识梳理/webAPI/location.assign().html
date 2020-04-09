@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        // assign()方法加载一个新的文档。
+        // 可以返回到上一个文档
+
+        let oBtn = document.querySelector('button');
+        oBtn.onclick = function () {
+            location.assign('http://www.baidu.com');
+        }
+    </script>
+</body>
+
+</html>

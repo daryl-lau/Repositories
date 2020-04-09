@@ -48,17 +48,12 @@
     </div>
     <script>
 
-        // element.clientWidth  在页面上返回内容的可视宽度（包含内边距，但不包括边框，边距和滚动条）
-        // element.clientHeight 在页面上返回内容的可视高度（包含内边距，但不包括边框，边距和滚动条）
-
-        // 这个属性是只读属性，对于没有定义CSS或者内联布局盒子的元素为0，
-        // 否则，它是元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。
+        // 获得上边框以及左边框的宽度
+        // 正常情况下,水平边框宽度一致,垂直边框宽度一致
 
         let oDiv = document.querySelector('div');
-        console.log(oDiv.clientWidth);      // 243  宽200，padding 60，滚动条默认17px，200 + 60 - 17 = 243 
-        console.log(oDiv.clientHeight);     // 243  高200，padding 60，滚动条默认17px，200 + 60 - 17 = 243 
-        console.log(oDiv.clientLeft);     // 243  高200，padding 60，滚动条默认17px，200 + 60 - 17 = 243 
-        console.log(oDiv.clientTop);     // 243  高200，padding 60，滚动条默认17px，200 + 60 - 17 = 243 
+        console.log(oDiv.clientLeft);       // 10 
+        console.log(oDiv.clientTop);        // 10 
     </script>
 </body>
 

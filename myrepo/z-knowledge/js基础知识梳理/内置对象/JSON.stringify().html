@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // JSON.stringify() 方法用于将 JavaScript 值转换为 JSON 字符串。返回包含 JSON 文本的字符串。
+        // 可以转换js对象和数组
+
+        let sitesObj = {
+            sites: [
+                { name: "Runoob", url: "www.runoob.com", userCount: 100 },
+                { name: "Google", url: "www.google.com", userCount: 200 },
+                { name: "Taobao", url: "www.taobao.com", userCount: 300 }
+            ]
+        };
+
+        let res = JSON.stringify(sitesObj);
+        console.log(res);   // '{"sites":[{"name":"Runoob","url":"www.runoob.com","userCount":100},{"name":"Google","url":"www.google.com","userCount":200},{"name":"Taobao","url":"www.taobao.com","userCount":300}]}'
+
+
+        let arr = [1, 2, 3, 'a', 'b', 'c'];
+        let arrRes = JSON.stringify(arr);
+        console.log(arrRes);    // '[1,2,3,"a","b","c"]'
+    </script>
+</body>
+
+</html>

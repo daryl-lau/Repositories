@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let oDiv = document.querySelector('div');
+        oDiv.onmousedown = function (e) {
+            e = window.event || e;
+            let pointX = e.pageX - oDiv.offsetLeft;
+            let pointY = e.pageY - oDiv.offsetTop;
+            let left, top;
+            document.onmousemove = function (e) {
+                e = window.event || e;
+                // oDiv.style.left = e.pageX - pointX + 'px';
+                // oDiv.style.top = e.pageY - pointY + 'px';
+                if (e.pageX - pointX <= 0) {
+                    left = 0;
+                } else if (e.pageX - pointX > window.innerWidth - oDiv.offsetWidth) {
+                    left = window.innerWidth - oDiv.offsetWidth;
+                } else {
+                    left = e.pageX - pointX;
+                }
+
+                if (e.pageY - pointY <= 0) {
+                    top = 0;
+                } else if (e.pageY - pointY >= window.innerHeight - oDiv.offsetHeight) {
+                    top = window.innerHeight - oDiv.offsetHeight;
+                } else {
+                    top = e.pageY - pointY;
+                }
+
+                oDiv.style.left = left + 'px';
+                oDiv.style.top = top + 'px';
+            }
+        }
+        oDiv.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+
+</html>

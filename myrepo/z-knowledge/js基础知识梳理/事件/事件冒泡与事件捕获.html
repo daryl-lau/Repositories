@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        .gray {
+            width: 500px;
+            height: 500px;
+            background-color: gray;
+        }
+
+        .green {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gray">
+        <div class="green">
+            <div class="red"></div>
+        </div>
+    </div>
+
+    <script>
+
+        // 先进行事件捕获，再进行事件冒泡
+
+        let divGray = document.querySelector('.gray');
+        let divGreen = document.querySelector('.green');
+        let divRed = document.querySelector('.red');
+
+        // 事件冒泡，从html结构的里层向外层依次执行事件，称为事件冒泡
+        // 冒泡阶段依次弹出red和gray
+        divGray.addEventListener('click', alertGray, false);
+        divRed.addEventListener('click', alertRed, false);
+
+
+        // 事件捕获，从html结构的外层向里层依次执行事件，称为事件捕获
+        // 捕获阶段依次弹出gray和red
+        divGray.addEventListener('click', alertGray, true);
+        divRed.addEventListener('click', alertRed, true);
+
+        function alertRed() {
+            alert('red')
+        };
+        function alertGray() {
+            alert('gray')
+        }
+    </script>
+</body>
+
+</html>

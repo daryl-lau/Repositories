@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+    <script>
+        // 可以通过event.target来获取事件触发的时候，是由哪个元素触发的
+        let oUl = document.querySelector('ul');
+
+        // 给ul添加绑定事件，打印的事件源是li，是因为冒泡导致的
+        // 点击li之外的区域，打印的就是ul
+        oUl.onclick = function (e) {
+            e = window.event || e;
+            console.log(e.target);
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>打开百度</button>
+    <button>关闭</button>
+    <script>
+        let openBtn = document.querySelectorAll('button')[0];
+        let closeBtn = document.querySelectorAll('button')[1];
+
+        // window.open() 方法用于打开一个新的浏览器窗口或查找一个已命名的窗口
+        // window.open(URL,name,specs,replace)
+        // URL      可选。打开指定的页面的URL。如果没有指定URL，打开一个新的空白窗口
+        // name     可选。指定target属性或窗口的名称。支持以下值：
+        //          _blank - URL加载到一个新的窗口。这是默认
+        //          _parent - URL加载到父框架
+        //          _self - URL替换当前页面
+        //          _top - URL替换任何可加载的框架集
+        //          name - 窗口名称
+
+
+        // open出来的网页有返回值，保存到变量中，可以进行操作
+
+        let pageBaidu;
+        openBtn.onclick = function () {
+            pageBaidu = window.open('https://www.baidu.com')
+        };
+
+        closeBtn.onclick = function () {
+            pageBaidu.close();
+        }
+
+    </script>
+</body>
+
+</html>

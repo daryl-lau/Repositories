@@ -18,6 +18,7 @@
             position: relative;
             padding: 50px;
             border: 5px solid #000000;
+            margin: 100px;
         }
 
         .son {
@@ -46,9 +47,16 @@
         // 如果子元素有margin，则也需要计算在内
         // 即计算的是当前元素左上角相对于HTMLElement.offsetParent节点的postition的left/top值加上此元素的margin值
 
+        // offsetLeft和offsetTop不是只有定位了才能获取到，什么情况下都能获取，只是相对于最近的带有定位的盒子进行计算
+
         let oSon = document.querySelector('.son');
         console.log(oSon.offsetLeft);       // 35
         console.log(oSon.offsetTop);        // 50
+
+
+        let oFather = document.querySelector('.father');
+        console.log(oFather.offsetLeft);
+        console.log(oFather.offsetTop);
     </script>
 </body>
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="#">点击</a>
+    <script>
+
+        // 阻止默认事件
+        // e.preventDefault();
+
+        // 并不是所有的元素都有默认事件，如a、input 等有默认事件
+        // 可以通过event.cancelable来判断事件是否可以取消，可以取消返回true，不能取消返回false
+        // 事件不能取消的话，e.preventDefault();即使使用了也没有效果
+
+        let a = document.querySelector('a');
+        a.addEventListener('click', function (e) {
+            e = window.event || e;
+            console.log(e.cancelable);
+            e.preventDefault();
+        }, false)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        .gray {
+            width: 500px;
+            height: 500px;
+            background-color: gray;
+        }
+
+        .green {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gray">
+        <div class="green">
+            <div class="red"></div>
+        </div>
+    </div>
+
+    <script>
+
+        // 阻止捕获和冒泡阶段中当前事件的进一步传播。
+
+        let divGray = document.querySelector('.gray');
+        let divGreen = document.querySelector('.green');
+        let divRed = document.querySelector('.red');
+
+        divGray.addEventListener('click', alertGray, false);
+        divRed.addEventListener('click', alertRed, false);
+
+        // 事件冒泡会先弹窗red，再弹窗gray
+        // 如果阻止了事件的冒泡和捕获，那么就不会继续冒泡了
+        // 下面这里就只会打印red
+        function alertRed(e) {
+            e = window.event || e;
+            alert('red');
+            e.stopPropagation();
+        };
+
+
+        function alertGray() {
+            alert('gray');
+        }
+
+        // 兼容IE
+        function stopProp(e) {
+            e = window.event || e;
+            if (e.stopPropagation) {
+                e.stopPropagation()
+            } else {
+                e.cancelBubble = true;  // IE
+            }
+        }
+    </script>
+</body>
+
+</html>

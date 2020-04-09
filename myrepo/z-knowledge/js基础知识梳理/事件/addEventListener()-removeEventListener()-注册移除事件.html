@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="green">
+        <div class="red"></div>
+    </div>
+    <button>移除事件</button>
+    <script>
+
+        // document.addEventListener() 方法用于向文档添加事件句柄。
+        // 提示： 可以使用 document.removeEventListener() 方法来移除 addEventListener() 方法添加的事件句柄。
+        // 提示：使用 element.addEventListener() 方法为指定元素添加事件句柄。
+        // document.addEventListener(event, function, useCapture)
+        // useCapture：
+        // true - 事件句柄在捕获阶段执行
+        // false - 默认。事件句柄在冒泡阶段执行
+
+        let oRed = document.querySelector('.red');
+        let oGreen = document.querySelector('.green');
+        let oBtn = document.querySelector('button');
+
+        function alertRed() {
+            alert('red')
+        };
+        function alertGreen() {
+            alert('green')
+        }
+
+        oRed.addEventListener('click', alertRed, false)
+        oGreen.addEventListener('click', alertGreen, false)
+
+        // 移除事件
+        // 移除事件的时候，传入的参数必须和添加的时候保持一致
+        oBtn.addEventListener('click', function () {
+            oRed.removeEventListener('click', alertRed, false);
+            oGreen.removeEventListener('click', alertGreen, false);
+            alert('已移除事件')
+        }, false)
+
+
+        // 这里有一个坑，当使用匿名函数的时候，添加和解绑的不是同一个函数
+        // 此时removeEventListener无法解绑事件，点击事件依然存在
+        // 伪代码：
+        // ele.addEventListener('click', func(){}, false);
+        // ele.removeEventListener('click', func(){}, false);
+
+    </script>
+</body>
+
+</html>

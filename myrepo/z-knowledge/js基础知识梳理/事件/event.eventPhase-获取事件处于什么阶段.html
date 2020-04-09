@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+
+        .green {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="red">
+        <div class="green"></div>
+    </div>
+    <script>
+        let divRed = document.querySelector('.red');
+        let divGreen = document.querySelector('.green');
+
+        // 事件有三个阶段，可以通过event.eventPhase获取
+        // 捕获阶段     event.eventPhase == 1
+        // 正常阶段     event.eventPhase == 2
+        // 冒泡阶段     event.eventPhase == 3
+
+        // 冒泡阶段处理事件，先打印绿盒子的正常阶段，再打印红盒子的冒泡阶段
+        // divRed.addEventListener('click', function (e) {
+        //     e = window.event || e;
+        //     alert('红盒子点击' + e.eventPhase);
+        // }, false)
+
+        // divGreen.addEventListener('click', function (e) {
+        //     e = window.event || e;
+        //     alert('绿盒子点击' + e.eventPhase)
+        // }, false);
+
+        // 捕获阶段处理事件，先打印红盒子的捕获阶段，再打印绿盒子的正常阶段
+        divRed.addEventListener('click', function (e) {
+            e = window.event || e;
+            alert('红盒子点击' + e.eventPhase);
+        }, true)
+
+        divGreen.addEventListener('click', function (e) {
+            e = window.event || e;
+            alert('绿盒子点击' + e.eventPhase)
+        }, true);
+
+    </script>
+</body>
+
+</html>

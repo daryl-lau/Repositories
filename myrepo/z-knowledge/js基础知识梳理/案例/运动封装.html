@@ -26,7 +26,7 @@
         let oBtn2 = document.querySelectorAll('button')[1];
         let oDiv = document.querySelector('div');
 
-        function move(ele, target) {
+        function uniformMove(ele, target) {
             clearInterval(ele.timer)
             let position = ele.offsetLeft;
             let step = target - position > 0 ? 10 : -10;
@@ -40,12 +40,25 @@
                 }
             }, 10)
         }
+        function variableMove(ele, target) {
+            clearInterval(ele.timer);
+            let position = ele.offsetLeft;
+            ele.timer = setInterval(function () {
+                let step = (target - position) > 0 ? Math.ceil((target - position) / 20) : Math.floor((target - position) / 20);
+                position += step;
+                console.log(position);
+                ele.style.left = position + 'px';
+                if (position == target) {
+                    clearInterval(ele.timer);
+                }
+            }, 10)
+        }
 
         oBtn1.onclick = function () {
-            move(oDiv, 400)
+            variableMove(oDiv, 400)
         };
         oBtn2.onclick = function () {
-            move(oDiv, 800)
+            variableMove(oDiv, 800)
         }
 
     </script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Web 存储 API 提供了 sessionStorage （会话存储） 和 localStorage（本地存储）两个存储对象来对网页的数据进行添加、删除、修改、查询操作。
+        // localStorage 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。
+        // sessionStorage 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。
+
+        // localStorage 的优势
+        // 1、localStorage 拓展了 cookie 的 4K 限制，为5M。
+        // 2、localStorage 会可以将第一次请求的数据直接存储到本地，这个相当于一个 5M 大小的针对于前端页面的数据库，相比于 cookie 可以节约带宽，但是这个却是只有在高版本的浏览器中才支持的。
+
+        // localStorage 的局限
+        // 1、浏览器的大小不统一，并且在 IE8 以上的 IE 版本才支持 localStorage 这个属性。
+        // 2、目前所有的浏览器中都会把localStorage的值类型限定为string类型，这个在对我们日常比较常见的JSON对象类型需要一些转换。
+        // 3、localStorage在浏览器的隐私模式下面是不可读取的。
+        // 4、localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡。
+        // 5、localStorage不能被爬虫抓取到。
+
+        // 添加
+        window.localStorage.setItem('site', 'www.baihuzi.com');
+        window.sessionStorage.setItem('info', '白胡子');
+
+        // 获取
+        console.log(window.localStorage.getItem('site'));   // 'www.baihuzi.com'
+        console.log(window.sessionStorage.getItem('info'));   // '白胡子'
+
+        // key(n) 返回存储对象中第 n 个键的名称
+        console.log(window.localStorage.key(0));    // site
+        console.log(window.sessionStorage.key(0));    // info
+
+        // 移除
+        window.localStorage.removeItem('site');
+        window.sessionStorage.removeItem('info');
+
+        // 清空全部
+        window.localStorage.clear();
+        window.sessionStorage.clear();
+
+
+        // 由于localStorage值允许存储字符串类型的数据，因此对于js对象数据，需要转换成JSON数据，再进行存储；
+        // 读取之后再对其进行解析
+        let site = {
+            siteName: 'www.baihuzi.com',
+            info: '白胡子',
+            type: '技术博客'
+        };
+
+        window.localStorage.setItem('site', JSON.stringify(site));
+
+
+        let res = JSON.parse(window.localStorage.getItem('site'));
+        console.log(res);
+    </script>
+</body>
+
+</html>
