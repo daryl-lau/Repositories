@@ -51,6 +51,7 @@
             // 拖拽开始
             document.ondragstart = function (e) {
                 console.log(e.target);
+                console.log(e.dataTransfer);
                 e.dataTransfer.setData('domID', e.target.id)
             };
             

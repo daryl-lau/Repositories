@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .target {
+            width: 500px;
+            height: 500px;
+            background-color: #fff;
+            border: 2px solid black;
+            position: absolute;
+            right: 50px;
+            top: 50px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 拖拽事件必须和拖拽属性一起使用，true表示可以被拖拽，false表示不行，img标签默认是可以被拖拽的 -->
+    <div draggable="true"></div>
+    <div class="target"></div>
+    <script>
+        // 在所有的拖放事件中都提供了一个数据传输对象dataTransfer，主要是用于在源对象和目标对象之间传递数据
+
+        // dropEffect属性设置放下（drop）被拖拉节点时鼠标的效果
+        // dropEffect属性一般在dragenter和dragover事件的监听函数中设置
+        // 对于dragstart、drag、dragleave这三个事件，该属性不起作用。
+        // 可能的值包括
+        // copy（复制被拖拉的节点）
+        // move（移动被拖拉的节点）
+        // link（创建指向被拖拉的节点的链接）
+        // none（无法放下被拖拉的节点）
+        // 设置除此以外的值，都是无效的
+        // 
+        // setData(format, data)
+
+
+        // 设置拖拽事件中要传递的数据，format的参数为数据类型
+        // 该方法向dataTransfer中对象中存入数据，接受两个参数，第一个表示要存入的数据类型，共有4种：
+        // text/plain
+        // text/html
+        // text/xml
+        // text/uri-list
+        // 第二个参数为要存入的数据，例如：event.dataTransfer.setData('text/plain', 'hello world')
+        // 注：如果给定类型的数据不存在，则将其添加到拖动数据存储的末尾，使得dataTransfer.types列表中的最后一个项目将是新类型。
+
+        // getData(format)
+        // 获得拖拽事件中传递的数据，format参数为数据类型
+        // 该方法从dataTransfer对象中读取数据，参数为在setData方法中指定的数据类型，例如：event.dataTransfer.getData('text/plain')
+        // clearData()
+
+        // 该方法清空dataTransfer对象中存储的数据，参数可选，为数据类型。若为空，则清空所有数据。
+        // setDragImage(element,x,y)
+
+        // 该方法通过img元素来设置拖放图标
+        // element表示拖拽时鼠标下面的图片（通常是image元素，也可以说canvas元素）
+        // x、y分别指示相对于图片的横向和纵向偏移量，相对应鼠标指针。
+
+        // files属性
+        // 返回被拖拽的文件列表，是一个FileList对象，有length属性，可通过下标访问。
+
+
+        let oDiv = document.querySelector('div');
+        let target = document.querySelector('.target');
+
+        oDiv.ondragstart = function (e) {
+            e = window.event || e;
+            e.dataTransfer.setData('text/plain', 'xxxxxx')
+        };
+        oDiv.ondrag = function () {
+        };
+        oDiv.ondragend = function () {
+        };
+
+
+        target.ondragenter = function () {
+        };
+
+        // 注意，ondragover事件和ondrop冲突
+        target.ondragover = function (e) {
+            e = window.event || e;
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy';
+        };
+
+        target.ondragleave = function () {
+        };
+
+        target.ondrop = function (e) {
+            e = window.event || e;
+            let text = e.dataTransfer.getData('text/plain');
+
+            // 获取拖拽进来的文件
+            let file = e.dataTransfer.files[0];
+
+            if (file.type.includes('text')) {
+                let reader = new FileReader();
+                reader.onload = function () {
+                    target.innerText = this.result;
+                }
+                reader.readAsText(file);
+            } else if (file.type.includes('image')) {
+                let img = document.createElement('img');
+                let url = URL.createObjectURL(file);
+                img.src = url;
+                img.style.width = '100%';
+                target.innerHTML = '';
+                target.appendChild(img);
+            }
+
+            console.log(text);      // 'xxxxxx'
+        }
+
+        // 阻止body默认的拖拽事件，否则将会直接页面跳转
+        document.body.ondrop = function (e) {
+            e = window.event || e;
+            e.preventDefault();
+        };
+
+    </script>
+</body>
+
+</html>

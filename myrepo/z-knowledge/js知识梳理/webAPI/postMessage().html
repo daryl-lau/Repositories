@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='parent'>hello word postMessage</div>
+    <iframe src="file:///D:/Microsoft%20VS%20Code/Repositories/myrepo/z-knowledge/js基础知识梳理/webAPI/postMessage-test.html"
+        id='child'></iframe>
+
+    <script>
+        window.onload = function () {
+            window.frames[0].postMessage('postMessage', '*')
+        }
+
+        window.addEventListener('message', function (e) {
+            console.log(e.data)
+            document.getElementById('parent').style.color = e.data
+        })
+    </script>
+</body>
+
+</html>

@@ -49,10 +49,20 @@
             console.log('input onkeypress')
         }
 
-        // 键盘事件属性
-        // document.onkeydown = function (event) {
-        //     console.log(event.keyCode)
+        // 键盘事件属性，返回unicode值
+        // document.onkeydown = function (e) {
+        //     e = window.event || e;
+        //     let key = e.keyCode || e.charCode || e.which;
+        //     console.log(key)
         // }
+        
+        // 新方法，e.key直接返回按键的标识符。不是返回unicode值，兼容性不好
+        // document.onkeydown = function(e){
+        //     e = window.event || e;
+        //     let key = e.key;
+        //     console.log(key);
+        // }
+
 
         // 对document添加后，任何时候按下都会触发事件
         // document.onkeydown = function () {

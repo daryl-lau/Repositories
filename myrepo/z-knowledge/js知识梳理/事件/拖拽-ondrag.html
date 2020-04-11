@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .target {
+            width: 500px;
+            height: 500px;
+            background-color: #fff;
+            border: 2px solid black;
+            position: absolute;
+            right: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 拖拽事件必须和拖拽属性一起使用，true表示可以被拖拽，false表示不行，img标签默认是可以被拖拽的 -->
+    <div draggable="true"></div>
+    <div class="target"></div>
+    <script>
+        let oDiv = document.querySelector('div');
+        let target = document.querySelector('.target');
+
+        oDiv.ondragstart = function () {
+            console.log('盒子开始被拖拽');
+        };
+        oDiv.ondrag = function () {
+            console.log('盒子正在被拖拽');
+        };
+        oDiv.ondragend = function () {
+            console.log('盒子拖拽结束');
+        };
+
+
+        target.ondragenter = function () {
+            console.log('拖拽鼠标进入该对象');
+        };
+
+        // 注意，ondragover事件和ondrop冲突
+        target.ondragover = function (e) {
+            e = window.event || e;
+            e.preventDefault();
+            console.log('拖拽鼠标在该对象中移动');
+        };
+
+        target.ondragleave = function () {
+            console.log('拖拽鼠标离开了该对象');
+        };
+
+        target.ondrop = function () {
+            console.log('拖拽鼠标在该对象中松开了');
+            this.appendChild(oDiv)
+        }
+
+    </script>
+</body>
+
+</html>

@@ -9,21 +9,30 @@
 
 <body>
     <div>div1</div>
-    <button>替换div1</button>
+    <div>div2</div>
+    <button>新建替换div1</button>
+    <button>div2替换div1</button>
     <script>
         // replaceChild() 方法可将某个子节点替换为另一个。
         // 新节点可以是文本中已存在的，或者是你新创建的。
+        // 如果是之前已经存在的，那么替换后原来的就没有了，和appendChild()、insertBefore()一样
         // node.replaceChild(newnode,oldnode)
         // 方法需要由子节点的父节点调用
 
-        let oDiv = document.querySelector('div');
-        let oBtn = document.querySelector('button');
+        let oDiv1 = document.querySelectorAll('div')[0];
+        let oDiv2 = document.querySelectorAll('div')[1];
+        let oBtn1 = document.querySelectorAll('button')[0];
+        let oBtn2 = document.querySelectorAll('button')[1];
 
         let newDiv = document.createElement('div');
         newDiv.innerText = '替换后的div';
 
-        oBtn.onclick = function () {
+        oBtn1.onclick = function () {
             document.body.replaceChild(newDiv, oDiv)
+        };
+
+        oBtn2.onclick = function () {
+            document.body.replaceChild(oDiv2, oDiv1)
         }
 
 

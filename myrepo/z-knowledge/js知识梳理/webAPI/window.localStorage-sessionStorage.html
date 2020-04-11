@@ -12,6 +12,7 @@
         // Web 存储 API 提供了 sessionStorage （会话存储） 和 localStorage（本地存储）两个存储对象来对网页的数据进行添加、删除、修改、查询操作。
         // localStorage 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。
         // sessionStorage 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。
+        // 在同一个域中（协议域名端口都相同），本地存储数据是共享的
 
         // localStorage 的优势
         // 1、localStorage 拓展了 cookie 的 4K 限制，为5M。
@@ -24,11 +25,11 @@
         // 4、localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡。
         // 5、localStorage不能被爬虫抓取到。
 
-        // 添加
+        // 添加，如果key重复，则直接覆盖
         window.localStorage.setItem('site', 'www.baihuzi.com');
         window.sessionStorage.setItem('info', '白胡子');
 
-        // 获取
+        // 获取，如果没有则返回null
         console.log(window.localStorage.getItem('site'));   // 'www.baihuzi.com'
         console.log(window.sessionStorage.getItem('info'));   // '白胡子'
 

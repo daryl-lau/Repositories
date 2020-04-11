@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .father {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            height: 120px;
+            padding: 10px;
+            border: 1px solid red;
+        }
+
+        .commens {
+            padding: 10px;
+            border: 1px solid green;
+        }
+
+        .commens div {
+            padding: 5px 8px;
+            border-bottom: 1px dashed #666;
+        }
+
+        .commens div span {
+            /* border: 1px solid #0094ff; */
+            cursor: pointer;
+            float: right;
+            font-weight: bolder;
+        }
+
+        .add {
+            width: 780px;
+            margin: 0 auto;
+            margin-top: 10px;
+            border: 1px solid blue;
+            padding: 10px;
+            padding-bottom: 60px;
+        }
+
+        textarea {
+            display: block;
+            width: 760px;
+            margin: 0 auto;
+            height: 120px;
+            resize: none;
+        }
+
+        input[type="button"] {
+            float: right;
+            padding: 10px 14px;
+            margin-top: 10px;
+            margin-right: 4px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="father">
+        <div class="content">
+            今天去了一个很神奇的地方，看照片能猜出来是哪里吗？<br />
+            今天去了一个很神奇的地方，看照片能猜出来是哪里吗？
+        </div>
+        <div class="commens" id="commens">
+            <div>评论：</div>
+            <!-- <div>测试用的内容，点击删除无效~~~~<span>X</span></div> -->
+        </div>
+    </div>
+    <div class="add">
+        <textarea name="" id="txtComment"></textarea>
+        <!-- 文本域: 提供给用户输入大段文本的标签 -->
+        <input type="button" value="发表" id="btnOk" />
+    </div>
+
+    <script src="../../libs/DataHelper.js"></script>
+    <script>
+
+        let add = document.getElementById('btnOk');
+        let textArea = document.getElementById('txtComment');
+        let commens = document.getElementById('commens');
+
+        let dataHelper = new DataHelper('comments', 'id');
+
+        // 初始化
+        let comments = dataHelper.readData('comments');
+        if (comments != null) {
+            for (let i = 0; i < comments.length; i++) {
+                commens.appendChild(createEle(comments[i]['comment'], comments[i]['id']));
+            };
+        }
+
+        add.onclick = function () {
+            // 获取用户数输入
+            let text = textArea.value.trim();
+            if (text == '') {
+                textArea.value = '';
+                return;
+            }
+
+            // 修改本地存储
+            let res = dataHelper.addData({
+                comment: text
+            })
+
+            // 修改页面
+            commens.appendChild(createEle(text, res['id']));
+            textArea.value = '';
+        }
+
+
+        // 移除事件监听
+        commens.addEventListener('click', function (e) {
+            e = window.event || e;
+            if (e.target.nodeName == 'SPAN') {
+                let id = e.target.parentElement.getAttribute('id');
+                dataHelper.removeDataById(id);
+                commens.removeChild(e.target.parentElement);
+            }
+        }, false);
+
+
+        function createEle(value, id) {
+            let newBox = document.createElement('div');
+            newBox.innerText = value;
+            let close = document.createElement('span');
+            close.innerText = 'X';
+            newBox.appendChild(close);
+            newBox.setAttribute('id', id);
+            return newBox;
+        }
+
+    </script>
+</body>
+
+</html>
