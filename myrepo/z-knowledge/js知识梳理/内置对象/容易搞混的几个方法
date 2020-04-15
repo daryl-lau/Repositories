@@ -1,7 +1,7 @@
 
 数组方法 join 和 字符串方法 split 是相对的，一个是把数组按照某个分隔符组合成字符串，一个是把字符串按照某个分隔符切分成数组
 
-字符串的正则表达式方法有match、replace和search
+字符串的正则表达式方法有match、replac、search和split
 
 数组没有replace方法，替换操作是通过splice方法进行操作
 

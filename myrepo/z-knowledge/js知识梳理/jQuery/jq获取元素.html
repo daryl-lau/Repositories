@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../libs/jQuery/jQuery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // 直接在选择器中筛选
+            $('ul li:eq(0)');           // 获取第0个li
+            $('ul li:first');           // 获取第一个li
+            $('ul li:last');            // 获取最后一个li
+
+            // 筛选方法
+            $('ul li').eq(0);           // 获取第0个li
+            $('ul li').first();         // 获取第一个li
+            $('ul li').last();          // 获取最后一个li
+            $('ul li').slice(0, 3);     // 获取第 0 1 2 个li
+
+            $('ul li').filter('.active');   // 获取带有active类的li，可以是别的选择器
+
+            // 传入函数，如果函数返回true则留下，如果为false，则剔除
+            $('ul li').filter(function () {
+                return this.hasAttribute('key');
+            });
+
+            // not方法效果和filter正好相反
+            $('ul li').not('.active');
+            $('ul li').not(function () {
+                return this.hasAttribute('key');
+            });
+
+            // 根据现有结果集得到另一个结果集
+            $('ul').children();                 // 获取ul下面的所有子元素
+            $('ul').children('[key="1"]');      // 获取ul下面的带有属性key=1的子元素
+
+            $('ul').find('li')                  // 获取ul下面的所有后代li元素
+
+            $('ul').offsetParent();             // 获取祖先元素第一个带有定位的元素,如果没有则返回html
+            $('ul').parent()                    // 获取ul的父元素
+            $('ul').parents()                   // 获取ul的祖先元素
+
+            $('ul li[key]').next();             // 获取下一个相邻元素
+            $('ul li[key]').nextAll();          // 获取下面所有相邻元素
+
+            $('ul li[key]').prev();             // 获取上一个相邻元素
+            $('ul li[key]').prevAll();          // 获取上面所有相邻元素
+
+            $('ul li[key]').siblings();         // 获取所有相邻元素
+
+            // 修改回退结果集
+            // end()方法获得上一个结果集，end()调用的时候，结果集是next()的结果，再往上一级就是$('ul li[key]')
+            $('ul li[key]').next().css('background-color', 'red').end();
+        })
+    </script>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li class="active">4</li>
+        <li>5</li>
+        <li key="1">6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+</body>
+
+</html>

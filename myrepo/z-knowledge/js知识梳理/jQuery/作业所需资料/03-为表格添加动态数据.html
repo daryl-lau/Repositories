@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="js/动态表格.css" />
+    <script src="js/jquery-1.12.2.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 添加数据打开表单
+            $('#j_btnAddData').click(function () {
+                $('#j_mask,#j_formAdd').css('display', 'block');
+            });
+
+            // 关闭表单
+            $('#j_hideFormAdd').click(function () {
+                $('#j_mask,#j_formAdd').css('display', 'none');
+            });
+
+            // 添加数据
+            $('#j_btnAdd').click(function () {
+                let lesson = $('#j_txtLesson').val().trim();
+                if (lesson == '') {
+                    alert('请输入课程名称！');
+                    return;
+                };
+                let school = $('#j_txtBelSch').val().trim();
+                if (school == '') {
+                    alert('请输入课程所属学院！');
+                    return;
+                };
+                let $newEle = $(`<tr>
+                                    <td>${lesson}</td>
+                                    <td>${school}</td>
+                                    <td><a href="javascrip:;" class="get">删除</a></td>
+                                </tr>`);
+                $('#j_tb').append($newEle);
+                $('#j_mask,#j_formAdd').css('display', 'none');
+            });
+
+
+            // 删除数据
+            $('#j_tb').click(function (e) {
+                e = window.event || e;
+                if (e.target.getAttribute('class') == 'get') {
+                    $(e.target).parent().parent().remove();
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div>
+            <input type="button" value="添加数据" id="j_btnAddData" class="btnAdd" />
+        </div>
+        <table width="380px">
+            <thead>
+                <tr>
+                    <th>课程名称</th>
+                    <th>所属学院</th>
+                    <th>已学会</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>JavaScript</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">删除</a></td>
+                </tr>
+                <tr>
+                    <td>css</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">删除</a></td>
+                </tr>
+                <tr>
+                    <td>html</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">删除</a></td>
+                </tr>
+                <tr>
+                    <td>jQuery</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="j_mask" class="mask"></div>
+    <div id="j_formAdd" class="form-add">
+        <div class="form-add-title">
+            <span>添加数据</span>
+
+            <div id="j_hideFormAdd">x</div>
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtLesson">课程名称：</label>
+            <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtBelSch">所属学院：</label>
+            <input class="txt" type="text" id="j_txtBelSch" value="传智播客-前端与移动开发学院">
+        </div>
+        <div class="form-submit">
+            <input type="button" value="添加" id="j_btnAdd">
+        </div>
+    </div>
+
+</body>
+
+</html>

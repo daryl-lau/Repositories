@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 3000px;
+        }
+
+        .father {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background-color: green;
+            ;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+
+        // Element.getClientRects() 方法返回一个指向客户端中每一个盒子的边界矩形的矩形集合。
+        // Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置。
+
+        let oSon = document.querySelector('.son');
+        console.log(oSon.getClientRects());
+        /* DOMRectList
+                length: 1
+            0: DOMRect
+                x: 200
+                y: 200
+                width: 100
+                height: 100
+                top: 200
+                right: 300
+                bottom: 300
+                left: 200
+        */
+
+        console.log(oSon.getBoundingClientRect());
+        /*
+        DOMRect {x: 200, y: 200, width: 100, height: 100, top: 200, …}
+            x: 200
+            y: 200
+            width: 100
+            height: 100
+            top: 200
+            right: 300
+            bottom: 300
+            left: 200
+        */
+
+        window.onscroll = function () {
+            console.log(oSon.getBoundingClientRect().y);
+        }
+    </script>
+</body>
+
+</html>

@@ -5,10 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* li:nth-child(odd) {
+            background-color: red;
+        }
+
+        li:nth-child(even) {
+            background-color: green;
+        } */
+    </style>
 </head>
 
 <body>
     <ul>
+        <button>添加</button>
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -31,6 +41,8 @@
         <li>20</li>
     </ul>
     <script>
+        // 通过js设置的隔行变色，如果新添加了一个子项，需要重新设置一遍，否则新添加的子项不会又隔行变色效果
+        // 隔行变色可以直接通过css来设置，:nth-child(odd)、:nth-child(even)，新添加的子项也会有隔行变色的效果
         let aLi = document.getElementsByTagName('li');
 
         for (let i = 0; i < aLi.length; i++) {
@@ -39,6 +51,14 @@
             } else {
                 aLi[i].style.backgroundColor = '#999999'
             }
+        }
+
+
+        let oBtn = document.querySelector('button');
+        let oUl = document.querySelector('ul');
+        oBtn.onclick = function () {
+            let newLi = document.createElement('li');
+            oUl.appendChild(newLi)
         }
     </script>
 </body>

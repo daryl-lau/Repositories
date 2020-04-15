@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script src="../../libs/jQuery/jQuery.min.js"></script>
+    <script>
+        // jq对象和dom对象不一样，jq对象是一个伪数组
+
+        // jq对象
+        console.log($('div'));
+
+        // dom对象
+        console.log(document.querySelector('div'));
+
+
+        // jq对象转dom对象，通过索引值转换
+        console.log($('div')[0]);
+        console.log($('div').get(0));
+
+        // dom对象转jq对象，直接使用$()包起来即可，传入的一定是dom对象，不会字符串，字符串就是重新查询了
+        console.log($(document.querySelector('div')));;
+    </script>
+</body>
+
+</html>

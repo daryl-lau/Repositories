@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../libs/jQuery/jQuery.min.js"></script>
+</head>
+
+<body>
+    <input type="checkbox">
+    <script>
+        $(function () {
+
+            // 固有属性推荐使用prop()
+            $('input').change(function () {
+                console.log($('input').prop('checked'));
+            })
+
+            // 自定义属性推荐使用attr()
+            $('input').attr('index', '2')
+            console.log($('input').attr('index'));
+
+            // 缓存数据data() 方法可以在指定的元素上存取数据，并不会修改 DOM 元素结构，所以元素上无法查看。一旦页面刷新，之前存放的数据都将被移除。
+            $('input').data('data-index', '999');
+            console.log($('input').data('data-index'));
+
+            // 特殊情况，attr设置的属性，如果是以'data-'开头的，可以使用data()方法获取到，获取的时候只用传入data-后面的数据
+            // 例如：
+            $('input').attr('data-id', '888')
+            console.log($('input').data('id'));     //  888
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../libs/jQuery/jQuery.min.js"></script>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                // 链式调用，把当前的元素设置红色背景，再讲它的所有兄弟元素设置空背景
+                $(this).css('backgroundColor', 'red').siblings().css('backgroundColor', '');
+
+                // 可以通过index()方法直接获取到元素在数组中的索引，不需要原生那种先设置一个属性，再取出来
+                console.log($(this).index());
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、toFixed(n)方法
+        // 需注意，保留n位小数，将数值类型的数据改变成了字符串类型，且会自动四舍五入
+        let num = 3.1415926;
+        let res = num.toFixed(2)       // 保留两位有效数字
+        console.log(res);   // '3.14'
+
+        // 2、向上向下取整，商城计算价格不会亏，肯定是向上取整
+        let num1 = 3.1415926;
+        let res1 = Math.ceil(num1 * 100) / 100;
+        let res2 = Math.floor(num1 * 100) / 100;
+        console.log(res1);  // 3.15
+        console.log(res2);  // 3.14
+
+
+        let num2 = 3.1015926;
+        let res3 = Math.ceil(num2 * 100) / 100;
+        let res4 = Math.floor(num2 * 100) / 100;
+
+        console.log(res3, res4);
+        console.log(res3.toFixed(2));  // '3.11'
+        console.log(res4.toFixed(2));  // '3.10'
+
+    </script>
+</body>
+
+</html>
