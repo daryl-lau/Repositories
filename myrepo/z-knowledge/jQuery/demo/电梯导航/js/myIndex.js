@@ -1,7 +1,7 @@
 $(function () {
     show();
     function show() {
-        if ($(document).scrollTop() >= $('.recommend').offset().top) {
+        if ($(document.scrollingElement).scrollTop() >= $('.recommend').offset().top) {
             $('.fixedtool').fadeIn();
         } else {
             $('.fixedtool').fadeOut();
@@ -11,7 +11,7 @@ $(function () {
 
     $(window).scroll(function () {
         show();
-        let top = $(document).scrollTop();
+        let top = $(document.scrollingElement).scrollTop();
         $('.floor>div').each(function (index, curEle) {
             if (top >= $(curEle).offset().top) {
                 $('.fixedtool li').eq(index).addClass('current').siblings().removeClass('current');
