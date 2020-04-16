@@ -1,0 +1,3 @@
+onresiz事件和onscroll事件都推荐绑定到window上
+
+获取scrollTop 通过document.scrollingElement.scrollTop比较好，可以兼容pc端和移动端

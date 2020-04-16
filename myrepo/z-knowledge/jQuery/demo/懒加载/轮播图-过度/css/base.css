@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+#wrapper {
+    width: 520px;
+    height: 280px;
+    margin: 100px auto;
+    overflow: hidden;
+}
+
+#wrapper #main {
+    position: relative;
+}
+
+#wrapper #main ul {
+    width: 700%;
+}
+
+#wrapper #main ul>li {
+    float: left;
+}
+
+#wrapper #ctl {
+    position: relative;
+}
+
+#wrapper #ctl #btn_prev_next {
+    display: none;
+}
+
+#wrapper #ctl #btn_prev_next .btn-prev {
+    width: 22px;
+    height: 32px;
+    background-image: url("../statics/__sprite.png");
+    background-position: 0 32px;
+    position: absolute;
+    top: 124px;
+    left: 10px;
+}
+
+#wrapper #ctl #btn_prev_next .btn-prev.hover {
+    background-image: url("../statics/hover-prev.png");
+    background-position: 0 0;
+}
+
+#wrapper #ctl #btn_prev_next .btn-next {
+    width: 22px;
+    height: 32px;
+    background-image: url("../statics/__sprite.png");
+    background-position: -78px 0;
+    position: absolute;
+    top: 124px;
+    right: 10px;
+}
+
+#wrapper #ctl #btn_prev_next .btn-next.hover {
+    background-image: url("../statics/hover-next.png");
+    background-position: 0 0;
+}
+
+#wrapper #ctl #btn_bottom {
+    position: absolute;
+    left: 50%;
+    top: 255px;
+}
+
+#wrapper #ctl #btn_bottom li {
+    width: 10px;
+    height: 10px;
+    background-color: #FFFFFF;
+    float: left;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#wrapper #ctl #btn_bottom li.current {
+    background-color: #ff4400;
+}

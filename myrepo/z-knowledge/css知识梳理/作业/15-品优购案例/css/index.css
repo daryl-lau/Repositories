@@ -32,6 +32,10 @@
     display: block;
 }
 
+.banner .center .imgs li a img {
+    width: 100%;
+}
+
 .banner .center .dots {
     position: absolute;
     left: 50%;
@@ -649,6 +653,13 @@
     left: 12px;
 }
 
+.funny .content .ad2 .ad2-t img {
+    /* width: 100%; */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
 .funny-t-img {
     position: absolute;
     right: 0;
@@ -672,6 +683,13 @@
     position: absolute;
     top: 45px;
     left: 12px;
+}
+
+.funny .content .ad2 .ad2-b img {
+    /* width: 100%; */
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 
@@ -722,6 +740,11 @@
     top: 62px;
     left: 45px;
 }
+.funny .content .ad3 .ad3-t img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 
 .funny .content .ad3 .ad3-b {
     height: 159px;
@@ -736,12 +759,24 @@
     position: relative;
 }
 
+.funny .content .ad3 .ad3-b .ad3-b-l img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
 .funny .content .ad3 .ad3-b .ad3-b-r {
     width: 202px;
     height: 100%;
     /* border-right: 1px solid #e4e4e4; */
     float: left;
     position: relative;
+}
+
+.funny .content .ad3 .ad3-b .ad3-b-r img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .funny .content .ad3 .ad3-b .style-funny {

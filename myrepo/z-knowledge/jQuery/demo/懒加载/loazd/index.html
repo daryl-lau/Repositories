@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <style>
+        body{
+            height: 3000px;
+        }
+        img {
+            width: 500px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div>
+        <img class="lozad" src="./img/loading.gif" data-src="http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg" alt=""><br>
+        <img class="lozad"
+            data-src="http://c.hiphotos.baidu.com/zhidao/pic/item/d009b3de9c82d1587e249850820a19d8bd3e42a9.jpg"
+            alt=""><br>
+        <img class="lozad" data-src="http://a4.att.hudong.com/21/09/01200000026352136359091694357.jpg" alt=""><br>
+        <img class="lozad" data-src="http://a0.att.hudong.com/64/76/20300001349415131407760417677.jpg" alt=""><br>
+        <img class="lozad"
+            data-src="http://e.hiphotos.baidu.com/zhidao/pic/item/d62a6059252dd42a1c362a29033b5bb5c9eab870.jpg"
+            alt=""><br>
+        <img class="lozad" data-src="http://a0.att.hudong.com/56/12/01300000164151121576126282411.jpg" alt=""><br>
+        <img class="lozad" data-src="./img/p1.jpg" alt="">
+        <img class="lozad" data-src="./img/p2.jpg" alt="">
+        <img class="lozad" data-src="./img/p3.jpg" alt="">
+        <img class="lozad" data-src="./img/detail_img1.jpg" alt="">
+        <img class="lozad" data-src="./img/detail_img2.jpg" alt="">
+        <img class="lozad" data-src="./img/detail_img3.jpg" alt="">
+    </div>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> -->
+    <script>
+        console.log(111);
+        const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+        observer.observe();
+    </script>
+</body>
+
+</html>
