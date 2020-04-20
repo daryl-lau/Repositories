@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // encodeURIComponent() 和 encodeURI()都可以对uri进行编码和解码，区别是encodeURI()无法编码 : / # & 等特殊字符
+        // 因此直接统一用encodeURIComponent()、decodeURIComponent()就好了
+
+        let uri = 'https://www.baihuzi.com?a&b&c#id=1&哈哈哈';
+        console.log(encodeURIComponent(uri));       // https%3A%2F%2Fwww.baihuzi.com%3Fa%26b%26c%23id%3D1%26%E5%93%88%E5%93%88%E5%93%88
+        console.log(encodeURI(uri));                // https://www.baihuzi.com?a&b&c#id=1&%E5%93%88%E5%93%88%E5%93%88
+
+        let uri_str = 'https%3A%2F%2Fwww.baihuzi.com%3Fa%26b%26c%23id%3D1%26%E5%93%88%E5%93%88%E5%93%88';
+        let uri_str1 = 'https://www.baihuzi.com?a&b&c#id=1&%E5%93%88%E5%93%88%E5%93%88';
+        console.log(decodeURIComponent(uri_str));   // https://www.baihuzi.com?a&b&c#id=1&哈哈哈
+        console.log(decodeURI(uri_str1));           // https://www.baihuzi.com?a&b&c#id=1&哈哈哈
+    </script>
+</body>
+
+</html>

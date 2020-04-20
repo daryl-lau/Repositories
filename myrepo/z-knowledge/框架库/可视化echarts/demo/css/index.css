@@ -1,0 +1,173 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: url(../images/bg.jpg) no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.15;
+}
+
+.viewport {
+    height: 6.7708vw;
+    background: url(../images/logo.png) no-repeat;
+    background-size: contain;
+    display: flex;
+    padding: 4.5833vw 1.0417vw 0;
+}
+
+.column {
+    flex: 3;
+}
+
+.column:nth-child(2) {
+    flex: 4;
+    margin: 1.6667vw 1.0417vw 0;
+}
+
+.panel {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-width: 2.6563vw 1.9792vw 1.0938vw 6.875vw;
+    border-image: url(../images/border.png) 51 38 21 132 round;
+    margin-bottom: 1.0417vw;
+    position: relative;
+}
+
+.panel .inner {
+    position: absolute;
+    top: -2.6563vw;
+    right: -1.9792vw;
+    bottom: -1.0938vw;
+    left: -6.875vw;
+}
+
+.overview {
+    height: 5.7292vw;
+}
+
+.overview .inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.25vw 1.875vw;
+}
+
+.overview .inner .item h4 {
+    font-size: 1.4583vw;
+    color: #ffffff;
+    margin-left: 0.25vw;
+    margin-bottom: 0.4167vw;
+}
+
+.overview .inner .item span {
+    font-size: 0.8333vw;
+    color: #4c9bfd;
+}
+
+
+.monitor {
+    height: 25vw;
+}
+
+.monitor .inner {
+    padding: 1.25vw 0;
+
+}
+
+.monitor .inner .tabs {
+    padding: 0 1.875vw;
+}
+
+.monitor .inner .tabs a {
+    color: #1950c4;
+    padding: 0 1.4063vw;
+    font-size: 0.9375vw;
+}
+
+.monitor .inner .tabs a:first-child {
+    padding-left: 0;
+    border-right: 2px solid #00f2f1;
+}
+
+.monitor .inner .tabs a.active {
+    color: #ffffff;
+}
+
+.monitor .inner .content {
+    flex: 1;
+}
+
+.monitor .inner .content .head {
+    line-height: 1.05;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.625vw 1.875vw;
+    color: #68d8fe;
+    font-size: 0.7292vw;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.05;
+}
+
+.monitor .inner .content .row {
+    line-height: 1.05;
+    padding: 0.625vw 1.875vw;
+    color: #61a8ff;
+    font-size: 0.625vw;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.monitor .icon-dot {
+    position: absolute;
+    left: 0.64vw;
+    opacity: 0;
+}
+
+.monitor .inner .content .row:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #68d8fe;
+}
+
+.monitor .inner .content .row:hover .icon-dot {
+    opacity: 1;
+}
+
+.monitor .marquee-view {
+    height: 18.75vw;
+    overflow: hidden;
+}
+
+@keyframes alertScroll {
+    0% {}
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+.monitor .marquee {
+    animation: alertScroll 15s linear infinite;
+}
+
+.monitor .marquee:hover {
+    animation-play-state: paused;
+}

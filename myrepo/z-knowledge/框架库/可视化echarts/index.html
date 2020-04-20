@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./incubator-echarts-4.5.0/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 快速开始 -->
+    <!-- 1、引入echarts -->
+    <!-- 2、准备一个div盒子，用来绘制图表 -->
+    <div class="box" style="width: 500px;height: 300px; border: 1px solid black;"></div>
+
+
+    <script>
+        // 3、初始化实例
+        let myChart = echarts.init(document.querySelector('.box'));
+
+        // 4、指定图表的配置和数据
+        let option = {
+            title: {
+                text: '销量'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 5、应用配置
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 100px;
+
+            /* 先定义一个透明的边框用来放边框图片 */
+            border: 20px solid transparent;
+
+            /* 
+            第一个参数是边框图片地址 
+            后面的四组数字是切分图片的上右下左长度，没有单位，这样就可以切出四个角，如果四个数值相同，可以合成一个数字
+            最后一个参数是边框的边边（不是角）的平铺方式，用于设置图像边界是否应重复（repeat）、拉伸（stretch）或铺满（round）。
+            */
+            border-image: url(./imgs/border.jpg) 167 167 167 167 / 20px round;
+
+            /* 拆分写法 */
+            /* border-image-source: url("images/border.jpg");
+            border-image-slice: 167 167 167 167;
+            border-image-width: 20px;       // 和定义的边框宽度相等
+            border-image-repeat: round; */
+        }
+
+        #div2 {
+            width: 200px;
+            height: 100px;
+
+            /* 先定义一个透明的边框用来放边框图片 */
+            border: 20px solid transparent;
+
+            /* 宽度需要设置为切分时候的宽度，否则如果不会等距的话，会导致边框图片压缩或失真 */
+            /* 但是这样之后，会导致内容区不在边框的眼睛看到的边框中间，因为各个边框长度不一样，导致不是在中间 */
+            /* 可以通过定位来处理，子盒子通过定位把内容区往外面拉与边框等宽的距离 */
+            border-width: 51px 38px 21px 132px;
+            border-image: url(./imgs/border.png) 51 38 21 132 round;
+            position: relative;
+        }
+
+        .inner {
+            position: absolute;
+            top: -51px;
+            right: -38px;
+            bottom: -21px;
+            left: -132px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">11</div>
+    <div id="div2">
+        <div class="inner">22</div>
+    </div>
+</body>
+
+</html>
