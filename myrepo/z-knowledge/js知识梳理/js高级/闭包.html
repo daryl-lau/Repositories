@@ -33,7 +33,7 @@
             for (var i = 0; i < aBtn.length; i++) {
                 (function (j) {
                     aBtn[j].onclick = function () {
-                        alert(j)
+                        console.log(j)
                     }
                 })(i)
             }
@@ -43,7 +43,7 @@
             (function show() {
                 let a = 111;
                 document.onclick = function () {
-                    alert(a)
+                    console.log(a);
                 }
             })()
 

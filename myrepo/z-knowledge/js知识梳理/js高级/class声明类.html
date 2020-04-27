@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Car {
+            constructor(size, color) {
+                this.size = size;
+                this.color = color;
+            }
+            run() {
+                console.log('I\'m running');
+            }
+        }
+
+        // 如果传入的参数和构造器的参数个数不一样，则未匹配到的为undefined
+        let myCar = new Car('big', 'red');
+        myCar.run();
+
+    </script>
+</body>
+
+</html>

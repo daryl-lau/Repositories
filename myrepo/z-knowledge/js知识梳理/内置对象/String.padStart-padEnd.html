@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // padStart：返回新的字符串，表示用参数字符串从头部（左侧）补全原字符串。（不改变原始数组）
+        // padEnd：返回新的字符串，表示用参数字符串从尾部（右侧）补全原字符串。
+
+        let str = '9';
+        let newStr1 = str.padStart(2, '0');
+        let newStr2 = str.padEnd(2, '0');
+        console.log(newStr1);   // 09
+        console.log(newStr2);   // 90
+    </script>
+</body>
+
+</html>

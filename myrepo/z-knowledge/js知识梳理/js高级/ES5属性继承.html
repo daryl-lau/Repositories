@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father(uname, age) {
+            // this指向父类的实例对象
+            this.uname = uname;
+            this.age = age;
+            // 只要把父类的this指向子类的this既可
+        }
+        function Son(uname, age, score) {
+            // 这里把父类的this指向改变为子类的this，绑定的属性就帮到子类的实例对象上了
+            Father.call(this, uname, age);
+            this.score = score;
+        }
+        Son.prototype.sing = function () {
+            console.log(this.uname + '唱歌')
+        }
+        var obj = new Son('刘德华', 22, 99);
+        console.log(obj.uname);
+        console.log(obj.score);
+        obj.sing();
+    </script>
+</body>
+
+</html>

@@ -9,15 +9,19 @@
 
 <body>
     <!-- label的for指向input的id，当点击label的文字的时候，可以选中，优化用户体验 -->
-    <input type="checkbox" name="style" value="sexy" id="sexy">
+
+    <!-- 复选框name是一样的，标记同一组，否则就当做不同组处理 -->
+    <input type="checkbox" name="style1" value="sexy" id="sexy">
     <label for="sexy">性感的</label>
-    <input type="checkbox" name="style" value="cute" id="cute">
+    <input type="checkbox" name="style2" value="cute" id="cute">
     <label for="cute">可爱的</label>
-    <input type="checkbox" name="style" value="young" id="young">
+    <input type="checkbox" name="style3" value="young" id="young">
     <label for="young">小鲜肉</label>
-    <input type="checkbox" name="style" value="both" id="both">
+    <input type="checkbox" name="style4" value="both" id="both">
     <label for="both">都喜欢</label>
     <br>
+
+    <!-- 单选框的name必须是一样的，这样才能是一组中选择一个，如果不一样那么将会被认为是不同的组，可以同时选中 -->
     <input type="radio" name="marry" value="no" id="no">
     <label for="no">未婚</label>
     <input type="radio" name="marry" value="yes" id="yes">

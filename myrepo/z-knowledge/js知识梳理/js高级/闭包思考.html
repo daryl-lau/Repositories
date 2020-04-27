@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var name = "The Window";
+        var object = {
+            name: "My Object",
+            getNameFunc: function () {
+                return function () {
+                    return this.name;
+                };
+            }
+        };
+        console.log(object.getNameFunc()())         // "The Window"
+
+
+
+        var name = "The Window";
+        var object = {
+            name: "My Object",
+            getNameFunc: function () {
+                var that = this;
+                return function () {
+                    return that.name;
+                };
+            }
+        };
+        // 这里有闭包，that变量保存的是this即object，外面调用的时候that指向的是就是object
+        console.log(object.getNameFunc()())         // "My Object"
+    </script>
+</body>
+
+</html>

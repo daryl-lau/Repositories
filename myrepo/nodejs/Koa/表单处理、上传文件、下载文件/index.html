@@ -14,6 +14,30 @@
 <body>
 <form action="http://localhost:8080/upload" enctype="multipart/form-data" method="post">
     用户名：<input type="text" name="user" title=""><br>
+    <select name="sport" id="sport">
+        <option value="0">请选择一项运动</option>
+        <option value="1">篮球</option>
+        <option value="2">足球</option>
+        <option value="3">乒乓球</option>
+        <option value="4">游泳</option>
+    </select>
+    <br>
+    <input type="checkbox" name="style" value="sexy" id="sexy">
+    <label for="sexy">性感的</label>
+    <input type="checkbox" name="style" value="cute" id="cute">
+    <label for="cute">可爱的</label>
+    <input type="checkbox" name="style" value="young" id="young">
+    <label for="young">小鲜肉</label>
+    <input type="checkbox" name="style" value="both" id="both">
+    <label for="both">都喜欢</label>
+    <br>
+    <input type="radio" name="marry" value="no" id="no">
+    <label for="no">未婚</label>
+    <input type="radio" name="marry" value="yes" id="yes">
+    <label for="yes">已婚</label>
+    <input type="radio" name="marry" value="broken" id="broken">
+    <label for="broken">离婚</label>
+    <br>
     头像：<input type="file" name="tx" title=""><br>
     <input type="submit" name="" title="" value="提交">
 </form>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 静态成员：在构造函数本身上添加的成员称为静态成员，只能由构造函数本身来访问
+        // 实例成员：在构造函数内部创建的对象成员称为实例成员，只能由实例化的对象来访问
+
+        // 我习惯吧静态成员称为类属性，实例成员称为实例属性
+
+        class Person {
+            // 这里定义的都是实例成员
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            say() {
+                console.log(111);
+            }
+        }
+
+        let jerry = new Person('jerry', 18);
+
+        // 这里是静态成员
+        Person.type = '人';
+
+        console.log(Person.type);       // '人'
+        console.log(jerry.type);        // undefined
+
+        // console.log(Person.say());   // 报错：Person.say is not a function
+        console.log(jerry.say());       // 111
+
+
+
+
+
+
+        // 使用ES5语法也是一样的
+        function Person1(uname, age) {
+            this.uname = uname;
+            this.age = age;
+
+            this.say = function () {
+                console.log(123);
+            }
+
+        }
+
+        let obj = new Person1('张三丰', 22);
+        console.log(obj.uname);
+
+        // console.log( Person.uname );
+        Person1.leibie = '人';
+
+        console.log(Person1.leibie);    // '人'
+        console.log(obj.leibie);        // undefined
+
+        // console.log(Person1.say());  // 报错：Person1.say is not a function
+        console.log(obj.say());         // 123
+
+
+    </script>
+</body>
+
+</html>

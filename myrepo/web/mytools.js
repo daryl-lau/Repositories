@@ -341,12 +341,12 @@ function toggleClass(obj, cls) {
 function deepCopy(fromObj, toObj) {
     for (var key in fromObj) {
         var fromValue = fromObj[key];
-        if (!isObj(fromValue)) {
+        if (!(fromValue instanceof Object)) {
             toObj[key] = fromValue;
         } else {
             var tempObj = new fromValue.constructor;
-            deepCopy(fromObj, tempObj);
             toObj[key] = tempObj;
+            deepCopy(fromObj[key], tempObj);
         }
     }
 }

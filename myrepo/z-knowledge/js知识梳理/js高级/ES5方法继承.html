@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father() { }
+
+        Father.prototype.sing = function () {
+            console.log('唱');
+        }
+
+        function Son() { };
+
+        // 这里不能直接把Father的原型对象赋值给Son，这样会导致所有定义的方法会保存两份
+        // Son.prototype = Father.prototype;
+
+
+        // 子类原型对象等于是实例化父类，因为父类实例化之后另外开辟空间，就不会影响原来父类原型对象
+        Son.prototype = new Father()
+        // 注意，这里需要将Son原型对象的constructor属性重新指向Son
+        Son.prototype.constructor = Son;
+
+
+        Son.prototype.jump = function () {
+            console.log('跳');
+        }
+
+        let son = new Son();
+        son.sing()
+        son.jump()
+
+        console.log(Son.prototype);
+        console.log(Father.prototype);
+    </script>
+</body>
+
+</html>

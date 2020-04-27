@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="点击" id='id'>
+    <script>
+        // construcor里面的this指向实例对象。
+        // 方法的this指向调用着者
+        class Btn {
+            constructor(selector) {
+                this.btn = document.querySelector(selector);
+                // 外面的this指向实例对象
+                this.btn.onclick = function () {
+                    // 里面的this指向调用者this.btn
+                    console.log(this);
+                };
+                // 这里同样，两个this都指向实例对象，但是this.consoleThis 函数里面的this指向this.btn
+                this.btn.onclick = this.consoleThis;
+            }
+
+            consoleThis() {
+                console.log(this);
+            }
+        }
+
+        let myBtn = new Btn('#id');
+
+        // console.log(myBtn);
+        // console.log(myBtn.btn);
+
+        // myBtn.consoleThis()
+    </script>
+</body>
+
+</html>

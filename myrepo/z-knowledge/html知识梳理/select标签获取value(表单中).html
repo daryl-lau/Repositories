@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- select中选择option的value值会存放在select标签value属性上，默认是第一个option的值，可以通过colsole.dir()来查看属性 -->
+    <!-- 表单提交会解析称为 ?sport=0&style=sexy&style=cute&marry=no -->
+    <!-- 后再nodejs会解析成为 {sport: '1', style: [ 'sexy', 'cute' ], marry: 'no'} -->
+    <form action="">
+        <select name="sport" id="sport">
+            <option value="0">请选择一项运动</option>
+            <option value="1">篮球</option>
+            <option value="2">足球</option>
+            <option value="3">乒乓球</option>
+            <option value="4">游泳</option>
+        </select>
+        <br>
+        <input type="checkbox" name="style" value="sexy" id="sexy">
+        <label for="sexy">性感的</label>
+        <input type="checkbox" name="style" value="cute" id="cute">
+        <label for="cute">可爱的</label>
+        <input type="checkbox" name="style" value="young" id="young">
+        <label for="young">小鲜肉</label>
+        <input type="checkbox" name="style" value="both" id="both">
+        <label for="both">都喜欢</label>
+        <br>
+        <input type="radio" name="marry" value="no" id="no">
+        <label for="no">未婚</label>
+        <input type="radio" name="marry" value="yes" id="yes">
+        <label for="yes">已婚</label>
+        <input type="radio" name="marry" value="broken" id="broken">
+        <label for="broken">离婚</label>
+        <br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>

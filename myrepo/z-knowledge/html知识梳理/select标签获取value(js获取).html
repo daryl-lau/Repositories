@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- select中选择option的value值会存放在select标签value属性上，默认是第一个option的值，可以通过colsole.dir()来查看属性 -->
+    <select name="sport" id="sport">
+        <option value="0">请选择一项运动</option>
+        <option value="1">篮球</option>
+        <option value="2">足球</option>
+        <option value="3">乒乓球</option>
+        <option value="4">游泳</option>
+    </select>
+
+
+    <script>
+        let oSelect = document.querySelector('#sport');
+        console.dir(oSelect);
+        oSelect.onchange = function () {
+            console.dir(this);
+            console.log(this.value);
+        }
+    </script>
+</body>
+
+</html>

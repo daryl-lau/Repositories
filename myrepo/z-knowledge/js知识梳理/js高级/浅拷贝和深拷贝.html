@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 浅拷贝，拷贝的时候如果是引用数据类型，则仅拷贝引用，不会拷贝数据，那么其中一个数据改变，另外一个会跟着改变
+        let obj = {
+            name: 'jerry',
+            car: ['宝马', '奔驰', '保时捷', '劳斯莱斯'],
+            house: {
+                A: '100w',
+                B: '200w',
+                C: '300w'
+            }
+        }
+
+        let newObj = {}
+        Object.assign(newObj, obj);
+        obj.car[0] = '奥迪';
+        obj.house.A = '100000w'
+        console.log(obj, newObj);
+
+
+
+        // 深拷贝，拷贝的时候如果是引用数据类型，则拷贝真实数据，那么其中一个数据改变，另外一个不会跟着改变
+        // 深拷贝js还没有实现，需要自己写
+        function deepCopy(fromObj, toObj) {
+            for (var key in fromObj) {
+                var fromValue = fromObj[key];
+                if (!(fromValue instanceof Object)) {
+                    toObj[key] = fromValue;
+                } else {
+                    var tempObj = new fromValue.constructor;
+                    deepCopy(fromObj[key], tempObj);
+                    toObj[key] = tempObj;
+                }
+            }
+        }
+
+        let obj1 = {
+            name: 'jerry',
+            car: ['宝马', '奔驰', '保时捷', '劳斯莱斯'],
+            house: {
+                A: '100w',
+                B: '200w',
+                C: '300w'
+            }
+        };
+
+        let newObj1 = {};
+        deepCopy(obj1, newObj1);
+        obj1.car[0] = '奥迪';
+        obj1.house.A = '100000w'
+        console.log(obj1, newObj1);
+
+        // 接收返回值写法
+        function deepCopy1(fromObj) {
+            let toObj = new fromObj.__proto__.constructor;
+            for (var key in fromObj) {
+                var fromValue = fromObj[key];
+                if (!(fromValue instanceof Object)) {
+                    toObj[key] = fromValue;
+                } else {
+                    // var tempObj = new fromValue.constructor;
+                    toObj[key] = deepCopy1(fromObj[key]);
+                }
+            }
+            return toObj;
+        }
+
+        let obj2 = {
+            name: 'jerry',
+            car: ['宝马', '奔驰', '保时捷', '劳斯莱斯'],
+            house: {
+                A: '100w',
+                B: '200w',
+                C: '300w'
+            }
+        };
+
+        let obj3 = [1, 2, 3, [1, 2, 3,], 45, 6];
+
+        let newObj2 = deepCopy1(obj2)
+        obj2.car[0] = '奥迪';
+        obj2.house.A = '100000w'
+        console.log(obj2, newObj2);
+    </script>
+</body>
+
+</html>

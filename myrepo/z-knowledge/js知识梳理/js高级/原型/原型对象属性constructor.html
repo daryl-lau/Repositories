@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        };
+
+        // 原型对象上有个属性constructor，用来指向该原型对象的构造函数
+        // 这里指向的就是Person构造函数
+        console.log(Person.prototype.constructor);
+
+        // 可以通过Person.prototype.run = function(){}的方式添加方法
+        // 以这种方式创建方法的话，原型对象上其中有个自带的属性constructor，用来指向原型对象的构造函数
+        Person.prototype.sing = function () {
+            console.log('sing');
+        }
+        Person.prototype.jump = function () {
+            console.log('jump');
+        }
+        console.log(Person.prototype);
+
+        // 另外一种创建方法的方式，这种方式创建会覆盖原有的原型对象，且原型对象上的constructor属性也会没有
+        // 所以必须重新将constructor指向构造函数
+        Person.prototype = {
+            rap: function () {
+                console.log('rap');
+            },
+            basketball: function () {
+                console.log('basketball');
+            },
+            // 重新指向构造函数
+            constructor: Person,
+        }
+        console.log(Person.prototype);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

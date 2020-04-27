@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        let jerry = new Person('jerry', 18);
+
+        // Person.prototype指向Person构造函数的原型对象
+        // jerry.__proto__也指向Person构造函数的原型对象
+
+        // 原型对象也是对象，也有__proto__方法，原型对象的原型对象是Object
+        console.log(Person.prototype.__proto__);
+
+        // Object原型对象的构造函数是Object()构造函数
+        console.log(Person.prototype.__proto__.constructor);
+
+        // 在往上找Object原型对象的原型对象，是null，这个就是原型链的顶端，并不是无限下去的
+        console.log(Person.prototype.__proto__.__proto__);
+
+
+        // 当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。
+        // 如果没有就查找它的原型（也就是__proto__指向的prototype 原型对象）。
+        // 如果还没有就查找原型对象的原型（Object的原型对象）。
+        // 依此类推一直找到Object 为止（null）。
+        // __proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。
+
+    </script>
+</body>
+
+</html>

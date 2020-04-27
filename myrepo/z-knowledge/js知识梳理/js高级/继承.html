@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class Father {
+        //     constructor(name, age) {
+        //         this.name = name;
+        //         this.age = age;
+        //     }
+        //     run() {
+        //         console.log('I\'m running, by father');
+        //     }
+        // }
+
+        // class Son extends Father {
+        //     constructor(name, age, birth) {
+        //         super(name, age);
+        //         this.birth = birth;
+        //     };
+        //     run() {
+        //         super.run();
+        //     }
+        //     fly() {
+        //         console.log('I\'m flying');
+        //     }
+        // }
+
+        // let son = new Son('jerry', 18, '2000');
+        // console.log(son.name);
+        // console.log(son.age);
+        // son.run();
+
+        class sumCalculator {
+            constructor(num1, num2) {
+                this.num1 = num1;
+                this.num2 = num2;
+            };
+            sum() {
+                return this.num1 + this.num2;
+            }
+            cheng() {
+                return this.num1 * this.num2;
+            }
+        }
+
+        let cal = new sumCalculator(1, 2);
+        console.log(cal.sum());;
+
+
+        // super关键字用于访问和调用对象父类上的函数。可以调用父类的构造函数，也可以调用父类的普通函数
+        class sumReduceCalculator extends sumCalculator {
+            constructor(num1, num2) {
+                super(num1, num2);
+            };
+            sum() {
+                return super.sum()
+            };
+            reduce() {
+                return this.num1 - this.num2;
+            }
+        }
+
+        let cal2 = new sumReduceCalculator(3, 4);
+        console.log(cal2);
+        console.log(cal2.sum());
+        console.log(cal2.reduce());
+
+        // 如果子类中没有方法，会向父类中去找，就近原则
+        console.log(cal2.cheng());
+
+        // 当子类没有constructor的时候可以随意用父类的，但是如果子类也含有的话，constructor会返回实例，this的指向不同，不可以再直接使用父类的东西
+        class son extends sumCalculator { };
+        let cal3 = new son(10, 10);
+        console.log(cal3.sum());
+
+    </script>
+</body>
+
+</html>
