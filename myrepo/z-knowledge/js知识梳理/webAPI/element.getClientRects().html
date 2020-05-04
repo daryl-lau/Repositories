@@ -20,7 +20,7 @@
             height: 300px;
             position: relative;
             background-color: green;
-            ;
+            margin: 50px;
         }
 
         .son {
@@ -47,30 +47,40 @@
 
         let oSon = document.querySelector('.son');
         console.log(oSon.getClientRects());
+
+        // x：元素左侧相对于可视区的像素值
+        // y：元素上侧相对于可视区的像素值
+        // bottom：元素底部相对于可视区的像素值
+        // top：元素顶部相对于可视区的像素值
+        // width：元素宽度
+        // height：元素高度
+        // left：元素左边界距离可视区的像素值
+        // right：元素右边界距离可视区的像素值
+
         /* DOMRectList
                 length: 1
             0: DOMRect
-                x: 200
-                y: 200
-                width: 100
+                bottom: 350
                 height: 100
-                top: 200
-                right: 300
-                bottom: 300
-                left: 200
+                left: 250
+                right: 350
+                top: 250
+                width: 100
+                x: 250
+                y: 250
         */
 
         console.log(oSon.getBoundingClientRect());
         /*
         DOMRect {x: 200, y: 200, width: 100, height: 100, top: 200, …}
-            x: 200
-            y: 200
-            width: 100
+            bottom: 350
             height: 100
-            top: 200
-            right: 300
-            bottom: 300
-            left: 200
+            left: 250
+            right: 350
+            top: 250
+            width: 100
+            x: 250
+            y: 250
         */
 
         window.onscroll = function () {

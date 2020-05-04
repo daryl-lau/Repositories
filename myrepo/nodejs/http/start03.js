@@ -14,7 +14,7 @@ http.createServer((req, res)=>{
     // 下面这样输出会报错，因为第一个参数必须要是字符串类型，所以需要使用util.inspect()方法将对象转换成字符串
     // res.write(url.parse(req.url, true).host);
 
-    // util是工具模块，util.inspect()方法可以将对象转换为字符串，常用于调试和错误我输出；
+    // util是工具模块，util.inspect()方法可以将对象转换为字符串，常用于调试和错误输出；
    res.write(util.inspect(url.parse(req.url, true)));
    res.end()
 }).listen(3000);

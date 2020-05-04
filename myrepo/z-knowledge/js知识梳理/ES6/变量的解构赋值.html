@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 下面为了避免变量重复赋值，则全部加上{}块级作用域
+
+        // 数组的结构赋值
+        {
+            let [a, b, c] = [1, 2, 3];
+            console.log(a, b, c);       // 1, 2, 3
+        }
+
+        // 位置对应即可
+        {
+            let [a, , c] = [1, 2, 3, 4];
+            console.log(a, c);        // 1, 3
+        }
+
+        // 不完全解构，即等号左边的模式，只匹配一部分的等号右边的数组。这种情况下，解构依然可以成功。
+        {
+            let [a] = [1, 2, 3];
+            console.log(a);             // 1
+
+            let [a1, [b1], c1] = [1, [2, 3], 4]
+            console.log(a1, b1, c1);    // 1, 2, 4
+        }
+
+        // ...延展操作符
+        {
+            let [a, b, ...c] = [1, 2, 3, 4, 5];
+            console.log(a, b, c);       // 1, 2, [3, 4, 5]
+        }
+
+        // 解构失败，即为undefined
+        {
+            let [a, b] = [1];
+            console.log(a, b);          // 1, undefined
+        }
+
+        // 默认值，当解构失败的时候，就传入默认值
+        {
+            let [a = 'a', b = 'b'] = [1]
+            console.log(a, b);          // 1 "b"
+        }
+    </script>
+</body>
+
+</html>

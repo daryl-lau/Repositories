@@ -13,18 +13,19 @@ export default导出：
 const Programmer = {name: 'UncleFirefly',age:25}
 export default Programmer
 
-export default导出对应的导入：
+export default 导出对应的导入：
 //b.js
 import Programmer from './a.js'
-## 引入是不需要加{}
+## 引入时不需要加{}
 
 
 第二种用法
 export导出：
 
 //a.js
-const uncle = {name: 'UncleFirefly',age:25}
-const aunt = {name: 'AuntFirefly',age:25}
+export const uncle = {name: 'UncleFirefly',age:25}
+export const aunt = {name: 'AuntFirefly',age:25}
+
 export {uncle, aunt}
 
 export default导出对应的导入：
@@ -51,6 +52,7 @@ console.log(module)
 const uncle = {name: 'UncleFirefly',age:25}
 const aunt = {name: 'AuntFirefly',age:25}
 export {uncle, aunt}
+console.log(module)
 /*
 //打印结果
 {exports: {aunt:{age:25,name:'AuntFirefly'},uncle:{age:25,name:'UncleFirefly'}, hot:{...}}

@@ -22,16 +22,12 @@
         // exec() 方法用于检索字符串中的正则表达式的匹配。
         // 该函数返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。
         // 如果输出方式log，控制台输出的是数组，如下所示
-        console.log(/w/g.exec('hello, world'));   // ["o", index: 4, input: "hello, world", groups: undefined]
+        console.log(/w/g.exec('hello, world'));   // ["w", index: 7, input: "hello, world", groups: undefined]
         console.log(/k/g.exec('hello, world'));   // null
 
         // 如果输出方式是alert()或document.write();则输出的是匹配到的值，如果没有匹配到值，则输出null
         alert(/he/g.exec('hello, world'));   // alert的结果是he
         document.write(/wo/g.exec('hello, world')); // 页面显示wo
-
-
-
-
 
 
 
@@ -73,13 +69,14 @@
             ? 匹配前一个字符0个或1个，同 {0,1}
 
         [] 只能匹配一个字符，不可能匹配出两个
-            1、任何一个  [abc]
-            2、范围      [0-9a-zA-Z]
-            3、排除      [^a]
+            1、任何一个  [abc]          abc中任意一个
+            2、范围      [0-9a-zA-Z]    0-9，a-z，A-Z中任意一个
+            3、排除      [^abc]         除了abc之外的任意一个
 
         修饰符
             ^ 以...开头
             $ 以...结尾
+            ^$同时使用，进行精确匹配，^abc$ 仅能匹配abc，abcabc都不行
 
         或
             |   通常需要提升优先级 /\.(jpg|png|gif)$/

@@ -13,13 +13,11 @@ rs.on('data', (data)=>{
     ws.write(data);
 });
 
+
 rs.on('error', (error)=>{
     console.log(error);
 });
 
-rs.on('finish', ()=>{
-    console.log('finish')
-});
 
 rs.once('open', ()=>{console.log('读入通道已开启')});
 rs.once('close', ()=>{console.log('读入通道已关闭')});

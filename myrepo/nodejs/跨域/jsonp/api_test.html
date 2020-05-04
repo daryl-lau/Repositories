@@ -1,99 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title></title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
 </head>
+
 <body>
-<!--enctype="multipart/form-data"-->
-<form id="form_id" action="http://localhost:3000/upload" method="post" onsubmit="return false">
-    id：<input id="query" type="text" name="username" title="" required><br>
-    <!--<button type="submit">提交</button>-->
-    <input id="sub" type="submit" name="submit" title="">
-</form>
+    <!--enctype="multipart/form-data"-->
+    <form id="form_id" action="http://localhost:3000/upload" method="post" onsubmit="return false">
+        id：<input id="query" type="text" name="username" title="" required><br>
+        <!--<button type="submit">提交</button>-->
+        <input id="sub" type="submit" name="submit" title="">
+    </form>
 
-<script src="../../project/p1/public/js/jquery-3.3.1.js"></script>
-<script src="../../project/p1/public/js/ajax封装.js"></script>
-<script src="./jsonp封装.js"></script>
+    <script src="../../project/p1/public/js/jquery-3.3.1.js"></script>
+    <script src="../../project/p1/public/js/ajax封装.js"></script>
+    <script src="./jsonp封装.js"></script>
 
-<!--<script>-->
-<!--function getDataa(dataa) {-->
-<!--console.log(dataa);-->
-<!--}-->
-<!--</script>-->
-<!--<script src="http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e&callback=getDataa"></script>-->
-<!--<script></script>-->
+    <!--<script>-->
+    <!--function getDataa(dataa) {-->
+    <!--console.log(dataa);-->
+    <!--}-->
+    <!--</script>-->
+    <!--<script src="http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e&callback=getDataa"></script>-->
+    <!--<script></script>-->
 
-<script>
-    // var formID = document.getElementById('form_id');
-    //
-    // $('form').on('submit', function (e) {
-    //     var formData = new FormData(formID);
-    //     $.ajax({
-    //         url: $(this).attr('action'),
-    //         type: $(this).attr('method'),
-    //         data: formData,
-    //         processData: false,
-    //         contentType: false,
-    //         success: function (data) {
-    //             if (data.status === 200) {
-    //                 alert(data.info)
-    //                 window.location.href = '/form'
-    //             }
-    //         }
-    //     })
-    // })
+    <script>
+        // var formID = document.getElementById('form_id');
+        //
+        // $('form').on('submit', function (e) {
+        //     var formData = new FormData(formID);
+        //     $.ajax({
+        //         url: $(this).attr('action'),
+        //         type: $(this).attr('method'),
+        //         data: formData,
+        //         processData: false,
+        //         contentType: false,
+        //         success: function (data) {
+        //             if (data.status === 200) {
+        //                 alert(data.info)
+        //                 window.location.href = '/form'
+        //             }
+        //         }
+        //     })
+        // })
 
-    // window.onload = function () {
-    //     var sub = document.getElementById('sub');
-    //     sub.addEventListener('click', function () {
-    //         var q = document.getElementById('query').value;
-    //         var obj = {
-    //             id: q
-    //         };
-    //         ajax.ajaxRequest('http://localhost:3000/api/test', obj, function (xhr) {
-    //             console.log(xhr.responseText)
-    //         }, function () {
-    //
-    //         })
-    //     })
-    // }
+        // window.onload = function () {
+        //     var sub = document.getElementById('sub');
+        //     sub.addEventListener('click', function () {
+        //         var q = document.getElementById('query').value;
+        //         var obj = {
+        //             id: q
+        //         };
+        //         ajax.ajaxRequest('http://localhost:3000/api/test', obj, function (xhr) {
+        //             console.log(xhr.responseText)
+        //         }, function () {
+        //
+        //         })
+        //     })
+        // }
 
-    JSONP.request({
-        url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
-        data: '',
-        success: function (data) {
-            console.log(data)
-        }
-    });
         JSONP.request({
-        url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
-        data: '',
-        success: function (data) {
-            console.log(data)
-        }
-    });
+            url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
+            data: '',
+            success: function (data) {
+                console.log(data)
+            }
+        });
         JSONP.request({
-        url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
-        data: '',
-        success: function (data) {
-            console.log(data)
-        }
-    });
+            url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
+            data: '',
+            success: function (data) {
+                console.log(data)
+            }
+        });
         JSONP.request({
-        url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
-        data: '',
-        success: function (data) {
-            console.log(data)
-        }
-    })
-</script>
+            url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
+            data: '',
+            success: function (data) {
+                console.log(data)
+            }
+        });
+        JSONP.request({
+            url: 'http://localhost:3000/api/test?id=5cc0375bbbc3e4267023228e',
+            data: '',
+            success: function (data) {
+                console.log(data)
+            }
+        })
+    </script>
 </body>
+
 </html>
