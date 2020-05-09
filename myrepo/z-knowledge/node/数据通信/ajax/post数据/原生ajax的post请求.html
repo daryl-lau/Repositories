@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+    用户名：<input type="text" name="username" class="username"><br>
+    密码：<input type="text" name="password" class="password"><br>
+    手机号：<input type="text" name="phone" class="phone"><br>
+    <button id="send">send</button>
+    <script>
+
+        window.addEventListener('load', function (e) {
+
+            var btn = document.getElementById('send');
+            btn.addEventListener('click', function () {
+
+                let username = document.querySelector('.username').value;
+                let password = document.querySelector('.password').value;
+                let phone = document.querySelector('.phone').value;
+
+                // 1、创建XMLHttpRequest对象
+                var xhr;
+                if (window.XMLHttpRequest) {
+                    xhr = new XMLHttpRequest();
+                } else {
+                    xhr = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+
+                // 2、准备发送
+                /*
+                    参数1：请求方式（get/post）
+                    参数2：请求url
+                    参数3：是否异步，只能用true，否则浏览器警告
+                 */
+                xhr.open('post', 'http://localhost:3002/addUser', true);
+
+                // 需要特别注意的是，get请求会默认给我们设置一个请求头"application/x-www-form-urlencoded"
+                // 但是post请求不会给我们设置，需要我们自己设置
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                // 如果post数据中有文件或视频等文件,需要设置为multipart/form-data
+                // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+
+                // 3、发送请求,当请求方式是get的时候，send里面是空的，传入的参数都是放在请求的url里面996的，?a=12&b=5这种，
+                // 如果是post，则send里面需要传入参数，name1=value1&name2=value2格式
+                xhr.send(`username=${username}&password=${password}&phone=${phone}`);
+
+                // 4、监听服务器响应，一旦服务器响应回来之后，就会执行这个函数
+                xhr.onreadystatechange = function () {
+                    // 5、处理响应数据
+                    if (xhr.readyState === 4) {  //代表服务器已经给了响应，不代表响应成功
+                        if (xhr.status === 200) {
+                            console.log(xhr.response);
+                        }
+                    }
+                };
+            });
+        });
+    </script>
+</body>
+
+</html>

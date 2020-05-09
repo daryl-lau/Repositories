@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="file" name="img" id="files"><br>
+        <img src="" alt=""><br>
+        <input type="submit" value="提交">
+    </form>
+    <script>
+        document.querySelector('#files').onchange = function () {
+            let form = document.querySelector('form');
+            let formData = new FormData(form)
+            let xhr = new XMLHttpRequest();
+            xhr.open('post', 'http://localhost:3002/uploadFile');
+            xhr.send(formData);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if(xhr.status == 200){
+                        let res = JSON.parse(xhr.responseText);
+                        console.log(res);
+                        document.querySelector('img').src = 'http://localhost:3002/images/' + res.img;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

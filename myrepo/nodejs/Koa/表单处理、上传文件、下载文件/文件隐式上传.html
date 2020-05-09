@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../z-knowledge/libs/jQuery/jQuery.min.js"></script>
+</head>
+
+<body>
+    <form action="">
+        <input type="file" name="tx"><br>
+        <img src="" alt=""><br>
+        <input id='submit' type="button" value="提交">
+    </form>
+</body>
+<script>
+    $('input[type=file]').on('change', function () {
+        console.log(this.files[0].name);
+        let formData = new FormData(document.querySelector('form'));
+        $.ajax({
+            method: 'post',
+            url: 'http://localhost:8080/upload',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                window.data = data;
+                $('img').attr('src', `http://localhost:8080/temp/${data.imgName}`)
+            }
+        })
+    });
+
+    $('#submit').on('click', function () {
+        console.log(data);
+        $.ajax({
+            method: 'post',
+            url: 'http://localhost:8080/submit',
+            data: data,
+            dataType: 'json',
+            success: function (res) {
+                if (res.code == 200) {
+                    alert(res.msg)
+                }
+            }
+        })
+    })
+</script>
+
+</html>

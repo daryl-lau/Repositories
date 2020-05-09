@@ -1,0 +1,98 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hero - Admin</title>
+    <link rel="stylesheet" href="../styles/bootstrap.css">
+    <style>
+        .hero-list img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="page-header container">
+            <h1>王者荣耀 <small>英雄管理器</small></h1>
+        </div>
+    </header>
+    <div class="container hero-list">
+        <form>
+            <input type="hidden" name='id' value="{{id}}">
+            <input type="hidden" name="img" id="img1" value="{{img}}">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>姓名：</td>
+                        <td><input type="text" name="name" value="{{name}}"></td>
+                    </tr>
+                    <tr>
+                        <td>性别：</td>
+                        <td>
+                            {{if gender=='男'}}
+                            <input id="nan" name="gender" value="男" type="radio" checked><label for="nan">男</label>
+                            <input name="gender" value="女" type="radio" id="nv"><label for="nv">女</label>
+                            {{else}}
+                            <input id="nan" name="gender" value="男" type="radio"><label for="nan">男</label>
+                            <input name="gender" value="女" type="radio" id="nv" checked><label for="nv">女</label>
+                            {{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>头像：</td>
+                        <td><img src="/images/{{img}}" alt="" id="photo" width="100">
+                            <input type="file" id="img"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" id="sub" value="编辑"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $('#img').on('change', () => {
+            var formdata = new FormData()
+            // 获取图片数据的方式需要使用原生方式
+            formdata.append('img', document.querySelector('#img').files[0])
+            $.ajax({
+                type: 'post',
+                url: '/uploadFile',
+                dataType: 'json',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: (result) => {
+                    console.log(result)
+                    if (result.code === 200) {
+                        $('#photo').attr('src', '/images/' + result.img)
+                        $('#img1').val(result.img)
+                    }
+                }
+            })
+        })
+
+        // 实现编辑提交
+        $("#sub").on('click',() =>{
+            $.ajax({
+                url:'/edit',
+                type:'post',
+                data:$('form').serialize(),
+                dataType:'json',
+                success:(result) => {
+                    console.log(result)
+                    if(result.code == 200){
+                        alert(result.msg)
+                        location.href='/'
+                    }else{
+                        alert(result.msg) 
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

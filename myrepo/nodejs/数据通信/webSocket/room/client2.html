@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+
+    <!--客户端需要引入服务器端的socket.io， ws自动处理，客户端只需引入-->
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+
+</head>
+
+<body>
+    房间号：<input type="text" id="room">
+    <button id="con">连接</button>
+    <button id="send">发送</button>
+    <script>
+        let con = document.querySelector('#con');
+        let send = document.querySelector('#send');
+
+        let sock;
+        let roomNumber;
+        con.onclick = function () {
+            roomNumber = document.querySelector('#room').value;
+            // 建立ws连接，协议是ws，而不是http，并且使用ws没有跨域问题
+            sock = io.connect('ws://localhost:8080/');
+            sock.on('gb', gb => {
+                console.log(gb);
+            })
+            sock.emit('joinRoom', { roomNumber: roomNumber }, function(data){console.log(data);})
+        }
+
+        // 向服务端发送数据，同样有两个方法，一个emit一个on，作用和服务端相同，一个用于发送数据，一个用于接收数据
+        send.onclick = function () {
+            // 这个'msg'的名字，需要客户端与服务端保持一致，否则无法接收
+            sock.emit('msg', { roomNumber: roomNumber, msg: '消息来自client2' });
+        }
+
+    </script>
+</body>
+
+</html>

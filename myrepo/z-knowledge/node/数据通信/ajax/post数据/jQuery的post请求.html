@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <script src="../../../../libs/jQuery/jQuery.min.js"></script>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+    用户名：<input type="text" name="username" class="username"><br>
+    密码：<input type="text" name="password" class="password"><br>
+    手机号：<input type="text" name="phone" class="phone"><br>
+    <button id="send">send</button>
+    <script>
+        $(function () {
+            $('#send').click(function () {
+                let username = $('.username').val();
+                let password = $('.password').val();
+                let phone = $('.phone').val();
+                $.ajax({
+                    method: 'post',
+                    url: 'http://localhost:3002/addUser',
+                    data: { username: username, password: password, phone: phone },
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

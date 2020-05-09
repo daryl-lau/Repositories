@@ -40,8 +40,8 @@ Promise.all([
             console.log(`${index}, ${value.toString()}`)
         })
     },
-    (res) => {
-        console.log('错了');
-        console.log(res)
-    }
-);
+        (res) => {
+            console.log('错了');
+            console.log(res)
+        }
+    );

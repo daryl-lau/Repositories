@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+<body>
+<!--FormData主要处理文件等二进制数据的上传，get、post请求方式都可使用-->
+
+<div id="div1">
+    用户：<input type="text" id="user"><br>
+    密码：<input type="password" id="pass"><br>
+    文件：<input type="file" id="filename"><br>
+    <input type="button" value="提交" id="btn1">
+</div>
+
+
+</body>
+<script>
+
+    let oBtn = document.getElementById('btn1');
+    oBtn.onclick = function () {
+        let formdata = new FormData();
+        formdata.append('username', document.getElementById('user').value);
+        formdata.append('password', document.getElementById('pass').value);
+
+        // 文件类型由于前台可以传递多个，这里需要选择添加的文件，如果所有的都要添加，则循环进行添加
+        formdata.append('file', document.getElementById('filename').files[0]);
+
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('post', "http://localhost:8080/");
+        xhr.send(formdata);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    alert('成功')
+                } else {
+                    alert('失败')
+                }
+            }
+        };
+    };
+
+</script>
+</html>

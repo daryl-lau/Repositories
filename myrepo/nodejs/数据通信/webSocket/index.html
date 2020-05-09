@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title></title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
@@ -19,14 +20,17 @@
 
         // 向服务端发送数据，同样有两个方法，一个emit一个on，作用和服务端相同，一个用于发送数据，一个用于接收数据
         // 这个'data1'的名字，需要客户端与服务端保持一致，否则无法接收
-        sock.emit('data1', 1, 2, 3);
+        // emit可以传一个回调函数
+        sock.emit('data1', 1, 2, 3, function (data) { console.log(data); });
 
-        sock.on('time', time=>{
+        sock.on('time', time => {
             console.log(time);
         })
     </script>
 </head>
+
 <body>
 
 </body>
+
 </html>

@@ -1,0 +1,18 @@
+﻿[
+    {
+        "img":"/images/0.jpg",
+        "name":"张三"
+    },
+    {
+        "img":"/images/1.jpg",
+        "name":"李四"
+    },
+    {
+        "img":"/images/2.jpg",
+        "name":"王五"
+    },
+    {
+        "img":"/images/3.jpg",
+        "name":"赵六"
+    }
+]

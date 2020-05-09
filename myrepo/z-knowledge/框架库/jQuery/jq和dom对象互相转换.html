@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,6 +22,11 @@
 
         // jq对象
         console.log($('div'));
+
+        // jq对象事件函数里面的this是相应的dom对象
+        $('div').on('click', function () {
+            console.log(this);
+        })
 
         // dom对象
         console.log(document.querySelector('div'));

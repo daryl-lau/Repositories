@@ -9,7 +9,7 @@
         var paramObj = params['paramObj'];
         var timeout = params['timeout'];
 
-        // 1.创建XMLHttpRequest对象 (找到一个电话)
+        // 1.创建XMLHttpRequest对象
         var xhr;
         if (window.XMLHttpRequest) {
             xhr = new XMLHttpRequest();

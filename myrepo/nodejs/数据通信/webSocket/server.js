@@ -16,13 +16,20 @@ ws.on('connection', sock => {
     // 发送数据  sock.emit('name', data)， 发送的数据保持其原有的数据类型，不会发生改变，客户端发送过来的也是一样
     // 发送和接收的名字需要客户端与服务端保持一致，否则无法接收
     // sock.emit();
+    console.log(sock.id);
+
+    sock.emit('sid', sock.id);
+
+    // 广播信息除了发出的客户端之外，其他客户端能接受，自己不会接受到
+    sock.broadcast.emit('gb', { msg: '这是一条广播信息' });
     setInterval(function () {
         sock.emit('time', new Date().getTime());
     }, 1000);
 
     // 接收数据，sock.on('name', (data)=>{})
     // sock.on();
-    sock.on('data1', (a, b, c) => {
-        console.log(a, b, c, a + b + c);
+    sock.on('data1', (a, b, c, cb) => {
+        console.log([a, b, c, a + b + c]);
+        cb([a, b, c, a + b + c])
     })
 });

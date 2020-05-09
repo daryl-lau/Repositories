@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+    <items>
+        <item>
+            <img>/images/0.jpg</img>
+            <name>张三</name>
+        </item>
+        <item>
+            <img>/images/1.jpg</img>
+            <name>李四</name>
+        </item>
+        <item>
+            <img>/images/2.jpg</img>
+            <name>王五</name>
+        </item>
+        <item>
+            <img>/images/4.jpg</img>
+            <name>赵六</name>
+        </item>
+    </items>
+</root>

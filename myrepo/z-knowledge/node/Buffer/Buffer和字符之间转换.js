@@ -1,6 +1,8 @@
 
 // 将字符串转换为buffer，默认字符集是utf-8，可以省略不写
 let bufferStr = Buffer.from('天不生我李淳罡，剑道万古如长夜', 'utf-8');
+
+// buffer都是二进制数据，但打印出来是16进制的格式，只是为了好看一点，实际上还是二进制数据
 console.log(bufferStr);
 console.log(bufferStr.toString('utf-8'));   // 天不生我李淳罡，剑道万古如长夜s
 

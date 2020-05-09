@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./template-web.js"></script>
+</head>
+
+<body>
+    <div></div>
+
+    <script type="text/template" id="temp">
+        <ul>
+            <!-- 模板里面引用的数据对象是传入数据的属性，而不是整个对象 -->
+            <!-- 是有当渲染确定值得时候使用<%= %> ，其他js语法类的代码使用<% %>-->
+            <% for (let i = 0; i < userList.length; i++) { %>
+                <li>姓名：<%=userList[i].name%> 年龄：<%=userList[i].age%></li>
+            <% } %>
+        </ul>
+    </script>
+
+    <script>
+        let obj = { userList: [{ name: 'jerry', age: 18 }, { name: 'tom', age: 20 }] };
+        // 传入的数据只能是对象，因为模板里拿到的值都是对象的属性，而不是数据本身
+        let res = template('temp', obj)
+        console.log(res);
+        document.querySelector('div').innerHTML = res;
+    </script>
+</body>
+
+</html>

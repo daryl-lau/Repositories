@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../../libs/jQuery/jQuery.min.js"></script>
+</head>
+
+<body>
+    <input type="text" name="name"><br>
+    <button id="send">send</button>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                let username = $('input').val();
+                $.ajax({
+                    method: 'get',
+                    url: 'http://localhost:3002/validataUserName',
+                    data: { name: username },
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
