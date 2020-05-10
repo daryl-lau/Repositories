@@ -10,15 +10,18 @@
 
 <body>
     <form action="">
-        <input type="file" name="tx"><br>
+        名字:<input type="text" name="name"><br>
+        <input type="file"><br>
         <img src="" alt=""><br>
+        <input type="hidden" name="imgName" class="imgName">
         <input id='submit' type="button" value="提交">
     </form>
 </body>
 <script>
     $('input[type=file]').on('change', function () {
-        console.log(this.files[0].name);
-        let formData = new FormData(document.querySelector('form'));
+        console.log(this.files[0]);
+        let formData = new FormData();
+        formData.append('img', this.files[0])
         $.ajax({
             method: 'post',
             url: 'http://localhost:8080/upload',
@@ -26,18 +29,18 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                window.data = data;
+                console.log(data);
+                $('.imgName').val(data.imgName)
                 $('img').attr('src', `http://localhost:8080/temp/${data.imgName}`)
             }
         })
     });
 
     $('#submit').on('click', function () {
-        console.log(data);
         $.ajax({
             method: 'post',
             url: 'http://localhost:8080/submit',
-            data: data,
+            data: $('form').serialize(),
             dataType: 'json',
             success: function (res) {
                 if (res.code == 200) {

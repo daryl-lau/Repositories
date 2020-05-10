@@ -44,6 +44,7 @@ router.post('/upload', async ctx => {
 
 router.post('/submit', async ctx => {
     ctx.set('Access-Control-Allow-Origin', '*');
+    console.log(ctx.request.fields);
     let filename = ctx.request.fields.imgName;
     let readStream = fs.createReadStream('./static/temp/' + filename);
     let writeStream = fs.createWriteStream('./static/upload/' + filename);

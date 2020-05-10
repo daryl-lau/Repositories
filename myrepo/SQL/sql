@@ -1,0 +1,7 @@
+
+
+DISTINCT去重
+SELECT DISTINCT country FROM Websites;
+
+AND & OR 运算符用于基于一个以上的条件对记录进行过滤。
+SELECT * FROM Websites WHERE alexa > 15 AND (country='CN' OR country='USA');
