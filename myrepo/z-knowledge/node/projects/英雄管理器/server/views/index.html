@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hero - Admin</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/template-web.js"></script>
+    <style>
+        .hero-list img {
+            width: 50px;
+            height: 50px;
+            display: block
+        }
+
+        .hero-list td {
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="page-header container">
+            <h1>海贼王 <small>One piece</small></h1>
+            <a href="/admin/login.html" style='float:right'>登录</a>
+        </div>
+    </header>
+    <div class="container hero-list">
+        <!-- <a class="btn btn-success pull-right" href="/add.html">添加英雄</a> -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>性别</th>
+                    <th>头像</th>
+                    <!-- <th>操作</th> -->
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script type="text/template" id="tbody">
+        <% for (let i = 0; i < data.length; i++) { %>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=data[i].name%></td>
+                <td><%=data[i].gender%></td>
+                <td><img src="<%=data[i].img%>"></td>
+            </tr>
+            <% } %>
+    </script>
+    <script>
+        $(function () {
+            init();
+
+            function init() {
+                $.ajax({
+                    method: 'get',
+                    url: 'http://localhost:8080/api/getHero',
+                    dataType: 'json',
+                    success: function (obj) {
+                        let res = template('tbody', obj);
+                        $('tbody').html(res)
+                    }
+                })
+            }
+
+            $('tbody').on('click', '#del', function () {
+                if (confirm('确定要删除吗？')) {
+                    $.ajax({
+                        method: 'post',
+                        url: 'http://localhost:8080/api/delHero',
+                        data: { id: $(this).data('id') },
+                        dataType: 'json',
+                        success: function (obj) {
+                            if (obj.code == 200) {
+                                init();
+                            }
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

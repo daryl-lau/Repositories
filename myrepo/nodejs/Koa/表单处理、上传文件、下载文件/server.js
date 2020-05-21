@@ -8,7 +8,10 @@ const static = require('koa-static')
 const send = require('koa-send');
 
 // 使用此模块进行表单数据获取和文件上传
-const body = require('koa-better-body');
+// post数据放在ctx.request.fields和ctx.request.files上
+// get数据直接通过ctx.query获取，不需要引入koa-better-body模块
+// 路由参数直接通过ctx.params获取，不需要引入koa-better-body模块
+const betterBody = require('koa-better-body');
 
 
 let server = new Koa();
@@ -17,7 +20,7 @@ server.listen(8080);
 
 let router = new Router();
 
-server.use(body({
+server.use(betterBody({
     uploadDir: './static/temp',
 }));
 

@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hero - Admin</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <style>
+        .hero-list img {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="page-header container">
+            <h1>海贼王 <small>One piece</small></h1>
+        </div>
+    </header>
+    <div class="container hero-list">
+        <form id='myform'>
+            <input type="hidden" name="img" id="img1">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>姓名：</td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td>性别：</td>
+                        <td><input id="nan" name="gender" value="男" type="radio"><label for="nan">男</label> <input
+                                name="gender" value="女" type="radio" id="nv"><label for="nv">女</label></td>
+                    </tr>
+                    <tr>
+                        <td>头像：</td>
+                        <td><img src="../imgs/none.png" alt="" id="photo" width="100">
+                            <input type="file" id="img"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" id="sub" value="新增"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <script src="/js/jQuery.js"></script>
+    <script>
+        $('#img').on('change', () => {
+            // console.log(document.querySelector('#img').files)
+            var formdata = new FormData()
+            // 获取图片数据的方式需要使用原生方式
+            formdata.append('img', document.querySelector('#img').files[0])
+            // formdata.append('myname','我们是25期！！！')
+            // 如果使用formdata结合ajax发送请求，那么必须设置两个属性
+            // processData:不要让ajax进行数据的处理，因为formdata已经处理了
+            // contentType:不要让ajax进行数据的编码，formdata已经实现编码了
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:8080/api/uploadFile',
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                dataType: 'json',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: (result) => {
+                    if (result.code === 200) {
+                        $('#photo').attr('src', result.imgUrl)
+                        // 因为后期实现新增的时候，我们只需要文件名称，为了后期的取值方便，我们可以将这个名称存储到一个隐藏域中
+                        $('#img1').val(result.imgUrl)
+                    }
+                }
+            })
+        })
+
+        // 实现新增
+        $('#sub').on('click', () => {
+            // 重点是收集用户数据：因为之前图片已经上传了，所以在真正实现新增的时候我们没有必要再上传文件，只需要传递文件名称
+            // 使用serialize来收集用户数据
+            // serialize：这个方法能够获取当前指定表单中所有拥有name属性的表单元素值
+            $.ajax({
+                url: 'http://localhost:8080/api/addHero',
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                type: 'post',
+                dataType: 'json',
+                data: $('#myform').serialize(),
+                success: function (result) {
+                    if (result.code == 200) {
+                        alert(result.msg)
+                        location.href = 'index.html'
+                    } else {
+                        alert(result.msg)
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

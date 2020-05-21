@@ -9,9 +9,9 @@ const app = express();
 // 配置mysql
 const options = {
     host: 'localhost',
-    port: 3306,
+    port: 33306,
     user: 'root',
-    password: '',
+    password: 'baihuzi.com',
     database: 'session'
 };
 
@@ -48,20 +48,24 @@ app.use(session({
 // app.use(cors());
 
 app.use('/login', function (req, res) {
+    let { username } = req.query;
     //设置session
-    req.session.userinfo = '张三';
-    res.send("登陆成功！");
+    console.log(username);
+    console.log(req.session);
+    req.session.userinfo = username;
+    res.send(`登陆成功！${req.session.userinfo}`);
 });
 
 app.use('/loginOut', function (req, res) {
     //注销session
     req.session.destroy(function (err) {
-        res.send("退出登录！" + err);
+        res.send("退出登录！");
     });
 });
 
 app.use('/', function (req, res) {
     //获取session
+    console.log(req.session);
     if (req.session.userinfo) {
         res.send("hello " + req.session.userinfo + "，welcome to index");
     } else {

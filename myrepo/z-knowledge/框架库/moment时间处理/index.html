@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./moment.js"></script>
+</head>
+
+<body>
+    <script>
+        let timestamp = Date.now()  // 精确到毫秒
+        console.log(timestamp);
+        let time = moment(timestamp);
+        console.log(time.unix());   // 精确到秒
+        console.log(time.format('YYYY-MM-DD HH:mm:ss'));
+
+        let starttime = moment('2015-08-08 00:00:00');
+        let endtime = moment('2016-08-08 00:00:00')
+
+        let startstamp = starttime.unix() * 1000;
+        let endstamp = endtime.unix() * 1000;
+        console.log(startstamp, endstamp);
+
+    </script>
+
+</html>

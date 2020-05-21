@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 新建一个symbol数据不能使用new的方式，因为new出来的是一个对象，而symbol并不是对象
+        // 此时sym是一个symbol数据，symbol可以作为对象的属性名，也可以作为属性值，只是这时定义的属性名或属性值都是唯一的，不存在第二个相同的数据
+        // Symbol()可以传一个字符串作为标识，这里的字符串仅作为标识，用于区分不同的symbol，因为默认symbol打印出来就是Symbol()，无法正常区分
+        let sym = Symbol('sym');
+        let sym1 = Symbol('sym1');
+
+        // 当symbol作为属性名是，需要使用[]包起来，否则会认为sym是字符串而不是symbol数据
+        let obj = {
+            [sym]: sym1
+        }
+        // 或者，注意下面的sym没有引号
+        let obj1 = {};
+        obj1[sym] = sym1
+
+        // 可以使用description属性打印出symbol的标识
+        console.log(sym.description);
+
+
+        // 即使标识符相同，也是两个不同的数据
+        let s1 = Symbol('aaa');
+        let s2 = Symbol('aaa');
+        console.log(s1 === s2);     // false
+
+        // symbol还可以作为属性值，这能确保属性值都是唯一的
+        let obj2 = {
+            red: Symbol('red'),
+            yellow: Symbol('yellow'),
+            blue: Symbol('blue'),
+        };
+
+
+        
+
+    </script>
+</body>
+
+</html>

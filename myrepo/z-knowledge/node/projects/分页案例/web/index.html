@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 800px;
+            margin: 50px auto;
+        }
+
+        #userclass {
+            width: 200px;
+        }
+
+        table {
+            width: 100%
+        }
+    </style>
+    <link rel="stylesheet" href="./js/bootstrap/css/bootstrap.min.css">
+    <script src="./js/template-web.js"></script>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/jquery.sPage.min.js"></script>
+    <link rel="stylesheet" href="./css/jquery.sPage.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="opt">
+            <form action="">
+                班级：<select name="cid" id="userclass">
+                    <option value="">所有班级</option>
+                </select>
+                性别：<select name="gender" id="usergender">
+                    <option value="">所有性别</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+                姓名：<input type="text" placeholder="支持模糊查询" class="username" name='name'>
+                <input type="button" class="search" value="搜索">
+            </form>
+        </div>
+        <br>
+        <!-- 学员编号，学员姓名，学员年龄，学员班级，学员成绩 -->
+        <table border="1">
+            <thead>
+                <tr align="center" style="font-weight: bolder;">
+                    <td>学员编号</td>
+                    <td>学员姓名</td>
+                    <td>学员年龄</td>
+                    <td>学员性别</td>
+                    <td>学员班级</td>
+                    <td>学员学科</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!-- 分页 -->
+        <br>
+        <div id="myPage" class="demo"></div>
+    </div>
+    <script type="text/template" id='classTemp'>
+        <option value="">所有班级</option>
+        <% for (let i = 0; i < data.length; i++){ %>
+            <option value="<%= data[i].id %>"><%=data[i].name%></option>
+        <%}%>
+    </script>
+    <script type="text/template" id='stulistTemp'>
+        <% for (let i = 0; i < data.length; i++){ %>
+            <tr align="center">
+                <td><%=data[i].id%></td>
+                <td><%=data[i].name%></td>
+                <td><%=data[i].age%></td>
+                <td><%=data[i].gender%></td>
+                <td><%=data[i].className%></td>
+                <td><%=data[i].subjectName%></td>
+            </tr>
+        <%}%>
+    </script>
+    <script>
+        $(function () {
+            $.ajax({
+                method: 'get',
+                url: 'http://localhost:3000/getClasses',
+                dataType: 'json',
+                success: function (data) {
+                    let res = template('classTemp', data)
+                    $('#userclass').html(res)
+                }
+            })
+
+            queryUsers();
+
+            $('.search').on('click', function () {
+                queryUsers()
+            })
+
+            function queryUsers(page) {
+                let p = page || 1;
+                $.ajax({
+                    method: 'get',
+                    url: 'http://localhost:3000/getUsers',
+                    data: $('form').serialize() + `&page=${p}&pageSize=10`,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        let res = template('stulistTemp', data)
+                        $('tbody').html(res)
+
+                        // 分页插件
+                        $("#myPage").sPage({
+                            page: p,//当前页码，必填
+                            total: data.total,//数据总条数，必填
+                            pageSize: 10,//每页显示多少条数据，默认10条
+                            showTotal: true,//是否显示总条数，默认关闭：false
+                            totalTxt: "共{total}条",//数据总条数文字描述，{total}为占位符，默认"共{total}条"
+                            noData: false,//没有数据时是否显示分页，默认false不显示，true显示第一页
+                            showSkip: true,//是否显示跳页，默认关闭：false
+                            showPN: true,//是否显示上下翻页，默认开启：true
+                            prevPage: "上一页",//上翻页文字描述，默认“上一页”
+                            nextPage: "下一页",//下翻页文字描述，默认“下一页”
+                            fastForward: 5,//快进快退页数，默认0表示不开启快进快退
+                            backFun: function (page) {
+                                //点击分页按钮回调函数，返回当前页码
+                                queryUsers(page)
+                            }
+                        });
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

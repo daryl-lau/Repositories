@@ -13,15 +13,15 @@
         console.log(this);
 
         // 全局变量是设置在window上的，因此下面的写法是一样的
-        a = 10;     // window.a = 10
+        a = 10;                     // window.a = 10
         this.b = 10;
-        console.log(a === b);        // true
+        console.log(a === b);       // true
 
         function fn1() {
             console.log(this);
         }
-        fn1();      // this指向window
-        window.fn1();      // this还是指向window
+        fn1();              // this指向window
+        window.fn1();       // this还是指向window
 
         var obj = {
             c: 10,

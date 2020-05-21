@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            name: 'jerry',
+            say: () => {
+                console.log('obj:', this.name);
+                console.log(this);
+            }
+        }
+        obj.say();      // obj:      获取不到name，此时this指向的不是obj，而是obj所在的上下文环境，即window
+
+
+        let obj2 = {
+            name: 'tom',
+            say: function () {
+                return () => {
+                    console.log('obj2:', this.name)
+                    console.log(this);
+                }
+            }
+        }
+        obj2.say()();   // obj2: tom     此时this指向的是say所在的上下文环境，即obj2
+
+        // 总结：
+        // 箭头函数的this不是由调用者决定，而是在生成的时候就绑定了，在任何地方调用都不会改变箭头函数里的this指向
+        // 箭头函数的this指向的是该箭头函数创建时的作用域的父级上下文环境
+    </script>
+</body>
+
+</html>

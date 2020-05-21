@@ -28,7 +28,7 @@ export const aunt = {name: 'AuntFirefly',age:25}
 
 export {uncle, aunt}
 
-export default导出对应的导入：
+export 导出对应的导入：
 //b.js
 import {uncle, aunt} from './a.js'
 ## 引入是需要加{}

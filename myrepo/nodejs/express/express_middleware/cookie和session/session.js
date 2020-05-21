@@ -17,13 +17,14 @@ server.use(cookieSession({
 
 server.get('/a', (req, res) => {
     console.log(req.headers.cookie);
-    console.log(req.session);
-
+    console.log(req.session['view']);
+    
     if (!req.session['view']) {
         req.session['view'] = 1;
+        req.session['aaa'] = 'aaa';
     } else {
         req.session['view']++
     }
 
-    res.send(`欢迎你第${req.session['view']}次访问本站！`)
+    res.send(`欢迎你第${req.session['view']}次访问本站！${req.session['aaa']}`)
 });

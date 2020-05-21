@@ -3,7 +3,7 @@ const fs = require('fs');
 
 // writeFile写入文档,会覆盖原有的内容
 // 回调函数只有err参数
-fs.writeFile('./files/readFile-writeFile.txt', '天不生我李淳罡，剑道万古如长夜', (err) => {
+fs.writeFile('./files/readFile-writeFile.txt', 'hahaha', (err) => {
     if (!err) {
         console.log('写入成功');
     } else {

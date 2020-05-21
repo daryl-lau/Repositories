@@ -13,6 +13,7 @@ server.listen(8080);
 
 
 server.keys = fs.readFileSync('./.keys').toString().split('\n');
+console.log(server.keys);
 
 server.use(session({
     key: 'ID',

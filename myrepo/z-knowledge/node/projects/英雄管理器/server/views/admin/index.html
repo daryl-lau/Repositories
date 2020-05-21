@@ -1,0 +1,129 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hero - Admin</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/template-web.js"></script>
+    <style>
+        .hero-list img {
+            width: 50px;
+            height: 50px;
+            display: block
+        }
+
+        .hero-list td {
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="page-header container">
+            <h1>海贼王 <small>One piece</small></h1>
+            <!-- <a href="" style='float:right' id="exit">退出</a> -->
+            <div style='float:right'>
+                <!-- <span style="margin-right: 10px;">欢迎您></span> -->
+                <span style="color: #337ab7; cursor: pointer;" id="logout">退出</span>
+            </div>
+        </div>
+    </header>
+    <div class="container hero-list">
+        <a class="btn btn-success pull-right" href="/admin/add.html">添加英雄</a>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>性别</th>
+                    <th>头像</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script type="text/template" id="tbody">
+        <% for (let i = 0; i < data.length; i++) { %>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=data[i].name%></td>
+                <td><%=data[i].gender%></td>
+                <td><img src="<%=data[i].img%>"></td>
+                    <td>
+                        <a href="#">查看</a>
+                        <a href="/admin/edit.html?id=<%=data[i].id%>">修改</a>
+                        <a href="javascript:;" id="del" data-id="<%=data[i].id%>">删除</a>
+                    </td>
+                </tr>
+                <% } %>
+    </script>
+    <script>
+        $(function () {
+
+            $.ajax({
+                method: 'post',
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                url: 'http://localhost:8080/api/verifyToken',
+                success: (data) => {
+                }
+            })
+
+            init();
+
+            function init() {
+                $.ajax({
+                    method: 'get',
+                    url: 'http://localhost:8080/api/getHero',
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    dataType: 'json',
+                    success: function (obj) {
+                        let res = template('tbody', obj);
+                        $('tbody').html(res)
+                    }
+                })
+            }
+
+            $('tbody').on('click', '#del', function () {
+                if (confirm('确定要删除吗？')) {
+                    $.ajax({
+                        method: 'post',
+                        url: 'http://localhost:8080/api/delHero',
+                        headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                        data: { id: $(this).data('id') },
+                        dataType: 'json',
+                        success: function (obj) {
+                            if (obj.code == 200) {
+                                init()
+                            }
+                        }
+                    })
+                }
+            })
+
+            $('#logout').on('click', function () {
+                $.ajax({
+                    method: 'get',
+                    url: 'http://localhost:8080/api/logout',
+                    dataType: 'json',
+                    success: (data) => {
+                        if (data.code == 200) {
+                            alert(data.msg);
+                            location.href = '/';
+                        }
+                    }
+                })
+            })
+
+        })
+
+
+    </script>
+</body>
+
+</html>

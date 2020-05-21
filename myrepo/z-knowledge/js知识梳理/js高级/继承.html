@@ -55,6 +55,7 @@
 
 
         // super关键字用于访问和调用对象父类上的函数。可以调用父类的构造函数，也可以调用父类的普通函数
+        // super关键字指向当前对象的原型对象，sumReduceCalculator.prototype 指向的是sumCalculator
         class sumReduceCalculator extends sumCalculator {
             constructor(num1, num2) {
                 super(num1, num2);

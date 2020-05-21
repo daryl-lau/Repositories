@@ -49,6 +49,23 @@
         console.log(str5.search(/2\d{3}3/g))    // 返回的是1
 
 
+        // 匹配分组，整个正则是一组，组号0，小括号里面的按顺序来分别是1,2,3
+        const RE_DATE = /(\d{4})-(\d{2})-(\d{2})/;
+        const matchObj = RE_DATE.exec('1999-12-31');
+        console.log(matchObj);
+        const year = matchObj[1];   // 1999
+        const month = matchObj[2];  // 12
+        const day = matchObj[3];    //31
+
+
+        // 命名分组匹配
+        const RE_DATE1 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+        const matchObj1 = RE_DATE1.exec('1999-12-31');
+        console.log(matchObj1);
+        const year1 = matchObj1.groups.year; // 1999
+        const month1 = matchObj1.groups.month; // 12
+        const day1 = matchObj1.groups.day;
+
         /*
 
          \d 所有数字，同 [0-9]

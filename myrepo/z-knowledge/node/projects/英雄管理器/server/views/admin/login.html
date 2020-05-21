@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/md5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+
+        ul {
+            margin: 0;
+            padding: 50px;
+            list-style: none;
+        }
+
+        .register {
+            width: 800px;
+            margin: 50px auto;
+            background-color: #FFF;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+        }
+
+        li {
+            display: flex;
+            margin: 20px 0;
+        }
+
+        label,
+        input {
+            display: block;
+            float: left;
+            height: 46px;
+            font-size: 24px;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        label {
+            width: 200px;
+            line-height: 46px;
+            margin-right: 30px;
+            text-align: right;
+        }
+
+        input {
+            width: 320px;
+            padding: 8px;
+            line-height: 1;
+            outline: none;
+            position: relative;
+        }
+
+        input.code {
+            width: 120px;
+        }
+
+        input.verify {
+            width: 190px;
+            margin-left: 10px;
+        }
+
+        input.disabled {
+            background-color: #CCC !important;
+        }
+
+        input[type=button] {
+            border: none;
+            color: #FFF;
+            background-color: #E64145;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .tips {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 40px;
+            text-align: center;
+        }
+
+        .tips p {
+            min-width: 300px;
+            max-width: 400px;
+            line-height: 40px;
+            margin: 0 auto;
+            color: #FFF;
+            display: none;
+            background-color: #C91623;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <form id="ajaxForm">
+            <ul>
+                <li>
+                    <label for="">用户名:</label>
+                    <input type="text" name="userName" class="name">
+                </li>
+                <li>
+                    <label for="">密码:</label>
+                    <input type="password" name="password" class="pass">
+                </li>
+                <li>
+                    <input type="button" class="submit " value="登录" id="login">
+                    <label for=""></label>
+                    <input type="button" class="submit " value="注册" id="register">
+                </li>
+            </ul>
+        </form>
+    </div>
+    <!-- 提示信息 -->
+    <div class="tips">
+        <p>用户名不能为空</p>
+    </div>
+
+    <script>
+        $('#register').on('click', () => {
+            location.href = '/admin/register.html'
+        })
+
+        $('#login').on('click', () => {
+            let username = $('input[name=userName]').val();
+            let password = $('.pass').val();
+            if (!username) {
+                $('.tips p').text('用户名不能为空');
+                $('.tips p').css('display', 'block');
+                return false
+            }
+            if (!password) {
+                $('.tips p').text('密码不能为空');
+                $('.tips p').css('display', 'block');
+                return false
+            }
+
+            $.ajax({
+                method: 'post',
+                url: 'http://localhost:8080/api/login',
+                data: { userName: username, password: md5(password) },
+                dataType: 'json',
+                success: (data) => {
+                    if (data.code == 200) {
+                        localStorage.setItem('token', data.token)
+                        alert(data.msg);
+                        location.href = '/admin/index.html'
+                    } else if (data.code == 204) {
+                        $('.tips p').text(data.msg);
+                        $('.tips p').css('display', 'block');
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

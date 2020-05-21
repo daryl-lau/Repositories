@@ -30,6 +30,7 @@ new Promise((resolve, reject) => {
             });
         })
     },
+    // 这个作为reject使用
     (err) => {
         console.log(err)
     }

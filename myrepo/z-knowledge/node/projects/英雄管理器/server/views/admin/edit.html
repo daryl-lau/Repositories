@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hero - Admin</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <style>
+        .hero-list img {
+            width: 50px;
+        }
+    </style>
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/template-web.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="page-header container">
+            <h1>海贼王 <small>One piece</small></h1>
+        </div>
+    </header>
+    <div class="container hero-list">
+        <form>
+            <input type="hidden" name='id'>
+            <input type="hidden" name="img" id="img1">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>姓名：</td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td>性别：</td>
+                        <td>
+                            <input id="nan" name="gender" value="男" type="radio"><label for="nan">男</label>
+                            <input name="gender" value="女" type="radio" id="nv"><label for="nv">女</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>头像：</td>
+                        <td>
+                            <img src="" alt="" id="photo" width="100">
+                            <input type="file" id="img">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" id="sub" value="编辑"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <script>
+        let id = location.href.split('?')[1];
+        $.ajax({
+            method: 'get',
+            url: 'http://localhost:8080/api/getHeroById',
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+            data: id,
+            dataType: 'json',
+            success: function (obj) {
+                let data = obj.data[0];
+                $('input[name=name]').val(data.name);
+                data.gender == '男' ? $('#nan').prop('checked', 'checked') : $('#nv').prop('checked', 'checked');
+                $('#photo').attr('src', data.img)
+                $('input[name=id]').val(data.id)
+                $('input[name=img]').val(data.img)
+            }
+        })
+
+        $('#img').on('change', () => {
+            var formdata = new FormData()
+            formdata.append('img', document.querySelector('#img').files[0])
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:8080/api/uploadFile',
+                dataType: 'json',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: (result) => {
+                    if (result.code === 200) {
+                        $('#photo').attr('src', result.imgUrl)
+                        $('input[name=img]').val(result.imgUrl)
+                    }
+                }
+            })
+        })
+
+        $('#sub').on('click', function () {
+            $.ajax({
+                method: 'post',
+                url: 'http://localhost:8080/api/editHero',
+                data: $('form').serialize(),
+                dataType: 'json',
+                success: function (obj) {
+                    if (obj.code == 200) {
+                        location.href = 'index.html'
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

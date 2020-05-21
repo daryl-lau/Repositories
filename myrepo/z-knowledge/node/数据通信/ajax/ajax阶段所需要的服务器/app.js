@@ -16,13 +16,13 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // 设置允许跨域
-var allow = function(req, res, next) {
+var allow = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.header('Access-Control-Allow-Credentials','true');
+    res.header('Access-Control-Allow-Credentials', 'true');
     next();
-  }
+}
 app.use(allow)
 
 // 添加静态资源托管
@@ -36,7 +36,7 @@ app.set('view options', {
 // 添加session的中间件处理，只有添加这个中间件才能使用express-session
 app.use(session({
     secret: '加一个只有你自己的知道的key',
-    resave: false, 
+    resave: false,
     saveUninitialized: false,
 }))
 

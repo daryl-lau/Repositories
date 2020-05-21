@@ -19,7 +19,7 @@ let router = new Router();
 /*
 
 同样可以在路由中进行错误捕获
-router.all('*', async ctx => {
+router.all('*', async (ctx,next) => {
     try {
         await next()
     } catch (e) {
