@@ -13,6 +13,8 @@
     <script src="./libs/jquery-1.12.4.min.js"></script>
     <!-- 引入模板引擎js文件 -->
     <script src="./libs/template-web.js"></script>
+    <script src="./libs/jquery.sPage.min.js"></script>
+    <link rel="stylesheet" href="./css/jquery.sPage.css">
 </head>
 
 <body>
@@ -26,10 +28,6 @@
                     <form class="form-inline">
                         <select id="selCategory" name="" class="form-control input-sm">
                             <option value="">所有分类</option>
-                            <option>未分类</option>
-                            <option>奇趣事</option>
-                            <option>会生活</option>
-                            <option>爱旅行</option>
                         </select>
                         <select id="selStatus" name="" class="form-control input-sm">
                             <option value="">所有状态</option>
@@ -55,23 +53,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>王积千造统最头</td>
-                        <td>杰克</td>
-                        <td>奇趣事</td>
-                        <td class="text-center">2017-06-08 07:08:46</td>
-                        <td class="text-center">已发布</td>
-                        <td class="text-center">
-                            <a href="article_edit.html" class="btn btn-default btn-xs">编辑</a>
-                            <a href="javascript:void(0);" class="btn btn-danger btn-xs delete">删除</a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
+
             <div class="row text-center">
+                <div id="myPage" class="demo"></div>
             </div>
         </div>
     </div>
+
+    <script type="text/template" id="tbody">
+        <% for (let i = 0; i < data.length; i++) { %>
+        <tr>
+            <td><%=data[i].title%></td>
+            <td><%=data[i].author%></td>
+            <td><%=data[i].category%></td>
+            <td class="text-center"><%=data[i].date%></td>
+            <td class="text-center"><%=data[i].state%></td>
+            <td class="text-center" date-id="<%=data[i].id%>">
+                <a href="article_edit.html?id=<%=data[i].id%>" class="btn btn-default btn-xs">编辑</a>
+                <a href="javascript:void(0);" data-id="<%=data[i].id%>" class="btn btn-danger btn-xs delete">删除</a>
+            </td>
+        </tr>
+        <% } %>
+    </script>
+    <script type="text/template" id="selCategoryTemp">
+        <% for (let i = 0; i < data.length; i++) { %>
+            <option value="<%=data[i].id%>"><%=data[i].name%></option>
+        <% } %>
+    </script>
+
+    <script src="./js/http.js"></script>
+    <script src="./js/article_list.js"></script>
 </body>
 
 </html>

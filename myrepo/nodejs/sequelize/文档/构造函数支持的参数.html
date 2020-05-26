@@ -1,0 +1,747 @@
+<div data-ice="properties">
+    <h4 data-ice="title">Params:</h4>
+    <table class="params">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Attribute</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr data-ice="property" data-depth="0">
+                <td data-ice="name" class="code" data-depth="0">database</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The name of the database</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="0">
+                <td data-ice="name" class="code" data-depth="0">username</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: null</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The username which is used to authenticate against the database.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="0">
+                <td data-ice="name" class="code" data-depth="0">password</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: null</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The password which is used to authenticate against the database. Supports SQLCipher encryption
+                        for SQLite.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="0">
+                <td data-ice="name" class="code" data-depth="0">options</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: {}</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>An object with options.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.host</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 'localhost'</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The host of the relational database.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.port</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: </li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The port of the relational database.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.username</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: null</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The username which is used to authenticate against the database.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.password</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: null</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The password which is used to authenticate against the database.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.database</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: null</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The name of the database</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.dialect</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The dialect of the database you are connecting to. One of mysql, postgres, sqlite and mssql.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.dialectModule</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: null</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>If specified, use this dialect library. For example, if you want to use pg.js instead of pg when
+                        connecting to a pg database, you should specify 'require("pg.js")' here</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.dialectModulePath</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: null</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>If specified, load the dialect library from this path. For example, if you want to use pg.js
+                        instead of pg when connecting to a pg database, you should specify '/path/to/pg.js' here</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.dialectOptions</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>An object of additional options, which are passed directly to the connection library</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.storage</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Only used by sqlite. Defaults to ':memory:'</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.protocol</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 'tcp'</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The protocol of the relational database.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.define</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: {}</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Default options for model definitions. See <span><a
+                                href="class/lib/model.js~Model.html#static-method-init">Model.init</a></span>.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.query</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: {}</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Default options for sequelize.query</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.schema</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: null</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>A schema to use</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.set</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: {}</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Default options for sequelize.set</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.sync</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: {}</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Default options for sequelize.sync</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.timezone</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: '+00:00'</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The timezone used when converting a date from the database into a JavaScript date. The timezone
+                        is also used to SET TIMEZONE when connecting to the server, to ensure that the result of NOW,
+                        CURRENT_TIMESTAMP and other time related functions have in the right timezone. For best cross
+                        platform performance use the format +/-HH:MM. Will also accept string versions of timezones used
+                        by moment.js (e.g. 'America/Los_Angeles'); this is useful to capture daylight savings time
+                        changes.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.clientMinMessages</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                    | <span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 'warning'</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The PostgreSQL <code>client_min_messages</code> session parameter. Set to <code>false</code> to
+                        not override the database's default.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.standardConformingStrings</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: true</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The PostgreSQL <code>standard_conforming_strings</code> session parameter. Set to
+                        <code>false</code> to not set the option. WARNING: Setting this to false may expose
+                        vulnerabilities and is not recommended!</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.logging</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: console.log</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>A function that gets executed every time Sequelize would log something. Function may receive
+                        multiple parameters but only first one is printed by <code>console.log</code>. To print all
+                        values use <code>(...msg) =&gt; console.log(msg)</code></p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.benchmark</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: false</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Pass query execution time in milliseconds as second argument to logging function
+                        (options.logging).</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.omitNull</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: false</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>A flag that defines if null values should be passed to SQL queries or not.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.native</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: false</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>A flag that defines if native library shall be used or not. Currently only has an effect for
+                        postgres</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.replication</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: false</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Use read / write replication. To enable replication, pass an object, with two properties, read
+                        and write. Write should be an object (a single server for handling writes), and read an array of
+                        object (several servers to handle reads). Each read/write server can have the following
+                        properties: <code>host</code>, <code>port</code>, <code>username</code>, <code>password</code>,
+                        <code>database</code></p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.pool</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>sequelize connection pool configuration</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.pool.max</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 5</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Maximum number of connection in pool</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.pool.min</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 0</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Minimum number of connection in pool</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.pool.idle</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 10000</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The maximum time, in milliseconds, that a connection can be idle before being released.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.pool.acquire</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 60000</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The maximum time, in milliseconds, that pool will try to get connection before throwing error</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.pool.evict</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 1000</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The time interval, in milliseconds, after which sequelize-pool will remove idle connections.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.pool.validate</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>A function that validates a connection. Called with client. The default function checks that
+                        client is an object, and that its state is not disconnected</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.pool.maxUses</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: Infinity</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>The number of times a connection can be used before discarding it for a replacement, <a
+                            href="https://github.com/sequelize/sequelize-pool"><code>used for eventual cluster rebalancing</code></a>.
+                    </p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.quoteIdentifiers</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: true</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Set to <code>false</code> to make table names and attributes case-insensitive on Postgres and
+                        skip double quoting of them. WARNING: Setting this to false may expose vulnerabilities and is
+                        not recommended!</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.transactionType</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: 'DEFERRED'</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Set the default transaction type. See <code>Sequelize.Transaction.TYPES</code> for possible
+                        options. Sqlite only.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.isolationLevel</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Set the default transaction isolation level. See
+                        <code>Sequelize.Transaction.ISOLATION_LEVELS</code> for possible options.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.retry</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Set of flags that control when a query is automatically retried. Accepts all options for <a
+                            href="https://github.com/mickhansen/retry-as-promised"><code>retry-as-promised</code></a>.
+                    </p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.retry.match</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Only retry a query if the error matches one of these strings.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="2">
+                <td data-ice="name" class="code" data-depth="2">options.retry.max</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>How many times a failing query is automatically retried. Set to 0 to disable retrying on SQL_BUSY
+                        error.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.typeValidation</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: false</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>Run built-in type validators on insert and update, and select with where clause, e.g. validate
+                        that arguments passed to integer fields are integer-like.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.operatorsAliases</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>String based operator alias. Pass object to limit set of aliased operators.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.hooks</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>An object of global hook functions that are called before and after certain lifecycle events.
+                        Global hooks will run after any model-specific hooks defined for the same event (See
+                        <code>Sequelize.Model.init()</code> for a list). Additionally, <code>beforeConnect()</code>,
+                        <code>afterConnect()</code>, <code>beforeDisconnect()</code>, and <code>afterDisconnect()</code>
+                        hooks may be defined here.</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.minifyAliases</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: false</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>A flag that defines if aliases should be minified (mostly useful to avoid Postgres alias
+                        character limit of 64)</p>
+                </td>
+            </tr>
+            <tr data-ice="property" data-depth="1">
+                <td data-ice="name" class="code" data-depth="1">options.logQueryParameters</td>
+                <td data-ice="type" class="code"><span><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>
+                </td>
+                <td data-ice="appendix">
+                    <ul>
+                        <li>optional</li>
+                        <li>default: false</li>
+                    </ul>
+                </td>
+                <td data-ice="description">
+                    <p>A flag that defines if show bind patameters in log.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -10,14 +10,16 @@
 <body>
     <script>
         // substr() 方法可在字符串中抽取从 开始 下标开始的指定数目的字符。（不会改变原始字符串）
-        // substr() 的参数指定的是子串的开始位置和长度，因此它可以替代 substring() 和 slice() 来使用。
+        // substr() 的参数指定的是子串的开始位置和长度
         // string.substr(start,length)
 
         let str = 'welcome to baihuzi.com!';
         let res1 = str.substr(0, 7);           // welcome
         let res2 = str.substr(11, 11);         // baihuzi.com
+        let res3 = str.substr(-4, 4);         // com!
         console.log(res1);
         console.log(res2);
+        console.log(res3);
     </script>
 </body>
 

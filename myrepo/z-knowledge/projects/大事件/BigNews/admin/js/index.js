@@ -3,9 +3,6 @@ $(function () {
         method: 'get',
         url: bigNew.user_info,
         dataType: 'json',
-        // beforeSend: function (xhr) {
-        //     xhr.setRequestHeader('Authorization', localStorage.getItem('token'))
-        // },
         success: function (data) {
             console.log(data);
             if (data.code == 200) {
@@ -14,11 +11,6 @@ $(function () {
                 $('.user_center_link > img').prop('src', data.data.userPic)
             }
         },
-        // error: function (err) {
-        //     if (err.status == 403) {
-        //         location.href = './login.html'
-        //     }
-        // }
     })
 
     $('.level01').on('click', function () {
@@ -32,6 +24,8 @@ $(function () {
     })
 
     $('.level02 > li').on('click', function () {
+        $('.level01').removeClass('active');
+        $(this).parent().prev().addClass('active')
         $(this).addClass('active').siblings().removeClass('active')
     })
 })

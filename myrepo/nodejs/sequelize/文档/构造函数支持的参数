@@ -1,0 +1,227 @@
+public constructor(database: string, username: string, password: string, options: object)
+Instantiate sequelize with name of database, username and password.
+
+Params:
+Name	Type	Attribute	Description
+database	string	
+optional
+The name of the database
+
+username	string	
+optional
+default: null
+The username which is used to authenticate against the database.
+
+password	string	
+optional
+default: null
+The password which is used to authenticate against the database. Supports SQLCipher encryption for SQLite.
+
+options	object	
+optional
+default: {}
+An object with options.
+
+options.host	string	
+optional
+default: 'localhost'
+The host of the relational database.
+
+options.port	number	
+optional
+default:
+The port of the relational database.
+
+options.username	string	
+optional
+default: null
+The username which is used to authenticate against the database.
+
+options.password	string	
+optional
+default: null
+The password which is used to authenticate against the database.
+
+options.database	string	
+optional
+default: null
+The name of the database
+
+options.dialect	string	
+optional
+The dialect of the database you are connecting to. One of mysql, postgres, sqlite and mssql.
+
+options.dialectModule	string	
+optional
+default: null
+If specified, use this dialect library. For example, if you want to use pg.js instead of pg when connecting to a pg database, you should specify 'require("pg.js")' here
+
+options.dialectModulePath	string	
+optional
+default: null
+If specified, load the dialect library from this path. For example, if you want to use pg.js instead of pg when connecting to a pg database, you should specify '/path/to/pg.js' here
+
+options.dialectOptions	object	
+optional
+An object of additional options, which are passed directly to the connection library
+
+options.storage	string	
+optional
+Only used by sqlite. Defaults to ':memory:'
+
+options.protocol	string	
+optional
+default: 'tcp'
+The protocol of the relational database.
+
+options.define	object	
+optional
+default: {}
+Default options for model definitions. See Model.init.
+
+options.query	object	
+optional
+default: {}
+Default options for sequelize.query
+
+options.schema	string	
+optional
+default: null
+A schema to use
+
+options.set	object	
+optional
+default: {}
+Default options for sequelize.set
+
+options.sync	object	
+optional
+default: {}
+Default options for sequelize.sync
+
+options.timezone	string	
+optional
+default: '+00:00'
+The timezone used when converting a date from the database into a JavaScript date. The timezone is also used to SET TIMEZONE when connecting to the server, to ensure that the result of NOW, CURRENT_TIMESTAMP and other time related functions have in the right timezone. For best cross platform performance use the format +/-HH:MM. Will also accept string versions of timezones used by moment.js (e.g. 'America/Los_Angeles'); this is useful to capture daylight savings time changes.
+
+options.clientMinMessages	string | boolean	
+optional
+default: 'warning'
+The PostgreSQL client_min_messages session parameter. Set to false to not override the database's default.
+
+options.standardConformingStrings	boolean	
+optional
+default: true
+The PostgreSQL standard_conforming_strings session parameter. Set to false to not set the option. WARNING: Setting this to false may expose vulnerabilities and is not recommended!
+
+options.logging	Function	
+optional
+default: console.log
+A function that gets executed every time Sequelize would log something. Function may receive multiple parameters but only first one is printed by console.log. To print all values use (...msg) => console.log(msg)
+
+options.benchmark	boolean	
+optional
+default: false
+Pass query execution time in milliseconds as second argument to logging function (options.logging).
+
+options.omitNull	boolean	
+optional
+default: false
+A flag that defines if null values should be passed to SQL queries or not.
+
+options.native	boolean	
+optional
+default: false
+A flag that defines if native library shall be used or not. Currently only has an effect for postgres
+
+options.replication	boolean	
+optional
+default: false
+Use read / write replication. To enable replication, pass an object, with two properties, read and write. Write should be an object (a single server for handling writes), and read an array of object (several servers to handle reads). Each read/write server can have the following properties: host, port, username, password, database
+
+options.pool	object	
+optional
+sequelize connection pool configuration
+
+options.pool.max	number	
+optional
+default: 5
+Maximum number of connection in pool
+
+options.pool.min	number	
+optional
+default: 0
+Minimum number of connection in pool
+
+options.pool.idle	number	
+optional
+default: 10000
+The maximum time, in milliseconds, that a connection can be idle before being released.
+
+options.pool.acquire	number	
+optional
+default: 60000
+The maximum time, in milliseconds, that pool will try to get connection before throwing error
+
+options.pool.evict	number	
+optional
+default: 1000
+The time interval, in milliseconds, after which sequelize-pool will remove idle connections.
+
+options.pool.validate	Function	
+optional
+A function that validates a connection. Called with client. The default function checks that client is an object, and that its state is not disconnected
+
+options.pool.maxUses	number	
+optional
+default: Infinity
+The number of times a connection can be used before discarding it for a replacement, used for eventual cluster rebalancing.
+
+options.quoteIdentifiers	boolean	
+optional
+default: true
+Set to false to make table names and attributes case-insensitive on Postgres and skip double quoting of them. WARNING: Setting this to false may expose vulnerabilities and is not recommended!
+
+options.transactionType	string	
+optional
+default: 'DEFERRED'
+Set the default transaction type. See Sequelize.Transaction.TYPES for possible options. Sqlite only.
+
+options.isolationLevel	string	
+optional
+Set the default transaction isolation level. See Sequelize.Transaction.ISOLATION_LEVELS for possible options.
+
+options.retry	object	
+optional
+Set of flags that control when a query is automatically retried. Accepts all options for retry-as-promised.
+
+options.retry.match	Array	
+optional
+Only retry a query if the error matches one of these strings.
+
+options.retry.max	number	
+optional
+How many times a failing query is automatically retried. Set to 0 to disable retrying on SQL_BUSY error.
+
+options.typeValidation	boolean	
+optional
+default: false
+Run built-in type validators on insert and update, and select with where clause, e.g. validate that arguments passed to integer fields are integer-like.
+
+options.operatorsAliases	object	
+optional
+String based operator alias. Pass object to limit set of aliased operators.
+
+options.hooks	object	
+optional
+An object of global hook functions that are called before and after certain lifecycle events. Global hooks will run after any model-specific hooks defined for the same event (See Sequelize.Model.init() for a list). Additionally, beforeConnect(), afterConnect(), beforeDisconnect(), and afterDisconnect() hooks may be defined here.
+
+options.minifyAliases	boolean	
+optional
+default: false
+A flag that defines if aliases should be minified (mostly useful to avoid Postgres alias character limit of 64)
+
+options.logQueryParameters	boolean	
+optional
+default: false
+A flag that defines if show bind patameters in log.

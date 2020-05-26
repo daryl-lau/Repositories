@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>大事件-后台登录页</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <!-- 引入bootstrap的css文件 -->
+  <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css" />
+  <!-- 引入jq文件 -->
+  <script src="./libs/jquery-1.12.4.min.js"></script>
+  <!-- 引入bootstrap的js文件 -->
+  <script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="main_wrap">
+    <div class="header">
+      <a href="#" class="logo"><img src="images/logo.png" alt="" /></a>
+      <div class="copyright">
+        CopyRight © 2019 深圳百秀信息技术股份有限公司<br />All Rights Reserved
+      </div>
+    </div>
+
+    <div class="login_form_con">
+      <div class="login_title"></div>
+      <!-- location.pathname:当前提交到的地址是当前的url地址 -->
+      <!-- <form class="login_form" action='location.pathname' method="GET"> -->
+      <form class="login_form">
+        <i class="iconfont icon-user"></i>
+        <i class="iconfont icon-key"></i>
+        <input type="text" class="input_txt" placeholder="邮箱/手机号" value="admin" />
+        <input type="password" class="input_pass" placeholder="密码" value="123456" />
+        <!-- 为了避免默认行为，建议使用button -->
+        <input type="button" class="input_sub" value="登 录" />
+      </form>
+    </div>
+  </div>
+  <!-- 添加模态框：模态框只能做为body的直接子元素 -->
+  <div class="modal fade" id='myModal' tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">友情提示</h4>
+        </div>
+        <div class="modal-body">
+          <p class="logininfo">用户登陆成功还是失败的提示信息</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary btnconfirm">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 引入http.js -->
+  <script src="./libs/http.js"></script>
+  <script src="./js/login.js"></script>
+</body>
+
+</html>
