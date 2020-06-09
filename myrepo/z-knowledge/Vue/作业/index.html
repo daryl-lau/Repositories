@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        ul {
+            display: block;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        ul li {
+            list-style: none;
+            float: left;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <ul>
+            <li v-for='item in list' @click='fn(item.id)' :key='item.id' :class='{active: item.isActive}'>
+                {{item.name}}
+            </li>
+        </ul>
+        <hr>
+        <div v-for='item in list' v-show='item.isActive'>{{item.text}}</div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { id: 1, name: 'web', text: '1111111111', isActive: true },
+                    { id: 2, name: 'java', text: '2222222222', isActive: false },
+                    { id: 3, name: 'python', text: '3333333333', isActive: false },
+                    { id: 4, name: 'php', text: '4444444444', isActive: false },
+                    { id: 5, name: 'go', text: '5555555555', isActive: false }
+                ],
+            },
+            methods: {
+                fn(id) {
+                    this.list.forEach(item => {
+                        if (item.id == id) {
+                            item.isActive = true
+                        } else {
+                            item.isActive = false
+                        }
+                    })
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <input type="text" v-model.number='firstNum'>
+        <select v-model='select'>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" v-model.number='lastNum'>
+        <button @click='compute()'>=</button>
+        {{result}}
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                firstNum: 0,
+                lastNum: 0,
+                result: 0,
+                select: '+'
+            },
+            methods: {
+                compute() {
+                    switch (this.select) {
+                        case '+':
+                            this.result = this.firstNum + this.lastNum
+                            break
+                        case '-':
+                            this.result = this.firstNum - this.lastNum
+                            break
+                        case '*':
+                            this.result = this.firstNum * this.lastNum
+                            break
+                        case '/':
+                            this.result = this.firstNum / this.lastNum
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

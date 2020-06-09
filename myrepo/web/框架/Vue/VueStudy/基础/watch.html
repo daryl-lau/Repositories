@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title></title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
 </head>
+
 <body>
-<div id="box1">
-    <input type="text" v-model="name">
-    <input type="text" v-model="info.d">
-</div>
+    <div id="box1">
+        <input type="text" v-model="name">
+        <input type="text" v-model="info.age">
+        <input type="text" v-model="info.birth">
+        <button @click='changeInfo()'>修改info</button>
+    </div>
 
 
-<script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
 
-<script>
+    <script>
 
-    new Vue({
-        el: '#box1',
-        data: {
-            name: 'zhang san',
-            info: {
-                d: 'aaa'
-            }
-        },
-        watch: {
-            name() {
-                console.log('name变了')
+        new Vue({
+            el: '#box1',
+            data: {
+                name: 'zhang san',
+                info: {
+                    age: 18,
+                    birth: 2002,
+                }
             },
-            // info.d不能直接作为函数名，所以使用下面的写法
-            'info.d': function () {
-                console.log('info里面的d变了')
+            methods: {
+                changeInfo() {
+                    this.info = {}
+                }
+            },
+            watch: {
+                // 相当于name: function(){}
+                // 函数有两个参数，修改后的当前值，和修改前的值
+                name(curVal, oldVal) {
+                    console.log(curVal, oldVal);
+                    console.log('name变了')
+                },
+
+                // 还可以侦听下级具体的一个属性，此时info.d不能直接作为函数名，所以使用下面的写法
+                'info.age': function () {
+                    console.log('info里面的age变了')
+                },
+
+                // 如果侦听的是info，但是修改的是info.age，此时是侦听不到的
+                // 只有当属性名的当前属性值发生了改变才会触发侦听
+                'info': function (curVal, oldVal) {
+                    console.log(curVal, oldVal);
+                    console.log('info改变了');
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 
 
 </body>
+
 </html>

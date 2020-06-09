@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav {
+            position: absolute;
+            width: 10%;
+            height: 100%;
+            background-color: skyblue;
+            float: left;
+            overflow: auto;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            display: block;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .content {
+            float: left;
+            position: absolute;
+            width: 90%;
+            height: 100%;
+            left: 10%;
+            background-color: #cccccc;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <div class="nav">
+            <router-link to='/one'>one</router-link>
+            <router-link to='/two'>two</router-link>
+            <router-link to='/three'>three</router-link>
+            <router-link to='/four'>four</router-link>
+        </div>
+        <div class="content">
+            <router-view></router-view>
+        </div>
+    </div>
+
+    <script>
+
+        const one = Vue.extend({
+            template: `<div>one</div>`
+        })
+
+        const two = Vue.extend({
+            template: `<div>two</div>`
+        })
+
+        const three = Vue.extend({
+            template: `<div>three</div>`
+        })
+
+        const four = Vue.extend({
+            template: `<div>four</div>`
+        })
+
+        const router = new VueRouter({
+            routes: [
+                { path: '/one', component: one },
+                { path: '/two', component: two },
+                { path: '/three', component: three },
+                { path: '/four', component: four },
+                { path: '/', redirect: '/one' },
+            ]
+        })
+
+        new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+</body>
+
+</html>

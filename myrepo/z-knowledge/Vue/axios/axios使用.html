@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./axios.min.js"></script>
+    <script>
+        // 下面的请求接口需要根据json-server的接口规范来进行使用
+        // json-server接口使用restful规范
+
+        // 请求方法的别名
+        // 为方便起见，为所有支持的请求方法提供了别名
+        // axios.request(config)
+        // axios.get(url[, config])
+        // axios.delete(url[, config])
+        // axios.head(url[, config])
+        // axios.post(url[, data[, config]])
+        // axios.put(url[, data[, config]])
+        // axios.patch(url[, data[, config]])
+
+
+        // ----------------------------------------查询-----------------------------------------------
+        axios.get('http://localhost:3000/brands').then(res => {
+            console.log(res.data);
+        })
+
+        // 根据id查询，这里是根据json-server的接口定义来的，json-server支持路由传参
+        axios.get('http://localhost:3000/brands/1').then(res => {
+            console.log(res.data);
+        })
+
+        // url请求参数拼接的方式查询，json-server支持查询字符串
+        axios.get('http://localhost:3000/brands/1?id=1').then(res => {
+            console.log(res.data);
+        })
+
+        // axios支持把拼接的字符用对象的方式传递，但是需要使用params属性申明，params里面的参数会自动拼接到url的查询字符串上
+        axios.get('http://localhost:3000/brands', {
+            params: {
+                id: 2
+            }
+        }).then(res => {
+            console.log(res.data);
+        })
+        // ----------------------------------------查询-----------------------------------------------
+
+
+
+
+        // ----------------------------------------新增-----------------------------------------------
+        // json-server接口定义使用post请求方式进行添加，axios将url后面的对象数据放在请求体中，传递给json-server后台
+        axios.post('http://localhost:3000/brands', {
+            brand: '法拉利',
+            createTime: new Date(),
+        }).then(res => {
+            console.log(res.data);
+        })
+        // ----------------------------------------新增-----------------------------------------------
+
+
+
+
+        // ----------------------------------------修改-----------------------------------------------
+        // patch请求方式一般用于部分数据的修改，如果传过去的参数源数据里面没有，则会进行添加，有则进行修改
+        // axios.patch('http://localhost:3000/brands/1', {
+        //     brand: '桑塔纳'
+        // }).then(res => {
+        //     console.log(res.data);
+        // })
+
+        // put请求方式一般用于全部数据的替换
+        // axios.put('http://localhost:3000/brands/1', {
+        //     new: '桑塔纳'
+        // }).then(res => {
+        //     console.log(res.data);
+        // })
+        // ----------------------------------------修改-----------------------------------------------
+
+
+
+
+        // ----------------------------------------删除-----------------------------------------------
+        // axios.delete('http://localhost:3000/brands/7').then(res => {
+        //     console.log(res.data);
+        // })
+        // ----------------------------------------删除-----------------------------------------------
+
+
+
+        // ----------------------------------------并发请求-----------------------------------------------
+
+        // 多个请求并发可以将多个请求放在数组里，使用axios.all并发请求，
+        // 请求的结果在then中用axios.spear()函数展开，并通过函数依次接受结果
+        // 
+        axios.all([axios.get('http://localhost:3000/brands'), axios.get('http://localhost:3000/brands/1')]).then(
+            axios.spread(function (brands, brandid) {
+                console.log(brands, brandid);
+            })
+        )
+
+        // 如果并发请求很多可以通过函数来规整代码
+        function getBrand() {
+            return axios.get('http://localhost:3000/brands');
+        }
+
+        function getBrandById() {
+            return axios.get('http://localhost:3000/brands/1');
+        }
+        axios.all([getBrand(), getBrandById()]).then(
+            axios.spread(function (brands, brandid) {
+                console.log(brands, brandid);
+            })
+        )
+
+        // ----------------------------------------并发请求-----------------------------------------------
+
+    </script>
+</body>
+
+</html>

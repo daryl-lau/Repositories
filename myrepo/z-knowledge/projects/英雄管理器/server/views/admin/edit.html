@@ -75,6 +75,7 @@
             $.ajax({
                 type: 'post',
                 url: 'http://localhost:8080/api/uploadFile',
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
                 dataType: 'json',
                 data: formdata,
                 processData: false,
@@ -90,8 +91,9 @@
 
         $('#sub').on('click', function () {
             $.ajax({
-                method: 'post',
+                method: 'post', 
                 url: 'http://localhost:8080/api/editHero',
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
                 data: $('form').serialize(),
                 dataType: 'json',
                 success: function (obj) {

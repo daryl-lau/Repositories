@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+    <div id="app">
+        <my_slot>
+            <!-- 老写法 -->
+            <!-- <h1 slot='header'>我是标题</h1>
+            <div slot='header'>我是内容</div>
+            <h1 slot='header'>我是尾部</h1> -->
+
+            <!-- 2.6以后的写法 -->
+            <!-- v-slot:可以简写为# -->
+
+            <!-- 1.2 在父作用域中，使用带值的 v-slot 来定义我们提供的插槽 prop 的名字 -->
+            <!-- 对象解构的方式这里都适用 -->
+            <template v-slot:header='{header}'>
+                <h1>我是标题，{{header}}</h1>
+            </template>
+            <template v-slot:content='{content: ctx}'>
+                <div>我是内容，{{ctx.text}}，{{ctx.msg}}</div>
+            </template>
+
+            <!-- 当footer严格是undefined时，才会使用默认值 -->
+            <template #footer='{footer: foot = "default msg"}'>
+                <h1>我是尾部，{{foot}}</h1>
+            </template>
+        </my_slot>
+    </div>
+
+    <template id="my_slot">
+        <div id="pannel">
+            <!--预留一个插槽-->
+            <!-- 为了让数据在父级的插槽内容中可用，我们可以将数据作为 <slot> 元素的一个 attribute 绑定上去； -->
+            <!-- 绑定在 <slot> 元素上的 attribute 被称为插槽 prop -->
+            <header>
+                <!-- 1.1 在slot上绑定数据 -->
+                <slot name="header" :header='header'></slot>
+            </header>
+            <div>
+                <slot name="content" :content='content'></slot>
+            </div>
+            <footer>
+                <slot name="footer" :footer='footer'></slot>
+            </footer>
+            <hr>
+            <div>
+                <slot></slot>
+            </div>
+        </div>
+    </template>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.component('my_slot', {
+            template: '#my_slot',
+            data() {
+                return {
+                    user: {
+                        name: 'jerry',
+                        age: 18,
+                    },
+                    header: 'I\'m header',
+                    content: { text: 'I\'m content', msg: '我是内容' },
+                    footer: 'I\'m footer',
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+        });
+    </script>
+
+</body>
+
+</html>

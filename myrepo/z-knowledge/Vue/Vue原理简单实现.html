@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id='id'>
+        姓名: <input type="text" v-model="name"><br>
+        年龄：<input type="text" v-model="age"><br>
+        姓名: {{name}}<br>
+        年龄：{{age}}
+    </div>
+
+    <script>
+        let vueRoot = document.getElementById('id');
+
+        // 保存模板
+        let template = vueRoot.innerHTML;
+
+        let _data = {
+            name: 'jerry',
+            age: 18
+        }
+
+        let data = new Proxy(_data, {
+            set(obj, key, value) {
+                console.log('有人修改数据');
+                obj[key] = value
+                render()
+            }
+        })
+
+        render()
+
+        function render() {
+            vueRoot.innerHTML = template.replace(/\{\{\w+\}\}/g, result => {
+                return _data[result.substring(2, result.length - 2)]
+            })
+
+            Array.from(vueRoot.getElementsByTagName('input'))
+                .filter(ele => ele.getAttribute('v-model'))
+                .forEach(input => {
+                    let key = input.getAttribute('v-model');
+                    input.value = _data[key];
+                    input.oninput = function () {
+                        data[key] = this.value
+                    }
+                })
+        }
+
+    </script>
+</body>
+
+</html>

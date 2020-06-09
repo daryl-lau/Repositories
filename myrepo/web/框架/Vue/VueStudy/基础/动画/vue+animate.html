@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title></title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
@@ -19,8 +20,9 @@
         }
     </style>
 </head>
+
 <body>
-<!--
+    <!--
 我们可以通过以下特性来自定义过渡类名：
 
 enter-class
@@ -30,31 +32,41 @@ leave-class
 leave-active-class
 leave-to-class (2.1.8+)
 他们的优先级高于普通的类名，这对于 Vue 的过渡系统和其他第三方 CSS 动画库，如 Animate.css 结合使用十分有用。
+
+:duration="{enter: 3000, leave:3000}"  在用animate库时，duration将以animate自己的为主
 -->
 
-<div id="example-3">
-    <button @click="show = !show">
-        Toggle render
-    </button>
-    <transition
-            name="custom-classes-transition"
-            enter-active-class="animated tada"
-            leave-active-class="animated bounceOutRight"
-            :duration="{enter: 3000, leave:3000}"
-    >
-        <!--<p v-if="show">hello</p>-->
-        <img v-if="show" src="../../imgs/img1.jpg" alt="" class="animated">
-    </transition>
-</div>
+    <div id="example-3">
+        <button @click="show = !show">
+            Toggle render
+        </button>
+        <!-- :duration属性可以自定义进入和移出的动画市场，但是如果使用了animation第三方库，将以第三方库为准
+             但是如果duration的时间比第三方库的快，将以duration为准，如果时间比第三方库慢，也将以第三方库为准
+             如果用了第三方库，则不建议使用此属性
+            :duration="{ enter: 100, leave: 800 }" -->
+        <transition name="custom-classes-transition" enter-active-class="animated fadeInRight"
+            leave-active-class="animated fadeOutRight">
+            <!--<p v-if="show">hello</p>-->
+            <img v-show="show" src="../../imgs/img1.jpg" alt="">
+        </transition>
 
-<script src="../../node_modules/vue/dist/vue.min.js"></script>
-<script>
-    new Vue({
-        el: '#example-3',
-        data: {
-            show: true
-        }
-    })
-</script>
+        <!-- 初始渲染时过度 -->
+        <!-- 还可以在生命周期中进行初始渲染 -->
+        <transition appear appear-class="custom-appear-class" appear-to-class="animated fadeInRight"
+            appear-active-class="animated fadeInRights">
+            <img src="../../imgs/img1.jpg" alt="">
+        </transition>
+    </div>
+
+    <script src="../../node_modules/vue/dist/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#example-3',
+            data: {
+                show: false
+            }
+        })
+    </script>
 </body>
+
 </html>

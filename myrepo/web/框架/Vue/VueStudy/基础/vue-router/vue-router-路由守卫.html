@@ -1,152 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title></title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <script src="./js/vue.min.js"></script>
     <script src="js/vue-router.js"></script>
 </head>
+
 <body>
-<div id="app">
-    <div class="row">
-        <div class="col-xl-2 offset-2">
-            <div class="alert-heading">
-                <h1>博客</h1>
+    <div id="app">
+        <div class="row">
+            <div class="col-xl-2 offset-2">
+                <div class="alert-heading">
+                    <h1>博客</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-2 offset-2">
+                <div class="list-group">
+                    <button class="list-group-item" @click="fn1()">H5</button>
+                    <button class="list-group-item" @click="fn2()">Linux</button>
+                    <button class="list-group-item" @click="fn3()">Python</button>
+                </div>
+            </div>
+            <div class="col-xl-5">
+                <div class="panel">
+
+                    <!-- 路由出口 -->
+                    <!-- 路由匹配到的组件将渲染在这里 -->
+                    <router-view></router-view>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xl-2 offset-2">
-            <div class="list-group">
 
-                <!-- 使用 router-link 组件来导航. -->
-                <!-- 通过传入 `to` 属性指定链接. -->
-                <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
 
-                <!--                <router-link to="/H5" class="list-group-item">H5</router-link>-->
-                <!--                <router-link to="/Linux" class="list-group-item">Linux</router-link>-->
-                <!--                <router-link to="/Python" class="list-group-item">Python</router-link>-->
-
-                <!--<a href="">H5</a>-->
-                <!--<a href="">Linux</a>-->
-                <!--<a href="">Python</a>-->
-
-                <button class="list-group-item" @click="fn1()">H5</button>
-                <button class="list-group-item" @click="fn2()">Linux</button>
-                <button class="list-group-item" @click="fn3()">Python</button>
-            </div>
+    <template id="h5">
+        <div>
+            <h2>HTML5</h2>
+            <p>标准通用标记语言下的一个应用HTML标准自1999年12月发布的HTML4.01后，后继的HTML5和其它标准被束之高阁，为了推动Web标准化运动的发展，一些公司联合起来，成立了一个叫做 Web
+                Hypertext
+                Application Technology Working Group （Web超文本应用技术工作组 -WHATWG） 的组织。WHATWG 致力于 Web 表单和应用程序，而W3C（World Wide
+                Web
+                Consortium，万维网联盟） 专注于XHTML2.0。在 2006 年，双方决定进行合作，来创建一个新版本的 HTML。</p>
         </div>
-        <div class="col-xl-5">
-            <div class="panel">
-
-                <!-- 路由出口 -->
-                <!-- 路由匹配到的组件将渲染在这里 -->
-                <router-view></router-view>
-            </div>
+    </template>
+    <template id="linux">
+        <div>
+            <h2>Linux</h2>
+            <p>
+                Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。！
+            </p>
         </div>
-    </div>
-</div>
+    </template>
+    <template id="python">
+        <div>
+            <h2>Python</h2>
+            <p>Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。！</p>
+        </div>
+    </template>
 
+    <script>
 
-<template id="h5">
-    <div>
-        <h2>HTML5</h2>
-        <p>标准通用标记语言下的一个应用HTML标准自1999年12月发布的HTML4.01后，后继的HTML5和其它标准被束之高阁，为了推动Web标准化运动的发展，一些公司联合起来，成立了一个叫做 Web Hypertext
-            Application Technology Working Group （Web超文本应用技术工作组 -WHATWG） 的组织。WHATWG 致力于 Web 表单和应用程序，而W3C（World Wide Web
-            Consortium，万维网联盟） 专注于XHTML2.0。在 2006 年，双方决定进行合作，来创建一个新版本的 HTML。</p>
-    </div>
-</template>
-<template id="linux">
-    <div>
-        <h2>Linux</h2>
-        <p>
-            Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。！</p>
-    </div>
-</template>
-<template id="python">
-    <div>
-        <h2>Python</h2>
-        <p>Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。！</p>
-    </div>
-</template>
+        // 1. 定义 (路由) 组件。
+        // 可以从其他文件 import 进来
+        const h5 = {
+            template: '#h5',
+        };
 
-<script>
+        const linux = {
+            template: '#linux',
+        };
 
-    // 1. 定义 (路由) 组件。
-    // 可以从其他文件 import 进来
-    const h5 = Vue.extend({
-        template: '#h5',
-    });
-
-    const linux = Vue.extend({
-        template: '#linux',
-    });
-    const python = Vue.extend({
-        template: '#python',
-        beforeRouteLeave(to, from, next) {
-            const answer = window.confirm('Do you really want to leave? you have unsaved changes!');
-            if (answer) {
-                next()
-            } else {
-                next(false)
+        const python = {
+            template: '#python',
+            beforeRouteLeave(to, from, next) {
+                console.log(222);
+                const answer = window.confirm('Do you really want to leave? you have unsaved changes!');
+                if (answer) {
+                    next()
+                } else {
+                    next(false)
+                }
             }
-        }
-    });
+        };
 
-    // 2. 定义路由
-    // 每个路由应该映射一个组件。 其中"component" 可以是
-    // 通过 Vue.extend() 创建的组件构造器，
-    // 或者，只是一个组件配置对象。
-    const routes = [
-        {path: '/H5', component: h5,},
-        {path: '/Linux', component: linux},
-        {path: '/Python', component: python},
-        {path: '/', redirect: '/H5'}
-    ];
+        // 2. 定义路由
+        // 每个路由应该映射一个组件。 其中"component" 可以是
+        // 通过 Vue.extend() 创建的组件构造器，
+        // 或者，只是一个组件配置对象。
+        const routes = [
+            { path: '/H5', component: h5, },
+            { path: '/Linux', component: linux },
+            { path: '/Python', component: python },
+            { path: '/', redirect: '/H5' }
+        ];
 
-    // 3. 创建 router 实例，然后传 `routes` 配置
-    // 你还可以传别的配置参数, 不过先这么简单着吧。
-    const router = new VueRouter({
-        routes
-    });
+        // 3. 创建 router 实例，然后传 `routes` 配置
+        // 你还可以传别的配置参数, 不过先这么简单着吧。
+        const router = new VueRouter({
+            routes
+        });
 
-    router.beforeEach((to, from, next) => {
-        console.log(11111);
-        console.log(to, from);
-        next()
-    });
 
-    // 4. 创建和挂载根实例。
-    // 记得要通过 router 配置参数注入路由，
-    // 从而让整个应用都有路由功能
-    new Vue({
-        // el: '#app',
-        router,
-        methods: {
-            fn1() {
-                this.$router.push('/H5')
+        // 所有路由的跳转都会经过这里
+        router.beforeEach((to, from, next) => {
+            console.log(11111);
+            console.log(to, from);
+            next()
+        });
 
-                // this.$router.push({name: 'H5', params: {id: 999}})
+        // 4. 创建和挂载根实例。
+        // 记得要通过 router 配置参数注入路由，
+        // 从而让整个应用都有路由功能
+        new Vue({
+            // el: '#app',
+            router,
+            methods: {
+                fn1() {
+                    this.$router.push('/H5')
 
-                // this.$router.replace()  替换最后一个路由（即当前路由）
-                // this.$router.go(数字)  go(-1) 退后   go(1) 前进
-            },
-            fn2() {
-                this.$router.push('/Linux')
-            },
-            fn3() {
-                this.$router.push('/Python')
+                    // this.$router.push({name: 'H5', params: {id: 999}})
+
+                    // this.$router.replace()  替换最后一个路由（即当前路由）
+                    // this.$router.go(数字)  go(-1) 退后   go(1) 前进
+                },
+                fn2() {
+                    this.$router.push('/Linux')
+                },
+                fn3() {
+                    this.$router.push('/Python')
+                }
             }
-        }
-    }).$mount('#app');
-</script>
+        }).$mount('#app');
+    </script>
 </body>
+
 </html>
 <script>
     // import Btn from "cube-ui/src/components/upload/btn";

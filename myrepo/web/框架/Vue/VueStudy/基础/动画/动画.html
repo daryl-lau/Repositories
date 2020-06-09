@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title></title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
     <style>
-        .fade-enter-active, .fade-leave-active {
+        .fade-enter-active,
+        .fade-leave-active {
             transition: opacity 2s;
         }
 
-        .fade-leave-to /* 动画开始时的状态和结束时的状态一样 */
-        {
-
+        .fade-leave-to {
+            /* 动画开始时的状态和结束时的状态一样 */
             opacity: 0;
         }
 
@@ -29,16 +30,20 @@
             opacity: 1;
         }
 
-        .fade-enter-to { /*进入结束后会移除此class*/
+        .fade-enter-to {
+            /*进入结束后会移除此class*/
             opacity: 1;
         }
     </style>
 </head>
-<body>
-<div id="demo">
 
-    <!--
+<body>
+    <div id="demo">
+
+        <!--
     在进入/离开的过渡中，会有 6 个 class 切换。
+        
+        下面的v开头通过transition中的name属性替换
 
         v-enter：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
 
@@ -54,22 +59,23 @@
     -->
 
 
-    <button v-on:click="show = !show">
-        Toggle
-    </button>
-    <transition name="fade">
-        <p v-if="show">hello</p>
-    </transition>
-</div>
+        <button v-on:click="show = !show">
+            Toggle
+        </button>
+        <transition name="fade">
+            <p v-if="show">hello</p>
+        </transition>
+    </div>
 
-<script src="../../node_modules/vue/dist/vue.js"></script>
-<script>
-    new Vue({
-        el: '#demo',
-        data: {
-            show: true
-        }
-    })
-</script>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                show: true
+            }
+        })
+    </script>
 </body>
+
 </html>

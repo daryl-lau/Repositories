@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="../../../z-knowledge/libs/jQuery/jQuery.min.js"></script> -->
+    <script src="./axios.min.js"></script>
+    <script></script>
+</head>
+
+<body>
+    <button id="login">登录</button>
+    <button id="abc">同时获取abc</button>
+    <button id="refreshToken">手动续期</button>
+    <script>
+        let loginBtn = document.querySelector('#login');
+        let requestBtn = document.querySelector('#abc');
+        let refreshTokenBtn = document.querySelector('#refreshToken');
+
+        axios.defaults.baseURL = 'http://localhost:8080'
+
+        loginBtn.onclick = function () {
+            axios.post('/login', {
+                username: 'jerry',
+                password: '123456'
+            }).then(res => {
+                if (res.data.code == 200) {
+                    localStorage.setItem('accessToken', res.data.token.accessToken)
+                    localStorage.setItem('refreshToken', res.data.token.refreshToken)
+                } else {
+                    alert('用户名或密码错误')
+                }
+            })
+        }
+
+        requestBtn.onclick = function () {
+            axios.all([axios.get('/a'), axios.get('b'), axios.get('/c')]).then(axios.spread(function (a, b, c) {
+                console.log(a.data, b.data, c.data);
+            }))
+        }
+
+        // 手动续期
+        refreshToken.onclick = function () {
+            axios.post('/refreshToken').then(res => {
+                if (res.data.code == 200) {
+                    localStorage.setItem('accessToken', res.data.token.accessToken)
+                    localStorage.setItem('refreshToken', res.data.token.refreshToken)
+                } else if (res.data.code == 402) {
+                    console.log('请重新登录');
+                }
+            })
+        }
+
+        // 请求拦截器，根据url设置不同的请求token
+        axios.interceptors.request.use(function (config) {
+            if (config.url == '/refreshToken') {
+                config.headers.Authorization = 'Bearer ' + localStorage.getItem('refreshToken')
+            } else if (config.url !== '/login') {
+                config.headers.Authorization = 'Bearer ' + localStorage.getItem('accessToken')
+            }
+            return config;
+        }, function (error) {
+            return Promise.reject(error);
+        });
+
+        // 响应拦截器，401 accessToken过期，402 refreshToken过期
+        axios.interceptors.response.use(function (response) {
+            if (response.data.code == 401) {
+                axios.post('/refreshToken').then(res => {
+                    if (res.data.code == 200) {
+                        localStorage.setItem('accessToken', res.data.token.accessToken)
+                        localStorage.setItem('refreshToken', res.data.token.refreshToken)
+                    } else if (res.data.code == 402) {
+                        console.log('请重新登录');
+                    }
+
+                })
+            }
+            return response;
+        }, function (error) {
+            return Promise.reject(error);
+        })
+
+    </script>
+</body>
+
+</html>

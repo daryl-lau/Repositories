@@ -39,6 +39,11 @@ v-on:  可以缩写为 @
         <!-- 函数没有参数时，可以省略括号，但是还是建议加上 -->
         <!-- <button @click.right.prevent="click" id="btn1">点击</button> -->
 
+        <!-- 事件对象 -->
+        <button @click="fn($event, 18)">点击</button>
+
+        <!-- 如果不加()，默认可以获取到事件对象 -->
+        <button @click="fn1">点击</button>
 
     </div>
     <script src="../../node_modules/vue/dist/vue.js"></script>
@@ -49,6 +54,12 @@ v-on:  可以缩写为 @
                 click() {
                     alert('点击了！')
                 },
+                fn(e, age) {
+                    console.log(e, age);
+                },
+                fn1(e) {
+                    console.log(e);
+                }
             }
         })
     </script>

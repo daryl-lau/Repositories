@@ -12,13 +12,18 @@ const jwtSecret = 'sdD(Sdsdfsd^%8ds^^&5s'
 
 
 let app = new Koa()
-app.listen(3000);
+app.listen(8080);
 
 // 跨域设置，需要注意的是，要将Authorization头设置到Access-Control-Allow-Headers里面去，否则无法跨域发送Authorization头
 app.use(async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*');
     ctx.set('Access-Control-Allow-Headers', 'x-requested-with,content-type,Authorization')
-    await next()
+    ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    if (ctx.method == 'OPTIONS') {
+        ctx.status = 200;
+    } else {
+        await next();
+    }
 })
 
 app.use(betterBody());
@@ -36,6 +41,8 @@ router.post('/login', async ctx => {
         let { username: name, password: pass } = user
         if (username == name && password == pass) {
             let token = createToken({ username })
+            // ctx.status = 200
+            // ctx.message = 'OK'
             ctx.body = { code: 200, msg: '登录成功', token }
         } else {
             ctx.body = { code: 202, msg: '用户名或密码错误' }
@@ -56,7 +63,7 @@ router.post('/refreshToken', async ctx => {
             })
         })
         .catch((e) => {
-            throw e;
+            ctx.body = { code: 402, msg: '续期失败，请重新登录' }
         })
 })
 
@@ -76,7 +83,7 @@ app.use(function (ctx, next) {
 // 默认校验在请求头中的[ Authorization: Bearer TOKEN ] 头,'Bearer ' (后面有一个空格)
 // token不合法或者过期都会返回401错误
 // 另外定义在unless中路由不会被校验
-app.use(koaJwt({ secret: jwtSecret }).unless({ path: [/^\/login/] }))
+app.use(koaJwt({ secret: jwtSecret }).unless({ path: [/^\/login/, /^\/refreshToken/] }))
 
 // ---------------------------------koa-jwt----------------------------------
 

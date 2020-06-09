@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        /**
+         * @desc   函数防抖      “立即执行版本” 和 “非立即执行版本” 的组合版本
+         * @param  func         需要执行的函数
+         * @param  wait         延迟执行时间（毫秒）
+         * @param  immediate    true表示立即执行 false表示非立即执行 默认false
+         **/
+        function debounce(func, wait, immediate = false) {
+            let timer;
+            return function () {
+                let args = arguments;
+                if (timer) clearTimeout(timer);
+                if (immediate) {
+                    var callNow = !timer;
+                    timer = setTimeout(() => {
+                        timer = null;
+                    }, wait)
+                    if (callNow) func.apply(this, args)
+                } else {
+                    timer = setTimeout(() => {
+                        func.apply(this, args)
+                    }, wait);
+                }
+            }
+        }
+
+        /**
+         * @desc  函数节流   “立即执行版本” 和 “非立即执行版本” 的组合版本
+         * @param func      需要执行的函数
+         * @param wait      延迟执行毫秒数
+         * @param immediate true表示立即执行 false表示非立即执行 默认false
+         */
+        function throttle(func, wait, immediate = false) {
+            if (immediate) {
+                var previous = 0;
+            } else {
+                var timeout;
+            }
+            return function () {
+                let args = arguments;
+                if (immediate) {
+                    let now = Date.now();
+                    if (now - previous > wait) {
+                        func.apply(this, args);
+                        previous = now;
+                    }
+                } else {
+                    if (!timeout) {
+                        timeout = setTimeout(() => {
+                            timeout = null;
+                            func.apply(this, args)
+                        }, wait)
+                    }
+                }
+            }
+        }
+
+        function handle() {
+            console.log(this);
+            console.log(Math.random());
+        }
+
+        // window.addEventListener("mousemove", debounce(handle, 1000, true)); // 调用立即执行版本
+        // window.addEventListener("mousemove", debounce(handle, 1000)); // 调用非立即执行版本
+
+        // window.addEventListener("mousemove", throttle(handle, 1000, true)); // 调用立即执行版本
+        // window.addEventListener("mousemove", throttle(handle, 1000)); // 调用非立即执行版本
+
+
+        let btn = document.querySelector('button');
+        btn.onclick = debounce(handle, 1000) 
+    </script>
+</body>
+
+</html>

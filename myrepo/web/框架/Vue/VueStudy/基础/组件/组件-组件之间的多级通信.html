@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+
+    <div id="app">
+        <parent :imgtitle="title" :imgsrc="img"></parent> <!-- 把title和img传递给parent组件，parent组件里通过imgtitle和imgsrc接收属性-->
+    </div>
+
+
+    <template id="title">
+        <h1>{{title}}</h1>
+    </template>
+
+    <template id="img">
+        <img :src="imgsrc" alt="">
+    </template>
+
+    <template id="parent">
+        <div>
+            {{imgtitle}}<br>
+            {{imgsrc}}
+            <titlecomponent :title="imgtitle"></titlecomponent> <!-- 再将父组件获取到的值传递给子组件，同样子组件也需要用props接收 -->
+            <imgcomponent :imgsrc="imgsrc"></imgcomponent> <!-- 再将父组件获取到的值传递给子组件，同样子组件也需要用props接收 -->
+        </div>
+    </template>
+
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+
+        let titlecomponent = Vue.extend({
+            template: '#title',
+            props: ['title']
+        });
+        let imgcomponent = Vue.extend({
+            template: '#img',
+            props: ['imgsrc']
+        });
+
+        // 注册全局组件
+        Vue.component('parent', {
+            components: {
+                titlecomponent,
+                imgcomponent
+            },
+            template: '#parent',
+            props: ['imgtitle', 'imgsrc']
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                title: '我是美女',
+                img: '../../imgs/img1.jpg'
+            }
+        });
+    </script>
+</body>
+
+</html>

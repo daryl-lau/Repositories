@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES2017 引入了跟Object.keys配套的Object.values和Object.entries，作为遍历一个对象的补充手段，供for...of循环使用。
+
+        let obj = { a: 1, b: 2, c: 3 };
+
+        for (let key of Object.keys(obj)) {
+            console.log(key); // 'a', 'b', 'c'
+        }
+
+        for (let value of Object.values(obj)) {
+            console.log(value); // 1, 2, 3
+        }   
+
+        for (let [key, value] of Object.entries(obj)) {
+            console.log([key, value]); // ['a', 1], ['b', 2], ['c', 3]
+        }
+    </script>
+</body>
+
+</html>

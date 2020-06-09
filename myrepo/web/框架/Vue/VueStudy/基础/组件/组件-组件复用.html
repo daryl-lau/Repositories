@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 每个组件都有单独的data，互不干扰 -->
+        <template1></template1>
+        <template1></template1>
+        <template1></template1>
+        <template1></template1>
+    </div>
+
+    <template id="template1">
+        <div>
+            <h1>{{title}}</h1>
+            <button @click="total()">点击的次数: {{counter}}</button>
+        </div>
+    </template>
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        // 注册全局组件
+        Vue.component('template1', {
+            template: '#template1',
+
+            // 二级和三级里面data定义数据都需要通过使用函数进行返回,避免数据共享
+            data() {
+                return {
+                    title: '我是组件',
+                    counter: 0
+                }
+            },
+            methods: {
+                total() {
+                    this.counter += 1;
+                }
+            }
+
+        });
+
+        new Vue({
+            el: '#app',
+        });
+    </script>
+</body>
+
+</html>

@@ -13,7 +13,9 @@
         // reduce() 可以作为一个高阶函数，用于函数的 compose。
         // 注意: reduce() 对于空数组是不会执行回调函数的。
         // array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
-        // total:           必需。初始值, 或者计算结束后的返回值。
+        // total:           必需。 初始值, 或者计算结束后的返回值。
+        //                         当没有传入初始值时(initiaValue)，total是从数组中第一个元素开始的，currentValue是数组第二个元素。
+        //                         但是当传入初始值(initiaValue)后,第一个total将是initivalValue，currentValue将是数组中的第一个元素。 
         // currentValue:    必需。当前元素
         // currentIndex:    可选。当前元素的索引
         // arr:             可选。当前元素所属的数组对象。

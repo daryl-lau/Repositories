@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <temp1></temp1>
+        <hr>
+        <temp2></temp2>
+    </div>
+
+    <script>
+
+        const template1 = Vue.extend({
+            template: `
+                    <div>
+                        <div>我是组件1</div>
+                        <button @click='fn()'>给template2传值</button>
+                        <button @click='fn1()'>给template2的子组件传值</button>
+                    </div>
+                    `,
+            data() {
+                return {
+                    msg: '我是组件1传递给组件2的值',
+                    msg1: '我是组件1传递给组件2的子组件的值'
+                }
+            },
+            methods: {
+                fn() {
+                    this.bus.$emit('sendToTemplate2', this.msg)
+                },
+                fn1() {
+                    this.bus.$emit('sendToTemplateChild', this.msg1)
+                }
+            }
+        })
+
+        const child = Vue.extend({
+            template: `<div><div>我是组件2的子组件</div>{{this.msg}}</div>`,
+            data() {
+                return {
+                    msg: ''
+                }
+            },
+            created() {
+                this.bus.$on('sendToTemplateChild', msg => {
+                    console.log(msg);
+                    this.msg = msg
+                })
+            }
+        })
+
+        const template2 = Vue.extend({
+            template: `<div>
+                            <div>我是组件2</div>
+                            {{msg}}
+                            <child></child>
+                        </div>`,
+            components: {
+                child
+            },
+            data() {
+                return {
+                    msg: ''
+                }
+            },
+            created() {
+                this.bus.$on('sendToTemplate2', msg => {
+                    console.log(msg);
+                    this.msg = msg
+                })
+            }
+        })
+
+        Vue.component('temp1', template1)
+        Vue.component('temp2', template2)
+
+        Vue.prototype.bus = new Vue()
+
+        new Vue({
+            el: '#app',
+        })
+    </script>
+</body>
+
+</html>

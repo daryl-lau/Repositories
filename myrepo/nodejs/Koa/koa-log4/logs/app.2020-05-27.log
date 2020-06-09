@@ -1,0 +1,66 @@
+[2020-05-27T15:11:38.264] [ERROR] app - Error: dsdfsdfsdf
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:29:15
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:14:11
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+[2020-05-27T15:12:31.222] [ERROR] app - Error: dsdfsdfsdf
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:29:15
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:14:11
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+[2020-05-27T15:12:55.492] [ERROR] app - Error: error
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:29:15
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:14:11
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+[2020-05-27T15:13:50.226] [ERROR] app - TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
+    at maybeCallback (fs.js:126:9)
+    at Object.readFile (fs.js:268:14)
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:31:18
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+[2020-05-27T15:14:17.606] [ERROR] app - TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
+    at maybeCallback (fs.js:126:9)
+    at Object.readFile (fs.js:268:14)
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:31:28
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+[2020-05-27T16:31:32.370] [ERROR] app - Error: error
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:30:15
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at d:\Microsoft VS Code\Repositories\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)
+    at d:\Microsoft VS Code\Repositories\myrepo\nodejs\Koa\koa-log4\app.js:15:11
+    at dispatch (d:\Microsoft VS Code\Repositories\node_modules\koa-compose\index.js:42:32)

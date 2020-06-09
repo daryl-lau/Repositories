@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="login">登录</button>
+    <button id="abc">同时获取abc</button>
+    <button id="refreshToken">手动续期</button>
+    <script>
+        $(function () {
+            $('#login').on('click', function () {
+                $.ajax({
+                    method: 'post',
+                    url: 'http://127.0.0.1:8080/login',
+                    data: { username: 'jerry', password: '123456' },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 200) {
+                            localStorage.setItem('accessToken', data.token.accessToken)
+                            localStorage.setItem('refreshToken', data.token.refreshToken)
+                        }
+                    }
+                })
+            })
+
+            // 模拟同时多请求的情况，若短时间内正在进行续期，多次请求会发起多次续期请求，
+            // 如果需要只进行一次续期的话，需要加一个开关，如果正在续期，就不进行续期了
+            $('#abc').on('click', function () {
+                $.ajax({
+                    method: 'get',
+                    url: 'http://127.0.0.1:8080/a',
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('accessToken') },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 200) {
+                            console.log(data.msg);
+                        } else if (data.code == 401) {
+                            // 如果当前没有在续期的操作，则进行续期，否则什么也不干
+                            if (!window.isRefreshing) {
+                                refreshToken();
+                            } else {
+                                console.log('正在续期');
+                            }
+                        }
+                    }
+                })
+                $.ajax({
+                    method: 'get',
+                    url: 'http://127.0.0.1:8080/b',
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('accessToken') },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 200) {
+                            console.log(data.msg);
+                        } else if (data.code == 401) {
+                            if (!window.isRefreshing) {
+                                refreshToken();
+                            } else {
+                                console.log('正在续期');
+                            }
+                        }
+                    }
+                })
+                $.ajax({
+                    method: 'get',
+                    url: 'http://127.0.0.1:8080/c',
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('accessToken') },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 200) {
+                            console.log(data.msg);
+                        } else if (data.code == 401) {
+                            if (!window.isRefreshing) {
+                                refreshToken();
+                            } else {
+                                console.log('正在续期');
+                            }
+                        }
+                    }
+                })
+            })
+
+            // 手动续期
+            $('#refreshToken').on('click', function () {
+                refreshToken();
+            })
+
+            // 续期请求函数
+            function refreshToken() {
+                // 开始续期，将开关设置为true，表示正在续期
+                window.isRefreshing = true;
+                $.ajax({
+                    method: 'post',
+                    // 注意，请求续期token接口使用的是refreshToken
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('refreshToken') },
+                    url: 'http://127.0.0.1:8080/refreshToken',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 200) {
+                            localStorage.setItem('accessToken', data.token.accessToken)
+                            localStorage.setItem('refreshToken', data.token.refreshToken)
+                        } else if (data.code == 402) {
+                            console.log('refreshToken 过期，重新登录');
+                            // 跳转到登录页面
+                            // location.href = '/login'
+                        }
+                        // 请求续期接口结束，将开关设置为false，表示没有在续期，不管成功与否，都设置为不在续期的状态
+                        window.isRefreshing = false;
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

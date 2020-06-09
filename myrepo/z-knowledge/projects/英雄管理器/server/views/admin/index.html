@@ -71,6 +71,9 @@
                 headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
                 url: 'http://localhost:8080/api/verifyToken',
                 success: (data) => {
+                },
+                error: (err)=>{
+                    location.href = './login.html'
                 }
             })
 

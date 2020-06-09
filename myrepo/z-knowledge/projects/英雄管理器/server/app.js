@@ -6,6 +6,7 @@ const fs = require('fs')
 const ejs = require('koa-ejs');
 const path = require('path')
 const koaJwt = require('koa-jwt')
+const { accessLogger } = require('./libs/log4')
 
 
 const cors = require('koa2-cors');
@@ -13,11 +14,10 @@ const cors = require('koa2-cors');
 let app = new Koa();
 app.listen(8080);
 
-
+app.use(accessLogger())
 
 // 声明静态资源路径
 app.use(require('./routers/staticRoute'));
-
 
 // 跨域处理
 app.use(cors({

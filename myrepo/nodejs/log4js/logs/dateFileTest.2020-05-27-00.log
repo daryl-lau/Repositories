@@ -1,0 +1,14 @@
+[2020-05-27T00:52:49.196] [TRACE] log_date - Entering cheese testing
+[2020-05-27T00:52:49.197] [DEBUG] log_date - Got cheese.
+[2020-05-27T00:52:49.197] [INFO] log_date - Cheese is Comté.
+[2020-05-27T00:52:49.197] [WARN] log_date - Cheese is quite smelly.
+[2020-05-27T00:52:49.197] [ERROR] log_date - Cheese is too ripe!
+[2020-05-27T00:52:49.197] [ERROR] log_date - Error: sadasdasd
+    at Object.<anonymous> (d:\Microsoft VS Code\Repositories\myrepo\nodejs\log4js\index.js:80:15)
+    at Module._compile (internal/modules/cjs/loader.js:774:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:785:10)
+    at Module.load (internal/modules/cjs/loader.js:641:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:837:10)
+    at internal/main/run_main_module.js:17:11
+[2020-05-27T00:52:49.197] [FATAL] log_date - Cheese was breeding ground for listeria.

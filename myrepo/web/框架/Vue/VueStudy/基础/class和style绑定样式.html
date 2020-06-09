@@ -31,7 +31,9 @@
 
 
         <div :style="style_str">555</div>
-        <div :style="style_arr">666</div>
+        <div :style="style_obj">666</div>
+        <div :style="style_obj1">777</div>
+        <div :style="[{color: 'red'},{'font-size': '100px'}]">888</div>
     </div>
 
 
@@ -48,7 +50,10 @@
 
                 style_str: 'color: red; font-size: 20px;',
                 // 对象不支持font-size的 - 写法，转成驼峰大写方式
-                style_arr: { color: 'green', fontSize: '20px' }
+                style_obj: { color: 'green', fontSize: '100px' },
+
+                // 或者把键用引号包起来，就可以用font-size
+                style_obj1: { color: 'pink', 'font-size': '100px' },
             }
         });
     </script>

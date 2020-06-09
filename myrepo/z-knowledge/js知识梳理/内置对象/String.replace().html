@@ -21,6 +21,15 @@
         console.log(res1);
         console.log(res2);
         console.log(res3);
+
+
+        // replace()方法第二个参数还可以传一个函数，函数的参数是正则匹配到的每一个结果
+        // 需要替换的值通过return返回
+        let str1 = 'Mr Blue has a blue house and a blue car';
+        let res4 = str1.replace(/blue/ig, result => {
+            return 'xxxxx'
+        })
+        console.log(res4);          // Mr xxxxx has a xxxxx house and a xxxxx car
     </script>
 </body>
 
