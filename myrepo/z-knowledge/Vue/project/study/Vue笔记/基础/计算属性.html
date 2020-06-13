@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        姓：<input type="text" v-model='firstname'>
+        名：<input type="text" v-model='lastname'><br><br>
+        <!--计算属性调用的时候不需要加‘()’-->
+        姓名<input type="text" v-model='fullname'>
+        <p v-cloak>{{fullname}}</p>
+        <p v-cloak>{{getfullname}}</p>
+        <button @click='changeNewName()'>修改名字</button>
+    </div>
+
+    <!--
+        当页面重新渲染（不是刷新）的时候，计算属性不会发生变化，直接读取缓存使用，适合大量的计算和改变评率较低的属性；
+        而method，就是当页面重新渲染的时候（页面元素的data变化，页面就会重新渲染），都会重新调用method；
+        如果不希望有缓存，可以用method代替computed；
+
+        计算属性应用场景是当需要根据data里面的数据，进行一系列复杂处理，得出另一个数据时，使用计算属性
+        计算属性中不要使用使用自己，否则会导致死循环
+    -->
+
+
+    <script src="./libs/js/vue.min.js"></script>
+    <script>
+
+        const vm = new Vue({
+            el: '#div1',
+            data: {
+                firstname: '徐',
+                lastname: '凤年'
+            },
+            methods: {
+                changeNewName() {
+                    this.fullname = '李淳罡';     // 调用计算属性的set方法，直接赋值就行了，不能调用set()方法，会报错
+                }
+            },
+            // 计算属性中使用了的data属性，data属性发生变化，计算属性也会跟着发生变化
+            computed: {
+                // 如果需要同时读取和设置，需要写成对象
+                // 计算属性不能使用data中已经声明了的属性
+                fullname: {
+                    // 当访问fullname属性的时候，会自动调用get()方法，不需要手动加get()，加上会报错
+                    get() {
+                        return this.firstname + this.lastname;
+
+                        // 计算属性中，不要调用自己，会导致死循环
+                        // return this.fullname;
+                    },
+                    // 当计算属性发生变化的时候，就会去调用计算属性中的set方法，修改后值作为参数传递
+                    set(str) {
+                        if (str) {
+                            this.firstname = str[0]
+                            this.lastname = str.substring(1)
+                        } else {
+                            this.firstname = ''
+                            this.lastname = ''
+                        }
+                    }
+                },
+
+                // 如果仅仅只需要读取，可以直接写一个函数，不用写get
+                getfullname: function () {
+                    return this.firstname + this.lastname;
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

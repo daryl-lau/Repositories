@@ -52,7 +52,7 @@
         });
 
         // 注册全局组件
-        Vue.component('parent', {
+        const parent = Vue.component('parent', {
             components: {
                 titlecomponent,
                 imgcomponent
@@ -61,13 +61,16 @@
             props: ['imgtitle', 'imgsrc']
         });
 
-        new Vue({
+
+        const vm = new Vue({
             el: '#app',
             data: {
                 title: '我是美女',
                 img: '../../imgs/img1.jpg'
             }
         });
+
+        console.log(vm);
     </script>
 </body>
 

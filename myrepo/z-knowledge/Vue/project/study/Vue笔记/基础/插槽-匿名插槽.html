@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+    <div id="app">
+        <template1>
+            <!-- 组件里面一般没有其他结构，如果有，就需要在组件中定义插槽来装这些内容 -->
+            <!-- <img src="../imgs/img1.jpg" alt=""> -->
+
+            <!--插槽内可以放任何东西，包括另一个组件-->
+            <!-- <aaa></aaa> -->
+
+
+            <!-- 2.6 以后的写法 -->
+            <template v-slot:default>
+                <h1>我是默认插槽</h1>
+                <img src="../imgs/img1.jpg" alt="">
+                <aaa></aaa>
+            </template>
+        </template1>
+    </div>
+
+    <template id="template1">
+        <div id="pannel">
+            <h2>插槽的头部</h2>
+
+            <!--预留一个插槽-->
+            <slot>可以替换任何标签，默认显示此内容</slot>
+
+            <h2>插槽的尾部</h2>
+        </div>
+    </template>
+
+    <script src="./libs/js/vue.min.js"></script>
+    <script>
+
+        Vue.component('template1', {
+            template: '#template1'
+
+        });
+
+        Vue.component('aaa', {
+            template: `<div>aaaaa</div>`
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'zhang san',
+                firstname: 'aaa',
+                lastname: 'bbb'
+            },
+        });
+    </script>
+
+</body>
+
+</html>

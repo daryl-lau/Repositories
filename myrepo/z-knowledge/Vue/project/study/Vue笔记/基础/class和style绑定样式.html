@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+    <div id="box1">
+        <!-- 可以使用字符串和数组方式绑定样式 -->
+        <div :class="class_str">111</div>
+        <div :class="class_arr">222</div>
+
+        <!-- 对象语法，条件判断class -->
+        <div :class="{active: isActive}">333</div>
+
+        <!-- 三目表达式 -->
+        <div :class="isActive ? class_str : class_arr">444</div>
+        <div :class="[isActive ? class_str : class_arr]">444</div>
+
+        <!-- 不能使用以下方式，报错, {}里面只能写对象-->
+        <!-- <div :class="{isActive ? class_str : class_arr}">444</div> -->
+
+
+        <div :style="style_str">555</div>
+        <div :style="style_obj">666</div>
+        <div :style="style_obj1">777</div>
+        <div :style="[{color: 'red'},{'font-size': '100px'}]">888</div>
+    </div>
+
+
+    <script src="./libs/js/vue.min.js"></script>
+
+    <script>
+
+        new Vue({
+            el: '#box1',
+            data: {
+                class_str: 'aa bb cc',
+                class_arr: ['qq', 'ww', 'ee'],
+                isActive: true,
+
+                style_str: 'color: red; font-size: 20px;',
+                // 对象不支持font-size的 - 写法，转成驼峰大写方式
+                style_obj: { color: 'green', fontSize: '100px' },
+
+                // 或者把键用引号包起来，就可以用font-size
+                style_obj1: { color: 'pink', 'font-size': '100px' },
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

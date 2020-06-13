@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+
+    <div id="app">
+        <template1></template1>
+    </div>
+
+    <script type="text/template" id="template1">
+        <div>
+            <h1>组件</h1>
+            <input type="text" name="" title="">
+            <button>提交</button>
+        </div>
+    </script>
+
+    <script src="../libs/js/vue.min.js"></script>
+    <script>
+
+        // 注册全局组件
+        Vue.component('template1', {
+            template: '#template1'
+        });
+
+        new Vue({
+            el: '#app',
+        });
+    </script>
+</body>
+
+</html>

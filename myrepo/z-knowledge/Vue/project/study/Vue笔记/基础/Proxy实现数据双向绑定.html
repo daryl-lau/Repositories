@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        姓名：{{name}}</br>
+        年龄：{{age}}
+    </div>
+
+    <script>
+        let el = document.getElementById('div1');
+
+        let template = el.innerHTML;
+
+        let _data = {
+            name: 'bai',
+            age: 18
+        };
+
+        let data = new Proxy(_data, {
+            // obj就是_data，attr是要设置的属性，value是要设置的值
+            set(obj, attr, value) {
+                obj[attr] = value;
+                console.log('数据变了')
+                console.log(`有人设置${attr}为${value}`)
+                render()
+            }
+        })
+
+        render();
+
+        // 当修改data里面的属性的时候，会通过Proxy进行修改
+        // data.name = 'baihuzi.com'
+
+        function render() {
+            el.innerHTML = template.replace(/\{\{\w+\}\}/g, str => {
+                str = str.substring(2, str.length - 2);
+                return _data[str];
+            })
+        }
+
+    </script>
+</body>
+
+</html>

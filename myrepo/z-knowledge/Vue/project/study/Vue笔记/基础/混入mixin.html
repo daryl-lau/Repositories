@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./libs/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <temp1></temp1>
+        <temp2></temp2>
+    </div>
+
+    <script>
+        // 当组件和混入对象含有同名选项时，这些选项将以恰当的方式进行“合并”。
+        // 比如，数据对象在内部会进行递归合并，并在发生冲突时以组件数据优先。
+        // 同名钩子函数将合并为一个数组，因此都将被调用。另外，混入对象的钩子将在组件自身钩子之前调用。
+        // 值为对象的选项，例如 methods、components 和 directives，将被合并为同一个对象。两个对象键名冲突时，取组件对象的键值对。
+        // https://cn.vuejs.org/v2/guide/mixins.html
+
+        // 定义一个混入对象
+        const myMixin1 = {
+            created: function () {
+                this.hello()
+            },
+            methods: {
+                hello: function () {
+                    console.log('hello from mixin111111!')
+                }
+            }
+        }
+        const myMixin2 = {
+            created: function () {
+                this.cl()
+            },
+            methods: {
+                cl: function () {
+                    console.log('hello from mixin222222!')
+                }
+            }
+        }
+
+        // 全局注册一个混入，影响注册之后所有创建的每个 Vue 实例。插件作者可以使用混入，向组件注入自定义的行为。不推荐在应用代码中使用。
+        Vue.mixin({
+            created() {
+                console.log('这里是全局混入');
+            }
+        })
+
+        Vue.component('temp1', {
+            template: `<div>
+                            <button @click='hello()'>点击按钮1</button>
+                        </div>`,
+            // mixins 选项接收一个混入对象的数组。
+            // 这里是局部混入，和其他组件是隔离的
+            mixins: [myMixin1, myMixin2]
+        })
+
+        Vue.component('temp2', {
+            template: `<div>
+                            <button @click='hello()'>点击按钮2</button>
+                        </div>`,
+            // mixins 选项接收一个混入对象的数组。
+            // 这里是局部混入，和其他组件是隔离的
+            mixins: [myMixin1]
+        })
+
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>

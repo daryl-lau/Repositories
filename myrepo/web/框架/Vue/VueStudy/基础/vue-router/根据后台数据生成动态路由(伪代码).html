@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // router.js 应该到路由的index.js里面去动态添加
+
+        // 映射关系
+        const mapComp = {
+            'Home': () => import('./compnents/Home.vue'),
+            'Roles': () => import('./compnents/roles.vue'),
+            'Vip1': () => import('./compnents/vip1.vue'),
+            'Vip2': () => import('./compnents/vip2.vue'),
+            'Vip3': () => import('./compnents/vip3.vue'),
+        }
+
+        
+        // 后台可能的数据格式，异步获取
+        const routes = [
+            { path: '/home', name: 'home', component: 'Home' },
+            {
+                path: '/roles', name: 'roles', component: 'Roles', children: [
+                    { path: '/vip1', name: 'vip1', component: 'Vip1' },
+                    { path: '/vip2', name: 'vip2', component: 'Vip2' },
+                    { path: '/vip3', name: 'vip3', component: 'Vip3' },
+                ]
+            },
+        ]
+
+        let routeConfig = routes.map(route => mapComponent(route))
+        console.log(routeConfig);
+
+        // 请求服务器，添加到路由里面去（伪代码）
+        // http.getRoutes().then(routes => {
+        //     const routeConfig = routes.map(route => mapComponent(route))
+        //     router.addRoutes(routeConfig)
+        // })
+
+        // 递归映射
+        function mapComponent(route) {
+            route.component = mapComp[route.component]
+            if (route.children) {
+                route.children = route.children.map(child => mapComponent(child))
+            }
+            return route
+        }
+
+    </script>
+</body>
+
+</html>

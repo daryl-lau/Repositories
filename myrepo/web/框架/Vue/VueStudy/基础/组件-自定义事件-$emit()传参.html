@@ -26,6 +26,7 @@
         <!-- <template1 @total="allCounter(msg)"></template1> -->
 
         <!-- 传入的参数实际上是绑定到了total自定义事件的事件对象上，后面可以加上自定义事件自己需要的参数 -->
+        <!-- 如果没有自己的参数，可以不传形参，如果要传，则必须使用$event作为形参 -->
         <template1 @total="allCounter($event, 'aaaa')"></template1>
         <p>总共点击了{{totalCount}}次</p>
     </div>
@@ -51,17 +52,8 @@
             methods: {
                 counter() {
                     this.count += 1;
-                    this.$emit('total', 'some messages'); // 子组件通过emit调用父组件绑在自己身上的自定义事件
-
-                    // this.$emit()是向自己这个组件发送emit，如果要向别的组件发送emit可以使用 this.$refs.name.$emit('add', 10)
-                    // 此时，收到emit的组件
-                    /*
-                        created(){
-                            this.$on('add', function(n){
-                                console.log(n)
-                            })
-                        }
-                    */
+                    // 子组件通过emit调用父组件绑在自己身上的自定义事件，并传递参数，可以传任何数据类型的数据
+                    this.$emit('total', 'some messages');
                 }
             }
         });

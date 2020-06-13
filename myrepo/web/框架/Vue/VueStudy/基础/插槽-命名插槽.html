@@ -23,6 +23,9 @@
 
             <!-- 2.6以后的写法 -->
             <!-- v-slot:可以简写为# -->
+
+            <!-- 没有分配插槽的统统都归为默认插槽 -->
+            <h1>aaaaaaaaaa</h1>
             <template v-slot:header>
                 <h1>我是标题</h1>
             </template>
@@ -32,6 +35,8 @@
             <template #footer>
                 <h1>我是尾部</h1>
             </template>
+            <!-- 没有分配插槽的统统都归为默认插槽 -->
+            <h1>bbbbbbbbbbbbb</h1>
         </my_slot>
     </div>
 
@@ -41,6 +46,9 @@
             <header>
                 <slot name="header"></slot>
             </header>
+            <div>
+                <slot></slot>
+            </div>
             <div>
                 <slot name="content"></slot>
             </div>

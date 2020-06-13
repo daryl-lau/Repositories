@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <style>
+        .children-item {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <List :list='list'></List>
+    </div>
+
+
+    <template id='list'>
+        <div>
+            <div class="list-item" v-for="(item, index) in list" :key="index">
+                <div class="item-name">
+                    <span>{{item.name}}</span>
+                </div>
+
+                <!-- 递归组件必须有一个边界判断，否则会导致无限递归 -->
+                <div v-if="item.children" class="children-item">
+                    <list :list="item.children"></list>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // 递归组件是可以在自己的模板中调用自身的，不过他们只能通过name选项来做这件事。
+        // 使用递归必须使用name命名组件，这里使用component的话，会把第一个参数当做name，
+        // 如果使用export default {} 的话，里面必须使用export default { name: 'List'} 来命名组件
+        Vue.component('List', {
+            template: '#list',
+            props: {
+                list: Array
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    {
+                        name: "经济",
+                        children: [{
+                            name: "如家",
+                            children: [{
+                                name: "上江路-如家"
+                            },
+                            {
+                                name: "望江路-如家"
+                            }]
+                        }, {
+                            name: "7天",
+                            children: [{
+                                name: "长江路-7天"
+                            },
+                            {
+                                name: "望江路-7天"
+                            }]
+                        }]
+                    },
+                    {
+                        name: "地区",
+                        children: [{
+                            name: "如家",
+                            children: [{
+                                name: "上江路-如家"
+                            },
+                            {
+                                name: "望江路-如家"
+                            }]
+                        }, {
+                            name: "7天",
+                            children: [{
+                                name: "长江路-7天"
+                            },
+                            {
+                                name: "望江路-7天"
+                            }]
+                        }]
+                    }]
+            }
+        })
+    </script>
+</body>
+
+</html>

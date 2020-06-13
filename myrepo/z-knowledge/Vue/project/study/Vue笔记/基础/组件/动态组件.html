@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../libs/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <comp></comp>
+    </div>
+
+    <template id='comp'>
+        <p>
+            <!-- component标签就是声明一个动态组件，v-bind:is 切换条件 -->
+            <!-- 在示例中，currentView 可以包括已注册组件的名字，或一个组件的选项对象 -->
+            <component :is="currentView"></component>
+            <button @click="changeView('A')">切换到A</button>
+            <button @click="changeView('B')">切换到B</button>
+            <button @click="changeView('C')">切换到C</button>
+        </p>
+    </template>
+
+    <script>
+
+        Vue.component('comp', {
+            template: '#comp',
+            data() {
+                return {
+                    currentView: 'comA'
+                }
+            },
+            methods: {
+                changeView: function (data) {
+                    this.currentView = 'com' + data　　//动态地改变currentView的值就可以动态挂载组件了。
+                }
+            },
+            components: {
+                comA: {
+                    template: '<p>组件A</p>'
+                },
+                comB: {
+                    template: '<p>组件B</p>'
+                },
+                comC: {
+                    template: '<p>组件C</p>'
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+        });
+    </script>
+</body>
+
+</html>

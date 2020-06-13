@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <item-list></item-list> -->
+    </div>
+    <script>
+
+        const childComponent = {
+            template: `<div><h1>{{text}}</h1></div>`,
+            data() {
+                return {
+                    text: 'Child'
+                }
+            }
+        }
+
+        // createElement第一个参数也可以传一个组建的配置对象
+        // Vue.extend()函数会返回一个构造函数，继承自Vue构造函数
+        const Child = Vue.extend({
+            render: function (createElement) {
+                const res = createElement(childComponent)
+                console.log(res);
+                return res
+            }
+        })
+
+        // 返回的构造函数可以实例化并挂在到dom中
+        // new Child().$mount('#app')
+
+
+        // 并且可以先不挂载，在后面自己手动挂载
+        const vmChild = new Child().$mount()
+        console.log(vmChild);
+        console.log(vmChild.$el);               // 只有挂载了才有$el属性
+        console.log(vmChild.$root.$el);
+        console.log(vmChild.$children[0].$el);
+
+        let dom = vmChild.$el
+        document.querySelector('#app').appendChild(dom);
+
+
+
+        // Vue.component的作用是将该构造函数注册成为一个标签组件，可以直接使用标签挂在到dom中
+        // Vue.component('item-list', child)
+
+        // let vm = new Vue({
+        //     el: '#app',
+        // })
+    </script>
+</body>
+
+</html>

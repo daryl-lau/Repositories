@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 这里的title属性和imgSrc属性在组件进行了接受props，因此这里可以直接使用属性进行传值 -->
+        <!-- 属性如果是使用驼峰命名方式接受的，那么在HTML中需要使用对应的短横线-来进行命名-->
+        <!-- 如下imgTitle进行接受，HTML中使用img-title进行传值 -->
+        <!-- 如果需要使用data里面的属性，需要v-bind进行绑定属性 -->
+        <template1 :imgdesc='imgDesc' img-title="美女" imgsrc="../../imgs/img1.jpg"></template1>
+    </div>
+
+    <template id="template1">
+        <div>
+            <h1>{{imgTitle}}</h1>
+            <p>{{imgdesc}}</p>
+            <img :src="imgsrc" alt="">
+        </div>
+    </template>
+
+    <script src="../libs/js/vue.min.js"></script>
+    <script>
+
+        // 注册全局组件
+        Vue.component('template1', {
+            template: '#template1',
+
+            // 使用props接收外面传过来的属性
+            // 接收到的属性可以直接使用或者传递给下一级组件
+            props: ['imgTitle', 'imgsrc', 'imgdesc'],
+
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                imgDesc: '我是一个美女'
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../libs/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+    <script>
+
+        const childComponent = {
+            template: `<div><h1>{{text}}</h1></div>`,
+            data() {
+                return {
+                    text: 'Child'
+                }
+            }
+        }
+
+        const extendChild = Vue.extend({
+            render: function (createElement) {
+                const res = createElement(childComponent)
+                console.log(res);
+                return res
+            }
+        })
+
+        // Vue.extend 返回的是一个构造函数，继承自Vue，因此两者的实例都可以使用相同的方式来获取实例及实例的属性
+
+        const vmExtendChild = new extendChild().$mount()
+        console.log(vmExtendChild);
+        console.log(vmExtendChild.$el);               // 只有挂载了才有$el属性
+        console.log(vmExtendChild.$root.$el);
+        console.log(vmExtendChild.$children[0].$el);
+
+
+        // 使用render函数挂载，render渲染出来的dom将会替换掉$mount()指定的标签，而不是放到该标签的内部
+        const vmChild = new Vue({
+            render: h => h(childComponent)
+        }).$mount('')
+        console.log(vmChild);
+        console.log(vmChild.$el);               // 只有挂载了才有$el属性
+        console.log(vmChild.$root.$el);
+        console.log(vmChild.$children[0].$el);
+    </script>
+</body>
+
+</html>

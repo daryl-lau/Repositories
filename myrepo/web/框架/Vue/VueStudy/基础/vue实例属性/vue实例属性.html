@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <father title='父组件' prop='father' ref='father'>
+            <son myprops='myprops' @hover='fn()' ref='son'></son>
+        </father>
+    </div>
+
+    <script>
+        Vue.component('father', {
+            template: `<div>
+                            <h1 ref='h1' @click='fn()'>我是{{title}}</h1>
+                            <slot></slot>
+                        </div>`,
+            data() {
+                return {
+                    msg: '我是父组件的数据'
+                }
+            },
+            props: ['title', 'prop'],
+            methods: {
+                fn() {
+                    console.log(this.$refs);
+                }
+            }
+        });
+
+        Vue.component('son', {
+            template: `<section ref='son'>
+                            <h1>我是子组件</h1>
+                            <button @click='handle()' v-bind=$attrs>按钮</button>
+                        </section>`,
+            data() {
+                return {
+                    msg: '我是子组件的数据'
+                }
+            },
+            CustomOptions: 'myCustomOptions',   // 自定义选项，可以是任何数据类型
+            inheritAttrs: false,
+            methods: {
+                handle() {
+                    // 以下所有都是以子组件实例为基准进行获取的
+                    console.log(this);
+                    console.log('$parent', this.$parent);               // 获取父组件的实例对象（如果有）
+                    console.log('$root', this.$root);                   // 获取根组件的实例对象
+                    console.log('$el', this.$parent.$el);               // 获取当前实例的根DOM元素，已经将VNode转化为真实DOM元素
+                    console.log('$options', this.$options);             // 获取当前实例的初始化选项，获取自定义选项(this.$options.CustomOptions)
+                    console.log('$children', this.$parent.$children);   // 获取实例的直接子组件，（不保证顺序，也不是响应式的）
+                    console.log('$data', this.$parent.$data);           // 获取实例的data的数据
+                    console.log('$props', this.$parent.$props);         // 获取当前组件接收到的props对象
+                    console.log('$slots', this.$parent.$slots.default); // 用来访问被插槽分发的内容。在使用渲染函数书写一个组件时，访问 vm.$slots 最有帮助。
+                    console.log('$refs', this.$refs);                   // 一个对象，持有注册过 ref attribute 的所有 DOM 元素和组件实例。
+                    console.log('$isServer', this.$isServer);           // 当前 Vue 实例是否运行于服务器。返回布尔值
+                    console.log('$attrs', this.$attrs);                 // 获取除了props接收到的和自带的属性
+                    console.log('$listeners', this.$listeners);         // 包含了父作用域中的 (不含 .native 修饰器的) v-on 事件监听器。
+                }
+            }
+        })
+
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '我是根组件上的数据'
+            },
+            mounted() {
+                console.log(this.$refs.son.handle());
+            },
+        })
+
+        console.log('vm', vm);
+        console.log('vm', vm.$el);
+        console.log('vm', vm.$root.$el);
+        console.log('vm', vm.$children[0].$el);
+    </script>
+</body>
+
+</html>

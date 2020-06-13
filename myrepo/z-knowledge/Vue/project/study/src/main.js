@@ -6,6 +6,8 @@ import store from './store'
 // Bootstrap 4.5
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import '@/plugins/elementUI.config.js'
+
 // axios
 import axios from 'axios'
 Vue.prototype.$axios = axios

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+</head>
+
+<body>
+    <div id=app>
+        <comp v-bind:title.sync='title'></comp>
+
+        <!-- 上面的代码是语法糖，等效于下面的代码 -->
+        <comp :title='title' @update:title='title=$event'></comp>
+    </div>
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('comp', {
+            template: `<div><button @click='change()'>改变title</button></div>`,
+            methods: {
+                change(){
+                    this.$emit('update:title', 'React')
+                }
+            }
+
+        })
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                title: 'Vue'
+            }
+        })
+    </script>
+</body>
+
+</html>

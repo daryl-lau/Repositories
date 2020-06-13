@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../libs/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <child></child>
+    </div>
+    <script>
+
+        const childComponent = {
+            template: `<div><h1>{{text}}</h1></div>`,
+            data() {
+                return {
+                    text: 'Child'
+                }
+            }
+        }
+
+        const extendChild = Vue.extend({
+            render: function (createElement) {
+                const res = createElement(childComponent)
+                console.log(res);
+                return res
+            }
+        })
+
+
+        // 使用render函数挂载，render渲染出来的dom将会替换掉$mount()指定的标签，而不是放到该标签的内部
+        // const vmChild = new Vue({
+        //     render: h => h(childComponent)
+        // }).$mount('#app')
+
+        // el也是如此，只不过下面的写法没有写template，默认是空，因此不会进行替换，如果不为空，则还是会进行替换的
+        Vue.component('child', extendChild)
+        const vmChild = new Vue({
+            el: '#app',
+            // template: `<h1>template</h1>`
+        })
+
+        console.log(vmChild);
+        console.log(vmChild.$el);               // 只有挂载了才有$el属性
+        console.log(vmChild.$root.$el);
+        console.log(vmChild.$children[0].$el);
+    </script>
+</body>
+
+</html>

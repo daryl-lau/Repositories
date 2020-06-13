@@ -97,7 +97,7 @@
     </template>
     <template id="js">
         <div>
-            <p>客户端脚本语言</p>
+            <p @click='fn()'>客户端脚本语言</p>
         </div>
     </template>
 
@@ -123,6 +123,11 @@
         };
         const js = {
             template: '#js',
+            methods: {
+                fn(){
+                    console.log(this.$route.matched);
+                }
+            }
         };
 
 

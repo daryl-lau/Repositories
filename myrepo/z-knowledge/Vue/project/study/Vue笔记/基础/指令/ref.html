@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+
+    <!--
+        当 v-for 用于元素或组件的时候，引用信息将是包含 DOM 节点或组件实例的数组。
+        关于 ref 注册时间的重要说明：因为 ref 本身是作为渲染结果被创建的，
+        在初始渲染的时候你不能访问它们 - 它们还不存在！$refs 也不是响应式的，因此你不应该试图用它在模板中做数据绑定。 
+        如果用在子组件上，引用就指向组件
+    -->
+
+    <div id="box1">
+        <ul>
+            <li ref="p1">1</li>
+            <li ref="p2">2</li>
+            <li ref="p3">3</li>
+            <li ref="p4">4</li>
+            <li ref="p5">5</li>
+        </ul>
+        <button @click="get">获取</button>
+    </div>
+
+
+
+    <script src="../libs/js/vue.min.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box1',
+            methods: {
+                get() {
+                    console.log(vm.$refs.p1);
+                    console.log(vm.$refs.p2);
+                    console.log(vm.$refs.p3);
+                    console.log(vm.$refs.p4);
+                    console.log(vm.$refs.p5);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

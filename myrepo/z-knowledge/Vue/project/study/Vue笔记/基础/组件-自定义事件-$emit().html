@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 父组件自定义了total事件   -->
+        <!-- @total 外部接收到调用了total()方法，调用一次，执行一次allCounter() -->
+        <!-- 注意这里的total事件不是子组件的，而是父组件的，应用在了子组件身上 -->
+        <template1 @total="allCounter"></template1>
+        <template1 @total="allCounter"></template1>
+        <template1 @total="allCounter"></template1>
+        <template1 @total="allCounter"></template1>
+        <template1 @total="allCounter"></template1>
+        <template1 @total="allCounter"></template1>
+        <template1 @total="allCounter"></template1>
+        <p>总共点击了{{totalCount}}次</p>
+    </div>
+
+    <template id="template1">
+        <div>
+            <button @click="counter()">点击的次数: {{count}}</button>
+        </div>
+    </template>
+
+    <script src="./libs/js/vue.min.js"></script>
+    <script>
+
+        // 注册一个子组件
+        Vue.component('template1', {
+            template: '#template1',
+            data() {
+                return {
+                    title: '我是组件',
+                    count: 0
+                }
+            },
+            methods: {
+                counter() {
+                    this.count += 1;
+                    this.$emit('total'); // 子组件通过emit调用父组件绑在自己身上的自定义事件
+                    // this.$emit('fn', params)   emit在调用父组件的自定义方法时，还可以传参
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+
+            // 一级里面直接使用对象进行定义
+            data: {
+                totalCount: 0,
+            },
+            methods: {
+                allCounter() {
+                    this.totalCount += 1;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

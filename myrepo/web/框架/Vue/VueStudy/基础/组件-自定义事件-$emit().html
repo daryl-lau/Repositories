@@ -52,16 +52,6 @@
                     this.count += 1;
                     this.$emit('total'); // 子组件通过emit调用父组件绑在自己身上的自定义事件
                     // this.$emit('fn', params)   emit在调用父组件的自定义方法时，还可以传参
-
-                    // this.$emit()是向自己这个组件发送emit，如果要向别的组件发送emit可以使用 this.$refs.name.$emit('add', 10)
-                    // 此时，收到emit的组件
-                    /*
-                        created(){
-                            this.$on('add', function(n){
-                                console.log(n)
-                            })
-                        }
-                    */
                 }
             }
         });

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+
+    <div id="app" ref='app'>
+        <!-- 父组件自定义了total事件   -->
+        <!-- @total 外部接收到调用了total()方法，调用一次，执行一次allCounter() -->
+        <template1 @total="allCounter"></template1>
+        <template1 @total="allCounter"></template1>
+
+        <!-- 这里需要注意的是，在这里不能接受参数，只能写函数名，参数的接收在下面的函数中接收 -->
+        <!-- 下面的这种写法会把msg当做绑定的实参，而不是形参，所以下面这种方式是错误的 -->
+        <!-- <template1 @total="allCounter(msg)"></template1> -->
+
+        <!-- 传入的参数实际上是绑定到了total自定义事件的事件对象上，后面可以加上自定义事件自己需要的参数 -->
+        <!-- 如果没有自己的参数，可以不传形参，如果要传，则必须使用$event作为形参 -->
+        <template1 @total="allCounter($event, 'aaaa')"></template1>
+        <p>总共点击了{{totalCount}}次</p>
+    </div>
+
+    <template id="template1">
+        <div>
+            <button @click="counter()">点击的次数: {{count}}</button>
+        </div>
+    </template>
+
+    <script src="./libs/js/vue.min.js"></script>
+    <script>
+
+        // 注册一个子组件
+        Vue.component('template1', {
+            template: '#template1',
+            data() {
+                return {
+                    title: '我是组件',
+                    count: 0
+                }
+            },
+            methods: {
+                counter() {
+                    this.count += 1;
+                    // 子组件通过emit调用父组件绑在自己身上的自定义事件，并传递参数，可以传任何数据类型的数据
+                    this.$emit('total', 'some messages');
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                totalCount: 0,
+            },
+            methods: {
+                allCounter(event, msg) {
+                    console.log(event);
+                    console.log(msg);
+                    this.totalCount += 1;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

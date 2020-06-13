@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <!--<link rel="stylesheet" href="./css/base.css">-->
+    <!--<script src="./js/main.js"></script>-->
+</head>
+
+<body>
+    <!--只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。-->
+    <div id="box1">
+        <p v-once>原始值：{{msg}}</p>
+        <p>修改值：{{msg}}</p>
+        <input type="text" name="" title="" v-once="msg">
+        <input type="text" name="" title="" v-model="msg">
+    </div>
+
+
+
+    <script src="../libs/js/vue.min.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box1',
+            data: {
+                message: 'Hello,Vue!',
+                msg: '你好, Vue!'
+            }
+        })
+    </script>
+</body>
+
+</html>
