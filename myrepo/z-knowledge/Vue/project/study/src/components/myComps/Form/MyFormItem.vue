@@ -8,17 +8,17 @@
 
 <script>
 export default {
-    props: {
-        label: {
-            type: String
-        },
-        errorMsg: {
-            type: String
-        },
-        prop: {
-          type: String
-        }
+  props: {
+    label: {
+      type: String
+    },
+    errorMsg: {
+      type: String
+    },
+    prop: {
+      type: String
     }
+  }
 }
 </script>
 

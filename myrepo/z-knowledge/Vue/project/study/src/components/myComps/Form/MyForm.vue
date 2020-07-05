@@ -6,20 +6,20 @@
 
 <script>
 export default {
-    provide() {
-        return {
-            form: this
-        }
-    },
-    props: {
-        model: {
-            type: Object,
-            required: true
-        },
-        rules: {
-            type: Array
-        }
+  provide () {
+    return {
+      form: this
     }
+  },
+  props: {
+    model: {
+      type: Object,
+      required: true
+    },
+    rules: {
+      type: Array
+    }
+  }
 }
 </script>
 

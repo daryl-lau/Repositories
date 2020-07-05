@@ -22,37 +22,34 @@
 
 <script>
 export default {
-    data() {
-        return {
-            id: '',
-            heroName: '',
-            heroGender: '男',
-        }
-    },
-    methods: {
-        addHero() {
-            if (!this.id) return alert('id不能为空')
-            if (!this.heroName) return alert('英雄名字不能为空')
-            if (!this.heroGender) return alert('性别不能为空')
-            this.$axios
-                .post('http://localhost:3000/hero', {
-                    id: parseInt(this.id),
-                    heroName: this.heroName.trim(),
-                    heroGender: this.heroGender,
-                    createTime: new Date()
-                })
-                .then(res => {
-                    this.id = ''
-                    this.heroName = ''
-                    this.heroGender = '男'
-                    this.createTime = ''
-                    this.$router.push('/hero/list')
-                })
-                .catch(err => {
-                    alert('添加失败，请检查数据')
-                })
-        }
+  data () {
+    return {
+      id: '',
+      heroName: '',
+      heroGender: '男'
     }
+  },
+  methods: {
+    addHero () {
+      if (!this.id) return alert('id不能为空')
+      if (!this.heroName) return alert('英雄名字不能为空')
+      if (!this.heroGender) return alert('性别不能为空')
+      this.$axios
+        .post('http://localhost:3000/hero', {
+          id: parseInt(this.id),
+          heroName: this.heroName.trim(),
+          heroGender: this.heroGender,
+          createTime: new Date()
+        })
+        .then(res => {
+          this.id = ''
+          this.heroName = ''
+          this.heroGender = '男'
+          this.createTime = ''
+          this.$router.push('/hero/list')
+        })
+    }
+  }
 }
 </script>
 

@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-
 // import HeroLists from '../components/HeroLists'
 // import List from '../components/List'
 // import Add from '../components/Add'
@@ -12,25 +11,29 @@ Vue.use(VueRouter)
 // import testPage from '../components/myComps/testPage'
 
 // import Zb from '@/views/Zb'
-const Zb = () => import(/* webpackChunkName: "hero" */ '@/views/Zb');
-const HeroLists = () => import(/* webpackChunkName: "hero" */ '@/components/HeroLists');
-const List = () => import(/* webpackChunkName: "hero" */ '@/components/List');
-const Add = () => import(/* webpackChunkName: "hero" */ '@/components/Add');
-const Edit = () => import(/* webpackChunkName: "hero" */ '@/components/Edit');
-const testPage = () => import(/* webpackChunkName: "hero" */ '@/components/myComps/Form/testPage');
+const Zb = () => import(/* webpackChunkName: "hero" */ '@/views/Zb')
+const HeroLists = () => import(/* webpackChunkName: "hero" */ '@/components/HeroLists')
+const List = () => import(/* webpackChunkName: "hero" */ '@/components/List')
+const Add = () => import(/* webpackChunkName: "hero" */ '@/components/Add')
+const Edit = () => import(/* webpackChunkName: "hero" */ '@/components/Edit')
+const testPage = () => import(/* webpackChunkName: "hero" */ '@/components/myComps/Form/testPage')
+const Detail = () => import(/* webpackChunkName: "hero" */ '@/views/Detail')
 
 const routes = [
   { path: '/', redirect: '/hero/list' },
   {
-    path: '/hero', component: HeroLists, children: [
+    path: '/hero',
+    component: HeroLists,
+    children: [
       { path: '', redirect: 'list' },
       { path: 'list', component: List },
       { path: 'add', component: Add },
-      { name: 'edit', path: 'edit/:id', component: Edit },
+      { name: 'edit', path: 'edit/:id', component: Edit }
     ]
   },
   { path: '/jn', component: testPage },
-  { path: '/zb', component: Zb }
+  { path: '/zb', component: Zb },
+  { path: '/detail/:id', component: Detail }
 ]
 
 const router = new VueRouter({

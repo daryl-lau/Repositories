@@ -8,9 +8,14 @@ import mutations from './mutations'
 import getters from './getters'
 import actions from './actions'
 
+import users from './modules/users'
+
 export default new Vuex.Store({
   state,
   mutations,
   actions,
-  getters
+  getters,
+  modules: {
+    users
+  }
 })

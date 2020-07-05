@@ -29,48 +29,45 @@
 <script>
 import moment from 'moment'
 export default {
-    data() {
-        return {
-            id: '',
-            heroName: '',
-            heroGender: '男',
-            createTime: ''
-        }
-    },
-    created() {
-        let id = this.$route.params.id
-        this.$axios.get(`http://localhost:3000/hero/${id}`).then(res => {
-            this.id = res.data.id
-            this.heroName = res.data.heroName
-            this.heroGender = res.data.heroGender
-            this.createTime = moment(res.data.createTime).format('YYYY-MM-DD hh:mm:ss')
-        })
-    },
-    methods: {
-        saveChange() {
-            if (!this.id) return alert('id不能为空')
-            if (!this.heroName) return alert('英雄名字不能为空')
-            if (!this.heroGender) return alert('性别不能为空')
-            if (!this.createTime) return alert('创建时间不能为空')
-            this.$axios
-                .put(`http://localhost:3000/hero/${this.id}`, {
-                    id: parseInt(this.id),
-                    heroName: this.heroName.trim(),
-                    heroGender: this.heroGender,
-                    createTime: this.createTime.trim()
-                })
-                .then(res => {
-                    this.id = ''
-                    this.heroName = ''
-                    this.heroGender = '男'
-                    this.createTime = ''
-                    this.$router.push('/hero/list')
-                })
-                .catch(err => {
-                    alert('添加失败，请检查数据')
-                })
-        }
+  data () {
+    return {
+      id: '',
+      heroName: '',
+      heroGender: '男',
+      createTime: ''
     }
+  },
+  created () {
+    const id = this.$route.params.id
+    this.$axios.get(`http://localhost:3000/hero/${id}`).then(res => {
+      this.id = res.data.id
+      this.heroName = res.data.heroName
+      this.heroGender = res.data.heroGender
+      this.createTime = moment(res.data.createTime).format('YYYY-MM-DD hh:mm:ss')
+    })
+  },
+  methods: {
+    saveChange () {
+      if (!this.id) return alert('id不能为空')
+      if (!this.heroName) return alert('英雄名字不能为空')
+      if (!this.heroGender) return alert('性别不能为空')
+      if (!this.createTime) return alert('创建时间不能为空')
+      this.$axios
+        .put(`http://localhost:3000/hero/${this.id}`, {
+          id: parseInt(this.id),
+          heroName: this.heroName.trim(),
+          heroGender: this.heroGender,
+          createTime: this.createTime.trim()
+        })
+        .then(res => {
+          this.id = ''
+          this.heroName = ''
+          this.heroGender = '男'
+          this.createTime = ''
+          this.$router.push('/hero/list')
+        })
+    }
+  }
 }
 </script>
 

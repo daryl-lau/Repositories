@@ -1,3 +1,3 @@
 export default {
-    count: 0
+  count: 0
 }

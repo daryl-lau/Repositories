@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div"></div>
+    <script>
+
+        // 注意下面的断点操作不能使用debugger和console，
+        // debugger和console均不会真正阻止页面渲染的执行，因为js渲染是单独一个线程执行的，只能用alert
+        // 会导致输出结果异常
+
+        document.querySelector('#div');
+
+        // 渲染不会在执行栈中同步执行，而是等当前事件循环微任务结束后进行
+        div.innerHTML = 'first render';
+
+        setTimeout(function () {
+            alert(' ui 已经渲染完毕了吗？ ');
+            alert('timeout');
+            new Promise(function (resolve) {
+                alert('promise2');
+                resolve()
+            }).then(function () {
+                alert('promise then2');
+            })
+            div.innerHTML = 'secoend render';
+        }, 0)
+
+        new Promise(function (resolve) {
+            alert('promise1');
+            resolve()
+        }).then(function () {
+            alert('promise then1');
+        })
+
+        alert('global1');
+
+        /*
+
+        输出顺序：
+            1、alert('promise1');                   // 执行栈
+            2、alert('global1');                    // 执行栈
+            3、alert('promise then1');              // 执行栈此时为空，执行微任务
+            4、div.innerHTML = 'first render';    // 所有微任务执行刷完毕，进行ui render
+
+            -------------进入下一次事件循环
+
+            5、alert(' ui 已经渲染完毕了吗？ ');     // 上一次时间循环的执行栈、微任务，渲染都执行完毕，执行宏任务队列里的宏任务
+            6、alert('timeout');                    // 执行栈
+            7、alert('promise2');                   // 执行栈
+            8、alert('promise then2');              // 微任务
+            9、div.innerHTML = 'secoend render';      // 所有微任务执行刷完毕，进行ui render
+
+            -------------如果还有宏任务，重复上面的过程，称之为事件循环---------------
+
+        */
+
+    </script>
+</body>
+
+</html>

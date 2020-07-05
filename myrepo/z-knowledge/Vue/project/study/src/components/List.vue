@@ -33,35 +33,35 @@
 <script>
 import moment from 'moment'
 export default {
-    data() {
-        return {
-            heros: []
-        }
-    },
-    created() {
-        this.getHeros()
-    },
-    methods: {
-        delHero(id) {
-            if (confirm('确定删除该英雄吗？')) {
-                this.$axios
-                    .delete(`http://localhost:3000/hero/${id}`)
-                    .then(res => {
-                        this.getHeros()
-                    })
-            }
-        },
-        getHeros() {
-            this.$axios.get('http://localhost:3000/hero').then(res => {
-                this.heros = res.data
-            })
-        }
-    },
-    filters: {
-        formatDate(date) {
-            return moment(date).format('YYYY-MM-DD hh:mm:ss')
-        }
+  data () {
+    return {
+      heros: []
     }
+  },
+  created () {
+    this.getHeros()
+  },
+  methods: {
+    delHero (id) {
+      if (confirm('确定删除该英雄吗？')) {
+        this.$axios
+          .delete(`http://localhost:3000/hero/${id}`)
+          .then(res => {
+            this.getHeros()
+          })
+      }
+    },
+    getHeros () {
+      this.$axios.get('http://localhost:3000/hero').then(res => {
+        this.heros = res.data
+      })
+    }
+  },
+  filters: {
+    formatDate (date) {
+      return moment(date).format('YYYY-MM-DD hh:mm:ss')
+    }
+  }
 }
 </script>
 

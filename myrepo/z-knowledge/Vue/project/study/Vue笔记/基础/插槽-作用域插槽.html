@@ -8,7 +8,6 @@
     <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title></title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
 </head>
@@ -28,12 +27,15 @@
             <template v-slot:header='headerProps'>
                 <h1>我是标题，{{headerProps.header}}</h1>
             </template>
-            <template v-slot:content='contentProps'>
+
+            <template v-slot='contentProps'>
                 <div>我是内容，{{contentProps.content}}</div>
             </template>
-            <template #footer='footerProps'>
+
+            <template v-slot:footer='footerProps'>
                 <h1>我是尾部，{{footerProps.footer}}</h1>
             </template>
+
         </my_slot>
     </div>
 
@@ -47,19 +49,16 @@
                 <slot name="header" :header='header'></slot>
             </header>
             <div>
-                <slot name="content" :content='content'></slot>
+                <slot :content='content'></slot>
             </div>
             <footer>
                 <slot name="footer" :footer='footer'></slot>
             </footer>
             <hr>
-            <div>
-                <slot></slot>
-            </div>
         </div>
     </template>
 
-    <script src="./libs/js/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
 
         Vue.component('my_slot', {

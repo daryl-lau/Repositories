@@ -62,7 +62,7 @@ co(function* () {
     console.log('res', res);
 }).catch();
 
-// // 对象的写法
+// 对象的写法
 co(function* () {
     var res = yield {
         1: Promise.resolve(1),

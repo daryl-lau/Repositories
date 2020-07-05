@@ -14,6 +14,23 @@
     {{$store.getters.addSuffix}}
     <br />
     {{$store.getters.addPrefix}}
+    <hr />
+    <h3>模块化状态</h3>
+    {{$store.state.users.username}}
+    {{$store.state.users.role}}
+    <br />
+    {{$store.getters['users/role']}}
+    <br />
+    {{usersName}}
+    <br />
+    {{role}}
+    {{tomAge}}
+    {{tomRole}}
+    <br />
+    allAge:{{allAge}}
+    <br />
+    <button @click="changeRole()">改变角色</button>
+    <button @click="changeRoleByMutation()">mutation改变角色</button>
   </div>
 </template>
 
@@ -49,6 +66,21 @@ export default {
         // 可以传入数组，此时的计算属性名称和state属性名是相同的，推荐这种写法，简单明了
         ...mapState(['name', 'age']),
 
+        // 带命名空间的写法，推荐这种写法，简单明了，如果有嵌套层级，直接在第一个参数使用'/'进行分级
+        ...mapState('users', ['role']),
+
+        // 使用计算属性获取模块里的state，users是模块名，username是state
+        // 下面这两种方式对于是不是启用了命名空间没有影响
+        usersName() {
+            return this.$store.state.users.username
+        },
+
+        // 使用mapState获取模块里的state， users是模块名，role和age是里面的state
+        ...mapState({
+            tomRole: state => state.users.role,
+            tomAge: state => state.users.age
+        }),
+
         // 如果传入对象，必须定义一个计算属性名称，不能使用ES6的{name， age}的省略写法，否则报错
         // ...mapState({
         //     myName: 'name',
@@ -66,7 +98,14 @@ export default {
         // ---------------------------------------state------------------------------------------------------------
 
         // ---------------------------------------getters------------------------------------------------------------
-        ...mapGetters(['addSuffix', 'addPrefix'])
+        ...mapGetters(['addSuffix', 'addPrefix']),
+
+        // 带命名空间的写法
+        ...mapGetters('users', ['allAge']),
+
+        allAge() {
+            return this.$store.getters['users/allAge']
+        }
 
         // ...mapGetters({
         //     suffix: 'addSuffix',
@@ -91,6 +130,13 @@ export default {
         // 如果没有异步操作，可以不经过action，直接提交mutation，否则则需要通过action，由action提交mutation
 
         ...mapMutations(['change_age']), // 将 `this.change_age()` 映射为 `this.$store.commit('change_age')`
+
+        // 带命名空间的写法
+        ...mapMutations('users', ['m_change_role']),
+
+        changeRoleByMutation() {
+            this.m_change_role()
+        },
 
         // ...mapMutations({
         //     change: 'change_age' // 将 `this.change()` 映射为 `this.$store.commit('change_age')，相当于取了个别名
@@ -131,6 +177,14 @@ export default {
             //     type: 'change_name',
             //     name: 'tom'
             // })
+        },
+
+        ...mapActions('users', ['change_role']),
+        // ...mapActions(['users/change_role']), // 不要使用这种方式，获取不到，上面那种方式可以获取到
+
+        changeRole() {
+            this.change_role()
+            // this.$store.dispatch('users/change_role')
         }
 
         // ----------------------------------------actios-------------------------------------------------------------

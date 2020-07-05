@@ -24,12 +24,17 @@
 
     <div id="box1">
         <ul>
+            <!-- 获取元素 -->
             <li ref="p1">1</li>
             <li ref="p2">2</li>
             <li ref="p3">3</li>
             <li ref="p4">4</li>
             <li ref="p5">5</li>
         </ul>
+
+        <!-- 获取组件 -->
+        <child ref="child"></child>
+
         <button @click="get">获取</button>
     </div>
 
@@ -37,15 +42,28 @@
 
     <script src="../libs/js/vue.min.js"></script>
     <script>
+
+        Vue.component('child', {
+            template: '<div>子组件<sunchild ref="sun"></sunchild></div>',
+
+        })
+        Vue.component('sunchild', {
+            template: '<div>孙组件</div>'
+        })
+
+
         const vm = new Vue({
             el: '#box1',
             methods: {
                 get() {
-                    console.log(vm.$refs.p1);
-                    console.log(vm.$refs.p2);
-                    console.log(vm.$refs.p3);
-                    console.log(vm.$refs.p4);
-                    console.log(vm.$refs.p5);
+                    console.log(this.$refs.p1);
+                    console.log(this.$refs.p2);
+                    console.log(this.$refs.p3);
+                    console.log(this.$refs.p4);
+                    console.log(this.$refs.p5);
+                    console.log(this.$refs);
+                    console.log(this.$refs.child);
+                    console.log(this.$refs.child.$refs.sun);
                 }
             }
         })

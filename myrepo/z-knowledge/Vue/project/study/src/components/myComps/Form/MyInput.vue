@@ -8,29 +8,29 @@
 
 <script>
 export default {
-    inject: ['form'],
-    inheritAttrs: false,
-    props: {
-        value: {
-            type: String
-        },
-        aaa: {
-            type: String
-        }
+  inject: ['form'],
+  inheritAttrs: false, // 是否继承属性，如果继承，那么父级都会有此属性，否则只有自己有此属性
+  props: {
+    value: {
+      type: String
     },
-    data() {
-        return {
-        }
-    },
-    methods: {
-        onInput(e) {
-            this.$emit('input', e.target.value)
-        }
-    },
-    mounted() {
-        console.log(this.$attrs)
-        console.log(this.form);
+    aaa: {
+      type: String
     }
+  },
+  data () {
+    return {
+    }
+  },
+  methods: {
+    onInput (e) {
+      this.$emit('input', e.target.value)
+    }
+  },
+  mounted () {
+    console.log(this.$attrs)
+    console.log(this.form)
+  }
 }
 </script>
 

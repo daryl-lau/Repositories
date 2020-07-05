@@ -41,21 +41,6 @@
             }
         })
 
-        const child = Vue.extend({
-            template: `<div><div>我是组件2的子组件</div>{{this.msg}}</div>`,
-            data() {
-                return {
-                    msg: ''
-                }
-            },
-            created() {
-                this.bus.$on('sendToTemplateChild', msg => {
-                    console.log(msg);
-                    this.msg = msg
-                })
-            }
-        })
-
         const template2 = Vue.extend({
             template: `<div>
                             <div>我是组件2</div>
@@ -72,6 +57,21 @@
             },
             created() {
                 this.bus.$on('sendToTemplate2', msg => {
+                    console.log(msg);
+                    this.msg = msg
+                })
+            }
+        })
+
+        const child = Vue.extend({
+            template: `<div><div>我是组件2的子组件</div>{{this.msg}}</div>`,
+            data() {
+                return {
+                    msg: ''
+                }
+            },
+            created() {
+                this.bus.$on('sendToTemplateChild', msg => {
                     console.log(msg);
                     this.msg = msg
                 })

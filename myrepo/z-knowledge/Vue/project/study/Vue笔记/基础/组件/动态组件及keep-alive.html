@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="../libs/js/vue.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <comp></comp>
+    </div>
+
+    <template id='comp'>
+        <p>
+            <!-- component标签就是声明一个动态组件，v-bind:is 切换条件 -->
+            <!-- 在示例中，currentView 可以包括已注册组件的名字，或一个组件的选项对象 -->
+
+            <!-- keep-alive将组件状态缓存起来，不会频繁的创建销毁 -->
+
+            <!-- keep-alive也接收一个max属性，定义最多可以缓存组件的个数，如果超过限制，则销毁最久没有使用的组件 -->
+
+            <!-- 同时keep-alive支持include exclude属性，定义需要缓存或不需要缓存的组件，
+                可以是字符串（逗号分隔指定多个组件），正则表达式，数组，使用正则表达式和数组的时候需要结合v-bind使用 -->
+            <!-- <keep-alive exclude="comA,comC"> -->
+            <!-- <keep-alive :include="/comA|comC/"> -->
+            <keep-alive :include="['comB','comC']">
+                <component :is="currentView"></component>
+            </keep-alive>
+            <button @click="changeView('A')">切换到A</button>
+            <button @click="changeView('B')">切换到B</button>
+            <button @click="changeView('C')">切换到C</button>
+        </p>
+    </template>
+
+    <script>
+
+        Vue.component('comp', {
+            template: '#comp',
+            data() {
+                return {
+                    currentView: 'comA'
+                }
+            },
+            methods: {
+                changeView: function (data) {
+                    this.currentView = 'com' + data　　//动态地改变currentView的值就可以动态挂载组件了。
+                }
+            },
+            components: {
+                comA: {
+                    template: '<p>组件A<button @click="click">制造错误</button></p>',
+                    // 和keep-alive相关的还有两个生命周期，activated和deactivated，注意在服务端渲染的时候，这两个钩子不起作用
+                    activated() {
+                        console.log('组件A激活了');
+                    },
+                    deactivated() {
+                        console.log('组件A失活了');
+                    },
+                    created() {
+                        throw new Error('组件A错了')
+                    },
+                    methods: {
+                        click() {
+                            throw new Error('点击按钮组件A错了')
+                        }
+                    }
+                },
+                comB: {
+                    template: '<p>组件B</p>'
+                },
+                comC: {
+                    template: '<p>组件C</p>'
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            errorCaptured(err, comp, info) {
+                console.log('在Vue全局捕获到了');
+                console.log(err);
+                console.log(comp);
+                console.log(info);
+            }
+        });
+    </script>
+</body>
+
+</html>

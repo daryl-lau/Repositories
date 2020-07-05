@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+    </ul>
+    <p id="demo">单击按钮更改列表项,使用createDocumentFragment方法,然后在列表的最后一个孩子添加列表项。</p>
+    <button onclick="myFunction()">点我</button>
+    <script>
+        function myFunction() {
+            var d = document.createDocumentFragment();
+
+            // 如果使用appendChid方法将原dom树中的节点添加到DocumentFragment中时，会删除原来的节点。
+            d.appendChild(document.getElementsByTagName("LI")[0]);  // 可以理解为 <d><li>Coffee</li></d>，但实际上并没有<d></d>标签，也不会被渲染到页面中
+
+            d.childNodes[0].childNodes[0].nodeValue = "Milk";       // 可以理解为 <d><li>Milk</li></d>，但实际上并没有<d></d>标签，也不会被渲染到页面中
+
+            // 这里追加的时候，不会有<d></d>，实际上不会有d标签，<d></d>只是为了方便理解加上的，实际上并没有d标签，追加的是childNodes的内容
+            document.getElementsByTagName("UL")[0].appendChild(d);
+        };
+    </script>
+</body>
+
+</html>

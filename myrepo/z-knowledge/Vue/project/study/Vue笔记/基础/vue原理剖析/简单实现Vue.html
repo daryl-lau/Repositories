@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./简单实现Vue.js"></script>
+    <script src="./简单实现compile.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            {{name}}
+        </p>
+        <div>
+            <h1>我是H1</h1>
+            <h6>{{name}}</h6>
+        </div>
+        <h3 m-text="name"></h3>
+        <p>{{age}}</p>
+        <input type="text" m-model="name">
+        <button @click="changeName">呵呵</button>
+        <div m-html="html"></div>
+    </div>
+    <script>
+        const vm = new myVue({
+            el: '#app',
+            data: {
+                name: 'jerry',
+                age: 18,
+                html: '<button>这是一个按钮</button>'
+            },
+            created() {
+                console.log('开始了');
+                setTimeout(() => {
+                    this.name = 'tom'
+                }, 1500)
+            },
+            methods: {
+                changeName() {
+                    this.name = 'jack'
+                    this.age = 20
+                }
+            }
+            // data: {
+            //     name: 'jerry',
+            //     age: 18,
+            //     children: {
+            //         cname: 'tom',
+            //         cage: 20
+            //     }
+            // }
+        })
+        console.log(vm);
+
+        // vm.$data.name = 'jack'
+        // vm.$data.children.cname = 'jack'
+
+        // vm.children.cname = 'jack'
+    </script>
+</body>
+
+</html>

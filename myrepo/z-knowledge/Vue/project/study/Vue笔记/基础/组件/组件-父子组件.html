@@ -19,7 +19,7 @@
         <my_component_parent></my_component_parent>
 
         <!--父子组件中子组件可以单独拎出来使用-->
-        <my_component_child1></my_component_child1>
+        <my_component_child1 :id="12"></my_component_child1>
         <my_component_child2></my_component_child2>
     </div>
 
@@ -35,7 +35,11 @@
             <input type="color" name="" title="">
             <button type="submit">子组件1</button>
             </div>
-        `
+        `,
+            props: ['id'],
+            mounted(){
+                console.log(this.id);
+            }
         });
 
         // 创建子组件2

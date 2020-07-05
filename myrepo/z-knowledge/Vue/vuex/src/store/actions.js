@@ -8,7 +8,7 @@ export default {
     // 或者通过 context.state 和 context.getters 来获取 state 和 getters。
     // 通过解构来简化代码
 
-    // 第二个参数是payload，用于接收数据，通常为一个对象，用于接收多个数据，
+    // 第二个参数是payload，用于接收数据，通常为一个对象，用于接收多个数据，也可以直接接受单个参数
     change_name({ commit }, payload) {
         commit(CHANGE_NAME, payload)
     },

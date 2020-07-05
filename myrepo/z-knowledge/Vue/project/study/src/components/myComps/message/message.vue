@@ -4,9 +4,9 @@
 
 <script>
 export default {
-    props: {
-        message: String
-    }
+  props: {
+    message: String
+  }
 }
 </script>
 
