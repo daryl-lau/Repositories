@@ -2,7 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 import { TabBar } from 'antd-mobile';
-import './index.css'
+import './index.scss'
 
 import Index from '../Index'
 import News from '../News'
@@ -36,8 +36,16 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: this.props.location.pathname
+      selectedTab: this.props.location.pathname,
     };
+  }
+
+  componentDidUpdate (prevProps) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({
+        selectedTab: this.props.location.pathname
+      });
+    }
   }
 
   renderTabItem = () => {

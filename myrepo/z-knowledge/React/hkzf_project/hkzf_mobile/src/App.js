@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import CityList from './pages/CityList'
 import Home from './pages/Home'
+import Map from './pages/Map'
 
 
 
@@ -17,6 +18,7 @@ function App () {
         <Route path={'/'} exact render={() => <Redirect to="/home"></Redirect>}></Route>
         <Route path={'/home'} component={Home}></Route>
         <Route path={'/citylist'} component={CityList}></Route>
+        <Route path={'/map'} component={Map}></Route>
       </div>
     </Router>
   );

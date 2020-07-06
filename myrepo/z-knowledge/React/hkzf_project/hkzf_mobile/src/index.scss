@@ -1,0 +1,26 @@
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Microsoft YaHei";
+  color: #333;
+  background-color: #fff !important;
+}
+
+* {
+  box-sizing: border-box;
+  touch-action: pan-y;
+}
+
+h2 {
+  margin: 0;
+}
+
+body,
+html,
+#root,
+.App,
+.map,
+#container {
+  height: 100%;
+}

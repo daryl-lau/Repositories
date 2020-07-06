@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class News extends React.Component { 
+export default class Profile extends React.Component { 
     render () { 
         return (
             <div>
