@@ -1,9 +1,10 @@
 import React from 'react'
-import './idnex.scss'
-import { NavBar, Toast } from 'antd-mobile';
+import { Toast } from 'antd-mobile';
 import { getCityList, getHotCityList } from '../../api'
 import { getCurrCity } from '../../utils'
 import { List, AutoSizer } from 'react-virtualized';
+import NavHeader from '../../components/NavHeader'
+import styles from './index.module.css'
 
 
 const TITLE_HEIGHT = 36
@@ -67,13 +68,20 @@ export default class CityList extends React.Component {
         cityIndex
       }
     })
-
-    this.listComponent.current.measureAllRows()
   }
 
 
-  componentDidMount () {
-    this.getCityList()
+  async componentDidMount () {
+    await this.getCityList()
+    if (this.listComponent.current) {
+      this.listComponent.current.measureAllRows()
+    }
+  }
+
+  componentWillUnmount () {
+    this.setState = (state, callback) => {
+      return
+    }
   }
 
   getRowHeight = ({ index }) => {
@@ -87,9 +95,9 @@ export default class CityList extends React.Component {
 
   changeCity = (item) => {
     if (HOT_CITY.indexOf(item.label) > -1) {
-      localStorage.setItem('hkzf_city', JSON.stringify({label: item.label, value: item.value}))
+      localStorage.setItem('hkzf_city', JSON.stringify({ label: item.label, value: item.value }))
       this.props.history.go(-1)
-    } else { 
+    } else {
       Toast.info('暂无房源信息', 1, null, false)
     }
   }
@@ -106,10 +114,10 @@ export default class CityList extends React.Component {
       <div
         key={key}
         style={style}
-        className="city"
+      // className={styles.city}
       >
-        <div className="title">{formatCityIndex(letter)}</div>
-        {this.state.cityList[letter].map(item => <div className="name" key={item.value} onClick={() => { this.changeCity(item) }}>{item.label}</div>)}
+        <div className={styles.title}>{formatCityIndex(letter)}</div>
+        {this.state.cityList[letter].map(item => <div className={styles.name} key={item.value} onClick={() => { this.changeCity(item) }}>{item.label}</div>)}
       </div>
     )
   }
@@ -117,9 +125,9 @@ export default class CityList extends React.Component {
   renderCityIndex () {
     return this.state.cityIndex.map((item, index) => {
       return (
-        <li className="city-index-item" key={item} onClick={() => { this.changeIndex(index) }}>
+        <li className={styles.cityIndexItem} key={item} onClick={() => { this.changeIndex(index) }}>
           {/*判断一下，如果高亮状态的索引等于当前索引，那么就设置高亮样式*/}
-          <span className={this.state.activeIndex === index ? 'index-active' : ''}>{item === 'hot' ? '热' : item.toUpperCase()}</span>
+          <span className={this.state.activeIndex === index ? styles.indexActive : ''}>{item === 'hot' ? '热' : item.toUpperCase()}</span>
         </li>
       )
     })
@@ -136,15 +144,9 @@ export default class CityList extends React.Component {
   }
 
   render () {
-    console.log(this.state.cityIndex.length);
     return (
-      <div className="city-list">
-        <NavBar
-          mode="light"
-          icon={<i className="iconfont icon-back"></i>}
-          onLeftClick={() => { this.props.history.go(-1) }}
-        >城市选择</NavBar>
-
+      <div className={styles.cityList}>
+        <NavHeader>城市选择</NavHeader>
         <AutoSizer>
           {({ width, height }) => (<List
             ref={this.listComponent}
@@ -160,7 +162,7 @@ export default class CityList extends React.Component {
             onRowsRendered={this.onRowsRendered}
           />)}
         </AutoSizer>
-        <ul className="city-index">
+        <ul className={styles.cityIndex}>
           {
             this.renderCityIndex()
           }

@@ -2,7 +2,8 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 import { TabBar } from 'antd-mobile';
-import './index.scss'
+// import './index.scss'
+import styles from './index.module.css'
 
 import Index from '../Index'
 import News from '../News'
@@ -67,7 +68,7 @@ export default class Home extends React.Component {
 
   render () {
     return (
-      <div className='home'>
+      <div className={styles.home}>
         <Route path={'/home'} exact component={Index}></Route>
         <Route path={'/home/news'} component={News}></Route>
         <Route path={'/home/list'} component={List}></Route>

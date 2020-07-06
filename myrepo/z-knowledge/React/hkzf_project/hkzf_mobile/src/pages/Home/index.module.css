@@ -1,0 +1,8 @@
+.home {
+  margin-bottom: 50px;
+}
+
+.home :global(.am-tab-bar-bar) {
+  position: fixed;
+  bottom: 0;
+}
