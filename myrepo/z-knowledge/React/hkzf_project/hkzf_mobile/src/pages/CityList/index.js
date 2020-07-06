@@ -1,6 +1,6 @@
 import React from 'react'
 import './idnex.scss'
-import { NavBar } from 'antd-mobile';
+import { NavBar, Toast } from 'antd-mobile';
 import { getCityList, getHotCityList } from '../../api'
 import { getCurrCity } from '../../utils'
 import { List, AutoSizer } from 'react-virtualized';
@@ -8,6 +8,7 @@ import { List, AutoSizer } from 'react-virtualized';
 
 const TITLE_HEIGHT = 36
 const NAME_HEIGHT = 50
+const HOT_CITY = ['北京', '上海', '广州', '深圳']
 
 function formatCityData (list) {
   const cityList = {}
@@ -66,11 +67,31 @@ export default class CityList extends React.Component {
         cityIndex
       }
     })
+
+    this.listComponent.current.measureAllRows()
   }
 
 
   componentDidMount () {
     this.getCityList()
+  }
+
+  getRowHeight = ({ index }) => {
+    let { cityIndex, cityList } = this.state;
+    return cityList[cityIndex[index]].length * NAME_HEIGHT + TITLE_HEIGHT;
+  }
+
+  changeIndex = (index) => {
+    this.listComponent.current.scrollToRow(index)
+  }
+
+  changeCity = (item) => {
+    if (HOT_CITY.indexOf(item.label) > -1) {
+      localStorage.setItem('hkzf_city', JSON.stringify({label: item.label, value: item.value}))
+      this.props.history.go(-1)
+    } else { 
+      Toast.info('暂无房源信息', 1, null, false)
+    }
   }
 
   rowRenderer = ({
@@ -88,18 +109,9 @@ export default class CityList extends React.Component {
         className="city"
       >
         <div className="title">{formatCityIndex(letter)}</div>
-        {this.state.cityList[letter].map(item => <div className="name" key={item.value}>{item.label}</div>)}
+        {this.state.cityList[letter].map(item => <div className="name" key={item.value} onClick={() => { this.changeCity(item) }}>{item.label}</div>)}
       </div>
     )
-  }
-
-  getRowHeight = ({ index }) => {
-    let { cityIndex, cityList } = this.state;
-    return cityList[cityIndex[index]].length * NAME_HEIGHT + TITLE_HEIGHT;
-  }
-
-  changeIndex = (index) => {
-    this.listComponent.current.scrollToRow(index)
   }
 
   renderCityIndex () {
