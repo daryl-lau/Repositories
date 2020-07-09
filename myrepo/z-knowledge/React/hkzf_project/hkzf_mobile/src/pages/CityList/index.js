@@ -50,11 +50,12 @@ export default class CityList extends React.Component {
     this.listComponent = React.createRef()
   }
   async getCityList () {
+    Toast.loading('加载中...', 0, null, false)
     const { data: res } = await getCityList(1)
-    const { cityList, cityIndex } = formatCityData(res.body)
-
     const { data: hotCity } = await getHotCityList()
+    Toast.hide()
 
+    const { cityList, cityIndex } = formatCityData(res.body)
     cityList['hot'] = hotCity.body
     cityIndex.unshift('hot')
 
@@ -146,7 +147,7 @@ export default class CityList extends React.Component {
   render () {
     return (
       <div className={styles.cityList}>
-        <NavHeader>城市选择</NavHeader>
+        <NavHeader className={styles.test}>城市选择</NavHeader>
         <AutoSizer>
           {({ width, height }) => (<List
             ref={this.listComponent}

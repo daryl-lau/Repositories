@@ -7,3 +7,5 @@ export const getCityInfo = (cityName) => request.get('/area/info', { params: { n
 export const getCityList = (level) => request.get('/area/city', { params: { level: level } })
 export const getHotCityList = () => request.get('/area/hot')
 export const getHouseInfo = (areaId) => request.get('/area/map', { params: { id: areaId } })
+export const getHouseList = (params) => request.get('/houses', { params: params })
+export const getCondition = (areaId) => request.get('/houses/condition', { params: { id: areaId } })

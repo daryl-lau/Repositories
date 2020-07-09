@@ -2,7 +2,9 @@ import React from 'react'
 import NavHeader from '../../components/NavHeader'
 import { Toast } from 'antd-mobile';
 import styles from './index.module.css'
-import { getHouseInfo } from '../../api'
+import { getHouseInfo, getHouseList } from '../../api'
+import config from '../../config'
+import { Link } from 'react-router-dom'
 
 const BMap = window.BMap
 
@@ -17,13 +19,22 @@ const labelStyle = {
 }
 
 export default class Map extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      housesList: [],
+      isShowList: false
+    }
+  }
+
   componentDidMount () {
     this.initMap()
   }
 
   getTypeAndZoom = () => {
     // 获取当前地图缩放级别
-    
+
     let zoom = this.map.getZoom()
     console.log(zoom);
     let nextZoom, type;
@@ -43,8 +54,10 @@ export default class Map extends React.Component {
   }
 
   renderOverlays = async (id) => {
+    Toast.loading('加载中...', 0, null, false)
     // 请求，拿到对应房源数据
     let res = await getHouseInfo(id)
+    Toast.hide()
     let data = res.data.body
 
     let { type, nextZoom } = this.getTypeAndZoom()
@@ -105,10 +118,22 @@ export default class Map extends React.Component {
                       </div>`)
     label.id = value
     label.setStyle(labelStyle);
-    label.addEventListener('click', () => {
-      console.log('点击了', value);
+    label.addEventListener('click', (e) => {
+      const target = e.changedTouches[0]
+      this.map.panBy((window.innerWidth / 2 - target.clientX), (window.innerHeight - 330) / 2 - target.clientY)
+      this.getHouseList(value)
+    })
+    this.map.addEventListener('movestart', () => {
+      if (this.state.isShowList) {
+        this.setState(() => {
+          return {
+            isShowList: false
+          }
+        })
+      }
     })
     this.map.addOverlay(label);
+
   }
 
   initMap = async () => {
@@ -131,10 +156,59 @@ export default class Map extends React.Component {
         // 比例尺控件
         map.addControl(new BMap.ScaleControl());
 
+        // map.addEventListener('zoomstart', () => {
+        //   let zoom = map.getZoom()
+        // })
+
         this.renderOverlays(value)
       }
     },
       label);
+  }
+
+  getHouseList = async (cityId) => {
+    Toast.loading('加载中...', 0, null, false)
+    const { data: res } = await getHouseList({ cityId })
+    Toast.hide()
+    console.log(res);
+    this.setState(() => {
+      return {
+        housesList: res.body.list,
+        isShowList: true
+      }
+    })
+  }
+
+  renderHousesList () {
+    return this.state.housesList.map(item => (
+      <div className={styles.house} key={item.houseCode}>
+        <div className={styles.imgWrap}>
+          <img className={styles.img} src={`${config.baseURL}${item.houseImg}`} alt="" />
+        </div>
+        <div className={styles.content}>
+          <h3 className={styles.title}>{item.title}</h3>
+          <div className={styles.desc}>{item.desc}</div>
+          <div>
+            {/* ['近地铁', '随时看房'] */}
+            {item.tags.map((tag, index) => {
+              const tagClass = 'tag' + (index + 1)
+              return (
+                <span
+                  className={styles.tag + ' ' + styles[tagClass]}
+                  key={tag}
+                >
+                  {tag}
+                </span>
+              )
+            })}
+          </div>
+          <div className={styles.price}>
+            <span className={styles.priceNum}>{item.price}</span> 元/月
+            </div>
+        </div>
+      </div>
+    )
+    )
   }
 
   render () {
@@ -142,6 +216,22 @@ export default class Map extends React.Component {
       <div className="map">
         <NavHeader>地图找房</NavHeader>
         <div id="container"></div>
+        <div
+          className={[
+            styles.houseList,
+            this.state.isShowList ? styles.show : ''
+          ].join(' ')}
+        >
+          <div className={styles.titleWrap}>
+            <h1 className={styles.listTitle}>房屋列表</h1>
+            <Link className={styles.titleMore} to="/home/list">
+              更多房源</Link>
+          </div>
+          <div className={styles.houseItems}>
+            {/* 房屋结构 */}
+            {this.renderHousesList()}
+          </div>
+        </div>
       </div>
     )
   }

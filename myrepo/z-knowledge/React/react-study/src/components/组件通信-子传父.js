@@ -43,6 +43,7 @@ class TransChild extends React.Component {
         return (
             <div>
                 <button onClick={this.handleChange}>修改父组件的值</button>
+                <button onClick={() => { this.props.cbChangeMsg(this.state.msg) }}>修改父组件的值</button>
 
                 {/* 在render函数中，事件处理函数中如果修改了state，就不能直接调用，react定义render函数只能是一个props和state的纯粹的函数 */}
                 {/* <button onClick={this.handleChange()}>修改父组件的值</button> */}

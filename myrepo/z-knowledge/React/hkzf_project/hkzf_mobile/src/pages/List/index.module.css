@@ -1,0 +1,24 @@
+.header {
+  height: 45px;
+  background-color: #f5f6f5;
+  padding: 0 10px;
+}
+
+.header :global(.icon-back) {
+  font-size: 16px !important;
+  color: #999;
+}
+
+.header :global(.icon-map) {
+  color: #00ae66;
+}
+
+.header :global(.search) {
+  height: 30px;
+}
+
+.searchHeader {
+  position: relative;
+  top: 0;
+  padding: 0;
+}

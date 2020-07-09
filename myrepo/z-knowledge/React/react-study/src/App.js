@@ -21,6 +21,7 @@ import PropTypesComp from './components/propTypes'
 import Mouse from './components/render props模式'
 import MousePosition from './components/HOC'
 import Counter from './components/setState推荐语法'
+import LifeCycle from './components/声明周期'
 
 
 function App () {
@@ -63,6 +64,8 @@ function App () {
       <MousePosition a={1}></MousePosition>
       <hr />
       <Counter></Counter>
+      <hr />
+      <LifeCycle></LifeCycle>
     </div>
   );
 }

@@ -11,13 +11,18 @@
     <title></title>
     <!--<link rel="stylesheet" href="./css/base.css">-->
     <!--<script src="./js/main.js"></script>-->
+    <style>
+        .aaa {
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
 
     <div id="app">
         <!--挂载组件，只有被Vue挂载后的标签才能使用Vue中的组件-->
-        <my_component></my_component>
+        <my_component class="aaa"></my_component>
 
         <!-- 这里使用app1中的局部组件会报错 -->
         <!-- <my_component1></my_component1> -->

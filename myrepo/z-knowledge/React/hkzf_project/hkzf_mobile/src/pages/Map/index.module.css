@@ -57,7 +57,7 @@
   left: 0;
   width: 100%;
   height: 330px;
-  transition: all 1s;
+  transition: all .5s;
   transform: translate3d(0, 330px, 0);
   background: #fff;
 }
@@ -69,8 +69,13 @@
 .titleWrap {
   position: relative;
   width: 100%;
-  background: #c0c0c2;
+  background: rgba(12, 181, 106, 1);
   border-top: 1px solid #c8c8c8;
+  
+}
+
+.titleWrap :global(h1) {
+  margin: 0;
 }
 
 .listTitle {
@@ -78,7 +83,7 @@
   padding-left: 10px;
   line-height: 43px;
   font-size: 16px;
-  color: #1e1e1e;
+  color: #fff;
   vertical-align: middle;
 }
 
@@ -87,7 +92,7 @@
   padding-right: 15px;
   line-height: 43px;
   font-size: 13px;
-  color: #1e1e1e;
+  color: #fff;
   vertical-align: middle;
 }
 
@@ -102,4 +107,95 @@
   overflow-y: auto;
   height: 100%;
   padding-bottom: 45px;
+}
+
+.houseItems {
+  padding: 0 10px;
+  overflow-y: auto;
+  height: 100%;
+  padding-bottom: 45px;
+}
+
+.house {
+  height: 120px;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: space-around;
+  padding-top: 18px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.imgWrap {
+  float: left;
+  width: 106px;
+  height: 80px;
+}
+
+.img {
+  width: 106px;
+  height: 80px;
+}
+
+.content {
+  overflow: hidden;
+  line-height: 22px;
+  padding-left: 12px;
+}
+
+.title {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-size: 15px;
+  color: #394043;
+}
+
+.desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #afb2b3;
+}
+
+.price {
+  font-size: 12px;
+  color: #fa5741;
+}
+
+.priceNum {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 3px;
+  padding: 4px 5px;
+  margin-right: 5px;
+  line-height: 12px;
+}
+
+.tag1 {
+  color: #39becd;
+  background: #e1f5f8;
+}
+
+.tag2 {
+  color: #3fc28c;
+  background: #e1f5ed;
+}
+
+.tag3 {
+  color: #5aabfd;
+  background: #e6f2ff;
+}
+
+.tag4 {
+  color: #fd5a5a;
+  background: #e6f2ff;
 }

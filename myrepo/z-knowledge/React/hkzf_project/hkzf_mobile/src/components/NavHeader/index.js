@@ -1,7 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { NavBar } from 'antd-mobile'
-// import './index.scss'
 import styles from './index.module.css'
 import PropTypes from 'prop-types'
 
