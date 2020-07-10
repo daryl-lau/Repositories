@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .mystyle {
+      width: 300px;
+      height: 50px;
+      background-color: coral;
+      color: white;
+      font-size: 25px;
+    }
+
+    .red {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <button onclick="myFunction()">点我</button>
+  <div id="myDIV" class="red">
+    我是一个 DIV 元素。
+  </div>
+  <script>
+
+    // classList 属性返回元素的类名，作为 DOMTokenList 对象。
+    // 该属性用于在元素中添加，移除及切换 CSS 类。
+    // classList 属性是只读的，但你可以使用 add() 和 remove() 方法修改它。
+
+    console.log(document.getElementById("myDIV").classList);
+
+    function myFunction() {
+      document.getElementById("myDIV").classList.add("mystyle");
+    }
+  </script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ import styles from './index.module.css'
 
 import Index from '../Index'
 import News from '../News'
-import List from '../List'
+import HouseList from '../HouseList'
 import Profile from '../Profile'
 
 const tabItems = [
@@ -19,7 +19,7 @@ const tabItems = [
   {
     title: '找房',
     icon: 'icon-findHouse',
-    path: '/home/list'
+    path: '/home/houselist'
   },
   {
     title: '资讯',
@@ -71,7 +71,7 @@ export default class Home extends React.Component {
       <div className={styles.home}>
         <Route path={'/home'} exact component={Index}></Route>
         <Route path={'/home/news'} component={News}></Route>
-        <Route path={'/home/list'} component={List}></Route>
+        <Route path={'/home/houselist'} component={HouseList}></Route>
         <Route path={'/home/profile'} component={Profile}></Route>
         <TabBar
           tintColor="#21b97a"

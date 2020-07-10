@@ -42,7 +42,7 @@ class Counter extends React.Component {
         // setState第二个参数
         // setState推荐语法接收第二个参数，是一个回调函数，在状态发生修改后并且dom更新后会立即执行，获取到修改后的状态和dom
         // 下面的打印会输出4，初始值1，上面调用了2次，自己调用了一次，打印4，
-        // 在这个回调函数里面获取到的dom也是修改了之后的，和componentDidUpdate声明周期类似，也有点像vue的nextTick
+        // 在这个回调函数里面获取到的dom也是修改了之后的，和componentDidUpdate声明周期类似
         this.setState((state, props) => {
             return {
                 count: state.count + 1

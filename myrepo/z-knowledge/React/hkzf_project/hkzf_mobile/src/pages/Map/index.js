@@ -5,6 +5,7 @@ import styles from './index.module.css'
 import { getHouseInfo, getHouseList } from '../../api'
 import config from '../../config'
 import { Link } from 'react-router-dom'
+import HouseItem from '../../components/HouseItem'
 
 const BMap = window.BMap
 
@@ -180,34 +181,16 @@ export default class Map extends React.Component {
   }
 
   renderHousesList () {
-    return this.state.housesList.map(item => (
-      <div className={styles.house} key={item.houseCode}>
-        <div className={styles.imgWrap}>
-          <img className={styles.img} src={`${config.baseURL}${item.houseImg}`} alt="" />
-        </div>
-        <div className={styles.content}>
-          <h3 className={styles.title}>{item.title}</h3>
-          <div className={styles.desc}>{item.desc}</div>
-          <div>
-            {/* ['近地铁', '随时看房'] */}
-            {item.tags.map((tag, index) => {
-              const tagClass = 'tag' + (index + 1)
-              return (
-                <span
-                  className={styles.tag + ' ' + styles[tagClass]}
-                  key={tag}
-                >
-                  {tag}
-                </span>
-              )
-            })}
-          </div>
-          <div className={styles.price}>
-            <span className={styles.priceNum}>{item.price}</span> 元/月
-            </div>
-        </div>
-      </div>
-    )
+    return this.state.housesList.map(item => {
+      return (<HouseItem
+        key={item.houseCode}
+        src={config.baseURL + item.houseImg}
+        title={item.title}
+        desc={item.desc}
+        tags={item.tags}
+        price={item.price}
+      ></HouseItem>)
+    }
     )
   }
 

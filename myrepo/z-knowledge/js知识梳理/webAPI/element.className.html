@@ -13,6 +13,9 @@
         // class是js的保留关键字，因此获取或设置class需要通过className属性来操作
         oDiv = document.getElementsByClassName('div1')[0];
         console.log(oDiv.className);
+
+        // ！！！ 使用className设置class是覆盖操作，会覆盖已有的类
+        oDiv.className = 'class1'
     </script>
 </body>
 

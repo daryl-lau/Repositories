@@ -41,6 +41,9 @@ export default class Filter extends Component {
   }
 
   changeTitle = type => {
+
+    document.body.style.overflow = 'hidden'
+
     const { titleSelectedStatus, selectedValue } = this.state
     // 创建新的标题选中状态对象
     const newTitleSelectedStatus = { ...titleSelectedStatus }
@@ -85,15 +88,9 @@ export default class Filter extends Component {
     })
   }
 
-  /* 
-    1 在 Filter 组件的 onTitleClick 方法中，添加 type 为 more 的判断条件。
-    2 当选中值数组长度不为 0 时，表示 FilterMore 组件中有选中项，此时，设置选中状态高亮。
-    3 在点击确定按钮时，根据参数 type 和 value，判断当前菜单是否高亮。
-    4 在关闭对话框时（onCancel），根据 type 和当前type的选中值，判断当前菜单是否高亮。
-      因为 onCancel 方法中，没有 type 参数，所以，就需要在调用 onCancel 方式时，来传递 type 参数。
-  */
   // 取消（隐藏对话框）
   onCancel = type => {
+    document.body.style.overflow = ''
     console.log('cancel:', type)
     const { titleSelectedStatus, selectedValue } = this.state
     // 创建新的标题选中状态对象
@@ -133,6 +130,7 @@ export default class Filter extends Component {
 
   // 确定（隐藏对话框）
   onSave = (type, value) => {
+    document.body.style.overflow = ''
     console.log(type, value)
     const { titleSelectedStatus } = this.state
     // 创建新的标题选中状态对象
@@ -159,18 +157,34 @@ export default class Filter extends Component {
       newTitleSelectedStatus[type] = false
     }
 
+
+    const newSelectedValue = {
+      ...this.state.selectedValue,
+      // 只更新当前 type 对应的选中值
+      [type]: value
+    }
+    console.log('newSelectedValue', newSelectedValue);
+
+    let filter = {}
+    const { area, mode, price, more } = newSelectedValue
+    let areaValue = 'null'
+    if (area.length === 3) {
+      areaValue = area[2] === 'null' ? area[1] : area[2]
+    }
+    filter.area = areaValue
+    filter.rentType = mode[0]
+    filter.price = price[0]
+    filter.more = more.join(',')
+
+    console.log(filter)
+    this.props.onFilter(filter)
+
     // 隐藏对话框
     this.setState({
       openType: '',
-
       // 更新菜单高亮状态数据
       titleSelectedStatus: newTitleSelectedStatus,
-
-      selectedValue: {
-        ...this.state.selectedValue,
-        // 只更新当前 type 对应的选中值
-        [type]: value
-      }
+      selectedValue: newSelectedValue
     })
   }
 
@@ -227,13 +241,12 @@ export default class Filter extends Component {
   }
 
   render () {
-    console.log('重新熏染了');
     return (
       <div className={styles.root} >
         {/* 前三个菜单的遮罩层 */}
         {
           this.state.openType === 'area' || this.state.openType === 'mode' || this.state.openType === 'price'
-            ? <div className={styles.mask} onClick={this.onCancel} />
+            ? <div className={styles.mask} onClick={() => { this.onCancel(this.state.openType) }} />
             : null
         }
 

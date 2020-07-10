@@ -23,6 +23,7 @@
         // 操作样式style不要使用属性的形式操作，而是使用element.style的方式，
         // 因为操作属性的方法，无论样式是否冲突，后面都会覆盖前面的，而element.style可以进行分别添加不同的样式
 
+        // !!! 设置class会直接覆盖已有的class，如果想要在原有的基础上添加类，使用classList
 
         let oInput1 = document.querySelectorAll('input')[0];
         let oInput2 = document.querySelectorAll('input')[1];
@@ -91,7 +92,7 @@
         // removeAttribute()方法删除属性，将彻底删除属性
         oInput1.removeAttribute('type')
         oInput2.removeAttribute('disabled')
-        oInput3.removeAttribute('class')
+        // oInput3.removeAttribute('class')
 
 
 

@@ -108,14 +108,7 @@
   height: 100%;
   padding-bottom: 45px;
 }
-
-.houseItems {
-  padding: 0 10px;
-  overflow-y: auto;
-  height: 100%;
-  padding-bottom: 45px;
-}
-
+/* 
 .house {
   height: 120px;
   position: relative;
@@ -198,4 +191,4 @@
 .tag4 {
   color: #fd5a5a;
   background: #e6f2ff;
-}
+} */

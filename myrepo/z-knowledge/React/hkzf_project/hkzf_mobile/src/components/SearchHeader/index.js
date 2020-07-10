@@ -6,6 +6,7 @@ import styles from './index.module.css'
 
 class SearchHeader extends React.Component {
   render () {
+    console.log('SearchHeader渲染了', this.props.cityName);
     return (
       <Flex className={[this.props.className || '', styles.searchBox].join(' ')}>
         {/* 左侧白色区域 */}

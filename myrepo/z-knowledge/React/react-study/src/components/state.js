@@ -3,6 +3,9 @@ import React from 'react'
 class Wrapper extends React.Component {
     constructor(...args) {
         super(...args)
+
+        // 不是所有的数据都需要放在state里面，只有修改后数据需要重新渲染组件的数据才适合放在state里
+        // 对于一些挂载后就不会变了的数据，就不适合放在state里
         this.state = {
             total: 0
         }

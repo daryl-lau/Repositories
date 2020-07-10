@@ -19,13 +19,13 @@ const navs = [
     id: 1,
     img: Nav1,
     title: '整租',
-    path: '/home/list'
+    path: '/home/houselist'
   },
   {
     id: 2,
     img: Nav2,
     title: '合租',
-    path: '/home/list'
+    path: '/home/houselist'
   },
   {
     id: 3,
