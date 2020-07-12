@@ -4,6 +4,7 @@ import FilterPicker from './FilterPicker'
 import FilterMore from './FilterMore'
 import styles from './index.module.css'
 import { getCondition } from '../../api'
+import { Spring } from 'react-spring/renderprops'
 
 export default class Filter extends Component {
   constructor(props) {
@@ -246,7 +247,9 @@ export default class Filter extends Component {
         {/* 前三个菜单的遮罩层 */}
         {
           this.state.openType === 'area' || this.state.openType === 'mode' || this.state.openType === 'price'
-            ? <div className={styles.mask} onClick={() => { this.onCancel(this.state.openType) }} />
+            ? <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+              {props => <div style={props} className={styles.mask} onClick={() => { this.onCancel(this.state.openType) }}></div>}
+            </Spring>
             : null
         }
 

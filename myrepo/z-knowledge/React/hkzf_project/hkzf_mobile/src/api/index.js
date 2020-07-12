@@ -9,3 +9,6 @@ export const getHotCityList = () => request.get('/area/hot')
 export const getHouseInfo = (areaId) => request.get('/area/map', { params: { id: areaId } })
 export const getHouseList = (params) => request.get('/houses', { params: params })
 export const getCondition = (areaId) => request.get('/houses/condition', { params: { id: areaId } })
+export const getHouseDetail = (houseCode) => request.get(`/houses/${houseCode}`)
+
+export const login = (username, password) => request.post('/user/login', { username, password }, { timeout: 5000, })

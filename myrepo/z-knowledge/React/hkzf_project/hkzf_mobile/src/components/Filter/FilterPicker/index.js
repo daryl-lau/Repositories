@@ -16,13 +16,14 @@ export default class FilterPicker extends Component {
       }
     })
   }
+
   render () {
     return (
       <>
         {/* 选择器组件： */}
         <PickerView data={this.props.data} value={this.state.value} cols={this.props.cols} onChange={this.onChange} />
         {/* 底部按钮 */}
-        <FilterFooter onCancel={() => { this.props.onCancel(this.props.type)}} onOk={() => { this.props.onSave(this.props.type, this.state.value) }} />
+        <FilterFooter onCancel={() => { this.props.onCancel(this.props.type) }} onOk={() => { this.props.onSave(this.props.type, this.state.value) }} />
       </>
     )
   }

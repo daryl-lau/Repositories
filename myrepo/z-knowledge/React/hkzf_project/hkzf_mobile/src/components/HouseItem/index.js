@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 
 class HouseItem extends React.Component {
   render () {
-    const { title, desc, tags, price, src } = this.props
+    const { title, desc, tags, price, src, onClick } = this.props
     return (
-      <div className={styles.house}>
+      <div className={styles.house} onClick={onClick}>
         <div className={styles.imgWrap}>
           <img className={styles.img} src={src} alt="" />
         </div>
@@ -43,6 +43,7 @@ HouseItem.propTypes = {
   desc: PropTypes.string,
   tags: PropTypes.array.isRequired,
   price: PropTypes.number,
+  onClick: PropTypes.func
 }
 
 export default withRouter(HouseItem)

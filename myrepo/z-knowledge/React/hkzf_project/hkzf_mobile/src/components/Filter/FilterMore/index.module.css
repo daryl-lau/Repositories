@@ -12,12 +12,26 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.tags {
+.content {
   position: fixed;
+  top: 0;
+  /* left: 80px; */
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  padding-bottom: 50px;
+  width: 83%;
+  transform: translateX(0);
+}
+
+.tags {
+  /* position: fixed;
   top: 0;
   left: 80px;
   right: 0;
-  bottom: 0;
+  bottom: 0; */
+  position: absolute;
+  height: 100%;
   overflow: auto;
   padding-bottom: 50px;
   z-index: 3;
@@ -28,7 +42,7 @@
   display: inline-block;
   height: 32px;
   width: 70px;
-  margin: 0 18px 15px 0;
+  margin: 0 10px 10px 0;
   border: 1px solid #ddd;
   border-radius: 3px;
   line-height: 32px;
@@ -62,10 +76,13 @@
 }
 
 .footer {
-  position: fixed;
+  /* position: fixed;
   left: 80px;
   right: 0;
+  bottom: 0; */
+  position: absolute;
   bottom: 0;
+  width: 100%;
   background-color: #fff;
   z-index: 3;
 }

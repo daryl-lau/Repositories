@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import FilterFooter from '../FilterFooter'
 import styles from './index.module.css'
+import { Spring } from 'react-spring/renderprops'
+
 
 export default class FilterMore extends Component {
   constructor(props) {
@@ -45,34 +47,39 @@ export default class FilterMore extends Component {
   }
 
   render () {
+    console.log(this.props);
     return (
       <div className={styles.root}>
         {/* 遮罩层 */}
         <div className={styles.mask} onClick={() => { this.props.onCancel(this.props.type) }} />
 
-        {/* 条件内容 */}
-        <div className={styles.tags}>
-          <dl className={styles.dl}>
-            <dt className={styles.dt}>户型</dt>
-            <dd className={styles.dd}>{this.renderFilters(this.props.roomType)}</dd>
+        <Spring from={{ transform: 'translateX(100%)' }} to={{ transform: 'translateX(0%)' }}>
+          {props => (<div className={styles.content} style={props}>
+            {/* 条件内容 */}
+            <div className={styles.tags}>
+              <dl className={styles.dl}>
+                <dt className={styles.dt}>户型</dt>
+                <dd className={styles.dd}>{this.renderFilters(this.props.roomType)}</dd>
 
-            <dt className={styles.dt}>朝向</dt>
-            <dd className={styles.dd}>{this.renderFilters(this.props.oriented)}</dd>
+                <dt className={styles.dt}>朝向</dt>
+                <dd className={styles.dd}>{this.renderFilters(this.props.oriented)}</dd>
 
-            <dt className={styles.dt}>楼层</dt>
-            <dd className={styles.dd}>{this.renderFilters(this.props.floor)}</dd>
+                <dt className={styles.dt}>楼层</dt>
+                <dd className={styles.dd}>{this.renderFilters(this.props.floor)}</dd>
 
-            <dt className={styles.dt}>房屋亮点</dt>
-            <dd className={styles.dd}>{this.renderFilters(this.props.characteristic)}</dd>
-          </dl>
-        </div>
+                <dt className={styles.dt}>房屋亮点</dt>
+                <dd className={styles.dd}>{this.renderFilters(this.props.characteristic)}</dd>
+              </dl>
+            </div>
 
-        {/* 底部按钮 */}
-        <FilterFooter
-          cancelText="清除"
-          className={styles.footer}
-          onCancel={this.handleCancel}
-          onOk={() => { this.props.onSave(this.props.type, this.state.selectedValue) }} />
+            {/* 底部按钮 */}
+            <FilterFooter
+              cancelText="清除"
+              className={styles.footer}
+              onCancel={this.handleCancel}
+              onOk={() => { this.props.onSave(this.props.type, this.state.selectedValue) }} />
+          </div>)}
+        </Spring>
       </div>
     )
   }

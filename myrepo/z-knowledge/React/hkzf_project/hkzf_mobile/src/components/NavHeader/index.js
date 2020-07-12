@@ -15,7 +15,8 @@ class NavHeader extends React.Component {
         mode="light"
         icon={<i className="iconfont icon-back"></i>}
         onLeftClick={this.props.onLeftClick || this.defaultLeftClick}
-        className={styles.navHeader}
+        className={[styles.navHeader, this.props.className || ''].join(' ')}
+        rightContent={this.props.rightContent}
       >{this.props.children}</NavBar>
     )
   }
@@ -23,7 +24,9 @@ class NavHeader extends React.Component {
 
 NavHeader.propTypes = {
   children: PropTypes.string.isRequired,
-  onLeftClick: PropTypes.func
+  onLeftClick: PropTypes.func,
+  className: PropTypes.string,
+  rightContent: PropTypes.array
 }
 
 export default withRouter(NavHeader)

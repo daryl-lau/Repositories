@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchHeader from '../../components/SearchHeader'
-import { Flex, ListView } from 'antd-mobile'
+import { Flex, ListView, Toast } from 'antd-mobile'
 import styles from './index.module.css'
 import Filter from '../../components/Filter'
 import Sticky from '../../components/Sticky'
@@ -33,6 +33,7 @@ export default class HouseList extends React.Component {
   NUM_ROWS = 20
   pageIndex = 0
   genData = async (pIndex = 0) => {
+
     console.log(this.filters);
     console.log(this.cityId);
     const start = (pIndex * this.NUM_ROWS) + 1
@@ -43,13 +44,20 @@ export default class HouseList extends React.Component {
       start: start,
       end: end
     })
+
+
+    // if (res.body.list.length > 0) {
+    //   Toast.info(`加载了${res.body.list.length}条数据`, 1.5, null, false);
+    // }
     return res.body.list;
   }
 
   // 选择条件后重新请求数据
   onFilter = async (filters) => {
     this.filters = filters
+    Toast.loading('加载中...', 0, null, false)
     this.rData = await this.genData();
+    Toast.hide()
     console.log(this.rData, 111111111111);
     if (this.rData.length === 0) {
       this.setState({
@@ -73,10 +81,11 @@ export default class HouseList extends React.Component {
     this.city = label
     this.cityId = value
 
+    Toast.loading('加载中...', 0, null, false)
     // 页面初始化加载数据
     this.rData = await this.genData();
     console.log(this.rData, 2222222222222);
-
+    Toast.hide()
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(this.rData),
       isLoading: false,
@@ -135,6 +144,7 @@ export default class HouseList extends React.Component {
           desc={rowData.desc}
           tags={rowData.tags}
           price={rowData.price}
+          onClick={() => { this.props.history.push(`/detail/${rowData.houseCode}`) }}
         ></HouseItem>
       )
     };
