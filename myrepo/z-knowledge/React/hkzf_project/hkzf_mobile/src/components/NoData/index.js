@@ -18,7 +18,7 @@ const NoData = ({ children }) => (
 )
 
 NoData.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.node.isRequired
 }
 
 export default NoData

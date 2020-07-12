@@ -72,7 +72,7 @@ export default class HouseList extends React.Component {
       dataSource: this.state.dataSource.cloneWithRows(this.rData),
       isLoading: false,
     });
-    if (this.rData.length > 0) { this.lv.scrollTo(0, 0) }
+    document.scrollingElement.scrollTop = 0
   }
 
   async componentDidMount () {
@@ -163,7 +163,6 @@ export default class HouseList extends React.Component {
         {console.log(this.state.initDataIsNull, 'initDataIsNull')}
 
         {!this.state.initDataIsNull ? <ListView
-          ref={el => this.lv = el}
           dataSource={this.state.dataSource}
           renderFooter={this.renderFooter}
           renderRow={row}

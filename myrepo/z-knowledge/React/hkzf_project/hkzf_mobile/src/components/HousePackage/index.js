@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import styles from './index.module.css'
 
 // 所有房屋配置项
@@ -63,7 +62,7 @@ const HOUSE_PACKAGE = [
   2 从所有配置列表中选择房屋配置（发布房源页面）
     <HousePackage select onSelect={selectedItems => {...}} />
 */
-export default class HousePackage extends Component {
+class HousePackage extends Component {
   state = {
     // 选中名称
     selectedNames: []
@@ -92,7 +91,7 @@ export default class HousePackage extends Component {
   }
 
   // 渲染列表项
-  renderItems() {
+  renderItems () {
     const { selectedNames } = this.state
     // select 的值为 true 表示 选择房屋配置；false 表示仅展示房屋列表
     // list 表示要展示的列表项
@@ -128,7 +127,13 @@ export default class HousePackage extends Component {
     })
   }
 
-  render() {
+  render () {
     return <ul className={styles.root}>{this.renderItems()}</ul>
   }
 }
+
+HousePackage.defaultProps = {
+  onSelect: () => { }
+}
+
+export default HousePackage

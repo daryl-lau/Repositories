@@ -12,3 +12,15 @@ export const getCondition = (areaId) => request.get('/houses/condition', { param
 export const getHouseDetail = (houseCode) => request.get(`/houses/${houseCode}`)
 
 export const login = (username, password) => request.post('/user/login', { username, password }, { timeout: 5000, })
+
+export const getUserInfo = () => request.get('/user')
+
+export const logout = () => request.post('/user/logout')
+
+export const addFavorite = (houseCode) => request.post(`/user/favorites/${houseCode}`)
+export const getFavorite = (houseCode) => request.get(`/user/favorites/${houseCode}`)
+export const delFavorite = (houseCode) => request.delete(`/user/favorites/${houseCode}`)
+
+export const getPublishedHouses = () => request.get('/user/houses')
+
+export const getCommunity = (keyword, cityId) => request.get('/area/community', { params: { name: keyword, id: cityId } })

@@ -28,7 +28,6 @@ class Login extends Component {
     //   handleBlur,
     //   touched
     // } = this.props
-
     return (
       <div className={styles.root}>
         {/* 顶部导航 */}
@@ -106,9 +105,19 @@ export default withFormik({
       Toast.hide()
       console.log(res);
       if (res.status === 200) {
-        Toast.success('登录成功，跳转至之前页面', 1.5)
+        Toast.success('登录成功！', 1.5)
         localStorage.setItem('hkzf_token', res.body.token)
-        props.history.go(-1)
+
+        console.log(props.location);
+
+        // 判断有没有跳转源，有就返回到跳转源，没有就返回上一级页面
+        // 这里的跳转源在PrivateRoute里面使用了
+        if (!props.location.state) {
+          props.history.go(-1)
+        } else {
+          props.history.replace(props.location.state.from)
+        }
+
       } else if (res.status === 400) {
         Toast.fail(`${res.description}`, 1.5)
       }

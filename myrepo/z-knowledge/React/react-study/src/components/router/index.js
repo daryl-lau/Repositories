@@ -33,6 +33,9 @@ class CompRouter extends React.Component {
                 <Route path={'/news'} component={News} ></Route>
                 <Route path={'/articles/:id'} component={Articles} ></Route>
                 <Route path={'/nesting'} component={Nesting} ></Route>
+
+                {/* Route还可以使用render props模式 */}
+                <Route path={'/test'} render={() => <div>test</div>} />
             </div>
         )
     }

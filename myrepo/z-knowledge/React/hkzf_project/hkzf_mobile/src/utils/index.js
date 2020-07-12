@@ -1,14 +1,17 @@
 import { getCityInfo } from '../api'
 
+
+const CITY_KEY = 'hkzf_city'
+
 export const getCurrCity = () => {
-  const currCity = localStorage.getItem('hkzf_city')
+  const currCity = localStorage.getItem(CITY_KEY)
   if (!currCity) {
     return new Promise((resolve, reject) => {
       try {
         const localCity = new window.BMap.LocalCity();
         localCity.get(async position => {
           const { data: res } = await getCityInfo(position.name)
-          window.localStorage.setItem('hkzf_city', JSON.stringify(res.body))
+          window.localStorage.setItem(CITY_KEY, JSON.stringify(res.body))
           resolve(res.body)
         })
       } catch (error) {
@@ -20,3 +23,11 @@ export const getCurrCity = () => {
   }
 }
 
+export const isAuth = () => {
+  const token = localStorage.getItem('hkzf_token')
+  return !!token
+}
+
+export const getCity = () => JSON.parse(localStorage.getItem(CITY_KEY)) || {}
+
+export const setCity = value => localStorage.setItem(CITY_KEY, value) 

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styles from './index.module.css'
 
-class SearchHeader extends React.Component {
+class SearchHeader extends React.PureComponent {
   render () {
     console.log('SearchHeader渲染了', this.props.cityName);
     return (
