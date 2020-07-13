@@ -24,3 +24,7 @@ export const delFavorite = (houseCode) => request.delete(`/user/favorites/${hous
 export const getPublishedHouses = () => request.get('/user/houses')
 
 export const getCommunity = (keyword, cityId) => request.get('/area/community', { params: { name: keyword, id: cityId } })
+
+export const uploadImg = filesFormData => request.post('houses/image', filesFormData, { headers: { 'Content-Type': 'multipart/form-data' } })
+
+export const addHouse = body => request.post('/user/houses', body)

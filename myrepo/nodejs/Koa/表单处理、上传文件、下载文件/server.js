@@ -27,7 +27,7 @@ server.use(betterBody({
 router.post('/upload', async ctx => {
     ctx.set('Access-Control-Allow-Origin', '*');
     // 普通post和文件post都会放到这里
-    console.log('fiels', ctx.request.fields);
+    console.log('fields', ctx.request.fields);
     // console.log('files', ctx.request.files[0]);
     let file = ctx.request.files[0]
     console.log(file);

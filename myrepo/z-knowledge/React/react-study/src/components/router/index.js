@@ -36,6 +36,10 @@ class CompRouter extends React.Component {
 
                 {/* Route还可以使用render props模式 */}
                 <Route path={'/test'} render={() => <div>test</div>} />
+
+                {/* 路由在跳转的时候，还可以传递参数，传递的参数存放在props.location.state中 */}
+                {/* 例如： to={{ pathname: 'PATH', state: { key: value, key2: value2 } }}  */}
+                {/* 例如：props.history.push('PATH', { key: value, key2: value2 }) */}
             </div>
         )
     }
