@@ -6,9 +6,14 @@ import { TabBar } from 'antd-mobile';
 import styles from './index.module.css'
 
 import Index from '../Index'
-import News from '../News'
-import HouseList from '../HouseList'
-import Profile from '../Profile'
+// import News from '../News'
+// import HouseList from '../HouseList'
+// import Profile from '../Profile'
+
+// 代码分割
+const News = React.lazy(() => import('../News'))
+const HouseList = React.lazy(() => import('../HouseList'))
+const Profile = React.lazy(() => import('../Profile'))
 
 const tabItems = [
   {

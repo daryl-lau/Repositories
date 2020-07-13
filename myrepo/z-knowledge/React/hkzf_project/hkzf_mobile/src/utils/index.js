@@ -1,6 +1,4 @@
 import { getCityInfo } from '../api'
-
-
 const CITY_KEY = 'hkzf_city'
 
 export const getCurrCity = () => {
@@ -11,6 +9,7 @@ export const getCurrCity = () => {
         const localCity = new window.BMap.LocalCity();
         localCity.get(async position => {
           const { data: res } = await getCityInfo(position.name)
+          console.log(res);
           window.localStorage.setItem(CITY_KEY, JSON.stringify(res.body))
           resolve(res.body)
         })
