@@ -116,32 +116,43 @@ export default class RentAdd extends Component {
     })
 
     let houseImg = ''
-    const { data: res } = await uploadImg(FilesFormData)
-    console.log(res);
-    if (res.status === 200) {
-      houseImg = res.body.join('|')
-    } else {
+    try {
+      const { data: res } = await uploadImg(FilesFormData)
+      console.log(res);
+      if (res.status === 200) {
+        houseImg = res.body.join('|')
+      } else {
+        Toast.info('房屋图片上传失败，请重试', 2, null, false)
+        return
+      }
+    } catch (e) {
       Toast.info('房屋图片上传失败，请重试', 2, null, false)
-      return
     }
 
-    const { data: addRes } = await addHouse({
-      price,
-      size,
-      roomType,
-      floor,
-      oriented,
-      supporting,
-      description,
-      title,
-      houseImg,
-      community: community.id
-    })
-    console.log(addRes);
-    if (addRes.status === 200) {
-      Toast.success('发布房源成功！', 2, null, false)
-      this.props.history.push('/rent')
-    } else {
+
+    try {
+      Toast.loading('上传中，请耐心等待...', 0, null, false)
+      const { data: addRes } = await addHouse({
+        price,
+        size,
+        roomType,
+        floor,
+        oriented,
+        supporting,
+        description,
+        title,
+        houseImg,
+        community: community.id
+      })
+      Toast.hide()
+      console.log(addRes);
+      if (addRes.status === 200) {
+        Toast.success('发布房源成功！', 2, null, false)
+        this.props.history.push('/rent')
+      } else {
+        Toast.fail('发布房源失败，请稍后再试！', 2, null, false)
+      }
+    } catch (e) {
       Toast.fail('发布房源失败，请稍后再试！', 2, null, false)
     }
 

@@ -10,6 +10,9 @@ import React from 'react'
 // React 传递 ref 给 forwardRef 内函数 (props, ref) => ...，作为其第二个参数。
 // 我们向下转发该 ref 参数到 <button ref={ref}>，将其指定为 JSX 属性。
 // 当 ref 挂载完成，btnRef.current 将指向 <button> DOM 节点。
+
+// 这里接收到的ref就是外面使用MyBtn时传过来的ref，再将其绑定到button元素上，那么外面获取到的ref就是button元素的ref了，而不是组件的ref
+// 注意，ref不是props属性（ps:key也不是），是不会跟随props向下传递的，需要自己手动接收传递
 const MyBtn = React.forwardRef((props, ref) => {
     return (
         <button ref={ref} onClick={props.onClick}>
@@ -33,7 +36,7 @@ class MyBtnTest extends React.Component {
     render () {
         return (
             <div>
-                {/* 组件上没有时间，把处理函数当做属性传递给子组件，在子组件里面调用 */}
+                {/* 组件上没有事件，把处理函数当做属性传递给子组件，在子组件里面调用 */}
                 <MyBtn ref={this.btnRef} onClick={this.clickHandle}>点击获取按钮的宽度</MyBtn>
             </div>
         )

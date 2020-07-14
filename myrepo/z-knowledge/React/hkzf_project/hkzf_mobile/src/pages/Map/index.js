@@ -207,7 +207,7 @@ export default class Map extends React.Component {
         >
           <div className={styles.titleWrap}>
             <h1 className={styles.listTitle}>房屋列表</h1>
-            <Link className={styles.titleMore} to="/home/list">
+            <Link className={styles.titleMore} to="/home/houselist">
               更多房源</Link>
           </div>
           <div className={styles.houseItems}>

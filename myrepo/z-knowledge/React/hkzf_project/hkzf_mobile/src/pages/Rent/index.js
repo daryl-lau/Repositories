@@ -35,6 +35,7 @@ export default class Rent extends Component {
   }
 
   componentDidMount () {
+    document.scrollingElement.scrollTop = 0
     this.getHouseList()
   }
 

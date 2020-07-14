@@ -1,10 +1,11 @@
 import React from 'react'
+import NavHeader from '../../components/NavHeader'
 
-export default class News extends React.Component { 
-    render () { 
+export default class News extends React.Component {
+    render () {
         return (
             <div>
-                News
+                <NavHeader>最新资讯</NavHeader>
             </div>
         )
     }
