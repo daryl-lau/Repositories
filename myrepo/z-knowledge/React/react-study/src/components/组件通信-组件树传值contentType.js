@@ -127,6 +127,27 @@ class ChChCh extends React.Component {
     // 这能让你使用 this.context 来消费最近 Context 上的那个值。上面传递的value就绑定到了this.context上
     // 你可以在任何生命周期中访问到它，包括 render 函数中。
     // 注意这种方式只能订阅单一context，多个context通过consumer订阅
+    // 什么意思呢，就是如果父级提供了多个context，例如：
+
+    // <ThemeContext.Provider value={theme}>
+    //     <UserContext.Provider value={signedInUser}>
+    //       <Layout />
+    //     </UserContext.Provider>
+    //   </ThemeContext.Provider>
+
+    // 此时static contentType 只能定义其中的一个
+    // 而consumer可以订阅多个，例如：
+
+    // <ThemeContext.Consumer>
+    //   {theme => (
+    //     <UserContext.Consumer>
+    //       {user => (
+    //         <ProfilePage user={user} theme={theme} />
+    //       )}
+    //     </UserContext.Consumer>
+    //   )}
+    // </ThemeContext.Consumer>
+
     static contextType = ColorCtx
 
     render () {

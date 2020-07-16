@@ -50,3 +50,24 @@ const Position = (props) => {
 const MousePosition = withMouse(Position)
 
 export default MousePosition
+
+
+
+// 函数式的HOC
+
+// const hoc = (Cmp) => {
+//   return (props) => {
+//     return (
+//       <div>
+//         <Cmp {...props}></Cmp>
+//       </div >
+//     )
+//   }
+// }
+
+// const hoc = Cmp => props => {
+//   return <div><Cmp {...props}></Cmp></div>
+// }
+
+// const Aaa = hoc(Position)
+// <Aaa a={1}></Aaa>
