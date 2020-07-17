@@ -26,6 +26,7 @@ class CompRouter extends React.Component {
                 <Link to={'/articles/1'}>文章1</Link>
                 <Link to={'/articles/2'}>文章2</Link>
                 <Link to={'/nesting/a'}>嵌套</Link>
+                <Link to={'/test'}>test</Link>
 
                 {/* exact 表示完全匹配，只有完全匹配到'/'，才会渲染组件，如果不加，只要是匹配到'/'，就会渲染出首页组件
                 Route可以放在Router里的任何位置，且组件会渲染到相应的位置，组件内返回什么标签，就渲染成什么标签，不会固定渲染成div啥的 */}
@@ -35,7 +36,11 @@ class CompRouter extends React.Component {
                 <Route path={'/nesting'} component={Nesting} ></Route>
 
                 {/* Route还可以使用render props模式 */}
-                <Route path={'/test'} render={() => <div>test</div>} />
+                <Route path={'/test'} render={(props) => { 
+                    // props里面的route信息就是跳转后的当前的路由信息
+                    console.log(props);
+                    return <div>test</div>
+                }} />
 
                 {/* 路由在跳转的时候，还可以传递参数，传递的参数存放在props.location.state中 */}
                 {/* 例如： to={{ pathname: 'PATH', state: { key: value, key2: value2 } }}  */}

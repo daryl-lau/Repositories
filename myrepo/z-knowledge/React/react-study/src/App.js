@@ -3,15 +3,15 @@ import './App.css'
 import './index.css'
 
 
-// import Com1 from './components/jsx初体验'
+import Com1 from './components/jsx初体验'
 // import List from './components/列表渲染'
 // import Father from './components/组合组件及传值props'
 // import Wrapper from './components/state'
-// import TransFatherToChild from './components/组件通信-子传父'
+import TransFatherToChild from './components/组件通信-子传父状态提升'
 // import TransChildToFather from './components/组件通信-父传子'
 // import TransBetweenCompTree from './components/组件通信-组件树传值contentType'
 // import Consumer from './components/组件通信-组件树传值-consumer'
-// import CompRouter from './components/router/index'
+import CompRouter from './components/router/index'
 // import LazyLoadTest from './components/lazy懒加载'
 // import ErrorTest from './components/错误边界'
 // import RefsComponent from './components/refs'
@@ -20,12 +20,17 @@ import './index.css'
 // import PropTypesComp from './components/propTypes'
 // import Mouse from './components/render props模式'
 // import MousePosition from './components/HOC'
-// import Counter from './components/setState推荐语法'
+import Counter from './components/setState推荐语法'
+import SyncCount from './components/setState转同步的方法'
 // import LifeCycle from './components/生命周期'
 import CountHooks from './components/hooks初探'
-// import TimerHooks from './components/hooks_timer'
+import TimerHooks from './components/hooks_timer'
 // import ContextHooks from './components/hooks_useContext'
 import ReducerCounter from './components/hooks_useReducer'
+import ReducerCounter2 from './components/hooks_useReducer2'
+import OriginRedux from './components/原始redux使用'
+import SagaTest from './components/redux/SagaTest'
+import ReactChildren from './components/API_React.Children'
 
 
 function App () {
@@ -33,7 +38,7 @@ function App () {
     <div className="App">
       {/* <LazyLoadTest></LazyLoadTest> */}
       <br />
-      {/* <Com1></Com1> */}
+      <Com1></Com1>
       <br />
       {/* <List></List> */}
       <br />
@@ -43,7 +48,7 @@ function App () {
       <br />
       {/* <TransChildToFather></TransChildToFather> */}
       <br />
-      {/* <TransFatherToChild></TransFatherToChild> */}
+      <TransFatherToChild></TransFatherToChild>
       <br />
       {/* <TransBetweenCompTree></TransBetweenCompTree> */}
       <br />
@@ -67,17 +72,23 @@ function App () {
       <br />
       {/* <MousePosition a={1}></MousePosition> */}
       <br />
-      {/* <Counter></Counter> */}
+      <Counter></Counter>
+      <br />
+      <SyncCount></SyncCount>
       <br />
       {/* <LifeCycle></LifeCycle> */}
       <br />
-      <CountHooks></CountHooks>
+      {/* <CountHooks></CountHooks> */}
       <br />
       {/* <TimerHooks></TimerHooks> */}
       <br />
       {/* <ContextHooks></ContextHooks> */}
       <br />
       <ReducerCounter></ReducerCounter>
+      <ReducerCounter2 initialCount={0}></ReducerCounter2>
+      {/* <OriginRedux></OriginRedux> */}
+      <SagaTest></SagaTest>
+      <ReactChildren></ReactChildren>
     </div>
   );
 }

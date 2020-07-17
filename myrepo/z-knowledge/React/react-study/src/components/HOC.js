@@ -71,3 +71,12 @@ export default MousePosition
 
 // const Aaa = hoc(Position)
 // <Aaa a={1}></Aaa>
+
+// 高阶工厂函数，返回高阶函数的函数，使用()链式调用
+const hocCreater = () => {
+  return Cmp => props => {
+    return <Cmp />
+  }
+}
+
+hocCreater()(Position)

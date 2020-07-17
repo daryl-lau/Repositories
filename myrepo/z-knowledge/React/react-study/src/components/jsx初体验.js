@@ -10,8 +10,8 @@ class Com1 extends React.Component {
     }
 
     // 如果使用箭头函数声明函数，调用方式：
-    // 不传参：this.func1
-    // 传参： (e) => {this.func1('param1', 'param2')}
+    // 不传参：this.func1，如果不传参，事件参数默认会自己添加上
+    // 传参： (e) => {this.func1(e,'param1', 'param2')}，如果传参，事件参数需要手动传递过来
     func1 = (e, param1, param2) => {
         console.log(e);
         console.log(param1);
@@ -27,7 +27,7 @@ class Com1 extends React.Component {
         console.log('event', e);
     }
 
-    func3 (e) { 
+    func3 (e) {
         console.log(e);
     }
 
