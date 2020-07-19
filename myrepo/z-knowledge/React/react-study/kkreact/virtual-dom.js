@@ -11,7 +11,7 @@ import {
 
 let refs = null
 // 创建vnode
-export function createVnode(vtype, type, props, key, ref) {
+export function createVnode (vtype, type, props, key, ref) {
     // 创建vnode
     let vnode = {
         vtype: vtype,
@@ -27,7 +27,7 @@ export function createVnode(vtype, type, props, key, ref) {
     return vnode
 }
 // 初始化vnode
-export function initVnode(vnode, parentContext) {
+export function initVnode (vnode, parentContext) {
     // 初始化 不同的vtype 执行不同的函数
     let { vtype } = vnode
     let node = null
@@ -43,7 +43,7 @@ export function initVnode(vnode, parentContext) {
     return node
 }
 
-function updateVnode(vnode, newVnode, node, parentContext) {
+function updateVnode (vnode, newVnode, node, parentContext) {
     let { vtype } = vnode
 
     // class组件
@@ -74,7 +74,7 @@ function updateVnode(vnode, newVnode, node, parentContext) {
     return node
 }
 
-function updateVChildren(vnode, newVnode, node, parentContext) {
+function updateVChildren (vnode, newVnode, node, parentContext) {
     // 更新children，产出三个patch数组
     let patches = {
         removes: [],
@@ -87,7 +87,7 @@ function updateVChildren(vnode, newVnode, node, parentContext) {
     _.flatEach(patches.creates, applyCreate)
 }
 
-function applyUpdate(data) {
+function applyUpdate (data) {
     if (!data) {
         return
     }
@@ -116,18 +116,18 @@ function applyUpdate(data) {
 }
 
 
-function applyDestroy(data) {
+function applyDestroy (data) {
     destroyVnode(data.vnode, data.node)
     data.node.parentNode.removeChild(data.node)
 }
 
-function applyCreate(data) {
+function applyCreate (data) {
     let node = initVnode(data.vnode, data.parentContext)
     data.parentNode.insertBefore(node, data.parentNode.childNodes[data.index])
 }
 
 // 销毁
-export function destroyVnode(vnode, node) {
+export function destroyVnode (vnode, node) {
     let { vtype } = vnode
     if (vtype === VELEMENT) { // destroy element
         destroyVelem(vnode, node)
@@ -138,11 +138,11 @@ export function destroyVnode(vnode, node) {
     }
 }
 // 初始化div这种vnode
-function initVelem(velem, parentContext) {
+function initVelem (velem, parentContext) {
     let { type, props } = velem
     let node = document.createElement(type)
 
-        // 初始化childrend
+    // 初始化childrend
 
     initVchildren(velem, node, parentContext)
 
@@ -157,14 +157,14 @@ function initVelem(velem, parentContext) {
     return node
 }
 // 遍历children 循环调用initVnode
-function initVchildren(velem, node, parentContext) {
+function initVchildren (velem, node, parentContext) {
     let vchildren = node.vchildren = getFlattenChildren(velem)
     for (let i = 0, len = vchildren.length; i < len; i++) {
         node.appendChild(initVnode(vchildren[i], parentContext))
     }
 }
 
-function getFlattenChildren(vnode) {
+function getFlattenChildren (vnode) {
     let { children } = vnode.props
     let vchildren = []
     if (_.isArr(children)) {
@@ -175,13 +175,13 @@ function getFlattenChildren(vnode) {
     return vchildren
 }
 
-function collectChild(child, children) {
+function collectChild (child, children) {
     if (child != null && typeof child !== 'boolean') {
         children[children.length] = child
     }
 }
 // 对比children
-function diffVchildren(patches, vnode, newVnode, node, parentContext) {
+function diffVchildren (patches, vnode, newVnode, node, parentContext) {
     if (!node.vchildren) return // react-lite hasn't seen this DOM node before
 
     let { childNodes, vchildren } = node
@@ -216,7 +216,7 @@ function diffVchildren(patches, vnode, newVnode, node, parentContext) {
     let removes = null
     let creates = null
 
-    
+
     for (let i = 0; i < vchildrenLen; i++) {
         let vnode = vchildren[i]
         for (let j = 0; j < newVchildrenLen; j++) {
@@ -304,7 +304,7 @@ function diffVchildren(patches, vnode, newVnode, node, parentContext) {
     patches.updates.push(updates)
 }
 
-function updateVelem(velem, newVelem, node) {
+function updateVelem (velem, newVelem, node) {
     let isCustomComponent = velem.type.indexOf('-') >= 0 || velem.props.is != null
     _.patchProps(node, velem.props, newVelem.props, isCustomComponent)
     if (velem.ref !== newVelem.ref) {
@@ -314,7 +314,7 @@ function updateVelem(velem, newVelem, node) {
     return node
 }
 
-function destroyVelem(velem, node) {
+function destroyVelem (velem, node) {
     let { vchildren, childNodes } = node
     if (vchildren) {
         for (let i = 0, len = vchildren.length; i < len; i++) {
@@ -325,7 +325,7 @@ function destroyVelem(velem, node) {
     node.eventStore = node.vchildren = null
 }
 
-function initVstateless(vstateless, parentContext) {
+function initVstateless (vstateless, parentContext) {
     let vnode = renderVstateless(vstateless, parentContext)
     let node = initVnode(vnode, parentContext)
     node.cache = node.cache || {}
@@ -333,7 +333,7 @@ function initVstateless(vstateless, parentContext) {
     return node
 }
 
-function updateVstateless(vstateless, newVstateless, node, parentContext) {
+function updateVstateless (vstateless, newVstateless, node, parentContext) {
     let uid = vstateless.uid
     let vnode = node.cache[uid]
     delete node.cache[uid]
@@ -347,14 +347,14 @@ function updateVstateless(vstateless, newVstateless, node, parentContext) {
     return newNode
 }
 
-function destroyVstateless(vstateless, node) {
+function destroyVstateless (vstateless, node) {
     let uid = vstateless.uid
     let vnode = node.cache[uid]
     delete node.cache[uid]
     destroyVnode(vnode, node)
 }
 
-function renderVstateless(vstateless, parentContext) {
+function renderVstateless (vstateless, parentContext) {
     // 函数组件
     let { type: factory, props } = vstateless
     let componentContext = getContextByTypes(parentContext, factory.contextTypes)
@@ -368,7 +368,7 @@ function renderVstateless(vstateless, parentContext) {
     return vnode
 }
 
-function initVcomponent(vcomponent, parentContext) {
+function initVcomponent (vcomponent, parentContext) {
     // 初始化
     let { type: Component, props, uid } = vcomponent
     let componentContext = getContextByTypes(parentContext, Component.contextTypes)
@@ -403,7 +403,7 @@ function initVcomponent(vcomponent, parentContext) {
     return node
 }
 
-function updateVcomponent(vcomponent, newVcomponent, node, parentContext) {
+function updateVcomponent (vcomponent, newVcomponent, node, parentContext) {
     // 更新组件
     let uid = vcomponent.uid
     let component = node.cache[uid]
@@ -426,11 +426,11 @@ function updateVcomponent(vcomponent, newVcomponent, node, parentContext) {
     }
 
     updater.emitUpdate(nextProps, componentContext)
-    
+
     return cache.node
 }
 
-function destroyVcomponent(vcomponent, node) {
+function destroyVcomponent (vcomponent, node) {
     let uid = vcomponent.uid
     let component = node.cache[uid]
     let cache = component.$cache
@@ -446,7 +446,7 @@ function destroyVcomponent(vcomponent, node) {
     cache.node = cache.parentContext = cache.vnode = component.refs = component.context = null
 }
 
-function getContextByTypes(curContext, contextTypes) {
+function getContextByTypes (curContext, contextTypes) {
     let context = {}
     if (!contextTypes || !curContext) {
         return context
@@ -459,7 +459,7 @@ function getContextByTypes(curContext, contextTypes) {
     return context
 }
 
-export function renderComponent(component, parentContext) {
+export function renderComponent (component, parentContext) {
     refs = component.refs
     let vnode = component.render()
     if (!vnode || !vnode.vtype) {
@@ -469,11 +469,11 @@ export function renderComponent(component, parentContext) {
     return vnode
 }
 
-export function getChildContext(component, parentContext) {
+export function getChildContext (component, parentContext) {
     if (component.getChildContext) {
         let curContext = component.getChildContext()
         if (curContext) {
-            parentContext = {...parentContext,...curContext}
+            parentContext = { ...parentContext, ...curContext }
         }
     }
     return parentContext
@@ -481,7 +481,7 @@ export function getChildContext(component, parentContext) {
 
 
 let pendingComponents = []
-function clearPendingComponents() {
+function clearPendingComponents () {
     let len = pendingComponents.length
     if (!len) {
         return
@@ -501,7 +501,7 @@ function clearPendingComponents() {
 }
 
 let pendingRefs = []
-function clearPendingRefs() {
+function clearPendingRefs () {
     let len = pendingRefs.length
     if (!len) {
         return
@@ -515,12 +515,12 @@ function clearPendingRefs() {
     }
 }
 
-export function clearPending() {
+export function clearPending () {
     clearPendingRefs()
     clearPendingComponents()
 }
 
-export function compareTwoVnodes(vnode, newVnode, node, parentContext) {
+export function compareTwoVnodes (vnode, newVnode, node, parentContext) {
     let newNode = node
     if (newVnode == null) {
         // remove
@@ -538,11 +538,11 @@ export function compareTwoVnodes(vnode, newVnode, node, parentContext) {
     return newNode
 }
 
-function getDOMNode() {
+function getDOMNode () {
     return this
 }
 
-function attachRef(refs, refKey, refValue) {
+function attachRef (refs, refKey, refValue) {
     if (refKey == null || !refValue) {
         return
     }
@@ -557,7 +557,7 @@ function attachRef(refs, refKey, refValue) {
     }
 }
 
-function detachRef(refs, refKey, refValue) {
+function detachRef (refs, refKey, refValue) {
     if (refKey == null) {
         return
     }
@@ -568,7 +568,7 @@ function detachRef(refs, refKey, refValue) {
     }
 }
 
-export function syncCache(cache, oldCache, node) {
+export function syncCache (cache, oldCache, node) {
     for (let key in oldCache) {
         if (!oldCache.hasOwnProperty(key)) {
             continue
@@ -584,7 +584,7 @@ export function syncCache(cache, oldCache, node) {
 }
 
 
-function shouldIgnoreUpdate(node) {
+function shouldIgnoreUpdate (node) {
     let {
         vchildren,
         children

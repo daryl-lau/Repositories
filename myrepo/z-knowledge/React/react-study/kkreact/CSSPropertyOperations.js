@@ -2,7 +2,7 @@
  * 操作css属性，主要就是addEvent 和removeEvent 直接抄袭的兼容性代码
  */
 
-export function setStyle(elemStyle, styles) {
+export function setStyle (elemStyle, styles) {
     for (let styleName in styles) {
         if (styles.hasOwnProperty(styleName)) {
             setStyleValue(elemStyle, styleName, styles[styleName])
@@ -10,7 +10,7 @@ export function setStyle(elemStyle, styles) {
     }
 }
 
-export function removeStyle(elemStyle, styles) {
+export function removeStyle (elemStyle, styles) {
     for (let styleName in styles) {
         if (styles.hasOwnProperty(styleName)) {
             elemStyle[styleName] = ''
@@ -18,7 +18,7 @@ export function removeStyle(elemStyle, styles) {
     }
 }
 
-export function patchStyle(elemStyle, style, newStyle) {
+export function patchStyle (elemStyle, style, newStyle) {
     if (style === newStyle) {
         return
     }
@@ -84,20 +84,20 @@ const isUnitlessNumber = {
     strokeWidth: 1,
 }
 
-function prefixKey(prefix, key) {
+function prefixKey (prefix, key) {
     return prefix + key.charAt(0).toUpperCase() + key.substring(1)
 }
 
 let prefixes = ['Webkit', 'ms', 'Moz', 'O']
 
-Object.keys(isUnitlessNumber).forEach(function(prop) {
-    prefixes.forEach(function(prefix) {
+Object.keys(isUnitlessNumber).forEach(function (prop) {
+    prefixes.forEach(function (prefix) {
         isUnitlessNumber[prefixKey(prefix, prop)] = 1
     })
 })
 
 let RE_NUMBER = /^-?\d+(\.\d+)?$/
-function setStyleValue(elemStyle, styleName, styleValue) {
+function setStyleValue (elemStyle, styleName, styleValue) {
 
     if (!isUnitlessNumber[styleName] && RE_NUMBER.test(styleValue)) {
         elemStyle[styleName] = styleValue + 'px'

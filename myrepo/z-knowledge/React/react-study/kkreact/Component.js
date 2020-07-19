@@ -11,10 +11,10 @@ import {
 export let updateQueue = {
 	updaters: [],
 	isPending: false,
-	add(updater) {
+	add (updater) {
 		this.updaters.push(updater)
 	},
-	batchUpdate() {
+	batchUpdate () {
 		if (this.isPending) {
 			return
 		}
@@ -29,8 +29,8 @@ export let updateQueue = {
 }
 
 
-class Updater{
-	constructor(instance){
+class Updater {
+	constructor(instance) {
 		this.instance = instance
 		this.pendingStates = [] // 待处理状态数组
 		this.pendingCallbacks = []
@@ -39,15 +39,15 @@ class Updater{
 		this.clearCallbacks = this.clearCallbacks.bind(this)
 	}
 
-	emitUpdate(nextProps, nextContext) {
+	emitUpdate (nextProps, nextContext) {
 		this.nextProps = nextProps
 		this.nextContext = nextContext
 		// receive nextProps!! should update immediately
 		nextProps || !updateQueue.isPending
-		? this.updateComponent()
-		: updateQueue.add(this)
+			? this.updateComponent()
+			: updateQueue.add(this)
 	}
-	updateComponent() {
+	updateComponent () {
 		let { instance, pendingStates, nextProps, nextContext } = this
 		if (nextProps || pendingStates.length > 0) {
 			nextProps = nextProps || instance.props
@@ -57,7 +57,7 @@ class Updater{
 			shouldUpdate(instance, nextProps, this.getState(), nextContext, this.clearCallbacks)
 		}
 	}
-	addState(nextState) {
+	addState (nextState) {
 		if (nextState) {
 			// 放入更新队列
 			this.pendingStates.push(nextState)
@@ -68,11 +68,11 @@ class Updater{
 		}
 	}
 
-	getState() {
+	getState () {
 		let { instance, pendingStates } = this
 		let { state, props } = instance
 		if (pendingStates.length) {
-			state = {...state}
+			state = { ...state }
 			pendingStates.forEach(nextState => {
 				let isReplace = _.isArr(nextState)
 				if (isReplace) {
@@ -83,23 +83,23 @@ class Updater{
 				}
 				// replace state
 				if (isReplace) {
-					state = {...nextState}
+					state = { ...nextState }
 				} else {
-					state = {...state, ...nextState}
+					state = { ...state, ...nextState }
 				}
 			})
 			pendingStates.length = 0
 		}
 		return state
 	}
-	clearCallbacks() {
+	clearCallbacks () {
 		let { pendingCallbacks, instance } = this
 		if (pendingCallbacks.length > 0) {
 			this.pendingCallbacks = []
 			pendingCallbacks.forEach(callback => callback.call(instance))
 		}
 	}
-	addCallback(callback) {
+	addCallback (callback) {
 		if (_.isFn(callback)) {
 			this.pendingCallbacks.push(callback)
 		}
@@ -107,10 +107,10 @@ class Updater{
 }
 
 
-export default class Component{
+export default class Component {
 	static isReactComponent = {}
 
-	constructor(props, context){
+	constructor(props, context) {
 		// 更新器: 管理当前组件中所有变更
 		this.$updater = new Updater(this)
 		this.$cache = { isMounted: false }
@@ -120,14 +120,14 @@ export default class Component{
 		this.context = context
 	}
 	// 跳过所有生命周期执行强制更新
-	forceUpdate(callback) {
+	forceUpdate (callback) {
 		// 实际更新组件的函数
 		let { $updater, $cache, props, state, context } = this
 		if (!$cache.isMounted) {
 			return
 		}
 		if ($updater.isPending) {
-            $updater.addState(state)
+			$updater.addState(state)
 			return;
 		}
 		let nextProps = $cache.props || props
@@ -147,7 +147,7 @@ export default class Component{
 		this.context = nextContext
 
 		// 下面才是重点  对比vnode
-	    let newVnode = renderComponent(this)
+		let newVnode = renderComponent(this)
 		let newNode = compareTwoVnodes(vnode, newVnode, node, getChildContext(this, parentContext))
 		if (newNode !== node) {
 			newNode.cache = newNode.cache || {}
@@ -168,7 +168,7 @@ export default class Component{
 		// 更新
 	}
 	// nextState 可能是对象或函数
-	setState(nextState, callback) {
+	setState (nextState, callback) {
 		// 添加异步队列  不是每次都更新
 		this.$updater.addCallback(callback)
 		this.$updater.addState(nextState)
@@ -178,7 +178,7 @@ export default class Component{
 }
 
 
-function shouldUpdate(component, nextProps, nextState, nextContext, callback) {
+function shouldUpdate (component, nextProps, nextState, nextContext, callback) {
 	// 是否应该更新 判断shouldComponentUpdate生命周期
 	let shouldComponentUpdate = true
 	if (component.shouldComponentUpdate) {

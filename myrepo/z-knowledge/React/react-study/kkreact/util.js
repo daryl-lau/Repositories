@@ -12,18 +12,18 @@ import {
 } from './DOMPropertyOperations'
 import { HTML_KEY } from './constant'
 
-export function isFn(obj) {
+export function isFn (obj) {
     return typeof obj === 'function'
 }
 
 export let isArr = Array.isArray
 
-export function noop() {}
-export function identity(obj) {
+export function noop () { }
+export function identity (obj) {
     return obj
 }
-export function pipe(fn1, fn2) {
-    return function() {
+export function pipe (fn1, fn2) {
+    return function () {
         fn1.apply(this, arguments)
         return fn2.apply(this, arguments)
     }
@@ -31,7 +31,7 @@ export function pipe(fn1, fn2) {
 
 
 
-export function flatEach(list, iteratee, a) {
+export function flatEach (list, iteratee, a) {
     let len = list.length
     let i = -1
 
@@ -47,13 +47,13 @@ export function flatEach(list, iteratee, a) {
 
 
 let uid = 0
-export function getUid() {
+export function getUid () {
     return ++uid
 }
 
 export let EVENT_KEYS = /^on/i
 
-function setProp(elem, key, value, isCustomComponent) {
+function setProp (elem, key, value, isCustomComponent) {
     if (EVENT_KEYS.test(key)) {
         addEvent(elem, key, value)
     } else if (key === 'style') {
@@ -73,7 +73,7 @@ function setProp(elem, key, value, isCustomComponent) {
     }
 }
 
-function removeProp(elem, key, oldValue, isCustomComponent) {
+function removeProp (elem, key, oldValue, isCustomComponent) {
     if (EVENT_KEYS.test(key)) {
         removeEvent(elem, key)
     } else if (key === 'style') {
@@ -87,7 +87,7 @@ function removeProp(elem, key, oldValue, isCustomComponent) {
     }
 }
 
-function patchProp(elem, key, value, oldValue, isCustomComponent) {
+function patchProp (elem, key, value, oldValue, isCustomComponent) {
     if (key === 'value' || key === 'checked') {
         oldValue = elem[key]
     }
@@ -105,7 +105,7 @@ function patchProp(elem, key, value, oldValue, isCustomComponent) {
     }
 }
 
-export function setProps(elem, props, isCustomComponent) {
+export function setProps (elem, props, isCustomComponent) {
     var isSelect = elem.nodeName === 'SELECT'
     for (let key in props) {
         if (key !== 'children') {
@@ -118,7 +118,7 @@ export function setProps(elem, props, isCustomComponent) {
     }
 }
 
-export function patchProps(elem, props, newProps, isCustomComponent) {
+export function patchProps (elem, props, newProps, isCustomComponent) {
     var isSelect = elem.nodeName === 'SELECT'
     for (let key in props) {
         if (key !== 'children') {

@@ -14,7 +14,7 @@ import {
  * @param {string} name
  * @param {*} value
  */
-export function setPropValue(node, name, value) {
+export function setPropValue (node, name, value) {
     let propInfo = properties.hasOwnProperty(name) && properties[name]
     if (propInfo) {
         // should delete value from dom
@@ -55,7 +55,7 @@ export function setPropValue(node, name, value) {
  * @param {DOMElement} node
  * @param {string} name
  */
-export function removePropValue(node, name) {
+export function removePropValue (node, name) {
     let propInfo = properties.hasOwnProperty(name) && properties[name]
     if (propInfo) {
         if (propInfo.mustUseProperty) {
@@ -73,10 +73,10 @@ export function removePropValue(node, name) {
     }
 }
 
-export function updateSelectOptions(select, multiple, propValue) {
+export function updateSelectOptions (select, multiple, propValue) {
     var selectedValue, i
     var options = select.options
-  
+
     if (multiple) {
         select.multiple = true
         if (!Array.isArray(propValue)) {

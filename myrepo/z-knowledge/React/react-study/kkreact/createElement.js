@@ -1,12 +1,12 @@
 import {
-    VELEMENT,
-    VSTATELESS,
-    VCOMPONENT
+	VELEMENT,
+	VSTATELESS,
+	VCOMPONENT
 } from './constant'
 import { createVnode } from './virtual-dom'
 
 // 第一个核心api 构建虚拟dom的object
-export default function createElement(type, props, ...children) {
+export default function createElement (type, props, ...children) {
 	let vtype = null
 	if (typeof type === 'string') {
 		vtype = VELEMENT

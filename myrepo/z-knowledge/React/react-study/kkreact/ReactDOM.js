@@ -11,17 +11,17 @@ import {
 import { initVnode, clearPending, compareTwoVnodes } from './virtual-dom'
 import { updateQueue } from './Component'
 
-function isValidContainer(node) {
-    return !!(node && (
-        node.nodeType === ELEMENT_NODE_TYPE
-    ))
+function isValidContainer (node) {
+	return !!(node && (
+		node.nodeType === ELEMENT_NODE_TYPE
+	))
 }
 
 let pendingRendering = {}
 let vnodeStore = {}
-function renderTreeIntoContainer(vnode, container, callback, parentContext) {
+function renderTreeIntoContainer (vnode, container, callback, parentContext) {
 	if (!vnode.vtype) {
-		throw new Error(`cannot render ${ vnode } to container`)
+		throw new Error(`cannot render ${vnode} to container`)
 	}
 	if (!isValidContainer(container)) {
 		throw new Error(`container ${container} is not a DOM element`)
@@ -52,7 +52,7 @@ function renderTreeIntoContainer(vnode, container, callback, parentContext) {
 		while (childNode = container.lastChild) {
 			container.removeChild(childNode)
 		}
-			container.appendChild(rootNode)
+		container.appendChild(rootNode)
 
 	}
 	vnodeStore[id] = vnode
@@ -83,7 +83,7 @@ function renderTreeIntoContainer(vnode, container, callback, parentContext) {
 	return result
 }
 
-export function render(vnode, container, callback) {
+export function render (vnode, container, callback) {
 	return renderTreeIntoContainer(vnode, container, callback)
 }
 

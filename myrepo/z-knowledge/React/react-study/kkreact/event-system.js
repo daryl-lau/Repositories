@@ -50,7 +50,7 @@ export const unbubbleEvents = {
     onwaiting: 1,
 }
 
-export function getEventName(key) {
+export function getEventName (key) {
     if (key === 'onDoubleClick') {
         key = 'ondblclick'
     } else if (key === 'onTouchTap') {
@@ -66,11 +66,11 @@ export function getEventName(key) {
 // fire. The workaround for this bug involves attaching an empty click
 // listener on the target node.
 let inMobile = 'ontouchstart' in document
-let emptyFunction = () => {}
+let emptyFunction = () => { }
 let ON_CLICK_KEY = 'onclick'
 
 let eventTypes = {}
-export function addEvent(elem, eventType, listener) {
+export function addEvent (elem, eventType, listener) {
     eventType = getEventName(eventType)
 
     let eventStore = elem.eventStore || (elem.eventStore = {})
@@ -97,7 +97,7 @@ export function addEvent(elem, eventType, listener) {
     }
 }
 
-export function removeEvent(elem, eventType) {
+export function removeEvent (elem, eventType) {
     eventType = getEventName(eventType)
 
     let eventStore = elem.eventStore || (elem.eventStore = {})
@@ -118,7 +118,7 @@ export function removeEvent(elem, eventType) {
     }
 }
 
-function dispatchEvent(event) {
+function dispatchEvent (event) {
     let { target, type } = event
     let eventType = 'on' + type
     let syntheticEvent
@@ -144,25 +144,25 @@ function dispatchEvent(event) {
     updateQueue.batchUpdate()
 }
 
-function dispatchUnbubbleEvent(event) {
+function dispatchUnbubbleEvent (event) {
     let target = event.currentTarget || event.target
     let eventType = 'on' + event.type
     let syntheticEvent = createSyntheticEvent(event)
-    
+
     syntheticEvent.currentTarget = target
     updateQueue.isPending = true
 
     let { eventStore } = target
     let listener = eventStore && eventStore[eventType]
     if (listener) {
-    	listener.call(target, syntheticEvent)
+        listener.call(target, syntheticEvent)
     }
-    
+
     updateQueue.isPending = false
     updateQueue.batchUpdate()
 }
 
-function createSyntheticEvent(nativeEvent) {
+function createSyntheticEvent (nativeEvent) {
     let syntheticEvent = {}
     let cancelBubble = () => syntheticEvent.$cancelBubble = true
     syntheticEvent.nativeEvent = nativeEvent
@@ -179,7 +179,7 @@ function createSyntheticEvent(nativeEvent) {
     return syntheticEvent
 }
 
-function supportInputEvent(elem) {
+function supportInputEvent (elem) {
     let nodeName = elem.nodeName && elem.nodeName.toLowerCase()
     return nodeName !== 'select' && !(nodeName === 'input' && elem.type === 'file')
 }

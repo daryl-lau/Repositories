@@ -325,7 +325,7 @@ const ATTRS = {
     horizOriginX: 'horiz-origin-x',
     ideographic: 0,
     imageRendering: 'image-rendering',
-    in : 0,
+    in: 0,
     in2: 0,
     intercept: 0,
     k: 0,
@@ -512,7 +512,7 @@ mergeConfigToProperties(HTMLDOMPropertyConfig)
 mergeConfigToProperties(SVGDOMPropertyConfig)
 
 
-function mergeConfigToProperties(config) {
+function mergeConfigToProperties (config) {
     let {
         // all react/react-lite supporting property names in here
         props,
@@ -542,6 +542,6 @@ function mergeConfigToProperties(config) {
     }
 }
 
-function checkMask(value, bitmask) {
+function checkMask (value, bitmask) {
     return (value & bitmask) === bitmask
 }
