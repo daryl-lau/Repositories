@@ -39,7 +39,7 @@
 
 
 
-        
+
         // arguments 对象
         // JavaScript 函数有个内置的对象 arguments 对象。
         // argument 对象包含了函数调用的参数数组。
@@ -69,6 +69,35 @@
         }
         let res = findMax(1, 123, 500, 115, 44, 88);
         console.log(res);
+
+
+        // arguments是一个伪数组，只有一个length属性，不能使用数组的一些方法
+        // 使用Array.prototype.slice.call()方法可以把伪数组对象变成一个真正的数组(注意此方法转换的对象必须要有length属性)
+        function fn() {
+            console.log([].slice.call(arguments));
+        }
+        fn(1, 2, 3)
+
+        // 如果在参数中传递...args，表示剩余参数，保存在一个数组里面
+        // 如果有像下面的形式，那么将会把第一个参数给到x，其他的再保存在args数组里面
+        function fn1(x, ...args) {
+            console.log(x);     // 1
+            console.log(args);  // [2, 3]
+        }
+        fn1(1, 2, 3)
+
+
+        // 接收参数
+        function fn2(...args) {
+            console.log(args);  // [1, 2, 3, 4, 5, 6]
+        }
+
+        let args1 = [1, 2, 3]
+        let args2 = [4, 5, 6]
+        fn2(...args1, ...args2)    // 参数解构
+
+        // console.log(...[1, 2, 3]);  // 1, 2, 3
+
 
     </script>
 </body>

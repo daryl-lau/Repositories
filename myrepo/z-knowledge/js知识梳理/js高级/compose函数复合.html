@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // compose(fn1, fn2, fn3)  ===>   fn3(fn2(fn1()))
+
+    const fn1 = (args) => {
+      console.log('fn1', args);
+      return args
+    };
+    const fn2 = (args) => {
+      console.log('fn2', args);
+      return args
+    };
+    const fn3 = (args) => {
+      console.log('fn3', args);
+      return args
+    };
+
+    // fn3(fn2(fn1()))
+
+    function compose(...funcs) {
+      if (funcs.length === 0) return args => args
+      if (funcs.length === 1) return funcs[0]
+      return funcs.reduce((a, b) => {
+        return (...args) => b(a(...args))
+      })
+    }
+
+    let res = compose(fn1, fn2, fn3)('x')
+    // console.log(res, 'res');
+
+
+  </script>
+</body>
+
+</html>

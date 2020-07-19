@@ -6,7 +6,7 @@ import { createStore } from 'redux'
 // 2、使用createStore方法将reducer创建为store
 // 3、通过store.getState方法获取到最新状态
 // 4、通过store.dispatch方法派发actions
-// 5、订阅store的改变，传入一个需要执行的函数
+// 5、通过store.subscribe订阅state的改变，传入一个需要执行的函数
 
 
 const reducer = (state = 0, action) => {

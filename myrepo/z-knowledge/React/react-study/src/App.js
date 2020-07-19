@@ -31,6 +31,7 @@ import ReducerCounter2 from './components/hooks_useReducer2'
 import OriginRedux from './components/原始redux使用'
 import SagaTest from './components/redux/SagaTest'
 import ReactChildren from './components/API_React.Children'
+import Dialog from './components/protals'
 
 
 function App () {
@@ -38,7 +39,7 @@ function App () {
     <div className="App">
       {/* <LazyLoadTest></LazyLoadTest> */}
       <br />
-      <Com1></Com1>
+      {/* <Com1></Com1> */}
       <br />
       {/* <List></List> */}
       <br />
@@ -48,7 +49,7 @@ function App () {
       <br />
       {/* <TransChildToFather></TransChildToFather> */}
       <br />
-      <TransFatherToChild></TransFatherToChild>
+      {/* <TransFatherToChild></TransFatherToChild> */}
       <br />
       {/* <TransBetweenCompTree></TransBetweenCompTree> */}
       <br />
@@ -72,9 +73,9 @@ function App () {
       <br />
       {/* <MousePosition a={1}></MousePosition> */}
       <br />
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
       <br />
-      <SyncCount></SyncCount>
+      {/* <SyncCount></SyncCount> */}
       <br />
       {/* <LifeCycle></LifeCycle> */}
       <br />
@@ -84,11 +85,12 @@ function App () {
       <br />
       {/* <ContextHooks></ContextHooks> */}
       <br />
-      <ReducerCounter></ReducerCounter>
-      <ReducerCounter2 initialCount={0}></ReducerCounter2>
+      {/* <ReducerCounter></ReducerCounter> */}
+      {/* <ReducerCounter2 initialCount={0}></ReducerCounter2> */}
       {/* <OriginRedux></OriginRedux> */}
       <SagaTest></SagaTest>
-      <ReactChildren></ReactChildren>
+      {/* <ReactChildren></ReactChildren> */}
+      <Dialog>dialog</Dialog>
     </div>
   );
 }
