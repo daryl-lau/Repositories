@@ -2,6 +2,7 @@
 * 函数类型
 */
 // 声明函数有两个参数，source和subString，都是字符串类型，返回值是布尔类型
+//! 函数类型的接口里面没有函数名，如果有函数名，就是类接口
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
