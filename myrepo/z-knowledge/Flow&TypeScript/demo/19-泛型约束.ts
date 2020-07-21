@@ -6,11 +6,11 @@ interface JJ {
 }
 
 // 泛型约束,必须要包含JJ中的属性
-function create<T extends JJ>(what: T): T {
+function createHuman<T extends JJ>(what: T): T {
   return what
 }
 
-create({
+createHuman({
   name: 'Jack',
   age: 18,
   jjSize: 'large',
@@ -18,7 +18,7 @@ create({
 })
 
 // 这里将会报错，因为传入参数必须要包含JJ中的属性
-create({
-  name: 'Jack',
-  age: 18
-})
+// createHuman({
+//   name: 'Jack',
+//   age: 18
+// })

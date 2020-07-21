@@ -52,6 +52,6 @@ console.log(len);
 // }
 
 // 使用泛型队该函数进行约束，参数c后面{new ()} 表示c是一个类，可以new，再加上一个传入类型和返回类型，就可以这么写
-function create<T>(c: { new(): T }): T {
+function createC<T>(c: { new(): T }): T {
   return new c();
 }
