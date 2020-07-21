@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 它用来比较两个值是否严格相等，与严格比较运算符（===）的行为基本一致。
+    Object.is('foo', 'foo')     // true
+    Object.is({}, {})           // false
+    Object.is([], [])           // false
+
+    // 不同于 === 之处
+    // +0 === -0                //true
+    // NaN === NaN              // false
+
+    Object.is(+0, -0)           // false
+    Object.is(NaN, NaN)         // true
+  </script>
+</body>
+
+</html>

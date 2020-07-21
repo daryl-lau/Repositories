@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 获取对象自身上所有的属性名，但不包括以Symbol对象为属性的键值对
+
+    let obj = { name: 'jerry', age: 18 }
+    let res = Object.getOwnPropertyNames(obj)   // ["name", "age"]
+    console.log(res);
+
+    let obj1 = { name: 'tom', age: 20, [Symbol()]: 'hello' }
+    let res1 = Object.getOwnPropertyNames(obj1) // ["name", "age"]
+    console.log(res1);
+
+  </script>
+</body>
+
+</html>

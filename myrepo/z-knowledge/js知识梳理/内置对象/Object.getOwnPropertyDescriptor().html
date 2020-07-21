@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 获取该属性的描述对象，就是defineProperty定义的描述对象
+    let obj = { name: 'tom', age: 20, [Symbol()]: 'hello' }
+
+    let res = Object.getOwnPropertyDescriptor(obj, 'name')
+    console.log(res);     // {value: "tom", writable: true, enumerable: true, configurable: true}
+
+  </script>
+</body>
+
+</html>

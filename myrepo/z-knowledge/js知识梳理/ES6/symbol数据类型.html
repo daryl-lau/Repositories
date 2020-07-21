@@ -40,6 +40,25 @@
         };
 
 
+        // 使用Symbol作为对象的属性名，可以隐藏某些属性
+        let jerry = { name: 'jerry', age: 18, [Symbol('salary')]: 1000 }
+        let json = JSON.stringify(jerry)    // 这里不会转化Symbol的属性
+        console.log(json);                  // {"name":"jerry","age":18}
+
+        // 获取到的属性名也没有包含Symbol的
+        let props = Object.getOwnPropertyNames(jerry)
+        console.log(props);                 // ['name', 'age']
+
+        // 要获取Symbol属性名，需要使用Object.getOwnPropertySymbols方法
+        let symbolProps = Object.getOwnPropertySymbols(jerry)
+        console.log(symbolProps);           // [Symbol(salary)]
+
+        console.log(jerry[symbolProps[0]]); // 1000
+
+        // 使用Reflect.ownKeys可以获取到所有的属性名，包括Symbol的
+        let allProps = Reflect.ownKeys(jerry)
+        console.log(allProps);              // ["name", "age", Symbol(salary)]
+
 
 
     </script>

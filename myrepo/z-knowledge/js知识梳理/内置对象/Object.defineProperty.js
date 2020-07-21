@@ -57,7 +57,7 @@ Object.defineProperty(Person3, 'name', {
 console.log(Person3.name);  // tom
 
 
-// 描述是否是可枚举的，如果为false，则不能使用Object.keys或Object.values拿到属性名或属性值
+// 描述是否是可枚举的
 let Person4 = {}
 Object.defineProperty(Person4, 'name', {
     value: 'jerry',

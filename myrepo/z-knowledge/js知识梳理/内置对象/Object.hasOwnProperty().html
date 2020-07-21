@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 判断一个对象自身上是否有某个属性，如果自己有的，返回true，如果是继承过来的，返回false
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+      this.sayHi = () => {
+        console.log('hello');
+      }
+    }
+
+    let jerry = new Person('jerry', 18)
+    jerry.sayHi()
+    console.log(jerry);
+
+    let res1 = jerry.hasOwnProperty('sayHi')     // true
+    let res2 = jerry.hasOwnProperty('aaa')       // false
+    console.log(res1, res2);
+  </script>
+</body>
+
+</html>
