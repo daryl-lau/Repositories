@@ -19,6 +19,7 @@ function ReducerCounter (props) {
 
   // useReducer接收两个参数，第一个数reducer，第二个是初始值
   // 返回state，最新的state，和dispatch，派发reducer的函数
+  // 拿到的dispatch还可以通过props传给子组件，子组件就可以操作state里面的数据了
   const [state, dispatch] = useReducer(reducer, initCount)
   console.log(state);
   return (

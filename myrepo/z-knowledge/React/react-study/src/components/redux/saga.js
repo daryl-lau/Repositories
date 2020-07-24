@@ -20,7 +20,7 @@ function* getHouseList (action) {
 }
 
 
-// watchSaga
+// watchSaga，对外面dispatch进行拦截，指定出了函数，并将action传给该函数
 function* watchSaga () {
   yield takeEvery('getHouseList', getHouseList)
 }

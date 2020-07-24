@@ -100,7 +100,7 @@ create(null);           // OK
 
 
 /* 
-* 类型断言，类型断言需要使用()包起来
+* 类型断言
 * 能确定变量类型的话，就可以使用断言
 */
 // “尖括号”语法
@@ -110,6 +110,9 @@ let strLength: number = (<string>someValue).length;
 // 另一个为as语法，在TypeScript里使用JSX时，只有 as 语法断言是被允许的
 let someValue1: any = "this is a string";
 let strLength2: number = (someValue as string).length;
+
+// 两种形式是等价的。 至于使用哪个大多数情况下是凭个人喜好；然而，当你在TypeScript里使用JSX时，只有 as 语法断言是被允许的。
+
 
 
 

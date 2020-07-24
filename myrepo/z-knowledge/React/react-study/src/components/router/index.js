@@ -36,7 +36,8 @@ class CompRouter extends React.Component {
                 <Route path={'/nesting'} component={Nesting} ></Route>
 
                 {/* Route还可以使用render props模式 */}
-                <Route path={'/test'} render={(props) => { 
+                {/* render模式只能用于函数式组件，不能用于类组件，而component既可以用于函数组件，也可以用于类组件  */}
+                <Route path={'/test'} render={(props) => {
                     // props里面的route信息就是跳转后的当前的路由信息
                     console.log(props);
                     return <div>test</div>

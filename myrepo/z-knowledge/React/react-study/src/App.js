@@ -15,7 +15,7 @@ import CompRouter from './components/router/index'
 // import LazyLoadTest from './components/lazy懒加载'
 // import ErrorTest from './components/错误边界'
 // import RefsComponent from './components/refs'
-// import MyBtnTest from './components/refs转发'
+import MyBtnTest from './components/refs转发'
 // import ControlComp from './components/受控组件'
 // import PropTypesComp from './components/propTypes'
 // import Mouse from './components/render props模式'
@@ -23,8 +23,8 @@ import CompRouter from './components/router/index'
 import Counter from './components/setState推荐语法'
 import SyncCount from './components/setState转同步的方法'
 // import LifeCycle from './components/生命周期'
-import CountHooks from './components/hooks初探'
-import TimerHooks from './components/hooks_timer'
+import CountHooks from './components/hooks初探useState'
+import TimerHooks from './components/hooks_useEffect'
 // import ContextHooks from './components/hooks_useContext'
 import ReducerCounter from './components/hooks_useReducer'
 import ReducerCounter2 from './components/hooks_useReducer2'
@@ -32,6 +32,11 @@ import OriginRedux from './components/原始redux使用'
 import SagaTest from './components/redux/SagaTest'
 import ReactChildren from './components/API_React.Children'
 import Dialog from './components/protals'
+import HocChain from './components/HOC链式调用'
+import HooksCallBack from './components/hooks_useCallback'
+import HooksMemo from './components/hooks_useMemo'
+import HooksRef from './components/hooks_useRef_useImperativeHandle转发'
+import HooksMyHooks from './components/hooks_自定义hook'
 
 
 function App () {
@@ -55,13 +60,13 @@ function App () {
       <br />
       {/* <Consumer></Consumer> */}
       <br />
-      {/* <CompRouter></CompRouter> */}
+      <CompRouter></CompRouter>
       <br />
       {/* <ErrorTest></ErrorTest> */}
       <br />
       {/* <RefsComponent></RefsComponent> */}
       <br />
-      {/* <MyBtnTest></MyBtnTest> */}
+      <MyBtnTest></MyBtnTest>
       <br />
       {/* <ControlComp></ControlComp> */}
       <br />
@@ -88,9 +93,14 @@ function App () {
       {/* <ReducerCounter></ReducerCounter> */}
       {/* <ReducerCounter2 initialCount={0}></ReducerCounter2> */}
       {/* <OriginRedux></OriginRedux> */}
-      <SagaTest></SagaTest>
+      {/* <SagaTest></SagaTest> */}
       {/* <ReactChildren></ReactChildren> */}
-      <Dialog>dialog</Dialog>
+      {/* <Dialog>dialog</Dialog> */}
+      {/* <HocChain a={'a'}></HocChain> */}
+      <HooksCallBack></HooksCallBack>
+      <HooksMemo></HooksMemo>
+      <HooksRef></HooksRef>
+      <HooksMyHooks></HooksMyHooks>
     </div>
   );
 }

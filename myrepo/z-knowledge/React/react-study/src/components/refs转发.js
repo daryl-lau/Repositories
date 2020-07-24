@@ -3,6 +3,8 @@ import React from 'react'
 
 // 假设封装一个btn组件，给一些样式，在外面用这个组件的时候，希望使用ref拿到组件内部的button dom，就需要ref转发
 
+//! ref和key是不会随着props传递给下层组件的，在组件上绑定的ref只能获取到组件，不能获取到组件里面的具体元素
+//! 如果想要在组件上传递ref，获取组件里面的具体元素，需要使用forwardRef传递ref 
 
 // 以下是对上述示例发生情况的逐步解释：
 // 我们通过调用 React.createRef 创建了一个 React ref 并将其赋值给 btnRef 变量。
@@ -30,6 +32,7 @@ class MyBtnTest extends React.Component {
     }
 
     clickHandle = () => {
+        console.log(this.btnRef.current);
         console.log(this.btnRef.current.offsetWidth);
     }
 
