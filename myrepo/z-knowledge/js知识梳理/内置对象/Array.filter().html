@@ -22,6 +22,15 @@
 
         let res1 = arr.filter(item => item >= 10000)
         console.log(res1);      // []
+
+
+        // 如果数组的元素是引用类型的数据，对获取到的结果进行修改可以修改到原数组
+        // 这里用的是filter，用find也是一样的
+        let arr1 = [{ a: 1 }, { a: 2 }, { a: 3 }, { a: 4 }, { a: 5 }]
+        let res2 = arr1.filter(item => item.a > 3)
+        res2.forEach(item => item.a = 'new value')
+        console.log(arr1);
+
     </script>
 </body>
 

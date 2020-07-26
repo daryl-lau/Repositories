@@ -38,6 +38,8 @@ import HooksMemo from './components/hooks_useMemo'
 import HooksRef from './components/hooks_useRef_useImperativeHandle转发'
 import HooksMyHooks from './components/hooks_自定义hook'
 
+import MobxComp from './components/mobx/mobxTest'
+
 
 function App () {
   return (
@@ -60,13 +62,13 @@ function App () {
       <br />
       {/* <Consumer></Consumer> */}
       <br />
-      <CompRouter></CompRouter>
+      {/* <CompRouter></CompRouter> */}
       <br />
       {/* <ErrorTest></ErrorTest> */}
       <br />
       {/* <RefsComponent></RefsComponent> */}
       <br />
-      <MyBtnTest></MyBtnTest>
+      {/* <MyBtnTest></MyBtnTest> */}
       <br />
       {/* <ControlComp></ControlComp> */}
       <br />
@@ -97,10 +99,11 @@ function App () {
       {/* <ReactChildren></ReactChildren> */}
       {/* <Dialog>dialog</Dialog> */}
       {/* <HocChain a={'a'}></HocChain> */}
-      <HooksCallBack></HooksCallBack>
-      <HooksMemo></HooksMemo>
-      <HooksRef></HooksRef>
-      <HooksMyHooks></HooksMyHooks>
+      {/* <HooksCallBack></HooksCallBack> */}
+      {/* <HooksMemo></HooksMemo> */}
+      {/* <HooksRef></HooksRef> */}
+      {/* <HooksMyHooks></HooksMyHooks> */}
+      <MobxComp></MobxComp>
     </div>
   );
 }

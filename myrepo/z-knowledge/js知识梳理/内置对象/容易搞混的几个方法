@@ -6,3 +6,5 @@
 数组没有replace方法，替换操作是通过splice方法进行操作
 
 数组和字符串共同的方法有slice、includes、concat、indexOf、lastIndexOf
+
+会改变原始数组的几个方法：push pop shift unshift splice sort revers copyWithin

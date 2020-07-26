@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Node {
+      constructor(element) {
+        this.element = element
+        this.next = null
+      }
+    }
+
+
+    class LinkedList {
+      constructor() {
+        this.head = null
+        this.length = 0
+        this._current = undefined
+      }
+
+      append(element) {
+        let node = new Node(element)
+        if (this.head == null) {
+          this.head = node
+          this.length++
+        } else {
+          // 这里_current循环遍历出最后next为null的那个节点，将其next指向新node，此时head链表上就添加了一个节点
+          // 这里只要next有值就重新赋给_current，一直循环下去
+          this._current = this.head
+          while (this._current.next) {
+            this._current = this._current.next
+          }
+          // 由于是引用类型，往_current上添加node就是往head上添加
+          this._current.next = node
+          this.length++
+        }
+      }
+
+      removeAt(index) {
+        let _index = 0
+        let _previous
+        if (index < 0 || index > this.length - 1) return
+        // 如果删除的是第一个节点，特殊处理
+        if (index === 0) {
+          this.head = this.head.next
+          this.length--
+        } else {
+          this._current = this.head
+          while (_index < index) {
+            _previous = this._current
+            this._current = this._current.next
+            _index++
+          }
+          _previous.next = this._current.next
+          this.length--
+        }
+      }
+    }
+
+    let ll = new LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    console.log(ll);
+
+  </script>
+</body>
+
+</html>
