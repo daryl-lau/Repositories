@@ -14,14 +14,13 @@ n个记录的直接选择排序可经过n-1趟直接选择排序得到有序结�
   n-1趟结束，数组有序化了。 
 
 算法分析
-表现最稳定的排序算法之一，因为无论什么数据进去都是O(n^2)的时间复杂度，所以用到它的时候，数据规模越小越好。
-唯一的好处可能就是不占用额外的内存空间了吧。
+  无论什么数据进去都是O(n^2)的时间复杂度，所以用到它的时候，数据规模越小越好。
 */
 
 function selectionSort (arr) {
   let len = arr.length;
   let minIndex
-  for (let i = 0; i < len - 1; i++) {
+  for (let i = 0; i < len - 1; i++) {   // len-1，最后一次不用比较了
     minIndex = i;
     for (let j = i + 1; j < len; j++) {
       if (arr[j] < arr[minIndex]) {     // 寻找最小的数
@@ -33,7 +32,7 @@ function selectionSort (arr) {
   return arr;
 }
 
-let arr = [9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14];
+let arr = [9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14, 0, 0];
 console.time();
 console.log(selectionSort(arr));
 console.timeEnd();
