@@ -1,4 +1,4 @@
-let arr = [12, 321, 5, 12, 5, 2, 1, 0, 23, 41];
+let arr = [9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14];
 
 
 // 复杂度：O(n^2)
@@ -11,9 +11,10 @@ function insertSort (arr) {
         [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]]
       }
     }
-    console.log(arr);
   };
   return arr
 }
 
+console.time()
 console.log(insertSort(arr));
+console.timeEnd()

@@ -55,5 +55,9 @@ var cask = function (arr, caskCount) {
   }
   return result;
 }
-var arr = [8, 39, 400, 500, 3, 4, 20, 44, 440];
+
+
+var arr = [9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14];
+console.time();
 console.log((cask(arr, 10)));
+console.timeEnd();

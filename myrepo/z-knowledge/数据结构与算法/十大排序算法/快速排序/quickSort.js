@@ -1,4 +1,4 @@
-let arr = [12, 321, 5, 12, 52, 87, 121, 0, 23, 41];
+let arr = [9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14];
 
 // 复杂度：O(n*log(n))
 function quickSort (arr) {
@@ -22,4 +22,7 @@ function quickSort (arr) {
   // 递归的排序左右两边的值
   return quickSort(left).concat(flag, quickSort(right))
 }
+
+console.time();
 console.log(quickSort(arr));
+console.timeEnd();

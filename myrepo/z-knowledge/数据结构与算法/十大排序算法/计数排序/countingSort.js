@@ -22,6 +22,7 @@ function countingSort (arr) {
   return arr
 }
 
-
-console.log(countingSort([0, 6, 3, 1, 5, 7, 3, 1, 2, 5, 9, 2, 5, 1, 3, 1, 7, 9, 3, 7, 5, 8, 1, 2,]));
+console.time();
+console.log(countingSort([9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14]));
+console.timeEnd()
 

@@ -1,4 +1,4 @@
-let arr = [50, 321, 5, 13, 52, 87, 121, 0, 23, 41];
+let arr = [9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14];
 
 // [12, 321, 5, 12, 52, 87, 121, 0, 23, 41]
 // left                                 right
@@ -34,4 +34,7 @@ function quickSort (arr, leftPointer = 0, rightPointer = arr.length - 1) {
   quickSort(arr, left + 1, rightPointer)
   return arr
 }
+
+console.time()
 console.log(quickSort(arr));
+console.timeEnd()
