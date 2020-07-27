@@ -1,33 +1,4 @@
-class Stack {
-  constructor() {
-    this.stack = []
-  }
-
-  push (item) {
-    return this.stack.push(item)
-  }
-
-  pop () {
-    return this.stack.pop()
-  }
-
-  size () {
-    return this.stack.length
-  }
-
-  top () {
-    return this.stack[this.stack.length - 1]
-  }
-
-  isEmpty () {
-    return this.stack.length === 0
-  }
-
-  clear () {
-    this.stack = []
-  }
-}
-
+const Stack = require('./Stack')
 
 // 需要两个栈，分别存放数据的栈和存放最小值的栈
 // 这里取最小值的时间复杂度是O(1)
@@ -74,6 +45,5 @@ minStack.push(5)
 minStack.push(2)
 minStack.push(1)
 minStack.push(4)
-minStack.push(0)
 
 console.log(minStack.min());

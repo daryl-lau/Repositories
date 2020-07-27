@@ -4,6 +4,7 @@
 // 搜索: O(n)
 // 插⼊入: O(1)
 // 移除: O(1)
+// 下面的实现是一个无头链表
 
 class Node {
   constructor(element) {

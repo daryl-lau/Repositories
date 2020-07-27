@@ -7,28 +7,7 @@
 ['4', '13', '5', '*', '+']
 
 */
-
-class Stack {
-  constructor() {
-    this.stack = []
-  }
-
-  push (item) {
-    return this.stack.push(item)
-  }
-
-  pop () {
-    return this.stack.pop()
-  }
-
-  size () {
-    return this.stack.length
-  }
-
-  clear () {
-    this.stack = []
-  }
-}
+const Stack = require('./Stack')
 
 function calc (exp) {
   let stack = new Stack()

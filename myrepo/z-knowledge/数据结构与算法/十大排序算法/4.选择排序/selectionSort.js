@@ -32,7 +32,7 @@ function selectionSort (arr) {
   return arr;
 }
 
-let arr = [9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14, 0, 0];
+let arr = [9, 3, 4, 0, 2, 8, 5, 1, 7, 6, 11, 10, 18, 15, 17, 12, 16, 13, 19, 14];
 console.time();
 console.log(selectionSort(arr));
 console.timeEnd();
