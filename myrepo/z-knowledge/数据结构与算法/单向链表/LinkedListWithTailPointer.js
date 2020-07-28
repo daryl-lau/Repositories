@@ -136,6 +136,30 @@ class LinkedList {
     return _previous
   }
 
+  reverseRecursive () {
+    const reverse = (head) => {
+      if (!head) {
+        return null
+      }
+      if (head.next == null) {
+        return head
+      }
+      let new_head = reverse(head.next)
+      head.next.next = head
+      head.next = null
+      return new_head
+    }
+
+    let result = reverse(this.head)
+
+    // 修复头尾指针
+    let temp = this.head
+    this.head = result
+    this.tail = temp
+
+    return result
+  }
+
   size () {
     return this.length
   }
@@ -150,6 +174,18 @@ class LinkedList {
       console.log(_current.data);
       _current = _current.next
     }
+  }
+
+  reverseLog () {
+    const reverse_log = (head) => {
+      if (head == null) {
+        return
+      }
+      reverse_log(head.next)
+      console.log(head.data);
+    }
+
+    reverse_log(this.head)
   }
 }
 
@@ -195,9 +231,13 @@ list.log()
 console.log(list.indexOf(data));
 console.log(list.get(data));
 
-console.log('-------------------');
+console.log('-----------翻转&递归翻转--------');
+list.log()
 list.reverse()
 list.log()
+list.reverseRecursive()
+list.log()
+console.log('-----------翻转&递归翻转--------');
 
 console.log('-------------------');
 list.append(1000)
@@ -205,3 +245,7 @@ list.log()
 console.log(list.size());
 console.log(list.get(0));
 console.log(list.get(5));
+
+console.log('-----------反向打印--------');
+list.log()
+list.reverseLog()
