@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./normalize.css">
+  <title>Document</title>
+  <style>
+    /* 
+      编辑器里换行，会导致图片左右和上下之间有空白缝隙，这是因为img的特殊性造成的
+      左右空白缝隙解决方法：一般不解决，因为代码经过压缩后会中间的换行会消失，或者img标签连写
+                          如果实在是要解决，可以在图片的父级标签上使用 letter-spacing:-800px，letter-spacing无论负多少图片都不会发生重叠
+                          或者在父级标签上使用font-size:0; 但是这样可能会影响布局
+                          再就是使设置img为块级标签，然后浮动，但是要记得清楚浮动
+
+      上下空白缝隙解决方法：设置图片属性为 vertical-align: middle; 这是最好的方法，不会影响页面布局。
+    
+     */
+    img {
+      vertical-align: middle;
+    }
+
+    .div {
+      width: 500px;
+      margin: 50px auto;
+    }
+
+    .text {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="div" style="letter-spacing:-800px">
+    <img src="./imgs/jd.jpg" alt="">
+    <img src="./imgs/jd.jpg" alt="">
+  </div>
+
+  <div class="div">
+    <img src="./imgs/jd.jpg" alt="">
+    <div class="text">哈哈哈</div>
+  </div>
+</body>
+
+</html>
