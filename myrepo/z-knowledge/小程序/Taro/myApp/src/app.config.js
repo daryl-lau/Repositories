@@ -35,6 +35,5 @@ export default {
       selectedIconPath: "./assets/tabs/icon_user_active@3x.png"
     }
     ]
-  },
-  sitemapLocation: "../sitemap.json"
+  }
 }

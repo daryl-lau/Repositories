@@ -8,7 +8,9 @@ export default function () {
   }, [])
 
   function changeAge () {
-    setUser({ ...user, age: user.age + 10 })
+    let newUser = { ...user }
+    newUser.age = 20
+    setUser(newUser)
   }
 
   return (
