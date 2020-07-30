@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "action": "allow",
+      "page": "/pages/idnex/index"
+    },{
+      "action": "disallow",
+      "page": "/pages/category/index"
+    }
+  ]
+}

@@ -8,16 +8,21 @@ class SyncCounter extends React.Component {
     }
   }
 
-  componentDidMount () {
-    // window.addEventListener('click', this.clickHandle, false)
-  }
+  // componentDidMount () {
+  //   window.addEventListener('click', this.clickHandle, false)
+  // }
 
   clickHandle = () => {
     // 方式一：给setState传递函数，state形参就是最新的state
     this.setState(state => {
       return { count: state.count + 1 }
     }, () => {
-      console.log(this.state.count);   // 这里获取到的是修改后的count，但是注意如果有多次修改同一属性的话，这里打印的是最后合并更新了setState的状态
+      console.log(this.state.count);   // 2 这里获取到的是修改后的count，但是注意如果有多次修改同一属性的话，这里打印的是最后合并更新了setState的状态
+    })
+    this.setState(state => {
+      return { count: state.count + 1 }
+    }, () => {
+      console.log(this.state.count);   // 2 这里获取到的是修改后的count，但是注意如果有多次修改同一属性的话，这里打印的是最后合并更新了setState的状态
     })
 
     // 方式二：定时器
@@ -25,16 +30,21 @@ class SyncCounter extends React.Component {
     //   this.setState({ count: this.state.count + 1 })
     //   console.log(this.state.count);  // 这里获取到的就是修改后的count
     // }, 0)
+    // setTimeout(() => {
+    //   this.setState({ count: this.state.count + 1 })
+    //   console.log(this.state.count);  // 这里获取到的就是修改后的count
+    // }, 0)
 
     // 方式三：原生事件中修改状态
-    // componentDidMount () {
+    // componentDidMount() {
     //   window.addEventListener('click', this.clickHandle, false)
     // }
 
     // this.setState({ count: this.state.count + 1 })
+    // this.setState({ count: this.state.count + 1 })
     // console.log(this.state.count);    // 这里获取到的就是修改后的count
 
-    // 方式四：使用async/await （野路子）
+    // 方式四：使用async/await (不规范，不建议使用)
     // await this.setState({ count: this.state.count + 1 })
     // console.log(this.state.count);  // 这里获取到的就是修改后的count
   }

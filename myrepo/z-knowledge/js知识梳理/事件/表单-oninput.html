@@ -14,7 +14,7 @@
         // 在输入的过程中，只要有输入，就触发事件，执行函数
         let oInput = document.querySelector('input');
         oInput.oninput = function () {
-            console.log('输入改变了')
+            console.log(this.value)
         }
 
     </script>

@@ -1,0 +1,12 @@
+/* pages/upload/index.wxss */
+
+
+
+image {
+  width: 750rpx;
+}
+
+.viewport {
+  display: flex;
+  flex-direction: column;
+}

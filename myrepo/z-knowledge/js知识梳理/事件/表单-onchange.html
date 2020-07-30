@@ -8,14 +8,20 @@
 </head>
 
 <body>
-    <input type="text">
+    <input type="text" class="input">
+    <input type="checkbox" class="checkbox">
     <script>
 
         // 当用户输入的内容发生了改变才会触发，但是需要移出焦点的时候才会执行函数
         // 用户输入的内容如果没有发生变化，那即使鼠标移出焦点了也不会触发
-        let oInput = document.querySelector('input');
+        let oInput = document.querySelector('.input');
+        let oCheckBox = document.querySelector('.checkbox');
         oInput.onchange = function () {
-            console.log('输入改变了')
+            console.log(this.value)
+        }
+
+        oCheckBox.onchange = function () {
+            console.log(this.checked);
         }
 
     </script>

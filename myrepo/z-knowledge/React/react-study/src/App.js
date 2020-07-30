@@ -82,11 +82,11 @@ function App () {
       <br />
       {/* <Counter></Counter> */}
       <br />
-      {/* <SyncCount></SyncCount> */}
+      <SyncCount></SyncCount>
       <br />
       {/* <LifeCycle></LifeCycle> */}
       <br />
-      {/* <CountHooks></CountHooks> */}
+      <CountHooks></CountHooks>
       <br />
       {/* <TimerHooks></TimerHooks> */}
       <br />
