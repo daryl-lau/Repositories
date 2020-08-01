@@ -8,7 +8,9 @@ import './app.less'
 const store = configStore()
 
 class App extends Component {
-  componentDidMount () {}
+  componentDidMount () {
+    
+  }
 
   componentDidShow () {}
 

@@ -14,8 +14,7 @@ const config = {
   },
   copy: {
     patterns: [
-      { from: 'src/assets/tabs', to: 'dist/assets/tabs' },
-      { from: 'src/assets/images', to: 'dist/assets/images' },
+      { from: 'src/assets', to: 'dist/assets' }
     ],
     options: {
     }

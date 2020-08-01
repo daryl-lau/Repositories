@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+
+            margin-top: 200px;
+            margin-left: 200px;
+
+            /*使父级盒子触发BFC，避免margin塌陷*/
+            overflow: hidden;
+        }
+
+        .content {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            margin-left: 50px;
+
+            /*子盒子里的margin-top不生效*/
+            margin-top: 50px;
+        }
+
+
+        .box {
+            height: 854px;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .phone {
+            width: 1226px;
+            height: 676px;
+            background-color: pink;
+            margin: 150px auto 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        margin塌陷
+        在标准文档流中，在垂直方向中，有margin塌陷现象，会忽略垂直方向中margin值较小的那个，可以使用浮动或定位来脱标解决
+        可以触发父级盒子的BFC来解决,不是父子块也存在此现象，但如果不是父子块，直接设置就好了，没必要上下都设置。
+
+        父子级元素在垂直方向上的margin会取最大值进行设置，
+        如果父元素margin值较大，子元素margin设置会不起作用，
+        如果子元素margin值较大，子元素会把父元素往下拉，造成塌陷现象
+    -->
+
+    <!--
+      BFC
+        如何触发一个盒子的BFC
+        1、position: absolute;
+        2、display: inline-block;
+        3、float:left/right;
+        4、overflow:hidden;
+    -->
+
+    <!-- 父盒子margin高度比子盒子高 -->
+    <div class="wrapper">
+        <div class="content">
+
+        </div>
+    </div>
+
+    <!-- 子盒子margin高度比父盒子高 -->
+    <div class="box">
+        <div class="phone"></div>
+    </div>
+</body>
+
+</html>

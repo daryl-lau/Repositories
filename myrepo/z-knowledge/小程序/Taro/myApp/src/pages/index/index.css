@@ -1,4 +1,56 @@
-.index {
-  flex-direction: column;
+swiper {
+  width: 750px;
+  height: 340px;
+}
+swiper navigator {
   width: 100%;
+  height: 100%;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  height: 140px;
+}
+.nav navigator {
+  width: 128px;
+  height: 140px;
+}
+.floor .item .title {
+  height: 59px;
+  padding: 30px 0 0 15px;
+  background-color: #f4f4f4;
+}
+.floor .item .content {
+  height: 386px;
+  overflow: hidden;
+  padding: 20rpx 16rpx;
+}
+.floor .item .content navigator {
+  float: left;
+  margin-left: 10px;
+}
+.floor .item .content navigator:first-child {
+  width: 232px;
+  height: 386px;
+  margin-left: 0;
+}
+.floor .item .content navigator:nth-child(2),
+.floor .item .content navigator:nth-child(5) {
+  width: 273px;
+  height: 188px;
+}
+.floor .item .content navigator:nth-child(3),
+.floor .item .content navigator:nth-child(4) {
+  width: 193px;
+  height: 188px;
+}
+.floor .item .content navigator:nth-child(4),
+.floor .item .content navigator:nth-child(5) {
+  margin-top: 10px;
+}
+.floor .item:first-child .content navigator:nth-child(n+2) {
+  width: 233px;
+  height: 188px;
 }

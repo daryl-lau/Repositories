@@ -6,6 +6,8 @@ import { add, minus, asyncAdd } from '../../actions/counter'
 import { getCurrentInstance } from '@tarojs/taro'
 import './index.less'
 
+import Search from '../../components/Search'
+
 
 @connect(({ counter }) => ({
   counter
@@ -50,7 +52,7 @@ class Index extends Component {
   render () {
     return (
       <View className='index'>
-        分类
+        <Search></Search>
       </View>
     )
   }
