@@ -82,6 +82,7 @@
 
         const python = {
             template: '#python',
+            // 组件级别的守卫，当离开此组件所在的页面时候，被调用
             beforeRouteLeave(to, from, next) {
                 console.log(222);
                 const answer = window.confirm('Do you really want to leave? you have unsaved changes!');

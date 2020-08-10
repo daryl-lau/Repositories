@@ -40,5 +40,6 @@ query
 
 function processRow(row, cb) {
     console.log(row, Date.now());
-    setTimeout(cb, 1000)
+    // setTimeout(cb, 0)
+    cb()
 }

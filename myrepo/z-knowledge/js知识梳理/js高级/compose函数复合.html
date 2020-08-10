@@ -11,16 +11,16 @@
   <script>
     // compose(fn1, fn2, fn3)  ===>   fn3(fn2(fn1()))
 
-    const fn1 = (args) => {
-      console.log('fn1', args);
+    const fn1 = (...args) => {
+      console.log('fn1', ...args);
+      return 111
+    };
+    const fn2 = (...args) => {
+      console.log('fn2', ...args);
       return args
     };
-    const fn2 = (args) => {
-      console.log('fn2', args);
-      return args
-    };
-    const fn3 = (args) => {
-      console.log('fn3', args);
+    const fn3 = (...args) => {
+      console.log('fn3', ...args);
       return args
     };
 
@@ -36,6 +36,25 @@
 
     let res = compose(fn1, fn2, fn3)('x')
     // console.log(res, 'res');
+
+    function toUpperCase(str) {
+      return str.toUpperCase()
+    }
+
+    function toLowerCase(str) {
+      return str.toLowerCase()
+    }
+
+    function addPrefix(str) {
+      return 'prefix: ' + str
+    }
+
+    function addSuffix(str) {
+      return str + ' suffix'
+    }
+
+    console.log(compose(toUpperCase, addPrefix, addSuffix)('QWer'));  // prefix: QWER suffix
+    console.log(compose()('xxx', 'yyy'));
 
 
   </script>

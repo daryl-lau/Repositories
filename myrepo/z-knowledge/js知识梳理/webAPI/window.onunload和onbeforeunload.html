@@ -1,0 +1,33 @@
+<html>
+
+<head>
+
+  <title>onbeforeunload test</title>
+
+  <script type="text/javascript">
+
+    // Chrome浏览器中，onunload事件触发后，alert（）和confirm（）等对话框不允许再弹出，直接用return返回内容就好了
+
+    // onunload换成onbeforeunload 使用
+    window.onbeforeunload = function (e) {
+      e = e || window.event;
+
+      // 兼容IE8和Firefox 4之前的版本
+      if (e) {
+        e.returnValue = '关闭提示';
+      }
+
+      // Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+
+      return '关闭提示';
+    };
+  </script>
+</head>
+
+<body>
+  <p>Reload a new page into the browser<br />
+    to fire the unload event for this page.</p>
+  <p>You can also use the back or forward buttons<br />
+    to load a new page and fire this event.</p>
+</body>
+
+</html>

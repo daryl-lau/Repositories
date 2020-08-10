@@ -105,7 +105,7 @@ app.use(router.routes())
 
 // 生成token函数
 function createToken(obj) {
-    // 为了模拟续期，把token的时效设置短一点
+    // 为了模拟续期，把token的时效设置短一点，单位是秒
     // 生成两个token，accessToken用于接口访问，refreshToken用于请求token续期接口
     let accessToken = jwt.sign(obj, jwtSecret, { expiresIn: 15 })
     let refreshToken = jwt.sign(obj, jwtSecret, { expiresIn: 30 })

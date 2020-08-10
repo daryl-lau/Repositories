@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>push跳转</button>
+  <button>replace跳转</button>
+  <script>
+    let pushBtn = document.querySelectorAll('button')[0];
+    let replaceBtn = document.querySelectorAll('button')[1];
+
+    // 只能在服务环境上使用才有效果，需要打开liveServer服务，
+    // history.pushState()主要是在不刷新浏览器的情况下，创建新的浏览记录并插入浏览记录队列中。
+    // 1.状态对象（stateObject）--stateObject是一个JavaScript对象，通过pushState方法可以将stateObject内容传递到新页面中。
+    // 2.标题（title）          --几乎没有浏览器支持该参数，但是传一个空字符串会比较安全。
+    // 3.地址（url）            --新的历史记录条目的地址（可选，不指定的话则为文档当前URL）；
+    //                          浏览器在调用pushState()方法后不会加载该地址；传入的URL与当前URL应该是同源的，否则，pushState()会抛出异常。
+    pushBtn.onclick = function () {
+      window.history.pushState({ data: 'push' }, '', '/pushurl')
+    }
+
+    replaceBtn.onclick = function () {
+      window.history.replaceState({ data: 'replace' }, '', '/replaceurl')
+    }
+
+    // popstate事件会在点击后退、前进按钮(或调用history.back()、history.forward()、history.go()方法)时触发。
+    // 前提是不能真的发生了页面跳转,而是在由history.pushState()或者history.replaceState()形成的历史节点中前进后退
+    window.onpopstate = function (e) {
+      console.log(e);
+    }
+  </script>
+</body>
+
+</html>

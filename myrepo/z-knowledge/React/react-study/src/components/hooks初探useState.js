@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 export default function CountHooks () {
 
+  //! 在函数式组件中，只要状态发生了修改，则函数会直接重新执行一遍，因此hooks会全部重新执行
+  //! 在编写自定义hook过程中，需要注意到这一点，需要缓存下的数据需要做特殊处理，否则将会全部重新执行初始化
 
   // 在class中state只能作为对象，但在useState hook中不仅仅可以使用对象，还可以使用数组，数字，字符串等
   const [count, setCount] = useState(0)

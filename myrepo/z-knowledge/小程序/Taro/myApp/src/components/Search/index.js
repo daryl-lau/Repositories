@@ -10,9 +10,7 @@ class Search extends Component {
   }
 
   clickHandler = () => {
-    Taro.redirectTo({
-      url: this.props.to
-    })
+    
   }
 
   render () {

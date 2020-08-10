@@ -180,7 +180,8 @@ Object.freeze(Person9)
 
 var obj = { __book: '三国演义' }
 
-//getter和setter函数中的this指向传入的对象
+// getter和setter函数中的this指向传入的对象
+// 设置的属性名字需要注意，如果属性名在对象中已经存在了，那么在get的时候会造成死循环，set中也是
 Object.defineProperty(obj, 'book', {
 
     // getter ：是一种获得属性值的方法
@@ -201,4 +202,28 @@ obj.book = '水浒传'
 console.log(obj.book)   // "<<水浒传>>"
 
 console.log(obj);
+
+
+
+
+
+let obj1 = { name: 'jerry' }
+
+function defineReactive (obj, key, value) {
+    Object.defineProperty(obj, key, {
+        get () {
+            console.log('get');
+            return value
+        },
+        set (newValue) {
+            console.log('set');
+            value = newValue
+        }
+    })
+}
+defineReactive(obj1, 'name', obj1['name'])
+
+console.log(obj1.name);
+obj1.name = 'newName'
+console.log(obj1.name);
 

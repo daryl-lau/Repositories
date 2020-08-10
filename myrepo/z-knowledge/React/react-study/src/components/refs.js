@@ -36,6 +36,8 @@ class RefsComponent extends React.Component {
   handleClick () {
     // 当 ref 被传递给 render 中的元素或组件时，对该节点的引用可以在 ref 的 current 属性中被访问。
     this.inputRef.current.focus()
+    console.log(this.inputRef);
+    console.log(this);
   }
   render () {
     return (

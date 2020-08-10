@@ -68,7 +68,7 @@
         let x = 'global'
         {
             console.log(x) // Uncaught ReferenceError: x is not defined
-            let x = 1;
+            let x = 1;     // 如果这里没有声明x，那么上面console出来的 x 就是全局的 'golbal'
         }
         // 原因有两个
         // console.log(x) 中的 x 指的是下面的 x，而不是全局的 x

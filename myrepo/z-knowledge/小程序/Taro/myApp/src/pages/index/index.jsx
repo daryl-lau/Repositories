@@ -58,7 +58,7 @@ class Index extends Component {
     await Taro.request({ url: "http://www.uinav.com/api/public/v1/home/swiperdata" })
     await Taro.request({ url: "http://www.uinav.com/api/public/v1/home/catitems" })
     await Taro.request({ url: "http://www.uinav.com/api/public/v1/home/floordata" })
-    Taro.stopPullDownRefresh()
+    // Taro.stopPullDownRefresh()
   }
 
   componentDidShow () { }

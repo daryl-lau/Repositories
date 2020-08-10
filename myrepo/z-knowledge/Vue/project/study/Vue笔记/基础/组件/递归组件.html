@@ -28,7 +28,7 @@
 
                 <!-- 递归组件必须有一个边界判断，否则会导致无限递归 -->
                 <div v-if="item.children" class="children-item">
-                    <list :list="item.children"></list>
+                    <List :list="item.children"></List>
                 </div>
             </div>
         </div>

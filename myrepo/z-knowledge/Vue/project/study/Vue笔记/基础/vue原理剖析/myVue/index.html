@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./myVue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <div>
+      <p>{{name}}</p>
+    </div>
+    <p>{{age}}</p>
+    <p v-text="name"></p>
+    <p v-html="html"></p>
+  </div>
+  <script>
+    const app = new myVue({
+      el: '#root',
+      data: {
+        name: 'jerry',
+        age: 18,
+        hobby: { one: { item: '篮球' }, two: '足球', three: '羽毛球' },
+        html: '<h1>我是H1</h1>'
+      }
+    })
+  </script>
+</body>
+
+</html>

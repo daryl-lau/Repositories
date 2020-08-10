@@ -20,8 +20,7 @@
             let timer;
             // 这里用到了闭包，timer本来在debounde函数执行完毕的时候就会被销毁
             // 但是下面return的代码中使用了timer，因此不会被销毁，被保留了下来
-            return function () {
-                let args = arguments;
+            return function (...args) {
                 if (timer) clearTimeout(timer);
                 if (immediate) {
                     var callNow = !timer;
@@ -31,7 +30,7 @@
                     if (callNow) func.apply(this, args)
                 } else {
                     timer = setTimeout(() => {
-                        func.apply(this, args)
+                        func.apply(this, args)  // 这里要修改this指向，否则this指向的不是时间出发对象，而是window
                     }, wait);
                 }
             }

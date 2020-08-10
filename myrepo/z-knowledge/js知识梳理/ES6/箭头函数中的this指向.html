@@ -33,6 +33,19 @@
         // 总结：
         // 箭头函数的this不是由调用者决定，而是在生成的时候就绑定了，在任何地方调用都不会改变箭头函数里的this指向
         // 箭头函数的this指向的是该箭头函数创建时的作用域的父级上下文环境
+
+
+        // 箭头函数注意事项
+        // 箭头函数不能用作构造函数，不能使用 new 关键字
+        // 箭头函数不能用作generator函数
+        // 箭头函数中没有arguments对象，可以使用...args获取参数
+        const fun1 = (...args) => {
+            console.log(args);      // [1, 2, 3]
+            console.log(arguments); // 报错：arguments is not defined
+        }
+        fun1(1, 2, 3)
+
+
     </script>
 </body>
 

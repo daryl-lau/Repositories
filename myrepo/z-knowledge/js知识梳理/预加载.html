@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 最简单的实现，还可以和css link结合 以为link是并行加载的，比较合适，还可以使用ajax进行加载，但是要注意跨域问题 -->
+  <div style="display: none;">
+    <script type="text/javascript">
+      console.log(111);
+      if (document.images) {
+        img1 = new Image();
+        img2 = new Image();
+        img3 = new Image();
+        img1.src = "https://baihuzi.com:5443/img/swiper/1.png";
+        img2.src = "https://baihuzi.com:5443/img/swiper/2.png";
+        img3.src = "https://baihuzi.com:5443/img/swiper/3.png";
+      } 
+    </script>
+  </div>
+</body>
+
+</html>

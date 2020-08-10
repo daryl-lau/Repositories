@@ -20,7 +20,6 @@ export default function ContextHooks () {
       <Child></Child>
     </Provider>
   )
-
 }
 
 const Child = props => {

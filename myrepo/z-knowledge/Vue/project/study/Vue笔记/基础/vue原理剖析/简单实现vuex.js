@@ -1,10 +1,10 @@
 let Vue
 
-function install(_Vue) {
+function install (_Vue) {
     Vue = _Vue;
 
     Vue.mixin({
-        beforeCreate() {
+        beforeCreate () {
             if (this.$options.store) {
                 Vue.prototype.$store = this.$options.store
             }
@@ -29,23 +29,24 @@ class Store {
         options.gettets && this.handleGetters(options.getters)
     }
 
-    // 需要实现commit
+    // 需要实现commit  this.$store.commit(state, payload)
     commit = (type, args) => {
         // this指向 store 实例
         this.mutations[type](this.state, args)
     }
 
+    // this.$store.dispatch(type, payload)
     dispatch = (type, args) => {
         return this.actions[type]({ commit: this.commit, state: this.state }, args)
     }
 
-    handleGetters(getters) { 
+    handleGetters (getters) {
         this.getters = {}
 
         // 定义只读的属性
-        Object.keys(getters).forEach(key => { 
+        Object.keys(getters).forEach(key => {
             Object.defineProperty(this.getters, key, {
-                get: () => { 
+                get: () => {
                     return getters[key](this.state)
                 }
             })

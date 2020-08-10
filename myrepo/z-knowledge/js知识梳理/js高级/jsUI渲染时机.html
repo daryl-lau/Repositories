@@ -47,17 +47,17 @@
             1、alert('promise1');                   // 执行栈
             2、alert('global1');                    // 执行栈
             3、alert('promise then1');              // 执行栈此时为空，执行微任务
-            4、div.innerHTML = 'first render';    // 所有微任务执行刷完毕，进行ui render
+            4、div.innerHTML = 'first render';      // 所有微任务执行刷完毕，进行ui render
 
             -------------进入下一次事件循环
 
-            5、alert(' ui 已经渲染完毕了吗？ ');     // 上一次时间循环的执行栈、微任务，渲染都执行完毕，执行宏任务队列里的宏任务
-            6、alert('timeout');                    // 执行栈
-            7、alert('promise2');                   // 执行栈
-            8、alert('promise then2');              // 微任务
-            9、div.innerHTML = 'secoend render';      // 所有微任务执行刷完毕，进行ui render
+            5、alert(' ui 已经渲染完毕了吗？ ');         // 上一次事件循环的执行栈、微任务，渲染都执行完毕，执行宏任务队列里的宏任务
+            6、alert('timeout');                        // 执行栈
+            7、alert('promise2');                       // 执行栈
+            8、alert('promise then2');                  // 微任务
+            9、div.innerHTML = 'secoend render';         // 所有微任务执行刷完毕，进行ui render
 
-            -------------如果还有宏任务，重复上面的过程，称之为事件循环---------------
+            -------------如果还有微任务和宏任务任务，重复上面的过程，称之为事件循环---------------
 
         */
 

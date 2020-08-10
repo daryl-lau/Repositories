@@ -21,6 +21,7 @@ class ReactChildren extends React.Component {
             element,        // 克隆的母体React元素
             [props],        // 扩展的属性，如果属性重名则覆盖，是一个对象，可以扩展多个属性
             [...children]   // 为新生成的React元素添加新的children，取代从母体中克隆而来的children，可以是数组，添加多个children
+                            // 每个子元素上都需要有一个唯一的key属性，否则会报错
           )
         */}
         {React.Children.map(this.props.children, (child) => {

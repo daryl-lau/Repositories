@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 class PropTypesComp extends React.Component {
     render () {
         return (
-            <ul>
+            <ul className={this.props.className}>
                 {this.props.list.map(item => <li key={item}>{item}</li>)}
                 {this.props.children}
             </ul>
@@ -17,6 +17,10 @@ class PropTypesComp extends React.Component {
 PropTypesComp.propTypes = {
     list: PropTypes.array,
     children: PropTypes.element
+}
+
+PropTypesComp.defaultProps = {
+    className: 'class'
 }
 
 export default PropTypesComp

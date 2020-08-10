@@ -26,6 +26,8 @@
     </div>
     <button>移除事件</button>
     <script>
+        // 普通事件onclick 只能存在一个，后面定义的会覆盖前面的
+        // 但是addEventListener添加的可以有多个，按照定义先后顺序依次执行
 
         // document.addEventListener() 方法用于向文档添加事件句柄。
         // 提示： 可以使用 document.removeEventListener() 方法来移除 addEventListener() 方法添加的事件句柄。

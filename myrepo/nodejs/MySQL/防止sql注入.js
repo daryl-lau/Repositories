@@ -2,7 +2,7 @@ const mysql = require('mysql');
 
 // let db = mysql.createConnection({host: 'localhost', port: 3306, user: 'root', password: '', database: 'test'});
 
-let db = mysql.createPool({host: 'localhost', port: 3306, user: 'root', password: '', database: 'test'});
+let db = mysql.createPool({host: 'localhost', port: 33306, user: 'root', password: 'baihuzi.com', database: 'test'});
 // 连接池，最大连接数默认为10，可以用connectionLimit参数自定义
 // let db = mysql.createPool({connectionLimit: 20, host: 'localhost', port: 3306, user: 'root', password: '', database: 'users'});
 

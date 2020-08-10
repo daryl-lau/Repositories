@@ -48,10 +48,13 @@
             cheng() {
                 return this.num1 * this.num2;
             }
+            log() {
+                return [this.num1, this.num2];
+            }
         }
 
         let cal = new sumCalculator(1, 2);
-        console.log(cal.sum());;
+        console.log(cal.sum());;    // 3
 
 
         // super关键字用于访问和调用对象父类上的函数。可以调用父类的构造函数，也可以调用父类的普通函数
@@ -70,16 +73,30 @@
 
         let cal2 = new sumReduceCalculator(3, 4);
         console.log(cal2);
-        console.log(cal2.sum());
-        console.log(cal2.reduce());
+        console.log(cal2.sum());    // 7
+        console.log(cal2.reduce()); // -1
 
         // 如果子类中没有方法，会向父类中去找，就近原则
-        console.log(cal2.cheng());
+        console.log(cal2.cheng());  // 12
 
         // 当子类没有constructor的时候可以随意用父类的，但是如果子类也含有的话，constructor会返回实例，this的指向不同，不可以再直接使用父类的东西
         class son extends sumCalculator { };
         let cal3 = new son(10, 10);
-        console.log(cal3.sum());
+        console.log(cal3.sum());    // 20
+
+        class son1 extends sumCalculator {
+            constructor(a, b, c) {  // 前两个参数是父类构造函数中的参数，无法在子类中拿到，但是可以调用父类的方法来获取到
+                super(a, b)
+                this.c = c
+            }
+            log() {
+                console.log(super.log());   // 在子类中无法直接拿到父类中的属性，但是可以在父类中暴露api，子类中进行获取
+                return [super.sum(), this.c]   // 这里无法拿到a, b参数，只能拿到自己的属性c
+            }
+        }
+        let cal4 = new son1(11, 22, 33)
+        console.log(cal4.sum());    // Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+        console.log(cal4.log());    // [2, 1]
 
     </script>
 </body>

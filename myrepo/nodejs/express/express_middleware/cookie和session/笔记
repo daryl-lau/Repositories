@@ -2,7 +2,7 @@ cookie存在于客户端浏览器，请求服务器的时候，会顺便发送�
 
 session存在于服务端，不是独立的，其需要基于cookie，需要客户端发送一个session ID，用来证明客户端的真实性，session ID 存放在客户端的cookie中
 
-存放在cookie中的session ID，可以称之为token
+
 
 
 cookie不跨域

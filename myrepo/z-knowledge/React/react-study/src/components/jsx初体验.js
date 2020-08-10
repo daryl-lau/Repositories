@@ -1,5 +1,6 @@
 
 // 只要是用到了jsx的地方，都需要引入React，否则报错
+// 报错什么原因？ 因为在使用JSX的时候，JSX会被babel编译成为一个React.createElement的函数进行调用，返回一个react元素
 import React from 'react';
 
 class Com1 extends React.Component {

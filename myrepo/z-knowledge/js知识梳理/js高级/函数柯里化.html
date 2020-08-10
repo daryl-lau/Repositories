@@ -14,11 +14,16 @@
     // add(1, 2, 3)(4) = 10;
     // add(1)(2)(3)(4)(5) = 15;
 
-    // function add (x) {
-    //   return function (y) {
-    //     return x + y
-    //   }
-    // }
+    function sum(x) {
+      return function (y) {
+        return function (z) {
+          return x + y + z
+        }
+      }
+    }
+
+    console.log(sum(10)(20)(30));     // 30
+
 
     function add() {
       // 第一次执行时，定义一个数组专门用来存储所有的参数
@@ -36,14 +41,15 @@
           return a + b;
         });
       }
-      return _adder;
+      return _adder
     }
 
     let res1 = add(1)(2)(3)                // 6
     let res2 = add(1, 2, 3)(4)             // 10
     let res3 = add(1)(2)(3)(4)(5)          // 15
-    let res4 = add(2, 6)(1)                // 93
+    let res4 = add(2, 6)(1)                // 9
     console.log(res1, res2, res3, res4);
+    console.log(res1.toString(), res2.toString(), res3.toString(), res4.toString());
   </script>
 </body>
 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>动态路由-权限控制</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/vuex@2.0.0/dist/vuex.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>演示动态路由</h2>
+      <!-- 路由占位符 -->
+      <router-view></router-view>
+    </div>
+  </body>
+</html>
+<script>
+  // 创建路由所需要依赖的组件
+  var Login = {
+    template: `<div>
+      <button @click="login">登录</button>
+    </div>`,
+    methods: {
+      login() {
+        // 发送ajax请求验证用户登录是否..
+        // 假设后台返回我的数据是
+        var user = {
+          name: 'ls',
+          role: 'guest'
+        }
+        // 将后台返回的用户数据 放到vuex的state中
+        this.$store.commit('changeUser', user)
+        // 添加动态路由
+        var role = user.role
+        // 将当前用户 角色有的权限路由留下来
+        var newRoutes = asyncRoutes.filter(route => route.meta.roles.includes(role))
+        // console.log(newRoutes)
+        // 添加
+        this.$router.addRoutes(newRoutes)
+        // 将vuex中存储的路由也要更新下
+        this.$store.commit('changeRoutes', newRoutes)
+        // 登录成功跳转到后台首页 /a
+        this.$router.push('/a')
+      }
+    }
+  }
+  var A = { template: `<div>这A页面，专门用来....{{$store.state.user && $store.state.user.name}}</div>` }
+  var B = { template: `<div>这B页面，小彭专用....</div>` }
+  var C = { template: `<div>C这C页面，彭专用....</div>` }
+  var D = { template: `<div>这DDDDD页面，小用....</div>` }
+  var E = { template: `<div>EEEE这EEEEEE页面，专用....</div>` }
+  var F = { template: `<div>FFFF这FFFFFF页面FFF，FFFF....</div>` }
+  var routes = [
+    { path: '/', redirect: '/login' },
+    { path: '/login', component: Login },
+    { path: '/a', component: A },
+    { path: '/b', component: B }
+  ]
+  // 定义一些动态路由
+  var asyncRoutes = [
+    { path: '/c', component: C, meta: { roles: ['admin', 'guest'] } },
+    { path: '/d', component: D, meta: { roles: ['admin', 'guest'] } },
+    { path: '/e', component: E, meta: { roles: ['admin'] } },
+    { path: '/f', component: F, meta: { roles: ['admin'] } }
+  ]
+  var router = new VueRouter({
+    // routes: routes
+    routes
+  })
+  // 创建vuex实例
+  var store = new Vuex.Store({
+    state: {
+      user: null,
+      routes: JSON.parse(localStorage.getItem('routes') || '[]')
+    },
+    mutations: {
+      changeUser(state, v) {
+        state.user = v
+      },
+      changeRoutes(state, v) {
+        state.routes = [...state.routes, ...v]
+        // 将路由也存储到本地localStorege
+        localStorage.setItem('routes', JSON.stringify(state.routes))
+      }
+    }
+  })
+  // 用路由导航守卫进行登录拦截
+  router.beforeEach((to, from, next) => {
+    // 如果没有用户信息 就应该去登录
+    if (!store.state.user && to.path !== '/login' && !store.state.routes) return next('/login')
+    // 如果登录了就有用户信息 然后就放行
+    next()
+  })
+  var vm = new Vue({
+    el: '#app',
+    router,
+    store
+  })
+</script>

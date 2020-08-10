@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 对象上不能直接使用obj.keys，或者obj.values，或者obj.entries
+    // 上面的这种方式在Set或者Map数据结构中才能使用，obj里面没有这些接口，只能调用Object的方法来获取到
+
+    let obj = { a: 1, b: 2, c: 3 }
+    console.log(Object.keys(obj));      // ["a", "b", "c"]
+    console.log(Object.values(obj));    // [1, 2, 3]
+    console.log(Object.entries(obj));   // [["a", 1], ["b", 2], ["c", 3]]
+
+  </script>
+</body>
+
+</html>

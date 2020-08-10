@@ -11,7 +11,7 @@ server.listen(8080);
 // 建立ws服务， 监听的不是端口号，而是http服务
 let ws = socket.listen(server);
 
-// namespace命名空间，不同明明空间是相互隔离的，默认命名空间是 '/'
+// namespace命名空间，不同命名空间是相互隔离的，默认命名空间是 '/'
 let namespace1 = ws.of('/namespace1');
 let namespace2 = ws.of('/namespace2');
 

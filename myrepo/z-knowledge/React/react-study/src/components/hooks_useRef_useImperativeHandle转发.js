@@ -19,8 +19,10 @@ export default function HooksRef (props) {
 }
 
 // useImperativeHandle 应当与 forwardRef 一起使用
-// 这里的ref参数和类组件的使用方式有点不同，类组件里面直接把ref属性赋给button的ref属性就可以了，外面拿到的直接就是内部的dom了
-// 但是在函数组件中，ref需要传递给useImperativeHandle，通过它来吧定义的处理函数和外部的ref关联起来，而内部则需要创建自己内部的ref用于处理dom
+// 这里的ref参数和类组件的使用方式有点不同，类组件里面直接把forwardRef的ref赋给button的ref属性就可以了，外面拿到的直接就是内部的dom了
+// 但是在函数组件中，ref需要传递给 useImperativeHandle ，通过它来吧定义的处理函数和外部的ref关联起来，而内部则需要创建自己内部的ref用于处理dom
+// 使用 useImperativeHandle 可以实现更细粒度的控制，如果子组件中有多个元素需要分别获取，就可以使用 useImperativeHandle 
+// https://codesandbox.io/s/kind-https-qtm7q
 function FancyInput (props, ref) {
   const buttonRef = useRef();
 
