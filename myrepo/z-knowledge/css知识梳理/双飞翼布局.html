@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon"/>-->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>双飞翼布局</title>
+  <!--<link rel="stylesheet" href="./css/base.css">-->
+  <!--<script src="./js/main.js"></script>-->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* .container {
+      min-width: 600px;
+      background-color: #f5f5f5;
+      height: 500px;
+    }
+
+    .left,
+    .right {
+      width: 200px;
+      height: 500px;
+      background-color: red;
+      float: left;
+    }
+
+    .main {
+      width: 100%;
+      height: 500px;
+      background-color: blue;
+      float: left;
+    }
+
+    .left {
+      margin-left: -100%;
+    }
+
+    .right {
+      margin-left: -200px;
+    }
+
+    .main_content {
+      margin: 0 200px;
+    } */
+
+    .container {
+      overflow: hidden;
+    }
+
+    .main {
+      width: 100%;
+      height: 100px;
+      background-color: red;
+      float: left;
+    }
+
+    .left,
+    .right {
+      width: 200px;
+      height: 100px;
+      background-color: green;
+      float: left;
+    }
+
+    .left {
+      margin-left: -100%;
+    }
+
+    .right {
+      margin-left: -200px;
+    }
+
+    .main_content {
+      margin: 0 200px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--
+    两侧宽度固定，中间宽度自适应的三栏布局
+    中间部分在DOM结构上优先，以便优先渲染
+    只需要使用一个额外的div标签
+
+    实现步骤：
+        写下如下HTML代码
+        使三个区域都处于做悬浮状态，并使main的宽度成父容器的100%
+        为两侧侧边栏添加负margin，用来调整位置，其中摆在左边的left的margin-left为-100%，
+        而右边right的margin-right为负的其自身宽度。（利用了浮动元素的负margin到一定值后会使其自身往上一行移动的原理）
+        给中间区域内部的盒子给一个margin值，把内容往中间挤
+  -->
+
+  <div class="container">
+    <div class="main">
+      <div class="main_content">中</div>
+    </div>
+    <div class="left">左</div>
+    <div class="right">右</div>
+  </div>
+
+</body>
+
+</html>

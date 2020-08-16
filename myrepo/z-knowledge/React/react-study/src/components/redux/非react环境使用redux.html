@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/redux/4.0.0/redux.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/redux-logger/4.0.0/redux-logger.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <p><span id="name"></span>&nbsp;<span id="age"></span></p>
+    <button>+</button>
+    <button>-</button>
+    <button>修改名字</button>
+    <button>取消订阅</button>
+  </div>
+  <script>
+
+    let ageEl = document.querySelector('#age');
+    let nameEl = document.querySelector('#name');
+    let incrementBtn = document.querySelectorAll('button')[0];
+    let decrementBtn = document.querySelectorAll('button')[1];
+    let changeNameBtn = document.querySelectorAll('button')[2];
+    let cancleSubBtn = document.querySelectorAll('button')[3];
+
+
+    const ageReducer = (state = { age: 18 }, action) => {
+      switch (action.type) {
+        case 'increment':
+          return { age: state.age + 1 }
+          break;
+        case 'decrement':
+          return { age: state.age - 1 }
+          break;
+        default:
+          return state;
+      }
+    }
+
+    const nameReducer = (state = { name: 'jerry' }, action) => {
+      console.log(action.name);
+      switch (action.type) {
+        case 'changeName':
+          return { ...state, name: action.name }
+          break;
+        default:
+          return state;
+      }
+    }
+
+    console.log(Redux);
+
+    // 注意combineReducer的传参必须是一个对象，在对象里面的键就是合并后的键
+    // 下面的合并结果是 {ageReducer: {age: 18}, nameReducer: { name: "jerry" }}
+    let reducers = Redux.combineReducers({ ageReducer, nameReducer })
+
+    // 日志中间件
+    const logger = reduxLogger.createLogger()
+
+    const store = Redux.createStore(reducers, Redux.applyMiddleware(logger))
+    console.log(store.getState());
+
+    const { ageReducer: { age } } = store.getState()
+    const { nameReducer: { name } } = store.getState()
+    ageEl.textContent = age
+    nameEl.textContent = name
+
+
+    incrementBtn.onclick = function () {
+      store.dispatch({ type: 'increment' })
+    }
+    decrementBtn.onclick = function () {
+      store.dispatch({ type: 'decrement' })
+    }
+
+
+    // action创建函数，返回一个action，好处是可以传参
+    const changeName = function (name) {
+      return {
+        type: 'changeName',
+        name: name
+      }
+    }
+
+    changeNameBtn.onclick = function () {
+      store.dispatch(changeName('tom'))
+    }
+
+    // 订阅数据的变化，参入一个函数，当数据变化的时候，就会执行该函数
+    // 函数返回一个取消订阅的函数，调用此函数就不会再监听数据的变化了
+    const subscribe = store.subscribe(function () {
+      const { ageReducer: { age }, nameReducer: { name } } = store.getState()
+      console.log(age, name);
+      ageEl.textContent = age
+      nameEl.textContent = name
+    })
+
+
+    cancleSubBtn.onclick = function () {
+      subscribe()
+    }
+
+    // 测试API bindActionCreators
+    // 如果第一个参数是一个actionCreator函数，就直接返回一个包裹dispatch的函数
+    // 如果第一个参数是一个由多个actionCreator函数组成的对象，就根据相应的key（Object.keys()），生成包裹dispatch的函数即可
+    // 第二个参数是dispatch方法，由store实例提供
+    const incrementActionCreator = () => {
+      return { type: 'increment' }
+    }
+    const decrementActionCreator = () => {
+      return { type: 'decrement' }
+    }
+
+    let increment = Redux.bindActionCreators(incrementActionCreator, store.dispatch)
+    let actions = Redux.bindActionCreators({ incrementActionCreator, decrementActionCreator }, store.dispatch)
+
+    // createStore实际上还可以传入预加载的state，这个preloadState会和定义的reducers的state进行合并
+    // createStore(reducers, [preloadState], enhancer)
+  </script>
+</body>
+
+</html>
