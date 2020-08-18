@@ -70,7 +70,8 @@ router.get('/user', async (ctx, next) => {
     // 重定向, 可以重定向到任意地址，站内站外都行
     // ctx.redirect('/news')
     // ctx.redirect('http://www.baidu.com')
-
+    ctx.status = 307
+    ctx.redirect('/news')
 });
 
 

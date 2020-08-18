@@ -50,7 +50,7 @@ console.log(Person3.name);  // jerry
 console.log(Person3.name);  // jerry
 
 // 如果上面writable: true,configurable设置为了false，这里依旧可以重新定义属性配置，但不能删除属性
-// 如果上面writable: false, configurable设置为了false， 这里就不能重新定义属性配置，但不能删除属性
+// 如果上面writable: false, configurable设置为了false， 这里就不能重新定义属性配置，也不能删除属性
 Object.defineProperty(Person3, 'name', {
     value: 'tom'
 })

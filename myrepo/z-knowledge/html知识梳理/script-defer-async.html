@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" ></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.0/dist/jquery.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+</head>
+<script>
+  window.onload = function () {
+    alert('onload');
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    alert('DOMContentLoaded')
+  })
+</script>
+
+<body>
+
+  <!-- 
+    结论：
+      原始的js会阻塞dom树的解析
+      而defer和async都不会阻塞dom树的解析过程
+      区别是defer在整个dom树解析完了之后执行
+      而async在js请求回来了之后立即执行
+
+
+      css不会阻塞dom树的解析，但是会阻塞dom树的渲染
+   -->
+   <img src="https://baihuzi.com:5443/img/swiper/1.png" alt="" srcset="">
+  <h1>渲染</h1>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.0/dist/jquery.min.js"></script> -->
+</body>
+
+</html>

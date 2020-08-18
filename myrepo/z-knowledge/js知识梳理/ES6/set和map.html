@@ -11,7 +11,7 @@
     <script>
         // Set中没有重复的值
         let set = new Set([1, 1, 2, 2, 3, 3])
-        console.log(set);           // 返回的数据接口是Set(3)，里面包含了各个item和一个size属性
+        console.log(set);           // 里面包含了各个item和一个size属性
 
 
 
@@ -69,7 +69,7 @@
         map.set({ key: true }, 'value')
         map.set(false, 'false')
         console.log(map);
-        
+
         console.log(map.has(false));        // true
         console.log(map.has(Symbol()));     // false，注意这里是false，因为symbol很特殊，其值是唯一的，即使两个symbol声明方式一样，他们也是两个不同的数据
 

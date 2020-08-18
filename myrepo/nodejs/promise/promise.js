@@ -4,7 +4,6 @@ const fs = require('fs');
 // Promise接收两个参数，resolve和reject，resolve在异步操作成功时调用，reject在异步操作失败时调用
 // resolve和reject不是Promise提供，而是在使用.then时自己写，.then()接收两个函数作为参数，第一个是自己写的resolve，第二个是自己写的reject
 
-
 // 1、创建promise对象，一经创建，立马执行
 new Promise((resolve, reject) => {
     fs.readFile(__dirname + '/data/a.txt', (err, data) => {
