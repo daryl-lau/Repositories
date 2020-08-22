@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="box"></div>
+  <button>发送消息</button>
+  <script>
+
+    let box = document.querySelector('#box');
+    let btn = document.querySelector('button');
+
+
+    // 广播，所有监听同一个消息的页面都可以接受消息，除了发送方自己
+    const listener = new BroadcastChannel('Listener');
+
+    listener.onmessage = function (e) {
+      console.log(e);
+      let data = e.data
+      let info = '[receive] ' + data.msg + ' —— tab ' + data.from;
+      box.innerHTML = info
+    }
+
+    btn.onclick = function(){
+      listener.postMessage({msg: '我是来自page2的消息', from: 'page2'})
+    }
+
+  </script>
+</body>
+
+</html>

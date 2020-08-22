@@ -31,7 +31,7 @@ import LifeCycle, { LifeCycleFather } from './components/生命周期'
 // import OriginRedux from './components/原始redux使用'
 // import SagaTest from './components/redux/SagaTest'
 import ReactChildren from './components/API_React.Children'
-// import Dialog from './components/protals'
+import Dialog from './components/protals'
 // import HocChain from './components/HOC链式调用'
 // import HooksCallBack from './components/hooks_useCallback'
 // import HooksMemo from './components/hooks_useMemo'
@@ -102,7 +102,7 @@ function App () {
       {/* <OriginRedux></OriginRedux> */}
       {/* <SagaTest></SagaTest> */}
       <ReactChildren></ReactChildren>
-      {/* <Dialog>dialog</Dialog> */}
+      <Dialog></Dialog>
       {/* <HocChain a={'a'}></HocChain> */}
       {/* <HooksCallBack></HooksCallBack> */}
       {/* <HooksMemo></HooksMemo> */}

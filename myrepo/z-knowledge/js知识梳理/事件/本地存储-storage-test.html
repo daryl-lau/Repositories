@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="handleClick()">存储</button>
+  <script>
+    // 事件对象上有几个关键属性：
+    // key：      触发修改的key
+    // newValue： 设置的新value
+    // oldValue： 之前的老value
+    window.addEventListener('storage', function (e) {
+      console.log(e);
+    })
+
+    // 注意，在本页面设置存储，本页面自身的storage不会触发，其他页面设置了存储，本页面的storage才会被触发
+    // 如果同一个key前后设置的值没有变化，则不会触发storage事件，否则就会触发，多次修改就会触发多次事件
+    function handleClick() {
+      localStorage.setItem('key1', 'value1')
+      localStorage.setItem('key1', 'value2')
+    }
+  </script>
+</body>
+
+</html>

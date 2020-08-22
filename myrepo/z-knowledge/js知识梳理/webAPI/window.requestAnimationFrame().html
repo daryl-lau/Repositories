@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #SomeElementYouWantToAnimate {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: royalblue;
+      position: absolute;
+      top: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="SomeElementYouWantToAnimate"></div>
+  <div id="box"></div>
+  <script>
+    var start = null;
+    var element = document.getElementById('SomeElementYouWantToAnimate');
+    // element.style.position = 'absolute';
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = timestamp - start;
+      element.style.left = Math.min(progress / 10, 500) + 'px';
+      if (progress < 2000) {
+        window.requestAnimationFrame(step);
+      }
+    }
+    window.requestAnimationFrame(step);
+
+
+    function animationWidth() {
+      var div = document.getElementById('box');
+      div.style.width = parseInt(div.offsetWidth) + 1 + 'px';
+
+      if (parseInt(div.offsetWidth) < 500) {
+        requestAnimationFrame(animationWidth)
+      }
+    }
+    window.requestAnimationFrame(animationWidth);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    let Father = {
+      name: 'Father',
+      friends: ['A', 'B', 'C'],
+      printName: function () { console.log(this.name); }
+    }
+
+    // 寄生式继承主要用来增强对象
+    function createObj(obj) {
+      var clone = Object.create(obj)
+      clone.printAge = function () { console.log(this.age); }
+      return clone
+    }
+
+    let son1 = createObj(Father)
+    son1.name = 'jerry'
+    son1.age = 18
+    son1.printName()
+    son1.printAge()
+
+    let son2 = createObj(Father)
+    son2.age = 20
+    son2.printName()
+    son2.printAge()
+  </script>
+</body>
+
+</html>

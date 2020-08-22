@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Father(name) {
+      this.name = name
+      this.friends = ['A', 'B']
+    }
+
+    Father.prototype.printName = function () {
+      console.log(this.name);
+    }
+
+    function Son(name, age) {
+      Father.call(this, name)
+      this.age = age
+    }
+
+    // 创建一个中间函数
+    let tempFunc = function () { }
+
+    // 中间函数的prototype指向Father的原型对象
+    tempFunc.prototype = Father.prototype
+
+    // 子类的prototype指向中间函数的实例
+    Son.prototype = new tempFunc()
+
+    // 修正constructor指针
+    Son.prototype.constructor = Son
+
+
+    // 子类增加一个方法，对其他继承Father的子类没有影响
+    Son.prototype.printAge = function () { console.log(this.age); }
+
+
+    let son1 = new Son('jerry', 18)
+    son1.printName()
+    son1.printAge()
+
+    let son2 = new Son('tom', 20)
+    son2.printName()
+    son2.printAge()
+
+
+    son1.friends.push('D')
+    console.log(son1.friends);  // ["A", "B", "D"]
+    console.log(son2.friends);  // ["A", "B"]
+
+    // 有人要问，为什么不能直接Son.prototype = Father.prototype，
+    // 这是因为如果多个子类，都指向同一个父类的prototype，子类的独立性就没有了，
+    // 如果其中一个子类对原型上面的东西做了修改，其他所有子类都会发生变化
+
+
+    // 其他子类
+    function Child(name, age) {
+      Father.call(this, name)
+      this.age = age
+    }
+
+    let F = function () { }
+    F.prototype = Father.prototype
+    Child.prototype = new F()
+    Child.prototype.constructor = Child
+
+    // 子类的原型上添加属性或方法，不会影响其他子类
+    Child.prototype.printAge = function () { console.log('child age', this.age); }
+
+    let c1 = new Child('child1', 22)
+    c1.printName()
+    c1.printAge()
+
+  </script>
+</body>
+
+</html>

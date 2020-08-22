@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let _array = [1, 2, 3];
+        let _object = { a: 1, b: 2 };
+        let _string = 'aaaa';
+        let _number = 100;
+        let _func = function () { console.log(1); }
+        let _null = null;
+        let _undefined = undefined;
+        let _NaN = NaN;
+        let _bool = true;
+        let _regexp = new RegExp()
+        let _date = new Date();
+
+        //  typeof 操作符来检测变量的数据类型，其返回值全部都是数据类型的字符串
+        console.log(typeof (_array));       // 'object'
+        console.log(typeof (_object));      // 'object'
+        console.log(typeof (_regexp));      // 'object'
+        console.log(typeof (_date));        // 'object'
+        console.log(typeof (_null));        // 'object'
+
+        console.log(typeof (_number));      // 'number'
+        console.log(typeof (_NaN));         // 'number'
+
+        console.log(typeof (_string));      // 'string'
+        console.log(typeof (_func));        // 'function'
+        console.log(typeof (_undefined));   // 'undefined'
+        console.log(typeof (_bool));        // 'boolean'
+
+
+        // null 和 undefined 的值相等，但类型不等：
+        console.log(null == undefined);     // true     null的类型为object
+        console.log(null === undefined);    // false    undefined的类型为undefined
+
+
+
+        // instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上
+        // ！！！！只能判断引用数据类型！！！！
+        console.log(_number instanceof Number);     //! false 因为instanceof 只能判断引用数据类型
+        console.log(_string instanceof String);     //! false 因为instanceof 只能判断引用数据类型
+
+        console.log(_func instanceof Function);     // true fn的原型链上有 Funtion
+        console.log(_func instanceof Object);       // true fn的原型链上有Object Funtion -> Object
+
+        console.log(_array instanceof Array);       // true 数组实例的原型链上有Array 和 Object，因此下面两个都是true
+        console.log(_array instanceof Object);      // true 事实上Array构造函数是继承自Object的
+
+        console.log(_object instanceof Object);     // true
+
+        console.log(_regexp instanceof RegExp);     // true 正则的实例原型链上有RegExp 和 Object，因此下面两个都是true
+        console.log(_regexp instanceof Object);     // true 事实上RegExp构造函数是继承自Object的
+
+
+        console.log(_date instanceof Date);         // true 日期的实例原型链上有Date 和 Object，因此下面两个都是true
+        console.log(_date instanceof Object);       // true 事实上Date构造函数是继承自Object的
+
+
+        // 举个继承的例子
+        class A { }
+        class B extends A { }
+        let b = new B()
+        console.log(b instanceof A);            // true b是B的实例，B继承自A，因此下面两个都是true
+        console.log(b instanceof B);            // true
+
+
+        // 以上两种方式可以满足大部分的需求，但是当需要做更精确的判断时，上面两种方法就不够用了
+        // 比如我要精确的判断变量就是一个对象，使用typeof 和 instanceof 都不能精确校验
+        // 这个时候Object.prototype.toString.call()就正好适用
+        console.log(Object.prototype.toString.call(_array))     // [object Array]
+        console.log(Object.prototype.toString.call(_object))    // [object Object]
+        console.log(Object.prototype.toString.call(_regexp))    // [object RegExp]
+        console.log(Object.prototype.toString.call(_date))      // [object Date]
+        console.log(Object.prototype.toString.call(_null))      // [object Null]
+
+        console.log(Object.prototype.toString.call(_number))    // [object Number]
+        console.log(Object.prototype.toString.call(_NaN))       // [object Number]
+        console.log(Object.prototype.toString.call(_string))    // [object String]
+        console.log(Object.prototype.toString.call(_func))      // [object Function]
+        console.log(Object.prototype.toString.call(_undefined)) // [object Undefined]
+        console.log(Object.prototype.toString.call(_bool))      // [object Boolean]
+
+        // 使用这些再结合上面的typeof 和 instanceof，足以精确判断值类型了
+    </script>
+</body>
+
+</html>

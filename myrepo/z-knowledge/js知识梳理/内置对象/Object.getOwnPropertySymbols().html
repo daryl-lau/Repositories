@@ -15,7 +15,9 @@
     let res = Object.getOwnPropertySymbols(obj)
     console.log(res);       // [Symbol(salary), Symbol()]
 
-    console.log(obj.hasOwnProperty(Symbol('salary')));  // false
+    console.log(obj.hasOwnProperty(Symbol('salary')));  // false Symbol总是唯一的
+    console.log(obj.hasOwnProperty(res[0]));            // true  可以获取到原来的symbol，然后进行操作，引用相同就可以
+
   </script>
 </body>
 

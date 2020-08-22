@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。
+
+
+    // 一个普通的例子，tom的__proto__指向的是Object原型对象
+    let tom = { name: 'tom' }
+    console.log(tom.__proto__);
+
+    // 利用Object.create的例子
+    let person = {
+      name: 'person',
+      printName: function () {
+        console.log(this.name);
+      },
+      printAge: function () {
+        console.log(this.age);
+      }
+    }
+
+    // jerry的__proto__指向的是person
+    let jerry = Object.create(person)
+    console.log(jerry.__proto__);
+
+    jerry.age = 18
+    jerry.printName()
+    jerry.printAge()
+
+
+
+    // 传参，第二个参数是属性描述对象，属性名是想要添加的属性，值是defineProperty的第三个参数，属性描述对象
+    let jack = Object.create(person, { name: { value: 'jack' } })
+
+
+    // 断掉原型链，给Object.create传入一个null，此时obj上是没有原型对象的
+    let obj = Object.create(null)
+
+
+
+  </script>
+</body>
+
+</html>

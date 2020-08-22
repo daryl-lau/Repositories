@@ -35,7 +35,7 @@
 
             /* flex-wrap定义换行方式，默认不换行 */
             flex-wrap: nowrap;
-            /* flex-wrap: wrap */
+            /* flex-wrap: wrap; */
 
             /* align-content定义子项在侧轴上的排列方式，只有在多行的情况下（设置了flex-wrap: wrap）才会生效，在单行（flex-wrap: nowrap）下是没有效果的！ */
             align-content: normal;
@@ -104,13 +104,16 @@
         display: flex;
         background-color: gray;
     }
+
     .div1 {
         flex: 1;
         background-color: aqua;
     }
+
     .div2 {
         width: 100px;
         background-color: blueviolet;
+        order: -1;
     }
 </style>
 

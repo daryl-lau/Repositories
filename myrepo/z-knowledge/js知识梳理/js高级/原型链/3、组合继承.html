@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 把原型链继承和构造函数继承结合使用，就是组合继承
+
+    function Father(name) {
+      this.name = name
+      this.arr = [1, 2, 3]
+    }
+
+    Father.prototype.printName = function () {
+      console.log(this.name);
+    }
+
+
+    // 构造函数继承父类的方法和属性
+    function Son(name, age) {
+      Father.call(this, name)
+      this.age = age
+    }
+
+    // 原型链继承父类原型上的方式和属性
+    Son.prototype = new Father()
+    Son.prototype.constructor = Son
+
+    Son.prototype.printSonAge = function () {
+      console.log(this.age);
+    }
+
+
+    let s = new Son('son', 18)
+    s.printSonAge()
+    s.printName()
+    console.log(s.arr);
+
+    s.arr.push(4)
+
+
+    // 可以调用父类原型上面的方法，实例的属性修改也不会影响其他实例的属性
+    let s1 = new Son('son1', 20)
+    s1.printSonAge()
+    s1.printName()
+    console.log(s.arr);       // [1, 2, 3, 4]
+    console.log(s1.arr);      // [1, 2, 3 ]
+
+    // 缺点：会调用两次父类的构造函数，第一次是在 new Faher() 的时候， 第二次是在new Son()的时候（new Son() 里面会执行 Father.call）
+    // 因此实例的原型对象上会有两份相同的属性，解决这个问题可以用寄生组合继承
+
+  </script>
+</body>
+
+</html>

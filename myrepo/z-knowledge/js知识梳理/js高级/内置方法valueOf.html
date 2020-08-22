@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // valueOf() 方法返回指定对象的原始值。
+    // 不同类型对象的valueOf()方法的返回值
+    // 对象       返回值
+    // Array      返回数组对象本身。
+    // Boolean    布尔值。
+    // Date	      存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。
+    // Function	  函数本身。
+    // Number	    数字值。
+    // Object	    对象本身。这是默认情况。
+    // String	    字符串值。
+
+    // valueOf 一般在做运算或者大小比较的时候会自动调用，下面的例子会显示成功，则表示valueOf表示test函数自身
+    function test() { }
+    test === test.valueOf() // true
+
+    // 改写valueOf， valueOf 是一个函数
+    test.valueOf = function () {
+      return 'test'
+    }
+
+    // 下面是true，因为改写了valueOf方法，在对其进行运算或者比较的时候会隐式调用
+    test + '' === 'test'  // true
+
+    // 但是注意下面这个，当进行严格校验的时候，此时不会隐式调用
+    test == 'test'  // true
+    test === 'test' // false
+
+  </script>
+</body>
+
+</html>

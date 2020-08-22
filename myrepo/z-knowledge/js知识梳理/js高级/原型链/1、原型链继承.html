@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 原型链继承，定义一个父类
+    function Father(name) {
+      this.fatherName = [name]
+    }
+
+    Father.prototype.printFatherName = function () {
+      console.log(this.fatherName);
+    }
+
+    function Son(name) {
+      this.sonName = name
+    }
+
+    Son.prototype = new Father('Father')
+    Son.prototype.constructor = Son
+
+    Son.prototype.printSonName = function () {
+      console.log(this.sonName);
+    }
+
+    let s = new Son('Son')
+    s.printFatherName()             // ["Father"]
+    s.printSonName()                // Son
+    console.log(s.fatherName);      // ["Father"]
+    console.log(s.sonName);         // Son
+
+
+    // 原型链继承的缺陷，对于引用数据类型，如果Son有多个实例，其中一个实例对继承的父类属性做了修改，那么所有实例都会随之修改
+    let s1 = new Son('Son1')
+    s1.printFatherName()            // ["Father"]
+    s1.printSonName()               // Son1
+    console.log(s1.fatherName);     // ["Father"]
+    console.log(s1.sonName);        // Son1
+
+    s.fatherName.push('newName')    // s 对继承的属性做了修改，此时 s1 也会随之修改
+    console.log(s.fatherName);      // ["Father", "newName"]
+    console.log(s1.fatherName);     // ["Father", "newName"]
+  </script>
+</body>
+
+</html>

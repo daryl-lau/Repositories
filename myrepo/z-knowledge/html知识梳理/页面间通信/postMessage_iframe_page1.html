@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='parent'>hello word postMessage</div>
+  <button>给iframe发消息</button>
+  <br />
+  <iframe src="file:///D:/Microsoft%20VS%20Code/Repositories/myrepo/z-knowledge/html%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/%E9%A1%B5%E9%9D%A2%E9%97%B4%E9%80%9A%E4%BF%A1/postMessage_iframe_page2.html"
+    id='child'></iframe>
+  <script>
+    let btn = document.querySelector('button');
+
+    btn.onclick = function () {
+      window.frames[0].postMessage('我是消息', '*')
+    }
+
+    window.addEventListener('message', function (e) {
+      console.log(e)
+      document.querySelector('#parent').innerHTML = e.data;
+    });
+
+  </script>
+</body>
+
+</html>

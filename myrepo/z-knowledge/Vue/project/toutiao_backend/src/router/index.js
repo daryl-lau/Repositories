@@ -34,6 +34,7 @@ const Rights = () => import(/* webpackChunkName: "Rights" */ '@/views/Rights')
 const Roles = () => import(/* webpackChunkName: "Roles" */ '@/views/Roles')
 const Users = () => import(/* webpackChunkName: "Users" */ '@/views/Users')
 const Add = () => import(/* webpackChunkName: "Goods" */ '@/components/Add')
+const Test = () => import(/* webpackChunkName: "Goods" */ '@/views/test')
 
 const routes = [
   { path: '/', redirect: '/welcome' },
@@ -52,6 +53,7 @@ const routes = [
       { path: '/rights', component: Rights },
       { path: '/roles', component: Roles },
       { path: '/users', component: Users },
+      { path: '/test', component: Test },
     ]
   }
 ]

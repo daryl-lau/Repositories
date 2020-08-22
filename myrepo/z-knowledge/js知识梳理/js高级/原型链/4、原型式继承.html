@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let Father = {
+      name: 'Father',
+      friends: ['A', 'B', 'C'],
+      printName: function () { console.log(this.name); }
+    }
+
+    // 原型式继承原理是，创建一个中间实例，中间实例的原型指向父类（这个父类此时是一个对象的实例）
+    // 这个函数是Object.create函数的模拟实现
+    function createObj(obj) {
+      function F() { }
+      F.prototype = obj
+      return new F()
+    }
+
+    let Son1 = createObj(Father)
+    let Son2 = createObj(Father)
+
+    // 使用下面Object.create()函数是一样的
+    // let Son1 = Object.create(Father)
+    // let Son2 = Object.create(Father)
+
+    // 这里修改name值，并不是修改了原型上的name，而是给自己身上加了一个name属性
+    Son1.name = 'Son1'
+    Son2.name = 'Son2'
+
+    Son1.printName()
+    Son2.printName()
+
+    // 缺点：原型链继承多个实例的引用类型属性指向相同，存在篡改的可能。
+    Son1.friends.push('D')
+    console.log(Son1.friends);  // ["A", "B", "C", "D"]
+    console.log(Son2.friends);  // ["A", "B", "C", "D"]
+
+
+  </script>
+</body>
+
+</html>

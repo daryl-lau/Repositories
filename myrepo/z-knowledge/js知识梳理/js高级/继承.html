@@ -91,12 +91,12 @@
             }
             log() {
                 console.log(super.log());   // 在子类中无法直接拿到父类中的属性，但是可以在父类中暴露api，子类中进行获取
+                console.log(this.a, this.b, 1111111111);
                 return [super.sum(), this.c]   // 这里无法拿到a, b参数，只能拿到自己的属性c
             }
         }
         let cal4 = new son1(11, 22, 33)
-        console.log(cal4.sum());    // Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
-        console.log(cal4.log());    // [2, 1]
+        console.log(cal4.log());    // [33, 33]
 
     </script>
 </body>

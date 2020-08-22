@@ -26,6 +26,25 @@
         obj.house.A = '100000w'
         console.log(obj, newObj);
 
+        // 解构赋值浅拷贝
+        let obj4 = { a: 1, b: 2 }
+        let obj5 = { ...obj4 }
+        obj4.a = 100
+        console.log('obj4', obj4);
+        console.log('obj5', obj5);
+
+        let obj6 = {
+            name: 'jerry',
+            car: ['宝马', '奔驰', '保时捷', '劳斯莱斯'],
+            house: {
+                A: '100w',
+                B: '200w',
+                C: '300w'
+            }
+        }
+        let obj7 = { ...obj }
+        obj6.car[0] = '桑塔纳'
+        console.log('obj7', obj6);
 
 
         // 深拷贝，拷贝的时候如果是引用数据类型，则拷贝真实数据，那么其中一个数据改变，另外一个不会跟着改变
@@ -84,12 +103,27 @@
             }
         };
 
-        let obj3 = [1, 2, 3, [1, 2, 3,], 45, 6];
+        let arr = [1, 2, 3, [1, 2, 3,], 45, 6, { a: function () { } }];
 
         let newObj2 = deepCopy1(obj2)
         obj2.car[0] = '奥迪';
         obj2.house.A = '100000w'
         console.log(obj2, newObj2);
+
+        let newArr = deepCopy1(arr)
+        arr[3][0] = 1000
+        arr[6].a = 1000
+        console.log(arr, newArr);
+
+
+        reg = new RegExp()
+        date = new Date()
+        // JSON这种拷贝方式有个弊端，就是属性值只能是json能解析的格式，例如对象，数组，字符串，数字，null, 布尔值
+        // 想function，date，正则都不能正确的解析
+        let obj8 = { a: { b: { c: 1 } }, f: null, g: true, d: function () { }, e: reg, }
+        console.log(JSON.stringify(obj8));
+        let obj9 = JSON.parse(JSON.stringify(obj8))
+        console.log(obj9);
     </script>
 </body>
 

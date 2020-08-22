@@ -31,6 +31,12 @@
         arr4[0] = 999;
         console.log(arr3, arr4);  // [4, 5, 6] [999, 5, 6]
 
+        let f1 = function () { console.log('function'); }
+        let f2 = f1
+        f2.valueOf = function () { return 'new funciton' }
+        console.log(f1.valueOf());
+        console.log(f2.valueOf());
+
 
         // 值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol。
         // 栈内存中包括了变量的标识符和变量的值。

@@ -60,8 +60,9 @@
 
         // ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键
         // Map()传入的参数一定要是一个可迭代对象
-        let map = new Map([['a', 'b']])
-        console.log(map);
+        let map = new Map([['a', 1], ['b', 2]])
+        let map1 = new Map(new Set([['c', 3], ['d', 4]]))
+        console.log(map, map1);
 
         // 添加一个Map，任何数据类型都可以作为Map的key
         map.set(1, '1')
@@ -111,8 +112,18 @@
         for (let [key, value] of newMap) {
             console.log(key, value);
         }
-// "F" "no"
-// "T" "yes"
+        // "F" "no"
+        // "T" "yes"
+
+        // WeakSet 和 WeakMap
+        // WeakSet 只能存放对象，且该对象是弱引用的，一旦改对象的引用消失，该对象就会被GC回收
+        // 比如：
+        let someObj = { a: { prop: 'weakProp' } }
+        let weakSet = new WeakSet([someObj.a])
+        // delete someObj  // 删掉someObj，此时GC会自动回收
+
+
+        // WeakMap 只能用对象做为键，同
 
     </script>
 </body>
