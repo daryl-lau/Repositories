@@ -16,7 +16,7 @@ class Queue {
   }
 
   tail () {
-    return this.queue[this.queue.length - 1]
+    return this.queue[this.size() - 1]
   }
 
   size () {

@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+

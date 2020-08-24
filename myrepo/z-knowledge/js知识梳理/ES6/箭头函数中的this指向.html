@@ -9,6 +9,14 @@
 
 <body>
     <script>
+        // 箭头函数特性：
+        //  不能 new，不能用作构造函数
+        //  箭头函数不能用作 generator 函数
+        //  箭头函数内部没有内置的 arguments 参数，通过剩余参数获取
+        //  this 指向的不是调用者，而是指向箭头函数所在作用域的环境上下文
+
+
+
         let obj = {
             name: 'jerry',
             say: () => {
@@ -44,6 +52,7 @@
             console.log(arguments); // 报错：arguments is not defined
         }
         fun1(1, 2, 3)
+
 
 
     </script>

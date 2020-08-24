@@ -24,7 +24,7 @@ class Promise {
   }
 
   then (resolveCallback, rejectCallback) {
-    return new Promise((resolve, reject) => {
+    let promise = new Promise((resolve, reject) => {
       if (this.state === 'pending') {
         this.resolveCallbacks.push(() => {
           let x = resolveCallback(this.value)
@@ -44,6 +44,7 @@ class Promise {
         reject(x)
       }
     })
+    return promise
   }
 }
 
