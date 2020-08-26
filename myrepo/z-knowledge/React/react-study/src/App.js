@@ -5,12 +5,14 @@ import './index.css'
 
 import Com1 from './components/jsx初体验'
 import List from './components/列表渲染'
+import { LoadDataComp } from './components/列表渲染'
 // import Father from './components/组合组件及传值props'
 // import Wrapper from './components/state'
 // import TransFatherToChild from './components/组件通信-子传父状态提升'
 // import TransChildToFather from './components/组件通信-父传子'
-// import TransBetweenCompTree from './components/组件通信-组件树传值contentType'
-// import Consumer from './components/组件通信-组件树传值-consumer'
+import TransBetweenCompTree from './components/组件通信-组件树传值contextType'
+import TransBetweenCompTree1 from './components/组件通信-组件树传值contextType1'
+import Consumer from './components/组件通信-组件树传值-consumer'
 // import CompRouter from './components/router/index'
 // import LazyLoadTest from './components/lazy懒加载'
 // import ErrorTest from './components/错误边界'
@@ -31,14 +33,15 @@ import LifeCycle, { LifeCycleFather } from './components/生命周期'
 // import OriginRedux from './components/原始redux使用'
 // import SagaTest from './components/redux/SagaTest'
 import ReactChildren from './components/API_React.Children'
+import ReactCloneElement from './components/API_React.cloneElement'
 import Dialog from './components/protals'
 // import HocChain from './components/HOC链式调用'
 // import HooksCallBack from './components/hooks_useCallback'
 // import HooksMemo from './components/hooks_useMemo'
-// import HooksRef from './components/hooks_useRef_useImperativeHandle转发'
+import HooksRef from './components/hooks_useRef_useImperativeHandle转发'
 // import HooksMyHooks from './components/hooks_自定义hook'
 // import HooksDebounce from './components/hooks-自定义useDebounce-测试'
-import { UseRefCreateRef,UseRefCreateRef2 } from './components/hooks_useRef_createRef对比'
+import { UseRefCreateRef, UseRefCreateRef2 } from './components/hooks_useRef_createRef对比'
 import SyntheticEvents from './components/合成事件'
 import DangerouslySetInnerHtml from './components/dangerouslySetInnerHTML'
 
@@ -50,9 +53,10 @@ function App () {
     <div className="App">
       {/* <LazyLoadTest></LazyLoadTest> */}
       <br />
-      <Com1></Com1>
+      {/* <Com1></Com1> */}
       <br />
       <List></List>
+      <LoadDataComp></LoadDataComp>
       <br />
       {/* <Father></Father> */}
       <br />
@@ -62,9 +66,10 @@ function App () {
       <br />
       {/* <TransFatherToChild></TransFatherToChild> */}
       <br />
-      {/* <TransBetweenCompTree></TransBetweenCompTree> */}
+      <TransBetweenCompTree></TransBetweenCompTree>
+      <TransBetweenCompTree1></TransBetweenCompTree1>
       <br />
-      {/* <Consumer></Consumer> */}
+      <Consumer></Consumer>
       <br />
       {/* <CompRouter></CompRouter> */}
       <br />
@@ -76,20 +81,20 @@ function App () {
       <br />
       {/* <ControlComp></ControlComp> */}
       <br />
-      <PropTypesComp list={[1, 2, 3]}>
+      {/* <PropTypesComp list={[1, 2, 3]}>
         {<h1>123</h1>}
-      </PropTypesComp>
+      </PropTypesComp> */}
       <br />
       {/* <Mouse render={mouse => <h1>rendre props-鼠标位置：{mouse.x},{mouse.y}</h1>}></Mouse> */}
       <br />
       {/* <MousePosition a={1}></MousePosition> */}
       <br />
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
       <br />
       {/* <SyncCount></SyncCount> */}
       <br />
       {/* <LifeCycle></LifeCycle> */}
-      <LifeCycleFather></LifeCycleFather>
+      {/* <LifeCycleFather></LifeCycleFather> */}
       <br />
       {/* <CountHooks></CountHooks> */}
       <br />
@@ -102,18 +107,19 @@ function App () {
       {/* <OriginRedux></OriginRedux> */}
       {/* <SagaTest></SagaTest> */}
       <ReactChildren></ReactChildren>
-      <Dialog></Dialog>
+      <ReactCloneElement></ReactCloneElement>
+      {/* <Dialog></Dialog> */}
       {/* <HocChain a={'a'}></HocChain> */}
       {/* <HooksCallBack></HooksCallBack> */}
       {/* <HooksMemo></HooksMemo> */}
-      {/* <HooksRef></HooksRef> */}
+      <HooksRef></HooksRef>
       {/* <HooksMyHooks></HooksMyHooks> */}
       {/* <MobxComp></MobxComp> */}
       {/* <HooksDebounce></HooksDebounce> */}
       {/* <UseRefCreateRef></UseRefCreateRef> */}
-      <UseRefCreateRef2></UseRefCreateRef2>
-      <SyntheticEvents></SyntheticEvents>
-      <DangerouslySetInnerHtml></DangerouslySetInnerHtml>
+      {/* <UseRefCreateRef2></UseRefCreateRef2> */}
+      {/* <SyntheticEvents></SyntheticEvents> */}
+      {/* <DangerouslySetInnerHtml></DangerouslySetInnerHtml> */}
     </div>
   );
 }

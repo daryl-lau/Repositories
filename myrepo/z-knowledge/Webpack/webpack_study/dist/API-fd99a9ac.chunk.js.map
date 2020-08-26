@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./utils/api.js"],"names":["console","log"],"mappings":"2GAAA,+BAKe,qBACbA,QAAQC,IAAI","file":"API-fd99a9ac.chunk.js","sourcesContent":["import '../src/css/base.css'\r\n\r\n/* \r\n APIAPIAPIAPIAPIAPIAPIAPIAPIAPI\r\n*/\r\nexport default function () { \r\n  console.log('API');\r\n}"],"sourceRoot":""}

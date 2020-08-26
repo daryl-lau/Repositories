@@ -11,7 +11,7 @@ class MyComp extends React.Component {
     }
   }
 
-  // 这里nextProps获取到的就是最新的props值，getDerivedStateFromProps钩子返回一个对象，用来修改state
+  // 这里nextProps获取到的就是最新的props值， getDerivedStateFromProps 钩子返回一个对象，用来修改state
   static getDerivedStateFromProps (nextProps) {
     console.log(nextProps);
     return { count: nextProps.count }

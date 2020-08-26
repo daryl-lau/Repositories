@@ -5,11 +5,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const ManifestPlugin = require('webpack-manifest-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 
 module.exports = {
   mode: 'development',
-  // devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: './dist',
   },
@@ -62,6 +63,15 @@ module.exports = {
     ]
   },
   optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin({
+      terserOptions: {
+        output: {
+          comments: false,
+        },
+      },
+      extractComments: false,
+    })],
     splitChunks: {
       chunks: "initial",
       minSize: 30000, // 模块的最小体积

@@ -9,21 +9,25 @@ import * as serviceWorker from './serviceWorker';
 // import sagaStore from './components/redux/saga'
 // import mobxStore from './components/mobx'
 
-// import { Provider } from 'react-redux'
-import { Provider } from 'mobx-react'
+import { Provider } from 'react-redux'
+// import { Provider } from 'mobx-react'
+
+// import store from './components/redux/redux-saga/listData'
+import store from './components/redux/redux-saga/抽离/index'
 
 import { BrowserRouter as Router } from 'react-router-dom'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    {/* <Provider store={sagaStore}> */}
+  // <React.StrictMode>
+  <Provider store={store}>
     {/* <Provider {...mobxStore}> */}
-      {/* <Router> */}
-        <App />
-      {/* </Router> */}
-    {/* </Provider> */}
-  </React.StrictMode>,
+    {/* <Router> */}
+    <App />
+    {/* </Router> */}
+  </Provider>
+  // </React.StrictMode>,
+  ,
   document.getElementById('root')
 );
 

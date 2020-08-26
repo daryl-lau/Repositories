@@ -16,12 +16,13 @@ class ReactChildren extends React.Component {
           有这些，React.Children.map,React.Children.forEach,React.Children.count,React.Children.only,React.Children.toArray,
           React.Children.map和数组的map使用方法不一样，React.Children.map第一个参数传入的是children，
           第二个参数是一个函数，参数是每个child，我们可以直接返回child渲染，也可以根据child进行扩展，添加属性等操作
-          但是child是只读的，不能直接进行修改，需要使用React.cloneElement api克隆扩展
+          但是child是只读的（所有的react元素都是只读的），不能直接进行修改，需要使用React.cloneElement api克隆扩展
           React.cloneElement(
             element,        // 克隆的母体React元素
             [props],        // 扩展的属性，如果属性重名则覆盖，是一个对象，可以扩展多个属性
             [...children]   // 为新生成的React元素添加新的children，取代从母体中克隆而来的children，可以是数组，添加多个children
-          )
+                            // 每个子元素上都需要有一个唯一的key属性，否则会报错
+          )                   
         */}
         {React.Children.map(this.props.children, (child) => {
           console.log(child);

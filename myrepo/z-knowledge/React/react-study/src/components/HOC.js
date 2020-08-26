@@ -32,7 +32,7 @@ function withMouse (Comp) {
 
     render () {
       return (
-        // 将高阶函数内部复用的状态传递给组件使用
+        // 高阶组件内部记得透传props，否则子组件内部是无法获取到父组件的props的
         <Comp {...this.state} {...this.props}></Comp>
       )
     }

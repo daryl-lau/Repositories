@@ -18,7 +18,7 @@ class Father extends React.Component {
           console.log(111);
           this.setState({
             style: {
-              // 注意这里不能直接修改，需要先保存原来的值，再进行修改
+              // 注意这里不能直接修改，需要先保存原来的值，再进行修改，因为这个函数自己也在state中
               ...this.state.style,
               color: this.hexRandomColor()
             }
@@ -86,6 +86,12 @@ class ChCh extends React.Component {
 }
 
 class ChChCh extends React.Component {
+
+  // 在使用consumer的时候，不能在生命周期中获取到上下文的信息，只能在consumer里面获取到
+  componentDidMount () { 
+    console.log(this, 'consumer');
+    console.log(this.context, 'consumer');
+  }
 
   render () {
     return (

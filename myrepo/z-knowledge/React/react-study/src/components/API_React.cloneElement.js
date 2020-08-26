@@ -27,7 +27,7 @@ class ReactChildren extends React.Component {
         {React.Children.map(this.props.children, (child) => {
           console.log(child);
           // return child   // 直接返回child渲染
-          return React.cloneElement(child, { style: { color: 'red' }, name: 'title' }, ['我是新的children', '123123', <p>我是新的children</p>])
+          return React.cloneElement(child, { style: { color: 'red' }, name: 'title' }, ['我是新的children', '123123', <span key={null}>我是新的children</span>])
         })}
       </div>
     )

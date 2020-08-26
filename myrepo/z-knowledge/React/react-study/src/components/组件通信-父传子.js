@@ -10,7 +10,7 @@ class TransFather extends React.Component {
     render () {
         return (
             <div>
-                {/* 父组件把回调函数传给子组件 */}
+                {/* 通过props进行传值 */}
                 <TransChild msg={this.state.msg}></TransChild>
             </div>
         )

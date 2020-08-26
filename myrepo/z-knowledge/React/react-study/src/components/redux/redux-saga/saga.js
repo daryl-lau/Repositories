@@ -2,13 +2,14 @@ import { takeEvery, call, put, fork, takeLatest, takeLeading, select } from 'red
 import createSagaMiddleware from 'redux-saga'
 import { createStore, applyMiddleware } from 'redux'
 
-import axios from 'axios'
+// import axios from 'axios'
 
 
 /* 
 redux-sage分为watch saga 和 work saga。
 watch saga 用于监听action，如果有dispatch action，那么就会被监听，执行相应的处理函数
 此处理函数就是work saga，在此函数中可以执行异步操作
+任何effect的执行都需要使用在 yield 关键字之后
 
 watcher saga  
 takeEvery     监听类型，同一时间允许多个处理函数同时进行，并发
@@ -42,6 +43,8 @@ select  获取当前state中的部分数据，第一个参数是一个函数，�
 
           let state2 = yield select(selector, 0)
           console.log(state2, 'select2');
+
+          select 也可以不传任何参数，返回值就直接是当前的所有状态
 
 
 如果在处理函数中想要并发的执行副作用，可以使用
@@ -93,6 +96,7 @@ function* getHouseList (action) {
 
 
 // watchSaga，对外面dispatch进行拦截，指定处理函数，并将action传给该函数
+//! 这里takeEvery监听的action type 不能和 reducer里面的 action type 重名，否则不会经过work saga，直接就去执行reducer了 
 function* watchSaga () {
   yield takeEvery('getHouseList', getHouseList)
 }
