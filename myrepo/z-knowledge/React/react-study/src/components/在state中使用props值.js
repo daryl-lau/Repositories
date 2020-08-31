@@ -6,6 +6,7 @@ class MyComp extends React.Component {
 
     // constructor仅仅在组件挂载的时候才会访问一次，因此这里的state在挂载之后，父组件的props无论怎么变，这里state的值都不会变
     // 如果想要子组件的state随着父组件的props变化而变化，可以使用getDerivedStateFromProps生命周期钩子
+    // 或者直接在jsx中使用props，而不是先赋给state，再从state取值
     this.state = {
       count: this.props.count
     }

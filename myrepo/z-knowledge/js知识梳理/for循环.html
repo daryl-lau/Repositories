@@ -10,8 +10,9 @@
 <body>
     <script>
         // for
-        for (let i = 0; i < 10; i++) {
-            console.log(i);
+        for (let i = 0, j = i + 1; i < 10; i++) {
+            console.log(i, j);
+            j++
         }
 
         // for in 
@@ -50,6 +51,25 @@
         for (let key in obj1) {
             console.log(key);   // a, b, c
         }
+
+
+        //! 需要注意的是，for in 循环会遍历原型上添加的属性，包括函数，而 for i++ 和 Object.keys()不会
+        let arr2 = [1, 2, 3]
+        arr2.__proto__.name = 'jerry'
+
+        for (let i in arr2) {
+            console.log(arr2[i])    // 1, 2, 3, jerry
+        }
+
+        for (let i = 0; i < arr2.length; i++) {
+            console.log(arr2[i])    // 1, 2, 3
+        };
+
+        for (let i in Object.keys(arr2)) {
+            console.log(arr2[i])    // 1, 2, 3
+        }
+
+
     </script>
 </body>
 

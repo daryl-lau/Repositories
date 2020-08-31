@@ -6,10 +6,12 @@ export default function CountHooks () {
   //! 在编写自定义hook过程中，需要注意到这一点，需要缓存下的数据需要做特殊处理，否则将会全部重新执行初始化
 
   // 在class中state只能作为对象，但在useState hook中不仅仅可以使用对象，还可以使用数组，数字，字符串等
+  // 只有在第一次渲染的时候，useState的初始值是有作用的，在重新渲染的时候是跟初始值无关的
+  // 但是如果初始值是一个函数的返回值，那么这个函数
   const [count, setCount] = useState(0)
 
   // Similar to componentDidMount and componentDidUpdate:
-  // effect不仅在组件第一次挂载的时候执行一次，且当组件更新的时候，也会执行
+  // ef一fect不仅在组件第一次挂载的时候执行次，且当组件更新的时候，也会执行
   // 可以在 effect hook 提供的第二个参数中，传入一个数组，数组中定义监控的状态，只有当前状态和上一个状态不一样时，才执行effect，否则不会执行，是一个优化手段
   // 如果传入一个空数组，那么effect只会在componentDidMount执行一次，清除副作用在卸载的时候执行一次，componentDidUpdate阶段都不会执行，这里副作用是否执行不会影响状态的正常更新
   useEffect(() => {
@@ -30,6 +32,9 @@ export default function CountHooks () {
   const [fields, setfields] = useState([0]);
 
   function change () {
+    // setfields([...fields, 1])
+    // setfields([...fields, 2])
+
     setfields((state) => {
       return [...state, 1]
     })
@@ -43,6 +48,8 @@ export default function CountHooks () {
     // setTimeout(() => { 
     //   setfields([...fields, 2])
     // }, 0)
+
+    console.log(fields);
   }
 
   useEffect(() => {

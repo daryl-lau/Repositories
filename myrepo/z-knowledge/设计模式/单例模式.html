@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .modal {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      position: fixed;
+      left: 50%;
+      top: 200px;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="btn">点击</div>
+  <script>
+    const btn = document.querySelector('#btn');
+
+    function createModal() {
+      console.log('创建modal');
+      let modal = document.createElement('div')
+      modal.setAttribute('class', 'modal')
+      modal.innerHTML = '模态框'
+      modal.addEventListener('click', function () {
+        modal.style.display = 'none'
+      })
+      document.body.append(modal)
+      return modal
+    }
+
+
+    // 下面这种就是单例模式，很常见，可能自己都不知道这是一种设计模式
+    // 但是这种可能会有全局变量冲突，所以要写在一个函数里面
+    // let modalInstance
+    // btn.addEventListener('click', function () {
+    //   if (modalInstance) {
+    //     modalInstance.style.display = 'block'
+    //   } else {
+    //     modalInstance = createModal()
+    //   }
+    // })
+
+    // 下面这种方式在外面包裹了一层
+    function single(fn) {
+      let instance;
+      return function (...args) {
+        if (instance) return instance
+        instance = fn.apply(this, args)
+        return instance
+      }
+    }
+
+    createModal1 = single(createModal)
+    btn.addEventListener('click', function () {
+      const ins = createModal1(new Date())
+      ins.style.display = 'block'
+    })
+
+  </script>
+</body>
+
+</html>

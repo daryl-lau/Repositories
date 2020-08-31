@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 浏览器自己实现了保留有效数字操作，返回一个字符串，可以指定有效保留几位，不够的四舍五入
+    let num = 1234567.123456
+    console.log(num.toPrecision(11));     // 1234567.1235
+  </script>
+</body>
+
+</html>

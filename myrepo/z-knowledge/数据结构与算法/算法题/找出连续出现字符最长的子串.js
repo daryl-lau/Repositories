@@ -1,5 +1,23 @@
 let myString = 'aaabcdeeeghhhaaaaaaaffiooo0000000';
 
+function maxRepeactString (str) {
+  //定义一个对象，对象的每个属性是出现连续重复的字符，属性的属性值是该字符重复的个数
+  let res = {};
+  let j = 1
+  for (let i = 0; i < str.length; i++) {
+    while (str[i] == str[j]) {
+      res[str[i]] = j - i + 1;
+      j++
+    }
+  }
+  return res;
+}
+console.time('time1')
+console.log(maxRepeactString(myString));
+console.timeEnd('time1')
+
+
+
 function check (str) {
   let myStringArr = str.split('')
   let index = 0
@@ -28,20 +46,7 @@ function check (str) {
   return (`最长的子串为${result.join('')}，长度为${length}`)
 }
 
-console.time('time')
+console.time('time2')
 console.log(check(myString));
-console.timeEnd('time')
+console.timeEnd('time2')
 
-function maxRepeactString (str) {
-  //定义一个对象，对象的每个属性是出现连续重复的字符，属性的属性值是该字符重复的个数
-  var res = {};
-  for (var i = 0, j = i + 1; i < str.length; i++) {
-    while (str[i] == str[j]) {
-      j++;
-      res[str[i]] = j - i + 1;
-    }
-  }
-  return res;
-}
-
-console.log(maxRepeactString(myString));
