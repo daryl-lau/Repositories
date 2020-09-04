@@ -9,29 +9,29 @@ function* sagaAddList ({ payload }) {
     return fetch('https://baihuzi.com:5443/home/swiper').then(d => d.json())
   }
 
-  let res = yield call(f, 'params')
-  console.log(res);
+  // let res = yield call(f, 'params')
+  // console.log(res);
 
 
-  let p = function () {
-    return new Promise(resolve => {
-      setTimeout(resolve, 2000)
-    })
-  }
-  yield call(p)
+  // let p = function () {
+  //   return new Promise(resolve => {
+  //     setTimeout(resolve, 2000)
+  //   })
+  // }
+  // yield call(p)
 
-  function selector (state) {
-    return state
-  }
-  let beforeState = yield select(selector)
-  console.log(beforeState);
+  // function selector (state) {
+  //   return state
+  // }
+  // let beforeState = yield select(selector)
+  // console.log(beforeState);
 
   yield put(addList(payload))
 
-  let afterState = yield select()
-  console.log(afterState);
+  // let afterState = yield select()
+  // console.log(afterState);
 
-  console.log('end');
+  // console.log('end');
 }
 
 

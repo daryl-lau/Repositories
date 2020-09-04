@@ -48,38 +48,51 @@ import FuncCompProps from './components/函数型组件使用props作为state'
 import UseMemo from './components/使用useMemo hook进行优化'
 import Render from './components/探究父子组件重新渲染'
 import LazyInitState from './components/hooks_useState惰性初始化'
+import Upload from './components/yewu/upload'
+import AnimationComp from './components/react-spring/use-spring'
+import AnimationComp2 from './components/react-spring/use-interpolate'
+import AnimationComp3 from './components/react-spring/use-transition'
+import ClassNamesUse from './components/classnames使用'
+import KeepAlive from './components/keep-alive'
 
 // import MobxComp from './components/mobx/mobxTest'
 
 
-function callback (
-  id, // 发生提交的 Profiler 树的 “id”
-  phase, // "mount" （如果组件树刚加载） 或者 "update" （如果它重渲染了）之一
-  actualDuration, // 本次更新 committed 花费的渲染时间
-  baseDuration, // 估计不使用 memoization 的情况下渲染整颗子树需要的时间
-  startTime, // 本次更新中 React 开始渲染的时间
-  commitTime, // 本次更新中 React committed 的时间
-  interactions // 属于本次更新的 interactions 的集合
-) {
-  // 合计或记录渲染时间。。。
-  console.log(
-    id,
-    phase,
-    actualDuration,
-    baseDuration,
-    startTime,
-    commitTime,
-    interactions);
-}
+// function callback (
+//   id, // 发生提交的 Profiler 树的 “id”
+//   phase, // "mount" （如果组件树刚加载） 或者 "update" （如果它重渲染了）之一
+//   actualDuration, // 本次更新 committed 花费的渲染时间
+//   baseDuration, // 估计不使用 memoization 的情况下渲染整颗子树需要的时间
+//   startTime, // 本次更新中 React 开始渲染的时间
+//   commitTime, // 本次更新中 React committed 的时间
+//   interactions // 属于本次更新的 interactions 的集合
+// ) {
+//   // 合计或记录渲染时间。。。
+//   console.log(
+//     id,
+//     phase,
+//     actualDuration,
+//     baseDuration,
+//     startTime,
+//     commitTime,
+//     interactions);
+// }
 
 function App () {
   return (
     <div className="App">
+
+      <KeepAlive></KeepAlive>
+      <ClassNamesUse></ClassNamesUse>
       {/* <LazyLoadTest></LazyLoadTest> */}
+      <AnimationComp></AnimationComp>
+      {/* <AnimationComp2></AnimationComp2> */}
+      {/* <AnimationComp3></AnimationComp3> */}
       <br />
       <Com1></Com1>
       <br />
-      <Profiler id="list" onRender={callback}><List></List></Profiler>
+      {/* <Profiler id="list" onRender={callback}><List></List></Profiler> */}
+      <List></List>
       <LoadDataComp></LoadDataComp>
       <br />
       {/* <Father></Father> */}
@@ -90,8 +103,8 @@ function App () {
       <br />
       {/* <TransFatherToChild></TransFatherToChild> */}
       <br />
-      <TransBetweenCompTree></TransBetweenCompTree>
-      <TransBetweenCompTree1></TransBetweenCompTree1>
+      {/* <TransBetweenCompTree></TransBetweenCompTree> */}
+      {/* <TransBetweenCompTree1></TransBetweenCompTree1> */}
       <br />
       <Consumer></Consumer>
       <br />
@@ -113,41 +126,42 @@ function App () {
       <br />
       {/* <MousePosition a={1}></MousePosition> */}
       <br />
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
       <br />
       {/* <SyncCount></SyncCount> */}
       <br />
       {/* <LifeCycle></LifeCycle> */}
       {/* <LifeCycleFather></LifeCycleFather> */}
       <br />
-      <CountHooks></CountHooks>
+      {/* <CountHooks></CountHooks> */}
       <br />
-      <TimerHooks></TimerHooks>
+      {/* <TimerHooks></TimerHooks> */}
       <br />
       {/* <ContextHooks></ContextHooks> */}
       <br />
       {/* <ReducerCounter></ReducerCounter> */}
-      <ReducerCounter2 initialCount={0}></ReducerCounter2>
+      {/* <ReducerCounter2 initialCount={0}></ReducerCounter2> */}
       {/* <OriginRedux></OriginRedux> */}
       {/* <SagaTest></SagaTest> */}
-      <ReactChildren></ReactChildren>
-      <ReactCloneElement></ReactCloneElement>
-      <Dialog></Dialog>
+      {/* <ReactChildren></ReactChildren> */}
+      {/* <ReactCloneElement></ReactCloneElement> */}
+      {/* <Dialog></Dialog> */}
       {/* <HocChain a={'a'}></HocChain> */}
-      <HooksCallBack></HooksCallBack>
-      <HooksMemo></HooksMemo>
-      <HooksRef></HooksRef>
-      <HooksMyHooks></HooksMyHooks>
+      {/* <HooksCallBack></HooksCallBack> */}
+      {/* <HooksMemo></HooksMemo> */}
+      {/* <HooksRef></HooksRef> */}
+      {/* <HooksMyHooks></HooksMyHooks> */}
       {/* <MobxComp></MobxComp> */}
       {/* <HooksDebounce></HooksDebounce> */}
       {/* <UseRefCreateRef></UseRefCreateRef> */}
-      <UseRefCreateRef2></UseRefCreateRef2>
-      {/* <SyntheticEvents></SyntheticEvents> */}
+      {/* <UseRefCreateRef2></UseRefCreateRef2> */}
+      <SyntheticEvents></SyntheticEvents>
       {/* <DangerouslySetInnerHtml></DangerouslySetInnerHtml> */}
-      <FuncCompProps></FuncCompProps>
-      <UseMemo></UseMemo>
-      <Render></Render>
-      <LazyInitState></LazyInitState>
+      {/* <FuncCompProps></FuncCompProps> */}
+      {/* <UseMemo></UseMemo> */}
+      {/* <Render></Render> */}
+      {/* <LazyInitState></LazyInitState> */}
+      {/* <Upload></Upload> */}
     </div>
   );
 }

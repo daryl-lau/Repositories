@@ -1,0 +1,8 @@
+.title {
+  height: 100px;
+  background-color: red;
+  transition: 1s, ease-in-out, 1s;
+}
+.title:hover {
+  height: 200px;
+}

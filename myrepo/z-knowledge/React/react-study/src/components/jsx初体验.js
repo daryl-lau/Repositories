@@ -9,6 +9,9 @@ class Com1 extends React.Component {
     this.name = 'jerry'
     this.age = 18
     this.func3 = this.func3.bind(this)
+    this.state = {
+      text: 'text'
+    }
   }
 
   // 如果使用箭头函数声明函数，调用方式：
@@ -35,6 +38,11 @@ class Com1 extends React.Component {
     console.log(param2);
   }
 
+  func4 () {
+    // console.log(this.name);
+    alert(this.name);
+  }
+
   // 每个组件都必须要有一个render函数返回模板，否则报错
   render () {
     // 注意js里面的return是不能换行的，如果要换行，用()包起来
@@ -56,6 +64,7 @@ class Com1 extends React.Component {
         <input id='username'></input>
 
         {/* react中事件传参 */}
+        <button onClick={this.func4}>点击4</button>
         <button onClick={(e) => { this.func1(e, '123', '456') }}>点击1</button>
         <button onClick={this.func2.bind(this, '123', '456')}>点击2</button>
         <button onClick={this.func1}>点击1</button>

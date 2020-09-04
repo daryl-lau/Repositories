@@ -1,4 +1,3 @@
-const { reduce } = require("underscore");
 
 // 实现一个函数
 // add(1)(2)      // 3

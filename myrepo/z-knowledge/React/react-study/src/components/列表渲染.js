@@ -1,24 +1,35 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { Transition, Spring } from 'react-spring/renderprops'
+
+
 class ListView extends React.Component {
     constructor(props) {
         super(props)
     }
 
     shouldComponentUpdate (props, state) {
-        console.log(props, this.props);
+        // console.log(props, this.props);
         if (props.item === this.props.item) { return false }
         return true
     }
 
 
     render () {
+
         console.log('ListView Render');
         return (
-            <div>
-                <p>{this.props.item}</p>
-            </div>
+            // <div>
+            //     <p>{this.props.item}</p>
+            // </div>
+            <Spring
+                // from={{ opacity: 0 }}
+                from={{ transform: 'translate3d(-40px,0,0)' }}
+                // to={{ opacity: 1 }}>
+                to={{ transform: 'translate3d(0,0,0)' }}>
+                {props => <div style={props}>{this.props.item}</div>}
+            </Spring>
         )
     }
 }
@@ -30,9 +41,20 @@ class List extends React.Component {
         // this.list = ['one', 'two', 'three', 'four', 'five']
     }
 
+    // const items = [...]
+
+
+
     render () {
         // console.log(this.props.listData.map((item, index) => <li key={index}>{item}</li>));
         return (
+            // <Transition
+            //     items={this.props.listData} keys={(_, index) => index}
+            //     from={{ transform: 'translate3d(0,-40px,0)' }}
+            //     enter={{ transform: 'translate3d(0,0px,0)' }}
+            //     leave={{ transform: 'translate3d(0,-40px,0)' }}>
+            //     {(item, index) => props => <ListView style={props} item={item} keys={index}></ListView>}
+            // </Transition>
             // <ul>
             //     {/* 每一个li都需要指定一个唯一的key，和vue的原因一样 */}
             //     {this.list.map((item, index) => <li key={index}>{item}</li>)}

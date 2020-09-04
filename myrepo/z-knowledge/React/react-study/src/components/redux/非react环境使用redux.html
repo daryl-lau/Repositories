@@ -117,6 +117,8 @@
     let increment = Redux.bindActionCreators(incrementActionCreator, store.dispatch)
     let actions = Redux.bindActionCreators({ incrementActionCreator, decrementActionCreator }, store.dispatch)
 
+    console.log(increment, actions);
+
     // createStore实际上还可以传入预加载的state，这个preloadState会和定义的reducers的state进行合并
     // createStore(reducers, [preloadState], enhancer)
   </script>

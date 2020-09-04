@@ -24,16 +24,22 @@ class SyntheticEvent extends React.Component {
   }
 
   clickHandler = (e) => {
-    console.log('React 事件触发了', e);
+    // 在 React 中 event 是一个 SyntheticEvent，如果和它的交互被延迟了（例如：通过 setTimeout），事件会被清除并且 .target.value 引用不会再有效。
+    // 所有的react合成事件都存放在一个事件池里面，当调用的时候给合成事件的事件对象赋值，执行完之后把事件对象设置为null，放回事件池，而不用每次都创建一个新的合成事件
+    // setTimeout(() => {
+    //   console.log('React 事件触发了', e.target);
+    // }, 2000)
+
+    console.log('React 事件触发了', e.target);
   }
 
-  componentDidMount () {
-    console.log(this.btnRef.current);
-    this.btnRef.current.addEventListener('click', function (e) {
-      console.log('原生事件触发了', e);
-      // e.stopPropagation();   // 原生事件先触发，如果在原生事件中阻止冒泡了，那么react事件将不会被触发
-    })
-  }
+  // componentDidMount () {
+  //   console.log(this.btnRef.current);
+  //   this.btnRef.current.addEventListener('click', function (e) {
+  //     console.log('原生事件触发了', e);
+  //     // e.stopPropagation();   // 原生事件先触发，如果在原生事件中阻止冒泡了，那么react事件将不会被触发
+  //   })
+  // }
 
   render () {
     return (

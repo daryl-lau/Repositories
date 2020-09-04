@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="p1">
+    <div class="p2">
+      <div class="p4">
+        <div class="node1"></div>
+      </div>
+    </div>
+    <div class="p3">
+      <div class="p5">
+        <div class="node2"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    let node1 = document.querySelector('.node1');
+    let node2 = document.querySelector('.node2');
+
+    function getCommonParent(node1, node2) {
+      if (node1.contains(node2)) return node1
+      if (node2.contains(node1)) return node2
+      for (; ; node1 = node1.parentNode) {
+        if (node1.contains(node2)) {
+          return node1
+        }
+      }
+    }
+
+    console.log(getCommonParent(node1, node2));
+
+  </script>
+
+</body>
+
+</html>

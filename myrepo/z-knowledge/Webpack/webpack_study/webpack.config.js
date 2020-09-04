@@ -63,7 +63,7 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [new TerserPlugin({
       terserOptions: {
         output: {
@@ -81,6 +81,16 @@ module.exports = {
       automaticNameDelimiter: '~', // 文件名的连接符
       name: true,
       cacheGroups: {
+        jquery: {
+          test: /jquery/,
+          priority: -5,
+          filename: 'jquery-[contenthash:8].min.js'
+        },
+        // underscore: {
+        //   test: /underscore/,
+        //   priority: -5,
+        //   filename: 'underscore-[contenthash:8].min.js'
+        // },
         vendors: {
           test: /[\\/]node_modules[\\/]/,  // 判断引入库是否是node_modules里的
           priority: -10,   // 数字越大优先级越高 （-10大于-20）
