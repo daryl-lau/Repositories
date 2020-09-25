@@ -42,14 +42,14 @@ queue.push(a)
 queue.push(b)
 
 async function exec () {
-  // for (let i = 0; i < queue.length; i++) {
-  //   let fn = queue[i]
-  //   await fn()
-  // };
-  while (queue.length) {
-    fn = queue.shift()
+  for (let i = 0; i < queue.length; i++) {
+    let fn = queue[i]
     await fn()
-  }
+  };
+  // while (queue.length) {
+  //   fn = queue.shift()
+  //   await fn()
+  // }
 }
 
 exec()

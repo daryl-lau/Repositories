@@ -42,9 +42,11 @@
         console.log(null === undefined);    // false    undefined的类型为undefined
 
 
-
         // instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上
-        // ！！！！只能判断引用数据类型！！！！
+        // 对于直接使用 n = 123 或者 s = 'string' 的变量，是不具有prototype属性的，因此不能用instanceof判断类型
+        // 但是如果使用 n = new Number(123) 或者 s = new String('string') 声明的属性，可以使用instanceif判断类型
+        // 对于这种特例，typeof也具有此差异，如果n = 123, typeof n 则为number，字符串s = 'string', typeof s 则为 string
+        // 如果 n = new Number(123) 或者 s = new String('string')，typeof n 或者 typeof s 则都为object
         console.log(_number instanceof Number);     //! false 因为instanceof 只能判断引用数据类型
         console.log(_string instanceof String);     //! false 因为instanceof 只能判断引用数据类型
 
@@ -62,8 +64,7 @@
 
         console.log(_date instanceof Date);         // true 日期的实例原型链上有Date 和 Object，因此下面两个都是true
         console.log(_date instanceof Object);       // true 事实上Date构造函数是继承自Object的
-
-
+        
         // 举个继承的例子
         class A { }
         class B extends A { }

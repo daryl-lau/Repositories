@@ -1,6 +1,6 @@
 <template>
   <div>
-      <!-- $attrs是子组件传递的属性（除了props用接收了的属性和class/style属性） -->
+      <!-- $attrs是子组件传递的属性（除了用props接收了的属性和class/style属性） -->
       <!-- v-bind:'$attrs'会自己展开，成为类似于type='text' aa='123'这样的属性 -->
     <input :value="value" @input="onInput($event)" v-bind="$attrs" />
   </div>
