@@ -15,7 +15,7 @@ class ReactChildren extends React.Component {
           如果不确定传入的个数，那么自己需要做一些判断，来进行处理，好在React帮我们想到了这一点，提供了一系列的API，专门用来处理this.props.children
           有这些，React.Children.map,React.Children.forEach,React.Children.count,React.Children.only,React.Children.toArray,
           React.Children.map和数组的map使用方法不一样，React.Children.map第一个参数传入的是children，
-          第二个参数是一个函数，参数是每个child，我们可以直接返回child渲染，也可以根据child进行扩展，添加属性等操作
+          第二个参数是一个函数，参数是每个child，以及map的index，我们可以直接返回child渲染，也可以根据child进行扩展，添加属性等操作
           但是child是只读的（所有的react元素都是只读的），不能直接进行修改，需要使用React.cloneElement api克隆扩展
           React.cloneElement(
             element,        // 克隆的母体React元素
@@ -24,7 +24,7 @@ class ReactChildren extends React.Component {
                             // 每个子元素上都需要有一个唯一的key属性，否则会报错
           )                   
         */}
-        {React.Children.map(this.props.children, (child) => {
+        {React.Children.map(this.props.children, (child, index) => {
           console.log(child);
           // return child   // 直接返回child渲染
           return React.cloneElement(child, { style: { color: 'red' }, name: 'title' }, [child.props.children, <span key={null}>新添加的内容</span>])

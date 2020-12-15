@@ -14,13 +14,14 @@ printLabell(myObj);
 // 接口可以单独声明出来，注意接口分隔符写 , 和 ; 都可以，推荐分号，和对象区分
 interface LabelledValue {
   label: string;
+  name: string;
 }
 
 function printLabel1(labelledObj: LabelledValue) {
   console.log(labelledObj.label);
 }
 
-let myObj1 = { size: 10, label: "Size 10 Object" };
+let myObj1 = { name: '10', label: "Size 10 Object" };
 printLabel1(myObj1);
 
 /* 

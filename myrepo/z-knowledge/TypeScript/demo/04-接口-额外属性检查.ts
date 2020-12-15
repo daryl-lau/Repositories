@@ -18,7 +18,7 @@ printLabel(myObj2);
 
 let obj = <Label>{}
 obj.label = 'string'
-// obj.aaa = 123  // 这里报错，只有在断言后面直接设置的时候，才能添加额外的属性，就像下面这样
+// obj.size = 10  // 这里报错，只有在断言后面直接设置的时候，才能添加额外的属性，就像下面这样
 
 // 解决这个可以使用断言
 printLabel(<Label>{ size: 10, label: "Size 10 Object" })

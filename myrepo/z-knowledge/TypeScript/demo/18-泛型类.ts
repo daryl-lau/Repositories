@@ -2,32 +2,38 @@
 
 class GenericNumber<T> {
   zeroValue: T;
-  add: (x: T, y: T) => T;
+  constructor(value: T){
+    this.zeroValue = value
+  }
+  show():T {
+    return this.zeroValue
+  }
 }
 
 
-let myGenericNumber = new GenericNumber<number>();
+let myGenericNumber = new GenericNumber<number>(123);  
 myGenericNumber.zeroValue = 0;
-myGenericNumber.add = function (x, y) { return x + y; };
+myGenericNumber.show()
 
-let stringNumeric = new GenericNumber<string>();
+let stringNumeric = new GenericNumber<string>('string');
 stringNumeric.zeroValue = "";
-stringNumeric.add = function (x, y) { return x + y; };
-
-console.log(stringNumeric.add(stringNumeric.zeroValue, "test"));
+myGenericNumber.show()
 
 
 
 // ----------------------------------------------------------------------------
 
 interface Param {
-  [index: string]: any
-}
+  currentPage?: number;
+  pageSize?: number;
+  sortName?: string;
+  sortOrder?: string;
+} 
 
 class Page {
   private currentPage: number = 1; //当前页码 默认1
   private pageSize: number = 10;//每页条数 默认为10
-  private sortName: string; //排序字段
+  private sortName!: string; //排序字段
   private sortOrder: string = "asc"; // 排序规则 asc | desc 默认为asc正序
   constructor(param: Param) {
     if (param["currentPage"]) {
@@ -61,7 +67,7 @@ interface User {
 
 // 方法接口定义，泛型接口
 interface BaseDao<T> {
-  findById(id: number): T;//根据主键id查询一个实体
+  findById(id: number): T | null;//根据主键id查询一个实体
   findPageList(param: Param, page: Page): T[];//查询分页列表
   findPageCount(param: Param): number;//查询分页count
   save(o: T): void;//保存一个实体
@@ -72,8 +78,8 @@ interface BaseDao<T> {
 /**
 * 接口实现类，明确指定泛型类型是User接口类型
 */
-class UserDao<User> implements BaseDao<User>{
-  findById(id: number): User {
+class UserDao implements BaseDao<User>{
+  findById(id: number): User | null {
 
     return null;
   }

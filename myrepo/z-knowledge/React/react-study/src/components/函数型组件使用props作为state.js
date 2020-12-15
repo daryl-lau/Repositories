@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { values } from 'underscore';
 
 function Comp (props) {
   console.log(props);

@@ -11,7 +11,7 @@ export default function CountHooks () {
   const [count, setCount] = useState(0)
 
   // Similar to componentDidMount and componentDidUpdate:
-  // ef一fect不仅在组件第一次挂载的时候执行次，且当组件更新的时候，也会执行
+  // effect不仅在组件第一次挂载的时候执行次，且当组件更新的时候，也会执行
   // 可以在 effect hook 提供的第二个参数中，传入一个数组，数组中定义监控的状态，只有当前状态和上一个状态不一样时，才执行effect，否则不会执行，是一个优化手段
   // 如果传入一个空数组，那么effect只会在componentDidMount执行一次，清除副作用在卸载的时候执行一次，componentDidUpdate阶段都不会执行，这里副作用是否执行不会影响状态的正常更新
   useEffect(() => {

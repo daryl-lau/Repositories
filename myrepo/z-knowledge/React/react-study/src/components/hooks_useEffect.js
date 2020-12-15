@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 export default function TimerHooks () {
+  console.log('function start run ' + Date.now())
   const [date, setDate] = useState(new Date())
   const [count, setCount] = useState(0)
   // Similar to componentDidMount and componentDidUpdate:
@@ -28,6 +29,7 @@ export default function TimerHooks () {
     // 如果第二个参数传递的是一个空数组，表示没有状态能触发副作用的执行，因此该副作用只会在挂载的时候执行副作用，在卸载的时候清除副作用
   }, []);
 
+  console.log('function end run ' + Date.now())
   return (
     <div>
       <p>时间: {date.toLocaleTimeString()}</p>

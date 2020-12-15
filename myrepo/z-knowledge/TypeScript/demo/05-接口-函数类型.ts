@@ -26,6 +26,11 @@ let mySearch2: SearchFunc = function (src, sub) {
   return result > -1;
 }
 
+// 函数的参数只能少些，不能多写，多写了就会报错
+let mySearch3: SearchFunc = function(src:string){
+  return !src
+}
+
 mySearch('hello world', 'hello')
 mySearch1('hello world', 'hello')
 mySearch2('hello world', 'hello')

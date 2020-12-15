@@ -7,7 +7,7 @@ function fn<T, U>(first: T, last: U): T & U {
     (<any>result)[prop] = (<any>first)[prop];
   }
   for (let prop in last) {
-    if (!result.hasOwnProperty(prop)) {
+    if (!result[prop]) {
       (<any>result)[prop] = (<any>last)[prop];
     }
   }
@@ -34,7 +34,7 @@ console.log(res);
 
 
 //* 联合类型
-let value: string | number | boolean;
+let value: string | number | boolean = '123';
 value = 'string'
 value = 100
 value = true
@@ -51,9 +51,13 @@ interface Fish {
   layEggs(): void;
 }
 
-function getSmallPet(): Fish | Bird {
+function getSmallPet(): Fish & Bird {
   // ...
-  return
+  return new class implements Bird, Fish {
+    layEggs(){}
+    swim(){}
+    fly(){}
+  }
 }
 
 let pet = getSmallPet();
@@ -70,12 +74,8 @@ pet.layEggs(); // okay
 // }
 
 // 通过断言来使上述代码能正常编译
-if ((<Fish>pet).swim) {
-  (<Fish>pet).swim();
-}
-else {
-  (<Bird>pet).fly();
-}
+(<Fish>pet).swim();
+(<Bird>pet).fly();
 
 //* 类型别名，就是给类型取一个别名，类型可以是有其他类型组成的
 type Name = string;     // 声明Name是一个string类型，下面就可以使用Name来代替string类型了

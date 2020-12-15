@@ -25,8 +25,9 @@ interface ConfigFn1<T> {
 
 // 函数实现，箭头函数写法
 // 提前执行函数需要的数据类型，这里使用的时候只能传字符串类型的数据
-const myGetData1: ConfigFn1<string> = <T>(value1: T): T => {
+const myGetData1: ConfigFn1<string> = value1 => {
   console.log(value1);
   return value1
 }
 myGetData1('www.baihuzi.com')
+// myGetData1(123)   // error

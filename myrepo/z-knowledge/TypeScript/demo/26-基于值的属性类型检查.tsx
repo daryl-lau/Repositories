@@ -19,7 +19,7 @@ class MyCmp {
   // 在元素实例类型上指定属性
   // 创建类组件的时候，给定props属性，就是上面ElementAttributesProperty定义的属性名，
   // 里面存放MyCmp这个类组件将来使用的时候需要传递的属性，后面使用的时候就按照这里面定义的属性来传递属性
-  props: {
+  props!: {
     foo?: string;
     foo1: string;
   }
@@ -29,7 +29,7 @@ class MyCmp {
 
 
 class MyCmp1 {
-  props: {
+  props!: {
     foo: number
     foo1: boolean
   }

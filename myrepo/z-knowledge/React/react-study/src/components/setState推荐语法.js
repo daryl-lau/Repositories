@@ -35,21 +35,17 @@ class Counter extends React.Component {
         // 每次调用setState的时候，获取到的state和props都是最新的
         // 因此下面调用了两次setState，渲染出来的值是2
         // this.setState((state, props) => {
-        //     console.log(state);
+        //     console.log(state);          // 0
         //     return {
         //         count: state.count + 1
         //     }
         // })
         // this.setState((state, props) => {
-        //     console.log(state);
+        //     console.log(state);          // 1
         //     return {
         //         count: state.count + 1
         //     }
         // })
-
-        // setState的操作是异步的，和怎么使用无关，因此无论使用哪种凡是调用setState，下面打印的值只会是初始值0
-        // console.log(this.state.count);
-
 
         // setState第二个参数
         // setState推荐语法接收第二个参数，是一个回调函数，在状态发生修改后并且dom更新后会立即执行，获取到修改后的状态和dom
@@ -70,7 +66,9 @@ class Counter extends React.Component {
         // }, () => {
         //     console.log('更新后的状态：', this.state.count);  // 2
         // })
-        // console.log(this.state.count);  // 0
+        
+        // setState的操作是异步的，和怎么使用无关，因此无论使用哪种凡是调用setState，下面打印的值只会是初始值0
+        // console.log(this.state.count);
 
     }
 

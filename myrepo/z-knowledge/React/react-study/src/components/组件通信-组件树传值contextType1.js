@@ -138,7 +138,7 @@ class ChChCh extends React.Component {
   //     <UserContext.Provider value={signedInUser}>
   //       <Layout />
   //     </UserContext.Provider>
-  //   </ThemeContext.Provider>
+  // </ThemeContext.Provider>
 
   // 此时static contentType 只能定义其中的一个
   // 而consumer可以订阅多个，例如：

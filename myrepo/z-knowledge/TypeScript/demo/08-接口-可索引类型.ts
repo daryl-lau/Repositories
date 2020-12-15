@@ -3,6 +3,7 @@
 */
 // 定义索引key为number类型，索引值为string类型
 // 这个索引签名表示了当用 number去索引StringArray时会得到string类型的返回值。
+// index 可以是任意名字，不一定必须是index
 interface StringArray {
   [index: number]: string;
 }

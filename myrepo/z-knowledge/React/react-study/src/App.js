@@ -12,6 +12,7 @@ import { LoadDataComp } from './components/列表渲染'
 // import TransChildToFather from './components/组件通信-父传子'
 import TransBetweenCompTree from './components/组件通信-组件树传值contextType'
 import TransBetweenCompTree1 from './components/组件通信-组件树传值contextType1'
+import TransBetweenCompTree2 from './components/组件通信-组件树传值-defaultValue'
 import Consumer from './components/组件通信-组件树传值-consumer'
 // import CompRouter from './components/router/index'
 // import LazyLoadTest from './components/lazy懒加载'
@@ -54,6 +55,7 @@ import AnimationComp2 from './components/react-spring/use-interpolate'
 import AnimationComp3 from './components/react-spring/use-transition'
 import ClassNamesUse from './components/classnames使用'
 import KeepAlive from './components/keep-alive'
+import RcTrigger from './components/trigger'
 
 // import MobxComp from './components/mobx/mobxTest'
 
@@ -105,6 +107,7 @@ function App () {
       <br />
       {/* <TransBetweenCompTree></TransBetweenCompTree> */}
       {/* <TransBetweenCompTree1></TransBetweenCompTree1> */}
+      <TransBetweenCompTree2></TransBetweenCompTree2>
       <br />
       <Consumer></Consumer>
       <br />
@@ -135,7 +138,7 @@ function App () {
       <br />
       {/* <CountHooks></CountHooks> */}
       <br />
-      {/* <TimerHooks></TimerHooks> */}
+      <TimerHooks></TimerHooks>
       <br />
       {/* <ContextHooks></ContextHooks> */}
       <br />
@@ -145,16 +148,16 @@ function App () {
       {/* <SagaTest></SagaTest> */}
       {/* <ReactChildren></ReactChildren> */}
       {/* <ReactCloneElement></ReactCloneElement> */}
-      {/* <Dialog></Dialog> */}
+      <Dialog></Dialog>
       {/* <HocChain a={'a'}></HocChain> */}
       {/* <HooksCallBack></HooksCallBack> */}
       {/* <HooksMemo></HooksMemo> */}
-      {/* <HooksRef></HooksRef> */}
+      <HooksRef></HooksRef>
       {/* <HooksMyHooks></HooksMyHooks> */}
       {/* <MobxComp></MobxComp> */}
       {/* <HooksDebounce></HooksDebounce> */}
-      {/* <UseRefCreateRef></UseRefCreateRef> */}
-      {/* <UseRefCreateRef2></UseRefCreateRef2> */}
+      <UseRefCreateRef></UseRefCreateRef>
+      <UseRefCreateRef2></UseRefCreateRef2>
       <SyntheticEvents></SyntheticEvents>
       {/* <DangerouslySetInnerHtml></DangerouslySetInnerHtml> */}
       {/* <FuncCompProps></FuncCompProps> */}
@@ -162,6 +165,7 @@ function App () {
       {/* <Render></Render> */}
       {/* <LazyInitState></LazyInitState> */}
       {/* <Upload></Upload> */}
+      <RcTrigger></RcTrigger>
     </div>
   );
 }
