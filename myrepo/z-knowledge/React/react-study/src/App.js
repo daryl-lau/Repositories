@@ -28,6 +28,7 @@ import Counter from './components/setState推荐语法'
 import LifeCycle, { LifeCycleFather } from './components/生命周期'
 import CountHooks from './components/hooks初探useState'
 import TimerHooks from './components/hooks_useEffect'
+import Effect2 from './components/hooks_useEffect2'
 // import ContextHooks from './components/hooks_useContext'
 // import ReducerCounter from './components/hooks_useReducer'
 import ReducerCounter2 from './components/hooks_useReducer2'
@@ -56,6 +57,7 @@ import AnimationComp3 from './components/react-spring/use-transition'
 import ClassNamesUse from './components/classnames使用'
 import KeepAlive from './components/keep-alive'
 import RcTrigger from './components/trigger'
+import CaptureValue from './components/CaptureValue'
 
 // import MobxComp from './components/mobx/mobxTest'
 
@@ -89,7 +91,7 @@ function App () {
       {/* <LazyLoadTest></LazyLoadTest> */}
       <AnimationComp></AnimationComp>
       {/* <AnimationComp2></AnimationComp2> */}
-      {/* <AnimationComp3></AnimationComp3> */}
+      <AnimationComp3></AnimationComp3>
       <br />
       <Com1></Com1>
       <br />
@@ -166,6 +168,8 @@ function App () {
       {/* <LazyInitState></LazyInitState> */}
       {/* <Upload></Upload> */}
       <RcTrigger></RcTrigger>
+      <CaptureValue />
+      <Effect2 />
     </div>
   );
 }
