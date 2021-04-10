@@ -1,5 +1,5 @@
 import React, { Profiler } from 'react';
-import './App.css'
+// import './App.css'
 import './index.css'
 
 
@@ -58,6 +58,9 @@ import ClassNamesUse from './components/classnames使用'
 import KeepAlive from './components/keep-alive'
 import RcTrigger from './components/trigger'
 import CaptureValue from './components/CaptureValue'
+import BasicSticky from './components/Sticky/example/basic'
+import RelativeSticky from './components/Sticky/example/relative'
+import StackedSticky from './components/Sticky/example/Stacked'
 
 // import MobxComp from './components/mobx/mobxTest'
 
@@ -85,19 +88,18 @@ import CaptureValue from './components/CaptureValue'
 function App () {
   return (
     <div className="App">
-
-      <KeepAlive></KeepAlive>
-      <ClassNamesUse></ClassNamesUse>
+      {/* <KeepAlive></KeepAlive> */}
+      {/* <ClassNamesUse></ClassNamesUse> */}
       {/* <LazyLoadTest></LazyLoadTest> */}
-      <AnimationComp></AnimationComp>
+      {/* <AnimationComp></AnimationComp> */}
       {/* <AnimationComp2></AnimationComp2> */}
-      <AnimationComp3></AnimationComp3>
+      {/* <AnimationComp3></AnimationComp3> */}
       <br />
-      <Com1></Com1>
+      {/* <Com1></Com1> */}
       <br />
       {/* <Profiler id="list" onRender={callback}><List></List></Profiler> */}
-      <List></List>
-      <LoadDataComp></LoadDataComp>
+      {/* <List></List> */}
+      {/* <LoadDataComp></LoadDataComp> */}
       <br />
       {/* <Father></Father> */}
       <br />
@@ -109,9 +111,9 @@ function App () {
       <br />
       {/* <TransBetweenCompTree></TransBetweenCompTree> */}
       {/* <TransBetweenCompTree1></TransBetweenCompTree1> */}
-      <TransBetweenCompTree2></TransBetweenCompTree2>
+      {/* <TransBetweenCompTree2></TransBetweenCompTree2> */}
       <br />
-      <Consumer></Consumer>
+      {/* <Consumer></Consumer> */}
       <br />
       {/* <CompRouter></CompRouter> */}
       <br />
@@ -140,7 +142,7 @@ function App () {
       <br />
       {/* <CountHooks></CountHooks> */}
       <br />
-      <TimerHooks></TimerHooks>
+      {/* <TimerHooks></TimerHooks> */}
       <br />
       {/* <ContextHooks></ContextHooks> */}
       <br />
@@ -150,26 +152,29 @@ function App () {
       {/* <SagaTest></SagaTest> */}
       {/* <ReactChildren></ReactChildren> */}
       {/* <ReactCloneElement></ReactCloneElement> */}
-      <Dialog></Dialog>
+      {/* <Dialog></Dialog> */}
       {/* <HocChain a={'a'}></HocChain> */}
       {/* <HooksCallBack></HooksCallBack> */}
       {/* <HooksMemo></HooksMemo> */}
-      <HooksRef></HooksRef>
+      {/* <HooksRef></HooksRef> */}
       {/* <HooksMyHooks></HooksMyHooks> */}
       {/* <MobxComp></MobxComp> */}
       {/* <HooksDebounce></HooksDebounce> */}
-      <UseRefCreateRef></UseRefCreateRef>
-      <UseRefCreateRef2></UseRefCreateRef2>
-      <SyntheticEvents></SyntheticEvents>
+      {/* <UseRefCreateRef></UseRefCreateRef> */}
+      {/* <UseRefCreateRef2></UseRefCreateRef2> */}
+      {/* <SyntheticEvents></SyntheticEvents> */}
       {/* <DangerouslySetInnerHtml></DangerouslySetInnerHtml> */}
       {/* <FuncCompProps></FuncCompProps> */}
       {/* <UseMemo></UseMemo> */}
       {/* <Render></Render> */}
       {/* <LazyInitState></LazyInitState> */}
       {/* <Upload></Upload> */}
-      <RcTrigger></RcTrigger>
-      <CaptureValue />
-      <Effect2 />
+      {/* <RcTrigger></RcTrigger> */}
+      {/* <CaptureValue /> */}
+      {/* <Effect2 /> */}
+      <BasicSticky />
+      {/* <RelativeSticky /> */}
+      {/* <StackedSticky /> */}
     </div>
   );
 }
