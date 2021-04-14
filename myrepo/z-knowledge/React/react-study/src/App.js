@@ -54,6 +54,7 @@ import Upload from './components/yewu/upload'
 import AnimationComp from './components/react-spring/use-spring'
 import AnimationComp2 from './components/react-spring/use-interpolate'
 import AnimationComp3 from './components/react-spring/use-transition'
+import AnimationComp4 from './components/react-spring/use-transition2'
 import ClassNamesUse from './components/classnames使用'
 import KeepAlive from './components/keep-alive'
 import RcTrigger from './components/trigger'
@@ -94,6 +95,7 @@ function App () {
       {/* <AnimationComp></AnimationComp> */}
       {/* <AnimationComp2></AnimationComp2> */}
       {/* <AnimationComp3></AnimationComp3> */}
+      {<AnimationComp4></AnimationComp4>}
       <br />
       {/* <Com1></Com1> */}
       <br />
@@ -172,7 +174,7 @@ function App () {
       {/* <RcTrigger></RcTrigger> */}
       {/* <CaptureValue /> */}
       {/* <Effect2 /> */}
-      <BasicSticky />
+      {/* <BasicSticky /> */}
       {/* <RelativeSticky /> */}
       {/* <StackedSticky /> */}
     </div>
