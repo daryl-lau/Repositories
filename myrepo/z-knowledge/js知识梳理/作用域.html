@@ -50,20 +50,18 @@
         var num = 1;
         function fn4() {
             var num = 10
-            console.log('fn4里在fn5调用前的num' + num); // 10
+            console.log('fn4里在fn5调用前的num ' + num); // 10
             function fn5() {
-                aaa = 'aaa';
                 num = 100   // 这里由于下面有var语句，下面的var会先进行变量提升，因此不会赋值到fn4里面的num上
-                var num = 200   // 如果这里没有这一行代码，那么上面的num=100在fn5函数作用域中找不到定义的num，因此会向上找，找到fn4的定义的num
+                // var num = 200   // 如果这里没有这一行代码，那么上面的num=100在fn5函数作用域中找不到定义的num，因此会向上找，找到fn4的定义的num
                 // let num = 200   // 如果这里使用let，此时会报错，Cannot access 'num' before initialization
-                console.log('fn5里的num' + num);  // 200
+                console.log('fn5里的num ' + num);  // 200
             }
             fn5()
-            console.log('fn4里在fn5调用后的num' + num); // 10
+            console.log('fn4里在fn5调用后的num ' + num); // 10
         }
-        console.log('全局的num' + num);   // 1
         fn4()
-        console.log(aaa);
+        console.log('全局的num ' + num);   // 1
 
 
 
