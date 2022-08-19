@@ -19,14 +19,14 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
   <Provider store={store}>
     {/* <Provider {...mobxStore}> */}
     {/* <Router> */}
     <App />
     {/* </Router> */}
-  </Provider>
- </React.StrictMode>,
+  </Provider>,
+//  </React.StrictMode>,
   document.getElementById('root')
 );
 

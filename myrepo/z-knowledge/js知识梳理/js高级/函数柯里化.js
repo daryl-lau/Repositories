@@ -29,6 +29,7 @@ function add (x, y, z) {
 }
 
 function trueCurrying (fn, ...args) {
+  console.log(args, 'args')
   if (args.length > fn.length) {
     throw new Error('参数错误!超出参数限制!')
   }

@@ -1,70 +1,72 @@
-import React, { Profiler } from 'react';
+import React, { Profiler } from "react";
 // import './App.css'
-import './index.css'
+import "./index.css";
 
 
-import Com1 from './components/jsx初体验'
-import List from './components/列表渲染'
-import { LoadDataComp } from './components/列表渲染'
+import Com1 from "./components/jsx初体验";
+import List from "./components/列表渲染";
+import { LoadDataComp } from "./components/列表渲染";
 // import Father from './components/组合组件及传值props'
 // import Wrapper from './components/state'
 // import TransFatherToChild from './components/组件通信-子传父状态提升'
 // import TransChildToFather from './components/组件通信-父传子'
-import TransBetweenCompTree from './components/组件通信-组件树传值contextType'
-import TransBetweenCompTree1 from './components/组件通信-组件树传值contextType1'
-import TransBetweenCompTree2 from './components/组件通信-组件树传值-defaultValue'
-import Consumer from './components/组件通信-组件树传值-consumer'
+import TransBetweenCompTree from "./components/组件通信-组件树传值contextType";
+import TransBetweenCompTree1 from "./components/组件通信-组件树传值contextType1";
+import TransBetweenCompTree2 from "./components/组件通信-组件树传值-defaultValue";
+import Consumer from "./components/组件通信-组件树传值-consumer";
 // import CompRouter from './components/router/index'
 // import LazyLoadTest from './components/lazy懒加载'
 // import ErrorTest from './components/错误边界'
 // import RefsComponent from './components/refs'
 // import MyBtnTest from './components/refs转发'
 // import ControlComp from './components/受控组件'
-import PropTypesComp from './components/propTypes-defaultProps'
+import PropTypesComp from "./components/propTypes-defaultProps";
 // import Mouse from './components/render props模式'
 // import MousePosition from './components/HOC'
-import Counter from './components/setState推荐语法'
+import Counter from "./components/setState推荐语法";
 // import SyncCount from './components/setState转同步的方法'
-import LifeCycle, { LifeCycleFather } from './components/生命周期'
-import CountHooks from './components/hooks初探useState'
-import TimerHooks from './components/hooks_useEffect'
-import Effect2 from './components/hooks_useEffect2'
+import LifeCycle, { LifeCycleFather } from "./components/生命周期";
+import CountHooks from "./components/hooks初探useState";
+import TimerHooks from "./components/hooks_useEffect";
+import Effect2 from "./components/hooks_useEffect2";
 // import ContextHooks from './components/hooks_useContext'
 // import ReducerCounter from './components/hooks_useReducer'
-import ReducerCounter2 from './components/hooks_useReducer2'
+import ReducerCounter2 from "./components/hooks_useReducer2";
 // import OriginRedux from './components/原始redux使用'
 // import SagaTest from './components/redux/SagaTest'
-import ReactChildren from './components/API_React.Children'
-import ReactCloneElement from './components/API_React.cloneElement'
-import Dialog from './components/protals'
+import ReactChildren from "./components/API_React.Children";
+import ReactCloneElement from "./components/API_React.cloneElement";
+import Dialog from "./components/protals";
 // import HocChain from './components/HOC链式调用'
-import HooksCallBack from './components/hooks_useCallback'
-import HooksMemo from './components/hooks_useMemo'
-import HooksRef from './components/hooks_useRef_useImperativeHandle转发'
-import HooksMyHooks from './components/hooks_自定义hook'
+import HooksCallBack from "./components/hooks_useCallback";
+import HooksMemo from "./components/hooks_useMemo";
+import HooksRef from "./components/hooks_useRef_useImperativeHandle转发";
+import HooksMyHooks from "./components/hooks_自定义hook";
 // import HooksDebounce from './components/hooks-自定义useDebounce-测试'
-import { UseRefCreateRef, UseRefCreateRef2 } from './components/hooks_useRef_createRef对比'
-import SyntheticEvents from './components/合成事件'
-import DangerouslySetInnerHtml from './components/dangerouslySetInnerHTML'
-import FuncCompProps from './components/函数型组件使用props作为state'
-import UseMemo from './components/使用useMemo hook进行优化'
-import Render from './components/探究父子组件重新渲染'
-import LazyInitState from './components/hooks_useState惰性初始化'
-import Upload from './components/yewu/upload'
-import AnimationComp from './components/react-spring/use-spring'
-import AnimationComp2 from './components/react-spring/use-interpolate'
-import AnimationComp3 from './components/react-spring/use-transition'
-import AnimationComp4 from './components/react-spring/use-transition2'
-import ClassNamesUse from './components/classnames使用'
-import KeepAlive from './components/keep-alive'
-import RcTrigger from './components/trigger'
-import CaptureValue from './components/CaptureValue'
-import BasicSticky from './components/Sticky/example/basic'
-import RelativeSticky from './components/Sticky/example/relative'
-import StackedSticky from './components/Sticky/example/Stacked'
+import {
+  UseRefCreateRef,
+  UseRefCreateRef2,
+} from "./components/hooks_useRef_createRef对比";
+import SyntheticEvents from "./components/合成事件";
+import DangerouslySetInnerHtml from "./components/dangerouslySetInnerHTML";
+import FuncCompProps from "./components/函数型组件使用props作为state";
+import UseMemo from "./components/使用useMemo hook进行优化";
+import Render from "./components/探究父子组件重新渲染";
+import LazyInitState from "./components/hooks_useState惰性初始化";
+import Upload from "./components/yewu/upload";
+import AnimationComp from "./components/react-spring/use-spring";
+import AnimationComp2 from "./components/react-spring/use-interpolate";
+import AnimationComp3 from "./components/react-spring/use-transition";
+import AnimationComp4 from "./components/react-spring/use-transition2";
+import ClassNamesUse from "./components/classnames使用";
+import KeepAlive from "./components/keep-alive";
+import RcTrigger from "./components/trigger";
+import CaptureValue from "./components/CaptureValue";
+import BasicSticky from "./components/Sticky/example/basic";
+import RelativeSticky from "./components/Sticky/example/relative";
+import StackedSticky from "./components/Sticky/example/Stacked";
 
 // import MobxComp from './components/mobx/mobxTest'
-
 
 // function callback (
 //   id, // 发生提交的 Profiler 树的 “id”
@@ -86,7 +88,7 @@ import StackedSticky from './components/Sticky/example/Stacked'
 //     interactions);
 // }
 
-function App () {
+function App() {
   return (
     <div className="App">
       {/* <KeepAlive></KeepAlive> */}
@@ -95,12 +97,12 @@ function App () {
       {/* <AnimationComp></AnimationComp> */}
       {/* <AnimationComp2></AnimationComp2> */}
       {/* <AnimationComp3></AnimationComp3> */}
-      {<AnimationComp4></AnimationComp4>}
+      {/* {<AnimationComp4></AnimationComp4>} */}
       <br />
       {/* <Com1></Com1> */}
       <br />
       {/* <Profiler id="list" onRender={callback}><List></List></Profiler> */}
-      {/* <List></List> */}
+      <List></List>
       {/* <LoadDataComp></LoadDataComp> */}
       <br />
       {/* <Father></Father> */}

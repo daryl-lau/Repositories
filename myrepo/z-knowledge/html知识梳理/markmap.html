@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+
+	<head>
+
+	</head>
+	<style>
+		svg {
+			border: 1px solid black;
+		}
+		
+		textarea {
+			width: 100%;
+			height: 100px;
+		}
+	</style>
+
+	<body>
+
+		<svg id='svg' xmlns="http://www.w3.org/2000/svg" version="1.1" width='200' height='200'>
+			<rect x='50' y='50' width='100' height='100' stroke='red' fill='none' stroke-width='2'></rect>
+		</svg>
+		<br />
+		<button id='c1'>将svg转换成string</button>
+		<br/>
+		<textarea id='textarea'></textarea>
+		<button id='c2'>将string变成svg</button>
+		<div id='rs'>
+			
+		</div>
+
+	</body>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>
+		$(function() {
+
+			var xmlToString = function(xmlObject) {
+				return(new XMLSerializer()).serializeToString(xmlObject);
+			}
+
+			var stringToXML = function(xmlString) {
+				return (new DOMParser()).parseFromString(xmlString, "text/xml");
+			}
+
+			$('#c1').on('click', function() {
+				var str=xmlToString($('#svg')[0])
+				console.log(str);
+				$('#textarea').val(str);
+			})
+			
+			$('#c2').on('click', function() {
+				var str=$('#textarea').val().trim();
+				if(!str){
+					alert('请输入内容再转');
+					return false;
+				}
+					
+
+				var svg=stringToXML(str);
+                console.log("🚀 -> $ -> svg", svg);
+				
+				
+				$('#rs').empty();
+				$('#rs').append(svg.documentElement);
+			})
+		})
+	</script>
+
+</html>

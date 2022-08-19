@@ -24,6 +24,15 @@ server.use(betterBody({
     uploadDir: './static/temp',
 }));
 
+// 异步延时函数
+function sleep(time = 0) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, time);
+    })
+}
+
 router.post('/upload', async ctx => {
     ctx.set('Access-Control-Allow-Origin', '*');
     // 普通post和文件post都会放到这里
@@ -42,7 +51,10 @@ router.post('/upload', async ctx => {
     fs.renameSync(file.path, filePath);
     console.log(path.basename(filePath));
 
-    ctx.body = { imgName: path.basename(filePath) };
+    await sleep(2000).then(() => {
+        ctx.body = { imgName: path.basename(filePath), imageUrl: `http://localhost:8080/temp/${path.basename(filePath)}` };
+    })
+    
 });
 
 router.post('/submit', async ctx => {

@@ -42,15 +42,17 @@
     window.requestAnimationFrame(step);
 
 
-    function animationWidth() {
-      var div = document.getElementById('box');
-      div.style.width = parseInt(div.offsetWidth) + 1 + 'px';
+    function tt(width) {
+      return function animationWidth() {
+        var div = document.getElementById('box');
+        div.style.width = parseInt(div.offsetWidth) + 1 + 'px';
 
-      if (parseInt(div.offsetWidth) < 500) {
-        requestAnimationFrame(animationWidth)
+        if (parseInt(div.offsetWidth) < width) {
+          requestAnimationFrame(animationWidth)
+        }
       }
     }
-    window.requestAnimationFrame(animationWidth);
+    requestAnimationFrame(tt(1000));
 
   </script>
 </body>

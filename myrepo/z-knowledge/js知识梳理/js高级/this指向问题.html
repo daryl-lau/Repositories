@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        // 全局模式下，this指向window
+      // 全局模式下，this指向window
+      console.log(this);
+
+      // 全局变量是设置在window上的，因此下面的写法是一样的
+      a = 10; // window.a = 10
+      this.b = 10;
+      console.log(a === b); // true
+
+      function fn1() {
         console.log(this);
+      }
+      fn1(); // this指向window
+      window.fn1(); // this还是指向window
 
-        // 全局变量是设置在window上的，因此下面的写法是一样的
-        a = 10;                     // window.a = 10
-        this.b = 10;
-        console.log(a === b);       // true
+      var obj = {
+        c: 10,
+        fn2: function () {
+          console.log(this);
+        },
+      };
+      obj.fn2(); // this指向obj
+      window.obj.fn2(); // this指向obj
 
-        function fn1() {
+      var obj2 = {
+        d: 10,
+        e: {
+          f: 10,
+          fn3: function () {
             console.log(this);
-        }
-        fn1();              // this指向window
-        window.fn1();       // this还是指向window
+          },
+        },
+      };
+      window.obj2.e.fn3(); // this指向e
 
-        var obj = {
-            c: 10,
-            fn2: function () {
-                console.log(this);
-            }
-        }
-        obj.fn2()           // this指向obj
-        window.obj.fn2()    // this指向obj
+      let fn4 = window.obj2.e.fn3;
+      fn4(); // this指向window
 
-        var obj2 = {
-            d: 10,
-            e: {
-                f: 10,
-                fn3: function () {
-                    console.log(this);
-                }
-            }
-        }
-        window.obj2.e.fn3()     // this指向e
+      // 总结：
+      // this在定义的时候不会指定，只有在函数调用的时候才会指定
+      // this指向的是在调用函数时最近的调用者
 
-        let fn4 = window.obj2.e.fn3;
-        fn4()                   // this指向window
+      var obj3 = {
+        a: {
+          b: () => {
+            console.log(this, "obj3");
+          },
+        },
+      };
+      obj3.a.b();
 
-
-        // 总结：
-        // this在定义的时候不会指定，只有在函数调用的时候才会指定
-        // this指向的是在调用函数时最近的调用者
+      obj.c = () => {
+        console.log(this, 'c')
+      }
+      obj.c()
     </script>
-</body>
-
+  </body>
 </html>
