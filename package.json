@@ -48,7 +48,7 @@
     "express-mysql-session": "^2.1.0",
     "forever": "^1.0.0",
     "json-bigint": "^1.0.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "koa": "^2.7.0",
     "koa-better-body": "^3.0.4",
     "koa-ejs": "^4.2.0",
