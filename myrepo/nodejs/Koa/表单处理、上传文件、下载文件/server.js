@@ -15,7 +15,7 @@ const betterBody = require('koa-better-body');
 
 
 let server = new Koa();
-server.listen(8080);
+server.listen(9000);
 
 
 let router = new Router();
@@ -51,8 +51,8 @@ router.post('/upload', async ctx => {
     fs.renameSync(file.path, filePath);
     console.log(path.basename(filePath));
 
-    await sleep(2000).then(() => {
-        ctx.body = { imgName: path.basename(filePath), imageUrl: `http://localhost:8080/temp/${path.basename(filePath)}` };
+    await sleep(50).then(() => {
+        ctx.body = { imgName: path.basename(filePath), imageUrl: `http://localhost:9000/temp/${path.basename(filePath)}` };
     })
     
 });

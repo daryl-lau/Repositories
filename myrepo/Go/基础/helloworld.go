@@ -7,5 +7,5 @@ import (
 
 // main 函数是二进制程序的入口
 func main() {
-	fmt.Println("hello, world!")
+	fmt.Println(1 / 3)
 }

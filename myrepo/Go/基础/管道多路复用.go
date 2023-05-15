@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func main() {
@@ -10,7 +9,6 @@ func main() {
 	channel2 := make(chan int)
 
 	go func() {
-		time.Sleep(3 * time.Second)
 		channel1 <- 3
 		channel1 <- 2
 	}()
@@ -35,7 +33,7 @@ func main() {
 	}
 	fmt.Println("end")
 
-	// 一般配个for循环使用，随机打印10个01
+	// 一般配个for循环使用，随机打印10个0 1
 	zero := make(chan int)
 	one := make(chan int)
 

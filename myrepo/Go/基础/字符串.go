@@ -70,4 +70,7 @@ func main() {
 
 	var bstring []byte = []byte("我爱中国")
 	fmt.Println(bstring)
+
+	var s []byte = make([]byte, 5)
+	fmt.Println(strconv.Atoi(string(s)))
 }

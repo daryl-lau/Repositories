@@ -54,11 +54,11 @@ func main() {
 
 	result := map[string]int{}
 	for _, value := range article {
+		fmt.Println(value)
 		str := string(value)
-		if !strings.Contains("QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm", str) {
-			continue
+		if strings.Contains("QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm", str) {
+			result[str]++
 		}
-		result[str]++
 	}
 	fmt.Println(result)
 }

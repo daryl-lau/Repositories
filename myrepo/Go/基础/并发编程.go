@@ -7,7 +7,7 @@ import (
 
 func PrintChar(wg *sync.WaitGroup, flag string) {
 	defer wg.Done()
-	for i := 'A'; i <= 'Z'; i++ {
+	for i := 'A'; i <= 'C'; i++ {
 		fmt.Printf("%s %c \n", flag, i)
 	}
 }
